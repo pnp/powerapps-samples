@@ -1,0 +1,45 @@
+"Success As screen.'tabletLayout_Success_ver3.0'":
+    Width: =Max(App.Width, App.DesignWidth)
+    Height: =Max(App.Height, App.DesignHeight)
+    Fill: =RGBA(230, 230, 230, 1)
+
+    iconCircle1 As circle.Circle:
+        Y: =(Parent.Height/2 - Self.Height/2) * .7
+        X: =Parent.Width/2 - Self.Width/2
+        ZIndex: =1
+
+    iconCheck1 As icon.Check:
+        AccessibleLabel: ="Success Checkmark"
+        Icon: =Icon.Check
+        Y: =(Parent.Height/2 - Self.Height/2) * .7
+        X: =Parent.Width/2 - Self.Width/2
+        Width: =iconCircle1.Width
+        Height: =iconCircle1.Height
+        ZIndex: =2
+        PaddingTop: =24
+        PaddingLeft: =Self.PaddingTop
+        PaddingRight: =Self.PaddingTop
+        PaddingBottom: =Self.PaddingTop
+        TabIndex: =1
+        OnSelect: =Navigate(Welcome)
+
+    LblSuccessMsg1 As label:
+        Text: =successMessage
+        Align: =Align.Center
+        Width: =Parent.Width * 0.75
+        Y: =iconCheck1.Y + iconCheck1.Height + 100
+        X: =Parent.Width/2 - Self.Width/2
+        Height: =iconCircle1.Height
+        ZIndex: =3
+        AutoHeight: =true
+        Size: =20
+
+    Timer1 As timer:
+        Duration: =4000
+        AutoStart: =true
+        X: =1146
+        Y: =699
+        ZIndex: =4
+        Visible: =false
+        OnTimerEnd: =Navigate(Welcome)
+

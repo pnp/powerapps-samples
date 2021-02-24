@@ -1,0 +1,54 @@
+{
+  "223bcc83-f2e2-4a48-b628-9bf13645a9e6": {
+    "connectionInstanceId": "/providers/microsoft.powerapps/apis/shared_office365users/connections/567f1e9cc0de46f78585f19cd70e7526",
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Users",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1430/1.0.1430.2296/office365users/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365users",
+      "parameterHints": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Users"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "223bcc83-f2e2-4a48-b628-9bf13645a9e6"
+  },
+  "ca71a6a8-8888-4aa3-aa3e-b54c9b2a83b6": {
+    "connectionInstanceId": "/providers/microsoft.powerapps/apis/shared_sharepointonline/connections/3bf42c5ac2964f86ad79806552577077",
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1431/1.0.1431.2301/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {}
+    },
+    "datasets": {
+      "https://axecapitalcorp.sharepoint.com/sites/HR": {
+        "dataSources": {
+          "BillTo": {
+            "tableName": "a8b7681a-1b0b-4870-b9c8-030d41a3c1a6"
+          },
+          "TimeEntries": {
+            "tableName": "514d240d-d49b-40ad-ac44-09e8f2456425"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "TimeEntries",
+      "BillTo"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "ca71a6a8-8888-4aa3-aa3e-b54c9b2a83b6"
+  }
+}

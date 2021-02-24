@@ -1,0 +1,45 @@
+App As appinfo:
+    OnStart: |+
+        =Concurrent(
+            Set(
+                currentUser,
+                User()
+            ),
+            Set(
+                currentMonday,
+                DateAdd(
+                    Today(),
+                    -1 * (Weekday(
+                        Today(),
+                        Monday
+                    ) - 1),
+                    Days
+                )
+            ),
+            Set(
+                weeksList,
+                ForAll(
+                    Sequence(
+                        20,
+                        Day(
+                            DateAdd(
+                                Today(),
+                                -1 * (Weekday(
+                                    Today(),
+                                    Monday
+                                ) - 1),
+                                Days
+                            )
+                        ) - 28,
+                        7
+                    ),
+                    Date(
+                        Year(Today()),
+                        Month(Today()),
+                        Value
+                    )
+                )
+            )
+        );
+        
+

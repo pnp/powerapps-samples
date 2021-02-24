@@ -1,0 +1,69 @@
+{
+  "FormatVersion": "0.16",
+  "Header": {
+    "DocVersion": "1.300",
+    "MinVersionToLoad": "1.300",
+    "MSAppStructureVersion": "2.0"
+  },
+  "Properties": {
+    "AppCreationSource": "AppFromScratch",
+    "AppDescription": "",
+    "AppPreviewFlagsKey": [
+      "delayloadscreens",
+      "projectionmapping",
+      "usedisplaynamemetadata",
+      "usenonblockingonstartrule",
+      "useguiddatatypes",
+      "useexperimentalcdsconnector",
+      "useenforcesavedatalimits",
+      "componentauthoring",
+      "reliableconcurrent",
+      "dataTableV2Control",
+      "nativecdsexperimental",
+      "useexperimentalsqlconnector",
+      "enablecdsfileandlargeimage",
+      "enhanceddelegation",
+      "aibuilderserviceenrollment",
+      "enablesummerlandgeospatialfeatures",
+      "enablesummerlandmixedrealityfeatures"
+    ],
+    "Author": "",
+    "ContainsThirdPartyPcfControls": false,
+    "DefaultConnectedDataSourceMaxGetRowsCount": 500,
+    "DocumentAppType": "DesktopOrTablet",
+    "DocumentLayoutHeight": 768,
+    "DocumentLayoutLockOrientation": true,
+    "DocumentLayoutMaintainAspectRatio": true,
+    "DocumentLayoutOrientation": "landscape",
+    "DocumentLayoutScaleToFit": true,
+    "DocumentLayoutWidth": 1366,
+    "DocumentType": "App",
+    "EnableInstrumentation": false,
+    "ErrorCount": 0,
+    "FileID": "ecac7a62-9be2-4baa-9daf-ebd9e7533472",
+    "Id": "989f7f0d-b0ac-4795-8d9d-059647d93959",
+    "InstrumentationKey": "",
+    "Name": "Timesheet+V2.msapp",
+    "OriginatingVersion": "1.289"
+  },
+  "PublishInfo": {
+    "AppName": "Timesheet V2",
+    "BackgroundColor": "rgba(165, 34, 55, 1)",
+    "IconColor": "RGBA(255,255,255,1)",
+    "IconName": "Edit",
+    "LogoFileName": "logo.jpg",
+    "PublishDataLocally": false,
+    "PublishResourcesLocally": false,
+    "PublishTarget": "player",
+    "UserLocale": "en-US"
+  },
+  "ScreenOrder": [
+    "Welcome",
+    "MyTimesheets",
+    "ViewAllTimesheets",
+    "TimeCardNew",
+    "TimeCardContinue",
+    "TimeCardApproval",
+    "Success"
+  ]
+}

@@ -1,0 +1,105 @@
+LeftNav As CanvasComponent:
+    NavItems: |-
+        =Table(
+            {
+                Title: "Dashboard",
+                Page: App.ActiveScreen,
+                Icon: Icon.Home
+            },
+            {
+                Title: "New",
+                Page: App.ActiveScreen,
+                Icon: Icon.Add
+            },
+              {
+                Title: "My Timesheets",
+                Page: App.ActiveScreen,
+                Icon: Icon.Person
+            },
+              {
+                Title: "Approvals",
+                Page: App.ActiveScreen,
+                Icon: Icon.DockCheckProperties
+            }
+        )
+    Image: =SampleImage
+    ZIndex: =1
+    Y: =0
+    X: =0
+    Width: =280
+    Height: =768
+    Fill: =RGBA(80, 80, 80, 1)
+
+    "Gallery1 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+        Items: =LeftNav.NavItems
+        AccessibleLabel: ="Left Navigation"
+        TemplateSize: =64
+        TemplatePadding: =0
+        Layout: =Layout.Vertical
+        Y: =112
+        Width: =281
+        Height: =655
+        ZIndex: =1
+        TabIndex: =1
+        TemplateFill: =Transparent
+
+        Title2 As label:
+            Text: =ThisItem.Title
+            Color: =RGBA(230, 230, 230, 1)
+            FontWeight: =Normal
+            VerticalAlign: =VerticalAlign.Top
+            X: =Icon6.X + Icon6.Width + 10
+            Y: =Icon6.Y +8
+            Width: =Parent.TemplateWidth - 100
+            Height: =Self.Size * 1.8
+            ZIndex: =1
+            PaddingTop: =0
+            PaddingRight: =0
+            PaddingBottom: =0
+            PaddingLeft: =0
+            Size: =16
+            OnSelect: =Select(Parent)
+
+        NextArrow2 As icon.ChevronRight:
+            Tooltip: ="View item details"
+            AccessibleLabel: =Self.Tooltip
+            Icon: =Icon.ChevronRight
+            Color: =RGBA(204, 204, 204, 1)
+            X: =227
+            Y: =10
+            Width: =40
+            Height: =40
+            ZIndex: =2
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            PaddingBottom: =10
+            TabIndex: =0
+            Visible: =If(ThisItem.Page = App.ActiveScreen,false,true)
+            OnSelect: =Select(Parent);Navigate(ThisItem.Page)
+
+        Separator2 As rectangle:
+            Fill: =RGBA(153, 153, 153, 1)
+            Y: =Parent.TemplateHeight - 1
+            Width: =Parent.TemplateWidth
+            Height: =1
+            ZIndex: =3
+            OnSelect: =Select(Parent)
+
+        Icon6 As icon.Add:
+            AccessibleLabel: ="Icon"
+            Icon: =ThisItem.Icon
+            Color: =RGBA(204, 204, 204, 1)
+            X: =7
+            Y: =10
+            Width: =40
+            Height: =40
+            ZIndex: =4
+            TabIndex: =2
+            OnSelect: =Select(Parent);Navigate(ThisItem.Page)
+
+    Image2 As image:
+        Image: =LeftNav.Image
+        Width: =280
+        ZIndex: =2
+

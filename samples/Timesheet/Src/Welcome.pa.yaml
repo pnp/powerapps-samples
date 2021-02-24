@@ -1,0 +1,174 @@
+Welcome As screen:
+    Width: =Max(App.Width, App.DesignWidth)
+    Height: =Max(App.Height, App.DesignHeight)
+    Fill: =RGBA(230, 230, 230, 1)
+    OnVisible: =
+
+    htmlBackground As htmlViewer:
+        HtmlText: |-
+            ="<div style='border:1px #d4d7dc;height:600px;width:100%;background-color:#FCFCFC;box-shadow:0 2px 8px 0 rgba(0,0,0,.2)'></div>"
+        X: =28
+        Height: =632
+        Width: =1320
+        ZIndex: =1
+        Y: =99
+
+    rectHeaderBG As rectangle:
+        ZIndex: =2
+        Height: =78
+        Width: =1366
+        Fill: =RGBA(238, 238, 238, 1)
+
+    lblWelcome As label:
+        Text: ="Welcome, " & First(Split(currentUser.FullName," ")).Result &"!"
+        ZIndex: =4
+        FontWeight: =Bold
+        Height: =78
+        Width: =622
+        Size: =22
+        X: =28
+
+    lblCurrentDate As label:
+        Text: =Text(Today(),DateTimeFormat.LongDate)
+        Align: =Align.Right
+        X: =943
+        Width: =371
+        Height: =72
+        ZIndex: =5
+        Size: =16
+
+    lblGetMonday As label:
+        Text: |
+            =DateAdd(Today(), -1 * (Weekday(Today(), Monday) - 1), Days)
+        ZIndex: =7
+        Y: =6
+        X: =410
+        Visible: =false
+
+    "galleryDashboard As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        WrapCount: =3
+        Items: |-
+            =Table(
+                {
+                    image: timesheet,
+                    name: "New Timesheet",
+                    Page: TimeCardNew
+                },
+                {
+                    image: me,
+                    name: "My Timesheets",
+                    Page: MyTimesheets
+                },
+                {
+                    image: approve,
+                    name: "Approvals",
+                    Page: ViewAllTimesheets
+                }
+            )
+        AccessibleLabel: ="Home Selection"
+        TemplatePadding: =0
+        Layout: =Layout.Vertical
+        ZIndex: =12
+        Height: =378
+        TemplateSize: =273
+        Width: =1254
+        Y: =286
+        X: =61
+        TabIndex: =1
+        OnSelect: |-
+            =If(
+                ThisItem.name = "New Timesheet",
+                ClearCollect(
+                    newTimeEntry,
+                    {
+                          Employee: {
+                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                            Claims: "i:0#.f|membership|" & currentUser.Email,
+                            Department: "",
+                            DisplayName: currentUser.FullName,
+                            Email: currentUser.Email,
+                            JobTitle: "",
+                            Picture: ""
+                        },
+                        BillTo:Blank(),
+                        Mon: 0,
+                        Tues: 0,
+                        Weds: 0,
+                        Thurs: 0,
+                        Fri: 0,
+                        Sat: 0,
+                        Sun: 0,
+                        Comments: ""
+                    }
+                );
+                //Clear(copiedEntries)
+            );
+            Navigate(ThisItem.Page)
+
+        Circle2 As circle:
+            Fill: =RGBA(242, 242, 242, 1)
+            BorderColor: =RGBA(128, 128, 128, 1)
+            X: =123
+            Y: =21
+            Width: =173
+            Height: =162
+            ZIndex: =2
+            BorderThickness: =1
+            OnSelect: =Select(Parent)
+
+        Image1 As image:
+            Image: =ThisItem.image
+            X: =146
+            Width: =128
+            Height: =128
+            Y: =38
+            ZIndex: =3
+            OnSelect: =Select(Parent)
+
+        Title1 As label:
+            Text: =ThisItem.name
+            Height: =51
+            Width: =412
+            Align: =Align.Center
+            VerticalAlign: =VerticalAlign.Top
+            X: =4
+            Y: =202
+            ZIndex: =4
+            PaddingTop: =0
+            PaddingRight: =0
+            PaddingBottom: =0
+            PaddingLeft: =0
+            Size: =28
+            OnSelect: =Select(Parent)
+
+        HtmlText1 As htmlViewer:
+            HtmlText: |-
+                ="<div style='cursor:pointer;width: 400px;
+                    height: 220px;
+                    margin: 18px 10px 5px;
+                    float: left;
+                    padding: 8px;
+                    text-align: center;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    display: block;
+                    background-color: initial;
+                    border: none;
+                    font-size: inherit'></div>"
+            Width: =412
+            Height: =273
+            X: =4
+            ZIndex: =5
+            OnSelect: =Select(Parent)
+
+    lblWelcome_1 As label:
+        Text: ="Timesheet Management"
+        Align: =Center
+        ZIndex: =13
+        FontWeight: =Bold
+        Height: =90
+        Width: =1320
+        Size: =36
+        Y: =138
+        X: =28
+
