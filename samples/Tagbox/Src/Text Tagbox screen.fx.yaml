@@ -1,0 +1,111 @@
+"'Text Tagbox screen' As screen":
+
+    btnClearTags As button:
+        Color: |
+            =DarkBlue
+        Fill: =LightGray
+        HoverFill: =ColorFade(Self.Fill, -20%)
+        OnSelect: |-
+            =Clear(colText);
+            UpdateContext({locClearTextInput: true});
+            UpdateContext({locClearTextInput: false})
+        Text: ="Clear"
+        Width: =btnAddTag.Width
+        X: |
+            =btnAddTag.X+btnAddTag.Width+10
+        Y: =btnAddTag.Y
+        ZIndex: =4
+
+    galTextTags As gallery.galleryVertical:
+        AccessibleLabel: ="List of tags"
+        Height: =542
+        Items: =colText
+        Layout: =Layout.Vertical
+        TabIndex: =0
+        TemplateSize: =50
+        Width: =320
+        X: =65
+        Y: =162
+        ZIndex: =5
+
+        btnTextTag As button:
+            DisplayMode: =DisplayMode.View
+            Fill: |
+                =LightBlue
+            Height: =Parent.TemplateHeight-10
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            TabIndex: =-1
+            Text: =""
+            Width: =lblTextTag.Width+30
+            Y: =5
+            ZIndex: =1
+
+        lblTextTag As label:
+            Height: =btnTextTag.Height
+            OnSelect: =Select(Parent)
+            PaddingLeft: =20
+            PaddingRight: =10
+            Size: =12
+            Text: =ThisItem.Value
+            Width: |-
+                =//Min(Sum(AddColumns(Split(Self.Text, ""), "Size", LookUp(colCharsWidth, CharFont=Self.Font && CharWeight=Self.FontWeight && Char = Result).Size), Size) * Self.Size + Self.PaddingLeft + Self.PaddingRight,Parent.TemplateWidth-30)
+                Parent.TemplateWidth-30
+            X: =btnTextTag.X
+            Y: =btnTextTag.Y
+            ZIndex: =2
+
+        icnDeleteTextTag As icon.Cancel:
+            AccessibleLabel: ="Cancel icon to remove a tag from the list of tags."
+            Height: =25
+            Icon: =Icon.Cancel
+            OnSelect: =RemoveIf(colText,Value=ThisItem.Value)
+            TabIndex: =0
+            Width: =Self.Height
+            X: =btnTextTag.X+btnTextTag.Width-Self.Width-10
+            Y: =Parent.TemplateHeight/2-Self.Height/2
+            ZIndex: =3
+
+    txtTagToAdd As text:
+        AccessibleLabel: ="Textbox to add a new tag into the list of tags"
+        Default: =""
+        OnChange: =
+        RadiusBottomLeft: =10
+        RadiusBottomRight: =10
+        RadiusTopLeft: =10
+        RadiusTopRight: =10
+        Reset: =locClearTextInput
+        X: =65
+        Y: =53
+        ZIndex: =6
+
+    btnAddTag As button:
+        DisplayMode: |-
+            =//If(IsBlank(txtTagToAdd.Text),Disabled,Edit)
+            Edit
+        OnSelect: |-
+            =If(
+                Self.Text in colText,
+                Notify(
+                    "The item is already in the list, please try again with a different value.",
+                    NotificationType.Warning
+                ),
+                Collect(
+                    colText,
+                    txtTagToAdd.Text
+                );
+                UpdateContext({locClearTextInput: true});
+                UpdateContext({locClearTextInput: false})
+            );
+        Text: |-
+            ="Add
+            "
+        Width: =txtTagToAdd.Width/2-5
+        X: =txtTagToAdd.X
+        Y: |
+            =txtTagToAdd.Y+txtTagToAdd.Height+10
+        ZIndex: =7
+
