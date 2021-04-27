@@ -1,0 +1,197 @@
+"'Welcome Screen' As screen":
+    Fill: =RGBA(241, 241, 241, 1)
+
+    GroupNavigation As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =-32
+        ZIndex: =6
+
+        GalleryNavigation As gallery.galleryVertical:
+            AccessibleLabel: ="Navigation Menu"
+            BorderColor: =RGBA(101, 128, 187, 1)
+            DisabledBorderColor: =GalleryNavigation.BorderColor
+            DisabledFill: =GalleryNavigation.Fill
+            Fill: =RGBA(0,0,0,0)
+            Height: =427
+            HoverBorderColor: =GalleryNavigation.BorderColor
+            HoverFill: =GalleryNavigation.Fill
+            ItemAccessibleLabel: =""
+            Items: =NavigationMenu
+            Layout: =Layout.Vertical
+            LoadingSpinnerColor: =GalleryNavigation.BorderColor
+            OnSelect: |-
+                =Set(_selectedTutorial, ThisItem);
+                If(
+                    ThisItem.Row = 1, Navigate('Welcome Screen', None),
+                    ThisItem.Row = 2, Navigate('Teams Screen', None),
+                    ThisItem.Row = 3, Navigate('Channel Screen', None),
+                    ThisItem.Row = 4, Navigate('Libraries Screen', None),
+                    ThisItem.Row = 5, Navigate('Lists Screen', None)
+                )
+            PressedBorderColor: =GalleryNavigation.BorderColor
+            PressedFill: =GalleryNavigation.Fill
+            ShowScrollbar: =false
+            TabIndex: =0
+            TemplateFill: =If(ThisItem.Row = _selectedTutorial.Row, RGBA(220, 220, 220, 1), RGBA(0,0,0,0))
+            TemplatePadding: =0
+            TemplateSize: =42
+            Width: =If(!IsExpand, 200, 50)
+            X: =0+0
+            Y: =109
+            ZIndex: =3
+
+            Image1 As image:
+                BorderColor: =RGBA(101, 128, 187, 1)
+                FocusedBorderColor: =Image1.BorderColor
+                Height: =Parent.TemplateHeight
+                HoverBorderColor: =ColorFade(Image1.BorderColor, 20%)
+                HoverFill: =ColorFade(Image1.Fill, 20%)
+                Image: =ThisItem.Image
+                OnSelect: =Select(Parent)
+                PaddingBottom: =12
+                PaddingTop: =12
+                PressedBorderColor: =ColorFade(Image1.BorderColor, -20%)
+                PressedFill: =ColorFade(Image1.Fill, -20%)
+                Width: =Image1.Height - 10
+                X: =15
+                ZIndex: =1
+
+            Label4 As label:
+                BorderColor: =RGBA(101, 128, 187, 1)
+                Color: =RGBA(47,41,43,1)
+                FocusedBorderColor: =Label4.BorderColor
+                FocusedBorderThickness: =2
+                Height: =42
+                HoverBorderColor: =Label4.BorderColor
+                HoverColor: =Label4.Color
+                HoverFill: =Label4.Fill
+                OnSelect: =Select(Parent)
+                PressedBorderColor: =Label4.BorderColor
+                PressedColor: =Label4.Color
+                PressedFill: =Label4.Fill
+                Size: =10
+                TabIndex: =0
+                Text: =ThisItem.Title
+                X: =50
+                ZIndex: =2
+
+            Rectangle1 As rectangle:
+                BorderColor: =RGBA(101, 128, 187, 1)
+                DisabledFill: =Rectangle1.Fill
+                Fill: =RGBA(98, 100, 167, 1)
+                FocusedBorderColor: =Rectangle1.BorderColor
+                Height: =20
+                HoverFill: =Rectangle1.Fill
+                OnSelect: =Select(Parent)
+                PressedFill: =Rectangle1.Fill
+                Visible: =ThisItem.Row = _selectedTutorial.Row
+                Width: =4
+                X: =11
+                Y: =11
+                ZIndex: =3
+
+        iconHamburgerMenu_6 As icon.Hamburger:
+            AccessibleLabel: ="Hamburger Menu"
+            BorderColor: =RGBA(101, 128, 187, 1)
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledFill: =iconHamburgerMenu_6.Fill
+            FocusedBorderColor: =iconHamburgerMenu_6.BorderColor
+            Height: =12
+            HoverBorderColor: =ColorFade(iconHamburgerMenu_6.BorderColor, 20%)
+            HoverColor: =ColorFade(iconHamburgerMenu_6.Color, 20%)
+            HoverFill: =iconHamburgerMenu_6.Fill
+            Icon: =Icon.Hamburger
+            OnSelect: =Set(IsExpand, !IsExpand)
+            PressedBorderColor: =ColorFade(iconHamburgerMenu_6.BorderColor, -20%)
+            PressedColor: =ColorFade(iconHamburgerMenu_6.Color, -20%)
+            PressedFill: =iconHamburgerMenu_6.Fill
+            TabIndex: =0
+            Width: =16
+            X: =24+0
+            Y: =72
+            ZIndex: =4
+
+        Rectangle2_5 As rectangle:
+            BorderColor: =RGBA(101, 128, 187, 1)
+            DisabledFill: =Rectangle2_5.Fill
+            Fill: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =Rectangle2_5.BorderColor
+            Height: =525
+            HoverFill: =Rectangle2_5.Fill
+            PressedFill: =Rectangle2_5.Fill
+            Width: =1
+            X: =If(!IsExpand, 200, 50)
+            Y: =61+0
+            ZIndex: =5
+
+    WelcomeScreenTitleBackground_2 As rectangle:
+        BorderColor: =RGBA(51, 51, 51, 1)
+        DisabledFill: =WelcomeScreenTitleBackground_2.Fill
+        Fill: =RGBA(98, 100, 167, 1)
+        FocusedBorderColor: =WelcomeScreenTitleBackground_2.BorderColor
+        Height: =60
+        HoverFill: =WelcomeScreenTitleBackground_2.Fill
+        PressedFill: =WelcomeScreenTitleBackground_2.Fill
+        Width: =1366
+        ZIndex: =13
+
+    Label2 As label:
+        OnSelect: |-
+            =UpdateContext({isShowPopup:true})
+        PaddingBottom: =20
+        PaddingLeft: =20
+        PaddingRight: =20
+        PaddingTop: =20
+        Text: ="more information, please!"
+        Width: =256
+        X: =261
+        Y: =64
+        ZIndex: =18
+
+    Group1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =18
+
+        Rectangle2 As rectangle:
+            Fill: =RGBA(0, 0, 0, 0.57)
+            Height: =631
+            Visible: =isShowPopup
+            Width: =1016
+            X: =201
+            Y: =117
+            ZIndex: =14
+
+        Rectangle2_1 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =441
+            Visible: =isShowPopup
+            Width: =645
+            X: =386
+            Y: =211
+            ZIndex: =15
+
+        Icon1 As icon.Cancel:
+            Height: =34
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({isShowPopup:false})
+            Visible: =isShowPopup
+            Width: =21
+            X: =989
+            Y: =233
+            ZIndex: =16
+
+        Label1 As label:
+            Height: =116
+            Text: ="Pop Up message you want o show"
+            Visible: =isShowPopup
+            Width: =383
+            X: =517
+            Y: =267
+            ZIndex: =17
+

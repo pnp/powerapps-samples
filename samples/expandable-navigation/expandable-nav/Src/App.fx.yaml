@@ -1,0 +1,5 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =Concurrent(Set(_selectedTutorial,{Row:1,Title:"About",Image:ic_fluent_home_48_regular}),ClearCollect(NavigationMenu,{Row:1,Title:"About",Image:ic_fluent_home_48_regular},{Row:2,Title:"Teams",Image:ic_fluent_people_32_regular},{Row:3,Title:"Channels",Image:ic_fluent_text_bullet_list_square_24_regular},{Row:4,Title:"Libraries",Image:ic_fluent_document_48_regular},{Row:5,Title:"Lists",Image:ic_fluent_text_bullet_list_square_24_regular}))
+
