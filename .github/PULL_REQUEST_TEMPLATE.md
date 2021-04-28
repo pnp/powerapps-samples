@@ -10,7 +10,7 @@
 |        Q        |                    A                    |
 | --------------- | --------------------------------------- |
 | Solution requires premium license | no - yes?                               |
-| Solution uses experimental features (see [licensing guidelines](https://go.microsoft.com/fwlink/?linkid=2085130) | no - yes?                               |
+| Solution uses experimental features (see [licensing guidelines](https://go.microsoft.com/fwlink/?linkid=2085130)) | no - yes?                               |
 | Which connectors are used? | e.g.: SharePoint, DataVerse, DataVerse for Teams, Outlook, DocuSign, etc.                               |
 | Solution uses on-premises connectors? | no - yes?                                |
 | Solution uses custom connectors? | no - yes?                                |
