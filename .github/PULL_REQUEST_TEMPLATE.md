@@ -5,6 +5,17 @@
 | New sample?     | no - yes?                               |
 | Related issues? | fixes #X, partially #Y, mentioned in #Z |
 
+## Solution Details
+
+|        Q        |                    A                    |
+| --------------- | --------------------------------------- |
+| Solution requires premium license | no - yes?                               |
+| Solution uses experimental features (see [licensing guidelines](https://go.microsoft.com/fwlink/?linkid=2085130) | no - yes?                               |
+| Which connectors are used? | e.g.: SharePoint, DataVerse, DataVerse for Teams, Outlook, DocuSign, etc.                               |
+| Solution uses on-premises connectors? | no - yes?                                |
+| Solution uses custom connectors? | no - yes?                                |
+
+
 ## What's in this Pull Request?
 
 > Please describe the changes in this PR. Sample description or details around bugs which are being fixed.
