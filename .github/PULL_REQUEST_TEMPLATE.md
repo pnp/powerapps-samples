@@ -28,7 +28,7 @@
 >
 > *Pull requests that do not follow this template will be automatically rejected.*
 > 
-> *Please target your PR to `master` branch.*
+> *Please target your PR to `main` branch.*
 >
 > *Remember that this repository is maintained by community members who volunteer their time to help. Be courteous and patient.*
 > _(DELETE THIS SECTION AFTER READING)_
