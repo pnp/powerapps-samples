@@ -1,4 +1,4 @@
-# Timesheet Power App Template
+# Weekly Timesheet Power App Template
 
 ## Summary
 
@@ -47,27 +47,45 @@ This list contains the timesheet entries.  Set the list up as follows:
 |Number|Total|No|
 
 
-## Installing the Template
+## Minimal Path to Awesome
 
-This sample utilizes the new Power Apps Canvas app Source Code tooling [Power Apps Source Code Tooling](https://github.com/microsoft/PowerApps-Language-Tooling). Set up and install the source code tool to use this sample.  
+* Download the .msapp from the solution folder
+* Use the .msapp file using File > Open > Browse within Power Apps Studio.
+* Select the **Data** tab 
+* Remove the `BillTo` and `TimesheetEntries` data sources from the app
+* Add new data sources for the `BillTo` and `TimesheetEntries` SharePoint Lists you created in your environment
+* Save and Publish
 
-Clone this repo and run the Power Apps Source Code tool to pack the solution.  This will create an `.msapp` file for you.
 
-Perform the following steps to import the `.msapp` file into your environment:
-1. Go to [make.powerapps.com](make.powerapps.com)
-2. Select **New App** and **Canvas App** from the dropdown
-3. Select **Open** from the left hand side 
-4. Select **Browse** and navigate to the `msapp` file location
-5. Select the **Data** tab 
-6. Remove the `BillTo` and `TimesheetEntries` data sources from the app
-7. Add new data sources for the `BillTo` and `TimesheetEntries` SharePoint Lists you created in your environment
-8. Save and Publish
+## Disclaimer
+
+**THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
+
+---
+
+## Minimal Path to Awesome
+
+* [Download](https://github.com/pnp/powerapps-samples/upload/main/samples/Timesheet/solution/WeeklyTimesheet.msapp) the `.msapp` from the `solution` folder
+* Use the `.msapp` file using **File** > **Open** > **Browse** within Power Apps Studio.
+* Select the **Data** tab 
+* Remove the `BillTo` and `TimesheetEntries` data sources from the app
+* Add new data sources for the `BillTo` and `TimesheetEntries` SharePoint Lists you created in your environment
+* Save and Publish
+
+## Using the Source Code
+
+  You can also use the [Power Apps Source Code tool](https://github.com/microsoft/PowerApps-Language-Tooling) to the code using these steps:
+* Clone the repository to a local drive
+* Pack the source files back into `.msapp` file:
+  * [Power Apps Tooling Usage](https://github.com/microsoft/PowerApps-Language-Tooling)
+* Use the `.msapp` file using **File** > **Open** > **Browse** in Power Apps Studio.
+
 
 ## Sample
 
 Solution|Author(s)
 --------|---------
-Timesheet Power App | [April Dunnam](https://github.com/aprildunnam) ([@aprildunnam](https://www.twitter.com/aprildunnam))
+Timesheet Power App | [April Dunnam](https://github.com/aprildunnam) ([@aprildunnam](https://www.twitter.com/aprildunnam) )
 
 ## Version history
 
