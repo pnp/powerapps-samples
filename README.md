@@ -12,7 +12,7 @@ Please use following logic on submitting your questions or issues to right locat
 
 ## Additional resources
 
-TODO
+- [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/power-platform/bd-p/PowerPlatform)
 
 ## Using the samples
 
