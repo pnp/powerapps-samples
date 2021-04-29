@@ -12,6 +12,15 @@ Timesheet Entry Screen
 
 ![timesheet entry screen](./assets/TimesheetEntryScreen.png)  
 
+
+## Compatibility
+
+![Power Apps Source File Pack and Unpack Utility 0.20](https://img.shields.io/badge/PSAopa-0.20-green.svg)
+
+## Applies to
+
+* [Microsoft Power Apps](https://docs.microsoft.com/powerapps/)
+
 ## Data Sources
  
 This app uses SharePoint as a data source and requires two SharePoint Lists with the following fields:
@@ -46,28 +55,11 @@ This list contains the timesheet entries.  Set the list up as follows:
 |Date|WeekStart|No|
 |Number|Total|No|
 
-
 ## Minimal Path to Awesome
 
-* Download the .msapp from the solution folder
-* Use the .msapp file using File > Open > Browse within Power Apps Studio.
-* Select the **Data** tab 
-* Remove the `BillTo` and `TimesheetEntries` data sources from the app
-* Add new data sources for the `BillTo` and `TimesheetEntries` SharePoint Lists you created in your environment
-* Save and Publish
-
-
-## Disclaimer
-
-**THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
-
----
-
-## Minimal Path to Awesome
-
-* [Download](https://github.com/pnp/powerapps-samples/upload/main/samples/Timesheet/solution/WeeklyTimesheet.msapp) the `.msapp` from the `solution` folder
+* [Download](https://github.com/pnp/powerapps-samples/blob/main/samples/Timesheet/solution/WeeklyTimesheet.msapp) the `.msapp` from the `solution` folder
 * Use the `.msapp` file using **File** > **Open** > **Browse** within Power Apps Studio.
-* Select the **Data** tab 
+* Select the **Data** tab
 * Remove the `BillTo` and `TimesheetEntries` data sources from the app
 * Add new data sources for the `BillTo` and `TimesheetEntries` SharePoint Lists you created in your environment
 * Save and Publish
@@ -75,6 +67,7 @@ This list contains the timesheet entries.  Set the list up as follows:
 ## Using the Source Code
 
   You can also use the [Power Apps Source Code tool](https://github.com/microsoft/PowerApps-Language-Tooling) to the code using these steps:
+
 * Clone the repository to a local drive
 * Pack the source files back into `.msapp` file:
   * [Power Apps Tooling Usage](https://github.com/microsoft/PowerApps-Language-Tooling)
@@ -99,7 +92,4 @@ Version|Date|Comments
 **THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
 
 ---
-
-## Additional notes
-
-None
+<img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/timesheet" />

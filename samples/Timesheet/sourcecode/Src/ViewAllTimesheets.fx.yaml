@@ -1,63 +1,53 @@
 "ViewAllTimesheets As screen.'tabletLayout_HeaderAndGallery_ver3.0'":
-    Width: =Max(App.Width, App.DesignWidth)
-    Height: =Max(App.Height, App.DesignHeight)
     Fill: =RGBA(230, 230, 230, 1)
+    Height: =Max(App.Height, App.DesignHeight)
+    Width: =Max(App.Width, App.DesignWidth)
 
     RectQuickActionBar2_4 As rectangle:
         Fill: =RGBA(128, 128, 128, 1)
-        Y: =64
-        Width: =Parent.Width
         Height: =2
+        Width: =Parent.Width
+        Y: =64
         ZIndex: =1
 
-    "galleryMyTimesheets As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+    "galleryMyTeamsTimesheets As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+        AccessibleLabel: ="Pending Timesheets"
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =702
         Items: |-
             =GroupBy(Filter(
                 TimeEntries,
                 Manager.Email = currentUser.Email && Status.Value = "Submitted for Approval"
             ),"Title","week")
-        AccessibleLabel: ="Pending Timesheets"
         Layout: =Layout.Vertical
-        Y: =66
-        X: =29
-        Fill: =RGBA(255, 255, 255, 1)
-        Height: =702
-        TemplateSize: =Min(96, Self.Height - 60)
-        TemplatePadding: =0
-        ZIndex: =1
-        Width: =1304
         ShowNavigation: =true
         ShowScrollbar: =false
         TabIndex: =2
+        TemplatePadding: =0
+        TemplateSize: =Min(96, Self.Height - 60)
+        Width: =1304
+        X: =29
+        Y: =66
+        ZIndex: =1
 
         Title5_2 As label:
-            Text: =ThisItem.Title
-            VerticalAlign: =VerticalAlign.Top
-            X: =29
-            Y: =18
-            Width: =400
             Height: =Self.Size * 1.8
-            ZIndex: =1
-            PaddingTop: =0
-            PaddingRight: =0
+            OnSelect: =Select(Parent)
             PaddingBottom: =0
             PaddingLeft: =0
-            OnSelect: =Select(Parent)
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Title
+            VerticalAlign: =VerticalAlign.Top
+            Width: =400
+            X: =29
+            Y: =18
+            ZIndex: =1
 
         NextArrow3_3 As icon.ChevronRight:
-            Tooltip: ="View item details"
             AccessibleLabel: =Self.Tooltip
-            Icon: =Icon.ChevronRight
-            X: =Parent.TemplateWidth - Self.Width - 5
-            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
-            Width: =60
             Height: =60
-            ZIndex: =2
-            PaddingLeft: =10
-            PaddingRight: =10
-            PaddingTop: =10
-            PaddingBottom: =10
-            TabIndex: =0
+            Icon: =Icon.ChevronRight
             OnSelect: |-
                 =Select(Parent);
                 Set(
@@ -70,33 +60,43 @@
                        Manager.Email = currentUser.Email && Status.Value = "Submitted for Approval" && Title = selectedTimeCard.Title
                     ));
                 Navigate(TimeCardApproval)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="View item details"
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =2
 
         Separator3_3 As rectangle:
             Height: =1
-            ZIndex: =3
-            Y: =Parent.TemplateHeight - 1
-            Width: =Parent.TemplateWidth
             OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =3
 
-    Title3_4 As label:
-        Text: ="MY TEAM'S PENDING TIMESHEETS"
+    lblMyTeamsTimesheets As label:
+        Align: =Align.Center
         Color: =RGBA(0, 0, 0, 1)
         FontWeight: =Bold
-        Align: =Align.Center
-        Width: =Parent.Width
         Height: =64
-        ZIndex: =2
         PaddingRight: =10
+        Text: ="MY TEAM'S PENDING TIMESHEETS"
+        Width: =Parent.Width
+        ZIndex: =2
 
-    Icon1_3 As icon.BackArrow:
+    iconCloseTeamTimesheet As icon.BackArrow:
         AccessibleLabel: ="Close"
-        Icon: =Icon.Cancel
         Color: =RGBA(0, 0, 0, 1)
+        Height: =50
+        Icon: =Icon.Cancel
+        OnSelect: =Back()
+        TabIndex: =1
+        Width: =40
         X: =1293
         Y: =2
-        Width: =40
-        Height: =50
         ZIndex: =6
-        TabIndex: =1
-        OnSelect: =Back()
 

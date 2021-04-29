@@ -1,0 +1,650 @@
+"TimeCardApproval As screen.'tabletLayout_HeaderAndGallery_ver3.0'":
+    Fill: =RGBA(230, 230, 230, 1)
+    Height: =Max(App.Height, App.DesignHeight)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    RectQuickActionBar2_7 As rectangle:
+        Fill: =RGBA(128, 128, 128, 1)
+        Height: =2
+        Width: =Parent.Width
+        Y: =64
+        ZIndex: =1
+
+    "galleryTimeCard_2 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+        AccessibleLabel: ="Timesheet"
+        Height: =517
+        Items: =selectedTimeEntries
+        Layout: =Layout.Vertical
+        TabIndex: =2
+        TemplatePadding: =0
+        TemplateSize: =Min(96, Self.Height - 60)
+        Width: =Parent.Width
+        Y: =242
+        ZIndex: =1
+
+        Separator3_6 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =3
+
+        tbMon_2 As text:
+            AccessibleLabel: ="Monday Textbox"
+            Align: =Align.Center
+            BorderColor: =RGBA(128, 128, 128, 1)
+            Default: =ThisItem.Mon
+            Height: =50
+            HintText: =""
+            HoverFill: =Self.Fill
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =14
+            Width: =60
+            X: =lblMon_2.X + 10
+            Y: =tbBillTo2.Y
+            ZIndex: =4
+
+        tbTues_2 As text:
+            AccessibleLabel: ="Tuesday Textbox"
+            Align: =Align.Center
+            BorderColor: =RGBA(128, 128, 128, 1)
+            Default: =ThisItem.Tues
+            Height: =50
+            HintText: =""
+            HoverFill: =Self.Fill
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =14
+            Width: =60
+            X: =lblTues_2.X + 10
+            Y: =tbBillTo2.Y
+            ZIndex: =6
+
+        tbWed_2 As text:
+            AccessibleLabel: ="Wednesday Textbox"
+            Align: =Align.Center
+            BorderColor: =RGBA(128, 128, 128, 1)
+            Default: =ThisItem.Weds
+            Height: =50
+            HintText: =""
+            HoverFill: =Self.Fill
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =14
+            Width: =60
+            X: =lblWed_2.X + 10
+            Y: =tbBillTo2.Y
+            ZIndex: =7
+
+        tbThurs_2 As text:
+            AccessibleLabel: ="Thursday Textbox"
+            Align: =Align.Center
+            BorderColor: =RGBA(128, 128, 128, 1)
+            Default: =ThisItem.Thurs
+            Height: =50
+            HintText: =""
+            HoverFill: =Self.Fill
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =14
+            Width: =60
+            X: =lblThurs_2.X + 10
+            Y: =tbBillTo2.Y
+            ZIndex: =8
+
+        tbFri_2 As text:
+            AccessibleLabel: ="Friday Textbox"
+            Align: =Align.Center
+            BorderColor: =RGBA(128, 128, 128, 1)
+            Default: =ThisItem.Fri
+            Height: =50
+            HintText: =""
+            HoverFill: =Self.Fill
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =14
+            Width: =60
+            X: =lblFri_2.X + 10
+            Y: =tbBillTo2.Y
+            ZIndex: =9
+
+        tbSat_2 As text:
+            AccessibleLabel: ="Saturday Textbox"
+            Align: =Align.Center
+            BorderColor: =RGBA(128, 128, 128, 1)
+            Default: =ThisItem.Sat
+            Height: =50
+            HintText: =""
+            HoverFill: =Self.Fill
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =14
+            Width: =60
+            X: =lblSat_2.X + 10
+            Y: =tbBillTo2.Y
+            ZIndex: =10
+
+        tbSun_2 As text:
+            AccessibleLabel: ="Sunday Textbox"
+            Align: =Align.Center
+            BorderColor: =RGBA(128, 128, 128, 1)
+            Default: =ThisItem.Sun
+            Height: =50
+            HintText: =""
+            HoverFill: =Self.Fill
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =14
+            Width: =60
+            X: =lblSun_2.X + 10
+            Y: =tbBillTo2.Y
+            ZIndex: =11
+
+        tbComments_2 As text:
+            AccessibleLabel: ="Comments Textbox"
+            Align: =Align.Center
+            BorderColor: =RGBA(128, 128, 128, 1)
+            Default: =ThisItem.Comments
+            Height: =50
+            HintText: =""
+            HoverFill: =Self.Fill
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =14
+            Width: =250
+            X: =lblComments_2.X 
+            Y: =tbBillTo2.Y
+            ZIndex: =12
+
+        tbEmployee As text:
+            AccessibleLabel: ="Employee Textbox"
+            Align: =Align.Center
+            BorderColor: =RGBA(128, 128, 128, 1)
+            Default: =ThisItem.Employee.DisplayName
+            Height: =50
+            HintText: =""
+            HoverFill: =Self.Fill
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =14
+            Width: =200
+            X: =12
+            Y: =18
+            ZIndex: =13
+
+        tbBillTo2 As text:
+            AccessibleLabel: ="Bill To Textbox"
+            Align: =Align.Center
+            BorderColor: =RGBA(128, 128, 128, 1)
+            Default: =ThisItem.BillTo.Value
+            Height: =50
+            HintText: =""
+            HoverFill: =Self.Fill
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =14
+            Width: =194
+            X: =231
+            Y: =18
+            ZIndex: =14
+
+        cbBillTo2 As combobox:
+            AccessibleLabel: ="Bill To"
+            BorderColor: =RGBA(204, 204, 204, 1)
+            ChevronBackground: =RGBA(179, 179, 179, 1)
+            Default: =ThisItem.BillTo
+            DefaultSelectedItems: =ThisItem.BillTo
+            DisplayFields: =["ComplianceAssetId"]
+            Height: =50
+            IsSearchable: =false
+            Items: =BillTo
+            OnSelect: =Select(Parent)
+            SearchFields: =["ComplianceAssetId"]
+            SearchItems: =[]
+            SelectionFill: =RGBA(128, 128, 128, 1)
+            SelectMultiple: =false
+            Width: =194
+            X: =231
+            Y: =18
+            ZIndex: =15
+
+    Title3_7 As label:
+        Align: =Align.Center
+        Color: =RGBA(0, 0, 0, 1)
+        FontWeight: =Bold
+        Height: =64
+        PaddingRight: =10
+        Text: ="TIME CARD APPROVAL"
+        Width: =Parent.Width
+        ZIndex: =2
+
+    Label2_4 As label:
+        Height: =59
+        PaddingLeft: =25
+        Size: =20
+        Text: |+
+            ="Week:   " & selectedTimeCard.Title
+            
+        Width: =793
+        Y: =66
+        ZIndex: =6
+
+    lblBillTo2 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FontWeight: =Semibold
+        Height: =59
+        OnSelect: =
+        Size: =18
+        Text: ="Bill To"
+        Width: =200
+        X: =225
+        Y: =184
+        ZIndex: =8
+
+    lblMon_2 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FontWeight: =Semibold
+        Height: =59
+        OnSelect: =
+        Size: =18
+        Text: =Text(First(selectedTimeCard.week).'Week Start',"[$-en-US]dd") & Char(10) & "Mon"
+        Width: =80
+        X: =lblBillTo2.X + lblBillTo2.Width +15
+        Y: =lblBillTo2.Y
+        ZIndex: =9
+
+    lblTues_2 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FontWeight: =Semibold
+        Height: =59
+        OnSelect: =
+        Size: =18
+        Text: =Text(DateAdd(First(selectedTimeCard.week).'Week Start',1),"[$-en-US]dd") & Char(10) & "Tues"
+        Width: =80
+        X: =lblMon_2.X + lblMon_2.Width +15
+        Y: =lblBillTo2.Y
+        ZIndex: =10
+
+    lblWed_2 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FontWeight: =Semibold
+        Height: =58
+        OnSelect: =
+        Size: =18
+        Text: =Text(DateAdd(First(selectedTimeCard.week).'Week Start',2),"[$-en-US]dd") & Char(10) &"Wed"
+        Width: =80
+        X: =lblTues_2.X + lblTues_2.Width +15
+        Y: =lblBillTo2.Y
+        ZIndex: =11
+
+    lblThurs_2 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FontWeight: =Semibold
+        Height: =58
+        OnSelect: =
+        Size: =18
+        Text: =Text(DateAdd(First(selectedTimeCard.week).'Week Start',3),"[$-en-US]dd") & Char(10) &"Thurs"
+        Width: =80
+        X: =lblWed_2.X + lblWed_2.Width +15
+        Y: =lblBillTo2.Y
+        ZIndex: =12
+
+    lblFri_2 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FontWeight: =Semibold
+        Height: =58
+        OnSelect: =
+        Size: =18
+        Text: =Text(DateAdd(First(selectedTimeCard.week).'Week Start',4),"[$-en-US]dd") & Char(10) &"Fri"
+        Width: =80
+        X: =lblThurs_2.X + lblThurs_2.Width +15
+        Y: =lblBillTo2.Y
+        ZIndex: =13
+
+    lblSat_2 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FontWeight: =Semibold
+        Height: =59
+        OnSelect: =
+        Size: =18
+        Text: =Text(DateAdd(First(selectedTimeCard.week).'Week Start',5),"[$-en-US]dd") & Char(10) &"Sat"
+        Width: =80
+        X: =lblFri_2.X + lblFri_2.Width +15
+        Y: =lblBillTo2.Y
+        ZIndex: =14
+
+    lblSun_2 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FontWeight: =Semibold
+        Height: =58
+        OnSelect: =
+        Size: =18
+        Text: =Text(DateAdd(First(selectedTimeCard.week).'Week Start',6),"[$-en-US]dd") & Char(10) &"Sun"
+        Width: =80
+        X: =lblSat_2.X + lblSat_2.Width +15
+        Y: =lblBillTo2.Y
+        ZIndex: =15
+
+    lblComments_2 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FontWeight: =Semibold
+        Height: =58
+        OnSelect: =
+        Size: =18
+        Text: ="Comments"
+        Width: =250
+        X: =lblSun_2.X + lblSun_2.Width +15
+        Y: =lblBillTo2.Y
+        ZIndex: =16
+
+    btnReject As button:
+        Fill: =RGBA(184, 0, 0, 1)
+        Height: =50
+        HoverBorderColor: =Self.BorderColor
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =ForAll(
+                galleryTimeCard_2.AllItems,
+                If(IsBlank(ID),
+                Patch(
+                    TimeEntries,
+                    Defaults(TimeEntries),
+                    {
+                        Title: Text(First(selectedTimeCard.week).'Week Start',DateTimeFormat.ShortDate) & " - " & Text(First(selectedTimeCard.week).'Week Start' + 6, DateTimeFormat.ShortDate),
+                        'Week Start':First(selectedTimeCard.week).'Week Start',
+                        Mon: Value(tbMon_1.Text),
+                        Tues: Value(tbTues_1.Text),
+                        Weds: Value(tbWed_1.Text),
+                        Thurs: Value(tbThurs_1.Text),
+                        Fri: Value(tbFri_1.Text),
+                        Sat: Value(tbSat_1.Text),
+                        Sun: Value(tbSun_1.Text),
+                           Total:Value(tbMon_1.Text) + Value(tbTues_1.Text) + Value(tbWed_1.Text) +
+                    Value(tbThurs_1.Text) + Value(tbFri_1.Text) + Value(tbSat_1.Text) +Value(tbSun_1.Text),
+                        Comments: tbComments_1.Text,
+                     Employee: {
+                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                            Claims: "i:0#.f|membership|" & currentUser.Email,
+                            Department: "",
+                            DisplayName: currentUser.FullName,
+                            Email: currentUser.Email,
+                            JobTitle: "",
+                            Picture: ""
+                        },
+                        BillTo: {
+                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                            Id: cbBillTo_1.Selected.ID,
+                            Value: cbBillTo_1.Selected.Title
+                        },
+                        Manager: {
+                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                            Claims: "i:0#.f|membership|" & currentUser.Email,
+                            Department: "",
+                            DisplayName: currentUser.FullName,
+                            Email: currentUser.Email,
+                            JobTitle: "",
+                            Picture: ""
+                        },
+                        Status:{ID:2,Value:"Submitted for Approval"}
+                    }
+                ),
+                  Patch(
+                    TimeEntries,
+                    {ID:ID},
+                    {
+                        Title: Text(First(selectedTimeCard.week).'Week Start',DateTimeFormat.ShortDate) & " - " & Text(First(selectedTimeCard.week).'Week Start' + 6, DateTimeFormat.ShortDate),
+                        'Week Start':First(selectedTimeCard.week).'Week Start',
+                          Mon: Value(tbMon_1.Text),
+                    Tues: Value(tbTues_1.Text),
+                    Weds: Value(tbWed_1.Text),
+                    Thurs: Value(tbThurs_1.Text),
+                    Fri: Value(tbFri_1.Text),
+                    Sat: Value(tbSat_1.Text),
+                    Sun: Value(tbSun_1.Text),
+                       Total:Value(tbMon_1.Text) + Value(tbTues_1.Text) + Value(tbWed_1.Text) +
+                    Value(tbThurs_1.Text) + Value(tbFri_1.Text) + Value(tbSat_1.Text) +Value(tbSun_1.Text),
+                    Comments: tbComments_1.Text,
+                          Employee: {
+                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                            Claims: "i:0#.f|membership|" & currentUser.Email,
+                            Department: "",
+                            DisplayName: currentUser.FullName,
+                            Email: currentUser.Email,
+                            JobTitle: "",
+                            Picture: ""
+                        },
+                        BillTo: {
+                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                            Id: cbBillTo_1.Selected.ID,
+                            Value: cbBillTo_1.Selected.Title
+                        },
+                        Manager: {
+                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                            Claims: "i:0#.f|membership|" & currentUser.Email,
+                            Department: "",
+                            DisplayName: currentUser.FullName,
+                            Email: currentUser.Email,
+                            JobTitle: "",
+                            Picture: ""
+                        },
+                        Status:{ID:2,Value:"Rejected"}
+                    }
+                )
+            ));Set(
+                successMessage,
+                "Timesheet Rejected"
+            );Navigate(Success)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =20
+        Text: ="REJECT"
+        Width: =200
+        X: =1093
+        Y: =75
+        ZIndex: =17
+
+    btnApproval As button:
+        Fill: =RGBA(54, 176, 75, 1)
+        Height: =50
+        HoverBorderColor: =Self.BorderColor
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =ForAll(
+                galleryTimeCard_2.AllItems ,
+                If(
+                    IsBlank(ThisRecord.ID),
+                    Patch(
+                        TimeEntries,
+                        Defaults(TimeEntries),
+                        {
+                            Title: Text(
+                                First(selectedTimeCard.week).'Week Start',
+                                DateTimeFormat.ShortDate
+                            ) & " - " & Text(
+                                First(selectedTimeCard.week).'Week Start' + 6,
+                                DateTimeFormat.ShortDate
+                            ),
+                            'Week Start': First(selectedTimeCard.week).'Week Start',
+                            Mon: Value(tbMon_2.Text),
+                            Tues: Value(tbTues_2.Text),
+                            Weds: Value(tbWed_2.Text),
+                            Thurs: Value(tbThurs_2.Text),
+                            Fri: Value(tbFri_2.Text),
+                            Sat: Value(tbSat_2.Text),
+                            Sun: Value(tbSat_2.Text),
+                            Total: Value(tbMon_2.Text) + Value(tbTues_2.Text) + Value(tbWed_2.Text) + Value(tbThurs_2.Text) + Value(tbFri_2.Text) + Value(tbSat_2.Text) + Value(tbSun_2.Text),
+                            Comments: tbComments_2.Text,
+                            Employee: {
+                                '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                Claims: "i:0#.f|membership|" & currentUser.Email,
+                                Department: "",
+                                DisplayName: currentUser.FullName,
+                                Email: currentUser.Email,
+                                JobTitle: "",
+                                Picture: ""
+                            },
+                            BillTo: {
+                                '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                                Id: cbBillTo2.Selected.ID ,
+                                Value: cbBillTo2.Selected.Title
+                            },
+                            Manager: {
+                                '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                Claims: "i:0#.f|membership|" & currentUser.Email,
+                                Department: "",
+                                DisplayName: currentUser.FullName,
+                                Email: currentUser.Email,
+                                JobTitle: "",
+                                Picture: ""
+                            },
+                            Status: {
+                                ID: 2,
+                                Value: "Submitted for Approval"
+                            }
+                        }
+                    ),
+                    Patch(
+                        TimeEntries,
+                        {ID: ThisRecord.ID},
+                        {
+                            Title: Text(
+                                First(selectedTimeCard.week).'Week Start',
+                                DateTimeFormat.ShortDate
+                            ) & " - " & Text(
+                                First(selectedTimeCard.week).'Week Start' + 6,
+                                DateTimeFormat.ShortDate
+                            ),
+                            'Week Start': First(selectedTimeCard.week).'Week Start',
+                            Mon: Value(tbMon_2.Text),
+                            Tues: Value(tbTues_2.Text),
+                            Weds: Value(tbWed_2.Text),
+                            Thurs: Value(tbThurs_2.Text),
+                            Fri: Value(tbFri_2.Text),
+                            Sat: Value(tbSat_2.Text),
+                            Sun: Value(tbSun_2.Text),
+                            Total: Value(tbMon_2.Text) + Value(tbTues_2.Text) + Value(tbWed_2.Text) + Value(tbThurs_2.Text) + Value(tbFri_2.Text) + Value(tbSat_2.Text) + Value(tbSun_2.Text),
+                            Comments: tbComments_2.Text,
+                            Employee: {
+                                '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                Claims: "i:0#.f|membership|" & currentUser.Email,
+                                Department: "",
+                                DisplayName: currentUser.FullName,
+                                Email: currentUser.Email,
+                                JobTitle: "",
+                                Picture: ""
+                            },
+                            BillTo: {
+                                '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                                Id: cbBillTo2.Selected.ID ,
+                                Value: cbBillTo2.Selected.Title
+                            },
+                            Manager: {
+                                '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                Claims: "i:0#.f|membership|" & currentUser.Email,
+                                Department: "",
+                                DisplayName: currentUser.FullName,
+                                Email: currentUser.Email,
+                                JobTitle: "",
+                                Picture: ""
+                            },
+                            Status: {
+                                ID: 2,
+                                Value: "Approved"
+                            }
+                        }
+                    )
+                )
+            );
+            Set(
+                successMessage,
+                "Timesheet Approved"
+            );
+            Navigate(Success)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =20
+        Text: ="APPROVE"
+        Width: =200
+        X: =863
+        Y: =75
+        ZIndex: =18
+
+    Icon1_5 As icon.BackArrow:
+        AccessibleLabel: ="Close"
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =50
+        Icon: =Icon.Cancel
+        OnSelect: =Back()
+        TabIndex: =1
+        Width: =40
+        X: =1293
+        Y: =2
+        ZIndex: =19
+
+    lblBillTo2_1 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FontWeight: =Semibold
+        Height: =59
+        OnSelect: =
+        Size: =18
+        Text: ="Employee"
+        Width: =200
+        X: =12
+        Y: =183
+        ZIndex: =20
+

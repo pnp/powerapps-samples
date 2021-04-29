@@ -1,4 +1,7 @@
 LeftNav As CanvasComponent:
+    Fill: =RGBA(80, 80, 80, 1)
+    Height: =768
+    Image: =SampleImage
     NavItems: |-
         =Table(
             {
@@ -22,81 +25,78 @@ LeftNav As CanvasComponent:
                 Icon: Icon.DockCheckProperties
             }
         )
-    Image: =SampleImage
-    ZIndex: =1
-    Y: =0
-    X: =0
     Width: =280
-    Height: =768
-    Fill: =RGBA(80, 80, 80, 1)
+    X: =0
+    Y: =0
+    ZIndex: =1
 
     "Gallery1 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
-        Items: =LeftNav.NavItems
         AccessibleLabel: ="Left Navigation"
-        TemplateSize: =64
-        TemplatePadding: =0
-        Layout: =Layout.Vertical
-        Y: =112
-        Width: =281
         Height: =655
-        ZIndex: =1
+        Items: =LeftNav.NavItems
+        Layout: =Layout.Vertical
         TabIndex: =1
         TemplateFill: =Transparent
+        TemplatePadding: =0
+        TemplateSize: =64
+        Width: =281
+        Y: =112
+        ZIndex: =1
 
         Title2 As label:
-            Text: =ThisItem.Title
             Color: =RGBA(230, 230, 230, 1)
             FontWeight: =Normal
-            VerticalAlign: =VerticalAlign.Top
-            X: =Icon6.X + Icon6.Width + 10
-            Y: =Icon6.Y +8
-            Width: =Parent.TemplateWidth - 100
             Height: =Self.Size * 1.8
-            ZIndex: =1
-            PaddingTop: =0
-            PaddingRight: =0
+            OnSelect: =Select(Parent)
             PaddingBottom: =0
             PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
             Size: =16
-            OnSelect: =Select(Parent)
+            Text: =ThisItem.Title
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 100
+            X: =Icon6.X + Icon6.Width + 10
+            Y: =Icon6.Y +8
+            ZIndex: =1
 
         NextArrow2 As icon.ChevronRight:
-            Tooltip: ="View item details"
             AccessibleLabel: =Self.Tooltip
-            Icon: =Icon.ChevronRight
             Color: =RGBA(204, 204, 204, 1)
-            X: =227
-            Y: =10
-            Width: =40
             Height: =40
-            ZIndex: =2
+            Icon: =Icon.ChevronRight
+            OnSelect: =Select(Parent);Navigate(ThisItem.Page)
+            PaddingBottom: =10
             PaddingLeft: =10
             PaddingRight: =10
             PaddingTop: =10
-            PaddingBottom: =10
             TabIndex: =0
+            Tooltip: ="View item details"
             Visible: =If(ThisItem.Page = App.ActiveScreen,false,true)
-            OnSelect: =Select(Parent);Navigate(ThisItem.Page)
+            Width: =40
+            X: =227
+            Y: =10
+            ZIndex: =2
 
         Separator2 As rectangle:
             Fill: =RGBA(153, 153, 153, 1)
-            Y: =Parent.TemplateHeight - 1
-            Width: =Parent.TemplateWidth
             Height: =1
-            ZIndex: =3
             OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =3
 
         Icon6 As icon.Add:
             AccessibleLabel: ="Icon"
-            Icon: =ThisItem.Icon
             Color: =RGBA(204, 204, 204, 1)
+            Height: =40
+            Icon: =ThisItem.Icon
+            OnSelect: =Select(Parent);Navigate(ThisItem.Page)
+            TabIndex: =2
+            Width: =40
             X: =7
             Y: =10
-            Width: =40
-            Height: =40
             ZIndex: =4
-            TabIndex: =2
-            OnSelect: =Select(Parent);Navigate(ThisItem.Page)
 
     Image2 As image:
         Image: =LeftNav.Image
