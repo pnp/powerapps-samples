@@ -1,52 +1,53 @@
 Welcome As screen:
-    Width: =Max(App.Width, App.DesignWidth)
-    Height: =Max(App.Height, App.DesignHeight)
     Fill: =RGBA(230, 230, 230, 1)
+    Height: =Max(App.Height, App.DesignHeight)
     OnVisible: =
+    Width: =Max(App.Width, App.DesignWidth)
 
     htmlBackground As htmlViewer:
+        Height: =632
         HtmlText: |-
             ="<div style='border:1px #d4d7dc;height:600px;width:100%;background-color:#FCFCFC;box-shadow:0 2px 8px 0 rgba(0,0,0,.2)'></div>"
-        X: =28
-        Height: =632
         Width: =1320
-        ZIndex: =1
+        X: =28
         Y: =99
+        ZIndex: =1
 
     rectHeaderBG As rectangle:
-        ZIndex: =2
+        Fill: =RGBA(238, 238, 238, 1)
         Height: =78
         Width: =1366
-        Fill: =RGBA(238, 238, 238, 1)
+        ZIndex: =2
 
     lblWelcome As label:
-        Text: ="Welcome, " & First(Split(currentUser.FullName," ")).Result &"!"
-        ZIndex: =4
         FontWeight: =Bold
         Height: =78
-        Width: =622
         Size: =22
+        Text: ="Welcome, " & First(Split(currentUser.FullName," ")).Result &"!"
+        Width: =622
         X: =28
+        ZIndex: =4
 
     lblCurrentDate As label:
-        Text: =Text(Today(),DateTimeFormat.LongDate)
         Align: =Align.Right
-        X: =943
-        Width: =371
         Height: =72
-        ZIndex: =5
         Size: =16
+        Text: =Text(Today(),DateTimeFormat.LongDate)
+        Width: =371
+        X: =943
+        ZIndex: =5
 
     lblGetMonday As label:
         Text: |
             =DateAdd(Today(), -1 * (Weekday(Today(), Monday) - 1), Days)
-        ZIndex: =7
-        Y: =6
-        X: =410
         Visible: =false
+        X: =410
+        Y: =6
+        ZIndex: =7
 
     "galleryDashboard As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
-        WrapCount: =3
+        AccessibleLabel: ="Home Selection"
+        Height: =378
         Items: |-
             =Table(
                 {
@@ -65,16 +66,7 @@ Welcome As screen:
                     Page: ViewAllTimesheets
                 }
             )
-        AccessibleLabel: ="Home Selection"
-        TemplatePadding: =0
         Layout: =Layout.Vertical
-        ZIndex: =12
-        Height: =378
-        TemplateSize: =273
-        Width: =1254
-        Y: =286
-        X: =61
-        TabIndex: =1
         OnSelect: |-
             =If(
                 ThisItem.name = "New Timesheet",
@@ -104,44 +96,53 @@ Welcome As screen:
                 //Clear(copiedEntries)
             );
             Navigate(ThisItem.Page)
+        TabIndex: =1
+        TemplatePadding: =0
+        TemplateSize: =273
+        Width: =1254
+        WrapCount: =3
+        X: =61
+        Y: =286
+        ZIndex: =12
 
         Circle2 As circle:
-            Fill: =RGBA(242, 242, 242, 1)
             BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =1
+            Fill: =RGBA(242, 242, 242, 1)
+            Height: =162
+            OnSelect: =Select(Parent)
+            Width: =173
             X: =123
             Y: =21
-            Width: =173
-            Height: =162
             ZIndex: =2
-            BorderThickness: =1
-            OnSelect: =Select(Parent)
 
         Image1 As image:
-            Image: =ThisItem.image
-            X: =146
-            Width: =128
             Height: =128
+            Image: =ThisItem.image
+            OnSelect: =Select(Parent)
+            Width: =128
+            X: =146
             Y: =38
             ZIndex: =3
-            OnSelect: =Select(Parent)
 
         Title1 As label:
-            Text: =ThisItem.name
-            Height: =51
-            Width: =412
             Align: =Align.Center
+            Height: =51
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =28
+            Text: =ThisItem.name
             VerticalAlign: =VerticalAlign.Top
+            Width: =412
             X: =4
             Y: =202
             ZIndex: =4
-            PaddingTop: =0
-            PaddingRight: =0
-            PaddingBottom: =0
-            PaddingLeft: =0
-            Size: =28
-            OnSelect: =Select(Parent)
 
         HtmlText1 As htmlViewer:
+            Height: =273
             HtmlText: |-
                 ="<div style='cursor:pointer;width: 400px;
                     height: 220px;
@@ -155,20 +156,19 @@ Welcome As screen:
                     background-color: initial;
                     border: none;
                     font-size: inherit'></div>"
+            OnSelect: =Select(Parent)
             Width: =412
-            Height: =273
             X: =4
             ZIndex: =5
-            OnSelect: =Select(Parent)
 
-    lblWelcome_1 As label:
-        Text: ="Timesheet Management"
+    lblTimesheetMgmt As label:
         Align: =Center
-        ZIndex: =13
         FontWeight: =Bold
         Height: =90
-        Width: =1320
         Size: =36
-        Y: =138
+        Text: ="Timesheet Management"
+        Width: =1320
         X: =28
+        Y: =138
+        ZIndex: =13
 

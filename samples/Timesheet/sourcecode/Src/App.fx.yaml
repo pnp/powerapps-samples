@@ -1,4 +1,5 @@
 App As appinfo:
+    BackEnabled: =false
     OnStart: |+
         =Concurrent(
             Set(

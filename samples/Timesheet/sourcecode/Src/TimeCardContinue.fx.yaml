@@ -1,244 +1,241 @@
 "TimeCardContinue As screen.'tabletLayout_HeaderAndGallery_ver3.0'":
-    Width: =Max(App.Width, App.DesignWidth)
-    Height: =Max(App.Height, App.DesignHeight)
     Fill: =RGBA(230, 230, 230, 1)
+    Height: =Max(App.Height, App.DesignHeight)
+    Width: =Max(App.Width, App.DesignWidth)
 
     RectQuickActionBar2_5 As rectangle:
         Fill: =RGBA(128, 128, 128, 1)
-        Y: =64
-        Width: =Parent.Width
         Height: =2
+        Width: =Parent.Width
+        Y: =64
         ZIndex: =1
 
     "galleryTimeCard_1 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+        AccessibleLabel: ="Gallery Time Cards"
+        Height: =517
         Items: =selectedTimeEntries
         Layout: =Layout.Vertical
+        TabIndex: =8
         TemplatePadding: =0
-        ZIndex: =1
         TemplateSize: =Min(96, Self.Height - 60)
-        Height: =517
         Width: =Parent.Width
         Y: =242
-        TabIndex: =8
+        ZIndex: =1
 
         NextArrow3_4 As icon.ChevronRight:
-            Tooltip: ="View item details"
             AccessibleLabel: =Self.Tooltip
-            Icon: =Icon.Trash
             Color: =RGBA(128, 128, 128, 1)
-            X: =1308
-            Y: =18
-            Width: =50
             Height: =50
-            ZIndex: =2
-            PaddingLeft: =10
-            PaddingRight: =10
-            PaddingTop: =10
-            PaddingBottom: =10
-            TabIndex: =0
+            Icon: =Icon.Trash
             OnSelect: |-
                 =Select(Parent);
                 Remove(selectedTimeEntries,ThisItem)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="View item details"
+            Width: =50
+            X: =1308
+            Y: =18
+            ZIndex: =2
 
         Separator3_4 As rectangle:
-            Y: =Parent.TemplateHeight - 1
             Height: =1
-            ZIndex: =3
-            Width: =Parent.TemplateWidth
             OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =3
 
         tbMon_1 As text:
-            HintText: =""
-            Default: =ThisItem.Mon
             AccessibleLabel: ="Monday Textbox"
-            RadiusBottomRight: =0
-            RadiusBottomLeft: =0
-            RadiusTopRight: =0
-            RadiusTopLeft: =0
-            ZIndex: =4
-            Height: =50
-            Width: =60
-            Y: =cbBillTo_1.Y
-            X: =lblMon_1.X + 10
             Align: =Align.Center
-            Size: =14
             BorderColor: =RGBA(128, 128, 128, 1)
+            Default: =ThisItem.Mon
+            Height: =50
+            HintText: =""
             HoverFill: =Self.Fill
             OnSelect: =Select(Parent)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =14
+            Width: =60
+            X: =lblMon_1.X + 10
+            Y: =cbBillTo_1.Y
+            ZIndex: =4
 
         cbBillTo_1 As combobox:
-            SearchItems: =[]
-            SearchFields: =["Title"]
-            DisplayFields: =["Title"]
-            Items: =BillTo
-            SelectMultiple: =false
-            Default: =ThisItem.BillTo
-            DefaultSelectedItems: =ThisItem.BillTo
-            IsSearchable: =false
             AccessibleLabel: ="Bill To Dropdown"
-            Size: =14
-            Y: =18
-            ZIndex: =5
+            BorderColor: =RGBA(128, 128, 128, 1)
             ChevronBackground: |-
                 =ColorValue("#808080")
-            SelectionFill: =Black
-            SelectionTagFill: =Transparent
-            SelectionTagColor: =Black
+            Default: =ThisItem.BillTo
+            DefaultSelectedItems: =ThisItem.BillTo
+            DisplayFields: =["Title"]
             Height: =50
-            BorderColor: =RGBA(128, 128, 128, 1)
-            X: =21
-            Width: =241
+            IsSearchable: =false
+            Items: =BillTo
             OnSelect: =Select(Parent)
+            SearchFields: =["Title"]
+            SearchItems: =[]
+            SelectionFill: =Black
+            SelectionTagColor: =Black
+            SelectionTagFill: =Transparent
+            SelectMultiple: =false
+            Size: =14
+            Width: =241
+            X: =21
+            Y: =18
+            ZIndex: =5
 
         tbTues_1 As text:
-            HintText: =""
-            Default: =ThisItem.Tues
             AccessibleLabel: ="Tuesday Textbox"
-            RadiusTopRight: =0
-            RadiusBottomRight: =0
-            RadiusBottomLeft: =0
-            RadiusTopLeft: =0
-            ZIndex: =6
-            Height: =50
-            Width: =60
-            Y: =cbBillTo_1.Y
-            X: =lblTues_1.X + 10
             Align: =Align.Center
-            Size: =14
             BorderColor: =RGBA(128, 128, 128, 1)
+            Default: =ThisItem.Tues
+            Height: =50
+            HintText: =""
             HoverFill: =Self.Fill
             OnSelect: =Select(Parent)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =14
+            Width: =60
+            X: =lblTues_1.X + 10
+            Y: =cbBillTo_1.Y
+            ZIndex: =6
 
         tbWed_1 As text:
-            HintText: =""
-            Default: =ThisItem.Weds
             AccessibleLabel: ="Wednesday Textbox"
-            RadiusTopRight: =0
-            RadiusBottomRight: =0
-            RadiusBottomLeft: =0
-            RadiusTopLeft: =0
-            ZIndex: =7
-            Height: =50
-            Width: =60
-            Y: =cbBillTo_1.Y
-            X: =lblWed_1.X + 10
             Align: =Align.Center
-            Size: =14
             BorderColor: =RGBA(128, 128, 128, 1)
+            Default: =ThisItem.Weds
+            Height: =50
+            HintText: =""
             HoverFill: =Self.Fill
             OnSelect: =Select(Parent)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =14
+            Width: =60
+            X: =lblWed_1.X + 10
+            Y: =cbBillTo_1.Y
+            ZIndex: =7
 
         tbThurs_1 As text:
-            HintText: =""
-            Default: =ThisItem.Thurs
             AccessibleLabel: ="Thursday Textbox"
-            RadiusTopRight: =0
-            RadiusBottomRight: =0
-            RadiusBottomLeft: =0
-            RadiusTopLeft: =0
-            ZIndex: =8
-            Height: =50
-            Width: =60
-            Y: =cbBillTo_1.Y
-            X: =lblThurs_1.X + 10
             Align: =Align.Center
-            Size: =14
             BorderColor: =RGBA(128, 128, 128, 1)
+            Default: =ThisItem.Thurs
+            Height: =50
+            HintText: =""
             HoverFill: =Self.Fill
             OnSelect: =Select(Parent)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =14
+            Width: =60
+            X: =lblThurs_1.X + 10
+            Y: =cbBillTo_1.Y
+            ZIndex: =8
 
         tbFri_1 As text:
-            HintText: =""
-            Default: =ThisItem.Fri
             AccessibleLabel: ="Friday Textbox"
-            RadiusTopRight: =0
-            RadiusBottomRight: =0
-            RadiusBottomLeft: =0
-            RadiusTopLeft: =0
-            ZIndex: =9
-            Height: =50
-            Width: =60
-            Y: =cbBillTo_1.Y
-            X: =lblFri_1.X + 10
             Align: =Align.Center
-            Size: =14
             BorderColor: =RGBA(128, 128, 128, 1)
+            Default: =ThisItem.Fri
+            Height: =50
+            HintText: =""
             HoverFill: =Self.Fill
             OnSelect: =Select(Parent)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =14
+            Width: =60
+            X: =lblFri_1.X + 10
+            Y: =cbBillTo_1.Y
+            ZIndex: =9
 
         tbSat_1 As text:
-            HintText: =""
-            Default: =ThisItem.Sat
             AccessibleLabel: ="Saturday Textbox"
-            RadiusTopRight: =0
-            RadiusBottomRight: =0
-            RadiusBottomLeft: =0
-            RadiusTopLeft: =0
-            ZIndex: =10
-            Height: =50
-            Width: =60
-            Y: =cbBillTo_1.Y
-            X: =lblSat_1.X + 10
             Align: =Align.Center
-            Size: =14
             BorderColor: =RGBA(128, 128, 128, 1)
+            Default: =ThisItem.Sat
+            Height: =50
+            HintText: =""
             HoverFill: =Self.Fill
             OnSelect: =Select(Parent)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =14
+            Width: =60
+            X: =lblSat_1.X + 10
+            Y: =cbBillTo_1.Y
+            ZIndex: =10
 
         tbSun_1 As text:
-            HintText: =""
-            Default: =ThisItem.Sun
             AccessibleLabel: ="Sunday Textbox"
-            RadiusTopRight: =0
-            RadiusBottomRight: =0
-            RadiusBottomLeft: =0
-            RadiusTopLeft: =0
-            ZIndex: =11
-            Height: =50
-            Width: =60
-            Y: =cbBillTo_1.Y
-            X: =lblSun_1.X + 10
             Align: =Align.Center
-            Size: =14
             BorderColor: =RGBA(128, 128, 128, 1)
+            Default: =ThisItem.Sun
+            Height: =50
+            HintText: =""
             HoverFill: =Self.Fill
             OnSelect: =Select(Parent)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =14
+            Width: =60
+            X: =lblSun_1.X + 10
+            Y: =cbBillTo_1.Y
+            ZIndex: =11
 
         tbComments_1 As text:
-            HintText: =""
-            Default: =ThisItem.Comments
-            RadiusTopRight: =0
-            RadiusBottomRight: =0
-            RadiusBottomLeft: =0
-            RadiusTopLeft: =0
-            ZIndex: =12
-            Height: =50
-            Width: =350
-            Y: =cbBillTo_1.Y
-            X: =lblComments_1.X 
+            AccessibleLabel: ="Comments"
             Align: =Align.Center
-            Size: =14
             BorderColor: =RGBA(128, 128, 128, 1)
+            Default: =ThisItem.Comments
+            Height: =50
+            HintText: =""
             HoverFill: =Self.Fill
             OnSelect: =Select(Parent)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =14
+            Width: =350
+            X: =lblComments_1.X 
+            Y: =cbBillTo_1.Y
+            ZIndex: =12
 
         grpNew_1 As group:
-            ZIndex: =15
             Height: =5
             Width: =5
-            Y: =40
             X: =40
+            Y: =40
+            ZIndex: =15
 
             Icon2_1 As icon.Add:
                 AccessibleLabel: ="Add Row"
-                Icon: =Icon.Add
                 Color: =RGBA(184, 0, 0, 1)
-                X: =637
-                Y: =67
-                Width: =25
                 Height: =25
-                ZIndex: =13
-                TabIndex: =10
+                Icon: =Icon.Add
                 OnSelect: |-
                     =Select(Parent);
                     Patch(
@@ -291,18 +288,18 @@
                             Comments: ""
                         }
                     )
+                TabIndex: =10
+                Width: =25
+                X: =637
+                Y: =67
+                ZIndex: =13
 
             Circle1_1 As circle:
                 AccessibleLabel: ="Add Row"
-                Fill: =RGBA(0, 0, 0, 0)
                 BorderColor: =RGBA(128, 128, 128, 1)
-                X: =636
-                Y: =67
-                Width: =27
-                Height: =27
-                ZIndex: =14
                 BorderThickness: =1
-                TabIndex: =9
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =27
                 OnSelect: |-
                     =Select(Parent);
                     Patch(
@@ -355,176 +352,170 @@
                             Comments: ""
                         }
                     )
+                TabIndex: =9
+                Width: =27
+                X: =636
+                Y: =67
+                ZIndex: =14
 
     Title3_5 As label:
-        Text: ="TIME CARD"
+        Align: =Align.Center
         Color: =RGBA(0, 0, 0, 1)
         FontWeight: =Bold
-        Align: =Align.Center
-        Width: =Parent.Width
         Height: =64
-        ZIndex: =2
         PaddingRight: =10
+        Text: ="TIME CARD"
+        Width: =Parent.Width
+        ZIndex: =2
 
     Label2_2 As label:
+        Height: =45
+        PaddingLeft: =25
+        Size: =20
         Text: |
             ="Week:   " & selectedTimeCard.Title
-        Y: =77
         Width: =833
-        Height: =45
+        Y: =77
         ZIndex: =6
-        Size: =20
-        PaddingLeft: =25
 
     Label2_3 As label:
-        Text: ="Employee   " & First(selectedTimeCard.week).Employee.DisplayName
-        Y: =122
-        Width: =833
         Height: =45
-        ZIndex: =7
-        Size: =20
         PaddingLeft: =25
+        Size: =20
+        Text: ="Employee   " & First(selectedTimeCard.week).Employee.DisplayName
+        Width: =833
+        Y: =122
+        ZIndex: =7
 
     lblEmp_1 As label:
-        Text: ="Bill To"
-        Size: =18
-        ZIndex: =8
-        Height: =59
-        Width: =250
-        Y: =184
-        X: =13
         Align: =Align.Center
-        FontWeight: =Semibold
-        Fill: =RGBA(0, 0, 0, 1)
         Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FontWeight: =Semibold
+        Height: =59
         OnSelect: =
+        Size: =18
+        Text: ="Bill To"
+        Width: =250
+        X: =13
+        Y: =184
+        ZIndex: =8
 
     lblMon_1 As label:
-        Text: =Text(First(selectedTimeCard.week).'Week Start',"[$-en-US]dd") & Char(10) & "Mon"
-        Size: =18
-        ZIndex: =9
-        Height: =59
-        Width: =80
-        Y: =lblEmp_1.Y
-        X: =lblEmp_1.X + lblEmp_1.Width +15
         Align: =Align.Center
-        FontWeight: =Semibold
-        Fill: =RGBA(0, 0, 0, 1)
         Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FontWeight: =Semibold
+        Height: =59
         OnSelect: =
+        Size: =18
+        Text: =Text(First(selectedTimeCard.week).'Week Start',"[$-en-US]dd") & Char(10) & "Mon"
+        Width: =80
+        X: =lblEmp_1.X + lblEmp_1.Width +15
+        Y: =lblEmp_1.Y
+        ZIndex: =9
 
     lblTues_1 As label:
-        Text: =Text(DateAdd(First(selectedTimeCard.week).'Week Start',1),"[$-en-US]dd") & Char(10) & "Tues"
-        Size: =18
-        ZIndex: =10
-        Height: =59
-        Width: =80
-        Y: =lblEmp_1.Y
-        X: =lblMon_1.X + lblMon_1.Width +15
         Align: =Align.Center
-        FontWeight: =Semibold
-        Fill: =RGBA(0, 0, 0, 1)
         Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FontWeight: =Semibold
+        Height: =59
         OnSelect: =
+        Size: =18
+        Text: =Text(DateAdd(First(selectedTimeCard.week).'Week Start',1),"[$-en-US]dd") & Char(10) & "Tues"
+        Width: =80
+        X: =lblMon_1.X + lblMon_1.Width +15
+        Y: =lblEmp_1.Y
+        ZIndex: =10
 
     lblWed_1 As label:
-        Text: =Text(DateAdd(First(selectedTimeCard.week).'Week Start',2),"[$-en-US]dd") & Char(10) &"Wed"
-        Size: =18
-        ZIndex: =11
-        Height: =58
-        Width: =80
-        Y: =lblEmp_1.Y
-        X: =lblTues_1.X + lblTues_1.Width +15
         Align: =Align.Center
-        FontWeight: =Semibold
-        Fill: =RGBA(0, 0, 0, 1)
         Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FontWeight: =Semibold
+        Height: =58
         OnSelect: =
+        Size: =18
+        Text: =Text(DateAdd(First(selectedTimeCard.week).'Week Start',2),"[$-en-US]dd") & Char(10) &"Wed"
+        Width: =80
+        X: =lblTues_1.X + lblTues_1.Width +15
+        Y: =lblEmp_1.Y
+        ZIndex: =11
 
     lblThurs_1 As label:
-        Text: =Text(DateAdd(First(selectedTimeCard.week).'Week Start',3),"[$-en-US]dd") & Char(10) &"Thurs"
-        Size: =18
-        ZIndex: =12
-        Height: =58
-        Width: =80
-        Y: =lblEmp_1.Y
-        X: =lblWed_1.X + lblWed_1.Width +15
         Align: =Align.Center
-        FontWeight: =Semibold
-        Fill: =RGBA(0, 0, 0, 1)
         Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FontWeight: =Semibold
+        Height: =58
         OnSelect: =
+        Size: =18
+        Text: =Text(DateAdd(First(selectedTimeCard.week).'Week Start',3),"[$-en-US]dd") & Char(10) &"Thurs"
+        Width: =80
+        X: =lblWed_1.X + lblWed_1.Width +15
+        Y: =lblEmp_1.Y
+        ZIndex: =12
 
     lblFri_1 As label:
-        Text: =Text(DateAdd(First(selectedTimeCard.week).'Week Start',4),"[$-en-US]dd") & Char(10) &"Fri"
-        Size: =18
-        ZIndex: =13
-        Height: =58
-        Width: =80
-        Y: =lblEmp_1.Y
-        X: =lblThurs_1.X + lblThurs_1.Width +15
         Align: =Align.Center
-        FontWeight: =Semibold
-        Fill: =RGBA(0, 0, 0, 1)
         Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FontWeight: =Semibold
+        Height: =58
         OnSelect: =
+        Size: =18
+        Text: =Text(DateAdd(First(selectedTimeCard.week).'Week Start',4),"[$-en-US]dd") & Char(10) &"Fri"
+        Width: =80
+        X: =lblThurs_1.X + lblThurs_1.Width +15
+        Y: =lblEmp_1.Y
+        ZIndex: =13
 
     lblSat_1 As label:
-        Text: =Text(DateAdd(First(selectedTimeCard.week).'Week Start',5),"[$-en-US]dd") & Char(10) &"Sat"
-        Size: =18
-        ZIndex: =14
-        Height: =59
-        Width: =80
-        Y: =lblEmp_1.Y
-        X: =lblFri_1.X + lblFri_1.Width +15
         Align: =Align.Center
-        FontWeight: =Semibold
-        Fill: =RGBA(0, 0, 0, 1)
         Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FontWeight: =Semibold
+        Height: =59
         OnSelect: =
+        Size: =18
+        Text: =Text(DateAdd(First(selectedTimeCard.week).'Week Start',5),"[$-en-US]dd") & Char(10) &"Sat"
+        Width: =80
+        X: =lblFri_1.X + lblFri_1.Width +15
+        Y: =lblEmp_1.Y
+        ZIndex: =14
 
     lblSun_1 As label:
-        Text: =Text(DateAdd(First(selectedTimeCard.week).'Week Start',6),"[$-en-US]dd") & Char(10) &"Sun"
-        Size: =18
-        ZIndex: =15
-        Height: =58
-        Width: =80
-        Y: =lblEmp_1.Y
-        X: =lblSat_1.X + lblSat_1.Width +15
         Align: =Align.Center
-        FontWeight: =Semibold
-        Fill: =RGBA(0, 0, 0, 1)
         Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FontWeight: =Semibold
+        Height: =58
         OnSelect: =
+        Size: =18
+        Text: =Text(DateAdd(First(selectedTimeCard.week).'Week Start',6),"[$-en-US]dd") & Char(10) &"Sun"
+        Width: =80
+        X: =lblSat_1.X + lblSat_1.Width +15
+        Y: =lblEmp_1.Y
+        ZIndex: =15
 
     lblComments_1 As label:
-        Text: ="Comments"
-        Size: =18
-        ZIndex: =16
-        Height: =58
-        Width: =350
-        Y: =lblEmp_1.Y
-        X: =lblSun_1.X + lblSun_1.Width +15
         Align: =Align.Center
-        FontWeight: =Semibold
-        Fill: =RGBA(0, 0, 0, 1)
         Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FontWeight: =Semibold
+        Height: =58
         OnSelect: =
+        Size: =18
+        Text: ="Comments"
+        Width: =350
+        X: =lblSun_1.X + lblSun_1.Width +15
+        Y: =lblEmp_1.Y
+        ZIndex: =16
 
     Button2_1 As button:
-        Text: ="SUBMIT FOR APPROVAL"
         Fill: =RGBA(184, 0, 0, 1)
-        X: =910
-        Y: =95
-        Width: =375
         Height: =50
-        ZIndex: =17
-        RadiusTopLeft: =0
-        RadiusTopRight: =0
-        RadiusBottomLeft: =0
-        RadiusBottomRight: =0
-        Size: =20
-        Visible: =If(First(selectedTimeCard.week).Status.Value = "Pending", true, false)
         OnSelect: |-
             =ForAll(
                 galleryTimeCard_1.AllItems,
@@ -617,17 +608,23 @@
                 successMessage,
                 "Timesheet Submitted for Approval"
             );Navigate(Success)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =20
+        Text: ="SUBMIT FOR APPROVAL"
+        Visible: =If(First(selectedTimeCard.week).Status.Value = "Pending", true, false)
+        Width: =375
+        X: =910
+        Y: =95
+        ZIndex: =17
 
     Icon8_1 As icon.Save:
-        Icon: =Icon.Save
+        AccessibleLabel: ="Cancel"
         Color: =RGBA(0, 0, 0, 1)
-        X: =848
-        Y: =96
-        Width: =50
         Height: =50
-        ZIndex: =19
-        Visible: =If(First(selectedTimeCard.week).Status.Value = "Pending", true, false)
-        TabIndex: =7
+        Icon: =Icon.Save
         OnSelect: |-
             =ForAll(
                 galleryTimeCard_1.AllItems,
@@ -720,16 +717,22 @@
                 successMessage,
                 "Timesheet Submitted for Approval"
             );Navigate(Success)
+        TabIndex: =7
+        Visible: =If(First(selectedTimeCard.week).Status.Value = "Pending", true, false)
+        Width: =50
+        X: =848
+        Y: =96
+        ZIndex: =19
 
-    Icon1_6 As icon.BackArrow:
+    iconCloseTimeCard As icon.BackArrow:
         AccessibleLabel: ="Close"
-        Icon: =Icon.Cancel
         Color: =RGBA(0, 0, 0, 1)
+        Height: =50
+        Icon: =Icon.Cancel
+        OnSelect: =Back()
+        TabIndex: =6
+        Width: =40
         X: =1293
         Y: =2
-        Width: =40
-        Height: =50
         ZIndex: =20
-        TabIndex: =6
-        OnSelect: =Back()
 
