@@ -1,3 +1,6 @@
+> We're so eager to add your sample to this repository as soon as possible, but we need all samples follow the same structure. 
+> To make sure we process it as soon as possible, make sure to follow [these instructions](https://github.com/pnp/powerapps-samples/wiki/How-to-submit-a-Power-App-sample).
+
 |        Q        |                    A                    |
 | --------------- | --------------------------------------- |
 | Bug fix?        | no - yes?                               |
