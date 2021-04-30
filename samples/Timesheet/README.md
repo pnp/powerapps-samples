@@ -13,6 +13,10 @@ This timesheet application is a tablet-based canvas app that gives you a way to 
 ![timesheet entry screen](./assets/TimesheetEntryScreen.png)  
 
 
+## Applies to
+
+* [Microsoft Power Apps](https://docs.microsoft.com/powerapps/)
+
 ## Compatibility
 
 ![Power Apps Source File Pack and Unpack Utility 0.20](https://img.shields.io/badge/Packing%20Tool-0.20-green.svg)
@@ -21,9 +25,29 @@ This timesheet application is a tablet-based canvas app that gives you a way to 
 ![On-Premises Connectors](https://img.shields.io/badge/On--Premises%20Connectors-No-green.svg "Does not use on-premise connectors")
 ![Custom Connectors](https://img.shields.io/badge/Custom%20Connectors-Not%20Required-green.svg "Does not use custom connectors")
 
-## Applies to
+## Authors
 
-* [Microsoft Power Apps](https://docs.microsoft.com/powerapps/)
+Solution|Author(s)
+--------|---------
+Timesheet Power App | [April Dunnam](https://github.com/aprildunnam) ([@aprildunnam](https://www.twitter.com/aprildunnam) )
+
+## Version history
+
+Version|Date|Comments
+-------|----|--------
+1.0|February 16, 2021|Initial release
+
+
+## Features
+
+This sample illustrates the following concepts:
+
+* Creating an appealing home screen for your applications
+* Creating a timesheet application that you can use for your production needs
+
+## Prerequisites
+
+You'll need to make sure to update the data sources (see below)
 
 ## Data Sources
  
@@ -77,23 +101,10 @@ This list contains the timesheet entries.  Set the list up as follows:
   * [Power Apps Tooling Usage](https://github.com/microsoft/PowerApps-Language-Tooling)
 * Use the `.msapp` file using **File** > **Open** > **Browse** in Power Apps Studio.
 
-## Sample
-
-Solution|Author(s)
---------|---------
-Timesheet Power App | [April Dunnam](https://github.com/aprildunnam) ([@aprildunnam](https://www.twitter.com/aprildunnam) )
-
-## Version history
-
-Version|Date|Comments
--------|----|--------
-1.0|February 16, 2021|Initial release
-
 ## Disclaimer
 
 **THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
 
----
 
 ## Support
 

@@ -12,6 +12,10 @@ This sample shows how to add a status indicator in a display form. This uses a t
 
 ![Status Indicator Display Screen](./assets/powerapp-statusindicator2.jpg)
 
+## Applies to
+
+* [Microsoft Power Apps](https://docs.microsoft.com/powerapps/)
+
 ## Compatibility
 
 ![Power Apps Source File Pack and Unpack Utility 0.20](https://img.shields.io/badge/Packing%20Tool-0.20-green.svg)
@@ -20,9 +24,25 @@ This sample shows how to add a status indicator in a display form. This uses a t
 ![On-Premises Connectors](https://img.shields.io/badge/On--Premises%20Connectors-No-green.svg "Does not use on-premise connectors")
 ![Custom Connectors](https://img.shields.io/badge/Custom%20Connectors-Not%20Required-green.svg "Does not use custom connectors")
 
-## Applies to
+## Authors
 
-* [Microsoft Power Apps](https://docs.microsoft.com/powerapps/)
+Solution|Author(s)
+--------|---------
+Status-Indicator-PowerApp | [Derek Cash-Peterson](https://github.com/dcashpeterson) ([@spdcp](https://twitter.com/spdcp))
+
+## Version history
+
+Version|Date|Comments
+-------|----|--------
+1.0|February 24, 2021|Initial release
+
+## Features
+
+This sample demonstrates the following concepts:
+
+* Showing a status indicator in a display form
+* Uses a "train stop" style user interface to show a progression of a status
+
 
 ## Data Sources
 
@@ -55,23 +75,9 @@ This app uses SharePoint as a data source and requires a single issues list crea
   * [Power Apps Tooling Usage](https://github.com/microsoft/PowerApps-Language-Tooling)
 * Use the `.msapp` file using **File** > **Open** > **Browse** in Power Apps Studio.
 
-## Sample
-
-Solution|Author(s)
---------|---------
-Status-Indicator-PowerApp | [Derek Cash-Peterson](https://github.com/dcashpeterson) ([@spdcp](https://twitter.com/spdcp))
-
-## Version history
-
-Version|Date|Comments
--------|----|--------
-1.0|February 24, 2021|Initial release
-
 ## Disclaimer
 
 **THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
-
----
 
 ## Support
 
