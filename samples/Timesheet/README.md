@@ -4,11 +4,11 @@
 
 This timesheet application is a tablet-based canvas app that gives you a way to create and manage weekly timesheets.
 
-Home Screen
+### Home Screen
 
 ![home screen](./assets/TimesheetHomeScreen.png)  
 
-Timesheet Entry Screen
+### Timesheet Entry Screen
 
 ![timesheet entry screen](./assets/TimesheetEntryScreen.png)  
 
