@@ -77,7 +77,6 @@ This list contains the timesheet entries.  Set the list up as follows:
   * [Power Apps Tooling Usage](https://github.com/microsoft/PowerApps-Language-Tooling)
 * Use the `.msapp` file using **File** > **Open** > **Browse** in Power Apps Studio.
 
-
 ## Sample
 
 Solution|Author(s)
@@ -89,7 +88,6 @@ Timesheet Power App | [April Dunnam](https://github.com/aprildunnam) ([@aprildun
 Version|Date|Comments
 -------|----|--------
 1.0|February 16, 2021|Initial release
-
 
 ## Disclaimer
 
@@ -104,5 +102,11 @@ While we don't support samples, if you encounter any issues while using this sam
 For questions regarding this sample, [create a new question](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=Timesheet&authors=@aprildunnam&title=Timesheet%20-%20).
 
 Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=Timesheet&authors=@aprildunnam&title=Timesheet%20-%20).
+
+## For more information
+
+- [PowerApps Timesheet Template - YouTube](https://youtu.be/A8SiNTnQw0Q)
+- [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
+- [Power Apps canvas apps documentation](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/)
 
 <img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/timesheet" />
