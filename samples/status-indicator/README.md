@@ -93,4 +93,4 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 - [Power Apps canvas apps documentation](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/)
 
 
-<img src="https://telemetry.sharepointpnp.com/powerapp-samples/samples/status-indicator" />
+<img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/status-indicator" />
