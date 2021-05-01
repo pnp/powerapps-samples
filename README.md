@@ -1,10 +1,8 @@
 # Power Apps Samples
 
-> TODO: Update the text here
-
 This repository contains community samples that demonstrate different usage patterns for Power Apps.
 
-> We do welcome community contributions to the samples folder in this repository for demonstrating different use cases with Power Apps. 
+> We welcome community contributions to the `samples` folder in this repository for demonstrating different use cases with Power Apps. 
 
 ## Have issues or questions?
 
