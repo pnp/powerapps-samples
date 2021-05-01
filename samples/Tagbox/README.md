@@ -76,7 +76,6 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 
 ## For more information
 
-- [PowerApps tagbox Template - YouTube](https://youtu.be/A8SiNTnQw0Q)
 - [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
 - [Power Apps canvas apps documentation](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/)
 
