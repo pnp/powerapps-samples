@@ -22,7 +22,7 @@ This Canvas Application is an example for a expandable navigation using [Fluent 
 
 Solution|Author(s)
 --------|---------
-Expandable Navigation | [Luise Freese](https://github.com/LuiseFreese) ([@luisefreese](https://www.twitter.com/luisefreese)
+Expandable Navigation | [Luise Freese](https://github.com/LuiseFreese) ([@luisefreese](https://www.twitter.com/luisefreese))
 
 ## Version history
 
