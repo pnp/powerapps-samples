@@ -27,7 +27,7 @@ This app is an example of how to use the timer function as a stopwatch. There is
 
 Solution|Author(s)
 --------|---------
-folder name | [Michael Roth](https://github.com/Gezeitenbrand) ([@Gezeitenbrand](https://twitter.com/Gezeitenbrand)), IT-P
+Timer_sample | [Michael Roth](https://github.com/Gezeitenbrand) ([@Gezeitenbrand](https://twitter.com/Gezeitenbrand)), IT-P
 
 ## Version history
 
