@@ -51,8 +51,7 @@ None
 
 * [Download](./solution/Timer_sample.msapp) the `.msapp` from the `solution` folder
 * Use the `.msapp` file using **File** > **Open** > **Browse** within Power Apps Studio.
-* Select the **Data** tab
-* ...
+* Save and publish
 
 ## Using the Source Code
 
