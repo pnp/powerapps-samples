@@ -12,8 +12,6 @@ This app is an example of how to use the timer function as a stopwatch. There is
 
 ## Compatibility
 
-> Don't worry about this section, we'll take care of it. Unless you really want to...
-
 ![Power Apps Source File Pack and Unpack Utility 0.20](https://img.shields.io/badge/Packing%20Tool-0.20-green.svg)
 ![Premium License](https://img.shields.io/badge/Premium%20License-Not%20Required-green.svg "Premium Power Apps license not required")
 ![Experimental Features](https://img.shields.io/badge/Experimental%20Features-No-green.svg "Does not rely on experimental features")
@@ -22,8 +20,6 @@ This app is an example of how to use the timer function as a stopwatch. There is
 
 ## Authors
 
-> One author per line, please
-> DELETE THIS PARAGRAPH BEFORE SUBMITTING
 
 Solution|Author(s)
 --------|---------
@@ -36,8 +32,6 @@ Version|Date|Comments
 1.0|May 04, 2021|Initial release
 
 ## Features
-
-> Description of the sample with possible additional details than in short summary.
 
 This sample illustrates the following concepts:
 
@@ -52,14 +46,6 @@ None
 ## Data Sources
 
 None
-
-### MySample List
-
-This SharePoint list contains blah blah blah.  Set the list up as follows:
-
-|Type|Internal Name|Required|
-|---|---|:---:|
-|Single line of text|Title|Yes|
 
 ## Minimal Path to Awesome
 
@@ -83,8 +69,6 @@ This SharePoint list contains blah blah blah.  Set the list up as follows:
 
 ## Support
 
-> Note: don't worry about this section, we'll update the links.
-
 While we don't support samples, if you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
 
 For questions regarding this sample, [create a new question](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
@@ -99,6 +83,3 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 
 <img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/readme-template" />
 
----
-> Note that better pictures and documentation will increase the sample usage and the value you are providing for others. Thanks for your submissions in advance! You rock ❤.
-> DELETE THIS PARAGRAPH BEFORE SUBMITTING
