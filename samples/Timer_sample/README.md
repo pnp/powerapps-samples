@@ -4,7 +4,7 @@
 
 This app is an example of how to use the timer function as a stopwatch. There is the possibility to specify predefined times and start the timer with them. A clearly visible visualization helps all users to estimate how much time has already passed. It is optimized for use in Microsoft Teams meetings.
 
-![picture of the sample](assets/preview.png)
+![picture of the sample](/samples/Timer_sample/TimerApp.png)
 
 ## Applies to
 
