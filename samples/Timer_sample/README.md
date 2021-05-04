@@ -1,31 +1,14 @@
-# Title of the sample
-
-> When naming your sample, try to give it a friendly name that describes what it does. Avoid using terms like `PowerApp`, `PowerApps`, `Power App`, etc. -- because that's what all the samples in this repo are all about.
-> GOOD 👍:
->     Transmographier
-> BAD 👎:
->     Power App Sample
->
-> DELETE THIS PARAGRAPH BEFORE SUBMITTING
-
+# Timer  
 
 ## Summary
 
-Short summary on functionality and used technologies.
-
-> Please provide a high-quality screenshot of your Power App below. It should be stored in a folder called `assets`.
-> If possible, use a resolution of 1920x1080.
-> You can add as many screen shots as you'd like to help users understand your sample without having to download it and install it.
-> DELETE THIS PARAGRAPH BEFORE SUBMITTING
+This app is an example of how to use the timer function as a stopwatch. There is the possibility to specify predefined times and start the timer with them. A clearly visible visualization helps all users to estimate how much time has already passed. It is optimized for use in Microsoft Teams meetings.
 
 ![picture of the sample](assets/preview.png)
 
 ## Applies to
 
 * [Microsoft Power Apps](https://docs.microsoft.com/powerapps/)
-
-> Update accordingly as needed.
-> DELETE THIS PARAGRAPH BEFORE SUBMITTING
 
 ## Compatibility
 
@@ -44,14 +27,13 @@ Short summary on functionality and used technologies.
 
 Solution|Author(s)
 --------|---------
-folder name | [Author Name](LinkToYourGitHubProfile) ([@yourtwitterhandle](https://twitter.com/yourtwitterhandle)), Company
+folder name | [Michael Roth](https://github.com/Gezeitenbrand) ([@Gezeitenbrand](https://twitter.com/Gezeitenbrand)), IT-P
 
 ## Version history
 
 Version|Date|Comments
 -------|----|--------
-1.1|September 2, 2021|Update comment
-1.0|August 29, 2021|Initial release
+1.0|May 04, 2021|Initial release
 
 ## Features
 
@@ -59,19 +41,17 @@ Version|Date|Comments
 
 This sample illustrates the following concepts:
 
-* topic 1
-* topic 2
-* topic 3
+* Using the timer function to count backwards
+* Using the slider add in to visualize the time
+* Visualize the remaining time with icons 
 
 ## Prerequisites
 
-> Any special pre-requisites? Include anything that needs to be done for this sample to work (anything in addition to importing the `.msapp` and data sources).
-> DELETE THIS PARAGRAPH BEFORE SUBMITTING
+None
 
 ## Data Sources
 
-> Please list the individual data sources needed. See example below.
-> DELETE THIS PARAGRAPH BEFORE SUBMITTING
+None
 
 ### MySample List
 
@@ -83,7 +63,7 @@ This SharePoint list contains blah blah blah.  Set the list up as follows:
 
 ## Minimal Path to Awesome
 
-* [Download](./solution/YOURSAMPLENAME.msapp) the `.msapp` from the `solution` folder
+* [Download](./solution/Timer_sample.msapp) the `.msapp` from the `solution` folder
 * Use the `.msapp` file using **File** > **Open** > **Browse** within Power Apps Studio.
 * Select the **Data** tab
 * ...
