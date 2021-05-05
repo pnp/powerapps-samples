@@ -1,0 +1,428 @@
+Screen1 As screen:
+    Fill: =Background_color
+
+    Label_Timer_background As rectangle:
+        Fill: =Element_background
+        Height: =179
+        Width: =318
+        X: =82
+        Y: =134
+        ZIndex: =1
+
+    Picture_Timer As image:
+        Height: =385
+        Image: =Stoppuhr
+        Width: =402
+        X: =41
+        Y: =74
+        ZIndex: =2
+
+    Icon5 As icon.ArrowRight:
+        Color: =Element_color
+        Fill: =Transparent
+        Icon: =Icon.ArrowRight
+        X: =18
+        Y: =804
+        ZIndex: =3
+
+    Icon4 As icon.ArrowLeft:
+        Color: =Element_color
+        Fill: =Transparent
+        Icon: =Icon.ArrowLeft
+        X: =274
+        Y: =804
+        ZIndex: =4
+
+    Icon3 As icon.ArrowUp:
+        Color: =Element_color
+        Fill: |
+            =Transparent
+        Icon: =Icon.ArrowUp
+        X: =145
+        Y: =939
+        ZIndex: =5
+
+    Icon1 As icon.ArrowDown:
+        Color: =Element_color
+        X: =145
+        Y: =672
+        ZIndex: =6
+
+    Circle_Full_red As circle:
+        Fill: =TheRed
+        Height: =253
+        Width: =245
+        X: =56
+        Y: =710
+        ZIndex: =7
+
+    Button_10sec As button:
+        Color: =Font_color
+        Fill: =Element_background
+        FontWeight: =FontWeight.Bold
+        HoverColor: =White
+        HoverFill: =Button_hover_Fill
+        OnSelect: |-
+            =UpdateContext({Dauer:10000})
+        PressedFill: =RGBA(70, 71, 117, 1)
+        Size: =19
+        Text: ="10 sec"
+        Width: =114
+        X: =503
+        Y: =109
+        ZIndex: =12
+
+    Button_30sec As button:
+        Color: =Font_color
+        Fill: =Element_background
+        FontWeight: =FontWeight.Bold
+        HoverColor: =White
+        HoverFill: =Button_hover_Fill
+        OnSelect: |-
+            =UpdateContext({Dauer:30000})
+        PressedFill: =RGBA(70, 71, 117, 1)
+        Size: =19
+        Text: ="30 sec"
+        Width: =114
+        X: =503
+        Y: =207
+        ZIndex: =13
+
+    Button_3min As button:
+        Color: =Font_color
+        Fill: =Element_background
+        FontWeight: =FontWeight.Bold
+        HoverColor: =White
+        HoverFill: =Button_hover_Fill
+        OnSelect: |-
+            =UpdateContext({Dauer:180000})
+        PressedFill: =RGBA(70, 71, 117, 1)
+        Size: =19
+        Text: ="3 min"
+        Width: =114
+        X: =503
+        Y: =305
+        ZIndex: =14
+
+    Button_5min As button:
+        Color: =Font_color
+        Fill: =Element_background
+        FontWeight: =FontWeight.Bold
+        HoverColor: =White
+        HoverFill: =Button_hover_Fill
+        OnSelect: |
+            =UpdateContext({Dauer:300000})
+        PressedFill: =RGBA(70, 71, 117, 1)
+        Size: =19
+        Text: ="5 min"
+        Width: =114
+        X: =503
+        Y: =403
+        ZIndex: =15
+
+    Timer1 As timer:
+        Color: =Font_color
+        Duration: =Dauer
+        Fill: =RGBA(0, 0, 0, 0)
+        FontWeight: =FontWeight.Bold
+        Height: =114
+        HoverColor: =White
+        HoverFill: =Button_hover_Fill
+        OnTimerEnd: |-
+            =UpdateContext({IsReset:false})
+        Size: =60
+        Start: =Uhr_tickt
+        Text: |-
+            =Text(Time(0, 0, (Timer1.Duration-Timer1.Value)/1000), "[$-en-US]mm:ss")
+        Width: =293
+        X: =96
+        Y: =166
+        ZIndex: =16
+
+    Slider1 As slider:
+        AccessibleLabel: ="Slider showing the remaining time"
+        BorderStyle: =BorderStyle.None
+        Default: =(Timer1.Duration-Timer1.Value)/1000
+        HandleFill: =TheRed
+        HandleSize: =50
+        Height: =471
+        Layout: =Layout.Vertical
+        Max: =Dauer/1000
+        RailFill: =RGBA(102, 182, 227, 1)
+        RailThickness: =20
+        ValueFill: =Element_background
+        Width: =98
+        X: =519
+        Y: =624
+        ZIndex: =17
+
+    Label_full As label:
+        Color: =Font_color
+        Height: =38
+        Text: |-
+            =Text((Dauer),"[$-en-US]m:ss") & " sec"
+        Width: =91
+        X: =389
+        Y: =634
+        ZIndex: =18
+
+    Label_threequarter As label:
+        Color: =Font_color
+        Height: =41
+        Text: |-
+            =Text((Dauer*0.75),"[$-en-US]m:ss") & " sec"
+        Width: =95
+        X: =391
+        Y: =726
+        ZIndex: =19
+
+    Label_half As label:
+        Color: =Font_color
+        Height: =46
+        Text: |
+            =Text((Dauer*0.5),"[$-en-US]m:ss") & " sec"
+        Width: =94
+        X: =389
+        Y: =835
+        ZIndex: =20
+
+    Label_Onequarter As label:
+        Color: =Font_color
+        Text: |-
+            =Text((Dauer*0.25),"[$-en-US]m:ss") & " sec"
+        Width: =91
+        X: =389
+        Y: =950
+        ZIndex: =21
+
+    Label_End As label:
+        Color: =Font_color
+        Height: =46
+        Text: ="Time up"
+        Width: =91
+        X: =389
+        Y: =1049
+        ZIndex: =22
+
+    Circle_quarter As partialCircle.quarterCircle:
+        Fill: =Blurple_medium
+        Height: =252
+        Visible: =If(Slider1.Value >0,true,false)
+        Width: =245
+        X: =56
+        Y: =710
+        ZIndex: =23
+
+    Circle_half As partialCircle:
+        Fill: =Blurple_medium
+        Height: =253
+        Visible: =If(Slider1.Value >=Slider1.Max*0.25,true,false)
+        Width: =253
+        X: =52
+        Y: =710
+        ZIndex: =24
+
+    Circle_Threequarter As partialCircle.threequarterCircle:
+        Fill: =Blurple_medium
+        Height: =253
+        Visible: =If(Slider1.Value >=Slider1.Max*0.5,true,false)
+        Width: =249
+        X: =52
+        Y: =710
+        ZIndex: =25
+
+    Skala_Slider As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =25
+
+        Rectangle2 As rectangle:
+            BorderColor: =RGBA(201, 215, 57, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =5
+            Fill: =RGBA(51, 52, 74, 1)
+            Height: =471
+            Width: =130
+            X: =486
+            Y: =623
+            ZIndex: =8
+
+        Rectangle2_1 As rectangle:
+            BorderColor: =RGBA(201, 215, 57, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =5
+            Fill: =RGBA(70, 71, 117, 1)
+            Height: =349
+            Width: =130
+            X: =486
+            Y: =744
+            ZIndex: =9
+
+        Rectangle2_2 As rectangle:
+            BorderColor: =RGBA(201, 215, 57, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =5
+            Fill: =RGBA(98, 100, 167, 1)
+            Height: =237
+            Width: =130
+            X: =486
+            Y: =856
+            ZIndex: =10
+
+        Rectangle2_3 As rectangle:
+            BorderColor: =RGBA(201, 215, 57, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =5
+            Fill: =RGBA(139, 140, 199, 1)
+            Height: =124
+            Width: =130
+            X: =486
+            Y: =970
+            ZIndex: =11
+
+    Circle_Full As circle:
+        Fill: =Blurple_medium
+        Height: =253
+        Visible: =If(Slider1.Value >=Slider1.Max*0.75,true,false)
+        Width: =245
+        X: =56
+        Y: =710
+        ZIndex: =26
+
+    Picture_Pfeil As image:
+        Height: =171
+        Image: =PFeil
+        Width: =223
+        X: =166
+        Y: =658
+        ZIndex: =27
+
+    Group2 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =35
+
+        Circle1 As circle:
+            Fill: =Element_background
+            Height: =67
+            HoverFill: =Button_hover_Fill
+            Width: =69
+            X: =84
+            Y: =336
+            ZIndex: =28
+
+        Image_Start As image:
+            Height: =51
+            Image: =ic_fluent_caret_right_24_filled
+            Width: =50
+            X: =94
+            Y: =344
+            ZIndex: =29
+
+        Button_Start As button:
+            Color: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =69
+            HoverColor: =White
+            HoverFill: =Button_hover_Fill
+            OnSelect: |-
+                =UpdateContext({Uhr_tickt: true})
+            PressedFill: =RGBA(98, 100, 167, 1)
+            RadiusBottomLeft: =60
+            RadiusBottomRight: =60
+            RadiusTopLeft: =60
+            RadiusTopRight: =60
+            Text: =""
+            Width: =69
+            X: =84
+            Y: =336
+            ZIndex: =30
+
+    Group3 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =36
+
+        Circle2 As circle:
+            Fill: =Element_background
+            Height: =70
+            Width: =70
+            X: =210
+            Y: =336
+            ZIndex: =31
+
+        Image2 As image:
+            Height: =43
+            Image: =ic_fluent_pause_48_filled
+            Width: =45
+            X: =223
+            Y: =350
+            ZIndex: =32
+
+        Button_Stop As button:
+            Color: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =69
+            HoverColor: =White
+            HoverFill: =Button_hover_Fill
+            OnSelect: |-
+                =UpdateContext({Uhr_tickt: false})
+            PressedFill: =RGBA(98, 100, 167, 1)
+            RadiusBottomLeft: =60
+            RadiusBottomRight: =60
+            RadiusTopLeft: =60
+            RadiusTopRight: =60
+            Text: =""
+            Width: =69
+            X: =211
+            Y: =337
+            ZIndex: =33
+
+    Group4 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =37
+
+        Circle3 As circle:
+            Fill: =Element_background
+            Height: =69
+            Width: =69
+            X: =331
+            Y: =336
+            ZIndex: =34
+
+        Image3 As image:
+            Height: =50
+            Image: =ic_fluent_arrow_reset_24_filled
+            Width: =43
+            X: =344
+            Y: =344
+            ZIndex: =35
+
+        Button_Reset As button:
+            Color: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =69
+            HoverColor: =White
+            HoverFill: =Button_hover_Fill
+            OnSelect: |-
+                =Reset(Timer1); UpdateContext({ResetPlease: true}); UpdateContext({Uhr_tickt: false})
+            PressedFill: =RGBA(98, 100, 167, 1)
+            RadiusBottomLeft: =60
+            RadiusBottomRight: =60
+            RadiusTopLeft: =60
+            RadiusTopRight: =60
+            Text: =""
+            Width: =69
+            X: =331
+            Y: =336
+            ZIndex: =36
+
