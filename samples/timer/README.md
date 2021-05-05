@@ -2,9 +2,9 @@
 
 ## Summary
 
-This app is an example of how to use the timer function as a stopwatch. There is the possibility to specify predefined times and start the timer with them. A clearly visible visualization helps all users to estimate how much time has already passed. It is optimized for use in Microsoft Teams meetings.
+This app is an example of how to use the timer function as a stopwatch. You can specify predefined times and start the timer with them. An easy to read visualization helps all users to estimate how much time has already passed. This solution is optimized to use within Microsoft Teams meetings.
 
-![picture of the sample](/samples/Timer_sample/TimerApp.png)
+![picture of the sample](./assets/timerapp.png)
 
 ## Applies to
 
@@ -23,7 +23,7 @@ This app is an example of how to use the timer function as a stopwatch. There is
 
 Solution|Author(s)
 --------|---------
-Timer_sample | [Michael Roth](https://github.com/Gezeitenbrand) ([@Gezeitenbrand](https://twitter.com/Gezeitenbrand)), IT-P
+timer | [Michael Roth](https://github.com/Gezeitenbrand) ([@Gezeitenbrand](https://twitter.com/Gezeitenbrand)), IT-P
 
 ## Version history
 
@@ -37,7 +37,7 @@ This sample illustrates the following concepts:
 
 * Using the timer function to count backwards
 * Using the slider add in to visualize the time
-* Visualize the remaining time with icons 
+* Visualize the remaining time with icons
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ None
 
 ## Minimal Path to Awesome
 
-* [Download](./solution/Timer_sample.msapp) the `.msapp` from the `solution` folder
+* [Download](./solution/timer.msapp) the `.msapp` from the `solution` folder
 * Use the `.msapp` file using **File** > **Open** > **Browse** within Power Apps Studio.
 * Save and publish
 
@@ -68,11 +68,11 @@ None
 
 ## Support
 
-While we don't support samples, if you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+While we don't support samples, if you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=timer&authors=@Gezeitenbrand&title=timer%20-%20).
 
-For questions regarding this sample, [create a new question](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+For questions regarding this sample, [create a new question](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=timer&authors=@Gezeitenbrand&title=timer%20-%20).
 
-Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=timer&authors=@Gezeitenbrand&title=timer%20-%20).
 
 ## For more information
 
@@ -80,5 +80,5 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 - [Power Apps canvas apps documentation](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/)
 
 
-<img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/readme-template" />
+<img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/timer" />
 
