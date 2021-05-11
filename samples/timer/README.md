@@ -76,7 +76,7 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 
 ## For more information
 
-- [Companian blog post about this sample](https://techcommunity.microsoft.com/t5/microsoft-365-pnp-blog/let-s-build-a-timer-app-for-teams-meetings/ba-p/2334593)
+- [Companion blog post about this sample](https://techcommunity.microsoft.com/t5/microsoft-365-pnp-blog/let-s-build-a-timer-app-for-teams-meetings/ba-p/2334593)
 - [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
 - [Power Apps canvas apps documentation](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/)
 
