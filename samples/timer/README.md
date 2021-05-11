@@ -23,7 +23,7 @@ This app is an example of how to use the timer function as a stopwatch. You can 
 
 Solution|Author(s)
 --------|---------
-timer | [Michael Roth](https://github.com/MichaelRoth42) ([@Gezeitenbrand](https://twitter.com/Gezeitenbrand)), IT-P
+timer | [Michael Roth](https://github.com/MichaelRoth42) ([@Gezeitenbrand](https://twitter.com/MichaelRoth42), IT-P
 
 ## Version history
 
