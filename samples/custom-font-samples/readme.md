@@ -217,7 +217,7 @@ This sample includes the following fonts
 
 ## Minimal Path to Awesome
 
-* [Download](./solution/customfontsamples.msapp) the `.msapp` from the `solution` folder
+* [Download](https://github.com/pnp/powerapps-samples/raw/main/samples/custom-font-samples/solution/customfontsamples.msapp) the `.msapp` from the `solution` folder
 * Use the `.msapp` file using **File** > **Open** > **Browse** within Power Apps Studio.
 * Save and Publish
 
