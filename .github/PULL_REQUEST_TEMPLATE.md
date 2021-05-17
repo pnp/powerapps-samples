@@ -18,6 +18,7 @@
 | Which connectors are used?                                | e.g.: SharePoint, DataVerse, DataVerse for Teams, Outlook, DocuSign, etc.  |
 | Solution uses on-premises connectors?                     | no - yes?                               |
 | Solution uses custom connectors?                          | no - yes?                               |
+| Layout                                                    | Phone? Tablet? Other?                               |
 
 ## What's in this Pull Request?
 
