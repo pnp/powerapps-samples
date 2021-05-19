@@ -1,0 +1,165 @@
+SampleScreen As screen:
+
+    FluidGrid_SampleScreen As fluidGrid.fluidGridWithBlankCard:
+        BorderThickness: =0
+        Height: =Parent.Height
+        NumberOfColumns: =2
+        Width: =Parent.Width
+        ZIndex: =1
+
+        DataCard_Left As dataCard.blankCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =Parent.Height
+            Width: =683
+            WidthFit: =true
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            Container_DataCard_Left As groupContainer.verticalAutoLayoutContainer:
+                DisplayMode: =DisplayMode.Edit
+                Height: =Parent.Height
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutGap: =10
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                PaddingBottom: =Self.LayoutGap
+                PaddingLeft: =Self.LayoutGap
+                PaddingRight: =Self.LayoutGap
+                PaddingTop: =Self.LayoutGap
+                Width: =Parent.Width
+                ZIndex: =1
+
+                TextInput1 As text:
+                    LayoutMinHeight: =40
+                    ZIndex: =1
+
+                Dropdown1 As dropdown:
+                    DisabledBorderColor: |
+                        =fluentUIPalette.neutralLighter
+                    LayoutMinHeight: =40
+                    LayoutMinWidth: =328
+                    ZIndex: =2
+
+                ComboBox1 As combobox:
+                    DisabledBorderColor: |
+                        =fluentUIPalette.neutralLighter
+                    LayoutMinHeight: =40
+                    LayoutMinWidth: =328
+                    SearchItems: =Search(ComboBoxSample,ComboBox1.SearchText,"Value1")
+                    ZIndex: =3
+
+                DatePicker1 As datepicker:
+                    LayoutMinHeight: =40
+                    LayoutMinWidth: =328
+                    ZIndex: =4
+
+                ListBox1 As listbox:
+                    DisabledBorderColor: |
+                        =fluentUIPalette.neutralLighter
+                    LayoutMinWidth: =328
+                    ZIndex: =5
+
+                Checkbox1 As checkbox:
+                    LayoutMinHeight: =50
+                    ZIndex: =6
+
+                Radio1 As radio:
+                    Items: =RadioSample
+                    ZIndex: =7
+
+                Toggle1 As toggleSwitch:
+                    AlignInContainer: =AlignInContainer.Start
+                    LayoutMinHeight: =28
+                    ZIndex: =8
+
+                Slider1 As slider:
+                    AlignInContainer: =AlignInContainer.Start
+                    HandleSize: |
+                        =20
+                    Height: |
+                        =32
+                    LayoutMinHeight: =40
+                    ZIndex: =9
+
+                Rating1 As rating:
+                    AlignInContainer: =AlignInContainer.Start
+                    DisplayMode: =DisplayMode.Edit
+                    LayoutMinHeight: =40
+                    X: =0
+                    Y: =0
+                    ZIndex: =10
+
+                Button1 As button:
+                    AlignInContainer: =AlignInContainer.Start
+                    LayoutMinHeight: =40
+                    LayoutMinWidth: =160
+                    ZIndex: =11
+
+                Timer1 As timer:
+                    AlignInContainer: =AlignInContainer.Start
+                    LayoutMinHeight: =40
+                    LayoutMinWidth: =160
+                    ZIndex: =12
+
+        DataCard_Right As dataCard.blankCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =Parent.Height
+            Width: =683
+            WidthFit: =true
+            X: =1
+            Y: =0
+            ZIndex: =2
+
+            Container_DataCard_Right As groupContainer.verticalAutoLayoutContainer:
+                DisplayMode: =DisplayMode.Edit
+                Height: =Parent.Height
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutGap: =10
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                PaddingBottom: =Self.LayoutGap
+                PaddingLeft: =Self.LayoutGap
+                PaddingRight: =Self.LayoutGap
+                PaddingTop: =Self.LayoutGap
+                Width: =Parent.Width
+                ZIndex: =1
+
+                Audio1 As audioPlayback:
+                    ZIndex: =1
+
+                PenInput1 As inkControl:
+                    Width: =380
+                    ZIndex: =2
+
+                Label1 As label:
+                    LayoutMinHeight: =40
+                    ZIndex: =3
+
+                HtmlText1 As htmlViewer:
+                    ZIndex: =4
+
+                Image1 As image:
+                    ZIndex: =5
+
+                Import1 As import:
+                    LayoutMinHeight: =40
+                    LayoutMinWidth: =160
+                    Text: ="Import Data"
+                    ZIndex: =6
+
+                Export1 As export:
+                    LayoutMinHeight: =40
+                    LayoutMinWidth: =160
+                    Text: ="Export Data"
+                    ZIndex: =7
+
+                RichTextEditor1 As richTextEditor:
+                    Default: ="Enter some <strong>rich text</strong> here."
+                    Width: =450
+                    ZIndex: =8
+
