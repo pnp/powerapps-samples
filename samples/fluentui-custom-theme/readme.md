@@ -99,7 +99,7 @@ All controls theme in the theme.json file are based on the fluentUIPalette varia
 
 ## Minimal Path to Awesome
 
-* [Download](./solution/fluentui-custom-theme.msapp) the `.msapp` from the `solution` folder
+* [Download](https://github.com/pnp/powerapps-samples/raw/main/samples/fluentui-custom-theme/solution/fluentui-custom-theme.msapp) the `.msapp` from the [`solution`](https://github.com/pnp/powerapps-samples/tree/main/samples/fluentui-custom-theme/solution) folder
 * Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just downloaded.
 * Save and Publish
 
