@@ -1,0 +1,5235 @@
+{
+  "CurrentTheme": "defaultTheme",
+  "CustomThemes": [
+    {
+      "name": "defaultTheme",
+      "palette": [
+        {
+          "name": "ReservedInfoColor",
+          "type": "c",
+          "value": "fluentUIPalette.neutralLighter"
+        },
+        {
+          "name": "ReservedSuccessColor",
+          "type": "c",
+          "value": "fluentUIPalette.greenLight"
+        },
+        {
+          "name": "ReservedWarningColor",
+          "type": "c",
+          "value": "fluentUIPalette.yellowLight"
+        },
+        {
+          "name": "ReservedErrorColor",
+          "type": "c",
+          "value": "fluentUIPalette.orangeLight"
+        },
+        {
+          "name": "ReservedCriticalErrorColor",
+          "type": "c",
+          "value": "fluentUIPalette.red"
+        },
+        {
+          "name": "ReservedDisabledStatusColor",
+          "type": "c",
+          "value": "fluentUIPalette.neutralLighter"
+        },
+        {
+          "name": "ReservedWhiteColor",
+          "type": "c",
+          "value": "fluentUIPalette.white"
+        },
+        {
+          "name": "ReservedGrayColor",
+          "type": "c",
+          "value": "fluentUIPalette.neutralSecondary"
+        },
+        {
+          "name": "ReservedBlackColor",
+          "type": "c",
+          "value": "fluentUIPalette.black"
+        },
+        {
+          "name": "ReservedChartColorSet",
+          "type": "![]",
+          "value": "[RGBA(49, 130, 93, 1),RGBA(48,166,103, 1), RGBA(94,193,108,1), RGBA(246,199,144,1), RGBA(247,199,114,1), RGBA(247,180,91,1), RGBA(246,143,100,1), RGBA(212,96,104,1), RGBA(148, 110, 176, 1), RGBA(118, 154, 204, 1), RGBA(96, 197, 234, 1)]"
+        },
+        {
+          "name": "TextBodyFontWeight",
+          "type": "e",
+          "value": "%FontWeight.RESERVED%.Normal"
+        },
+        {
+          "name": "TextEmphasisFontWeight",
+          "type": "e",
+          "value": "%FontWeight.RESERVED%.Semibold"
+        },
+        {
+          "name": "TextBodyFontFace",
+          "type": "e",
+          "value": "%Font.RESERVED%.'Segoe UI'"
+        },
+        {
+          "name": "TextHeaderFontSize",
+          "type": "n",
+          "value": "18"
+        },
+        {
+          "name": "TextTitleFontSize",
+          "type": "n",
+          "value": "20"
+        },
+        {
+          "name": "TextSubtitleFontSize",
+          "type": "n",
+          "value": "18"
+        },
+        {
+          "name": "TextContentFontSize",
+          "type": "n",
+          "value": "16"
+        },
+        {
+          "name": "TextHeaderFontSize2020",
+          "type": "n",
+          "value": "16"
+        },
+        {
+          "name": "TextEmphasisFontSize",
+          "type": "n",
+          "value": "15"
+        },
+        {
+          "name": "TextBodyFontSize",
+          "type": "n",
+          "value": "10.5"
+        },
+        {
+          "name": "TextFooterFontSize",
+          "type": "n",
+          "value": "10.5"
+        },
+        {
+          "name": "TextMiniFontSize",
+          "type": "n",
+          "value": "9"
+        },
+        {
+          "name": "NoAttachmentPaddingLeft",
+          "type": "n",
+          "value": "12"
+        },
+        {
+          "name": "DefaultSize",
+          "type": "n",
+          "value": "10.5"
+        },
+        {
+          "name": "DefaultSize2",
+          "type": "n",
+          "value": "9"
+        }
+      ],
+      "styles": [
+        {
+          "controlTemplateName": "screen",
+          "name": "defaultScreenStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "LoadingSpinnerColor",
+              "value": "fluentUIPalette.themePrimary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "defaultLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "BorderColor",
+              "value": "RGBA(0, 18, 107, 1)"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "Font",
+              "value": "Font.'Segoe UI'"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "Size",
+              "value": "10.5"
+            },
+            {
+              "property": "LineHeight",
+              "value": "1.2"
+            },
+            {
+              "property": "Overflow",
+              "value": "%Overflow.RESERVED%.Hidden"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "RGBA(56, 56, 56, 1)"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "Italic",
+              "value": "false"
+            },
+            {
+              "property": "Underline",
+              "value": "false"
+            },
+            {
+              "property": "Strikethrough",
+              "value": "false"
+            },
+            {
+              "property": "PaddingTop",
+              "value": "5"
+            },
+            {
+              "property": "PaddingRight",
+              "value": "5"
+            },
+            {
+              "property": "PaddingBottom",
+              "value": "5"
+            },
+            {
+              "property": "PaddingLeft",
+              "value": "5"
+            },
+            {
+              "property": "VerticalAlign",
+              "value": "%VerticalAlign.RESERVED%.Middle"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "Self.BorderColor"
+            },
+            {
+              "property": "PressedBorderColor",
+              "value": "Self.BorderColor"
+            },
+            {
+              "property": "HoverColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "PressedColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "FocusedBorderColor",
+              "value": "Self.BorderColor"
+            },
+            {
+              "property": "PressedFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "HoverFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "Width",
+              "value": "150"
+            },
+            {
+              "property": "Height",
+              "value": "32"
+            },
+            {
+              "property": "Text",
+              "value": "\"Text\""
+            },
+            {
+              "property": "Role",
+              "value": "TextRole.Default"
+            },
+            {
+              "property": "Live",
+              "value": "Live.Off"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "basicNoSizeLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "basicNoSizeInvertedBkgLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "basicNoSizeWeightColorLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "invertedBkgHeaderLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextHeaderFontSize%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "invertedBkgTitleLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextTitleFontSize%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "linkLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "headerLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextHeaderFontSize%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "subHeaderLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextEmphasisFontWeight%"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextBodyFontSize%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "titleLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextEmphasisFontWeight%"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextTitleFontSize%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "overlayTitleLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextEmphasisFontWeight%"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextTitleFontSize%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "subtitleLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextSubtitleFontSize%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "overlaySubtitleLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextSubtitleFontSize%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "contentLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextContentFontSize%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "accentLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextBodyFontSize%"
+            },
+            {
+              "property": "LineHeight",
+              "value": "1.2"
+            },
+            {
+              "property": "Overflow",
+              "value": "%Overflow.RESERVED%.Hidden"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "RGBA(56, 56, 56, 1)"
+            },
+            {
+              "property": "BorderColor",
+              "value": "RGBA(0, 0, 0, 1)"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "Fill",
+              "value": "RGBA(0, 0, 0, 0)"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "RGBA(0, 0, 0, 0)"
+            },
+            {
+              "property": "Italic",
+              "value": "false"
+            },
+            {
+              "property": "Underline",
+              "value": "false"
+            },
+            {
+              "property": "Strikethrough",
+              "value": "false"
+            },
+            {
+              "property": "PaddingTop",
+              "value": "5"
+            },
+            {
+              "property": "PaddingRight",
+              "value": "5"
+            },
+            {
+              "property": "PaddingBottom",
+              "value": "5"
+            },
+            {
+              "property": "PaddingLeft",
+              "value": "5"
+            },
+            {
+              "property": "VerticalAlign",
+              "value": "%VerticalAlign.RESERVED%.Middle"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "pickerEmphasisLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextEmphasisFontWeight%"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextEmphasisFontSize%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "pickerEmphasisWithAccentLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextEmphasisFontWeight%"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextEmphasisFontSize%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "pickerEmphasisSecondaryLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextEmphasisFontSize%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "footerAccentLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextFooterFontSize%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "footerLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextFooterFontSize%"
+            },
+            {
+              "property": "BorderColor",
+              "value": "RGBA(0, 0, 0, 1)"
+            },
+            {
+              "property": "LineHeight",
+              "value": "1.2"
+            },
+            {
+              "property": "Overflow",
+              "value": "%Overflow.RESERVED%.Hidden"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "RGBA(56, 56, 56, 1)"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "Fill",
+              "value": "RGBA(0, 0, 0, 0)"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "RGBA(0, 0, 0, 0)"
+            },
+            {
+              "property": "Italic",
+              "value": "false"
+            },
+            {
+              "property": "Underline",
+              "value": "false"
+            },
+            {
+              "property": "Strikethrough",
+              "value": "false"
+            },
+            {
+              "property": "PaddingTop",
+              "value": "5"
+            },
+            {
+              "property": "PaddingRight",
+              "value": "5"
+            },
+            {
+              "property": "PaddingBottom",
+              "value": "5"
+            },
+            {
+              "property": "PaddingLeft",
+              "value": "5"
+            },
+            {
+              "property": "VerticalAlign",
+              "value": "%VerticalAlign.RESERVED%.Middle"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "miniLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextMiniFontSize%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "miniInvertedBkgLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextMiniFontSize%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "disabledLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "%Palette.ReservedDisabledStatusColor%"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextEmphasisFontWeight%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "infoLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextEmphasisFontWeight%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "successLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "%Palette.ReservedSuccessColor%"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextEmphasisFontWeight%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "warningLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "%Palette.ReservedWarningColor%"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextEmphasisFontWeight%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "errorLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "%Palette.ReservedErrorColor%"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextEmphasisFontWeight%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "label",
+          "name": "criticalErrorLabelStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "%Palette.ReservedCriticalErrorColor%"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextEmphasisFontWeight%"
+            },
+            {
+              "property": "LineHeight",
+              "value": "1.2"
+            },
+            {
+              "property": "BorderColor",
+              "value": "RGBA(0, 0, 0, 1)"
+            },
+            {
+              "property": "Overflow",
+              "value": "%Overflow.RESERVED%.Hidden"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "RGBA(56, 56, 56, 1)"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "Fill",
+              "value": "RGBA(0, 0, 0, 0)"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "RGBA(0, 0, 0, 0)"
+            },
+            {
+              "property": "Italic",
+              "value": "false"
+            },
+            {
+              "property": "Underline",
+              "value": "false"
+            },
+            {
+              "property": "Strikethrough",
+              "value": "false"
+            },
+            {
+              "property": "VerticalAlign",
+              "value": "%VerticalAlign.RESERVED%.Middle"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.DefaultSize%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "toggleSwitch",
+          "name": "defaultToggleSwitchStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "BorderStyle.None"
+            },
+            {
+              "property": "HandleFill",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "FalseFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "Size",
+              "value": "10.5"
+            },
+            {
+              "property": "TrueFill",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "FalseHoverFill",
+              "value": "ColorFade(Self.FalseFill, 15%)"
+            },
+            {
+              "property": "TrueHoverFill",
+              "value": "ColorFade(Self.TrueFill, 15%)"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "RGBA(56, 56, 56, 1)"
+            },
+            {
+              "property": "PressedBorderColor",
+              "value": "ColorFade(Self.BorderColor, -15%)"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "ColorFade(Self.BorderColor, 15%)"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "2"
+            },
+            {
+              "property": "FocusedBorderColor",
+              "value": "Self.BorderColor"
+            },
+            {
+              "property": "Width",
+              "value": "92"
+            },
+            {
+              "property": "Height",
+              "value": "22"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "rating",
+          "name": "defaultRatingStyle",
+          "propertyValuesMap": [
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "RatingFill",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "FocusedBorderColor",
+              "value": "Self.BorderColor"
+            },
+            {
+              "property": "HoverFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "PressedFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "Width",
+              "value": "200"
+            },
+            {
+              "property": "Height",
+              "value": "32"
+            },
+            {
+              "property": "Default",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "checkbox",
+          "name": "defaultCheckboxStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "CheckboxBackgroundFill",
+              "value": "If(\n    Self.Value = true,\n    fluentUIPalette.themePrimary,\n    fluentUIPalette.white\n)"
+            },
+            {
+              "property": "CheckboxBorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "CheckmarkFill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "HoverColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "Size",
+              "value": "10.5"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "RGBA(56, 56, 56, 1)"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "BorderStyle.None"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "2"
+            },
+            {
+              "property": "PressedBorderColor",
+              "value": "ColorFade(Self.BorderColor, -30%)"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "ColorFade(Self.BorderColor, 30%)"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "PressedColor",
+              "value": "RGBA(70, 68, 64, 1)"
+            },
+            {
+              "property": "PressedFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "HoverFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "Italic",
+              "value": "false"
+            },
+            {
+              "property": "Underline",
+              "value": "false"
+            },
+            {
+              "property": "Strikethrough",
+              "value": "false"
+            },
+            {
+              "property": "PaddingTop",
+              "value": "0"
+            },
+            {
+              "property": "PaddingRight",
+              "value": "0"
+            },
+            {
+              "property": "PaddingBottom",
+              "value": "0"
+            },
+            {
+              "property": "PaddingLeft",
+              "value": "0"
+            },
+            {
+              "property": "VerticalAlign",
+              "value": "%VerticalAlign.RESERVED%.Middle"
+            },
+            {
+              "property": "FocusedBorderColor",
+              "value": "Self.BorderColor"
+            },
+            {
+              "property": "CheckboxSize",
+              "value": "28"
+            },
+            {
+              "property": "Width",
+              "value": "150"
+            },
+            {
+              "property": "Height",
+              "value": "32"
+            },
+            {
+              "property": "Text",
+              "value": "\"Option\""
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "radio",
+          "name": "defaultRadioStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "HoverColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "RadioBackgroundFill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "RadioBorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "RadioSelectionFill",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextBodyFontSize%"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "RGBA(56, 56, 56, 1)"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.None"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "2"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "RGBA(186, 186, 186, 1)"
+            },
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "Italic",
+              "value": "false"
+            },
+            {
+              "property": "Underline",
+              "value": "false"
+            },
+            {
+              "property": "Strikethrough",
+              "value": "false"
+            },
+            {
+              "property": "PaddingTop",
+              "value": "10"
+            },
+            {
+              "property": "PaddingRight",
+              "value": "0"
+            },
+            {
+              "property": "PaddingBottom",
+              "value": "10"
+            },
+            {
+              "property": "PaddingLeft",
+              "value": "0"
+            },
+            {
+              "property": "Align",
+              "value": "%Align.RESERVED%.Left"
+            },
+            {
+              "property": "PressedColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "HoverFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "PressedFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "RadioSize",
+              "value": "28"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "listbox",
+          "name": "defaultListboxStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "1"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "2"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter\r\n"
+            },
+            {
+              "property": "DisabledSelectionColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "DisabledSelectionFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "HoverColor",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "HoverFill",
+              "value": "fluentUIPalette.neutralLighterAlt"
+            },
+            {
+              "property": "PressedColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "PressedFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "SelectionColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "SelectionFill",
+              "value": "fluentUIPalette.neutralLight"
+            },
+            {
+              "property": "Size",
+              "value": "10.5"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "PressedBorderColor",
+              "value": "Self.HoverBorderColor"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "PaddingTop",
+              "value": "0"
+            },
+            {
+              "property": "PaddingRight",
+              "value": "0"
+            },
+            {
+              "property": "PaddingBottom",
+              "value": "0"
+            },
+            {
+              "property": "PaddingLeft",
+              "value": "0"
+            },
+            {
+              "property": "Width",
+              "value": "320"
+            },
+            {
+              "property": "Height",
+              "value": "135"
+            },
+            {
+              "property": "FocusedBorderColor",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "Items",
+              "value": "ListboxSample"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "dropdown",
+          "name": "defaultDropdownStyle",
+          "propertyValuesMap": [
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "1"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "2"
+            },
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "ChevronBackground",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "ChevronFill",
+              "value": "Self.Color"
+            },
+            {
+              "property": "ChevronHoverBackground",
+              "value": "Self.HoverFill"
+            },
+            {
+              "property": "ChevronHoverFill",
+              "value": "Self.HoverColor"
+            },
+            {
+              "property": "ChevronDisabledBackground",
+              "value": "Self.DisabledFill"
+            },
+            {
+              "property": "ChevronDisabledFill",
+              "value": "Self.DisabledColor"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter\r\n"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "HoverColor",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "HoverFill",
+              "value": "fluentUIPalette.neutralLight"
+            },
+            {
+              "property": "Size",
+              "value": "10.5"
+            },
+            {
+              "property": "PressedColor",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "PressedFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "SelectionColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "SelectionFill",
+              "value": "fluentUIPalette.neutralLight"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "PressedBorderColor",
+              "value": "Self.HoverBorderColor"
+            },
+            {
+              "property": "Italic",
+              "value": "false"
+            },
+            {
+              "property": "Underline",
+              "value": "false"
+            },
+            {
+              "property": "Strikethrough",
+              "value": "false"
+            },
+            {
+              "property": "PaddingTop",
+              "value": "5"
+            },
+            {
+              "property": "PaddingRight",
+              "value": "24"
+            },
+            {
+              "property": "PaddingBottom",
+              "value": "5"
+            },
+            {
+              "property": "PaddingLeft",
+              "value": "8"
+            },
+            {
+              "property": "Width",
+              "value": "320"
+            },
+            {
+              "property": "Height",
+              "value": "30"
+            },
+            {
+              "property": "FocusedBorderColor",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "Items",
+              "value": "DropDownSample"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "combobox",
+          "name": "defaultComboBoxStyle",
+          "propertyValuesMap": [
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "1"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "2"
+            },
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "ChevronBackground",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "ChevronFill",
+              "value": "Self.Color"
+            },
+            {
+              "property": "ChevronHoverBackground",
+              "value": "Self.HoverFill"
+            },
+            {
+              "property": "ChevronHoverFill",
+              "value": "Self.HoverColor"
+            },
+            {
+              "property": "ChevronDisabledBackground",
+              "value": "Self.DisabledFill"
+            },
+            {
+              "property": "ChevronDisabledFill",
+              "value": "Self.DisabledColor"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter\r\n"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "HoverColor",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "HoverFill",
+              "value": "fluentUIPalette.neutralLight"
+            },
+            {
+              "property": "Size",
+              "value": "10.5"
+            },
+            {
+              "property": "PressedColor",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "PressedFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "SelectionColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "SelectionFill",
+              "value": "fluentUIPalette.neutralLight"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "PressedBorderColor",
+              "value": "Self.HoverBorderColor"
+            },
+            {
+              "property": "MoreItemsButtonColor",
+              "value": "Self.ChevronBackground"
+            },
+            {
+              "property": "FocusedBorderColor",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "PaddingRight",
+              "value": "5"
+            },
+            {
+              "property": "PaddingBottom",
+              "value": "5"
+            },
+            {
+              "property": "PaddingLeft",
+              "value": "5"
+            },
+            {
+              "property": "SelectionTagFill",
+              "value": "Self.HoverFill"
+            },
+            {
+              "property": "Height",
+              "value": "30"
+            },
+            {
+              "property": "Width",
+              "value": "320"
+            },
+            {
+              "property": "SelectionTagColor",
+              "value": "Self.HoverColor"
+            },
+            {
+              "property": "PaddingTop",
+              "value": "5"
+            },
+            {
+              "property": "SearchItems",
+              "value": "Search(ComboBoxSample,ThemedComboBox.SearchText,\"Value1\")"
+            },
+            {
+              "property": "NavigateFields",
+              "value": "[]"
+            },
+            {
+              "property": "DisplayFields",
+              "value": "[\"Value1\"]"
+            },
+            {
+              "property": "Items",
+              "value": "ComboBoxSample"
+            },
+            {
+              "property": "SearchFields",
+              "value": "[\"Value1\"]"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "attachments",
+          "name": "defaultAttachmentsStyle",
+          "propertyValuesMap": [
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "1"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "2"
+            },
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "HoverColor",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "HoverFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextBodyFontSize%"
+            },
+            {
+              "property": "PressedColor",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "PressedFill",
+              "value": "fluentUIPalette.themeSecondary"
+            },
+            {
+              "property": "ItemColor",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "ItemFill",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "ItemHoverColor",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "ItemHoverFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "ItemSpacing",
+              "value": "0"
+            },
+            {
+              "property": "NoAttachmentsColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "NoAttachmentsPaddingLeft",
+              "value": "%Palette.NoAttachmentPaddingLeft%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "datepicker",
+          "name": "defaultDatePickerStyle",
+          "propertyValuesMap": [
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "1"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "2"
+            },
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "Font",
+              "value": "Font.'Segoe UI'"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "IconFill",
+              "value": "Self.Color"
+            },
+            {
+              "property": "IconBackground",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "SelectedDateFill",
+              "value": "RGBA(56, 96, 178, 1)"
+            },
+            {
+              "property": "HoverDateFill",
+              "value": "RGBA(186, 202, 226, 1)"
+            },
+            {
+              "property": "CalendarHeaderFill",
+              "value": "RGBA(56, 96, 178, 1)"
+            },
+            {
+              "property": "Size",
+              "value": "10.5"
+            },
+            {
+              "property": "Italic",
+              "value": "false"
+            },
+            {
+              "property": "PaddingTop",
+              "value": "0"
+            },
+            {
+              "property": "PaddingRight",
+              "value": "24"
+            },
+            {
+              "property": "PaddingBottom",
+              "value": "0"
+            },
+            {
+              "property": "PaddingLeft",
+              "value": "8"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "Self.BorderColor"
+            },
+            {
+              "property": "PressedBorderColor",
+              "value": "Self.BorderColor"
+            },
+            {
+              "property": "Height",
+              "value": "30"
+            },
+            {
+              "property": "PressedFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "HoverFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "Width",
+              "value": "320"
+            },
+            {
+              "property": "FocusedBorderColor",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "InputTextPlaceholder",
+              "value": "If(IsBlank(Self.SelectedDate), Text(Date(2001,12,31), Self.Format, Self.Language))"
+            },
+            {
+              "property": "StartYear",
+              "value": "1970"
+            },
+            {
+              "property": "EndYear",
+              "value": "2050"
+            },
+            {
+              "property": "StartOfWeek",
+              "value": "StartOfWeek.Sunday"
+            },
+            {
+              "property": "DefaultDate",
+              "value": "Today()"
+            },
+            {
+              "property": "DateTimeZone",
+              "value": "DateTimeZone.Local"
+            },
+            {
+              "property": "Format",
+              "value": "DateTimeFormat.ShortDate"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "lookup",
+          "name": "defaultLookupStyle",
+          "propertyValuesMap": [
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "1"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "2"
+            },
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "ChevronBackground",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "ChevronFill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "ChevronHoverBackground",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "ChevronHoverFill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "ChevronDisabledBackground",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "ChevronDisabledFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "HoverColor",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "HoverFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextBodyFontSize%"
+            },
+            {
+              "property": "PressedColor",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "PressedFill",
+              "value": "fluentUIPalette.themeSecondary"
+            },
+            {
+              "property": "SelectionColor",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "SelectionFill",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "ColorFade(Self.BorderColor, 15%)"
+            },
+            {
+              "property": "PressedBorderColor",
+              "value": "Self.HoverBorderColor"
+            },
+            {
+              "property": "Italic",
+              "value": "false"
+            },
+            {
+              "property": "Underline",
+              "value": "false"
+            },
+            {
+              "property": "Strikethrough",
+              "value": "false"
+            },
+            {
+              "property": "PaddingTop",
+              "value": "10"
+            },
+            {
+              "property": "PaddingRight",
+              "value": "10"
+            },
+            {
+              "property": "PaddingBottom",
+              "value": "10"
+            },
+            {
+              "property": "PaddingLeft",
+              "value": "10"
+            },
+            {
+              "property": "FooterSize",
+              "value": "Self.Size - 3"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "text",
+          "name": "defaultTextStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "1"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "2"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "HoverColor",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "HoverFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "Size",
+              "value": "10.5"
+            },
+            {
+              "property": "RadiusTopLeft",
+              "value": "0"
+            },
+            {
+              "property": "RadiusBottomRight",
+              "value": "0"
+            },
+            {
+              "property": "RadiusTopRight",
+              "value": "0"
+            },
+            {
+              "property": "RadiusBottomLeft",
+              "value": "0"
+            },
+            {
+              "property": "PressedBorderColor",
+              "value": "Self.HoverBorderColor"
+            },
+            {
+              "property": "PressedColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "PressedFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "Italic",
+              "value": "false"
+            },
+            {
+              "property": "Underline",
+              "value": "false"
+            },
+            {
+              "property": "Strikethrough",
+              "value": "false"
+            },
+            {
+              "property": "Align",
+              "value": "%Align.RESERVED%.Left"
+            },
+            {
+              "property": "PaddingTop",
+              "value": "0"
+            },
+            {
+              "property": "VirtualKeyboardMode",
+              "value": "VirtualKeyboardMode.Auto"
+            },
+            {
+              "property": "Width",
+              "value": "320"
+            },
+            {
+              "property": "Height",
+              "value": "30"
+            },
+            {
+              "property": "FocusedBorderColor",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "PaddingRight",
+              "value": "24"
+            },
+            {
+              "property": "PaddingBottom",
+              "value": "0"
+            },
+            {
+              "property": "PaddingLeft",
+              "value": "8"
+            },
+            {
+              "property": "AccessibleLabel",
+              "value": "Self.HintText"
+            },
+            {
+              "property": "DelayOutput",
+              "value": "false"
+            },
+            {
+              "property": "Default",
+              "value": "\"Text input\""
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "text",
+          "name": "searchTextStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.None"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "1"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "2"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "HoverColor",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "HoverFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextBodyFontSize%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "slider",
+          "name": "defaultSliderStyle",
+          "propertyValuesMap": [
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "BorderStyle.None"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "HandleFill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "RailFill",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "ValueFill",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "HandleHoverFill",
+              "value": "Self.HandleFill"
+            },
+            {
+              "property": "HandleActiveFill",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "RailHoverFill",
+              "value": "ColorFade(Self.RailFill, 15%)"
+            },
+            {
+              "property": "ValueHoverFill",
+              "value": "ColorFade(Self.ValueFill, 15%)"
+            },
+            {
+              "property": "PressedBorderColor",
+              "value": "ColorFade(Self.BorderColor, -30%)"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "ColorFade(Self.BorderColor, 30%)"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "2"
+            },
+            {
+              "property": "FocusedBorderColor",
+              "value": "Self.BorderColor"
+            },
+            {
+              "property": "Width",
+              "value": "320"
+            },
+            {
+              "property": "Height",
+              "value": "32\r\n"
+            },
+            {
+              "property": "HandleSize",
+              "value": "20\r\n"
+            },
+            {
+              "property": "RailThickness",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "button",
+          "name": "defaultButtonStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralDark"
+            },
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "Font",
+              "value": "Font.'Segoe UI'"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextEmphasisFontWeight%"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "Size",
+              "value": "10.5"
+            },
+            {
+              "property": "HoverColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "HoverFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "RadiusTopLeft",
+              "value": "2"
+            },
+            {
+              "property": "RadiusBottomRight",
+              "value": "2"
+            },
+            {
+              "property": "RadiusTopRight",
+              "value": "2"
+            },
+            {
+              "property": "RadiusBottomLeft",
+              "value": "2"
+            },
+            {
+              "property": "PressedBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "1"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "1"
+            },
+            {
+              "property": "PressedColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "PressedFill",
+              "value": "fluentUIPalette.neutralLight"
+            },
+            {
+              "property": "Italic",
+              "value": "false"
+            },
+            {
+              "property": "Underline",
+              "value": "false"
+            },
+            {
+              "property": "Strikethrough",
+              "value": "false"
+            },
+            {
+              "property": "Align",
+              "value": "%Align.RESERVED%.Center"
+            },
+            {
+              "property": "VerticalAlign",
+              "value": "%VerticalAlign.RESERVED%.Middle"
+            },
+            {
+              "property": "Width",
+              "value": "150"
+            },
+            {
+              "property": "FocusedBorderColor",
+              "value": "Self.BorderColor"
+            },
+            {
+              "property": "PaddingTop",
+              "value": "0"
+            },
+            {
+              "property": "Height",
+              "value": "32"
+            },
+            {
+              "property": "PaddingLeft",
+              "value": "16"
+            },
+            {
+              "property": "PaddingBottom",
+              "value": "0"
+            },
+            {
+              "property": "PaddingRight",
+              "value": "16"
+            },
+            {
+              "property": "Text",
+              "value": "\"Button\""
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "button",
+          "name": "cancelButtonStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.themeTertiary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextEmphasisFontWeight%"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextEmphasisFontSize%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "button",
+          "name": "rezervedOkButtonStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "%Palette.ReservedWhiteColor%"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "Fill",
+              "value": "%Palette.ReservedInfoColor%"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextEmphasisFontWeight%"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextEmphasisFontSize%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "button",
+          "name": "rezervedCancelButtonStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "%Palette.ReservedInfoColor%"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "Fill",
+              "value": "%Palette.ReservedWhiteColor%"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextEmphasisFontWeight%"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextEmphasisFontSize%"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "lineChart",
+          "name": "defaultLineChartStyle",
+          "propertyValuesMap": [
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "ItemColorSet",
+              "value": "%Palette.ReservedChartColorSet%"
+            },
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "RGBA(0, 0, 0, 1)"
+            },
+            {
+              "property": "PressedBorderColor",
+              "value": "ColorFade(Self.BorderColor, -30%)"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "ColorFade(Self.BorderColor, 30%)"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "Font",
+              "value": "%Font.RESERVED%.'Open Sans"
+            },
+            {
+              "property": "Size",
+              "value": "11"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "lineChart",
+          "name": "monochromeAccentLineChartStyle",
+          "propertyValuesMap": [
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "ItemColorSet",
+              "value": "[fluentUIPalette.themePrimary]"
+            },
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "pieChart",
+          "name": "defaultPieChartStyle",
+          "propertyValuesMap": [
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "ItemColorSet",
+              "value": "%Palette.ReservedChartColorSet%"
+            },
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "RGBA(0, 0, 0, 1)"
+            },
+            {
+              "property": "PressedBorderColor",
+              "value": "ColorFade(Self.BorderColor, -30%)"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "ColorFade(Self.BorderColor, 30%)"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "Font",
+              "value": "%Font.RESERVED%.'Open Sans'"
+            },
+            {
+              "property": "Size",
+              "value": "10"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "pieChart",
+          "name": "monochromeAccentPieChartStyle",
+          "propertyValuesMap": [
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "ItemColorSet",
+              "value": "[fluentUIPalette.themePrimary]"
+            },
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "barChart",
+          "name": "defaultBarChartStyle",
+          "propertyValuesMap": [
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "ItemColorSet",
+              "value": "%Palette.ReservedChartColorSet%"
+            },
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "RGBA(0, 0, 0, 1)"
+            },
+            {
+              "property": "PressedBorderColor",
+              "value": "ColorFade(Self.BorderColor, -30%)"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "ColorFade(Self.BorderColor, 30%)"
+            },
+            {
+              "property": "Size",
+              "value": "10"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "Font",
+              "value": "%Font.RESERVED%.'Open Sans'"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "barChart",
+          "name": "monochromeAccentBarChartStyle",
+          "propertyValuesMap": [
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "ItemColorSet",
+              "value": "[fluentUIPalette.themePrimary]"
+            },
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "legend",
+          "name": "defaultLegendStyle",
+          "propertyValuesMap": [
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextFooterFontSize%"
+            },
+            {
+              "property": "BorderColor",
+              "value": "RGBA(0, 0, 0, 1)"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "RGBA(56, 56, 56, 1)"
+            },
+            {
+              "property": "PressedBorderColor",
+              "value": "Self.BorderColor"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "Self.BorderColor"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "RGBA(0, 0, 0, 0)"
+            },
+            {
+              "property": "Italic",
+              "value": "false"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "rectangle",
+          "name": "separatorShapeStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.themeTertiary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "videoPlayback",
+          "name": "defaultVideoPlaybackStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "1"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "2"
+            },
+            {
+              "property": "FocusedBorderColor",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "Height",
+              "value": "272"
+            },
+            {
+              "property": "Width",
+              "value": "484"
+            },
+            {
+              "property": "Media",
+              "value": "SampleVideo"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "timer",
+          "name": "defaultTimerStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralDark"
+            },
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "Font",
+              "value": "Font.'Segoe UI'"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextEmphasisFontWeight%"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "Size",
+              "value": "10.5"
+            },
+            {
+              "property": "HoverColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "HoverFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "RadiusTopLeft",
+              "value": "2"
+            },
+            {
+              "property": "RadiusBottomRight",
+              "value": "2"
+            },
+            {
+              "property": "RadiusTopRight",
+              "value": "2"
+            },
+            {
+              "property": "RadiusBottomLeft",
+              "value": "2"
+            },
+            {
+              "property": "PressedBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "1"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "1"
+            },
+            {
+              "property": "PressedColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "PressedFill",
+              "value": "fluentUIPalette.neutralLight"
+            },
+            {
+              "property": "Italic",
+              "value": "false"
+            },
+            {
+              "property": "Underline",
+              "value": "false"
+            },
+            {
+              "property": "Strikethrough",
+              "value": "false"
+            },
+            {
+              "property": "Align",
+              "value": "%Align.RESERVED%.Center"
+            },
+            {
+              "property": "VerticalAlign",
+              "value": "%VerticalAlign.RESERVED%.Middle"
+            },
+            {
+              "property": "Width",
+              "value": "150"
+            },
+            {
+              "property": "FocusedBorderColor",
+              "value": "Self.BorderColor"
+            },
+            {
+              "property": "PaddingTop",
+              "value": "0"
+            },
+            {
+              "property": "Height",
+              "value": "32"
+            },
+            {
+              "property": "PaddingLeft",
+              "value": "16"
+            },
+            {
+              "property": "PaddingBottom",
+              "value": "0"
+            },
+            {
+              "property": "PaddingRight",
+              "value": "16"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "triangle",
+          "name": "defaultTriangleStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "PressedFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "HoverFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "star",
+          "name": "defaultStarStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "pentagon",
+          "name": "defaultPentagonStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "PressedFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "HoverFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "partialCircle",
+          "name": "defaultPartialCircleStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "octagon",
+          "name": "defaultOctagonStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "PressedFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "HoverFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "hexagon",
+          "name": "defaultHexagonStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "PressedFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "HoverFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "hexagon",
+          "name": "primary2HexagonStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.themeSecondary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "hexagon",
+          "name": "primary3HexagonStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.themeTertiary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "hexagon",
+          "name": "primary3FadeHexagonStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "ColorFade(fluentUIPalette.themeLighterAlt, 70%)"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "hexagon",
+          "name": "screenHexagonStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "circle",
+          "name": "defaultCircleStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "PressedFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "HoverFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "circle",
+          "name": "primary2CircleStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.themeSecondary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "circle",
+          "name": "primary3CircleStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.themeTertiary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "circle",
+          "name": "primary3FadeCircleStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "ColorFade(fluentUIPalette.themeLighterAlt, 70%)"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "arrow",
+          "name": "defaultArrowStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "icon",
+          "name": "defaultIconStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "PressedColor",
+              "value": "ColorFade(Self.Color, -20%)"
+            },
+            {
+              "property": "HoverColor",
+              "value": "ColorFade(Self.Color, 20%)"
+            },
+            {
+              "property": "Fill",
+              "value": "RGBA(0, 0, 0, 0)"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "PressedFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "HoverFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "PressedBorderColor",
+              "value": "ColorFade(Self.BorderColor, -20%)"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "ColorFade(Self.BorderColor, 20%)"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "icon",
+          "name": "primary1IconStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "icon",
+          "name": "primary3IconStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.themeTertiary"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "icon",
+          "name": "invertedBkgHeaderIconStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "PressedFill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "microphone",
+          "name": "defaultMicrophoneStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "HoverFill",
+              "value": "fluentUIPalette.themeDarkAlt"
+            },
+            {
+              "property": "HoverColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "PressedColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "PressedBorderColor",
+              "value": "Self.BorderColor"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "Self.BorderColor"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "PressedFill",
+              "value": "fluentUIPalette.themeDark"
+            },
+            {
+              "property": "FocusedBorderColor",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "barcode",
+          "name": "defaultBarcodeStyle",
+          "propertyValuesMap": [
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "barcodeScanner",
+          "name": "defaultBarcodeScannerStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralDark"
+            },
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "Font",
+              "value": "Font.'Segoe UI'"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextEmphasisFontWeight%"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "Size",
+              "value": "10.5"
+            },
+            {
+              "property": "HoverColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "HoverFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "RadiusTopLeft",
+              "value": "2"
+            },
+            {
+              "property": "RadiusBottomRight",
+              "value": "2"
+            },
+            {
+              "property": "RadiusTopRight",
+              "value": "2"
+            },
+            {
+              "property": "RadiusBottomLeft",
+              "value": "2"
+            },
+            {
+              "property": "PressedBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "1"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "1"
+            },
+            {
+              "property": "PressedColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "PressedFill",
+              "value": "fluentUIPalette.neutralLight"
+            },
+            {
+              "property": "Italic",
+              "value": "false"
+            },
+            {
+              "property": "Underline",
+              "value": "false"
+            },
+            {
+              "property": "Strikethrough",
+              "value": "false"
+            },
+            {
+              "property": "Align",
+              "value": "%Align.RESERVED%.Center"
+            },
+            {
+              "property": "VerticalAlign",
+              "value": "%VerticalAlign.RESERVED%.Middle"
+            },
+            {
+              "property": "Width",
+              "value": "150"
+            },
+            {
+              "property": "FocusedBorderColor",
+              "value": "Self.BorderColor"
+            },
+            {
+              "property": "PaddingTop",
+              "value": "0"
+            },
+            {
+              "property": "Height",
+              "value": "32"
+            },
+            {
+              "property": "PaddingLeft",
+              "value": "16"
+            },
+            {
+              "property": "PaddingBottom",
+              "value": "0"
+            },
+            {
+              "property": "PaddingRight",
+              "value": "16"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "camera",
+          "name": "defaultCameraStyle",
+          "propertyValuesMap": [
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "FocusedBorderColor",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "2"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "inkControl",
+          "name": "defaultInkControlStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "Size",
+              "value": "1"
+            },
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "import",
+          "name": "defaultImportStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralDark"
+            },
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "Font",
+              "value": "Font.'Segoe UI'"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextEmphasisFontWeight%"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "Size",
+              "value": "10.5"
+            },
+            {
+              "property": "HoverColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "HoverFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "RadiusTopLeft",
+              "value": "2"
+            },
+            {
+              "property": "RadiusBottomRight",
+              "value": "2"
+            },
+            {
+              "property": "RadiusTopRight",
+              "value": "2"
+            },
+            {
+              "property": "RadiusBottomLeft",
+              "value": "2"
+            },
+            {
+              "property": "PressedBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "1"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "1"
+            },
+            {
+              "property": "PressedColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "PressedFill",
+              "value": "fluentUIPalette.neutralLight"
+            },
+            {
+              "property": "Italic",
+              "value": "false"
+            },
+            {
+              "property": "Underline",
+              "value": "false"
+            },
+            {
+              "property": "Strikethrough",
+              "value": "false"
+            },
+            {
+              "property": "Align",
+              "value": "%Align.RESERVED%.Center"
+            },
+            {
+              "property": "VerticalAlign",
+              "value": "%VerticalAlign.RESERVED%.Middle"
+            },
+            {
+              "property": "Width",
+              "value": "150"
+            },
+            {
+              "property": "FocusedBorderColor",
+              "value": "Self.BorderColor"
+            },
+            {
+              "property": "PaddingTop",
+              "value": "0"
+            },
+            {
+              "property": "Height",
+              "value": "32"
+            },
+            {
+              "property": "PaddingLeft",
+              "value": "16"
+            },
+            {
+              "property": "PaddingBottom",
+              "value": "0"
+            },
+            {
+              "property": "PaddingRight",
+              "value": "16"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "image",
+          "name": "defaultImageStyle",
+          "propertyValuesMap": [
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "Fill",
+              "value": "RGBA(0, 0, 0, 0)"
+            },
+            {
+              "property": "PressedFill",
+              "value": "ColorFade(Self.Fill, -20%)"
+            },
+            {
+              "property": "HoverFill",
+              "value": "ColorFade(Self.Fill, 20%)"
+            },
+            {
+              "property": "RadiusTopLeft",
+              "value": "0"
+            },
+            {
+              "property": "RadiusTopRight",
+              "value": "0"
+            },
+            {
+              "property": "RadiusBottomLeft",
+              "value": "0"
+            },
+            {
+              "property": "RadiusBottomRight",
+              "value": "0"
+            },
+            {
+              "property": "PressedBorderColor",
+              "value": "ColorFade(Self.BorderColor, -20%)"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "2"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "PaddingTop",
+              "value": "0"
+            },
+            {
+              "property": "PaddingRight",
+              "value": "0"
+            },
+            {
+              "property": "PaddingBottom",
+              "value": "0"
+            },
+            {
+              "property": "PaddingLeft",
+              "value": "0"
+            },
+            {
+              "property": "Height",
+              "value": "100"
+            },
+            {
+              "property": "Width",
+              "value": "100"
+            },
+            {
+              "property": "FocusedBorderColor",
+              "value": "Self.BorderColor"
+            },
+            {
+              "property": "Image",
+              "value": "SampleImage"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "htmlviewer",
+          "name": "defaultHtmlViewerStyle",
+          "propertyValuesMap": [
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextBodyFontSize%"
+            },
+            {
+              "property": "Height",
+              "value": "40"
+            },
+            {
+              "property": "Width",
+              "value": "200"
+            },
+            {
+              "property": "PressedBorderColor",
+              "value": "Self.BorderColor"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "htmlviewer",
+          "name": "typedDataCardHtmlViewerStyle",
+          "propertyValuesMap": [
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextBodyFontSize%"
+            },
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.themePrimary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "export",
+          "name": "defaultExportStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralDark"
+            },
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "Font",
+              "value": "Font.'Segoe UI'"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextEmphasisFontWeight%"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "Size",
+              "value": "10.5"
+            },
+            {
+              "property": "HoverColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "HoverFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "RadiusTopLeft",
+              "value": "2"
+            },
+            {
+              "property": "RadiusBottomRight",
+              "value": "2"
+            },
+            {
+              "property": "RadiusTopRight",
+              "value": "2"
+            },
+            {
+              "property": "RadiusBottomLeft",
+              "value": "2"
+            },
+            {
+              "property": "PressedBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "1"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "1"
+            },
+            {
+              "property": "PressedColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "PressedFill",
+              "value": "fluentUIPalette.neutralLight"
+            },
+            {
+              "property": "Italic",
+              "value": "false"
+            },
+            {
+              "property": "Underline",
+              "value": "false"
+            },
+            {
+              "property": "Strikethrough",
+              "value": "false"
+            },
+            {
+              "property": "Align",
+              "value": "%Align.RESERVED%.Center"
+            },
+            {
+              "property": "VerticalAlign",
+              "value": "%VerticalAlign.RESERVED%.Middle"
+            },
+            {
+              "property": "Width",
+              "value": "150"
+            },
+            {
+              "property": "FocusedBorderColor",
+              "value": "Self.BorderColor"
+            },
+            {
+              "property": "PaddingTop",
+              "value": "0"
+            },
+            {
+              "property": "Height",
+              "value": "32"
+            },
+            {
+              "property": "PaddingLeft",
+              "value": "16"
+            },
+            {
+              "property": "PaddingBottom",
+              "value": "0"
+            },
+            {
+              "property": "PaddingRight",
+              "value": "16"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "addMedia",
+          "name": "defaultAddMediaStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralDark"
+            },
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "1"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "2"
+            },
+            {
+              "property": "Font",
+              "value": "%Font.RESERVED%.'Segoe UI'"
+            },
+            {
+              "property": "Size",
+              "value": "11"
+            },
+            {
+              "property": "Italic",
+              "value": "false"
+            },
+            {
+              "property": "Underline",
+              "value": "false"
+            },
+            {
+              "property": "Strikethrough",
+              "value": "false"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "PressedBorderColor",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "PressedColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "HoverColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "PressedFill",
+              "value": "fluentUIPalette.neutralLight"
+            },
+            {
+              "property": "HoverFill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%FontWeight.RESERVED%.Semibold"
+            },
+            {
+              "property": "Align",
+              "value": "%Align.RESERVED%.Center"
+            },
+            {
+              "property": "VerticalAlign",
+              "value": "%VerticalAlign.RESERVED%.Middle"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "audioPlayback",
+          "name": "defaultAudioPlaybackStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "2"
+            },
+            {
+              "property": "FocusedBorderColor",
+              "value": "Self.BorderColor"
+            },
+            {
+              "property": "Media",
+              "value": "SampleAudio"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "rectangle",
+          "name": "defaultRectangleStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "PressedFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "HoverFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "rectangle",
+          "name": "primary2RectangleStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.themeSecondary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "rectangle",
+          "name": "primary3RectangleStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.themeTertiary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "rectangle",
+          "name": "primary3FadeRectangleStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "ColorFade(fluentUIPalette.themeLighterAlt, 70%)"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "rectangle",
+          "name": "grayRectangleStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "%Palette.ReservedGrayColor%"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "rectangle",
+          "name": "invertedBackgroundRectangleStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "rectangle",
+          "name": "overlayRectangleStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.neutralLighter"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "typedDataCard",
+          "name": "defaultTypedDataCardStyle",
+          "propertyValuesMap": [
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "entityForm",
+          "name": "defaultEntityFormStyle",
+          "propertyValuesMap": [
+            {
+              "property": "TextColor",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "InputTextColor",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "DisabledTextColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "PrimaryColor1",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "PrimaryColor2",
+              "value": "fluentUIPalette.themeSecondary"
+            },
+            {
+              "property": "PrimaryColor3",
+              "value": "fluentUIPalette.themeTertiary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "InputBackgroundColor",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "0"
+            },
+            {
+              "property": "Font",
+              "value": "%Font.RESERVED%.'Open Sans'"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%FontWeight.RESERVED%.Normal"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "dataGrid",
+          "name": "defaultDataGridStyle",
+          "propertyValuesMap": [
+            {
+              "property": "LinkColor",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "PrimaryColor1",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "PrimaryColor2",
+              "value": "fluentUIPalette.themeSecondary"
+            },
+            {
+              "property": "PrimaryColor3",
+              "value": "fluentUIPalette.themeTertiary"
+            },
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "InvertedColor",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "SelectedFill",
+              "value": "fluentUIPalette.themeLight"
+            },
+            {
+              "property": "SelectedColor",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "HoverFill",
+              "value": "fluentUIPalette.themeLighterAlt"
+            },
+            {
+              "property": "HoverColor",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "InputFill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextBodyFontSize%"
+            },
+            {
+              "property": "HeadingFont",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "HeadingFontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "HeadingSize",
+              "value": "%Palette.TextBodyFontSize%"
+            },
+            {
+              "property": "HeadingColor",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "HeadingFill",
+              "value": "fluentUIPalette.themePrimary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "powerbi",
+          "name": "defaultPowerbiStyle",
+          "propertyValuesMap": [
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "microsoftStreamPlayback",
+          "name": "defaultMicrosoftStreamPlaybackStyle",
+          "propertyValuesMap": [
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "BorderStyle",
+              "value": "%BorderStyle.RESERVED%.Solid"
+            },
+            {
+              "property": "BorderThickness",
+              "value": "1"
+            },
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "form",
+          "name": "defaultFormStyle",
+          "propertyValuesMap": [
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "formViewer",
+          "name": "defaultFormViewerStyle",
+          "propertyValuesMap": [
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "pdfViewer",
+          "name": "defaultPdfViewerStyle",
+          "propertyValuesMap": [
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "gallery",
+          "name": "defaultGalleryStyle",
+          "propertyValuesMap": [
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "Height",
+              "value": "351"
+            },
+            {
+              "property": "TemplatePadding",
+              "value": "0"
+            },
+            {
+              "property": "LoadingSpinner",
+              "value": "LoadingSpinner.None"
+            },
+            {
+              "property": "LoadingSpinnerColor",
+              "value": "Self.BorderColor"
+            },
+            {
+              "property": "DisabledBorderColor",
+              "value": "Self.BorderColor"
+            },
+            {
+              "property": "FocusedBorderColor",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "PressedBorderColor",
+              "value": "Self.BorderColor"
+            },
+            {
+              "property": "FocusedBorderThickness",
+              "value": "2"
+            },
+            {
+              "property": "HoverBorderColor",
+              "value": "Self.BorderColor"
+            },
+            {
+              "property": "DisabledFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "PressedFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "Fill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "TemplateSize",
+              "value": "Min(160, Self.Height - 60)"
+            },
+            {
+              "property": "Width",
+              "value": "508"
+            },
+            {
+              "property": "HoverFill",
+              "value": "Self.Fill"
+            },
+            {
+              "property": "WrapCount",
+              "value": "1"
+            },
+            {
+              "property": "Items",
+              "value": "CustomGallerySample"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "richTextEditor",
+          "name": "defaultRichTextEditorStyle",
+          "propertyValuesMap": [
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            }
+          ]
+        },
+        {
+          "controlTemplateName": "dataTable",
+          "name": "defaultDataTableStyle",
+          "propertyValuesMap": [
+            {
+              "property": "LinkColor",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "PrimaryColor1",
+              "value": "fluentUIPalette.themePrimary"
+            },
+            {
+              "property": "PrimaryColor2",
+              "value": "fluentUIPalette.themeSecondary"
+            },
+            {
+              "property": "PrimaryColor3",
+              "value": "fluentUIPalette.themeTertiary"
+            },
+            {
+              "property": "Color",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "InvertedColor",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "DisabledColor",
+              "value": "fluentUIPalette.neutralTertiary"
+            },
+            {
+              "property": "SelectedFill",
+              "value": "fluentUIPalette.neutralLight"
+            },
+            {
+              "property": "SelectedColor",
+              "value": "Self.Color"
+            },
+            {
+              "property": "HoverFill",
+              "value": "fluentUIPalette.neutralLighterAlt"
+            },
+            {
+              "property": "HoverColor",
+              "value": "fluentUIPalette.neutralPrimary"
+            },
+            {
+              "property": "BorderColor",
+              "value": "fluentUIPalette.neutralSecondary"
+            },
+            {
+              "property": "InputFill",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "Font",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "FontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "Size",
+              "value": "%Palette.TextBodyFontSize%"
+            },
+            {
+              "property": "HeadingFont",
+              "value": "%Palette.TextBodyFontFace%"
+            },
+            {
+              "property": "HeadingFontWeight",
+              "value": "%Palette.TextBodyFontWeight%"
+            },
+            {
+              "property": "HeadingSize",
+              "value": "%Palette.TextBodyFontSize%"
+            },
+            {
+              "property": "HeadingColor",
+              "value": "fluentUIPalette.white"
+            },
+            {
+              "property": "HeadingFill",
+              "value": "fluentUIPalette.themePrimary"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

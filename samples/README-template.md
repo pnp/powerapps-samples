@@ -84,7 +84,7 @@ This SharePoint list contains blah blah blah.  Set the list up as follows:
 ## Minimal Path to Awesome
 
 * [Download](./solution/YOURSAMPLENAME.msapp) the `.msapp` from the `solution` folder
-* Use the `.msapp` file using **File** > **Open** > **Browse** within Power Apps Studio.
+* Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just downloaded.
 * Select the **Data** tab
 * ...
 
@@ -95,7 +95,7 @@ This SharePoint list contains blah blah blah.  Set the list up as follows:
 * Clone the repository to a local drive
 * Pack the source files back into `.msapp` file:
   * [Power Apps Tooling Usage](https://github.com/microsoft/PowerApps-Language-Tooling)
-* Use the `.msapp` file using **File** > **Open** > **Browse** in Power Apps Studio.
+* Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just packed.
 
 ## Disclaimer
 

@@ -1,0 +1,57 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =// *** Pay attention please and do not remove, this variable is used to apply the color palette for Fluent UI styles. ***
+        Set(
+            fluentUIPalette,
+            {
+                themePrimary: ColorValue("#0078d4"),
+                themeLighterAlt: ColorValue("#eff6fc"),
+                themeLighter: ColorValue("#deecf9"),
+                themeLight: ColorValue("#c7e0f4"),
+                themeTertiary: ColorValue("#71afe5"),
+                themeSecondary: ColorValue("#2b88d8"),
+                themeDarkAlt: ColorValue("#106ebe"),
+                themeDark: ColorValue("#005a9e"),
+                themeDarker: ColorValue("#004578"),
+                neutralLighterAlt: ColorValue("#f8f8f8"),
+                neutralLighter: ColorValue("#f4f4f4"),
+                neutralLight: ColorValue("#eaeaea"),
+                neutralQuaternaryAlt: ColorValue("#dadada"),
+                neutralQuaternary: ColorValue("#d0d0d0"),
+                neutralTertiaryAlt: ColorValue("#c8c8c8"),
+                neutralTertiary: ColorValue("#595959"),
+                neutralSecondary: ColorValue("#373737"),
+                neutralPrimaryAlt: ColorValue("#2f2f2f"),
+                neutralPrimary: ColorValue("#000000"),
+                neutralDark: ColorValue("#151515"),
+                black: ColorValue("#0b0b0b"),
+                white: ColorValue("#ffffff"),
+                yellowDark: ColorValue("#d29200"),
+                yellow: ColorValue("#ffb900"),
+                yellowLight: ColorValue("#fff100"),
+                orange: ColorValue("#d83b01"),
+                orangeLight: ColorValue("#ea4300"),
+                orangeLighter: ColorValue("#ff8c00"),
+                redDark: ColorValue("#a4262c"),
+                red: ColorValue("#e81123"),
+                magentaDark: ColorValue("#5c005c"),
+                magenta: ColorValue("#b4009e"),
+                magentaLight: ColorValue("#e3008c"),
+                purpleDark: ColorValue("#32145a"),
+                purple: ColorValue("#5c2d91"),
+                purpleLight: ColorValue("#b4a0ff"),
+                blueDark: ColorValue("#002050"),
+                blueMid: ColorValue("#00188f"),
+                blue: ColorValue("#0078d4"),
+                blueLight: ColorValue("#00bcf2"),
+                tealDark: ColorValue("#004b50"),
+                teal: ColorValue("#008272"),
+                tealLight: ColorValue("#00b294"),
+                greenDark: ColorValue("#004b1c"),
+                green: ColorValue("#107c10"),
+                greenLight: ColorValue("#bad80a")
+            }
+        );
+        // **********
+

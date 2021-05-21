@@ -1,0 +1,288 @@
+<widget xmlns="http://openajax.org/metadata" spec="1.0" id="http://microsoft.com/appmagic/slider" name="slider" jsClass="AppMagic.Controls.Slider" version="2.0.1" styleable="true" runtimeCost="1" xmlns:appMagic="http://schemas.microsoft.com/appMagic">
+  <author name="Microsoft AppMagic" />
+  <license type="text/html"><![CDATA[<p>TODO:  Need license text here.</p>]]></license>
+  <description><![CDATA[SLIDER
+      Control description here.]]></description>
+  <requires>
+    <require type="css" src="css/slider.css" />
+    <require type="javascript" src="js/slider.js" />
+  </requires>
+  <appMagic:capabilities contextualViewsEnabled="true" autoBorders="true" autoFocusedBorders="true" autoPointerViewState="true" autoDisabledViewState="true" isVersionFlexible="true" />
+  <appMagic:accessibilityChecks controlIsInteractive="true">
+    <appMagic:accessibilityCheck type="StateIndicationTextNeeded" property="ShowValue" condition="PropertyIsValue true" />
+  </appMagic:accessibilityChecks>
+  <content>
+    <!--
+    appmagic-slider-backing-input is a native slider that keyboard and screen reader users interact with.
+    Pointer device (mouse, touch) users interact with a stylish custom slider overlaid on top.
+    appmagic-slider-mask is inserted in between the two sliders to prevent pointer device users
+    from interacting with the backing slider.
+    Without the mask, OnChange event will be triggered twice from mouseup and from slider movement.
+  --><![CDATA[
+  <div
+    class="appmagic-slider no-focus-outline"
+    data-bind="{
+      style: {
+        height: AppMagic.Controls.converters.pxVerticalConverter.view(sliderHeight),
+        width: AppMagic.Controls.converters.pxHorizontalConverter.view(sliderWidth)
+      },
+      attr: {
+        id: controlContext.id,
+        title: properties.Tooltip() || null
+      },
+      event: { pointerdown: onPointerDown }
+    }">
+    <input type="range" class="appmagic-slider-backing-input mousetrap"
+      data-bind="{
+        value: properties.Value,
+        attr: {
+          'aria-label': properties.AccessibleLabel() || null,
+          min: properties.Min,
+          max: properties.Max
+        },
+        event: {
+          blur: hideNumberTip,
+          change: onBackingInputChange
+        },
+        disable: controlContext.viewState.displayMode() === AppMagic.Constants.DisplayMode.Disabled
+          || controlContext.viewState.displayMode() === AppMagic.Constants.DisplayMode.View
+      }"
+    />
+    <div class="appmagic-slider-mask"></div>
+    <div
+      class="appmagic-slider-near-rail no-focus-outline"
+      aria-hidden="true"
+        data-bind="{
+          style: {
+            backgroundColor: nearRailBackgroundColor,
+            left: AppMagic.Controls.converters.pxHorizontalConverter.view(nearRail.left()),
+            top: AppMagic.Controls.converters.pxVerticalConverter.view(nearRail.top()),
+            width: AppMagic.Controls.converters.pxHorizontalConverter.view(nearRail.width()),
+            height: AppMagic.Controls.converters.pxVerticalConverter.view(nearRail.height())
+          },
+          css: {
+            disabled: controlContext.viewState.displayMode() === AppMagic.Constants.DisplayMode.Disabled
+          }
+        }">
+    </div>
+    <div
+      class="appmagic-slider-far-rail no-focus-outline"
+      aria-hidden="true"
+        data-bind="{
+          style: {
+            backgroundColor: farRailBackgroundColor,
+            left: AppMagic.Controls.converters.pxHorizontalConverter.view(farRail.left()),
+            top: AppMagic.Controls.converters.pxVerticalConverter.view(farRail.top()),
+            width: AppMagic.Controls.converters.pxHorizontalConverter.view(farRail.width()),
+            height: AppMagic.Controls.converters.pxVerticalConverter.view(farRail.height())
+          },
+          css: {
+            disabled: controlContext.viewState.displayMode() === AppMagic.Constants.DisplayMode.Disabled
+          }
+        }">
+    </div>
+    <div
+      class="appmagic-slider-handle no-focus-outline"
+      touch-action="none"
+      aria-hidden="true"
+      data-bind="{
+        style: {
+          backgroundColor: handleBackgroundColor,
+          left:   AppMagic.Controls.converters.pxHorizontalConverter.view(handle.left()),
+          top:    AppMagic.Controls.converters.pxVerticalConverter.view(handle.top()),
+          width:  AppMagic.Controls.converters.pxConverter.view(handle.width()),
+          height: AppMagic.Controls.converters.pxConverter.view(handle.height()),
+          borderRadius: AppMagic.Controls.converters.pxConverter.view(handle.height() / 2),
+          borderColor: nearRailBackgroundColor
+        },
+        event: { pointerenter: onPointerEnter, pointerleave: onPointerLeave},
+        css: {
+          disabled: controlContext.viewState.displayMode() === AppMagic.Constants.DisplayMode.Disabled
+        }
+      }">
+    </div>
+  </div>
+  ]]></content>
+  <!-- The Min, Max and Default properties have to be placed in Min, Max and Default order. Evaluation VIA modelValueConstrainer guarantees
+       that Min < Max and Default stays within Min and Max. However the values must be known for the evaluation to work. -->
+  <!-- Place holder values for appMagic:category - We'll work with design/PM to agree on the right values. -->
+  <properties>
+    <property name="Reset" localizedName="##commonProperties_Reset##" datatype="Boolean" defaultValue="false" direction="in">
+      <title>Reset</title>
+      <appMagic:category>data</appMagic:category>
+      <appMagic:displayName>##commonProperties_Reset_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##commonProperties_Reset_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="Min" localizedName="##slider_Min##" datatype="Number" defaultValue="0" nullDefault="0">
+      <appMagic:category>data</appMagic:category>
+      <appMagic:displayName>##slider_Min_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##slider_Min_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="Max" localizedName="##slider_Max##" datatype="Number" defaultValue="100" nullDefault="100">
+      <appMagic:category>data</appMagic:category>
+      <appMagic:displayName>##slider_Max_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##slider_Max_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="Default" localizedName="##slider_Default##" datatype="Number" defaultValue="50" editable="true" direction="in" nullDefault="50" isPrimaryInputProperty="true">
+      <appMagic:category>data</appMagic:category>
+      <appMagic:displayName>##slider_Default_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##slider_Default_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="Value" localizedName="##slider_Value##" datatype="Number" direction="out" nullDefault="0" computeValue="Clamp(##slider_Default##, ##slider_Min##, ##slider_Max##)" isPrimaryOutputProperty="true" supportsAutomation="true">
+      <appMagic:category>data</appMagic:category>
+    </property>
+    <property name="Layout" localizedName="##slider_Layout##" datatype="Layout" defaultValue="%Layout.RESERVED%.Horizontal" isExpr="true">
+      <appMagic:category>design</appMagic:category>
+      <appMagic:helperUI>layout</appMagic:helperUI>
+      <appMagic:displayName>##slider_Layout_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##slider_Layout_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="ValueFill" localizedName="##slider_ValueFill##" datatype="Color" defaultValue="RGBA(0, 176, 240, 1)" isExpr="true" converter="argbConverter">
+      <appMagic:category>design</appMagic:category>
+      <appMagic:helperUI>color</appMagic:helperUI>
+      <appMagic:displayName>##slider_ValueFill_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##slider_ValueFill_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="RailFill" localizedName="##slider_RailFill##" datatype="Color" defaultValue="RGBA(186, 186, 186, 1)" isExpr="true" converter="argbConverter">
+      <appMagic:category>design</appMagic:category>
+      <appMagic:helperUI>color</appMagic:helperUI>
+      <appMagic:displayName>##slider_RailFill_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##slider_RailFill_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="HandleFill" localizedName="##slider_HandleFill##" datatype="Color" defaultValue="RGBA(69, 69, 69, 1)" isExpr="true" converter="argbConverter">
+      <appMagic:category>design</appMagic:category>
+      <appMagic:helperUI>color</appMagic:helperUI>
+      <appMagic:displayName>##slider_HandleFill_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##slider_HandleFill_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="HandleHoverFill" localizedName="##slider_HandleHoverFill##" datatype="Color" defaultValue="Self.HandleFill" isExpr="true" converter="argbConverter">
+      <appMagic:category>design</appMagic:category>
+      <appMagic:helperUI>color</appMagic:helperUI>
+      <appMagic:displayName>##slider_HandleHoverFill_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##slider_HandleHoverFill_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="HandleActiveFill" localizedName="##slider_HandleActiveFill##" datatype="Color" defaultValue="Self.HandleFill" isExpr="true" converter="argbConverter">
+      <appMagic:category>design</appMagic:category>
+      <appMagic:helperUI>color</appMagic:helperUI>
+      <appMagic:displayName>##slider_HandleActiveFill_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##slider_HandleActiveFill_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="RailHoverFill" localizedName="##slider_RailHoverFill##" datatype="Color" isExpr="true" defaultValue="ColorFade(Self.RailFill, 15%)" converter="argbConverter">
+      <appMagic:category>design</appMagic:category>
+      <appMagic:helperUI>color</appMagic:helperUI>
+      <appMagic:displayName>##slider_RailHoverFill_DisplayName##</appMagic:displayName>
+    </property>
+    <property name="ValueHoverFill" localizedName="##slider_ValueHoverFill##" datatype="Color" isExpr="true" defaultValue="ColorFade(Self.ValueFill, 15%)" converter="argbConverter">
+      <appMagic:category>design</appMagic:category>
+      <appMagic:helperUI>color</appMagic:helperUI>
+      <appMagic:displayName>##slider_ValueHoverFill_DisplayName##</appMagic:displayName>
+    </property>
+    <property name="HandleSize" localizedName="##slider_HandleSize##" datatype="Number" defaultValue="24" phoneDefaultValue="42" webDefaultValue="18" styleable="true">
+      <appMagic:category>design</appMagic:category>
+      <appMagic:displayName>##slider_HandleSize_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##slider_HandleSize_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="RailThickness" localizedName="##slider_RailThickness##" datatype="Number" defaultValue="3">
+      <appMagic:category>design</appMagic:category>
+      <appMagic:displayName>##slider_RailThickness_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##slider_RailThickness_Tooltip##</appMagic:tooltip>
+    </property>
+  </properties>
+  <appMagic:includeProperties>
+    <!-- Data -->
+    <appMagic:includeProperty name="AccessibleLabel" />
+    <appMagic:includeProperty name="Tooltip" />
+    <appMagic:includeProperty name="ShowValue" />
+    <appMagic:includeProperty name="BorderColor" />
+    <appMagic:includeProperty name="DisabledBorderColor" defaultValue="RGBA(56, 56, 56, 1)" />
+    <appMagic:includeProperty name="PressedBorderColor" defaultValue="ColorFade(Self.BorderColor, -30%)" />
+    <appMagic:includeProperty name="HoverBorderColor" defaultValue="ColorFade(Self.BorderColor, 30%)" />
+    <appMagic:includeProperty name="BorderStyle" />
+    <appMagic:includeProperty name="BorderThickness" />
+    <appMagic:includeProperty name="FocusedBorderColor" defaultValue="Self.BorderColor" isExpr="true" />
+    <appMagic:includeProperty name="FocusedBorderThickness" />
+    <!-- Design -->
+    <appMagic:includeProperty name="X" />
+    <appMagic:includeProperty name="Y" />
+    <appMagic:includeProperty name="Width" defaultValue="320" phoneDefaultValue="560" nullDefault="0" webDefaultValue="180" />
+    <appMagic:includeProperty name="Height" defaultValue="40" phoneDefaultValue="70" nullDefault="0" webDefaultValue="32" />
+    <appMagic:includeProperty name="Visible" />
+    <appMagic:includeProperty name="DisplayMode" />
+    <appMagic:includeProperty name="TabIndex" />
+    <!-- Hidden properties -->
+    <appMagic:includeProperty name="minimumWidth" defaultValue="1" />
+    <appMagic:includeProperty name="minimumHeight" defaultValue="1" />
+    <appMagic:includeProperty name="maximumWidth" defaultValue="1366" />
+    <appMagic:includeProperty name="maximumHeight" defaultValue="40" />
+    <!-- Behavior -->
+    <appMagic:includeProperty name="OnChange" direction="in" isPrimaryBehaviorProperty="true" />
+    <appMagic:includeProperty name="OnSelect" direction="in" />
+  </appMagic:includeProperties>
+  <!--Property Dependencies -->
+  <appMagic:propertyDependencies>
+    <appMagic:propertyDependency input="Min" output="Value" />
+    <appMagic:propertyDependency input="Max" output="Value" />
+    <appMagic:propertyDependency input="Default" output="Value" />
+    <appMagic:propertyDependency input="Reset" output="Value" />
+  </appMagic:propertyDependencies>
+  <appMagic:insertMetadata>
+    <appMagic:category name="Input" priority="110" />
+    <appMagic:category name="ClassicControls" priority="110" />
+  </appMagic:insertMetadata>
+  <!-- Display metadata providing property visibility, order, sections, and grouping in UI (e.g. properties panel) -->
+  <appMagic:displayMetadata>
+    <appMagic:section>
+      <appMagic:property name="Default" />
+      <appMagic:property name="Layout" />
+      <appMagic:property name="Max" />
+      <appMagic:property name="Min" />
+      <appMagic:property name="ShowValue" />
+      <appMagic:property name="HandleSize" />
+      <appMagic:property name="DisplayMode" />
+    </appMagic:section>
+    <appMagic:section>
+      <appMagic:property name="Visible" />
+      <appMagic:propertyGroup name="Position">
+        <appMagic:property name="X" />
+        <appMagic:property name="Y" />
+      </appMagic:propertyGroup>
+      <appMagic:propertyGroup name="Size">
+        <appMagic:property name="Width" />
+        <appMagic:property name="Height" />
+      </appMagic:propertyGroup>
+    </appMagic:section>
+    <appMagic:section>
+      <appMagic:propertyGroup name="Rail">
+        <appMagic:property name="RailFill" />
+        <appMagic:property name="RailThickness" />
+      </appMagic:propertyGroup>
+      <appMagic:property name="ValueFill" />
+      <appMagic:property name="HandleFill" />
+      <appMagic:propertyGroup name="Border">
+        <appMagic:property name="BorderStyle" />
+        <appMagic:property name="BorderThickness" />
+        <appMagic:property name="BorderColor" />
+      </appMagic:propertyGroup>
+    </appMagic:section>
+    <appMagic:section>
+      <appMagic:propertyGroup name="DisabledColor">
+        <appMagic:property name="DisabledBorderColor" />
+      </appMagic:propertyGroup>
+      <appMagic:propertyGroup name="HoverColor">
+        <appMagic:property name="HoverBorderColor" />
+      </appMagic:propertyGroup>
+      <appMagic:property name="ValueHoverFill" />
+      <appMagic:property name="RailHoverFill" />
+      <appMagic:property name="HandleHoverFill" />
+      <appMagic:propertyGroup name="PressedColor">
+        <appMagic:property name="PressedBorderColor" />
+      </appMagic:propertyGroup>
+      <appMagic:property name="HandleActiveFill" />
+      <appMagic:property name="Tooltip" />
+      <appMagic:property name="TabIndex" />
+    </appMagic:section>
+  </appMagic:displayMetadata>
+  <appMagic:conversion from="2.0.0" to="2.0.1">
+    <!-- KO template changes for accessibility fixes -->
+  </appMagic:conversion>
+</widget>

@@ -1,0 +1,84 @@
+_UnthemedTypographyScreen As screen:
+
+    Container_UnthemedTypographyScreen As groupContainer.verticalAutoLayoutContainer:
+        DisplayMode: =DisplayMode.Edit
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutGap: =10
+        PaddingBottom: =Self.LayoutGap
+        PaddingLeft: =Self.LayoutGap
+        PaddingRight: =Self.LayoutGap
+        PaddingTop: =Self.LayoutGap
+        Width: =Parent.Width
+        ZIndex: =1
+
+        "'Label-68' As label":
+            AutoHeight: =true
+            LayoutMinHeight: =40
+            Size: =68
+            Text: ="fontSize-68"
+            ZIndex: =1
+
+        "'Label-42' As label":
+            AutoHeight: =true
+            LayoutMinHeight: =40
+            Size: =42
+            Text: ="fontSize-42"
+            ZIndex: =2
+
+        "'Label-32' As label":
+            AutoHeight: =true
+            LayoutMinHeight: =40
+            Size: =32
+            Text: ="fontSize-32"
+            ZIndex: =3
+
+        "'Label-28' As label":
+            AutoHeight: =true
+            LayoutMinHeight: =40
+            Size: =28
+            Text: ="fontSize-28"
+            ZIndex: =4
+
+        "'Label-24' As label":
+            AutoHeight: =true
+            LayoutMinHeight: =40
+            Size: =24
+            Text: ="fontSize-24"
+            ZIndex: =5
+
+        "'Label-20' As label":
+            AutoHeight: =true
+            LayoutMinHeight: =40
+            Size: =20
+            Text: ="fontSize-20"
+            ZIndex: =6
+
+        "'Label-18' As label":
+            AutoHeight: =true
+            LayoutMinHeight: =40
+            Size: =18
+            Text: ="fontSize-18"
+            ZIndex: =7
+
+        "'Label-16' As label":
+            AutoHeight: =true
+            LayoutMinHeight: =40
+            Size: =16
+            Text: ="fontSize-16"
+            ZIndex: =8
+
+        "'Label-14' As label":
+            AutoHeight: =true
+            LayoutMinHeight: =40
+            Size: =14
+            Text: ="fontSize-14"
+            ZIndex: =9
+
+        "'Label-12' As label":
+            AutoHeight: =true
+            LayoutMinHeight: =40
+            Size: =12
+            Text: ="fontSize-12"
+            ZIndex: =10
+
