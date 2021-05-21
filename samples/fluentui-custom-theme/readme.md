@@ -1,6 +1,6 @@
-# Fluent UI Theme (Tablet)
+# Fluent UI Custom Theme (Tablet)
 
-Implementing a custom theme (for tablet layout) to apply the style of the Fluent UI controls to the Canvas controls by deeply modification of the "Default Theme" inside the theme.json file.
+Implementing a custom theme (for tablet layout) to apply the style of the Fluent UI controls to the canvas controls with extensive modification of the "Default Theme" inside the `theme.json` file.
 
 ### Some sample Screens
 
@@ -35,7 +35,7 @@ Canvas Apps created in Dataverse for Teams use an updated version of controls th
 
 Solution|Author(s)
 --------|---------
-Fluent UI Theme (Tablet) | [Fabio Franzini](https://fabiofranzini.com) ([@franzinifabio](https://www.twitter.com/franzinifabio) )
+Fluentui-custom-theme | [Fabio Franzini](https://github.com/fabiofranzini), ([https://fabiofranzini.com](https://fabiofranzini.com) [@franzinifabio](https://www.twitter.com/franzinifabio) )
 
 ## Version history
 
@@ -99,8 +99,8 @@ All controls theme in the theme.json file are based on the fluentUIPalette varia
 
 ## Minimal Path to Awesome
 
-* [Download](https://github.com/pnp/powerapps-samples/raw/main/samples/custom-font-samples/solution/customfontsamples.msapp) the `.msapp` from the `solution` folder
-* Use the `.msapp` file using **File** > **Open** > **Browse** within Power Apps Studio.
+* [Download](./solution/fluentui-custom-theme.msapp) the `.msapp` from the `solution` folder
+* Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just downloaded.
 * Save and Publish
 
 ## Using the Source Code
@@ -110,7 +110,7 @@ All controls theme in the theme.json file are based on the fluentUIPalette varia
 * Clone the repository to a local drive
 * Pack the source files back into `.msapp` file:
   * [Power Apps Tooling Usage](https://github.com/microsoft/PowerApps-Language-Tooling)
-* Use the `.msapp` file using **File** > **Open** > **Browse** in Power Apps Studio.
+* Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just packed.
 
 ## Disclaimer
 
@@ -119,13 +119,12 @@ All controls theme in the theme.json file are based on the fluentUIPalette varia
 
 ## Support
 
-> Note: don't worry about this section, we'll update the links.
 
-While we don't support samples, if you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+While we don't support samples, if you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=fluentui-custom-theme&authors=@fabiofranzini&title=fluentui-custom-theme%20-%20).
 
-For questions regarding this sample, [create a new question](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+For questions regarding this sample, [create a new question](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=fluentui-custom-theme&authors=@fabiofranzini&title=fluentui-custom-theme%20-%20).
 
-Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=fluentui-custom-theme&authors=@fabiofranzini&title=fluentui-custom-theme%20-%20).
 
 ## For more information
 
