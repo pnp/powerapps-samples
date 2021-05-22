@@ -11,6 +11,8 @@ description: This sample shows how to add a status indicator in a display form.
 urlFragment: powerapps-status-indicator
 ms.date: 2/24/2021
 author: dcashpeterson
+ms.author: pnp
+level: beginner
 ---
 
 # Status Indicator

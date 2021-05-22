@@ -11,6 +11,8 @@ description: This timesheet application is a tablet-based canvas app that gives 
 urlFragment: powerapps-timesheet
 ms.date: 2/16/2021
 author: aprildunnam
+ms.author: pnp
+level: intermediate
 ---
 
 # Weekly Timesheet Power App Template

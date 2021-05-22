@@ -11,6 +11,8 @@ description: Implementing a custom theme to apply the style of the Fluent UI con
 urlFragment: powerapps-fluentui-custom-theme
 ms.date: 5/19/2021
 author: fabiofranzini
+ms.author: pnp
+level: advanced
 ---
 
 # Fluent UI Custom Theme (Tablet)

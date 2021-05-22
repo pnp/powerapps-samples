@@ -11,6 +11,8 @@ description: Contains a textbox that adds items into a dynamic list. Items can b
 urlFragment: powerapps-tag-box
 ms.date: 4/24/2021
 author: carmenysewijn
+ms.author: pnp
+level: beginner
 ---
 
 # Tag Box

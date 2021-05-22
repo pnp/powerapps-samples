@@ -11,6 +11,8 @@ description: This Canvas Application is an example for a expandable navigation u
 urlFragment: powerapps-expandable-navigation
 ms.date: 4/26/2021
 author: luisefreese
+ms.author: pnp
+level: beginner
 ---
 
 # Expandable Navigation Power App Template

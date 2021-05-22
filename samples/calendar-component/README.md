@@ -11,6 +11,8 @@ description: A re-usable component that allows you to display events in  a calen
 urlFragment: powerapps-calendar-component
 ms.date: 5/5/2021
 author: aprildunnam
+ms.author: pnp
+level: intermediate
 ---
 
 # Calendar Component

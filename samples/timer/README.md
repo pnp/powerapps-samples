@@ -11,6 +11,8 @@ description: This app is an example of how to use the timer function as a stopwa
 urlFragment: powerapps-timer
 ms.date: 5/4/2021
 author: michaelroth42
+ms.author: pnp
+level: beginner
 ---
 
 # Timer  
