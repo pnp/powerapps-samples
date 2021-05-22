@@ -8,6 +8,8 @@ products:
 name: Custom Font Samples
 description: 177 custom font samples for Power Apps
 urlFragment: powerapps-custom-font-samples
+ms.date: 5/13/2021
+author: matthewdevaney
 ---
 
 # Custom Font Samples

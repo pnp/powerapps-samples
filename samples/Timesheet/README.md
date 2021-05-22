@@ -8,6 +8,8 @@ products:
 name: Weekly Timesheet Power App Template
 description: This timesheet application is a tablet-based canvas app that gives you a way to create and manage weekly timesheets.
 urlFragment: powerapps-timesheet
+ms.date: 2/16/2021
+author: aprildunnam
 ---
 
 # Weekly Timesheet Power App Template

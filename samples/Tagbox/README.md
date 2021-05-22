@@ -8,6 +8,8 @@ products:
 name: Tab Box
 description: Contains a textbox that adds items into a dynamic list. Items can be removed from the list again, and the list can be cleared. No duplicate or blank values are allowed.
 urlFragment: powerapps-tag-box
+ms.date: 4/24/2021
+author: carmenysewijn
 ---
 
 # Tag Box

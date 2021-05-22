@@ -8,6 +8,8 @@ products:
 name: Timer  
 description: This app is an example of how to use the timer function as a stopwatch. You can specify predefined times and start the timer with them. 
 urlFragment: powerapps-timer
+ms.date: 5/4/2021
+author: michaelroth42
 ---
 
 # Timer  
