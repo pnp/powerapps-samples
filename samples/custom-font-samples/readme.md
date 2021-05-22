@@ -3,6 +3,7 @@ page_type: sample
 languages:
 - powerapps-comma
 products:
+- power-apps
 - powerapps
 - canvas
 name: Custom Font Samples

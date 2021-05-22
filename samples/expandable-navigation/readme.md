@@ -3,6 +3,7 @@ page_type: sample
 languages:
 - powerapps-comma
 products:
+- power-apps
 - powerapps
 - canvas
 name: Expandable Navigation Power App Template

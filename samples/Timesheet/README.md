@@ -3,6 +3,7 @@ page_type: sample
 languages:
 - powerapps-comma
 products:
+- power-apps
 - powerapps
 - canvas
 name: Weekly Timesheet Power App Template
