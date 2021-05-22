@@ -1,3 +1,15 @@
+---
+page_type: sample
+languages:
+- powerapps-comma
+products:
+- powerapps
+- canvas
+name: Status Indicator
+description: This sample shows how to add a status indicator in a display form.
+urlFragment: powerapps-status-indicator
+---
+
 # Status Indicator
 
 ## Summary

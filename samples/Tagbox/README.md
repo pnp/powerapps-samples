@@ -1,3 +1,15 @@
+---
+page_type: sample
+languages:
+- powerapps-comma
+products:
+- powerapps
+- canvas
+name: Tab Box
+description: Contains a textbox that adds items into a dynamic list. Items can be removed from the list again, and the list can be cleared. No duplicate or blank values are allowed.
+urlFragment: powerapps-tag-box
+---
+
 # Tag Box
 
 ## Summary

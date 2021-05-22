@@ -1,3 +1,15 @@
+---
+page_type: sample
+languages:
+- powerapps-comma
+products:
+- powerapps
+- canvas
+name: Fluent UI Custom Theme
+description: Implementing a custom theme to apply the style of the Fluent UI controls to the canvas controls with extensive modification of the Default Theme inside the theme.json file
+urlFragment: powerapps-fluentui-custom-theme
+---
+
 # Fluent UI Custom Theme (Tablet)
 
 Implementing a custom theme (for tablet layout) to apply the style of the Fluent UI controls to the canvas controls with extensive modification of the "Default Theme" inside the `theme.json` file.

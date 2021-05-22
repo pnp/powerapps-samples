@@ -1,3 +1,15 @@
+---
+page_type: sample
+languages:
+- powerapps-comma
+products:
+- powerapps
+- canvas
+name: Timer  
+description: This app is an example of how to use the timer function as a stopwatch. You can specify predefined times and start the timer with them. 
+urlFragment: powerapps-timer
+---
+
 # Timer  
 
 ## Summary

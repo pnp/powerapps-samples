@@ -1,3 +1,15 @@
+---
+page_type: sample
+languages:
+- powerapps-comma
+products:
+- powerapps
+- canvas
+name: Weekly Timesheet Power App Template
+description: This timesheet application is a tablet-based canvas app that gives you a way to create and manage weekly timesheets.
+urlFragment: powerapps-timesheet
+---
+
 # Weekly Timesheet Power App Template
 
 ## Summary

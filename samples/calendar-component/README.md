@@ -1,3 +1,15 @@
+---
+page_type: sample
+languages:
+- powerapps-comma
+products:
+- powerapps
+- canvas
+name: Calendar Component
+description: A re-usable component that allows you to display events in  a calendar.
+urlFragment: powerapps-calendar-component
+---
+
 # Calendar Component
 
 ## Summary

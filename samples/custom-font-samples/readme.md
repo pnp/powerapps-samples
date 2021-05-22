@@ -1,3 +1,15 @@
+---
+page_type: sample
+languages:
+- powerapps-comma
+products:
+- powerapps
+- canvas
+name: Custom Font Samples
+description: 177 custom font samples for Power Apps
+urlFragment: powerapps-custom-font-samples
+---
+
 # Custom Font Samples
 
 177 custom font samples for Power Apps.

@@ -1,3 +1,15 @@
+---
+page_type: sample
+languages:
+- powerapps-comma
+products:
+- powerapps
+- canvas
+name: Expandable Navigation Power App Template
+description: This Canvas Application is an example for a expandable navigation using Fluent UI icons. It also shows how a lightbox-styled pop up works. 
+urlFragment: powerapps-expandable-navigation
+---
+
 # Expandable Navigation Power App Template
 
 ## Summary
