@@ -3,7 +3,6 @@ page_type: sample
 languages:
 - powerapps-comma
 products:
-- power-apps
 - powerapps
 - canvas
 name: Calendar Component
@@ -13,6 +12,7 @@ ms.date: 5/5/2021
 author: aprildunnam
 ms.author: pnp
 level: intermediate
+ms.prod: power-apps
 ---
 
 # Calendar Component

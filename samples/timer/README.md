@@ -13,6 +13,7 @@ ms.date: 5/4/2021
 author: michaelroth42
 ms.author: pnp
 level: beginner
+ms.prod: power-apps
 ---
 
 # Timer  

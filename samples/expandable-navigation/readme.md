@@ -13,6 +13,7 @@ ms.date: 4/26/2021
 author: luisefreese
 ms.author: pnp
 level: beginner
+ms.prod: power-apps
 ---
 
 # Expandable Navigation Power App Template

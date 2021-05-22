@@ -13,6 +13,7 @@ ms.date: 4/24/2021
 author: carmenysewijn
 ms.author: pnp
 level: beginner
+ms.prod: power-apps
 ---
 
 # Tag Box

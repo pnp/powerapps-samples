@@ -13,6 +13,7 @@ ms.date: 5/19/2021
 author: fabiofranzini
 ms.author: pnp
 level: advanced
+ms.prod: power-apps
 ---
 
 # Fluent UI Custom Theme (Tablet)

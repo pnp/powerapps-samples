@@ -13,6 +13,7 @@ ms.date: 2/16/2021
 author: aprildunnam
 ms.author: pnp
 level: intermediate
+ms.prod: power-apps
 ---
 
 # Weekly Timesheet Power App Template

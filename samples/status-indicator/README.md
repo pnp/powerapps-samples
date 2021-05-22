@@ -13,6 +13,7 @@ ms.date: 2/24/2021
 author: dcashpeterson
 ms.author: pnp
 level: beginner
+ms.prod: power-apps
 ---
 
 # Status Indicator

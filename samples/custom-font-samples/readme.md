@@ -13,6 +13,7 @@ ms.date: 5/13/2021
 author: matthewdevaney
 ms.author: pnp
 level: beginner
+ms.prod: power-apps
 ---
 
 # Custom Font Samples
