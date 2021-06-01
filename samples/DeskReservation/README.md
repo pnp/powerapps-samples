@@ -28,7 +28,7 @@ You can see an overview of the new features added to this template in this video
 
 Solution|Author(s)
 --------|---------
-Desk Reservation | [April Dunnam](LinkToYourGitHubProfile) ([@aprildunnam](https://twitter.com/aprildunnam)), Microsoft
+Desk Reservation | [April Dunnam](https://github.com/aprildunnam) ([@aprildunnam](https://twitter.com/aprildunnam)), Microsoft
 
 ## Version history
 
@@ -46,11 +46,11 @@ This sample illustrates the following concepts:
 
 ## Prerequisites
 
-None
+The SharePoint datasource must be configured
 
 ## Data Sources
 
-This template uses SharePoint as it's main data source and consists of two different lists.
+This template uses SharePoint as it's main data source and consists of two different lists. Once the data sources are created, you can use the app to populate the data.
 
 ### Desks List
 
@@ -72,7 +72,7 @@ This SharePoint list contains the reservation information.  Set the list up as f
 |---|---|:---:|
 |Single line of text|Title|Yes|
 |Single line of text|DeskText|Yes|
-|Person or Group|Reserved By|Yes|
+|Person or Group|ReservedBy|Yes|
 |Date and Time|Check Out From|No|
 |Date and Time|Check Out To|No|
 |Single line of text|Check Out From Text|No|
@@ -85,9 +85,9 @@ This SharePoint list contains the reservation information.  Set the list up as f
 * [Download](./solution/DeskReservation.msapp) the `.msapp` from the `solution` folder
 * Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just downloaded.
 * Select the **Data** tab
-* Click the "..." next to the Desk Reservations and Desks data connections and select "remove"
-* Select "Add Data" and search for SharePoint
-* Navigate to the site url that you created the SharePoint lists in an add back in the Desks and Desks Reservations lists
+* Click the **...** next to the **Desk Reservations** and **Desks** data connections and select **Remove**
+* Select **Add Data** and search for **SharePoint**
+* Navigate to the site url that you created the SharePoint lists in an add back in the **Desks** and **Desks Reservations** lists
 
 ## Using the Source Code
 
@@ -104,11 +104,11 @@ This SharePoint list contains the reservation information.  Set the list up as f
 
 ## Support
 
-While we don't support samples, if you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+While we don't support samples, if you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=DeskReservation&authors=@aprildunnam&title=DeskReservation%20-%20).
 
-For questions regarding this sample, [create a new question](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+For questions regarding this sample, [create a new question](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=DeskReservation&authors=@aprildunnam&title=DeskReservation%20-%20).
 
-Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=DeskReservation&authors=@aprildunnam&title=DeskReservation%20-%20).
 
 ## For more information
 
@@ -116,5 +116,5 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 - [Power Apps canvas apps documentation](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/)
 
 
-<img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/readme-template" />
+<img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/DeskReservation" />
 

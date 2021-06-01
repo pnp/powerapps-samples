@@ -4,34 +4,28 @@ Confirm As screen:
     Width: =Max(App.Width, App.DesignWidth)
 
     lblLookGood As label:
-        Text: ="Everything look good?"
         Align: =Align.Center
-        ZIndex: =3
+        Color: =RGBA(255, 255, 255, 1)
         FontWeight: =Bold
         Height: =113
-        Width: =640
         Size: =32
-        Color: =RGBA(255, 255, 255, 1)
+        Text: ="Everything look good?"
+        Width: =640
+        ZIndex: =3
 
     bgRounded As htmlViewer:
+        Height: =748
         HtmlText: |-
             ="<div style='border-radius:10%;height:500px;width:100%;background-color:#FCFCFC'></div>"
-        Y: =113
-        X: =16
-        Height: =748
         Width: =610
+        X: =16
+        Y: =113
         ZIndex: =4
 
     btnConfirm As button:
-        Text: ="Confirm"
-        Y: =694
-        X: =321
-        ZIndex: =5
-        HoverFill: =ColorFade(Self.Fill, -20%)
-        Height: =70
-        Width: =260
-        Size: =24
         Fill: =RGBA(135, 78, 181, 1)
+        Height: =70
+        HoverFill: =ColorFade(Self.Fill, -20%)
         OnSelect: |-
             =ForAll(
                 selectedDesks,
@@ -78,52 +72,58 @@ Confirm As screen:
                 )
             );
             Navigate(Success)
+        Size: =24
+        Text: ="Confirm"
+        Width: =260
+        X: =321
+        Y: =694
+        ZIndex: =5
 
     btnBackConfirm As button:
-        Text: ="Back"
-        Y: =694
-        X: =68
-        ZIndex: =6
-        HoverFill: =ColorFade(Self.Fill, -20%)
-        Height: =70
-        Width: =200
-        Size: =24
         Fill: =RGBA(128, 128, 128, 1)
+        Height: =70
+        HoverFill: =ColorFade(Self.Fill, -20%)
         OnSelect: =Back()
+        Size: =24
+        Text: ="Back"
+        Width: =200
+        X: =68
+        Y: =694
+        ZIndex: =6
 
     lblDate As label:
-        Text: =Text(startTime,DateTimeFormat.LongDate) & " - " & Char(10) &Text(endTime,DateTimeFormat.LongDate)
         Align: =Align.Center
-        ZIndex: =7
-        Height: =130
-        Width: =560
-        Size: =24
-        Y: =322
-        X: =41
         Font: =Font.'Segoe UI'
+        Height: =130
+        Size: =24
+        Text: =Text(startTime,DateTimeFormat.LongDate) & " - " & Char(10) &Text(endTime,DateTimeFormat.LongDate)
+        Width: =560
+        X: =41
+        Y: =322
+        ZIndex: =7
 
     lblTime As label:
-        Text: =Text(startTime,DateTimeFormat.ShortTime) & " to " &Text(endTime,DateTimeFormat.ShortTime)
         Align: =Align.Center
-        ZIndex: =8
-        Height: =70
-        Width: =560
-        Size: =24
-        Y: =452
-        X: =39
         Font: =Font.'Segoe UI'
+        Height: =70
+        Size: =24
+        Text: =Text(startTime,DateTimeFormat.ShortTime) & " to " &Text(endTime,DateTimeFormat.ShortTime)
+        Width: =560
+        X: =39
+        Y: =452
+        ZIndex: =8
 
     lblDesk As label:
-        Text: =Concat(selectedDesks, Title, ", ")
         Align: =Align.Center
-        ZIndex: =9
+        Font: =Font.'Segoe UI'
         FontWeight: =Semibold
         Height: =70
-        Width: =560
         Size: =28
-        Y: =252
+        Text: =Concat(selectedDesks, Title, ", ")
+        Width: =560
         X: =41
-        Font: =Font.'Segoe UI'
+        Y: =252
+        ZIndex: =9
 
     Tabs_3 As Tabs:
         Items: |-
@@ -153,38 +153,38 @@ Confirm As screen:
                     Visible:true
                 }
             )
-        ZIndex: =11
         Y: =1016
+        ZIndex: =11
 
     lblReview As label:
-        Text: ="Please review your desk reservation details and press Confirm to proceed with your reservation"
         Align: =Align.Center
-        ZIndex: =12
-        Italic: =true
-        Height: =70
-        Width: =560
-        Size: =18
-        Y: =134
-        X: =41
         Font: =Font.'Segoe UI'
+        Height: =70
+        Italic: =true
+        Size: =18
+        Text: ="Please review your desk reservation details and press Confirm to proceed with your reservation"
+        Width: =560
+        X: =41
+        Y: =134
+        ZIndex: =12
 
     grpHeader_2 As group:
-        ZIndex: =15
         Height: =5
         Width: =5
-        Y: =20
         X: =40
+        Y: =20
+        ZIndex: =15
 
         Image2_4 As image:
+            Height: =150
             Image: =abstractBackground
             ImagePosition: =ImagePosition.Fill
             Width: =640
-            Height: =150
             ZIndex: =1
 
         Rectangle2_2 As rectangle:
             Fill: =RGBA(135, 78, 181, 0.65)
-            Width: =640
             Height: =150
+            Width: =640
             ZIndex: =2
 

@@ -4,12 +4,12 @@
     Width: =Max(App.Width, App.DesignWidth)
 
     bgRounded_8 As htmlViewer:
+        Height: =748
         HtmlText: |-
             ="<div style='border-radius:10%;height:700px;width:100%;background-color:#FCFCFC'></div>"
-        Y: =113
-        X: =15
-        Height: =748
         Width: =610
+        X: =15
+        Y: =113
         ZIndex: =3
 
     iconCircle1_1 As circle.Circle:
@@ -20,52 +20,52 @@
 
     iconCheck1_1 As icon.Check:
         AccessibleLabel: ="Exit Screen"
-        Icon: =Icon.Check
-        X: =Parent.Width/2 - Self.Width/2
-        Y: =(Parent.Height/2 - Self.Height/2) * .7
-        Width: =iconCircle1_1.Width
         Height: =iconCircle1_1.Height
-        ZIndex: =5
-        PaddingTop: =18
+        Icon: =Icon.Check
+        OnSelect: =Navigate(ManageDesks)
+        PaddingBottom: =Self.PaddingTop
         PaddingLeft: =Self.PaddingTop
         PaddingRight: =Self.PaddingTop
-        PaddingBottom: =Self.PaddingTop
+        PaddingTop: =18
         TabIndex: =1
-        OnSelect: =Navigate(ManageDesks)
+        Width: =iconCircle1_1.Width
+        X: =Parent.Width/2 - Self.Width/2
+        Y: =(Parent.Height/2 - Self.Height/2) * .7
+        ZIndex: =5
 
     LblSuccessMsg1_1 As label:
-        Text: ="Desk Updated!"
         Align: =Align.Center
+        AutoHeight: =true
+        Height: =iconCircle1_1.Height
+        Size: =21
+        Text: ="Desk Updated!"
+        Width: =Parent.Width * 0.75
         X: =Parent.Width/2 - Self.Width/2
         Y: =iconCheck1_1.Y + iconCheck1_1.Height + 100
-        Width: =Parent.Width * 0.75
-        Height: =iconCircle1_1.Height
         ZIndex: =6
-        AutoHeight: =true
-        Size: =21
 
     Timer1_1 As timer:
-        Duration: =4000
         AutoStart: =true
-        X: =299
-        Y: =861
-        Width: =280
+        Duration: =4000
         Height: =70
-        ZIndex: =7
-        Visible: =false
         OnTimerEnd: |-
             =Refresh(Desks);
             Navigate(ManageDesks)
+        Visible: =false
+        Width: =280
+        X: =299
+        Y: =861
+        ZIndex: =7
 
     lblSuccess_1 As label:
-        Text: ="Success"
         Align: =Align.Center
-        ZIndex: =8
+        Color: =RGBA(255, 255, 255, 1)
         FontWeight: =Bold
         Height: =113
-        Width: =640
         Size: =32
-        Color: =RGBA(255, 255, 255, 1)
+        Text: ="Success"
+        Width: =640
+        ZIndex: =8
 
     Tabs_9 As Tabs:
         Items: |-
@@ -95,26 +95,26 @@
                     Visible:true
                 }
             )
-        ZIndex: =9
         Y: =1016
+        ZIndex: =9
 
     grpHeader_7 As group:
-        ZIndex: =10
         Height: =5
         Width: =5
-        Y: =20
         X: =40
+        Y: =20
+        ZIndex: =10
 
         Image2_8 As image:
+            Height: =150
             Image: =abstractBackground
             ImagePosition: =ImagePosition.Fill
             Width: =640
-            Height: =150
             ZIndex: =1
 
         Rectangle2_7 As rectangle:
             Fill: =RGBA(135, 78, 181, 0.65)
-            Width: =640
             Height: =150
+            Width: =640
             ZIndex: =2
 

@@ -1,28 +1,28 @@
 NewEditDesk As screen:
     Fill: =RGBA(236, 236, 236, 1)
     Height: =Max(App.Height, App.DesignHeight)
-    Width: =Max(App.Width, App.DesignWidth)
     OnVisible: |-
         =UpdateContext({prevSelected:false});UpdateContext({upSelected:true});
+    Width: =Max(App.Width, App.DesignWidth)
 
     lblMyAppointments_2 As label:
-        Text: ="Manage Desks"
         Align: =Align.Center
-        ZIndex: =3
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.'Segoe UI'
         FontWeight: =Bold
         Height: =115
-        Width: =640
         Size: =32
-        Font: =Font.'Segoe UI'
-        Color: =RGBA(255, 255, 255, 1)
+        Text: ="Manage Desks"
+        Width: =640
+        ZIndex: =3
 
     bgRounded_7 As htmlViewer:
+        Height: =898
         HtmlText: |-
             ="<div style='border:1px gray;border-radius:10%;height:870px;width:100%;background-color:#FCFCFC'></div>"
-        Y: =116
-        X: =15
-        Height: =898
         Width: =610
+        X: =15
+        Y: =116
         ZIndex: =4
 
     Tabs_8 As Tabs:
@@ -53,115 +53,109 @@ NewEditDesk As screen:
                     Visible:true
                 }
             )
-        ZIndex: =5
         Y: =1016
+        ZIndex: =5
 
     lblNameDesk As label:
-        Text: ="Name"
-        Size: =21
-        ZIndex: =6
-        Height: =70
-        Width: =560
-        Y: =172
-        X: =40
-        FontWeight: =FontWeight.Semibold
         Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =70
+        Size: =21
+        Text: ="Name"
+        Width: =560
+        X: =40
+        Y: =172
+        ZIndex: =6
 
     tbNameDesk As text:
-        Default: =If(varDeskMode = "Edit",varManageSelectedDesk.Title,Blank())
         AccessibleLabel: ="Desk Name Input"
-        BorderThickness: =1
-        ZIndex: =7
-        Height: =70
-        Width: =540
-        Y: =242
-        X: =50
-        Size: =18
-        Font: =Font.'Segoe UI'
         BorderColor: =RGBA(179, 179, 179, 1)
+        BorderThickness: =1
+        Default: =If(varDeskMode = "Edit",varManageSelectedDesk.Title,Blank())
+        Font: =Font.'Segoe UI'
+        Height: =70
+        Size: =18
+        Width: =540
+        X: =50
+        Y: =242
+        ZIndex: =7
 
     lblFloorDesk As label:
-        Text: ="Floor"
-        Size: =21
-        ZIndex: =8
-        Height: =70
-        Width: =560
-        Y: =330
-        X: =40
-        FontWeight: =FontWeight.Semibold
         Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =70
+        Size: =21
+        Text: ="Floor"
+        Width: =560
+        X: =40
+        Y: =330
+        ZIndex: =8
 
     tbFloorDesk As text:
-        Default: =If(varDeskMode = "Edit",varManageSelectedDesk.Floor,Blank())
         AccessibleLabel: ="Floor Input"
-        BorderThickness: =1
-        ZIndex: =9
-        Height: =70
-        Width: =540
-        Y: =400
-        X: =50
-        Size: =18
-        Font: =Font.'Segoe UI'
         BorderColor: =RGBA(179, 179, 179, 1)
+        BorderThickness: =1
+        Default: =If(varDeskMode = "Edit",varManageSelectedDesk.Floor,Blank())
+        Font: =Font.'Segoe UI'
+        Height: =70
+        Size: =18
+        Width: =540
+        X: =50
+        Y: =400
+        ZIndex: =9
 
     lblMapDesk As label:
-        Text: ="Map Link"
-        Size: =21
-        ZIndex: =10
-        Height: =70
-        Width: =560
-        Y: =486
-        X: =40
-        FontWeight: =FontWeight.Semibold
         Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =70
+        Size: =21
+        Text: ="Map Link"
+        Width: =560
+        X: =40
+        Y: =486
+        ZIndex: =10
 
     tbMapDesk As text:
-        Default: =If(varDeskMode = "Edit",varManageSelectedDesk.'Map Link',Blank())
         AccessibleLabel: ="Map Link Input"
-        BorderThickness: =1
-        ZIndex: =11
-        Height: =70
-        Width: =540
-        Y: =556
-        X: =50
-        Size: =18
-        Font: =Font.'Segoe UI'
         BorderColor: =RGBA(179, 179, 179, 1)
+        BorderThickness: =1
+        Default: =If(varDeskMode = "Edit",varManageSelectedDesk.'Map Link',Blank())
+        Font: =Font.'Segoe UI'
+        Height: =70
+        Size: =18
+        Width: =540
+        X: =50
+        Y: =556
+        ZIndex: =11
 
     lblDescrDesk As label:
-        Text: ="Description"
-        Size: =21
-        ZIndex: =12
-        Height: =70
-        Width: =560
-        Y: =640
-        X: =40
-        FontWeight: =FontWeight.Semibold
         Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =70
+        Size: =21
+        Text: ="Description"
+        Width: =560
+        X: =40
+        Y: =640
+        ZIndex: =12
 
     tbDescrDesk As text:
-        Default: =If(varDeskMode = "Edit",varManageSelectedDesk.Description,Blank())
         AccessibleLabel: ="Desk Description Input"
-        BorderThickness: =1
-        ZIndex: =13
-        Height: =142
-        Width: =540
-        Y: =710
-        X: =50
-        Size: =18
-        Font: =Font.'Segoe UI'
         BorderColor: =RGBA(179, 179, 179, 1)
+        BorderThickness: =1
+        Default: =If(varDeskMode = "Edit",varManageSelectedDesk.Description,Blank())
+        Font: =Font.'Segoe UI'
+        Height: =142
         Mode: =TextMode.MultiLine
+        Size: =18
+        Width: =540
+        X: =50
+        Y: =710
+        ZIndex: =13
 
     btnUpdate As button:
-        Text: ="Update"
         Fill: =RGBA(135, 78, 181, 1)
-        Width: =260
         Height: =70
-        ZIndex: =14
-        Size: =24
-        X: =316
-        Y: =888
         HoverFill: =ColorFade(Self.Fill, -20%)
         OnSelect: |-
             =Patch(Desks,varManageSelectedDesk,{Title:tbNameDesk.Text,Floor:tbFloorDesk.Text,'Map Link':tbMapDesk.Text,Description:tbDescrDesk.Text});Reset(tbDescrDesk);
@@ -177,16 +171,16 @@ NewEditDesk As screen:
                 Blank()
             );
             Navigate(ManageDesks)
+        Size: =24
+        Text: ="Update"
+        Width: =260
+        X: =316
+        Y: =888
+        ZIndex: =14
 
     btnBackDeskEdit As button:
-        Text: ="Back"
         Fill: =RGBA(128, 128, 128, 1)
-        Width: =200
         Height: =70
-        ZIndex: =15
-        Size: =24
-        X: =63
-        Y: =888
         HoverFill: =ColorFade(Self.Fill, -20%)
         OnSelect: |-
             =Reset(tbDescrDesk);
@@ -194,87 +188,93 @@ NewEditDesk As screen:
             Reset(tbMapDesk);
             Reset(tbNameDesk);
             Back()
+        Size: =24
+        Text: ="Back"
+        Width: =200
+        X: =63
+        Y: =888
+        ZIndex: =15
 
     iconViewMap As icon.View:
         AccessibleLabel: ="View Map"
-        Width: =40
-        Y: =500
-        X: =182
-        ZIndex: =16
         Color: =RGBA(128, 128, 128, 1)
-        Icon: =Icon.View
         Height: =40
-        TabIndex: =7
+        Icon: =Icon.View
         OnSelect: |-
             =UpdateContext({showMap:true})
+        TabIndex: =7
+        Width: =40
+        X: =182
+        Y: =500
+        ZIndex: =16
 
     toggleActive As toggleSwitch:
-        Default: =varManageSelectedDesk.Active
-        TrueText: ="ACTIVE"
-        FalseText: ="INACTIVE"
         AccessibleLabel: ="Active or Inactive Toggle"
-        ZIndex: =17
-        Size: =21
-        Y: =136
-        X: =200
-        Width: =250
-        Height: =49
-        TrueFill: =RGBA(54, 176, 75, 1)
+        Default: =varManageSelectedDesk.Active
         FalseFill: =RGBA(184, 0, 0, 1)
+        FalseText: ="INACTIVE"
+        Height: =49
+        Size: =21
+        TrueFill: =RGBA(54, 176, 75, 1)
+        TrueText: ="ACTIVE"
+        Width: =250
+        X: =200
+        Y: =136
+        ZIndex: =17
 
     grpHeader_6 As group:
-        ZIndex: =18
         Height: =5
         Width: =5
-        Y: =20
         X: =40
+        Y: =20
+        ZIndex: =18
 
         Image2_7 As image:
+            Height: =150
             Image: =abstractBackground
             ImagePosition: =ImagePosition.Fill
             Width: =640
-            Height: =150
             ZIndex: =1
 
         Rectangle2_6 As rectangle:
             Fill: =RGBA(135, 78, 181, 0.65)
-            Width: =640
             Height: =150
+            Width: =640
             ZIndex: =2
 
     grpMap_1 As group:
-        ZIndex: =28
         Height: =5
         Width: =5
-        Y: =60
         X: =60
+        Y: =60
+        ZIndex: =28
 
         Rectangle3_1 As rectangle:
             Fill: =RGBA(116, 116, 116, 0.85)
-            Width: =640
             Height: =1136
-            ZIndex: =18
             Visible: =showMap
+            Width: =640
+            ZIndex: =18
 
         Image5_1 As image:
+            Height: =500
             Image: =varManageSelectedDesk.'Map Link'
             ImagePosition: =ImagePosition.Fill
+            Visible: =showMap
+            Width: =609
             X: =21
             Y: =254
-            Width: =609
-            Height: =500
             ZIndex: =19
-            Visible: =showMap
 
         Icon1_1 As icon.Cancel:
             AccessibleLabel: ="Close Map"
-            Icon: =Icon.Cancel
             Color: =RGBA(255, 255, 255, 1)
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({showMap:!showMap})
+            TabIndex: =11
+            Visible: =showMap
             X: =560
             Y: =170
             ZIndex: =20
-            Visible: =showMap
-            TabIndex: =11
-            OnSelect: |-
-                =UpdateContext({showMap:!showMap})
 

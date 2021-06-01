@@ -1,39 +1,33 @@
 DateSelection As screen:
-    Width: =Max(App.Width, App.DesignWidth)
-    Height: =Max(App.Height, App.DesignHeight)
     Fill: =RGBA(236, 236, 236, 1)
+    Height: =Max(App.Height, App.DesignHeight)
     OnVisible: =
+    Width: =Max(App.Width, App.DesignWidth)
 
     bgRounded_1 As htmlViewer:
+        Height: =793
         HtmlText: |-
             ="<div style='border-radius:10%;border-top-left-radius:10%;height:600px;width:100%;background-color:#FCFCFC'></div>"
-        Y: =118
-        X: =10
-        Height: =793
         Width: =610
+        X: =10
+        Y: =118
         ZIndex: =3
 
     Calendar_1 As Calendar:
-        EndDate: =If(Calendar_1.SelectRange,_selectedEnd,_selectedStart)
-        SelectedDateFill: =RGBA(135, 78, 181, 1)
         BorderRadius: =1
         DaysAheadRestriction: =60
+        EndDate: =If(Calendar_1.SelectRange,_selectedEnd,_selectedStart)
+        Height: =539
+        SelectedDateFill: =RGBA(135, 78, 181, 1)
+        Width: =593
+        X: =22
         Y: =138
         ZIndex: =4
-        X: =22
-        Width: =593
-        Height: =539
 
     btnContinueDate As button:
-        Text: ="Continue"
-        Y: =926
-        X: =316
-        ZIndex: =5
-        HoverFill: =ColorFade(Self.Fill, -20%)
-        Height: =70
-        Width: =260
-        Size: =24
         Fill: =RGBA(135, 78, 181, 1)
+        Height: =70
+        HoverFill: =ColorFade(Self.Fill, -20%)
         OnSelect: |-
             =Set(
                 selectedDate,
@@ -88,39 +82,57 @@ DateSelection As screen:
                 ),
                 Navigate(DeskSelect)
             )
+        Size: =24
+        Text: ="Continue"
+        Width: =260
+        X: =316
+        Y: =926
+        ZIndex: =5
 
     btnBackDate As button:
-        Text: ="Back"
-        Y: =926
-        X: =63
-        ZIndex: =6
-        HoverFill: =ColorFade(Self.Fill, -20%)
-        Height: =70
-        Width: =200
-        Size: =24
         Fill: =RGBA(128, 128, 128, 1)
+        Height: =70
+        HoverFill: =ColorFade(Self.Fill, -20%)
         OnSelect: =Reset(Calendar_1)  ;Back()
+        Size: =24
+        Text: ="Back"
+        Width: =200
+        X: =63
+        Y: =926
+        ZIndex: =6
 
     lblSelectDate As label:
-        Text: ="Select a Date"
         Align: =Align.Center
-        ZIndex: =7
+        Color: =RGBA(255, 255, 255, 1)
         FontWeight: =Bold
         Height: =118
-        Width: =640
         Size: =32
-        Color: =RGBA(255, 255, 255, 1)
+        Text: ="Select a Date"
+        Width: =640
+        ZIndex: =7
 
     lblSelectTimeSlot As label:
-        Text: ="Select a Time Slot"
         Align: =Align.Center
-        Size: =24
-        Y: =736
-        Width: =640
         Height: =70
+        Size: =24
+        Text: ="Select a Time Slot"
+        Width: =640
+        Y: =736
         ZIndex: =8
 
     ddTimeFrom As dropdown:
+        AccessibleLabel: ="Start Time"
+        BorderColor: =RGBA(135, 78, 181, 1)
+        BorderThickness: =1
+        ChevronBackground: |-
+            =ColorValue("#874EB5")
+        ChevronFill: =White
+        ChevronHoverBackground: |-
+            =ColorValue("#874EB5")
+        Default: |-
+            ="9:00 AM"
+        Height: =66
+        HoverFill: =LightGray
         Items: |-
             =With(
                 {Interval: 15},
@@ -133,53 +145,41 @@ DateSelection As screen:
                     )
                 )
             )
-        Default: |-
-            ="9:00 AM"
-        AccessibleLabel: ="Start Time"
-        Width: =190
-        ChevronHoverBackground: |-
-            =ColorValue("#874EB5")
-        ChevronFill: =White
-        ChevronBackground: |-
-            =ColorValue("#874EB5")
-        BorderColor: =RGBA(135, 78, 181, 1)
-        BorderThickness: =1
-        HoverFill: =LightGray
         Size: =21
+        Width: =190
         X: =63
         Y: =813
-        Height: =66
         ZIndex: =9
 
     lblTo As label:
-        Text: ="to"
         Align: =Align.Center
+        Height: =66
         Size: =21
+        Text: ="to"
+        Width: =80
         X: =259
         Y: =813
-        Width: =80
-        Height: =66
         ZIndex: =10
 
     ddTimeTo As dropdown:
-        Items: |-
-            =With({Interval: 15}, ForAll(Sequence(60*24/Interval), Time(0,Interval*(Value-1),0)))
-        Default: |-
-            ="10:00 AM"
         AccessibleLabel: ="End Time"
-        Width: =190
-        Y: =813
+        BorderColor: =RGBA(135, 78, 181, 1)
+        BorderThickness: =1
         ChevronBackground: |-
             =ColorValue("#874EB5")
+        ChevronFill: =White
         ChevronHoverBackground: |-
             =ColorValue("#874EB5")
-        BorderThickness: =1
-        ChevronFill: =White
-        BorderColor: =RGBA(135, 78, 181, 1)
-        HoverFill: =LightGray
-        Size: =21
-        X: =347
+        Default: |-
+            ="10:00 AM"
         Height: =66
+        HoverFill: =LightGray
+        Items: |-
+            =With({Interval: 15}, ForAll(Sequence(60*24/Interval), Time(0,Interval*(Value-1),0)))
+        Size: =21
+        Width: =190
+        X: =347
+        Y: =813
         ZIndex: =11
 
     Tabs_5 As Tabs:
@@ -210,26 +210,26 @@ DateSelection As screen:
                     Visible:true
                 }
             )
-        ZIndex: =12
         Y: =1016
+        ZIndex: =12
 
     grpHeader As group:
-        ZIndex: =13
         Height: =5
         Width: =5
-        Y: =40
         X: =40
+        Y: =40
+        ZIndex: =13
 
         Image2_1 As image:
+            Height: =150
             Image: =abstractBackground
             ImagePosition: =ImagePosition.Fill
             Width: =640
-            Height: =150
             ZIndex: =1
 
         Rectangle2 As rectangle:
             Fill: =RGBA(135, 78, 181, 0.65)
-            Width: =640
             Height: =150
+            Width: =640
             ZIndex: =2
 

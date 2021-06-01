@@ -1,8 +1,8 @@
 Dashboard As screen:
-    Width: =Max(App.Width, App.DesignWidth)
-    Height: =Max(App.Height, App.DesignHeight)
     Fill: =RGBA(236, 236, 236, 1)
+    Height: =Max(App.Height, App.DesignHeight)
     OnVisible: =Set(varCurrentDate,Text(Today()))
+    Width: =Max(App.Width, App.DesignWidth)
 
     Tabs_1 As Tabs:
         Items: |-
@@ -32,59 +32,61 @@ Dashboard As screen:
                     Visible:true
                 }
             )
-        ZIndex: =1
         Y: =1016
+        ZIndex: =1
 
     imgDashboardBG As image:
-        Image: ='pexels-photo-273238'
-        ZIndex: =2
-        ImagePosition: =ImagePosition.Fill
         Height: =353
+        Image: ='pexels-photo-273238'
+        ImagePosition: =ImagePosition.Fill
         Width: =640
+        ZIndex: =2
 
     lblWelcome As label:
-        Text: ="Welcome back, " 
-        ZIndex: =3
+        Font: =Font.'Segoe UI'
         FontWeight: =Bold
         Height: =115
-        Width: =335
         Size: =32
-        Y: =12
+        Text: ="Welcome back, " 
+        Width: =335
         X: =268
-        Font: =Font.'Segoe UI'
+        Y: =12
+        ZIndex: =3
 
     lblName As label:
-        Text: =Trim(Last(FirstN(Split(currentUser.FullName," "), 1)).Result)
-        ZIndex: =4
+        Font: =Font.'Segoe UI'
         FontWeight: =Bold
         Height: =80
-        Width: =310
         Size: =36
-        Y: =107
+        Text: =Trim(Last(FirstN(Split(currentUser.FullName," "), 1)).Result)
+        Width: =310
         X: =293
-        Font: =Font.'Segoe UI'
+        Y: =107
+        ZIndex: =4
 
     bgRounded_3 As htmlViewer:
+        Height: =660
         HtmlText: |-
             ="<div style='border:1px gray;border-radius:10%;height:600px;width:100%;background-color:#FCFCFC'></div>"
-        Y: =328
-        X: =15
-        Height: =660
         Width: =610
+        X: =15
+        Y: =328
         ZIndex: =5
 
     lblMyUpcomingRes As label:
-        Text: ="Upcoming Reservations"
         Align: =Align.Center
-        ZIndex: =6
+        Font: =Font.'Segoe UI'
         FontWeight: =Semibold
         Height: =61
-        Width: =640
         Size: =21
+        Text: ="Upcoming Reservations"
+        Width: =640
         Y: =337
-        Font: =Font.'Segoe UI'
+        ZIndex: =6
 
     "gallMyReservationsPreview As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+        AccessibleLabel: ="Upcoming Reservations"
+        Height: =483
         Items: |-
             =FirstN(
                 SortByColumns(
@@ -102,43 +104,52 @@ Dashboard As screen:
                 ),
                 2
             )
-        AccessibleLabel: ="Upcoming Reservations"
-        TemplateSize: =186
-        TemplatePadding: =0
         Layout: =Layout.Vertical
+        TabIndex: =5
+        TemplatePadding: =0
+        TemplateSize: =186
+        Width: =532
         X: =53
         Y: =408
-        Width: =532
-        Height: =483
         ZIndex: =7
-        TabIndex: =5
 
         Title2 As label:
-            Text: =Upper(Text(DateTimeValue(ThisItem.'Check Out From Text'),"[$-en-US]mmm"))
-            Height: =57
-            Font: =Font.'Segoe UI'
             Align: =Align.Center
-            VerticalAlign: =VerticalAlign.Top
-            X: =If(Upper(Text(DateTimeValue(ThisItem.'Check Out From Text'),"[$-en-US]dd")) = Upper(Text(DateTimeValue(ThisItem.'Check Out To Text'),"[$-en-US]dd")),55,2)
-            Y: =29
-            Width: =94
-            ZIndex: =1
-            PaddingTop: =0
-            PaddingRight: =0
+            Font: =Font.'Segoe UI'
+            Height: =57
+            OnSelect: =Select(Parent)
             PaddingBottom: =0
             PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
             Size: =28
-            OnSelect: =Select(Parent)
+            Text: =Upper(Text(DateTimeValue(ThisItem.'Check Out From Text'),"[$-en-US]mmm"))
+            VerticalAlign: =VerticalAlign.Top
+            Width: =94
+            X: =If(Upper(Text(DateTimeValue(ThisItem.'Check Out From Text'),"[$-en-US]dd")) = Upper(Text(DateTimeValue(ThisItem.'Check Out To Text'),"[$-en-US]dd")),55,2)
+            Y: =29
+            ZIndex: =1
 
         Separator2 As rectangle:
             Fill: =RGBA(135, 78, 181, 1)
-            Y: =Parent.TemplateHeight - 1
-            Width: =Parent.TemplateWidth
             Height: =1
-            ZIndex: =3
             OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =3
 
         Title2_1 As label:
+            Align: =Align.Center
+            Color: =RGBA(135, 78, 181, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =Bold
+            Height: =49
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =32
             Text: |-
                 =Upper(
                     Text(
@@ -146,138 +157,127 @@ Dashboard As screen:
                         "[$-en-US]dd"
                     )
                 )
-            Height: =49
-            Color: =RGBA(135, 78, 181, 1)
-            Font: =Font.'Segoe UI'
-            FontWeight: =Bold
-            Align: =Align.Center
             VerticalAlign: =VerticalAlign.Top
+            Width: =94
             X: =Title2.X
             Y: =86
-            Width: =94
             ZIndex: =4
-            PaddingTop: =0
-            PaddingRight: =0
-            PaddingBottom: =0
-            PaddingLeft: =0
-            Size: =32
-            OnSelect: =Select(Parent)
 
         Title2_2 As label:
-            Text: =ThisItem.DeskText
-            Height: =57
-            Font: =Font.'Segoe UI'
             Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            Height: =57
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =0
+            Size: =26
+            Text: =ThisItem.DeskText
             VerticalAlign: =VerticalAlign.Top
+            Width: =300
             X: =203
             Y: =29
-            Width: =300
             ZIndex: =5
-            PaddingTop: =0
-            PaddingRight: =10
-            PaddingBottom: =0
-            PaddingLeft: =10
-            Size: =26
-            OnSelect: =Select(Parent)
 
         Title2_3 As label:
-            Text: =Text(DateTimeValue(ThisItem.'Check Out From Text'), DateTimeFormat.ShortTime) & " to " & Text(DateTimeValue(ThisItem.'Check Out To Text'), DateTimeFormat.ShortTime)
-            Height: =42
-            Font: =Font.'Segoe UI'
             Align: =Align.Center
-            VerticalAlign: =VerticalAlign.Top
-            X: =178
-            Y: =93
-            Width: =350
-            ZIndex: =6
-            PaddingTop: =0
-            PaddingRight: =10
+            Font: =Font.'Segoe UI'
+            Height: =42
+            OnSelect: =Select(Parent)
             PaddingBottom: =0
             PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =0
             Size: =24
-            OnSelect: =Select(Parent)
+            Text: =Text(DateTimeValue(ThisItem.'Check Out From Text'), DateTimeFormat.ShortTime) & " to " & Text(DateTimeValue(ThisItem.'Check Out To Text'), DateTimeFormat.ShortTime)
+            VerticalAlign: =VerticalAlign.Top
+            Width: =350
+            X: =178
+            Y: =93
+            ZIndex: =6
 
         Title2_14 As label:
-            Text: =Upper(Text(DateTimeValue(ThisItem.'Check Out To Text'),"[$-en-US]mmm"))
-            Height: =57
-            Font: =Font.'Segoe UI'
             Align: =Align.Center
-            VerticalAlign: =VerticalAlign.Top
-            X: =108
-            Y: =29
-            Width: =94
-            ZIndex: =7
-            PaddingTop: =0
-            PaddingRight: =0
+            Font: =Font.'Segoe UI'
+            Height: =57
+            OnSelect: =Select(Parent)
             PaddingBottom: =0
             PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
             Size: =28
+            Text: =Upper(Text(DateTimeValue(ThisItem.'Check Out To Text'),"[$-en-US]mmm"))
+            VerticalAlign: =VerticalAlign.Top
             Visible: =If(Upper(Text(DateTimeValue(ThisItem.'Check Out From Text'),"[$-en-US]dd")) = Upper(Text(DateTimeValue(ThisItem.'Check Out To Text'),"[$-en-US]dd")), false, true)
-            OnSelect: =Select(Parent)
+            Width: =94
+            X: =108
+            Y: =29
+            ZIndex: =7
 
         Title2_15 As label:
-            Text: =Upper(Text(DateTimeValue(ThisItem.'Check Out To Text'),"[$-en-US]dd"))
-            Height: =49
+            Align: =Align.Center
             Color: =RGBA(135, 78, 181, 1)
             Font: =Font.'Segoe UI'
             FontWeight: =Bold
-            Align: =Align.Center
-            VerticalAlign: =VerticalAlign.Top
-            X: =Title2_14.X
-            Y: =86
-            Width: =94
-            ZIndex: =8
-            PaddingTop: =0
-            PaddingRight: =0
+            Height: =49
+            OnSelect: =Select(Parent)
             PaddingBottom: =0
             PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
             Size: =32
+            Text: =Upper(Text(DateTimeValue(ThisItem.'Check Out To Text'),"[$-en-US]dd"))
+            VerticalAlign: =VerticalAlign.Top
             Visible: =Title2_14.Visible
-            OnSelect: =Select(Parent)
+            Width: =94
+            X: =Title2_14.X
+            Y: =86
+            ZIndex: =8
 
         Label2_1 As label:
-            Text: =" to "
-            FontWeight: =FontWeight.Semibold
             Align: =Align.Center
+            FontWeight: =FontWeight.Semibold
+            Height: =68
+            OnSelect: =Select(Parent)
+            Size: =21
+            Text: =" to "
+            Visible: =Title2_14.Visible
+            Width: =43
             X: =85
             Y: =65
-            Width: =43
-            Height: =68
             ZIndex: =9
-            Size: =21
-            Visible: =Title2_14.Visible
-            OnSelect: =Select(Parent)
 
         Icon6 As icon.View:
-            Icon: =Icon.OpenInNewWindow
             Color: =RGBA(135, 78, 181, 1)
+            Height: =45
+            Icon: =Icon.OpenInNewWindow
+            OnSelect: =Set(varSelectedReservation,ThisItem);Navigate(Reservation)
+            Width: =45
             X: =458
             Y: =133
-            Width: =45
-            Height: =45
             ZIndex: =10
-            OnSelect: =Set(varSelectedReservation,ThisItem);Navigate(Reservation)
 
     lblNoResDashboard As label:
-        Text: ="No upcoming reservations"
-        ZIndex: =8
-        Visible: =If(CountRows(gallMyReservationsPreview.AllItems) >=1, false, true)
-        Height: =90
+        Align: =Align.Center
         FontWeight: =Lighter
+        Height: =90
+        Size: =21
+        Text: ="No upcoming reservations"
+        Visible: =If(CountRows(gallMyReservationsPreview.AllItems) >=1, false, true)
         Width: =640
         Y: =526
-        Align: =Align.Center
-        Size: =21
+        ZIndex: =8
 
     Label8 As label:
-        Text: ="V3"
-        X: =15
-        Width: =53
         Height: =45
-        ZIndex: =9
         Size: =14
+        Text: ="V3"
+        Width: =53
+        X: =15
+        ZIndex: =9
 
     Preloader_1 As Preloader:
-        ZIndex: =10
         Visible: =varTimer
+        ZIndex: =10
 
