@@ -1,0 +1,102 @@
+Tabs As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =120
+    HomePage: =App.ActiveScreen
+    Items: |-
+        =Table(
+            {
+                Name: "Dashboard",
+                Icon: Icon.DetailList,
+                Page: App.ActiveScreen,
+                Visible:true
+            },
+            {
+                Name: "My Appts",
+                Icon: Icon.Person,
+                Page: App.ActiveScreen,
+                Visible:true
+            },
+             {
+                Name: "Manage Desks",
+                Icon: Icon.ComputerDesktop,
+                Page: App.ActiveScreen,
+                Visible:true
+            },
+            {
+                Name: "Book",
+                Icon: Icon.Add,
+                Page: App.ActiveScreen,
+                Visible:true
+            }
+        )
+    Width: =640
+    X: =0
+    Y: =0
+    ZIndex: =2
+
+    Gallery4 As gallery.galleryHorizontal:
+        AccessibleLabel: ="Footer tabs"
+        BorderColor: =RGBA(32, 54, 71, 1)
+        DisabledBorderColor: =Gallery4.BorderColor
+        DisabledFill: =Gallery4.Fill
+        Height: =115
+        HoverBorderColor: =Gallery4.BorderColor
+        HoverFill: =Gallery4.Fill
+        Items: =Tabs.Items
+        LoadingSpinnerColor: =Gallery4.BorderColor
+        OnSelect: =Navigate(ThisItem.Page)
+        PressedBorderColor: =Gallery4.BorderColor
+        PressedFill: =Gallery4.Fill
+        TabIndex: =1
+        TemplateSize: =151
+        Width: =638
+        X: =1
+        ZIndex: =1
+
+        Label10 As label:
+            Align: =Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            FocusedBorderColor: =Label10.BorderColor
+            Height: =52
+            HoverBorderColor: =Label10.BorderColor
+            HoverColor: =Label10.Color
+            HoverFill: =Label10.Fill
+            OnSelect: =Select(Parent);Navigate(ThisItem.Page)
+            PressedBorderColor: =Label10.BorderColor
+            PressedColor: =Label10.Color
+            PressedFill: =Label10.Fill
+            Size: =18
+            Text: =ThisItem.Name
+            Visible: =ThisItem.Visible
+            Width: =137
+            X: =4
+            Y: =48
+            ZIndex: =1
+
+        Icon10 As icon.Search:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(39, 113, 194, 1)
+            DisabledFill: =Icon10.Fill
+            FocusedBorderColor: =Icon10.BorderColor
+            Height: =40
+            HoverBorderColor: =ColorFade(Icon10.BorderColor, 20%)
+            HoverColor: =ColorFade(Icon10.Color, 20%)
+            HoverFill: =Icon10.Fill
+            Icon: =ThisItem.Icon
+            OnSelect: =Select(Parent);Navigate(ThisItem.Page)
+            PressedBorderColor: =ColorFade(Icon10.BorderColor, -20%)
+            PressedColor: =ColorFade(Icon10.Color, -20%)
+            PressedFill: =Icon10.Fill
+            Visible: =ThisItem.Visible
+            Width: =40
+            X: =56
+            Y: =8
+            ZIndex: =2
+
+    Rectangle1 As rectangle:
+        BorderColor: =RGBA(128, 128, 128, 1)
+        Fill: =RGBA(128, 128, 128, 1)
+        Height: =2
+        Width: =640
+        ZIndex: =2
+
