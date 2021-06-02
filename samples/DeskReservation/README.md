@@ -64,7 +64,7 @@ This SharePoint list contains the information about the desks that people can bo
 |Number|Active|No|
 |Single line of text|Floor|No|
 
-### Desks Reservations List
+### Desk Reservations List
 
 This SharePoint list contains the reservation information.  Set the list up as follows:
 
