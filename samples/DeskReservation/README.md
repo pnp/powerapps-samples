@@ -72,7 +72,7 @@ This SharePoint list contains the reservation information.  Set the list up as f
 |---|---|:---:|
 |Single line of text|Title|Yes|
 |Single line of text|DeskText|Yes|
-|Person or Group|ReservedBy|Yes|
+|Person or Group|Reserved By|Yes|
 |Date and Time|Check Out From|No|
 |Date and Time|Check Out To|No|
 |Single line of text|Check Out From Text|No|
