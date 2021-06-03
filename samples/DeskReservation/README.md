@@ -72,7 +72,7 @@ This SharePoint list contains the reservation information.  Set the list up as f
 |---|---|:---:|
 |Single line of text|Title|Yes|
 |Single line of text|DeskText|Yes|
-|Person or Group|ReservedBy|Yes|
+|Person or Group|Reserved By|Yes|
 |Date and Time|Check Out From|No|
 |Date and Time|Check Out To|No|
 |Single line of text|Check Out From Text|No|
@@ -82,7 +82,7 @@ This SharePoint list contains the reservation information.  Set the list up as f
 
 ## Minimal Path to Awesome
 
-* [Download](./solution/DeskReservation.msapp) the `.msapp` from the `solution` folder
+* [Download](./solution/DeskBooking.msapp) the `.msapp` from the `solution` folder
 * Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just downloaded.
 * Select the **Data** tab
 * Click the **...** next to the **Desk Reservations** and **Desks** data connections and select **Remove**
