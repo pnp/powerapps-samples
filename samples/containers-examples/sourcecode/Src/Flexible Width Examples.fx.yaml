@@ -1,0 +1,184 @@
+"'Flexible Width Examples' As screen":
+
+    Container4 As groupContainer.horizontalAutoLayoutContainer:
+        DisplayMode: =DisplayMode.Edit
+        Height: =App.Height
+        Width: =App.Width
+        ZIndex: =1
+
+        Container6 As groupContainer.verticalAutoLayoutContainer:
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 18, 107, 1)
+            FillPortions: =0
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            Width: =220
+            ZIndex: =1
+
+            Label4 As label:
+                AlignInContainer: =AlignInContainer.Stretch
+                Color: =RGBA(255, 255, 255, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =80
+                PaddingLeft: =20
+                PaddingTop: =20
+                Size: =24
+                Text: ="Portal"
+                ZIndex: =1
+
+            Container8 As groupContainer.horizontalAutoLayoutContainer:
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =0
+                Height: =80
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =0
+                LayoutMinWidth: =0
+                PaddingLeft: =20
+                ZIndex: =2
+
+                Icon2 As icon.Newspaper:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =40
+                    Icon: =Icon.Newspaper
+                    Width: =40
+                    ZIndex: =1
+
+                Label5 As label:
+                    Color: =RGBA(255, 255, 255, 1)
+                    PaddingLeft: =20
+                    Size: =16
+                    Text: ="News"
+                    ZIndex: =2
+
+            Container8_1 As groupContainer.horizontalAutoLayoutContainer:
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =0
+                Height: =80
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =0
+                LayoutMinWidth: =0
+                PaddingLeft: =20
+                ZIndex: =3
+
+                Icon2_1 As icon.Newspaper:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =40
+                    Icon: =Icon.People
+                    Width: =40
+                    ZIndex: =1
+
+                Label5_1 As label:
+                    Color: =RGBA(255, 255, 255, 1)
+                    PaddingLeft: =20
+                    Size: =16
+                    Text: ="People"
+                    ZIndex: =2
+
+            Container8_2 As groupContainer.horizontalAutoLayoutContainer:
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =0
+                Height: =80
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =0
+                LayoutMinWidth: =0
+                PaddingLeft: =20
+                ZIndex: =4
+
+                Icon2_2 As icon.Newspaper:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =40
+                    Icon: =Icon.Airplane
+                    Width: =40
+                    ZIndex: =1
+
+                Label5_2 As label:
+                    Color: =RGBA(255, 255, 255, 1)
+                    PaddingLeft: =20
+                    Size: =16
+                    Text: ="Travel"
+                    ZIndex: =2
+
+            Container8_3 As groupContainer.horizontalAutoLayoutContainer:
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =0
+                Height: =80
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =0
+                LayoutMinWidth: =0
+                PaddingLeft: =20
+                ZIndex: =5
+
+                Icon2_3 As icon.Newspaper:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =40
+                    Icon: =Icon.Money
+                    Width: =40
+                    ZIndex: =1
+
+                Label5_3 As label:
+                    Color: =RGBA(255, 255, 255, 1)
+                    PaddingLeft: =20
+                    Size: =16
+                    Text: ="Expenses"
+                    ZIndex: =2
+
+            Container8_4 As groupContainer.horizontalAutoLayoutContainer:
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =0
+                Height: =80
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =0
+                LayoutMinWidth: =0
+                PaddingLeft: =20
+                ZIndex: =6
+
+                Icon2_4 As icon.Newspaper:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =40
+                    Icon: =Icon.Shirt
+                    Width: =40
+                    ZIndex: =1
+
+                Label5_4 As label:
+                    Color: =RGBA(255, 255, 255, 1)
+                    PaddingLeft: =20
+                    Size: =16
+                    Text: ="Gear"
+                    ZIndex: =2
+
+                Icon3 As icon.ShoppingCart:
+                    Icon: =Icon.ShoppingCart
+                    ZIndex: =3
+
+        Container10 As groupContainer.verticalAutoLayoutContainer:
+            DisplayMode: =DisplayMode.Edit
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =3
+
+            Label4_2 As label:
+                AlignInContainer: =AlignInContainer.Stretch
+                FontWeight: =FontWeight.Semibold
+                Height: =80
+                PaddingLeft: =40
+                PaddingTop: =20
+                Size: =24
+                Text: ="Lorem Ipsum Dolor"
+                ZIndex: =1
+
+            Label7 As label:
+                AlignInContainer: =AlignInContainer.Stretch
+                FillPortions: =1
+                LineHeight: =1.5
+                PaddingLeft: =40
+                PaddingRight: =40
+                Size: =16
+                Text: |-
+                    ="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dapibus luctus euismod. Mauris in lorem ullamcorper, mattis purus sed, rhoncus tortor. Aliquam velit risus, aliquet sit amet ultrices ac, euismod eget orci. Phasellus cursus non est dictum placerat. Ut at volutpat eros, lacinia maximus quam. Suspendisse egestas varius nibh ac sodales. Praesent a tellus nec diam molestie consectetur ut id lectus.
+                    
+                    Morbi eleifend in nisl et bibendum. Vivamus accumsan risus massa, in mattis turpis faucibus in. Morbi ac lacinia eros, ut ornare nulla. Morbi blandit nulla a efficitur lobortis. Cras vel nisl at massa tincidunt gravida. Aenean quis odio placerat, hendrerit risus eu, semper orci. In hac habitasse platea dictumst. Vestibulum at risus blandit, consectetur ipsum vitae, pellentesque lacus. Quisque nisi arcu, imperdiet ac pharetra quis, condimentum ac neque. Mauris ut nunc egestas, laoreet nibh eget, blandit lorem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris tempus mollis diam eu dapibus. Nullam euismod venenatis lacus, eget tempus risus congue eget. Morbi ut eros venenatis, tempus nulla a, porta magna.
+                    
+                    Suspendisse condimentum purus dignissim ligula tempor sagittis. Sed tristique pellentesque interdum. Phasellus semper iaculis felis id facilisis. Suspendisse sapien mauris, bibendum vitae tempus in, vehicula nec nibh. Curabitur sodales diam sed condimentum mattis. Sed ac scelerisque nibh, eu accumsan magna. Sed egestas hendrerit pharetra. Donec interdum vulputate quam, quis laoreet neque posuere a. Proin malesuada, leo ut fringilla placerat, massa ligula tristique magna, ut porttitor sapien velit sed erat. Donec blandit euismod sagittis. Sed enim nunc, facilisis id mi ut, tincidunt scelerisque quam."
+                VerticalAlign: =VerticalAlign.Top
+                ZIndex: =2
+

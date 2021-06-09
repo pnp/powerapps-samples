@@ -1,0 +1,100 @@
+"'Gap Examples' As screen":
+
+    Container2_1 As groupContainer.horizontalAutoLayoutContainer:
+        DisplayMode: =DisplayMode.Edit
+        Height: =96
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutGap: =20
+        PaddingBottom: =20
+        PaddingLeft: =20
+        PaddingRight: =20
+        PaddingTop: =20
+        Width: =547
+        X: =368
+        Y: =356
+        ZIndex: =1
+
+        Button2_3 As button:
+            BorderThickness: =3
+            Fill: =RGBA(50, 86, 160, 1)
+            FillPortions: =1
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =16
+            Text: ="Yes"
+            ZIndex: =1
+
+        Button2_4 As button:
+            BorderThickness: =3
+            Color: =RGBA(56, 96, 178, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =1
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =16
+            Text: ="No"
+            ZIndex: =2
+
+        Button2_5 As button:
+            BorderThickness: =3
+            Color: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =1
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =16
+            Text: ="Cancel"
+            ZIndex: =3
+
+    Container2_2 As groupContainer.horizontalAutoLayoutContainer:
+        DisplayMode: =DisplayMode.Edit
+        Height: =96
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        PaddingBottom: =20
+        PaddingLeft: =20
+        PaddingRight: =20
+        PaddingTop: =20
+        Width: =547
+        X: =368
+        Y: =188
+        ZIndex: =2
+
+        Button2_6 As button:
+            BorderThickness: =3
+            Fill: =RGBA(221, 79, 14, 1)
+            FillPortions: =1
+            RadiusBottomRight: =0
+            RadiusTopRight: =0
+            Size: =16
+            Text: ="New"
+            ZIndex: =1
+
+        Button2_7 As button:
+            BorderThickness: =3
+            Fill: =RGBA(221, 79, 14, 1)
+            FillPortions: =1
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =16
+            Text: ="Submitted"
+            ZIndex: =2
+
+        Button2_8 As button:
+            BorderThickness: =3
+            Color: =RGBA(221, 79, 14, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =1
+            RadiusBottomLeft: =0
+            RadiusTopLeft: =0
+            Size: =16
+            Text: ="Approved"
+            ZIndex: =3
+

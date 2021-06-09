@@ -1,0 +1,73 @@
+"'Minimum Width Examples' As screen":
+
+    Container11 As groupContainer.verticalAutoLayoutContainer:
+        DisplayMode: =DisplayMode.Edit
+        Height: =App.Height
+        Width: =App.Width
+        ZIndex: =1
+
+        Container12 As groupContainer.horizontalAutoLayoutContainer:
+            DisplayMode: =DisplayMode.Edit
+            FillPortions: =0
+            Height: =80
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            X: =40
+            Y: =40
+            ZIndex: =1
+
+            Label9 As label:
+                Align: =Center
+                AlignInContainer: =AlignInContainer.Stretch
+                Color: =RGBA(255, 255, 255, 1)
+                Fill: =RGBA(54, 176, 75, 1)
+                FillPortions: =1
+                Size: =20
+                Text: ="Reader App"
+                ZIndex: =1
+
+        Container13 As groupContainer.horizontalAutoLayoutContainer:
+            DisplayMode: =DisplayMode.Edit
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =2
+
+            Label12_2 As label:
+                AlignInContainer: =AlignInContainer.Stretch
+                Fill: =RGBA(255, 255, 255, 1)
+                FillPortions: =1
+                Size: =16
+                Text: =""
+                VerticalAlign: =VerticalAlign.Top
+                Width: =0
+                ZIndex: =1
+
+            Label11 As label:
+                AlignInContainer: =AlignInContainer.Stretch
+                FillPortions: =2
+                LayoutMinWidth: =450
+                LineHeight: =1.5
+                PaddingLeft: =30
+                PaddingRight: =30
+                PaddingTop: =40
+                Size: =16
+                Text: |-
+                    ="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dapibus luctus euismod. Mauris in lorem ullamcorper, mattis purus sed, rhoncus tortor. Aliquam velit risus, aliquet sit amet ultrices ac, euismod eget orci. Phasellus cursus non est dictum placerat. Ut at volutpat eros, lacinia maximus quam. Suspendisse egestas varius nibh ac sodales. Praesent a tellus nec diam molestie consectetur ut id lectus.
+                    
+                    Morbi eleifend in nisl et bibendum. Vivamus accumsan risus massa, in mattis turpis faucibus in. Morbi ac lacinia eros, ut ornare nulla. Morbi blandit nulla a efficitur lobortis. Cras vel nisl at massa tincidunt gravida. Aenean quis odio placerat, hendrerit risus eu, semper orci. In hac habitasse platea dictumst. Vestibulum at risus blandit, consectetur ipsum vitae, pellentesque lacus. Quisque nisi arcu, imperdiet ac pharetra quis, condimentum ac neque. Mauris ut nunc egestas, laoreet nibh eget, blandit lorem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris tempus mollis diam eu dapibus. Nullam euismod venenatis lacus, eget tempus risus congue eget. Morbi ut eros venenatis, tempus nulla a, porta magna.
+                    
+                    Suspendisse condimentum purus dignissim ligula tempor sagittis. Sed tristique pellentesque interdum. Phasellus semper iaculis felis id facilisis. Suspendisse sapien mauris, bibendum vitae tempus in, vehicula nec nibh. Curabitur sodales diam sed condimentum mattis. Sed ac scelerisque nibh, eu accumsan magna. Sed egestas hendrerit pharetra. Donec interdum vulputate quam, quis laoreet neque posuere a. Proin malesuada, leo ut fringilla placerat, massa ligula tristique magna, ut porttitor sapien velit sed erat. Donec blandit euismod sagittis. Sed enim nunc, facilisis id mi ut, tincidunt scelerisque quam."
+                VerticalAlign: =VerticalAlign.Top
+                ZIndex: =2
+
+            Label12 As label:
+                AlignInContainer: =AlignInContainer.Stretch
+                Fill: =RGBA(255, 255, 255, 1)
+                FillPortions: =1
+                LayoutMinWidth: =0
+                Size: =16
+                Text: =""
+                VerticalAlign: =VerticalAlign.Top
+                Width: =0
+                ZIndex: =3
+
