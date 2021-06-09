@@ -38,7 +38,7 @@ This sample explains the following container properties and gives real-world exa
 * Fill Portions Property
 
 
-The companion article [A Visual Guide To Power Apps Containers](https://matthewdevaney.com/a-visual-guide-to-power-apps-containers)can be found at [MatthewDevaney.com](https://matthewdevaney.com)
+The companion article [A Visual Guide To Power Apps Containers](https://matthewdevaney.com/a-visual-guide-to-power-apps-containers) can be found at [MatthewDevaney.com](https://matthewdevaney.com)
 
 ## Prerequisites
 
