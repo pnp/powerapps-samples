@@ -12,7 +12,6 @@
 
 |        Q                                                  |                    A                    |
 | --------------------------------------------------------- | --------------------------------------- |
-| Which version of the [Power Apps Source File Pack and Unpack Utility](https://github.com/microsoft/PowerApps-Language-Tooling) did you use to unpack the solution? | e.g.  0.2.3-preview  |
 | Solution requires premium license                         | no - yes?                               |
 | Solution uses experimental features (see [licensing guidelines](https://go.microsoft.com/fwlink/?linkid=2085130)) | no - yes?  |
 | Which connectors are used?                                | e.g.: SharePoint, DataVerse, DataVerse for Teams, Outlook, DocuSign, etc.  |
