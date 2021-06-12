@@ -1,6 +1,6 @@
 # Visual Guide To Power Apps Containers
 
-21 screen with Power Apps containers examples to help you learn
+21 Power Apps containers examples to help you learn.  Useful for building layouts and responsive apps.
 
 ### Home Screen
 
