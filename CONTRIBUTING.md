@@ -36,8 +36,7 @@ When you are submitting a new sample, it has to follow up below guidelines
   * For example, if you use Office Graph with React, please add a new web part to the existing solution, rather than introducing a completely new solution
   * When you update existing samples, please update also `README.md` file accordingly with information on provided changes and with your author details
 * When submitting a new sample solution, please name the sample solution folder accordingly
-  * Folder should start by identifying JS library used - like `react-`, `angular-`, `knockout-`
-  * If you are not using any specific JS library, please use `js-` as the prefix for your sample
+  * Folder names should be all lowercase
   * Do not use words such as `sample`, `powerapp` or `powerapps` in the folder or sample name - this repository is only intended for Power Apps samples, so no need to be redundant redundant.
 * Do not use period/dot in the folder name of the provided sample
 

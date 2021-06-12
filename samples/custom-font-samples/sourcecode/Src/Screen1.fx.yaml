@@ -1,0 +1,80 @@
+Screen1 As screen:
+    Fill: =RGBA(237, 237, 237, 1)
+
+    con_Main As groupContainer.verticalAutoLayoutContainer:
+        DisplayMode: =DisplayMode.Edit
+        Height: =App.Height
+        Width: =App.Width
+        ZIndex: =1
+
+        con_Titlebar As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(255,98,125, 1)
+            FillPortions: =0
+            Height: =80
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            Width: =App.Width
+            ZIndex: =1
+
+            lbl_Title As label:
+                Align: =Align.Center
+                AlignInContainer: =AlignInContainer.Center
+                Color: =RGBA(255, 255, 255, 1)
+                Fill: =RGBA(255,98,125, 1)
+                FillPortions: =1
+                FontWeight: =FontWeight.Semibold
+                Height: =80
+                Size: =20
+                Text: ="Custom Font Samples"
+                ZIndex: =1
+
+            lbl_ClickText As label:
+                AlignInContainer: =AlignInContainer.Center
+                Color: =RGBA(255, 255, 255, 1)
+                Text: ="Click Cat For Tutorial"
+                Width: =200
+                ZIndex: =2
+
+            img_Cat As image:
+                AlignInContainer: =AlignInContainer.Center
+                Height: =Parent.Height-20
+                Image: =logo
+                RadiusBottomLeft: =Self.RadiusTopLeft
+                RadiusBottomRight: =Self.RadiusTopLeft
+                RadiusTopLeft: =180
+                RadiusTopRight: =Self.RadiusTopLeft
+                Width: =Self.Height
+                ZIndex: =3
+
+            lbl_Spacer As label:
+                AlignInContainer: =AlignInContainer.Center
+                Text: =""
+                Width: =20
+                ZIndex: =4
+
+        gal_Fonts As gallery.galleryVertical:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Items: |
+                =["Agency FB","Algerian","Arial","Arial Rounded MT","Bahnschrift","Baskerville Old Face","Bauhaus 93","Bell MT","Berlin Sans FB","Bernard MT","Blackadder ITC","Bodoni MT","Bodoni MT Poster","Book Antiqua","Bookman Old Style","Bookshelf Symbol 7","Bradley Hand ITC","Britannic","Broadway","Brush Script MT","Calibri","Californian FB","Calisto MT","Cambria","Cambria Math","Candara","Castellar","Centaur","Century","Century Gothic","Century Schoolbook","Chiller","Colonna MT","Comic Sans MS","Consolas","Constantia","Cooper","Copperplate Gothic","Corbel","Courier New","Curlz MT","Dubai","Ebrima","Edwardian Script ITC","Elephant","Engravers MT","Eras ITC","Felix Titling","Footlight MT","Forte","Franklin Gothic","Franklin Gothic Book","Freestyle Script","French Script MT","Gabriola","Gadugi","Garamond","Georgia","Gigi","Gill Sans","Gill Sans MT","Gloucester MT","Goudy Old Style","Goudy Stout","Haettenschweiler","Harlow Solid","Harrington","Helvetica","High Tower Text","HoloLens MDL2 Assets","Impact","Imprint MT Shadow","Informal Roman","Ink Free","Javanese Text","Jokerman","Juice ITC","Kristen ITC","Kunstler Script","Leelawadee","Leelawadee UI","Lucida Bright","Lucida Calligraphy","Lucida Console","Lucida Fax","Lucida Handwriting","Lucida Sans","Lucida Sans Typewriter","Lucida Sans Unicode","Magneto","Maiandra GD","Malgun Gothic","Marlett","Matura MT Script Capitals","Microsoft Himalaya","Microsoft JhengHei","Microsoft JhengHei UI","Microsoft New Tai Lue","Microsoft PhagsPa","Microsoft Sans Serif","Microsoft Tai Le","Microsoft Uighur","Microsoft YaHei","Microsoft YaHei UI","Microsoft Yi Baiti","MingLiU-ExtB","MingLiU_HKSCS-ExtB","Mistral","Modern No. 20","Mongolian Baiti","Monotype Corsiva","MS Gothic","MS Outlook","MS PGothic","MS Reference Sans Serif","MS Reference Specialty","MS UI Gothic","MT Extra","MV Boli","Myanmar Text","Niagara Engraved","Niagara Solid","Nirmala UI","NSimSun","OCR A","Old English Text MT","Onyx","Palace Script MT","Palatino Linotype","Papyrus","Parchment","Perpetua","Perpetua Titling MT","Playbill","PMingLiU-ExtB","Poor Richard","Pristina","Rage","Ravie","Rockwell","Script MT","Segoe MDL2 Assets","Segoe Print","Segoe Script","Segoe UI","Segoe UI Emoji","Segoe UI Historic","Segoe UI Symbol","Showcard Gothic","SimSun","SimSun-ExtB","Sitka Banner","Sitka Display","Sitka Heading","Sitka Small","Sitka Subheading","Sitka Text","Snap ITC","Stencil","Sylfaen","Symbol","Tahoma","Tempus Sans ITC","Times New Roman","Trebuchet MS","Tw Cen MT","Verdana","Viner Hand ITC","Vivaldi","Vladimir Script","Webdings","Wide Latin","Wingdings","Wingdings 2","Wingdings 3","Yu Gothic","Yu Gothic UI"]
+            Layout: =Layout.Vertical
+            LayoutMinHeight: =287
+            LayoutMinWidth: =320
+            TemplatePadding: =10
+            TemplateSize: =100
+            Width: =Parent.Width
+            WrapCount: =3
+            ZIndex: =3
+
+            gal_Font As label:
+                Align: =Align.Center
+                Fill: =RGBA(255, 255, 255, 1)
+                Font: =ThisItem.Value
+                Height: =Parent.TemplateHeight
+                OnSelect: =Select(Parent)
+                Size: =20
+                Text: =ThisItem.Value
+                Width: =Parent.TemplateWidth
+                ZIndex: =1
+
