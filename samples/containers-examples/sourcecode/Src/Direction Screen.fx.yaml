@@ -1,0 +1,173 @@
+"'Direction Screen' As screen":
+
+    con_Justify_Stretch_19 As groupContainer.horizontalAutoLayoutContainer:
+        BorderColor: =Black
+        BorderThickness: =1
+        DisplayMode: =DisplayMode.Edit
+        Height: =100
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutGap: =20
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        PaddingBottom: =20
+        PaddingLeft: =20
+        PaddingRight: =20
+        PaddingTop: =20
+        Width: =600
+        X: =668
+        Y: =286
+        ZIndex: =1
+
+        Button1_51 As button:
+            Color: =gblAppStyles.Button.Color
+            Fill: =gblAppStyles.Button.Fill
+            FillPortions: =1
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            PressedColor: =Self.Color
+            PressedFill: =Self.Fill
+            Size: =gblAppStyles.Button.Size
+            Text: ="Item 1"
+            Width: =gblAppStyles.Button.Width
+            ZIndex: =1
+
+        Button1_52 As button:
+            Color: =gblAppStyles.Button.Color
+            Fill: =gblAppStyles.Button.Fill
+            FillPortions: =1
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            PressedColor: =Self.Color
+            PressedFill: =Self.Fill
+            Size: =gblAppStyles.Button.Size
+            Text: ="Item 2"
+            Width: =gblAppStyles.Button.Width
+            ZIndex: =2
+
+        Button1_53 As button:
+            Color: =gblAppStyles.Button.Color
+            Fill: =gblAppStyles.Button.Fill
+            FillPortions: =1
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            PressedColor: =Self.Color
+            PressedFill: =Self.Fill
+            Size: =gblAppStyles.Button.Size
+            Text: ="Item 3"
+            Width: =gblAppStyles.Button.Width
+            ZIndex: =3
+
+    con_Justify_Stretch_6 As groupContainer.horizontalAutoLayoutContainer:
+        BorderColor: =Black
+        BorderThickness: =1
+        DisplayMode: =DisplayMode.Edit
+        Height: =260
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =20
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        PaddingBottom: =20
+        PaddingLeft: =20
+        PaddingRight: =20
+        PaddingTop: =20
+        Width: =220
+        X: =168
+        Y: =274
+        ZIndex: =2
+
+        Button1_46 As button:
+            Color: =gblAppStyles.Button.Color
+            Fill: =gblAppStyles.Button.Fill
+            FillPortions: =1
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            PressedColor: =Self.Color
+            PressedFill: =Self.Fill
+            Size: =gblAppStyles.Button.Size
+            Text: ="Item 1"
+            Width: =gblAppStyles.Button.Width
+            ZIndex: =1
+
+        Button1_47 As button:
+            Color: =gblAppStyles.Button.Color
+            Fill: =gblAppStyles.Button.Fill
+            FillPortions: =1
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            PressedColor: =Self.Color
+            PressedFill: =Self.Fill
+            Size: =gblAppStyles.Button.Size
+            Text: ="Item 2"
+            Width: =gblAppStyles.Button.Width
+            ZIndex: =2
+
+        Button1_48 As button:
+            Color: =gblAppStyles.Button.Color
+            Fill: =gblAppStyles.Button.Fill
+            FillPortions: =1
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            PressedColor: =Self.Color
+            PressedFill: =Self.Fill
+            Size: =gblAppStyles.Button.Size
+            Text: ="Item 3"
+            Width: =gblAppStyles.Button.Width
+            ZIndex: =3
+
+    Icon1_2 As icon.ChevronLeft:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =40
+        Icon: =Icon.ChevronRight
+        Width: =40
+        X: =1235
+        Y: =424
+        ZIndex: =4
+
+    Icon1_4 As icon.ChevronLeft:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =40
+        Icon: =Icon.ChevronDown
+        Width: =40
+        X: =450
+        Y: =488
+        ZIndex: =5
+
+    Label3_4 As label:
+        Fill: =RGBA(0, 0, 0, 1)
+        Height: =235
+        Text: =""
+        Width: =3
+        X: =469
+        Y: =280
+        ZIndex: =6
+
+    Label3_5 As label:
+        Fill: =RGBA(0, 0, 0, 1)
+        Height: =3
+        Text: =""
+        Width: =587
+        X: =676
+        Y: =442
+        ZIndex: =7
+
+    Label2_3 As label:
+        Align: =Center
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =92
+        Size: =16
+        Text: ="Horizontal"
+        Width: =181
+        X: =877
+        Y: =396
+        ZIndex: =8
+
+    Label2_5 As label:
+        Align: =Center
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =38
+        Size: =16
+        Text: ="Vertical"
+        Width: =129
+        X: =406
+        Y: =378
+        ZIndex: =9
+

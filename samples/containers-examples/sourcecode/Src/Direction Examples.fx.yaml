@@ -1,0 +1,92 @@
+"'Direction Examples' As screen":
+
+    Container1 As groupContainer.verticalAutoLayoutContainer:
+        BorderThickness: =1
+        DisplayMode: =DisplayMode.Edit
+        Height: =253
+        Width: =469
+        X: =132
+        Y: =200
+        ZIndex: =1
+
+        Label1 As label:
+            AlignInContainer: =AlignInContainer.Stretch
+            FontWeight: =FontWeight.Semibold
+            Height: =60
+            PaddingLeft: =30
+            Size: =20
+            Text: ="Matthew Devaney"
+            ZIndex: =1
+
+        Label1_1 As label:
+            AlignInContainer: =AlignInContainer.Stretch
+            Fill: =RGBA(237, 237, 237, 1)
+            Height: =50
+            PaddingLeft: =30
+            Size: =16
+            Text: ="123 Fake Street"
+            ZIndex: =2
+
+        Label1_2 As label:
+            AlignInContainer: =AlignInContainer.Stretch
+            Height: =50
+            PaddingLeft: =30
+            Size: =16
+            Text: ="Winnipeg, Canada"
+            ZIndex: =3
+
+        Label1_3 As label:
+            AlignInContainer: =AlignInContainer.Stretch
+            Fill: =RGBA(237, 237, 237, 1)
+            Height: =50
+            PaddingLeft: =30
+            Size: =16
+            Text: ="R3G 0B0"
+            ZIndex: =4
+
+    Container2 As groupContainer.horizontalAutoLayoutContainer:
+        DisplayMode: =DisplayMode.Edit
+        Height: =96
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        PaddingBottom: =20
+        PaddingLeft: =20
+        PaddingRight: =20
+        PaddingTop: =20
+        Width: =547
+        X: =754
+        Y: =278
+        ZIndex: =2
+
+        Button2 As button:
+            BorderThickness: =3
+            Fill: =RGBA(221, 79, 14, 1)
+            FillPortions: =1
+            RadiusBottomRight: =0
+            RadiusTopRight: =0
+            Size: =16
+            Text: ="New"
+            ZIndex: =1
+
+        Button2_1 As button:
+            BorderThickness: =3
+            Fill: =RGBA(221, 79, 14, 1)
+            FillPortions: =1
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =16
+            Text: ="Submitted"
+            ZIndex: =2
+
+        Button2_2 As button:
+            BorderThickness: =3
+            Color: =RGBA(221, 79, 14, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =1
+            RadiusBottomLeft: =0
+            RadiusTopLeft: =0
+            Size: =16
+            Text: ="Approved"
+            ZIndex: =3
+

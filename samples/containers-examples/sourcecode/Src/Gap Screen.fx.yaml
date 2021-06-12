@@ -1,0 +1,179 @@
+"'Gap Screen' As screen":
+
+    con_Justify_3 As groupContainer.verticalAutoLayoutContainer:
+        DisplayMode: =DisplayMode.Edit
+        Height: =App.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        Width: =App.Width
+        ZIndex: =1
+
+        con_Justify_Left_3 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderThickness: =1
+            DisplayMode: =DisplayMode.Edit
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            PaddingBottom: =20
+            PaddingLeft: =20
+            PaddingRight: =20
+            PaddingTop: =20
+            ZIndex: =1
+
+            Button1_59 As button:
+                Color: =gblAppStyles.Button.Color
+                Fill: =gblAppStyles.Button.Fill
+                HoverColor: =Self.Color
+                HoverFill: =Self.Fill
+                PressedColor: =Self.Color
+                PressedFill: =Self.Fill
+                Size: =gblAppStyles.Button.Size
+                Text: ="Gap = 0"
+                Width: =gblAppStyles.Button.Width
+                ZIndex: =1
+
+            Button1_62 As button:
+                Color: =gblAppStyles.Button.Color
+                Fill: =gblAppStyles.Button.Fill
+                HoverColor: =Self.Color
+                HoverFill: =Self.Fill
+                PressedColor: =Self.Color
+                PressedFill: =Self.Fill
+                Size: =gblAppStyles.Button.Size
+                Text: ="Gap = 0"
+                Width: =gblAppStyles.Button.Width
+                ZIndex: =2
+
+            Button1_66 As button:
+                Color: =gblAppStyles.Button.Color
+                Fill: =gblAppStyles.Button.Fill
+                HoverColor: =Self.Color
+                HoverFill: =Self.Fill
+                PressedColor: =Self.Color
+                PressedFill: =Self.Fill
+                Size: =gblAppStyles.Button.Size
+                Text: ="Gap = 0"
+                Width: =gblAppStyles.Button.Width
+                ZIndex: =3
+
+        con_Justify_Right_3 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderThickness: =1
+            DisplayMode: =DisplayMode.Edit
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutGap: =50
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            PaddingBottom: =20
+            PaddingLeft: =20
+            PaddingRight: =20
+            PaddingTop: =20
+            ZIndex: =2
+
+            Button1_69 As button:
+                Color: =gblAppStyles.Button.Color
+                Fill: =gblAppStyles.Button.Fill
+                HoverColor: =Self.Color
+                HoverFill: =Self.Fill
+                PressedColor: =Self.Color
+                PressedFill: =Self.Fill
+                Size: =gblAppStyles.Button.Size
+                Text: ="Gap = 50"
+                Width: =gblAppStyles.Button.Width
+                ZIndex: =1
+
+            Button1_105 As button:
+                Color: =gblAppStyles.Button.Color
+                Fill: =gblAppStyles.Button.Fill
+                HoverColor: =Self.Color
+                HoverFill: =Self.Fill
+                PressedColor: =Self.Color
+                PressedFill: =Self.Fill
+                Size: =gblAppStyles.Button.Size
+                Text: ="Gap = 50"
+                Width: =gblAppStyles.Button.Width
+                ZIndex: =2
+
+            Button1_106 As button:
+                Color: =gblAppStyles.Button.Color
+                Fill: =gblAppStyles.Button.Fill
+                HoverColor: =Self.Color
+                HoverFill: =Self.Fill
+                PressedColor: =Self.Color
+                PressedFill: =Self.Fill
+                Size: =gblAppStyles.Button.Size
+                Text: ="Gap = 50"
+                Width: =gblAppStyles.Button.Width
+                ZIndex: =3
+
+        con_Justify_Center_3 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderThickness: =1
+            DisplayMode: =DisplayMode.Edit
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutGap: =200
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            PaddingBottom: =20
+            PaddingLeft: =20
+            PaddingRight: =20
+            PaddingTop: =20
+            ZIndex: =3
+
+            Button1_107 As button:
+                Color: =gblAppStyles.Button.Color
+                Fill: =gblAppStyles.Button.Fill
+                HoverColor: =Self.Color
+                HoverFill: =Self.Fill
+                PressedColor: =Self.Color
+                PressedFill: =Self.Fill
+                Size: =gblAppStyles.Button.Size
+                Text: ="Gap = 200"
+                Width: =gblAppStyles.Button.Width
+                ZIndex: =1
+
+            Button1_108 As button:
+                Color: =gblAppStyles.Button.Color
+                Fill: =gblAppStyles.Button.Fill
+                HoverColor: =Self.Color
+                HoverFill: =Self.Fill
+                PressedColor: =Self.Color
+                PressedFill: =Self.Fill
+                Size: =gblAppStyles.Button.Size
+                Text: ="Gap = 200"
+                Width: =gblAppStyles.Button.Width
+                ZIndex: =2
+
+            Button1_109 As button:
+                Color: =gblAppStyles.Button.Color
+                Fill: =gblAppStyles.Button.Fill
+                HoverColor: =Self.Color
+                HoverFill: =Self.Fill
+                PressedColor: =Self.Color
+                PressedFill: =Self.Fill
+                Size: =gblAppStyles.Button.Size
+                Text: ="Gap = 200"
+                Width: =gblAppStyles.Button.Width
+                ZIndex: =3
+
+        con_Justify_SpaceAround_2 As groupContainer.horizontalAutoLayoutContainer:
+            DisplayMode: =DisplayMode.Edit
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =5
+
+        con_Justify_Stretch_22 As groupContainer.horizontalAutoLayoutContainer:
+            BorderColor: =Black
+            DisplayMode: =DisplayMode.Edit
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutGap: =20
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            PaddingBottom: =20
+            PaddingLeft: =20
+            PaddingRight: =20
+            PaddingTop: =20
+            ZIndex: =6
+
