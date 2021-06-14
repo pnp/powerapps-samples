@@ -84,7 +84,7 @@ This SharePoint list contains the reservation information.  Set the list up as f
 
 ## Minimal Path to Awesome
 
-* [Download](./solution/DeskBooking.msapp) the `.msapp` from the `solution` folder
+* [Download](./solution/DeskBookingV1.1.msapp) the `.msapp` from the `solution` folder
 * Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just downloaded.
 * Select the **Data** tab
 * Click the **...** next to the **Desk Reservations** and **Desks** data connections and select **Remove**
