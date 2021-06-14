@@ -23,10 +23,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 207,
-                  "charOffset": 25,
+                  "charLength": 613,
+                  "charOffset": 23,
                   "snippet": {
-                    "text": "Not( \n        Title in Filter( \n            'Desk Reservations', \n            CheckOutFrom >= startTime && CheckOutTo <= endTime || CheckOutFrom <= endTime && CheckOutTo >= endTime \n        ).DeskText \n    )"
+                    "text": "Not(\n        Title in Filter(\n            'Desk Reservations',\n            CheckOutFromNumber>= Value(\n            Text(\n                startTime,\n                \"yyyymmddhhmm\"\n            )\n        ) && CheckOutToNumber <= Value(\n            Text(\n                endTime,\n                \"yyyymmddhhmm\"\n            )\n        ) || CheckOutFromNumber <= Value(\n            Text(\n                endTime,\n                \"yyyymmddhhmm\"\n            )\n        ) && CheckOutToNumber >= Value(\n            Text(\n                endTime,\n                \"yyyymmddhhmm\"\n            )\n        )\n        ).DeskText\n    )"
                   }
                 }
               },
@@ -64,7 +64,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 233,
+                  "charOffset": 637,
                   "snippet": {
                     "text": "&&"
                   }
@@ -1914,7 +1914,7 @@
               }
             }
           ],
-          "version": "1.310"
+          "version": "1.312"
         }
       }
     }

@@ -27,17 +27,36 @@ DeskSelect As screen:
     "galleryAvailDesk As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
         AccessibleLabel: ="Available Desks"
         Height: =656
-        Items: |-
-            =Filter( 
-                Desks, 
-                Not( 
-                    Title in Filter( 
-                        'Desk Reservations', 
-                        CheckOutFrom >= startTime && CheckOutTo <= endTime || CheckOutFrom <= endTime && CheckOutTo >= endTime 
-                    ).DeskText 
-                ) && Active = 1 
-            
-            ) 
+        Items: |
+            =Filter(
+                Desks,
+                Not(
+                    Title in Filter(
+                        'Desk Reservations',
+                        CheckOutFromNumber>= Value(
+                        Text(
+                            startTime,
+                            "yyyymmddhhmm"
+                        )
+                    ) && CheckOutToNumber <= Value(
+                        Text(
+                            endTime,
+                            "yyyymmddhhmm"
+                        )
+                    ) || CheckOutFromNumber <= Value(
+                        Text(
+                            endTime,
+                            "yyyymmddhhmm"
+                        )
+                    ) && CheckOutToNumber >= Value(
+                        Text(
+                            endTime,
+                            "yyyymmddhhmm"
+                        )
+                    )
+                    ).DeskText
+                ) && Active = 1
+            )
         Layout: =Layout.Vertical
         TabIndex: =2
         TemplatePadding: =0

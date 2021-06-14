@@ -37,10 +37,10 @@ Confirm As screen:
                         DeskText: ThisRecord.Title,
                         CheckOutFrom: DateAdd(startTime, TimeZoneOffset(), Minutes ),
                         CheckOutFromText: startTime,
-                        CheckOutFromNumber:Value(Text(startTime,"yyyymmddhmm")),
+                        CheckOutFromNumber:Value(Text(startTime,"yyyymmddhhmm")),
                         CheckOutTo: DateAdd(endTime, TimeZoneOffset(), Minutes ),
                         CheckOutToText: endTime,
-                        CheckOutToNumber: Value(Text(endTime,"yyyymmddhmm")),
+                        CheckOutToNumber: Value(Text(endTime,"yyyymmddhhmm")),
                         ReservedBy: {
                             '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
                             Claims: "i:0#.f|membership|" & currentUser.Email,
@@ -57,6 +57,7 @@ Confirm As screen:
                 Reset(ddTimeTo),
                 Reset(ddTimeFrom),
                 Reset(Calendar_1),
+                Reset(cbDeskSelect),
                 Clear(selectedDesks),
                 Set(
                     selectedDate,

@@ -34,7 +34,9 @@ Desk Reservation | [April Dunnam](https://github.com/aprildunnam) ([@aprildunnam
 
 Version|Date|Comments
 -------|----|--------
+1.1|June 14, 2021 | Bug Fixes
 1.0|May 31, 2021|Initial release
+
 
 ## Features
 
@@ -98,6 +100,7 @@ This SharePoint list contains the reservation information.  Set the list up as f
   * [Power Apps Tooling Usage](https://github.com/microsoft/PowerApps-Language-Tooling)
 * Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just packed.
 
+Note: The "My Reservations" filter keys off of the current logged in users email address and compares that with the ReservedBy Person or Group field. Some users have reported issues with their email filter not working.  If this happens to you then you can change the filter to key off your display name instead like so: 'Reserved By'.DisplayName = currentUser.FullName
 ## Disclaimer
 
 **THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**

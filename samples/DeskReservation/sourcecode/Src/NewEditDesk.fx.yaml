@@ -158,7 +158,30 @@ NewEditDesk As screen:
         Height: =70
         HoverFill: =ColorFade(Self.Fill, -20%)
         OnSelect: |-
-            =Patch(Desks,varManageSelectedDesk,{Title:tbNameDesk.Text,Floor:tbFloorDesk.Text,'Map Link':tbMapDesk.Text,Description:tbDescrDesk.Text});Reset(tbDescrDesk);
+            =If(
+                varDeskMode = "New",
+                Patch(
+                    Desks,
+                    Defaults(Desks),
+                    {
+                        Title: tbNameDesk.Text,
+                        Floor: tbFloorDesk.Text,
+                        'Map Link': tbMapDesk.Text,
+                        Description: tbDescrDesk.Text
+                    }
+                ),
+                Patch(
+                    Desks,
+                    varManageSelectedDesk,
+                    {
+                        Title: tbNameDesk.Text,
+                        Floor: tbFloorDesk.Text,
+                        'Map Link': tbMapDesk.Text,
+                        Description: tbDescrDesk.Text
+                    }
+                )
+            );
+            Reset(tbDescrDesk);
             Reset(tbFloorDesk);
             Reset(tbMapDesk);
             Reset(tbNameDesk);
@@ -172,7 +195,7 @@ NewEditDesk As screen:
             );
             Navigate(ManageDesks)
         Size: =24
-        Text: ="Update"
+        Text: =If(varDeskMode = "New", "Create", "Update")
         Width: =260
         X: =316
         Y: =888
