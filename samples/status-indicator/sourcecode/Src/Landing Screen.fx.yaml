@@ -1,0 +1,263 @@
+"'Landing Screen' As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
+    Fill: =RGBA(238, 238, 238, 1)
+
+    LandingHeader As label:
+        Fill: =RGBA(72, 37, 129, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =88
+        PaddingLeft: =10
+        Size: =26
+        Text: |-
+            ="Issue Tracking: My Issues"
+        Width: =Parent.Width
+        ZIndex: =1
+
+    SearchInput As text:
+        Default: =""
+        HintText: ="Search"
+        HoverColor: =RGBA(255, 255, 255, 1)
+        OnChange: =
+        Width: =622
+        X: =12
+        Y: =104
+        ZIndex: =2
+
+    SearchIcon As icon.Search:
+        Color: =RGBA(72, 37, 129, 1)
+        Height: =40
+        Icon: =Icon.Search
+        OnSelect: =Filter(issues,SearchInput.Text in Title || SearchInput.Text in 'Issue description' || SearchInput in Priority.Value || SearchInput.Text in Status.Value || SearchInput.Text in 'Date reported')
+        Width: =61
+        X: =573
+        Y: =104
+        ZIndex: =3
+
+    "GPCRequestGallery As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Height: =1206
+        Items: |-
+            =SortByColumns(
+                Filter(
+                    issues,
+                    SearchInput.Text in Title || SearchInput.Text in 'Issue description' || SearchInput in Priority.Value || SearchInput.Text in Status.Value || SearchInput.Text in 'Date reported'
+                ),
+                varSortPriority,
+                If(
+                    SortAscending,
+                    Descending,
+                    Ascending
+                )
+            )
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =159
+        Width: =768
+        Y: =160
+        ZIndex: =4
+
+        Rectangle1 As rectangle:
+            Fill: =RGBA(219, 219, 219, 0.75)
+            Height: =53
+            Width: =768
+            ZIndex: =1
+
+        IssueTitle As label:
+            Height: =37
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =10
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Title
+            VerticalAlign: =VerticalAlign.Top
+            Width: =694
+            X: =
+            Y: =14
+            ZIndex: =2
+
+        ReportedBy As label:
+            Height: =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =10
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: |-
+                =Concatenate("Reported By: ", ThisItem.Issueloggedby.DisplayName)
+            VerticalAlign: =VerticalAlign.Top
+            Width: =492
+            X: =IssueTitle.X
+            Y: =64
+            ZIndex: =3
+
+        Separator As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =153
+            ZIndex: =4
+
+        ReportedDate As label:
+            Height: =35
+            OnSelect: =Select(Parent)
+            Size: =18
+            Text: =ThisItem.'Date reported'   
+            Width: =190
+            X: =578
+            Y: =59
+            ZIndex: =5
+
+        AssignedTo As label:
+            Height: =34
+            OnSelect: =Select(Parent)
+            PaddingLeft: =10
+            Size: =18
+            Text: |-
+                =Concatenate("Assigned To: ", ThisItem.'Assigned to'.DisplayName)
+            Width: =408
+            Y: =110
+            ZIndex: =6
+
+        Status As label:
+            Height: =28
+            OnSelect: =Select(Parent)
+            Size: =18
+            Text: =ThisItem.Status.Value
+            Width: =154
+            X: =614
+            Y: =116
+            ZIndex: =7
+
+        StatusIcon As circle:
+            Fill: |-
+                =Switch(
+                    ThisItem.Status.Value,
+                    "In progress",
+                    Green,"Completed", Green,"Blocked",Red, "Duplicate", Red, "By design", Red, "Won't fix", Red, "New", Green,
+                    Green
+                )
+            Height: =25
+            OnSelect: =Select(Parent)
+            Width: =25
+            X: =578
+            Y: =117
+            ZIndex: =8
+
+        EditIcon As icon.Edit:
+            AccessibleLabel: ="Edit Request"
+            Color: =RGBA(0, 0, 0, 1)
+            Height: =25
+            Icon: =Icon.Edit
+            OnSelect: =Set(varMode,"Edit");Set(varSelectedItem,ThisItem);Navigate('Item Screen',ScreenTransition.None);
+            Tooltip: ="Edit Request"
+            Width: =25
+            X: =626
+            Y: =16
+            ZIndex: =10
+
+        DeleteIcon As icon.Trash:
+            AccessibleLabel: ="Delete Request"
+            Color: =RGBA(0, 0, 0, 1)
+            Height: =25
+            Icon: =Icon.Trash
+            OnSelect: |-
+                =Select(Parent);UpdateContext({showDialog:true});UpdateContext({itemId:ThisItem.ID});
+            Tooltip: ="Delete Request"
+            Width: =25
+            X: =668
+            Y: =16
+            ZIndex: =11
+
+        DetailsIcon As icon.DetailList:
+            AccessibleLabel: ="Request Details"
+            Color: =RGBA(0, 0, 0, 1)
+            Height: =25
+            Icon: =Icon.DocumentWithContent
+            OnSelect: =Set(varMode,"Display");Set(varSelectedItem,ThisItem);Navigate('Item Screen',ScreenTransition.None);
+            Tooltip: ="Request Details"
+            Width: =25
+            X: =582
+            Y: =16
+            ZIndex: =12
+
+    AddIcon As icon.Add:
+        Height: =38
+        Icon: =Icon.Add
+        OnSelect: =Set(varMode,"New");ResetForm(Form1);Navigate('Item Screen')
+        Width: =38
+        X: =718
+        Y: =104
+        ZIndex: =5
+
+    RefreshIcon As icon.Reload:
+        Height: =38
+        Icon: =Icon.Reload
+        OnSelect: =Set(issues, Filter('Issue tracker','Created By'.DisplayName = varUser.FullName))
+        Width: =38
+        X: =658
+        Y: =104
+        ZIndex: =6
+
+    TopSeperator As rectangle:
+        Fill: =RGBA(0, 0, 0, 1)
+        Height: =1
+        Width: =768
+        Y: =160
+        ZIndex: =12
+
+    ConfirmDeleteGroup As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =23
+
+        ConfirmDialogBackground As rectangle:
+            Fill: =RGBA(72, 37, 129, 0.4)
+            Height: =1278
+            Visible: =showDialog
+            Width: =768
+            Y: =88
+            ZIndex: =7
+
+        Dialog As label:
+            Align: =Align.Center
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =340
+            PaddingTop: =75
+            Text: ="Are you sure you want to delete this issue?"
+            VerticalAlign: =VerticalAlign.Top
+            Visible: =showDialog
+            Width: =408
+            X: =180
+            Y: =220
+            ZIndex: =8
+
+        ConfirmDeleteButton As button:
+            Fill: =RGBA(72, 37, 129, 1)
+            Height: =55
+            OnSelect: |-
+                =Remove('Issue tracker', First(Sort(issues,ID, Descending)));Set(issues, Filter('Issue tracker','Created By'.DisplayName = varUser.FullName));UpdateContext({showDialog:false});Set(varSelectedItem,Blank())
+            Text: ="Confirm Delete"
+            Visible: =showDialog
+            Width: =231
+            X: =268
+            Y: =362
+            ZIndex: =9
+
+        CloseDialogIcon As icon.Cancel:
+            Color: =RGBA(72, 37, 129, 1)
+            Height: =38
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({showDialog:false});Set(varSelectedItem,Blank())
+            PaddingBottom: =5
+            PaddingLeft: =5
+            PaddingRight: =5
+            PaddingTop: =5
+            Visible: =showDialog
+            Width: =39
+            X: =548
+            Y: =220
+            ZIndex: =10
+

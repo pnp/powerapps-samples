@@ -1,0 +1,81 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": true,
+  "ComponentManifest": {
+    "AllowCustomization": true,
+    "Description": "",
+    "Name": "StatusIndicator",
+    "TemplateGuid": "0f960c2c890542c182bae19b73edbcd4"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [
+    {
+      "Category": 0,
+      "DisplayName": "Items",
+      "Hidden": false,
+      "IsResettable": true,
+      "Name": "Items",
+      "PropertyDataTypeKey": "Table",
+      "Tooltip": "Items",
+      "Type": "{\"Version\":\"1.301\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Table\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"Step\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Value\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Success Color",
+      "Hidden": false,
+      "Name": "SuccessColor",
+      "PropertyDataTypeKey": "Color",
+      "Tooltip": "The color of successfully completed status",
+      "Type": "{\"Version\":\"1.301\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Failure Color",
+      "Hidden": false,
+      "Name": "FailureColor",
+      "PropertyDataTypeKey": "Color",
+      "Tooltip": "The color when the status has failed or is declined",
+      "Type": "{\"Version\":\"1.301\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Pending Color",
+      "Hidden": false,
+      "Name": "PendingColor",
+      "PropertyDataTypeKey": "Color",
+      "Tooltip": "Color for status when the status has not been started",
+      "Type": "{\"Version\":\"1.301\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Border Color",
+      "Hidden": false,
+      "Name": "BorderColor",
+      "PropertyDataTypeKey": "Color",
+      "Tooltip": "The color for the border",
+      "Type": "{\"Version\":\"1.301\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Text Color",
+      "Hidden": false,
+      "Name": "TextColor",
+      "PropertyDataTypeKey": "Color",
+      "Tooltip": "Color of the text",
+      "Type": "{\"Version\":\"1.301\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]}}"
+    }
+  ],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": true,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPremiumPcfControl": false,
+  "LastModifiedTimestamp": "637497778237764626",
+  "Name": "0f960c2c890542c182bae19b73edbcd4",
+  "OverridableProperties": {},
+  "SourceLibraryId": "89b295f0-0411-4ce4-b8d0-5a54d50c54e2",
+  "TemplateOriginalName": "1583bb87d08f4d07982e558929b61487",
+  "Version": "637492847673566710"
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-timer",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2021-05-04T00:00:00.000Z",
+    "updateDateTime": "2021-05-04T00:00:00.000Z",
+    "title": "timer",
+    "shortDescription": "Example of how to use the timer function as a stopwatch",
+    "longDescription": [
+      "This app is an example of how to use the timer function as a stopwatch.", 
+      "You can specify predefined times and start the timer with them.",
+      "An easy to read visualization helps all users to estimate how much time has already passed.",
+      "This solution is optimized to use within Microsoft Teams meetings."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/timer",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "TEAMS"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/timer/assets/timerapp.png?raw=true",
+        "alt": "App Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "MichaelRoth42",
+        "name": "Michael Roth",
+        "pictureUrl": "https://github.com/MichaelRoth42.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  }
+]

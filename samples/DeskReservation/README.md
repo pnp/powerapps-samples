@@ -66,7 +66,7 @@ This SharePoint list contains the information about the desks that people can bo
 |Number|Active|No|
 |Single line of text|Floor|No|
 
-### Desks Reservations List
+### Desk Reservations List
 
 This SharePoint list contains the reservation information.  Set the list up as follows:
 
@@ -74,7 +74,7 @@ This SharePoint list contains the reservation information.  Set the list up as f
 |---|---|:---:|
 |Single line of text|Title|Yes|
 |Single line of text|DeskText|Yes|
-|Person or Group|ReservedBy|Yes|
+|Person or Group|Reserved By|Yes|
 |Date and Time|Check Out From|No|
 |Date and Time|Check Out To|No|
 |Single line of text|Check Out From Text|No|
@@ -84,7 +84,7 @@ This SharePoint list contains the reservation information.  Set the list up as f
 
 ## Minimal Path to Awesome
 
-* [Download](./solution/DeskReservation.msapp) the `.msapp` from the `solution` folder
+* [Download](./solution/DeskBooking.msapp) the `.msapp` from the `solution` folder
 * Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just downloaded.
 * Select the **Data** tab
 * Click the **...** next to the **Desk Reservations** and **Desks** data connections and select **Remove**
@@ -93,11 +93,14 @@ This SharePoint list contains the reservation information.  Set the list up as f
 
 ## Using the Source Code
 
-  You can also use the [Power Apps Source Code tool](https://github.com/microsoft/PowerApps-Language-Tooling) to the code using these steps:
+You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/developer/data-platform/powerapps-cli) to pack the source code by following these steps::
 
 * Clone the repository to a local drive
 * Pack the source files back into `.msapp` file:
-  * [Power Apps Tooling Usage](https://github.com/microsoft/PowerApps-Language-Tooling)
+  ```bash
+  pac canvas pack --sources pathtosourcefolder --msapp pathtomsapp
+  ```
+  Making sure to replace `pathtosourcefolder` to point to the path to this sample's `sourcecode` folder, and `pathtomsapp` to point to the path of this solution's `.msapp` file (located under the `solution` folder)
 * Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just packed.
 
 Note: The "My Reservations" filter keys off of the current logged in users email address and compares that with the ReservedBy Person or Group field. Some users have reported issues with their email filter not working.  If this happens to you then you can change the filter to key off your display name instead like so: 'Reserved By'.DisplayName = currentUser.FullName

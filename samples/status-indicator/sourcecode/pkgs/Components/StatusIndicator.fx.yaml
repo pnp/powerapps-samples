@@ -1,0 +1,44 @@
+StatusIndicator As CanvasComponent:
+    BorderColor: =RGBA(0, 0, 0, 1)
+    FailureColor: =RGBA(255, 0, 0, 1)
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =130
+    Items: |-
+        =Table({Value: "New",Step: 1},{Value: "Pending",Step: 2})
+    OnReset: =
+    PendingColor: =RGBA(255, 255, 255, 1)
+    SuccessColor: =RGBA(54, 176, 75, 1)
+    TextColor: =RGBA(0, 0, 0, 1)
+    Width: =640
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    StatusGallery As gallery.galleryHorizontal:
+        Height: =130
+        Items: =StatusIndicator.Items
+        TemplateSize: =100
+        ZIndex: =1
+
+        StatusLabel As label:
+            Align: =Align.Center
+            Color: =StatusIndicator.TextColor
+            Height: =50
+            OnSelect: =Select(Parent)
+            Size: =16
+            Text: =ThisItem.Value
+            Width: =116
+            Y: =41
+            ZIndex: =1
+
+        StatusCircle As circle:
+            BorderColor: =StatusIndicator.BorderColor
+            BorderThickness: =1
+            Fill: =StatusIndicator.PendingColor
+            Height: =35
+            OnSelect: =Select(Parent)
+            Width: =35
+            X: =39
+            Y: =15
+            ZIndex: =2
+

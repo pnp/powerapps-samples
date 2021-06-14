@@ -1,0 +1,89 @@
+"'Overflow Examples' As screen":
+
+    Container5 As groupContainer.verticalAutoLayoutContainer:
+        DisplayMode: =DisplayMode.Edit
+        Height: =355
+        LayoutOverflowX: =LayoutOverflow.Scroll
+        Width: =737
+        X: =332
+        Y: =160
+        ZIndex: =2
+
+        Gallery2_1 As gallery.galleryVertical:
+            AlignInContainer: =AlignInContainer.Start
+            Items: |-
+                =Table(
+                {id:"id", first_name:"first_name", last_name:"last_name", email:"email", male_female:"male_female", ip_address:"ip_address"},
+                {id:"1", first_name:"Breanne", last_name:"Le Conte", email:"bleconte0@pinterest.com", male_female:"Female", ip_address:"119.234.139.237"},
+                {id:"2", first_name:"Brianna", last_name:"Powis", email:"bpowis1@businessweek.com", male_female:"Female", ip_address:"151.217.239.54"},
+                {id:"3", first_name:"Terrance", last_name:"Rawlence", email:"trawlence2@who.int", male_female:"Male", ip_address:"78.189.123.162"},
+                {id:"4", first_name:"Adey", last_name:"Linde", email:"alinde3@jalbum.net", male_female:"Female", ip_address:"30.150.204.159"},
+                {id:"5", first_name:"Damian", last_name:"Spavins", email:"dspavins4@barnesandnoble.com", male_female:"Male", ip_address:"88.218.64.132"},
+                {id:"6", first_name:"Jeanelle", last_name:"Fearnyough", email:"jfearnyough5@businessinsider.com", male_female:"Female", ip_address:"70.171.197.162"},
+                {id:"7", first_name:"Rae", last_name:"Blackmuir", email:"rblackmuir6@cam.ac.uk", male_female:"Female", ip_address:"227.251.62.2"},
+                {id:"8", first_name:"Kali", last_name:"Mosley", email:"kmosley7@youtu.be", male_female:"Female", ip_address:"21.190.91.92"},
+                {id:"9", first_name:"Jerald", last_name:"Sulland", email:"jsulland8@i2i.jp", male_female:"Male", ip_address:"124.162.122.178"},
+                {id:"10", first_name:"Jeffie", last_name:"Blenkinsopp", email:"jblenkinsopp9@aol.com", male_female:"Male", ip_address:"51.80.73.56"}
+                )
+            Layout: =Layout.Vertical
+            LayoutMinHeight: =287
+            LayoutMinWidth: =320
+            ShowScrollbar: =false
+            TemplateFill: =If(ThisItem.id="id",CornflowerBlue, Mod(ThisItem.id,2)=0, LightGray, White)
+            TemplateSize: =50
+            Width: =1100
+            ZIndex: =1
+
+            Label6_7 As label:
+                FontWeight: =If(ThisItem.id="id", FontWeight.Semibold, FontWeight.Normal)
+                Height: =41
+                OnSelect: =Select(Parent)
+                Text: =ThisItem.id
+                Width: =101
+                ZIndex: =1
+
+            Label6_8 As label:
+                FontWeight: =If(ThisItem.id="id", FontWeight.Semibold, FontWeight.Normal)
+                Height: =41
+                OnSelect: =Select(Parent)
+                Text: =ThisItem.first_name
+                Width: =133
+                X: =101
+                ZIndex: =2
+
+            Label6_6 As label:
+                FontWeight: =If(ThisItem.id="id", FontWeight.Semibold, FontWeight.Normal)
+                Height: =41
+                OnSelect: =Select(Parent)
+                Text: =ThisItem.last_name
+                Width: =166
+                X: =234
+                ZIndex: =3
+
+            Label6_9 As label:
+                FontWeight: =If(ThisItem.id="id", FontWeight.Semibold, FontWeight.Normal)
+                Height: =41
+                OnSelect: =Select(Parent)
+                Text: =ThisItem.email
+                Width: =319
+                X: =413
+                ZIndex: =4
+
+            Label6_10 As label:
+                FontWeight: =If(ThisItem.id="id", FontWeight.Semibold, FontWeight.Normal)
+                Height: =41
+                OnSelect: =Select(Parent)
+                Text: =ThisItem.male_female
+                Width: =182
+                X: =732
+                ZIndex: =5
+
+            Label6_11 As label:
+                FontWeight: =If(ThisItem.id="id", FontWeight.Semibold, FontWeight.Normal)
+                Height: =41
+                OnSelect: =Select(Parent)
+                Text: =ThisItem.ip_address
+                Width: =199
+                X: =914
+                ZIndex: =6
+

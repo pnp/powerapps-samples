@@ -1,0 +1,80 @@
+"'Wrap Screen' As screen":
+
+    con_Justify_Left_6 As groupContainer.horizontalAutoLayoutContainer:
+        BorderThickness: =1
+        DisplayMode: =DisplayMode.Edit
+        Height: =App.Height
+        LayoutGap: =20
+        LayoutWrap: =true
+        PaddingBottom: =20
+        PaddingLeft: =20
+        PaddingRight: =20
+        PaddingTop: =20
+        Width: =App.Width
+        ZIndex: =1
+
+        Button1_120 As button:
+            Color: =gblAppStyles.Button.Color
+            Fill: =gblAppStyles.Button.Fill
+            Height: =88
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            PressedColor: =Self.Color
+            PressedFill: =Self.Fill
+            Size: =gblAppStyles.Button.Size
+            Text: ="Button 1"
+            Width: =250
+            ZIndex: =1
+
+        Button1_121 As button:
+            Color: =gblAppStyles.Button.Color
+            Fill: =gblAppStyles.Button.Fill
+            Height: =88
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            PressedColor: =Self.Color
+            PressedFill: =Self.Fill
+            Size: =gblAppStyles.Button.Size
+            Text: ="Button 2"
+            Width: =250
+            ZIndex: =2
+
+        Button1_122 As button:
+            Color: =gblAppStyles.Button.Color
+            Fill: =gblAppStyles.Button.Fill
+            Height: =88
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            PressedColor: =Self.Color
+            PressedFill: =Self.Fill
+            Size: =gblAppStyles.Button.Size
+            Text: ="Button 3"
+            Width: =250
+            ZIndex: =3
+
+        Button1_123 As button:
+            Color: =gblAppStyles.Button.Color
+            Fill: =gblAppStyles.Button.Fill
+            Height: =88
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            PressedColor: =Self.Color
+            PressedFill: =Self.Fill
+            Size: =gblAppStyles.Button.Size
+            Text: ="Button 4"
+            Width: =250
+            ZIndex: =4
+
+        Button1_124 As button:
+            Color: =gblAppStyles.Button.Color
+            Fill: =gblAppStyles.Button.Fill
+            Height: =88
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            PressedColor: =Self.Color
+            PressedFill: =Self.Fill
+            Size: =gblAppStyles.Button.Size
+            Text: ="Button 5"
+            Width: =250
+            ZIndex: =5
+

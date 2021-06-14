@@ -1,3 +1,6 @@
+> We're so eager to add your sample to this repository as soon as possible, but we need all samples follow the same structure. 
+> To make sure we process it as soon as possible, make sure to follow [these instructions](https://github.com/pnp/powerapps-samples/wiki/How-to-submit-a-Power-App-sample).
+
 |        Q        |                    A                    |
 | --------------- | --------------------------------------- |
 | Bug fix?        | no - yes?                               |
@@ -7,19 +10,21 @@
 
 ## Solution Details
 
-|        Q        |                    A                    |
-| --------------- | --------------------------------------- |
-| Solution requires premium license | no - yes?                               |
-| Solution uses experimental features (see [licensing guidelines](https://go.microsoft.com/fwlink/?linkid=2085130)) | no - yes?                               |
-| Which connectors are used? | e.g.: SharePoint, DataVerse, DataVerse for Teams, Outlook, DocuSign, etc.                               |
-| Solution uses on-premises connectors? | no - yes?                                |
-| Solution uses custom connectors? | no - yes?                                |
-
+|        Q                                                  |                    A                    |
+| --------------------------------------------------------- | --------------------------------------- |
+| Solution requires premium license                         | no - yes?                               |
+| Solution uses experimental features (see [licensing guidelines](https://go.microsoft.com/fwlink/?linkid=2085130)) | no - yes?  |
+| Which connectors are used?                                | e.g.: SharePoint, DataVerse, DataVerse for Teams, Outlook, DocuSign, etc.  |
+| Solution uses on-premises connectors?                     | no - yes?                               |
+| Solution uses custom connectors?                          | no - yes?                               |
+| Layout                                                    | Phone? Tablet? Other?                               |
 
 ## What's in this Pull Request?
 
 > Please describe the changes in this PR. Sample description or details around bugs which are being fixed.
 > 
+> Note: for security reasons, we can only accept pull requests which consist of unpacked source code for `.msapp` files; We cannot accept `.msapp` files.
+>
 > _(DELETE THIS PARAGRAPH AFTER READING)_
 
 ## Submitter Guidance (DELETE AFTER READING)

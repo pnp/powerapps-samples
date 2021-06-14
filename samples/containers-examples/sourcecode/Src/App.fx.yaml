@@ -1,0 +1,22 @@
+App As appinfo:
+    BackEnabled: =false
+    OnMessage: =
+    OnStart: |-
+        =Set(
+            gblAppStyles,
+            {
+                Button: {
+                    Color: Black,
+                    Fill: Gold,
+                    Size: 16,
+                    Width: 160
+                },
+                Label: {
+                    Color: Black,
+                    Fill: Transparent,
+                    Size: 16,
+                    Width: 160
+                }
+            }
+        )
+
