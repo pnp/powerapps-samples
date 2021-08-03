@@ -1,0 +1,106 @@
+"'Justify Examples' As screen":
+
+    Container3 As groupContainer.horizontalAutoLayoutContainer:
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(230, 230, 230, 1)
+        Height: =72
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        Width: =1094
+        X: =136
+        Y: =240
+        ZIndex: =1
+
+        Icon1 As icon.Add:
+            AlignInContainer: =AlignInContainer.Stretch
+            Color: =RGBA(0, 134, 208, 1)
+            Icon: =Icon.Add
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            ZIndex: =1
+
+        Label3 As label:
+            PaddingLeft: =20
+            Size: =16
+            Text: ="Create"
+            Width: =140
+            ZIndex: =2
+
+        Icon1_1 As icon.Add:
+            AlignInContainer: =AlignInContainer.Stretch
+            Color: =RGBA(54, 176, 75, 1)
+            Icon: =Icon.Save
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            ZIndex: =3
+
+        Label3_1 As label:
+            PaddingLeft: =20
+            Size: =16
+            Text: ="Save"
+            Width: =120
+            ZIndex: =4
+
+        Icon1_3 As icon.Add:
+            AlignInContainer: =AlignInContainer.Stretch
+            Color: =RGBA(184, 0, 0, 1)
+            Icon: =Icon.Trash
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            ZIndex: =5
+
+        Label3_2 As label:
+            PaddingLeft: =20
+            Size: =16
+            Text: ="Delete"
+            ZIndex: =6
+
+    Container3_1 As groupContainer.horizontalAutoLayoutContainer:
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(237, 237, 237, 1)
+        Height: =72
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutJustifyContent: =LayoutJustifyContent.End
+        Width: =1094
+        X: =136
+        Y: =389
+        ZIndex: =2
+
+        Icon1_5 As icon.Add:
+            AlignInContainer: =AlignInContainer.Stretch
+            Color: =RGBA(0, 134, 208, 1)
+            Icon: =Icon.Reload
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            ZIndex: =1
+
+        Label3_3 As label:
+            PaddingLeft: =20
+            Size: =16
+            Text: ="Refresh"
+            Width: =140
+            ZIndex: =2
+
+        Icon1_7 As icon.Add:
+            AlignInContainer: =AlignInContainer.Stretch
+            Color: =RGBA(184, 0, 0, 1)
+            Icon: =Icon.Settings
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            ZIndex: =5
+
+        Label3_7 As label:
+            PaddingLeft: =20
+            Size: =16
+            Text: ="Settings"
+            ZIndex: =6
+

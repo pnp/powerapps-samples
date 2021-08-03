@@ -1,0 +1,202 @@
+"'Container Types' As screen":
+
+    con_Justify_Stretch_4 As groupContainer.horizontalAutoLayoutContainer:
+        BorderColor: =Black
+        BorderThickness: =1
+        DisplayMode: =DisplayMode.Edit
+        Height: =100
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutGap: =20
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        PaddingBottom: =20
+        PaddingLeft: =20
+        PaddingRight: =20
+        PaddingTop: =20
+        Width: =600
+        X: =574
+        Y: =228
+        ZIndex: =1
+
+        Button1_38 As button:
+            Color: =gblAppStyles.Button.Color
+            Fill: =gblAppStyles.Button.Fill
+            FillPortions: =1
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            PressedColor: =Self.Color
+            PressedFill: =Self.Fill
+            Size: =gblAppStyles.Button.Size
+            Text: ="Button 1"
+            Width: =gblAppStyles.Button.Width
+            ZIndex: =1
+
+        Button1_39 As button:
+            Color: =gblAppStyles.Button.Color
+            Fill: =gblAppStyles.Button.Fill
+            FillPortions: =1
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            PressedColor: =Self.Color
+            PressedFill: =Self.Fill
+            Size: =gblAppStyles.Button.Size
+            Text: ="Button 2"
+            Width: =gblAppStyles.Button.Width
+            ZIndex: =2
+
+        Button1_40 As button:
+            Color: =gblAppStyles.Button.Color
+            Fill: =gblAppStyles.Button.Fill
+            FillPortions: =1
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            PressedColor: =Self.Color
+            PressedFill: =Self.Fill
+            Size: =gblAppStyles.Button.Size
+            Text: ="Button 3"
+            Width: =gblAppStyles.Button.Width
+            ZIndex: =3
+
+    con_Justify_Stretch_5 As groupContainer.horizontalAutoLayoutContainer:
+        BorderColor: =Black
+        BorderThickness: =1
+        DisplayMode: =DisplayMode.Edit
+        Height: =260
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =20
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        PaddingBottom: =20
+        PaddingLeft: =20
+        PaddingRight: =20
+        PaddingTop: =20
+        Width: =220
+        X: =182
+        Y: =216
+        ZIndex: =2
+
+        Button1_41 As button:
+            Color: =gblAppStyles.Button.Color
+            Fill: =gblAppStyles.Button.Fill
+            FillPortions: =1
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            PressedColor: =Self.Color
+            PressedFill: =Self.Fill
+            Size: =gblAppStyles.Button.Size
+            Text: ="Button 1"
+            Width: =gblAppStyles.Button.Width
+            ZIndex: =1
+
+        Button1_42 As button:
+            Color: =gblAppStyles.Button.Color
+            Fill: =gblAppStyles.Button.Fill
+            FillPortions: =1
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            PressedColor: =Self.Color
+            PressedFill: =Self.Fill
+            Size: =gblAppStyles.Button.Size
+            Text: ="Button 2"
+            Width: =gblAppStyles.Button.Width
+            ZIndex: =2
+
+        Button1_43 As button:
+            Color: =gblAppStyles.Button.Color
+            Fill: =gblAppStyles.Button.Fill
+            FillPortions: =1
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            PressedColor: =Self.Color
+            PressedFill: =Self.Fill
+            Size: =gblAppStyles.Button.Size
+            Text: ="Button 3"
+            Width: =gblAppStyles.Button.Width
+            ZIndex: =3
+
+    Label2 As label:
+        Align: =Center
+        Height: =92
+        Size: =20
+        Text: ="Vertical Container"
+        Width: =296
+        X: =144
+        Y: =96
+        ZIndex: =3
+
+    Label2_1 As label:
+        Align: =Center
+        Height: =92
+        Size: =20
+        Text: ="Horizontal Container"
+        Width: =296
+        X: =726
+        Y: =96
+        ZIndex: =4
+
+    Label2_4 As label:
+        Align: =Center
+        Height: =92
+        Size: =20
+        Text: ="""Container"""
+        Width: =296
+        X: =733
+        Y: =384
+        ZIndex: =15
+
+    Container2_3 As groupContainer.manualLayoutContainer:
+        DisplayMode: =DisplayMode.Edit
+        Height: =155
+        LayoutDirection: =LayoutDirection.Horizontal
+        LayoutMode: =LayoutMode.Manual
+        Width: =586
+        X: =581
+        Y: =476
+        ZIndex: =16
+
+        Button1_63 As button:
+            Align: =Align.Left
+            Color: =gblAppStyles.Button.Color
+            Fill: =gblAppStyles.Button.Fill
+            Height: =121
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            PaddingLeft: =60
+            PressedColor: =Self.Color
+            PressedFill: =Self.Fill
+            Size: =gblAppStyles.Button.Size
+            Text: ="Button 1"
+            Width: =539
+            X: =20
+            Y: =16
+            ZIndex: =1
+
+        Button1_64 As button:
+            Align: =Align.Left
+            Fill: =RGBA(221, 79, 14, 1)
+            Height: =94
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            PaddingLeft: =40
+            PressedColor: =Self.Color
+            PressedFill: =Self.Fill
+            Size: =gblAppStyles.Button.Size
+            Text: ="Button 2"
+            Width: =324
+            X: =224
+            Y: =28
+            ZIndex: =2
+
+        Button1_65 As button:
+            Fill: =RGBA(168, 0, 0, 1)
+            Height: =76
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            PressedColor: =Self.Color
+            PressedFill: =Self.Fill
+            Size: =gblAppStyles.Button.Size
+            Text: ="Button 3"
+            Width: =140
+            X: =395
+            Y: =37
+            ZIndex: =3
+

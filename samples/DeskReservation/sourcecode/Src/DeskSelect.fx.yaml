@@ -1,0 +1,286 @@
+DeskSelect As screen:
+    Fill: =RGBA(236, 236, 236, 1)
+    Height: =Max(App.Height, App.DesignHeight)
+    OnVisible: |-
+        =UpdateContext({showMap:false})
+    Width: =Max(App.Width, App.DesignWidth)
+
+    lblSelectDesk As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =Bold
+        Height: =110
+        Size: =32
+        Text: ="Select a Desk"
+        Width: =640
+        ZIndex: =3
+
+    bgRounded_2 As htmlViewer:
+        Height: =788
+        HtmlText: |-
+            ="<div style='border-radius:10%;height:750px;width:100%;background-color:#FCFCFC'></div>"
+        Width: =610
+        X: =15
+        Y: =110
+        ZIndex: =4
+
+    "galleryAvailDesk As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+        AccessibleLabel: ="Available Desks"
+        Height: =656
+        Items: |
+            =Filter(
+                Desks,
+                Not(
+                    Title in Filter(
+                        'Desk Reservations',
+                        CheckOutFromNumber>= Value(
+                        Text(
+                            startTime,
+                            "yyyymmddhhmm"
+                        )
+                    ) && CheckOutToNumber <= Value(
+                        Text(
+                            endTime,
+                            "yyyymmddhhmm"
+                        )
+                    ) || CheckOutFromNumber <= Value(
+                        Text(
+                            endTime,
+                            "yyyymmddhhmm"
+                        )
+                    ) && CheckOutToNumber >= Value(
+                        Text(
+                            endTime,
+                            "yyyymmddhhmm"
+                        )
+                    )
+                    ).DeskText
+                ) && Active = 1
+            )
+        Layout: =Layout.Vertical
+        TabIndex: =2
+        TemplatePadding: =0
+        TemplateSize: =107
+        Width: =573
+        X: =33
+        Y: =191
+        ZIndex: =5
+
+        Title4 As label:
+            Height: =41
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Title 
+            VerticalAlign: =VerticalAlign.Top
+            Width: =300
+            X: =12
+            Y: =13
+            ZIndex: =1
+
+        NextArrow4 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =40
+            Icon: =Icon.Information
+            OnSelect: |-
+                =Select(Parent);UpdateContext({showMap:!showMap})
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="View item details"
+            Width: =40
+            X: =Title4.Width + Title4.X + 15
+            ZIndex: =2
+
+        Separator4 As rectangle:
+            Fill: =RGBA(135, 78, 181, 1)
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =3
+
+        cbDeskSelect As checkbox:
+            CheckboxBorderColor: =RGBA(135, 78, 181, 1)
+            Height: =60
+            OnCheck: =Collect(selectedDesks,ThisItem) //Set(selectedDesk,ThisItem)
+            OnSelect: =Select(Parent)
+            OnUncheck: =Remove(selectedDesks, ThisItem) //Set(selectedDesk,Blank())
+            Size: =21
+            Text: =""
+            Width: =60
+            X: =472
+            Y: =13
+            ZIndex: =4
+
+        Title4_1 As label:
+            FontWeight: =Lighter
+            Height: =41
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =14
+            Text: =ThisItem.Description
+            VerticalAlign: =VerticalAlign.Top
+            Width: =447
+            X: =12
+            Y: =54
+            ZIndex: =5
+
+    lblDateDesk As label:
+        Height: =70
+        Size: =21
+        Text: =startTime & " - " & endTime //DateTimeValue(Text(selectedDate,DateTimeFormat.ShortDate)&" "&ddTimeFrom.Selected.Value)&" - "&DateTimeValue(Text(selectedEndDate,DateTimeFormat.ShortDate)&" "&ddTimeTo.Selected.Value)
+        Width: =560
+        X: =46
+        Y: =121
+        ZIndex: =8
+
+    grpNoResults As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =8
+
+        Label5 As label:
+            Align: =Align.Center
+            Height: =70
+            Size: =21
+            Text: ="Uh oh, no openings found!"
+            Visible: =If(CountRows(galleryAvailDesk.AllItems) >= 1, false, true)
+            Width: =560
+            X: =40
+            Y: =446
+            ZIndex: =6
+
+        Label5_1 As label:
+            Align: =Align.Center
+            Height: =70
+            Size: =21
+            Text: ="Try selecting another date"
+            Visible: =If(CountRows(galleryAvailDesk.AllItems) >= 1, false, true)
+            Width: =560
+            X: =40
+            Y: =506
+            ZIndex: =7
+
+    btnContinueDesk As button:
+        Fill: =RGBA(135, 78, 181, 1)
+        Height: =70
+        HoverFill: =ColorFade(Self.Fill, -20%)
+        OnSelect: =If(IsEmpty(selectedDesks), Notify("Please select a desk to continue",NotificationType.Warning), Navigate(Confirm))
+        Size: =24
+        Text: ="Continue"
+        Width: =260
+        X: =320
+        Y: =917
+        ZIndex: =9
+
+    btnBackDesk As button:
+        Fill: =RGBA(128, 128, 128, 1)
+        Height: =70
+        HoverFill: =ColorFade(Self.Fill, -20%)
+        OnSelect: =Back()
+        Size: =24
+        Text: ="Back"
+        Width: =200
+        X: =67
+        Y: =917
+        ZIndex: =10
+
+    Tabs_4 As Tabs:
+        Items: |-
+            =Table(
+                {
+                    Name: "Dashboard",
+                    Icon: Icon.DetailList,
+                    Page: Dashboard,        
+                    Visible:true
+                },
+                {
+                    Name: "My Appts",
+                    Icon: Icon.Person,
+                    Page: MyAppts,
+                    Visible:true
+                },
+                 {
+                    Name: "Manage Desks",
+                    Icon: Icon.ComputerDesktop,
+                    Page: ManageDesks,
+                    Visible:true
+                },
+                {
+                    Name: "Book",
+                    Icon: Icon.Add,
+                    Page: DateSelection,
+                    Visible:true
+                }
+            )
+        Y: =1016
+        ZIndex: =11
+
+    grpHeader_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =20
+        ZIndex: =13
+
+        Image2_2 As image:
+            Height: =150
+            Image: =abstractBackground
+            ImagePosition: =ImagePosition.Fill
+            Width: =640
+            ZIndex: =1
+
+        Rectangle2_1 As rectangle:
+            Fill: =RGBA(135, 78, 181, 0.65)
+            Height: =150
+            Width: =640
+            ZIndex: =2
+
+    grpMap As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =15
+
+        Rectangle3 As rectangle:
+            AccessibleLabel: ="Close Map"
+            Fill: =RGBA(116, 116, 116, 0.85)
+            Height: =1136
+            Visible: =showMap
+            Width: =640
+            ZIndex: =12
+
+        Image5 As image:
+            AccessibleLabel: ="Close Map"
+            Height: =500
+            Image: =galleryAvailDesk.Selected.'Map Link'
+            ImagePosition: =ImagePosition.Fill
+            Visible: =showMap
+            Width: =609
+            X: =21
+            Y: =254
+            ZIndex: =13
+
+        Icon1 As icon.Cancel:
+            AccessibleLabel: ="Close Map"
+            Color: =RGBA(255, 255, 255, 1)
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({showMap:!showMap})
+            TabIndex: =5
+            Visible: =showMap
+            X: =560
+            Y: =170
+            ZIndex: =14
+

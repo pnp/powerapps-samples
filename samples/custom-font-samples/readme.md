@@ -1,3 +1,21 @@
+---
+page_type: sample
+languages:
+- powerapps-comma
+products:
+- power-apps
+- powerapps
+- canvas
+name: Custom Font Samples
+description: 177 custom font samples for Power Apps
+urlFragment: powerapps-custom-font-samples
+ms.date: 5/13/2021
+author: matthewdevaney
+ms.author: pnp
+level: beginner
+ms.prod: power-apps
+---
+
 # Custom Font Samples
 
 177 custom font samples for Power Apps.
@@ -223,11 +241,13 @@ This sample includes the following fonts
 
 ## Using the Source Code
 
-  You can also use the [Power Apps Source Code tool](https://github.com/microsoft/PowerApps-Language-Tooling) to the code using these steps:
+You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/developer/data-platform/powerapps-cli) to pack the source code by following these steps::
 
 * Clone the repository to a local drive
 * Pack the source files back into `.msapp` file:
-  * [Power Apps Tooling Usage](https://github.com/microsoft/PowerApps-Language-Tooling)
+  ```bash
+pac canvas pack --sources pathtosourcefolder --msapp pathtomsapp
+```
 * Use the `.msapp` file using **File** > **Open** > **Browse** in Power Apps Studio.
 
 ## Disclaimer

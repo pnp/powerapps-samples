@@ -1,3 +1,21 @@
+---
+page_type: sample
+languages:
+- powerapps-comma
+products:
+- power-apps
+- powerapps
+- canvas
+name: Fluent UI Custom Theme
+description: Implementing a custom theme to apply the style of the Fluent UI controls to the canvas controls with extensive modification of the Default Theme inside the theme.json file
+urlFragment: powerapps-fluentui-custom-theme
+ms.date: 5/19/2021
+author: fabiofranzini
+ms.author: pnp
+level: advanced
+ms.prod: power-apps
+---
+
 # Fluent UI Custom Theme (Tablet)
 
 Implementing a custom theme (for tablet layout) to apply the style of the Fluent UI controls to the canvas controls with extensive modification of the "Default Theme" inside the `theme.json` file.
@@ -99,17 +117,20 @@ All controls theme in the theme.json file are based on the fluentUIPalette varia
 
 ## Minimal Path to Awesome
 
-* [Download](./solution/fluentui-custom-theme.msapp) the `.msapp` from the `solution` folder
+* [Download](https://github.com/pnp/powerapps-samples/raw/main/samples/fluentui-custom-theme/solution/fluentui-custom-theme.msapp) the `.msapp` from the [`solution`](https://github.com/pnp/powerapps-samples/tree/main/samples/fluentui-custom-theme/solution) folder
 * Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just downloaded.
 * Save and Publish
 
 ## Using the Source Code
 
-  You can also use the [Power Apps Source Code tool](https://github.com/microsoft/PowerApps-Language-Tooling) to the code using these steps:
+You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/developer/data-platform/powerapps-cli) to pack the source code by following these steps::
 
 * Clone the repository to a local drive
 * Pack the source files back into `.msapp` file:
-  * [Power Apps Tooling Usage](https://github.com/microsoft/PowerApps-Language-Tooling)
+  ```bash
+  pac canvas pack --sources pathtosourcefolder --msapp pathtomsapp
+  ```
+  Making sure to replace `pathtosourcefolder` to point to the path to this sample's `sourcecode` folder, and `pathtomsapp` to point to the path of this solution's `.msapp` file (located under the `solution` folder)
 * Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just packed.
 
 ## Disclaimer

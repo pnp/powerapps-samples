@@ -1,3 +1,20 @@
+---
+page_type: sample
+languages:
+- powerapps-comma
+products:
+- powerapps
+- canvas
+name: Calendar Component
+description: A re-usable component that allows you to display events in  a calendar.
+urlFragment: powerapps-calendar-component
+ms.date: 5/5/2021
+author: aprildunnam
+ms.author: pnp
+level: intermediate
+ms.prod: power-apps
+---
+
 # Calendar Component
 
 ## Summary
@@ -79,11 +96,14 @@ None
 
 ## Using the Source Code
 
-  You can also use the [Power Apps Source Code tool](https://github.com/microsoft/PowerApps-Language-Tooling) to the code using these steps:
+You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/developer/data-platform/powerapps-cli) to pack the source code by following these steps::
 
 * Clone the repository to a local drive
 * Pack the source files back into `.msapp` file:
-  * [Power Apps Tooling Usage](https://github.com/microsoft/PowerApps-Language-Tooling)
+  ```bash
+  pac canvas pack --sources pathtosourcefolder --msapp pathtomsapp
+  ```
+  Making sure to replace `pathtosourcefolder` to point to the path to this sample's `sourcecode` folder, and `pathtomsapp` to point to the path of this solution's `.msapp` file (located under the `solution` folder)
 * Use the `.msapp` file using **File** > **Open** > **Browse** in Power Apps Studio.
 
 ## Disclaimer

@@ -1,3 +1,21 @@
+---
+page_type: sample
+languages:
+- powerapps-comma
+products:
+- power-apps
+- powerapps
+- canvas
+name: Expandable Navigation Power App Template
+description: This Canvas Application is an example for a expandable navigation using Fluent UI icons. It also shows how a lightbox-styled pop up works. 
+urlFragment: powerapps-expandable-navigation
+ms.date: 4/26/2021
+author: luisefreese
+ms.author: pnp
+level: beginner
+ms.prod: power-apps
+---
+
 # Expandable Navigation Power App Template
 
 ## Summary
@@ -54,11 +72,14 @@ None
 
 ## Using the Source Code
 
-  You can also use the [Power Apps Source Code tool](https://github.com/microsoft/PowerApps-Language-Tooling) to the code using these steps:
+You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/developer/data-platform/powerapps-cli) to pack the source code by following these steps::
 
 * Clone the repository to a local drive
 * Pack the source files back into `.msapp` file:
-  * [Power Apps Tooling Usage](https://github.com/microsoft/PowerApps-Language-Tooling)
+  ```bash
+  pac canvas pack --sources pathtosourcefolder --msapp pathtomsapp
+  ```
+  Making sure to replace `pathtosourcefolder` to point to the path to this sample's `sourcecode` folder, and `pathtomsapp` to point to the path of this solution's `.msapp` file (located under the `solution` folder)
 * Use the `.msapp` file using **File** > **Open** > **Browse** in Power Apps Studio.
 
 

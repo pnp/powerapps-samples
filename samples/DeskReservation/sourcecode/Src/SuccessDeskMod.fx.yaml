@@ -1,0 +1,120 @@
+"SuccessDeskMod As screen.'phoneLayout_Success_ver3.0'":
+    Fill: =RGBA(236, 236, 236, 1)
+    Height: =Max(App.Height, App.DesignHeight)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    bgRounded_8 As htmlViewer:
+        Height: =748
+        HtmlText: |-
+            ="<div style='border-radius:10%;height:700px;width:100%;background-color:#FCFCFC'></div>"
+        Width: =610
+        X: =15
+        Y: =113
+        ZIndex: =3
+
+    iconCircle1_1 As circle.Circle:
+        Fill: =RGBA(135, 78, 181, 1)
+        X: =Parent.Width/2 - Self.Width/2
+        Y: =(Parent.Height/2 - Self.Height/2) * .7
+        ZIndex: =4
+
+    iconCheck1_1 As icon.Check:
+        AccessibleLabel: ="Exit Screen"
+        Height: =iconCircle1_1.Height
+        Icon: =Icon.Check
+        OnSelect: =Navigate(ManageDesks)
+        PaddingBottom: =Self.PaddingTop
+        PaddingLeft: =Self.PaddingTop
+        PaddingRight: =Self.PaddingTop
+        PaddingTop: =18
+        TabIndex: =1
+        Width: =iconCircle1_1.Width
+        X: =Parent.Width/2 - Self.Width/2
+        Y: =(Parent.Height/2 - Self.Height/2) * .7
+        ZIndex: =5
+
+    LblSuccessMsg1_1 As label:
+        Align: =Align.Center
+        AutoHeight: =true
+        Height: =iconCircle1_1.Height
+        Size: =21
+        Text: ="Desk Updated!"
+        Width: =Parent.Width * 0.75
+        X: =Parent.Width/2 - Self.Width/2
+        Y: =iconCheck1_1.Y + iconCheck1_1.Height + 100
+        ZIndex: =6
+
+    Timer1_1 As timer:
+        AutoStart: =true
+        Duration: =4000
+        Height: =70
+        OnTimerEnd: |-
+            =Refresh(Desks);
+            Navigate(ManageDesks)
+        Visible: =false
+        Width: =280
+        X: =299
+        Y: =861
+        ZIndex: =7
+
+    lblSuccess_1 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =Bold
+        Height: =113
+        Size: =32
+        Text: ="Success"
+        Width: =640
+        ZIndex: =8
+
+    Tabs_9 As Tabs:
+        Items: |-
+            =Table(
+                {
+                    Name: "Dashboard",
+                    Icon: Icon.DetailList,
+                    Page: Dashboard,        
+                    Visible:true
+                },
+                {
+                    Name: "My Appts",
+                    Icon: Icon.Person,
+                    Page: MyAppts,
+                    Visible:true
+                },
+                 {
+                    Name: "Manage Desks",
+                    Icon: Icon.ComputerDesktop,
+                    Page: ManageDesks,
+                    Visible:true
+                },
+                {
+                    Name: "Book",
+                    Icon: Icon.Add,
+                    Page: DateSelection,
+                    Visible:true
+                }
+            )
+        Y: =1016
+        ZIndex: =9
+
+    grpHeader_7 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =20
+        ZIndex: =10
+
+        Image2_8 As image:
+            Height: =150
+            Image: =abstractBackground
+            ImagePosition: =ImagePosition.Fill
+            Width: =640
+            ZIndex: =1
+
+        Rectangle2_7 As rectangle:
+            Fill: =RGBA(135, 78, 181, 0.65)
+            Height: =150
+            Width: =640
+            ZIndex: =2
+

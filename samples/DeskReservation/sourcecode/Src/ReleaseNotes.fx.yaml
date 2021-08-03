@@ -1,0 +1,85 @@
+"ReleaseNotes As screen.'phoneLayout_Success_ver3.0'":
+    Fill: =RGBA(236, 236, 236, 1)
+    Height: =Max(App.Height, App.DesignHeight)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    bgRounded_13 As htmlViewer:
+        Height: =868
+        HtmlText: |-
+            ="<div style='border-radius:10%;height:800px;width:100%;background-color:#FCFCFC'></div>"
+        Width: =610
+        X: =15
+        Y: =113
+        ZIndex: =3
+
+    lblSuccess_2 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =Bold
+        Height: =113
+        Size: =32
+        Text: ="Release Notes"
+        Width: =640
+        ZIndex: =8
+
+    Tabs_11 As Tabs:
+        Items: |-
+            =Table(
+                {
+                    Name: "Dashboard",
+                    Icon: Icon.DetailList,
+                    Page: Dashboard,        
+                    Visible:true
+                },
+                {
+                    Name: "My Appts",
+                    Icon: Icon.Person,
+                    Page: MyAppts,
+                    Visible:true
+                },
+                 {
+                    Name: "Manage Desks",
+                    Icon: Icon.ComputerDesktop,
+                    Page: ManageDesks,
+                    Visible:true
+                },
+                {
+                    Name: "Book",
+                    Icon: Icon.Add,
+                    Page: DateSelection,
+                    Visible:true
+                }
+            )
+        Y: =1016
+        ZIndex: =9
+
+    HtmlText1 As htmlViewer:
+        Height: =693
+        HtmlText: |-
+            ="<p>New Features:</p><ul><li>Disable the selection of previous days on the calendar</li><li>Added ability to restrict the calendar selection to X days in the future</li><li>Added Manage Desk Screens</li><li>Added View Reservation Screen</li></ul><p>Bug Fixes/Optimizations</p><ul><li>Fixed issues with not being able to create a new desk</li><li>Fixed issue with desks filter</li><li>Clear out selections after confirmation</li><li>Optimize time dropdowns</li><li>Fix time zone issues</li><li>Fix issue with adding New Desks</li></ul>"
+        Size: =20
+        Width: =560
+        X: =40
+        Y: =168
+        ZIndex: =10
+
+    grpHeader_9 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =20
+        ZIndex: =10
+
+        Image2_10 As image:
+            Height: =150
+            Image: =abstractBackground
+            ImagePosition: =ImagePosition.Fill
+            Width: =640
+            ZIndex: =1
+
+        Rectangle2_9 As rectangle:
+            Fill: =RGBA(135, 78, 181, 0.65)
+            Height: =150
+            Width: =640
+            ZIndex: =2
+

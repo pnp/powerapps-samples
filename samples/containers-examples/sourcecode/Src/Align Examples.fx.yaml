@@ -1,0 +1,44 @@
+"'Align Examples' As screen":
+
+    Container3_2 As groupContainer.horizontalAutoLayoutContainer:
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(184, 0, 0, 1)
+        Height: =125
+        LayoutAlignItems: =LayoutAlignItems.End
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        Width: =820
+        X: =288
+        Y: =288
+        ZIndex: =1
+
+        Icon1_9 As icon.Add:
+            AlignInContainer: =AlignInContainer.End
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =100
+            Icon: =Icon.Reload
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            ZIndex: =1
+
+        Label3_8 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =100
+            Size: =32
+            Text: ="Inspection App"
+            Width: =600
+            ZIndex: =2
+
+        Icon1_8 As icon.Add:
+            AlignInContainer: =AlignInContainer.End
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =100
+            Icon: =Icon.Settings
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            ZIndex: =3
+
