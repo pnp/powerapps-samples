@@ -54,7 +54,7 @@ Canvas Apps created in Dataverse for Teams use an updated version of controls th
 Solution|Author(s)
 --------|---------
 Fluentui-custom-theme | [Fabio Franzini](https://github.com/fabiofranzini), ([https://fabiofranzini.com](https://fabiofranzini.com) [@franzinifabio](https://www.twitter.com/franzinifabio) )
-
+ll
 ## Version history
 
 Version|Date|Comments
