@@ -47,7 +47,7 @@ Version|Date|Comments
 
 •	As with current situation on Covid, it is important to get ourselves vaccinated. All the countries governments are running vaccination drive. 
 
-•	As an organization, it become important to get survey of employees about this vaccination status. 
+•	It became important for companies to conduct a survey among employees about their vaccination status.
 
 •	This PowerApps and SharePoint based application can be used to get the vaccination status of all the employees in organization. 
 
