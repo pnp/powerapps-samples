@@ -2,7 +2,7 @@
 
 ## Summary
 
-A PowerApps and SharePoint-based solution for organizations to collect vaccination surveys (data) from their employee about thier vaccination status. 
+A PowerApps and SharePoint based solution for companies to collect surveys (data) on the vaccination status of their employees.
 
 Please use the [guide](assets/Covid19VaccinationSurvey%20Setup%20Guide.docx) in this repo to follow step by step instructions on how to setup in your tenant.
 
