@@ -15,15 +15,15 @@ Advantage:
 
 ### Screen 2 - Ticket creation form and Ticket view.
 
-![home screen](./assets/screen2.png)  
+![Ticket creation form and Ticket view](./assets/screen2.png)  
 
 ### Screen 3 - List of assigned Tickets and view of all tickets.
 
-![home screen](./assets/screen3.png)  
+![List of assigned Tickets and view of all tickets](./assets/screen3.png)  
 
 ### Screen 4 - Allows you to see the status of all tickets and also includes smart graphics.
 
-![home screen](./assets/screen4.png)  
+![Admin HelpDesk](./assets/screen4.png)  
 
 
 ## Applies to
