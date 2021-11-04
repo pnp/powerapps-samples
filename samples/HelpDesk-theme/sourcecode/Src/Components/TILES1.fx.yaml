@@ -1,0 +1,15 @@
+TILES1 As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =315
+    Width: =430
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Html2 As htmlViewer:
+        Height: =312
+        HtmlText: |-
+            ="<div style='margin:10px;width:400px;height:280px;background-color:#;box-shadow:0 5px 8px 5px  #ccc; border-radius:15px'></div>"
+        Width: =432
+        ZIndex: =1
+

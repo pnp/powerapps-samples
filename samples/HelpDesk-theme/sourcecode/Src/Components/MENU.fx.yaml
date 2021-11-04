@@ -1,0 +1,110 @@
+MENU As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =380
+    link1: =App.ActiveScreen
+    link2: =App.ActiveScreen
+    link3: =App.ActiveScreen
+    link4: =App.ActiveScreen
+    Liststaff: =true
+    ReportStaff: =true
+    Width: =80
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Html1 As htmlViewer:
+        Height: =387
+        HtmlText: |-
+            ="<div style='margin:10px;width:50px;height:350px;background-color:#187CF5;box-shadow:0 3px 10px 5px  #ccc; border-radius:25px'></div>"
+        Width: =80
+        Y: =3
+        ZIndex: =1
+
+    link1 As icon.Home:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(220, 220, 220, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =52
+        HoverBorderColor: =RGBA(255, 0, 0, 1)
+        HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Icon: =Icon.Home
+        OnSelect: =Navigate(MENU.link1,ScreenTransition.Fade)
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =30
+        X: =24
+        Y: =32
+        ZIndex: =2
+
+    link2 As icon.Home:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(220, 220, 220, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =52
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Icon: |
+            =Icon.AddDocument
+        OnSelect: =Navigate(MENU.link2,ScreenTransition.Fade)
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =30
+        X: =24
+        Y: =116
+        ZIndex: =3
+
+    link3 As icon.Home:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(220, 220, 220, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =52
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Icon: |
+            =Icon.DetailList
+        OnSelect: =Navigate(MENU.link3,ScreenTransition.Fade)
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Visible: =MENU.Liststaff
+        Width: =30
+        X: =24
+        Y: =205
+        ZIndex: =4
+
+    link4 As icon.Home:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(220, 220, 220, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =52
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Icon: =Icon.Trending
+        OnSelect: =Navigate(MENU.link4,ScreenTransition.Fade)
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Visible: =MENU.ReportStaff
+        Width: =30
+        X: =24
+        Y: =282
+        ZIndex: =5
+
