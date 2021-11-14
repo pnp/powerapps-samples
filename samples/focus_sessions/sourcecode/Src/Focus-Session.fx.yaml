@@ -1,0 +1,93 @@
+"'Focus-Session' As screen":
+    BackgroundImage: ='Focus-Sessions'
+    Fill: =RGBA(0, 0, 0, 0)
+    OnVisible: |-
+        =UpdateContext({setSliderValue: 100})
+
+    Timer2 As timer:
+        BorderColor: =
+        Color: =
+        DisabledBorderColor: =
+        DisabledColor: =RGBA(0, 0, 0, 1)
+        DisabledFill: =RGBA(255, 0, 0, 1)
+        Duration: =30000
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =70
+        HoverBorderColor: =
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =RGBA(255, 0, 0, 1)
+        OnTimerEnd: |-
+            =Set(varCounter, varCounter + 1);
+            If(Time = 15, Set(barCounter, barCounter - 3.125));
+            If(Time = 30, Set(barCounter, barCounter - 1.5625));
+            If(Time = 45, Set(barCounter, barCounter - 1.0416));
+            If(Time = 60, Set(barCounter, barCounter - 0.78125));
+            UpdateContext({setSliderValue: setSliderValue + barCounter});
+            If(varCounter = Time * 2, Navigate('Ready?'))
+        PressedBorderColor: =
+        PressedColor: =RGBA(0, 0, 0, 1)
+        PressedFill: =RGBA(255, 0, 0, 1)
+        Repeat: =true
+        Reset: =varStop
+        Start: =varStart
+        Visible: =false
+        Width: =280
+        X: =360
+        Y: =1066
+        ZIndex: =1
+
+    Label7 As label:
+        Align: =Align.Center
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Height: =153
+        Live: =Live.Assertive
+        Size: =55
+        Text: |-
+            =If(varCounter = Time * 2, "00:00" , Text(DateAdd(DateTimeValue(Today() & " 12:" & Time &":00"), - (Timer2.Value + (varCounter * 30000 ))/1000,Seconds ),"mm:ss"))
+        Width: =266
+        X: =185
+        Y: =170
+        ZIndex: =3
+
+    Image2 As image:
+        Height: =88
+        Image: ='Stop-btn'
+        OnSelect: =Set(varStop, true);Set(varCounter, 0);Set(barCounter, 0);Set(setSliderValue,0);Navigate('Ready?')
+        Tooltip: ="Stop Focus Session"
+        Width: =88
+        X: =277
+        Y: =487
+        ZIndex: =4
+
+    RadialProgress As image:
+        Height: =408
+        Image: |-
+            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                " <svg viewBox='0 -10 100 100' xmlns='http://www.w3.org/2000/svg'>
+            <circle cx='50' cy='40' r='40' stroke='rgba(243, 244, 245,1.0)' stroke-width='8' fill='rgba(0,0,0,0)'/>
+            
+            <circle cx='50' cy='40' r='40' stroke='rgba(0, 95, 184, 1)' stroke-linecap='round' stroke-dasharray='251' stroke-dashoffset='" & dashoffset & "%' stroke-width='8' fill='rgba(0,0,0,0)'/>
+            </svg>"
+            )
+        Tooltip: =dashoffset
+        Width: =509
+        X: =66
+        Y: =42
+        ZIndex: =5
+
+    Slider1 As slider:
+        Default: =Value(setSliderValue)
+        Height: =70
+        OnChange: |-
+            =Set(radius, 40);
+            Set(circumference,(2*(22/7)*radius));
+            Set(progress, Slider1.Value/100);
+            Set(dashoffset, circumference * (1 - progress));
+        Tooltip: =
+        Visible: =false
+        Width: =560
+        X: =41
+        Y: =646
+        ZIndex: =6
+
