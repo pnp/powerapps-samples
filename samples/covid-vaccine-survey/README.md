@@ -1,8 +1,8 @@
-# Covid Vaccination Survey
+# Covid Vaccination Survey App Sample
 
 ## Summary
-
 A PowerApps and SharePoint based solution for companies to collect surveys (data) on the vaccination status of their employees.
+
 
 Please use the [guide](assets/Covid19VaccinationSurvey%20Setup%20Guide.docx) in this repo to follow step by step instructions on how to setup in your tenant.
 
@@ -22,7 +22,6 @@ Please use the [guide](assets/Covid19VaccinationSurvey%20Setup%20Guide.docx) in 
 
 ## Compatibility
 
-> Don't worry about this section, we'll take care of it. Unless you really want to...
 
 ![Power Apps Source File Pack and Unpack Utility 0.20](https://img.shields.io/badge/Packing%20Tool-0.20-green.svg)
 ![Premium License](https://img.shields.io/badge/Premium%20License-Not%20Required-green.svg "Premium Power Apps license not required")
@@ -34,8 +33,8 @@ Please use the [guide](assets/Covid19VaccinationSurvey%20Setup%20Guide.docx) in 
 
 Solution|Author(s)
 --------|---------
-covid-vaccine-survey | [Siddharth Vaghasia](https://github.com/siddharth-vaghasia) ([@yourtwitterhandle](https://twitter.com/siddh_me))
-covid-vaccine-survey | [Mayuresh Joshi](https://www.linkedin.com/in/mayure5h/) , 
+covid-vaccine-survey | [Siddharth Vaghasia](https://github.com/siddharth-vaghasia) ([@siddh_me](https://twitter.com/siddh_me))
+covid-vaccine-survey | [Mayuresh Joshi](https://www.linkedin.com/in/mayure5h/) 
 
 ## Version history
 
@@ -64,6 +63,7 @@ Version|Date|Comments
 SharePoint Site Collection
 
 ## Data Sources
+SharePoint
 
 ### Covid19Survey List
 
@@ -94,7 +94,7 @@ You can also use below powershell script to import the list using list template
 * [Download](solution/Covid-19VaccinationSurvey.msapp) the `.msapp` from the `solution` folder
 * Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just downloaded.
 * Select the **Data** tab
-* ...
+* Replace the data source with your SharePoint list
 
 ## Using the Source Code
 
@@ -114,15 +114,13 @@ You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/devel
 
 ## Help
 
-> Note: don't worry about this section, we'll update the links.
-
 We do not support samples, but we this community is always willing to help, and we want to improve these samples. We use GitHub to track issues, which makes it easy for  community members to volunteer their time and help resolve issues.
 
-If you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+If you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=YOURSAMPLENAME&authors=@siddharth-vaghasia&title=covid-vaccine-survey%20-%20).
 
-For questions regarding this sample, [create a new question](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+For questions regarding this sample, [create a new question](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=YOURSAMPLENAME&authors=@siddharth-vaghasia&title=covid-vaccine-survey%20-%20).
 
-Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=YOURSAMPLENAME&authors=@siddharth-vaghasia&title=covid-vaccine-survey%20-%20).
 
 ## For more information
 
@@ -132,6 +130,4 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 
 <img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/covid-vaccine-survey" />
 
----
-> Note that better pictures and documentation will increase the sample usage and the value you are providing for others. Thanks for your submissions in advance! You rock ❤.
-> DELETE THIS PARAGRAPH BEFORE SUBMITTING
+
