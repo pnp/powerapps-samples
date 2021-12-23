@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2020/02/ProvisioningSchema">
+  <pnp:Preferences Generator="PnP.Framework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null" />
+  <pnp:Templates ID="CONTAINER-TEMPLATE-967257D4CA394D95B023590AC14BD72A">
+    <pnp:ProvisioningTemplate ID="TEMPLATE-967257D4CA394D95B023590AC14BD72A" Version="1" BaseSiteTemplate="GROUP#0" Scope="RootSite">
+      <pnp:Lists>
+        <pnp:ListInstance Title="Covid19Survey" Description="" DocumentTemplate="" OnQuickLaunch="true" TemplateType="100" Url="Lists/Covid19Survey" EnableVersioning="true" MinorVersionLimit="0" MaxVersionLimit="50" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Covid19Survey/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Covid19Survey/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Covid19Survey/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{3E7C8E26-9263-4901-99E6-22B0B592ECA5}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Covid19Survey/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query />
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="EmployeeName" />
+                <FieldRef Name="EmployeeEmail" />
+                <FieldRef Name="AreYouVaccinated" />
+                <FieldRef Name="FirstDoseDate" />
+                <FieldRef Name="SecondDoseDate" />
+                <FieldRef Name="VaccineName" />
+                <FieldRef Name="AgeGroup" />
+                <FieldRef Name="ContactNumber" />
+                <FieldRef Name="Location" />
+                <FieldRef Name="Dose1" />
+                <FieldRef Name="Dose2" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field Type="Text" DisplayName="EmployeeName" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" ID="{c4d388cb-839c-468a-941b-22470fe20168}" SourceID="{{listid:Covid19Survey}}" StaticName="EmployeeName" Name="EmployeeName" ColName="nvarchar4" RowOrdinal="0" />
+            <Field Type="Text" DisplayName="EmployeeEmail" Required="TRUE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" ID="{eed003c3-d197-4fcd-b00c-f8e01ef86c09}" SourceID="{{listid:Covid19Survey}}" StaticName="EmployeeEmail" Name="EmployeeEmail" ColName="nvarchar5" RowOrdinal="0" CustomFormatter="" Version="1" />
+            <Field Type="Boolean" DisplayName="AreYouVaccinated" EnforceUniqueValues="FALSE" Indexed="FALSE" ID="{9a1f0c55-91f9-4d6d-9088-c0328b6f01d0}" SourceID="{{listid:Covid19Survey}}" StaticName="AreYouVaccinated" Name="AreYouVaccinated" ColName="bit1" RowOrdinal="0">
+              <Default>0</Default>
+            </Field>
+            <Field Type="DateTime" DisplayName="FirstDoseDate" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Format="DateOnly" FriendlyDisplayFormat="Disabled" ID="{db229917-7b78-43b8-8bcb-a52c578b6626}" SourceID="{{listid:Covid19Survey}}" StaticName="FirstDoseDate" Name="FirstDoseDate" ColName="datetime1" RowOrdinal="0" />
+            <Field Type="DateTime" DisplayName="SecondDoseDate" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Format="DateOnly" FriendlyDisplayFormat="Disabled" ID="{114b8d1e-a089-4f4a-a5d7-a8301d1dd045}" SourceID="{{listid:Covid19Survey}}" StaticName="SecondDoseDate" Name="SecondDoseDate" ColName="datetime2" RowOrdinal="0" />
+            <Field Type="Choice" DisplayName="VaccineName" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Format="Dropdown" FillInChoice="FALSE" ID="{95906af0-ce27-4be8-b155-629cd249a930}" SourceID="{{listid:Covid19Survey}}" StaticName="VaccineName" Name="VaccineName" ColName="nvarchar7" RowOrdinal="0">
+              <CHOICES>
+                <CHOICE>Covaxin</CHOICE>
+                <CHOICE>Covishield</CHOICE>
+                <CHOICE>Other</CHOICE>
+              </CHOICES>
+            </Field>
+            <Field Type="Choice" DisplayName="AgeGroup" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Format="Dropdown" FillInChoice="FALSE" ID="{3d72d3fd-1d7a-4466-a6be-f1d0d25544f1}" SourceID="{{listid:Covid19Survey}}" StaticName="AgeGroup" Name="AgeGroup" ColName="nvarchar8" RowOrdinal="0">
+              <CHOICES>
+                <CHOICE>Below 18</CHOICE>
+                <CHOICE>18 to 45</CHOICE>
+                <CHOICE>Above 45</CHOICE>
+              </CHOICES>
+            </Field>
+            <Field Type="Text" DisplayName="ContactNumber" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" ID="{3a28d6ae-9d05-48f1-9a42-2171228629cd}" SourceID="{{listid:Covid19Survey}}" StaticName="ContactNumber" Name="ContactNumber" ColName="nvarchar9" RowOrdinal="0" />
+            <Field Type="Text" DisplayName="Location" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" ID="{e08665dc-6b8a-42f2-82cb-e360da1569c1}" SourceID="{{listid:Covid19Survey}}" StaticName="Location" Name="Location" ColName="nvarchar10" RowOrdinal="0" />
+            <Field Type="Boolean" DisplayName="Dose1" EnforceUniqueValues="FALSE" Indexed="FALSE" ID="{53cbe886-4a02-4667-b612-88539a90b682}" SourceID="{{listid:Covid19Survey}}" StaticName="Dose1" Name="Dose1" ColName="bit2" RowOrdinal="0">
+              <Default>0</Default>
+            </Field>
+            <Field Type="Boolean" DisplayName="Dose2" EnforceUniqueValues="FALSE" Indexed="FALSE" ID="{cfa49c0f-ab72-4772-be22-e42e5b119751}" SourceID="{{listid:Covid19Survey}}" StaticName="Dose2" Name="Dose2" ColName="bit3" RowOrdinal="0" CustomFormatter="" Required="FALSE" Version="1">
+              <Default>0</Default>
+            </Field>
+          </pnp:Fields>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://southindia0.pushnp.svc.ms/notifications?token=82082267-4bcf-4a40-9c9d-d68c13bc9055" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Covid19SurveyConfiguration" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Covid19SurveyConfiguration" EnableVersioning="true" MinorVersionLimit="0" MaxVersionLimit="50" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Covid19SurveyConfiguration/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Covid19SurveyConfiguration/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Covid19SurveyConfiguration/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{1B1EBDFD-716F-45B5-980F-55D107889B35}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Covid19SurveyConfiguration/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="Value" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field Type="Note" DisplayName="Value" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="6" RichText="FALSE" Sortable="FALSE" ID="{5e398e47-ef10-4d2d-9929-274c81b95ba7}" SourceID="{{listid:Covid19SurveyConfiguration}}" StaticName="Value" Name="Value" ColName="ntext2" RowOrdinal="0" />
+          </pnp:Fields>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://southindia0.pushnp.svc.ms/notifications?token=b4323945-02ce-4ce8-8c3b-39880134cbcc" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+      </pnp:Lists>
+    </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>
