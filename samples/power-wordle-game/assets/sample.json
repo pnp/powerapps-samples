@@ -1,0 +1,91 @@
+[
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "power-wordle-game",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2021-05-19T00:00:00.000Z",
+    "updateDateTime": "2021-05-19T00:00:00.000Z",
+    "title": "Power Wordle Game",
+    "shortDescription": "Re-imaging of the popular word puzzle game Wordle inside of a Power Apps Canvas App",
+    "longDescription": [
+      "Re-imaging of the popular word puzzle game Wordle inside of a Power Apps Canvas App"
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/power-wordle-game",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "Power Apps","Game"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/fluentui-custom-theme/assets/theme-light.png?raw=true",
+        "alt": "Theme Light"
+      },
+      {
+        "type": "image",
+        "order": 101,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/fluentui-custom-theme/assets/theme-dark.png?raw=true",
+        "alt": "Theme Dark"
+      },
+      {
+        "type": "image",
+        "order": 102,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/fluentui-custom-theme/assets/theme-dark-light-phone.png?raw=true",
+        "alt": "Phone Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "aprildunnam",
+        "name": "April Dunnam",
+        "pictureUrl": "https://github.com/aprildunnam.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  }
+]
