@@ -1,4 +1,4 @@
-# Focus Sessions
+# Focus Sessions App
 
 
 
@@ -56,11 +56,11 @@ This Focus Sessions App illustrates the following concepts:
 
 ## Prerequisites
 
-N/A
+None
 
 ## Data Sources
 
-N/A
+None
 
 
 ## Minimal Path to Awesome
@@ -99,8 +99,3 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 
 - [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
 - [Power Apps canvas apps documentation](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/)
-
-
-<img src="https://focus_sessions.sharepointpnp.com/powerapps-samples/samples/readme-template" />
-
-

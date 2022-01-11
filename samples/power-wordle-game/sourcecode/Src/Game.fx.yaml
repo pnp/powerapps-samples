@@ -1,0 +1,4738 @@
+Game As screen:
+    Fill: =If(varTheme = "Light",White, RGBA(26, 26, 27, 1))
+    OnVisible: |-
+        =UpdateContext({varInstructions: true});
+        UpdateContext({varSettings: false});
+        UpdateContext({varStats: false});
+        UpdateContext({varTheme:"Light"});
+        UpdateContext({varNotWord:false});
+        UpdateContext({varHardMode:false});
+        UpdateContext({varColorBlind:false});
+        UpdateContext({varDefinition:false});
+        ClearCollect(
+            colRow1Submitted,
+            Blank()
+        );
+        ClearCollect(
+            colRow2Submitted,
+            Blank()
+        );
+        ClearCollect(
+            colRow3Submitted,
+            Blank()
+        );
+        ClearCollect(
+            colRow4Submitted,
+            Blank()
+        );
+        ClearCollect(
+            colRow5Submitted,
+            Blank()
+        );
+        ClearCollect(
+            colRow6Submitted,
+            Blank()
+        );
+        ClearCollect(
+            colGuessedLetters,
+            Blank()
+        );
+        Set(
+            varCounter,
+            0
+        )
+
+    iconInfo As icon.Information:
+        AccessibleLabel: ="Info Icon"
+        Color: =RGBA(135, 138, 140, 1)
+        Height: =50
+        Icon: =Icon.Information
+        OnSelect: |-
+            =Launch("https://www.merriam-webster.com/dictionary/"&varWord,{})
+        TabIndex: =100
+        Tooltip: ="Get Definition of Word"
+        Visible: =If(Upper(varSubmittedWord) = Upper(varWord) || varCounter >=6, true, false)
+        Width: =50
+        X: =508
+        Y: =96
+        ZIndex: =1
+
+    lblTitle As label:
+        Align: =Align.Center
+        Color: =If(varTheme = "Light",RGBA(26, 26, 27, 1),RGBA(230, 230, 230, 1))
+        FontWeight: =FontWeight.Bold
+        Height: =62
+        Size: =30
+        Text: ="POWER WORDLE"
+        Width: =768
+        Y: =4
+        ZIndex: =2
+
+    imgStats As image:
+        AccessibleLabel: ="Stats Icon"
+        Height: =60
+        Image: |-
+            ="data:image/svg+xml;utf8, "&EncodeUrl("<svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'>
+                <path fill='#878a8c' d='M16,11V3H8v6H2v12h20V11H16z M10,5h4v14h-4V5z M4,11h4v8H4V11z M20,19h-4v-6h4V19z'></path>
+              </svg>")
+        OnSelect: |-
+            =UpdateContext({varStats:true})
+        TabIndex: =2
+        Width: =60
+        X: =598
+        Y: =imgSettings.Y
+        ZIndex: =3
+
+    imgHelp As image:
+        AccessibleLabel: ="Help Icon"
+        Height: =60
+        Image: |-
+            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                "<svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'>
+                <path fill='#878a8c' d='M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z'></path>
+              </svg>"
+            )
+        OnSelect: |-
+            =UpdateContext({varInstructions:true})
+        TabIndex: =1
+        Width: =60
+        X: =35
+        Y: =5
+        ZIndex: =4
+
+    imgSettings As image:
+        AccessibleLabel: ="Settings Icon"
+        Height: =60
+        Image: |-
+            ="data:image/svg+xml;utf8, "&EncodeUrl("<svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'>
+                <path fill='#878a8c' d='M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z'></path>
+              </svg>")
+        OnSelect: |-
+            =UpdateContext({varSettings:true})
+        TabIndex: =3
+        Width: =60
+        X: =679
+        Y: =5
+        ZIndex: =5
+
+    rectHeaderSeparator As rectangle:
+        Fill: =RGBA(204, 204, 204, 1)
+        Height: =2
+        Width: =768
+        Y: =70
+        ZIndex: =6
+
+    btnQ As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="Q"
+        Width: =65
+        X: =17
+        Y: =943
+        ZIndex: =7
+
+    btnW As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="W"
+        Width: =65
+        X: =90
+        Y: =943
+        ZIndex: =8
+
+    btnE As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="E"
+        Width: =65
+        X: =165
+        Y: =943
+        ZIndex: =9
+
+    btnR As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="R"
+        Width: =65
+        X: =242
+        Y: =943
+        ZIndex: =10
+
+    btnT As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="T"
+        Width: =65
+        X: =315
+        Y: =943
+        ZIndex: =11
+
+    btnY As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="Y"
+        Width: =65
+        X: =390
+        Y: =943
+        ZIndex: =12
+
+    btnU As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="U"
+        Width: =65
+        X: =465
+        Y: =943
+        ZIndex: =13
+
+    btnI As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="I"
+        Width: =65
+        X: =541
+        Y: =943
+        ZIndex: =14
+
+    btnO As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="O"
+        Width: =65
+        X: =614
+        Y: =943
+        ZIndex: =15
+
+    btnP As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="P"
+        Width: =65
+        X: =687
+        Y: =943
+        ZIndex: =16
+
+    btnA As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="A"
+        Width: =65
+        X: =49
+        Y: =1035
+        ZIndex: =17
+
+    btnS As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="S"
+        Width: =65
+        X: =122
+        Y: =1035
+        ZIndex: =18
+
+    btnD As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="D"
+        Width: =65
+        X: =197
+        Y: =1035
+        ZIndex: =19
+
+    btnF As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="F"
+        Width: =65
+        X: =274
+        Y: =1035
+        ZIndex: =20
+
+    btnG As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="G"
+        Width: =65
+        X: =347
+        Y: =1035
+        ZIndex: =21
+
+    btnH As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="H"
+        Width: =65
+        X: =422
+        Y: =1035
+        ZIndex: =22
+
+    btnJ As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="J"
+        Width: =65
+        X: =497
+        Y: =1035
+        ZIndex: =23
+
+    btnK As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="K"
+        Width: =65
+        X: =573
+        Y: =1035
+        ZIndex: =24
+
+    btnL As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="L"
+        Width: =65
+        X: =646
+        Y: =1035
+        ZIndex: =25
+
+    btnEnter As button:
+        BorderThickness: =0
+        DisplayMode: =If(varCounter >= 6,DisplayMode.Disabled, DisplayMode.Edit)
+        Fill: =RGBA(153, 153, 153, 1)
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =//This takes the submitted word and adds it to a variable to use later on in the code
+            Concurrent(
+                UpdateContext({varWordSaved: true}),
+                UpdateContext(
+                    {
+                        varSubmittedWord: Concat(
+                            colLetters,
+                            Text,
+                            ""
+                        )
+                    }
+                )
+            );
+            /*This is the main block of code.
+            First step is to validate that the submitted word is valid.
+            This is done by looking up for a matching word in our word bank data source
+            */
+            If(
+                IsBlank(
+                    LookUp(
+                        Words,
+                        Word = Lower(varSubmittedWord)
+                    )
+                ),
+                //If the word isn't valid, send a notification to the user using OOTB functionality
+                Notify("Not in Word List!"),
+                /*If the word is valid then we need to start a counter
+                This will be used to help loop through the attempts */
+                Set(
+                    varCounter,
+                    varCounter + 1
+                );
+                /*Now tie the counter to a switch function.
+                This let's us perform different logic for each row*/
+            Switch(
+                    varCounter,
+                    1,
+                    /* Loop through the collection of Letters.
+                    This is added on click of the letter buttons. */
+                    ForAll(
+                        Sort(
+                            colLetters,
+                            ID,
+                            Ascending
+                        ) As _letters,
+                        With(
+                            {
+                                idMatch: LookUp(
+                                    colWordCollectionNumbered,
+                                    ID = _letters.ID
+                                ).Result,
+                                wordMatch: Filter(
+                                    colWordCollectionNumbered,
+                                    Upper(_letters.Text) in Upper(Result)
+                                )
+                            },
+                        /*Create a new collection to store submitted letters for Row 1 */
+                            Collect(
+                                colRow1Submitted,
+                                {
+                                    Text: _letters.Text,
+                                    ID: _letters.ID,
+                                    Outcome: 
+                                    /*Lookup to the collection of letters for guess word.
+                                Want to see if the current letter is in correct spot for guess word.*/
+            If(
+                                        Upper(idMatch) = Upper(_letters.Text),
+                                        "Correct Spot",
+                                         /*Look to see if the current letter exists in the guess word.
+                                If it doesn't, mark it as incorrect.
+                                If it does, mark it as correct but wrong spot */
+                                        If(
+                                            IsEmpty(wordMatch),
+                                            "Not in Word",
+                                            "Wrong Spot"
+                                        )
+                                    ),
+                                    Color: If(
+                                        Upper(idMatch) = Upper(_letters.Text),
+                                        "🟩",
+                                        If(
+                                            IsEmpty(wordMatch),
+                                            "⬛",
+                                            "🟨"
+                                        )
+                                    )
+                                }
+                            );
+                        /*Now create a collection of all letters guess.
+                        This will drive the color coding of the keyboard */
+            Collect(
+                                colGuessedLetters,
+                                {
+                                    Text: _letters.Text,
+                                    Status: If(
+                                        Upper(idMatch) = Upper(_letters.Text),
+                                        "Correct",
+                                        If(
+                                            IsEmpty(wordMatch),
+                                            "Incorrect",
+                                            "Wrong Location"
+                                        )
+                                    )
+                                }
+                            )
+                        )
+                    ),
+                    2,
+                    ForAll(
+                        Sort(
+                            colLetters,
+                            ID,
+                            Ascending
+                        ) As _letters,
+                        With(
+                            {
+                                idMatch: LookUp(
+                                    colWordCollectionNumbered,
+                                    ID = _letters.ID
+                                ).Result,
+                                wordMatch: Filter(
+                                    colWordCollectionNumbered,
+                                    Upper(_letters.Text) in Upper(Result)
+                                )
+                            },
+                        /*Create a new collection to store submitted letters for Row 1 */
+                            Collect(
+                                colRow2Submitted,
+                                {
+                                    Text: _letters.Text,
+                                    ID: _letters.ID,
+                                    Outcome: 
+                                    /*Lookup to the collection of letters for guess word.
+                                Want to see if the current letter is in correct spot for guess word.*/
+                                    If(
+                                        Upper(idMatch) = Upper(_letters.Text),
+                                        "Correct Spot",
+                                         /*Look to see if the current letter exists in the guess word.
+                                If it doesn't, mark it as incorrect.
+                                If it does, mark it as correct but wrong spot */
+                                        If(
+                                            IsEmpty(wordMatch),
+                                            "Not in Word",
+                                            "Wrong Spot"
+                                        )
+                                    ),
+                                     Color: If(
+                                        Upper(idMatch) = Upper(_letters.Text),
+                                        "🟩",
+                                        If(
+                                            IsEmpty(wordMatch),
+                                            "⬛",
+                                            "🟨"
+                                        )
+                                    )
+                                }
+                            );
+                        /*Now create a collection of all letters guess.
+                        This will drive the color coding of the keyboard */
+            Collect(
+                                colGuessedLetters,
+                                {
+                                    Text: _letters.Text,
+                                    Status: If(
+                                        Upper(idMatch) = Upper(_letters.Text),
+                                        "Correct",
+                                        If(
+                                            IsEmpty(wordMatch),
+                                            "Incorrect",
+                                            "Wrong Location"
+                                        )
+                                    )
+                                }
+                            )
+                        )
+                    ),
+                    3,
+                    ForAll(
+                        Sort(
+                            colLetters,
+                            ID,
+                            Ascending
+                        ) As _letters,
+                        With(
+                            {
+                                idMatch: LookUp(
+                                    colWordCollectionNumbered,
+                                    ID = _letters.ID
+                                ).Result,
+                                wordMatch: Filter(
+                                    colWordCollectionNumbered,
+                                    Upper(_letters.Text) in Upper(Result)
+                                )
+                            },
+                        /*Create a new collection to store submitted letters for Row 1 */
+                            Collect(
+                                colRow3Submitted,
+                                {
+                                    Text: _letters.Text,
+                                    ID: _letters.ID,
+                                    Outcome: 
+                                    /*Lookup to the collection of letters for guess word.
+                                Want to see if the current letter is in correct spot for guess word.*/
+                                    If(
+                                        Upper(idMatch) = Upper(_letters.Text),
+                                        "Correct Spot",
+                                         /*Look to see if the current letter exists in the guess word.
+                                If it doesn't, mark it as incorrect.
+                                If it does, mark it as correct but wrong spot */
+                                        If(
+                                            IsEmpty(wordMatch),
+                                            "Not in Word",
+                                            "Wrong Spot"
+                                        )
+                                    ),
+                                     Color: If(
+                                        Upper(idMatch) = Upper(_letters.Text),
+                                        "🟩",
+                                        If(
+                                            IsEmpty(wordMatch),
+                                            "⬛",
+                                            "🟨"
+                                        )
+                                    )
+                                }
+                            );
+                        /*Now create a collection of all letters guess.
+                        This will drive the color coding of the keyboard */
+            Collect(
+                                colGuessedLetters,
+                                {
+                                    Text: _letters.Text,
+                                    Status: If(
+                                        Upper(idMatch) = Upper(_letters.Text),
+                                        "Correct",
+                                        If(
+                                            IsEmpty(wordMatch),
+                                            "Incorrect",
+                                            "Wrong Location"
+                                        )
+                                    )
+                                }
+                            )
+                        )
+                    ),
+                    4,
+                    ForAll(
+                        Sort(
+                            colLetters,
+                            ID,
+                            Ascending
+                        ) As _letters,
+                        With(
+                            {
+                                idMatch: LookUp(
+                                    colWordCollectionNumbered,
+                                    ID = _letters.ID
+                                ).Result,
+                                wordMatch: Filter(
+                                    colWordCollectionNumbered,
+                                    Upper(_letters.Text) in Upper(Result)
+                                )
+                            },
+                        /*Create a new collection to store submitted letters for Row 1 */
+                            Collect(
+                                colRow4Submitted,
+                                {
+                                    Text: _letters.Text,
+                                    ID: _letters.ID,
+                                    Outcome: 
+                                    /*Lookup to the collection of letters for guess word.
+                                Want to see if the current letter is in correct spot for guess word.*/
+                                If(
+                                        Upper(idMatch) = Upper(_letters.Text),
+                                        "Correct Spot",
+                                         /*Look to see if the current letter exists in the guess word.
+                                If it doesn't, mark it as incorrect.
+                                If it does, mark it as correct but wrong spot */
+                                        If(
+                                            IsEmpty(wordMatch),
+                                            "Not in Word",
+                                            "Wrong Spot"
+                                        )
+                                    ),
+                                     Color: If(
+                                        Upper(idMatch) = Upper(_letters.Text),
+                                        "🟩",
+                                        If(
+                                            IsEmpty(wordMatch),
+                                            "⬛",
+                                            "🟨"
+                                        )
+                                    )
+                                }
+                            );
+                        /*Now create a collection of all letters guess.
+                        This will drive the color coding of the keyboard */
+            Collect(
+                                colGuessedLetters,
+                                {
+                                    Text: _letters.Text,
+                                    Status: If(
+                                        Upper(idMatch) = Upper(_letters.Text),
+                                        "Correct",
+                                        If(
+                                            IsEmpty(wordMatch),
+                                            "Incorrect",
+                                            "Wrong Location"
+                                        )
+                                    )
+                                }
+                            )
+                        )
+                    ),
+                    5,
+                    ForAll(
+                        Sort(
+                            colLetters,
+                            ID,
+                            Ascending
+                        ) As _letters,
+                        With(
+                            {
+                                idMatch: LookUp(
+                                    colWordCollectionNumbered,
+                                    ID = _letters.ID
+                                ).Result,
+                                wordMatch: Filter(
+                                    colWordCollectionNumbered,
+                                    Upper(_letters.Text) in Upper(Result)
+                                )
+                            },
+                        /*Create a new collection to store submitted letters for Row 1 */
+                            Collect(
+                                colRow5Submitted,
+                                {
+                                    Text: _letters.Text,
+                                    ID: _letters.ID,
+                                    Outcome: 
+                                    /*Lookup to the collection of letters for guess word.
+                                Want to see if the current letter is in correct spot for guess word.*/
+                                If(
+                                        Upper(idMatch) = Upper(_letters.Text),
+                                        "Correct Spot",
+                                         /*Look to see if the current letter exists in the guess word.
+                                If it doesn't, mark it as incorrect.
+                                If it does, mark it as correct but wrong spot */
+                                        If(
+                                            IsEmpty(wordMatch),
+                                            "Not in Word",
+                                            "Wrong Spot"
+                                        )
+                                    ),
+                                     Color: If(
+                                        Upper(idMatch) = Upper(_letters.Text),
+                                        "🟩",
+                                        If(
+                                            IsEmpty(wordMatch),
+                                            "⬛",
+                                            "🟨"
+                                        )
+                                    )
+                                }
+                            );
+                        /*Now create a collection of all letters guess.
+                        This will drive the color coding of the keyboard */
+            Collect(
+                                colGuessedLetters,
+                                {
+                                    Text: _letters.Text,
+                                    Status: If(
+                                        Upper(idMatch) = Upper(_letters.Text),
+                                        "Correct",
+                                        If(
+                                            IsEmpty(wordMatch),
+                                            "Incorrect",
+                                            "Wrong Location"
+                                        )
+                                    )
+                                }
+                            )
+                        )
+                    ),
+                    6,
+                    ForAll(
+                        Sort(
+                            colLetters,
+                            ID,
+                            Ascending
+                        ) As _letters,
+                        With(
+                            {
+                                idMatch: LookUp(
+                                    colWordCollectionNumbered,
+                                    ID = _letters.ID
+                                ).Result,
+                                wordMatch: Filter(
+                                    colWordCollectionNumbered,
+                                    Upper(_letters.Text) in Upper(Result)
+                                )
+                            },
+                        /*Create a new collection to store submitted letters for Row 1 */
+                            Collect(
+                                colRow6Submitted,
+                                {
+                                    Text: _letters.Text,
+                                    ID: _letters.ID,
+                                    Outcome: 
+                                    /*Lookup to the collection of letters for guess word.
+                                Want to see if the current letter is in correct spot for guess word.*/
+                                If(
+                                        Upper(idMatch) = Upper(_letters.Text),
+                                        "Correct Spot",
+                                         /*Look to see if the current letter exists in the guess word.
+                                If it doesn't, mark it as incorrect.
+                                If it does, mark it as correct but wrong spot */
+                                        If(
+                                            IsEmpty(wordMatch),
+                                            "Not in Word",
+                                            "Wrong Spot"
+                                        )
+                                    ),
+                                     Color: If(
+                                        Upper(idMatch) = Upper(_letters.Text),
+                                        "🟩",
+                                        If(
+                                            IsEmpty(wordMatch),
+                                            "⬛",
+                                            "🟨"
+                                        )
+                                    )
+                                }
+                            );
+                        /*Now create a collection of all letters guess.
+                        This will drive the color coding of the keyboard */
+            Collect(
+                                colGuessedLetters,
+                                {
+                                    Text: _letters.Text,
+                                    Status: If(
+                                        Upper(idMatch) = Upper(_letters.Text),
+                                        "Correct",
+                                        If(
+                                            IsEmpty(wordMatch),
+                                            "Incorrect",
+                                            "Wrong Location"
+                                        )
+                                    )
+                                }
+                            )
+                        )
+                    );
+                    If(
+                        Upper(varSubmittedWord) = Upper(varWord),
+                        Collect(
+                            colPlays,
+                            {Outcome: "Win"}
+                        ),
+                        Collect(
+                            colPlays,
+                            {Outcome: "Loose"}
+                        )
+                    );
+                    UpdateContext({varStats: true})
+                );
+                If(
+                    Upper(varSubmittedWord) = Upper(varWord),
+                    UpdateContext({varStats: true});
+                    Collect(
+                        colPlays,
+                        {Outcome: "Win"}
+                    )
+                );
+                ClearCollect(
+                    colLetters,
+                    Blank()
+                )
+            )
+        Size: =20
+        Text: ="ENTER"
+        Width: =97
+        X: =17
+        Y: =1130
+        ZIndex: =26
+
+    btnZ As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="Z"
+        Width: =65
+        X: =122
+        Y: =1130
+        ZIndex: =27
+
+    btnX As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="X"
+        Width: =65
+        X: =197
+        Y: =1130
+        ZIndex: =28
+
+    btnC As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="C"
+        Width: =65
+        X: =274
+        Y: =1130
+        ZIndex: =29
+
+    btnV As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="V"
+        Width: =65
+        X: =347
+        Y: =1130
+        ZIndex: =30
+
+    btnB As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="B"
+        Width: =65
+        X: =422
+        Y: =1130
+        ZIndex: =31
+
+    btnN As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="N"
+        Width: =65
+        X: =497
+        Y: =1130
+        ZIndex: =32
+
+    btnM As button:
+        BorderThickness: =0
+        Fill: |-
+            =Switch(
+                LookUp(
+                    colGuessedLetters,
+                    Text = Self.Text
+                ).Status,
+                "Correct",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#538D4B"),
+                    ColorValue("#F5793A")
+                ),
+                "Incorrect",
+                ColorValue("#3A3A3C"),
+                "Wrong Location",
+                If(
+                    varColorBlind = false,
+                    ColorValue("#C89F3B"),
+                    ColorValue("#85C0F9")
+                ),
+                RGBA(
+                    153,
+                    153,
+                    153,
+                    1
+                )
+            )
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Collect(
+                colLetters,
+                {
+                    Text: Self.Text,
+                    ID: If(!IsBlankOrError(Last(colLetters).ID),Last(colLetters).ID + 1, 1)
+                }
+            )
+        Size: =20
+        Text: ="M"
+        Width: =65
+        X: =573
+        Y: =1130
+        ZIndex: =33
+
+    btnErase As button:
+        BorderThickness: =0
+        Fill: =RGBA(153, 153, 153, 1)
+        Height: =80
+        HoverFill: =Self.Fill
+        OnSelect: =Remove(colLetters,Last(colLetters))
+        Size: =20
+        Text: ="⌫"
+        Width: =106
+        X: =646
+        Y: =1130
+        ZIndex: =34
+
+    btnMessage As button:
+        Color: =If(varTheme = "Light",White,RGBA(0, 0, 0, 1))
+        Fill: =If(varTheme = "Light",RGBA(26, 26, 27, 1),RGBA(215, 218, 220, 1))
+        FontWeight: =FontWeight.Bold
+        Height: =80
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        Size: =18
+        Text: =If(Upper(varSubmittedWord) = Upper(varWord),"GOOD WORK!" ,Upper(varWord))
+        Visible: =If(Upper(varSubmittedWord) = Upper(varWord) || varCounter >=6, true, false)
+        Width: =200
+        X: =286
+        Y: =85
+        ZIndex: =35
+
+    lblRow1Col1 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow1Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow1Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow1Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow1Submitted,
+                            ID = 1
+                        )
+                    },
+                    Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                IsEmpty(colRow1Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 1
+                ).Text,
+                LookUp(
+                    colRow1Submitted,
+                    ID = 1
+                ).Text
+            )
+        Width: =100 
+        X: =100
+        Y: =184
+        ZIndex: =36
+
+    lblRow1Col2 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow1Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow1Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow1Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow1Submitted,
+                            ID = 2
+                        )
+                    },
+                    Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                IsEmpty(colRow1Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 2
+                ).Text,
+                LookUp(
+                    colRow1Submitted,
+                    ID = 2
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col1.X + lblRow1Col1.Width + 15
+        Y: =lblRow1Col1.Y
+        ZIndex: =37
+
+    lblRow1Col3 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow1Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow1Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow1Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow1Submitted,
+                            ID = 3
+                        )
+                    },
+                   Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                IsEmpty(colRow1Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 3
+                ).Text,
+                LookUp(
+                    colRow1Submitted,
+                    ID = 3
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col2.X + lblRow1Col2.Width + 15
+        Y: =lblRow1Col1.Y
+        ZIndex: =38
+
+    lblRow1Col4 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow1Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow1Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow1Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow1Submitted,
+                            ID = 4
+                        )
+                    },
+                   Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                IsEmpty(colRow1Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 4
+                ).Text,
+                LookUp(
+                    colRow1Submitted,
+                    ID = 4
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col3.X + lblRow1Col3.Width + 15
+        Y: =lblRow1Col1.Y
+        ZIndex: =39
+
+    lblRow1Col5 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow1Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow1Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow1Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow1Submitted,
+                            ID = 5
+                        )
+                    },
+                    Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                IsEmpty(colRow1Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 5
+                ).Text,
+                LookUp(
+                    colRow1Submitted,
+                    ID = 5
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col4.X + lblRow1Col4.Width + 15
+        Y: =lblRow1Col1.Y
+        ZIndex: =40
+
+    lblRow2Col1 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow2Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow2Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow2Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow2Submitted,
+                            ID = 1
+                        )
+                    },
+                 Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                !IsEmpty(colRow1Submitted) && IsEmpty(colRow2Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 1
+                ).Text,
+                LookUp(
+                    colRow2Submitted,
+                    ID = 1
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col1.X
+        Y: =lblRow1Col1.Y + lblRow1Col1.Height + 15
+        ZIndex: =41
+
+    lblRow2Col2 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow2Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow2Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow2Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow2Submitted,
+                            ID = 2
+                        )
+                    },
+                   Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                !IsEmpty(colRow1Submitted) && IsEmpty(colRow2Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 2
+                ).Text,
+                LookUp(
+                    colRow2Submitted,
+                    ID = 2
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col2.X
+        Y: =lblRow2Col1.Y
+        ZIndex: =42
+
+    lblRow2Col3 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow2Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow2Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow2Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow2Submitted,
+                            ID = 3
+                        )
+                    },
+                 Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                !IsEmpty(colRow1Submitted) && IsEmpty(colRow2Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 3
+                ).Text,
+                LookUp(
+                    colRow2Submitted,
+                    ID = 3
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col3.X
+        Y: =lblRow2Col1.Y
+        ZIndex: =43
+
+    lblRow2Col4 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow2Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow2Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow2Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow2Submitted,
+                            ID = 4
+                        )
+                    },
+                Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                !IsEmpty(colRow1Submitted) && IsEmpty(colRow2Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 4
+                ).Text,
+                LookUp(
+                    colRow2Submitted,
+                    ID = 4
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col4.X
+        Y: =lblRow2Col1.Y
+        ZIndex: =44
+
+    lblRow2Col5 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow2Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow2Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow2Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow2Submitted,
+                            ID = 5
+                        )
+                    },
+                Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                !IsEmpty(colRow1Submitted) && IsEmpty(colRow2Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 5
+                ).Text,
+                LookUp(
+                    colRow2Submitted,
+                    ID = 5
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col5.X
+        Y: =lblRow2Col1.Y
+        ZIndex: =45
+
+    lblRow3Col1 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow3Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow3Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow3Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow3Submitted,
+                            ID = 1
+                        )
+                    },
+              Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                !IsEmpty(colRow1Submitted) && !IsEmpty(colRow2Submitted) && IsEmpty(colRow3Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 1
+                ).Text,
+                LookUp(
+                    colRow3Submitted,
+                    ID = 1
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col1.X
+        Y: =lblRow2Col1.Y + lblRow2Col1.Height + 15
+        ZIndex: =46
+
+    lblRow3Col2 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow3Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow3Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow3Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow3Submitted,
+                            ID = 2
+                        )
+                    },
+                Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                !IsEmpty(colRow1Submitted) && !IsEmpty(colRow2Submitted) && IsEmpty(colRow3Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 2
+                ).Text,
+                LookUp(
+                    colRow3Submitted,
+                    ID = 2
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col2.X
+        Y: =lblRow3Col1.Y
+        ZIndex: =47
+
+    lblRow3Col3 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow3Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow3Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow3Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow3Submitted,
+                            ID = 3
+                        )
+                    },
+                  Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                !IsEmpty(colRow1Submitted) && !IsEmpty(colRow2Submitted) && IsEmpty(colRow3Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 3
+                ).Text,
+                LookUp(
+                    colRow3Submitted,
+                    ID = 3
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col3.X
+        Y: =lblRow3Col1.Y
+        ZIndex: =48
+
+    lblRow3Col4 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow3Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow3Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow3Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow3Submitted,
+                            ID = 4
+                        )
+                    },
+                  Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                !IsEmpty(colRow1Submitted) && !IsEmpty(colRow2Submitted) && IsEmpty(colRow3Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 4
+                ).Text,
+                LookUp(
+                    colRow3Submitted,
+                    ID = 4
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col4.X
+        Y: =lblRow3Col1.Y
+        ZIndex: =49
+
+    lblRow3Col5 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow3Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow3Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow3Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow3Submitted,
+                            ID = 5
+                        )
+                    },
+                  Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                !IsEmpty(colRow1Submitted) && !IsEmpty(colRow2Submitted) && IsEmpty(colRow3Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 5
+                ).Text,
+                LookUp(
+                    colRow3Submitted,
+                    ID = 5
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col5.X
+        Y: =lblRow3Col1.Y
+        ZIndex: =50
+
+    lblRow4Col1 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow4Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow4Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow4Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow4Submitted,
+                            ID = 1
+                        )
+                    },
+                Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                 !IsEmpty(colRow1Submitted) && !IsEmpty(colRow2Submitted) && !IsEmpty(colRow3Submitted) && IsEmpty(colRow4Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 1
+                ).Text,
+                LookUp(
+                    colRow4Submitted,
+                    ID = 1
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col1.X
+        Y: =lblRow3Col1.Y + lblRow3Col1.Height + 15
+        ZIndex: =51
+
+    lblRow4Col2 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow4Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow4Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow4Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow4Submitted,
+                            ID = 2
+                        )
+                    },
+               Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                 !IsEmpty(colRow1Submitted) && !IsEmpty(colRow2Submitted) && !IsEmpty(colRow3Submitted) && IsEmpty(colRow4Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 2
+                ).Text,
+                LookUp(
+                    colRow4Submitted,
+                    ID = 2
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col2.X
+        Y: =lblRow4Col1.Y
+        ZIndex: =52
+
+    lblRow4Col3 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow4Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow4Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow4Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow4Submitted,
+                            ID = 3
+                        )
+                    },
+                 Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                 !IsEmpty(colRow1Submitted) && !IsEmpty(colRow2Submitted) && !IsEmpty(colRow3Submitted) && IsEmpty(colRow4Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 3
+                ).Text,
+                LookUp(
+                    colRow4Submitted,
+                    ID = 3
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col3.X
+        Y: =lblRow4Col1.Y
+        ZIndex: =53
+
+    lblRow4Col4 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow4Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow4Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow4Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow4Submitted,
+                            ID = 4
+                        )
+                    },
+                Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                 !IsEmpty(colRow1Submitted) && !IsEmpty(colRow2Submitted) && !IsEmpty(colRow3Submitted) && IsEmpty(colRow4Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 4
+                ).Text,
+                LookUp(
+                    colRow4Submitted,
+                    ID = 4
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col4.X
+        Y: =lblRow4Col1.Y
+        ZIndex: =54
+
+    lblRow4Col5 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow4Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow4Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow4Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow4Submitted,
+                            ID = 5
+                        )
+                    },
+               Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                 !IsEmpty(colRow1Submitted) && !IsEmpty(colRow2Submitted) && !IsEmpty(colRow3Submitted) && IsEmpty(colRow4Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 5
+                ).Text,
+                LookUp(
+                    colRow4Submitted,
+                    ID = 5
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col5.X
+        Y: =lblRow4Col1.Y
+        ZIndex: =55
+
+    lblRow5Col1 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow5Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow5Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow5Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow5Submitted,
+                            ID = 1
+                        )
+                    },
+              Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                !IsEmpty(colRow1Submitted) && !IsEmpty(colRow2Submitted) && !IsEmpty(colRow3Submitted) && !IsEmpty(colRow4Submitted) && IsEmpty(colRow5Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 1
+                ).Text,
+                LookUp(
+                    colRow5Submitted,
+                    ID = 1
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col1.X
+        Y: =lblRow4Col1.Y + lblRow4Col1.Height + 15
+        ZIndex: =56
+
+    lblRow5Col2 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow5Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow5Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow5Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow5Submitted,
+                            ID = 2
+                        )
+                    },
+              Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                !IsEmpty(colRow1Submitted) && !IsEmpty(colRow2Submitted) && !IsEmpty(colRow3Submitted) && !IsEmpty(colRow4Submitted) && IsEmpty(colRow5Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 2
+                ).Text,
+                LookUp(
+                    colRow5Submitted,
+                    ID = 2
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col2.X
+        Y: =lblRow5Col1.Y
+        ZIndex: =57
+
+    lblRow5Col3 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow5Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow5Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow5Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow5Submitted,
+                            ID = 3
+                        )
+                    },
+              Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                !IsEmpty(colRow1Submitted) && !IsEmpty(colRow2Submitted) && !IsEmpty(colRow3Submitted) && !IsEmpty(colRow4Submitted) && IsEmpty(colRow5Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 3
+                ).Text,
+                LookUp(
+                    colRow5Submitted,
+                    ID = 3
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col3.X
+        Y: =lblRow5Col1.Y
+        ZIndex: =58
+
+    lblRow5Col4 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow5Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow5Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow5Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow5Submitted,
+                            ID = 4
+                        )
+                    },
+               Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                !IsEmpty(colRow1Submitted) && !IsEmpty(colRow2Submitted) && !IsEmpty(colRow3Submitted) && !IsEmpty(colRow4Submitted) && IsEmpty(colRow5Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 4
+                ).Text,
+                LookUp(
+                    colRow5Submitted,
+                    ID = 4
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col4.X
+        Y: =lblRow5Col1.Y
+        ZIndex: =59
+
+    lblRow5Col5 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow5Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow5Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow5Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow5Submitted,
+                            ID = 5
+                        )
+                    },
+               Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                !IsEmpty(colRow1Submitted) && !IsEmpty(colRow2Submitted) && !IsEmpty(colRow3Submitted) && !IsEmpty(colRow4Submitted) && IsEmpty(colRow5Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 5
+                ).Text,
+                LookUp(
+                    colRow5Submitted,
+                    ID = 5
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col5.X
+        Y: =lblRow5Col1.Y
+        ZIndex: =60
+
+    lblRow6Col1 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow6Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow6Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow6Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow6Submitted,
+                            ID = 1
+                        )
+                    },
+            Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                !IsEmpty(colRow1Submitted) && !IsEmpty(colRow2Submitted) && !IsEmpty(colRow3Submitted) && !IsEmpty(colRow4Submitted) && !IsEmpty(colRow5Submitted) && IsEmpty(colRow6Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 1
+                ).Text,
+                LookUp(
+                    colRow6Submitted,
+                    ID = 1
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col1.X
+        Y: =lblRow5Col1.Y + lblRow5Col1.Height + 15
+        ZIndex: =61
+
+    lblRow6Col2 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow6Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow6Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow6Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow6Submitted,
+                            ID = 2
+                        )
+                    },
+            Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                !IsEmpty(colRow1Submitted) && !IsEmpty(colRow2Submitted) && !IsEmpty(colRow3Submitted) && !IsEmpty(colRow4Submitted) && !IsEmpty(colRow5Submitted) && IsEmpty(colRow6Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 2
+                ).Text,
+                LookUp(
+                    colRow6Submitted,
+                    ID = 2
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col2.X
+        Y: =lblRow6Col1.Y
+        ZIndex: =62
+
+    lblRow6Col3 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow6Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow6Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow6Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow6Submitted,
+                            ID = 3
+                        )
+                    },
+               Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                !IsEmpty(colRow1Submitted) && !IsEmpty(colRow2Submitted) && !IsEmpty(colRow3Submitted) && !IsEmpty(colRow4Submitted) && !IsEmpty(colRow5Submitted) && IsEmpty(colRow6Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 3
+                ).Text,
+                LookUp(
+                    colRow6Submitted,
+                    ID = 3
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col3.X
+        Y: =lblRow6Col1.Y
+        ZIndex: =63
+
+    lblRow6Col4 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow6Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow6Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow6Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow6Submitted,
+                            ID = 4
+                        )
+                    },
+               Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                !IsEmpty(colRow1Submitted) && !IsEmpty(colRow2Submitted) && !IsEmpty(colRow3Submitted) && !IsEmpty(colRow4Submitted) && !IsEmpty(colRow5Submitted) && IsEmpty(colRow6Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 4
+                ).Text,
+                LookUp(
+                    colRow6Submitted,
+                    ID = 4
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col4.X
+        Y: =lblRow6Col1.Y
+        ZIndex: =64
+
+    lblRow6Col5 As label:
+        Align: =Align.Center
+        BorderColor: |-
+            =If(
+                IsEmpty(colRow6Submitted), RGBA(204, 204, 204, 1),Self.Fill)
+        BorderThickness: =2
+        Color: =If(varTheme = "Dark" || !IsEmpty(colRow6Submitted), RGBA(230, 230, 230, 1),Black)
+        Fill: |-
+            =If(
+                IsEmpty(colRow6Submitted),
+                Transparent,
+                With(
+                    {
+                        row: LookUp(
+                            colRow6Submitted,
+                            ID = 5
+                        )
+                    },
+            Switch(
+                        varColorBlind,
+                        false,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#538D4B"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#C89F3B")
+                        ),
+                        true,
+                        Switch(
+                            row.Outcome,
+                            "Correct Spot",
+                            ColorValue("#F5793A"),
+                            "Not in Word",
+                            ColorValue("#3A3A3C"),
+                            "Wrong Spot",
+                            ColorValue("#85C0F9")
+                        )
+                    )
+                )
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =100 
+        Size: =48
+        Text: |-
+            =If(
+                !IsEmpty(colRow1Submitted) && !IsEmpty(colRow2Submitted) && !IsEmpty(colRow3Submitted) && !IsEmpty(colRow4Submitted) && !IsEmpty(colRow5Submitted) && IsEmpty(colRow6Submitted),
+                LookUp(
+                    colLetters,
+                    ID = 5
+                ).Text,
+                LookUp(
+                    colRow6Submitted,
+                    ID = 5
+                ).Text
+            )
+        Width: =100 
+        X: =lblRow1Col5.X
+        Y: =lblRow6Col1.Y
+        ZIndex: =65
+
+    grpStats As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =119
+
+        bgStats As rectangle:
+            BorderColor: =RGBA(204, 204, 204, 1)
+            Fill: =Game.Fill
+            Height: =1366
+            Visible: =varStats
+            Width: =768
+            ZIndex: =66
+
+        iconCancelStats As icon.Cancel:
+            AccessibleLabel: ="Cancel Icon"
+            BorderColor: =RGBA(204, 204, 204, 1)
+            Color: =RGBA(179, 179, 179, 1)
+            Height: =50
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({varStats:false})
+            TabIndex: =106
+            Visible: =varStats
+            Width: =50
+            X: =679
+            Y: =39
+            ZIndex: =67
+
+        lblStats As label:
+            Align: =Align.Center
+            Color: =If(varTheme = "Light",RGBA(0, 0, 0, 1),White)
+            FontWeight: =FontWeight.Bold
+            Height: =66
+            Size: =32
+            Text: ="STATISTICS"
+            Visible: =varStats
+            Width: =768
+            Y: =145
+            ZIndex: =68
+
+        lblPlayedNumb As label:
+            Align: =Align.Center
+            Color: =If(varTheme = "Light",RGBA(0, 0, 0, 1),White)
+            Height: =35
+            Size: =32
+            Text: =CountRows(colPlays)
+            Visible: =varStats
+            Width: =95
+            X: =160 
+            Y: =lblStats.Height + lblStats.Y + 25
+            ZIndex: =69
+
+        lblPlayed As label:
+            Align: =Align.Center
+            Color: =If(varTheme = "Light",RGBA(0, 0, 0, 1),White)
+            Text: ="Played"
+            Visible: =varStats
+            Width: =100
+            X: =lblPlayedNumb.X
+            Y: =lblPlayedNumb.Height + lblPlayedNumb.Y +2
+            ZIndex: =70
+
+        lblWinNumb As label:
+            Align: =Align.Center
+            Color: =If(varTheme = "Light",RGBA(0, 0, 0, 1),White)
+            Height: =35
+            Size: =32
+            Text: =CountRows(Filter(colPlays,Outcome = "Win")) / CountRows(colPlays)*100
+            Visible: =varStats
+            Width: =90
+            X: =265
+            Y: =lblPlayedNumb.Y
+            ZIndex: =71
+
+        lblWins As label:
+            Align: =Align.Center
+            Color: =If(varTheme = "Light",RGBA(0, 0, 0, 1),White)
+            Text: ="Win %"
+            Visible: =varStats
+            Width: =100
+            X: =lblWinNumb.X
+            Y: =lblWinNumb.Height + lblWinNumb.Y +2
+            ZIndex: =72
+
+        lblCurrentStreakNumb As label:
+            Align: =Align.Center
+            Color: =If(varTheme = "Light",RGBA(0, 0, 0, 1),White)
+            Height: =35
+            Size: =32
+            Text: =CountRows(Filter(colPlays,Outcome = "Win"))
+            Visible: =varStats
+            Width: =95
+            X: =lblWinNumb.X + lblWinNumb.Width + 10
+            Y: =lblPlayedNumb.Y
+            ZIndex: =73
+
+        lblCurrentStreak As label:
+            Align: =Align.Center
+            Color: =If(varTheme = "Light",RGBA(0, 0, 0, 1),White)
+            Text: ="Current Streak"
+            Visible: =varStats
+            Width: =100
+            X: =lblCurrentStreakNumb.X
+            Y: =lblCurrentStreakNumb.Y + lblCurrentStreakNumb.Height + 2
+            ZIndex: =74
+
+        lblMaxStreakNumb As label:
+            Align: =Align.Center
+            Color: =If(varTheme = "Light",RGBA(0, 0, 0, 1),White)
+            Height: =35
+            Size: =32
+            Text: =CountRows(Filter(colPlays,Outcome = "Win"))
+            Visible: =varStats
+            Width: =95
+            X: =lblCurrentStreakNumb.X + lblCurrentStreakNumb.Width + 10
+            Y: =lblPlayedNumb.Y
+            ZIndex: =75
+
+        lblMaxStreak As label:
+            Align: =Align.Center
+            Color: =If(varTheme = "Light",RGBA(0, 0, 0, 1),White)
+            Text: ="Max Streak"
+            Visible: =varStats
+            Width: =100
+            X: =lblMaxStreakNumb.X
+            Y: =lblMaxStreakNumb.Y + lblMaxStreakNumb.Height +2
+            ZIndex: =76
+
+        lblGuess As label:
+            Align: =Align.Center
+            Color: =If(varTheme = "Light",RGBA(0, 0, 0, 1),White)
+            FontWeight: =FontWeight.Semibold
+            Height: =50
+            Size: =24
+            Text: ="GUESS DISTRIBUTION"
+            Visible: =varStats
+            Width: =768
+            Y: =lblStats.Height + lblPlayed.Height + lblPlayed.Height + lblStats.Y +50
+            ZIndex: =77
+
+        lbl1 As label:
+            Color: =If(varTheme = "Light",RGBA(0, 0, 0, 1),White)
+            Height: =30
+            Text: ="1"
+            Visible: =varStats
+            Width: =33
+            X: =100 
+            Y: =lblStats.Height + lblPlayed.Height + lblPlayed.Height + lblStats.Y + lblGuess.Height + 70
+            ZIndex: =78
+
+        rect1 As rectangle:
+            Fill: |-
+                =If(Upper(varSubmittedWord) = Upper(varWord) && varCounter = 1, ColorValue("#538D4E"),ColorValue("#3A3A3C"))
+            Height: =30
+            Visible: =varStats
+            Width: =If(Upper(varSubmittedWord) = Upper(varWord) && varCounter = 1, 522,40)
+            X: =lbl1.X + lbl1.Width + 2
+            Y: =lbl1.Y
+            ZIndex: =79
+
+        lbl2 As label:
+            Color: =If(varTheme = "Light",RGBA(0, 0, 0, 1),White)
+            Height: =30
+            Text: ="2"
+            Visible: =varStats
+            Width: =33
+            X: =lbl1.X
+            Y: =lbl1.Height + lbl1.Y + 10
+            ZIndex: =80
+
+        rect2 As rectangle:
+            Fill: |-
+                =If(Upper(varSubmittedWord) = Upper(varWord) && varCounter = 2, ColorValue("#538D4E"),ColorValue("#3A3A3C"))
+            Height: =30
+            Visible: =varStats
+            Width: =If(Upper(varSubmittedWord) = Upper(varWord) && varCounter = 2, 522,40)
+            X: =rect1.X
+            Y: =lbl2.Y
+            ZIndex: =81
+
+        lbl3 As label:
+            Color: =If(varTheme = "Light",RGBA(0, 0, 0, 1),White)
+            Height: =30
+            Text: ="3"
+            Visible: =varStats
+            Width: =33
+            X: =lbl1.X
+            Y: =lbl2.Height + lbl2.Y + 10
+            ZIndex: =82
+
+        rect3 As rectangle:
+            Fill: |-
+                =If(Upper(varSubmittedWord) = Upper(varWord) && varCounter = 3, ColorValue("#538D4E"),ColorValue("#3A3A3C"))
+            Height: =30
+            Visible: =varStats
+            Width: =If(Upper(varSubmittedWord) = Upper(varWord) && varCounter = 3, 522,40)
+            X: =rect1.X
+            Y: =lbl3.Y
+            ZIndex: =83
+
+        lbl4 As label:
+            Color: =If(varTheme = "Light",RGBA(0, 0, 0, 1),White)
+            Height: =30
+            Text: ="4"
+            Visible: =varStats
+            Width: =33
+            X: =lbl1.X
+            Y: =lbl3.Height + lbl3.Y + 10
+            ZIndex: =84
+
+        rect4 As rectangle:
+            Fill: |-
+                =If(Upper(varSubmittedWord) = Upper(varWord) && varCounter = 4, ColorValue("#538D4E"),ColorValue("#3A3A3C"))
+            Height: =30
+            Visible: =varStats
+            Width: =If(Upper(varSubmittedWord) = Upper(varWord) && varCounter = 4, 522,40)
+            X: =rect1.X
+            Y: =lbl4.Y
+            ZIndex: =85
+
+        lbl5 As label:
+            Color: =If(varTheme = "Light",RGBA(0, 0, 0, 1),White)
+            Height: =30
+            Text: ="5"
+            Visible: =varStats
+            Width: =33
+            X: =lbl1.X
+            Y: =lbl4.Height + lbl4.Y + 10
+            ZIndex: =86
+
+        rect5 As rectangle:
+            Fill: |-
+                =If(Upper(varSubmittedWord) = Upper(varWord) && varCounter = 4, ColorValue("#538D4E"),ColorValue("#3A3A3C"))
+            Height: =30
+            Visible: =varStats
+            Width: =If(Upper(varSubmittedWord) = Upper(varWord) && varCounter = 5, 522,40)
+            X: =rect1.X
+            Y: =lbl5.Y
+            ZIndex: =87
+
+        lbl6 As label:
+            Color: =If(varTheme = "Light",RGBA(0, 0, 0, 1),White)
+            Height: =30
+            Text: ="6"
+            Visible: =varStats
+            Width: =33
+            X: =lbl1.X
+            Y: =lbl5.Height + lbl5.Y + 10
+            ZIndex: =88
+
+        rect6 As rectangle:
+            Fill: |-
+                =If(Upper(varSubmittedWord) = Upper(varWord) && varCounter = 4, ColorValue("#538D4E"),ColorValue("#3A3A3C"))
+            Height: =30
+            Visible: =varStats
+            Width: =If(Upper(varSubmittedWord) = Upper(varWord) && varCounter = 6, 522,40)
+            X: =rect1.X
+            Y: =lbl6.Y
+            ZIndex: =89
+
+        btnShare As button:
+            BorderThickness: =0
+            Fill: =RGBA(83, 141, 78, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =100
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: |-
+                ="Power Wordle " & varCounter & "/6" & Char(13) & Concat(
+                    colRow1Submitted,Color,
+                    ""
+                ) & Char(13) & Concat(
+                    colRow2Submitted,Color,
+                    ""
+                ) & Char(13) & Concat(
+                    colRow3Submitted,Color,
+                    ""
+                ) & Char(13) & Concat(
+                    colRow4Submitted,Color,
+                    ""
+                ) & Char(13) & Concat(
+                    colRow5Submitted,Color,
+                    ""
+                ) & Char(13) & Concat(
+                    colRow6Submitted,Color,
+                    ""
+                );Notify("Score shared!")
+            Size: =30
+            Text: ="SHARE ⮚"
+            Visible: =varStats
+            Width: =250
+            X: =445
+            Y: =867
+            ZIndex: =90
+
+        lblNextWordle As label:
+            Align: =Align.Center
+            Color: =If(varTheme = "Light",RGBA(0, 0, 0, 1),White)
+            Height: =35
+            Size: =28
+            Text: ="NEXT WORDLE"
+            Visible: =varStats
+            Width: =300
+            X: =49
+            Y: =853
+            ZIndex: =91
+
+        btnPlayAgain As button:
+            BorderThickness: =0
+            Fill: =btnShare.Fill
+            Height: =70
+            HoverBorderColor: =Self.BorderColor
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: |-
+                =Concurrent(
+                    ClearCollect(
+                        colRow1Submitted,
+                        Blank()
+                    ),
+                    ClearCollect(
+                        colRow2Submitted,
+                        Blank()
+                    ),
+                    ClearCollect(
+                        colRow3Submitted,
+                        Blank()
+                    ),
+                    ClearCollect(
+                        colRow4Submitted,
+                        Blank()
+                    ),
+                    ClearCollect(
+                        colRow5Submitted,
+                        Blank()
+                    ),
+                    ClearCollect(
+                        colRow6Submitted,
+                        Blank()
+                    ),
+                    ClearCollect(
+                        colGuessedLetters,
+                        Blank()
+                    ),
+                    Set(
+                        varCounter,
+                        0
+                    ),
+                    Set(
+                        varSubmittedWord,
+                        Blank()
+                    ),
+                    UpdateContext({varWordSaved: false}),
+                Set(
+                    varRandomNumber,
+                        RandBetween(
+                            1,
+                            15918
+                        )
+                );
+                    Set(
+                        varWord,
+                        LookUp(
+                            Words,
+                            ID = varRandomNumber
+                        ).Word
+                    )
+                );
+                Concurrent(
+                    ClearCollect(
+                        colWordCollectionNumbered,
+                        Blank()
+                    ),
+                    ClearCollect(
+                        colWordCollection,
+                        Split(
+                            varWord,
+                            ""
+                        )
+                    )
+                );
+                ForAll(
+                    colWordCollection,
+                    Collect(
+                        colWordCollectionNumbered,
+                        Last(
+                            FirstN(
+                                AddColumns(
+                                    colWordCollection,
+                                    "ID",
+                                    CountRows(colWordCollectionNumbered) + 1
+                                ),
+                                CountRows(colWordCollectionNumbered) + 1
+                            )
+                        )
+                    )
+                );
+                UpdateContext({varStats: false})
+            Text: ="PLAY AGAIN  ↻"
+            Visible: =varStats
+            Width: =180
+            X: =115
+            Y: =916
+            ZIndex: =92
+
+        lblRect1 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =29
+            Text: =If(Upper(varSubmittedWord) = Upper(varWord) && varCounter = 1, "1","0")
+            Visible: =varStats
+            Width: =34
+            X: =rect1.X
+            Y: =lbl1.Y
+            ZIndex: =93
+
+        lblRect2 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =29
+            Text: =If(Upper(varSubmittedWord) = Upper(varWord) && varCounter = 2, "1","0")
+            Visible: =varStats
+            Width: =34
+            X: =rect1.X
+            Y: =rect2.Y
+            ZIndex: =94
+
+        lblRect3 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =29
+            Text: =If(Upper(varSubmittedWord) = Upper(varWord) && varCounter = 3, "1","0")
+            Visible: =varStats
+            Width: =34
+            X: =rect1.X
+            Y: =lbl3.Y
+            ZIndex: =95
+
+        lblRect4 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =29
+            Text: =If(Upper(varSubmittedWord) = Upper(varWord) && varCounter = 4, "1","0")
+            Visible: =varStats
+            Width: =34
+            X: =rect1.X
+            Y: =lbl4.Y
+            ZIndex: =96
+
+        lblRect5 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =29
+            Text: =If(Upper(varSubmittedWord) = Upper(varWord) && varCounter = 5, "1","0")
+            Visible: =varStats
+            Width: =34
+            X: =rect1.X
+            Y: =lbl5.Y
+            ZIndex: =97
+
+        lblRect6 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =29
+            Text: =If(Upper(varSubmittedWord) = Upper(varWord) && varCounter = 6, "1","0")
+            Visible: =varStats
+            Width: =34
+            X: =rect1.X
+            Y: =lbl6.Y
+            ZIndex: =98
+
+        iconSeperator As icon.VerticalLine:
+            Color: =RGBA(153, 153, 153, 1)
+            Height: =200
+            Icon: =Icon.VerticalLine
+            Visible: =varStats
+            Width: =10
+            X: =376
+            Y: =820
+            ZIndex: =99
+
+    grpInstructions As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =125
+
+        Rectangle2_3 As rectangle:
+            BorderColor: =RGBA(204, 204, 204, 1)
+            Fill: =Game.Fill
+            Height: =1366
+            Visible: =varInstructions
+            Width: =768
+            ZIndex: =100
+
+        Icon3 As icon.Cancel:
+            AccessibleLabel: ="Cancel Icon"
+            BorderColor: =RGBA(204, 204, 204, 1)
+            Color: =RGBA(179, 179, 179, 1)
+            Height: =50
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({varInstructions:false})
+            TabIndex: =10
+            Visible: =varInstructions
+            Width: =50
+            X: =679
+            Y: =39
+            ZIndex: =101
+
+        HtmlText1 As htmlViewer:
+            BorderColor: =RGBA(204, 204, 204, 1)
+            BorderStyle: =BorderStyle.Solid
+            Color: =If(varTheme = "Dark", RGBA(230, 230, 230, 1),Black)
+            Height: =1010
+            HtmlText: |-
+                ="<div class='instructions'>
+                      <p>Guess the <strong>POWER WORDLE</strong> in 6 tries.</p>
+                      <p>After each guess, the color of the tiles will change to show how close your guess was to the word.</p>
+                      <div class='examples'>
+                        <div class='example'>
+                          <div class='row' style='height:40px'>
+                          
+                          </div>
+                          <p>The letter <strong>W</strong> is in the word and in the correct spot.</p>
+                        </div>
+                        <div class='example'>
+                          <div class='row' style='height:40px'>
+                          </div>
+                          <p>The letter <strong>L</strong> is in the word but in the wrong spot.</p>
+                        </div>
+                        <div class='example'>
+                          <div class='row' style='height:40px'>
+                            
+                          </div>
+                          <p>The letter <strong>U</strong> is not in the word in any spot.</p>
+                        </div>
+                      </div><strong><strong>
+                    </strong></strong></div>"
+            Size: =24
+            Visible: =varInstructions
+            Width: =637
+            X: =74
+            Y: =172
+            ZIndex: =102
+
+        ImageDarkRightWrongSpot As image:
+            Height: =ImageLightWrong.Height
+            Image: =Switch(varColorBlind,false, wordleCorrectLetterDark,true,wordleWrongLocationDarkColorBlind)
+            Visible: =If(varInstructions = true && varTheme = "Dark",true,false)
+            Width: =ImageLightWrong.Width
+            X: =ImageLightWrong.X
+            Y: =599
+            ZIndex: =103
+
+        ImageLightRightWrongSpot As image:
+            Height: =ImageLightWrong.Height
+            Image: =Switch(varColorBlind,false, wordleCorrectLetterWhite,true,wordleCorrectWordWrongSpotLightColorBlind)
+            Visible: =If(varInstructions = true && varTheme = "Light",true,false)
+            Width: =ImageLightWrong.Width
+            X: =ImageLightWrong.X
+            Y: =609
+            ZIndex: =104
+
+        ImageDarkRight As image:
+            Height: =ImageLightWrong.Height
+            Image: =Switch(varColorBlind,false, wordleCorrectSpotDark,true,wordleCorrectSpotDarkColorBlind)
+            Visible: =If(varInstructions = true && varTheme = "Dark",true,false)
+            Width: =ImageLightWrong.Width
+            X: =ImageLightRight.X
+            Y: =ImageLightRight.Y
+            ZIndex: =105
+
+        ImageLightRight As image:
+            Height: =ImageLightWrong.Height
+            Image: =Switch(varColorBlind,false, wordleCorrectSpotWhite,true,wordleCorrectSpotLightColorBlind)
+            Visible: =If(varInstructions = true && varTheme = "Light",true,false)
+            Width: =ImageLightWrong.Width
+            X: =ImageLightWrong.X
+            Y: =426
+            ZIndex: =106
+
+        ImageDarkWrong As image:
+            Height: =69
+            Image: =Switch(varColorBlind,false, wordleWrongLetterDark,true,wordleWrongLetterDarkColorBlind)
+            Visible: =If(varInstructions = true && varTheme = "Dark",true,false)
+            Width: =333
+            X: =122
+            Y: =820
+            ZIndex: =107
+
+        ImageLightWrong As image:
+            Height: =69
+            Image: =Switch(varColorBlind,false, wordleWrongLetterWhite,true,wordleWrongLetterLightColorBlind)
+            Visible: =If(varInstructions = true && varTheme = "Light",true,false)
+            Width: =333
+            X: =122
+            Y: =820
+            ZIndex: =108
+
+    grpSettings As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =126
+
+        Rectangle2_2 As rectangle:
+            AccessibleLabel: ="background"
+            BorderColor: =RGBA(204, 204, 204, 1)
+            Fill: =Game.Fill
+            Height: =1366
+            TabIndex: =102
+            Visible: =varSettings
+            Width: =768
+            ZIndex: =109
+
+        iconCancelSettings As icon.Cancel:
+            AccessibleLabel: ="Cancel Icon"
+            BorderColor: =RGBA(204, 204, 204, 1)
+            Color: =If(varTheme = "Dark", RGBA(230, 230, 230, 1), Black)
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({varSettings:false})
+            TabIndex: =102
+            Visible: =varSettings
+            X: =679
+            Y: =39
+            ZIndex: =110
+
+        lblSettings As label:
+            Align: =Align.Center
+            Color: =If(varTheme = "Dark", RGBA(230, 230, 230, 1), Black)
+            FontWeight: =FontWeight.Bold
+            Height: =80
+            Size: =24
+            TabIndex: =102
+            Text: ="SETTINGS"
+            Visible: =varSettings
+            Width: =340
+            X: =209
+            Y: =31
+            ZIndex: =111
+
+        lblDarkTheme As label:
+            Color: =If(varTheme = "Dark", RGBA(230, 230, 230, 1), Black)
+            Height: =57
+            Size: =24
+            TabIndex: =102
+            Text: ="Dark Theme"
+            Visible: =varSettings
+            Width: =268
+            X: =lblHardMode.X
+            Y: =273
+            ZIndex: =112
+
+        Rectangle3_4 As rectangle:
+            AccessibleLabel: ="rectangle separator"
+            Fill: =RGBA(204, 204, 204, 1)
+            Height: =1
+            TabIndex: =102
+            Visible: =varSettings
+            Width: =614
+            X: =lblHardMode.X
+            Y: =343
+            ZIndex: =113
+
+        toggleTheme As toggleSwitch:
+            AccessibleLabel: ="Toggle Theme"
+            FalseFill: =RGBA(153, 153, 153, 1)
+            FalseText: ="Light"
+            Height: =40
+            OnCheck: |-
+                =UpdateContext({varTheme:"Dark"})
+            OnUncheck: |-
+                =UpdateContext({varTheme:"Light"})
+            ShowLabel: =false
+            TabIndex: =102
+            TrueFill: =RGBA(99, 139, 44, 1)
+            TrueText: ="Dark"
+            Visible: =varSettings
+            Width: =133
+            X: =580
+            Y: =290
+            ZIndex: =114
+
+        lblColorBlind As label:
+            Color: =If(varTheme = "Dark", RGBA(230, 230, 230, 1), Black)
+            Height: =57
+            Size: =24
+            TabIndex: =102
+            Text: ="Color Blind Mode"
+            Visible: =varSettings
+            Width: =314
+            X: =lblHardMode.X
+            Y: =365
+            ZIndex: =115
+
+        Rectangle3_5 As rectangle:
+            AccessibleLabel: ="rectangle separator"
+            Fill: =RGBA(204, 204, 204, 1)
+            Height: =1
+            TabIndex: =102
+            Visible: =varSettings
+            Width: =614
+            X: =lblHardMode.X
+            Y: =450
+            ZIndex: =116
+
+        toggleColorBlindMode As toggleSwitch:
+            AccessibleLabel: ="Toggle Color Blind Mode"
+            FalseFill: =RGBA(153, 153, 153, 1)
+            FalseText: ="Light"
+            Height: =40
+            OnCheck: |-
+                =UpdateContext({varColorBlind:true})
+            OnUncheck: |-
+                =UpdateContext({varColorBlind:false})
+            ShowLabel: =false
+            TabIndex: =102
+            TrueFill: =RGBA(99, 139, 44, 1)
+            TrueText: ="Dark"
+            Visible: =varSettings
+            Width: =133
+            X: =583
+            Y: =397
+            ZIndex: =117
+
+        lblColorBlindDescr As label:
+            Color: =lblColorBlind.Color
+            Height: =36
+            TabIndex: =102
+            Text: ="High Contrast Colors"
+            Visible: =varSettings
+            Width: =253
+            X: =lblHardMode.X
+            Y: =414
+            ZIndex: =118
+
+        lblHardMode As label:
+            Color: =If(varTheme = "Dark", RGBA(230, 230, 230, 1), Black)
+            Height: =57
+            Size: =24
+            TabIndex: =102
+            Text: ="Hard Mode"
+            Visible: =false
+            Width: =268
+            X: =75  
+            Y: =lblSettings.Y+lblSettings.Height+50
+            ZIndex: =119
+
+        Rectangle3 As rectangle:
+            AccessibleLabel: ="rectangle separator"
+            Fill: =RGBA(204, 204, 204, 1)
+            Height: =1
+            TabIndex: =102
+            Visible: =false
+            Width: =614
+            X: =lblHardMode.X
+            Y: =lblHardDescr.Y + lblHardDescr.Height + 5
+            ZIndex: =120
+
+        toggleHardMode As toggleSwitch:
+            AccessibleLabel: ="Toggle Hard Mode (Inactive)"
+            FalseFill: =RGBA(153, 153, 153, 1)
+            FalseText: ="Light"
+            Height: =40
+            OnCheck: |-
+                =UpdateContext({varHardMore:true})
+            OnUncheck: |-
+                =UpdateContext({varHardMore:false})
+            ShowLabel: =false
+            TabIndex: =102
+            TrueFill: =RGBA(99, 139, 44, 1)
+            TrueText: ="Dark"
+            Visible: =false
+            Width: =133
+            X: =578
+            Y: =204
+            ZIndex: =121
+
+        lblHardDescr As label:
+            Color: =lblHardMode.Color
+            Height: =35
+            TabIndex: =102
+            Text: ="Any revealed hints must be used in subsequent guesses"
+            Visible: =false
+            Width: =481
+            X: =lblHardMode.X
+            Y: =lblHardMode.Y + lblHardMode.Height
+            ZIndex: =122
+
+        btnReset As button:
+            Fill: =RGBA(118, 0, 0, 1)
+            Height: =56
+            OnSelect: |-
+                =Concurrent(
+                    ClearCollect(
+                        colRow1Submitted,
+                        Blank()
+                    ),
+                    ClearCollect(
+                        colRow2Submitted,
+                        Blank()
+                    ),
+                    ClearCollect(
+                        colRow3Submitted,
+                        Blank()
+                    ),
+                    ClearCollect(
+                        colRow4Submitted,
+                        Blank()
+                    ),
+                    ClearCollect(
+                        colRow5Submitted,
+                        Blank()
+                    ),
+                    ClearCollect(
+                        colRow6Submitted,
+                        Blank()
+                    ),
+                    ClearCollect(
+                        colGuessedLetters,
+                        Blank()
+                    ),
+                    Set(
+                        varCounter,
+                        0
+                    ),
+                    Set(
+                        varSubmittedWord,
+                        Blank()
+                    ),
+                    UpdateContext({varWordSaved: false}),
+                Set(
+                    varRandomNumber,
+                        RandBetween(
+                            1,
+                            15918
+                        )
+                );
+                    Set(
+                        varWord,
+                        LookUp(
+                            Words,
+                            ID = varRandomNumber
+                        ).Word
+                    )
+                );
+                Concurrent(
+                    ClearCollect(
+                        colWordCollectionNumbered,
+                        Blank()
+                    ),
+                    ClearCollect(
+                        colWordCollection,
+                        Split(
+                            varWord,
+                            ""
+                        )
+                    )
+                );
+                ForAll(
+                    colWordCollection,
+                    Collect(
+                        colWordCollectionNumbered,
+                        Last(
+                            FirstN(
+                                AddColumns(
+                                    colWordCollection,
+                                    "ID",
+                                    CountRows(colWordCollectionNumbered) + 1
+                                ),
+                                CountRows(colWordCollectionNumbered) + 1
+                            )
+                        )
+                    )
+                )
+            Size: =18
+            TabIndex: =102
+            Text: ="RESET"
+            Visible: =varSettings
+            X: =304
+            Y: =1014
+            ZIndex: =123
+
+    grpDefinition As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =133
+
+        Rectangle2_4 As rectangle:
+            BorderColor: =RGBA(204, 204, 204, 1)
+            Fill: =Game.Fill
+            Height: =1366
+            Visible: =varDefinition
+            Width: =768
+            ZIndex: =124
+
+        Icon3_1 As icon.Cancel:
+            AccessibleLabel: ="Cancel Icon"
+            BorderColor: =RGBA(204, 204, 204, 1)
+            Color: =RGBA(179, 179, 179, 1)
+            Height: =50
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({varDefinition:false})
+            TabIndex: =101
+            Visible: =varDefinition
+            Width: =50
+            X: =679
+            Y: =39
+            ZIndex: =125
+
+        HtmlText1_1 As htmlViewer:
+            BorderColor: =RGBA(204, 204, 204, 1)
+            BorderStyle: =BorderStyle.Solid
+            Color: =If(varTheme = "Dark", RGBA(230, 230, 230, 1),Black)
+            Height: =1010
+            HtmlText: |-
+                ="<div class='instructions'>
+                      <p>Guess the <strong>POWER WORDLE</strong> in 6 tries.</p>
+                      <p>After each guess, the color of the tiles will change to show how close your guess was to the word.</p>
+                      <div class='examples'>
+                        <div class='example'>
+                          <div class='row' style='height:40px'>
+                          
+                          </div>
+                          <p>The letter <strong>W</strong> is in the word and in the correct spot.</p>
+                        </div>
+                        <div class='example'>
+                          <div class='row' style='height:40px'>
+                          </div>
+                          <p>The letter <strong>L</strong> is in the word but in the wrong spot.</p>
+                        </div>
+                        <div class='example'>
+                          <div class='row' style='height:40px'>
+                            
+                          </div>
+                          <p>The letter <strong>U</strong> is not in the word in any spot.</p>
+                        </div>
+                      </div><strong><strong>
+                    </strong></strong></div>"
+            Size: =24
+            Visible: =varDefinition
+            Width: =637
+            X: =74
+            Y: =172
+            ZIndex: =126
+
+        ImageDarkRightWrongSpot_1 As image:
+            Height: =ImageLightWrong_1.Height
+            Image: =Switch(varColorBlind,false, wordleCorrectLetterDark,true,wordleWrongLocationDarkColorBlind)
+            Visible: =varDefinition
+            Width: =ImageLightWrong_1.Width
+            X: =ImageLightWrong_1.X
+            Y: =599
+            ZIndex: =127
+
+        ImageLightRightWrongSpot_1 As image:
+            Height: =ImageLightWrong_1.Height
+            Image: =Switch(varColorBlind,false, wordleCorrectLetterWhite,true,wordleCorrectWordWrongSpotLightColorBlind)
+            Visible: =varDefinition
+            Width: =ImageLightWrong_1.Width
+            X: =ImageLightWrong_1.X
+            Y: =609
+            ZIndex: =128
+
+        ImageDarkRight_1 As image:
+            Height: =ImageLightWrong_1.Height
+            Image: =Switch(varColorBlind,false, wordleCorrectSpotDark,true,wordleCorrectSpotDarkColorBlind)
+            Visible: =varDefinition
+            Width: =ImageLightWrong_1.Width
+            X: =ImageLightRight_1.X
+            Y: =ImageLightRight_1.Y
+            ZIndex: =129
+
+        ImageLightRight_1 As image:
+            Height: =ImageLightWrong_1.Height
+            Image: =Switch(varColorBlind,false, wordleCorrectSpotWhite,true,wordleCorrectSpotLightColorBlind)
+            Visible: =varDefinition
+            Width: =ImageLightWrong_1.Width
+            X: =ImageLightWrong_1.X
+            Y: =426
+            ZIndex: =130
+
+        ImageDarkWrong_1 As image:
+            Height: =69
+            Image: =Switch(varColorBlind,false, wordleWrongLetterDark,true,wordleWrongLetterDarkColorBlind)
+            Visible: =varDefinition
+            Width: =333
+            X: =122
+            Y: =820
+            ZIndex: =131
+
+        ImageLightWrong_1 As image:
+            Height: =69
+            Image: =Switch(varColorBlind,false, wordleWrongLetterWhite,true,wordleWrongLetterLightColorBlind)
+            Visible: =varDefinition
+            Width: =333
+            X: =122
+            Y: =820
+            ZIndex: =132
+

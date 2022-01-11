@@ -1,0 +1,55 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =//Get a random number
+        Set(
+            varRandomNumber,
+                RandBetween(
+                    1,
+                    15918
+                )
+        );
+        //Lookup word in database matching the random number
+        Set(
+            varWord,
+            LookUp(
+                Words,
+                ID = varRandomNumber
+            ).Word
+        );
+        //Clear Collections used in app
+        Concurrent(
+            ClearCollect(
+                colWordCollectionNumbered,
+                Blank()
+            ),
+            ClearCollect(
+                colWordCollection,
+                Split(
+                    varWord,
+                    ""
+                )
+            )
+        );
+        ClearCollect(
+            colPlays,
+            Blank()
+        );
+        //Add the letters of word to collection
+        ForAll(
+            colWordCollection,
+            Collect(
+                colWordCollectionNumbered,
+                Last(
+                    FirstN(
+                        AddColumns(
+                            colWordCollection,
+                            "ID",
+                            CountRows(colWordCollectionNumbered) + 1
+                        ),
+                        CountRows(colWordCollectionNumbered) + 1
+                    )
+                )
+            )
+        )
+
