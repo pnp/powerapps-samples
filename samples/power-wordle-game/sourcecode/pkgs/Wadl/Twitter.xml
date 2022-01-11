@@ -1,0 +1,305 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://unitedstates-002.azure-apim.net/apim/twitter" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="Twitter" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="Twitter">Twitter is an online social networking service that enables users to send and receive short messages called 'tweets'. Connect to Twitter to manage your tweets. You can perform various actions such as send tweet, search, view followers, etc.</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://unitedstates-002.azure-apim.net/apim/twitter" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="TweetModel_TweetText_def" />
+      <string name="TweetModel_TweetId_def" />
+      <string name="TweetModel_CreatedAt_def" />
+      <string name="TweetModel_CreatedAtIso_def" />
+      <integer name="TweetModel_RetweetCount_def" />
+      <string name="TweetModel_TweetedBy_def" />
+      <string name="TweetModel_MediaUrls_def_items_def" />
+      <array type="string" name="TweetModel_MediaUrls_def" />
+      <string name="TweetModel_TweetLanguageCode_def" />
+      <string name="TweetModel_TweetInReplyToUserId_def" />
+      <boolean name="TweetModel_Favorited_def" />
+      <array typeRef="UserMentionsModel" name="TweetModel_UserMentions_def" />
+      <object name="TweetModel">
+        <property name="TweetText" type="string" />
+        <property name="TweetId" type="string" />
+        <property name="CreatedAt" type="string" />
+        <property name="CreatedAtIso" type="string" />
+        <property name="RetweetCount" type="integer" />
+        <property name="TweetedBy" type="string" />
+        <property name="MediaUrls" typeRef="TweetModel_MediaUrls_def" />
+        <property name="TweetLanguageCode" type="string" />
+        <property name="TweetInReplyToUserId" type="string" />
+        <property name="Favorited" type="boolean" />
+        <property name="UserMentions" typeRef="TweetModel_UserMentions_def" />
+        <property name="OriginalTweet" typeRef="OriginalTweetModel" />
+        <property name="UserDetails" typeRef="UserDetailsModel" />
+      </object>
+      <integer name="UserMentionsModel_Id_def" />
+      <string name="UserMentionsModel_FullName_def" />
+      <string name="UserMentionsModel_UserName_def" />
+      <object name="UserMentionsModel">
+        <property name="Id" type="integer" />
+        <property name="FullName" type="string" />
+        <property name="UserName" type="string" />
+      </object>
+      <string name="OriginalTweetModel_TweetText_def" />
+      <string name="OriginalTweetModel_TweetId_def" />
+      <string name="OriginalTweetModel_CreatedAt_def" />
+      <string name="OriginalTweetModel_CreatedAtIso_def" />
+      <integer name="OriginalTweetModel_RetweetCount_def" />
+      <string name="OriginalTweetModel_TweetedBy_def" />
+      <string name="OriginalTweetModel_MediaUrls_def_items_def" />
+      <array type="string" name="OriginalTweetModel_MediaUrls_def" />
+      <string name="OriginalTweetModel_TweetLanguageCode_def" />
+      <string name="OriginalTweetModel_TweetInReplyToUserId_def" />
+      <boolean name="OriginalTweetModel_Favorited_def" />
+      <array typeRef="OriginalTweetUserMentionsModel" name="OriginalTweetModel_UserMentions_def" />
+      <object name="OriginalTweetModel">
+        <property name="TweetText" type="string" />
+        <property name="TweetId" type="string" />
+        <property name="CreatedAt" type="string" />
+        <property name="CreatedAtIso" type="string" />
+        <property name="RetweetCount" type="integer" />
+        <property name="TweetedBy" type="string" />
+        <property name="MediaUrls" typeRef="OriginalTweetModel_MediaUrls_def" />
+        <property name="TweetLanguageCode" type="string" />
+        <property name="TweetInReplyToUserId" type="string" />
+        <property name="Favorited" type="boolean" />
+        <property name="UserMentions" typeRef="OriginalTweetModel_UserMentions_def" />
+        <property name="UserDetails" typeRef="OriginalTweetUserDetailsModel" />
+      </object>
+      <string name="UserDetailsModel_FullName_def" />
+      <string name="UserDetailsModel_Location_def" />
+      <integer name="UserDetailsModel_Id_def" />
+      <string name="UserDetailsModel_UserName_def" />
+      <integer name="UserDetailsModel_FollowersCount_def" />
+      <string name="UserDetailsModel_Description_def" />
+      <integer name="UserDetailsModel_StatusesCount_def" />
+      <integer name="UserDetailsModel_FriendsCount_def" />
+      <integer name="UserDetailsModel_FavouritesCount_def" />
+      <string name="UserDetailsModel_ProfileImageUrl_def" />
+      <object name="UserDetailsModel">
+        <property name="FullName" type="string" />
+        <property name="Location" type="string" />
+        <property name="Id" type="integer" />
+        <property name="UserName" type="string" />
+        <property name="FollowersCount" type="integer" />
+        <property name="Description" type="string" />
+        <property name="StatusesCount" type="integer" />
+        <property name="FriendsCount" type="integer" />
+        <property name="FavouritesCount" type="integer" />
+        <property name="ProfileImageUrl" type="string" />
+      </object>
+      <integer name="OriginalTweetUserMentionsModel_Id_def" />
+      <string name="OriginalTweetUserMentionsModel_FullName_def" />
+      <string name="OriginalTweetUserMentionsModel_UserName_def" />
+      <object name="OriginalTweetUserMentionsModel">
+        <property name="Id" type="integer" />
+        <property name="FullName" type="string" />
+        <property name="UserName" type="string" />
+      </object>
+      <string name="OriginalTweetUserDetailsModel_FullName_def" />
+      <string name="OriginalTweetUserDetailsModel_Location_def" />
+      <integer name="OriginalTweetUserDetailsModel_Id_def" />
+      <string name="OriginalTweetUserDetailsModel_UserName_def" />
+      <integer name="OriginalTweetUserDetailsModel_FollowersCount_def" />
+      <string name="OriginalTweetUserDetailsModel_Description_def" />
+      <integer name="OriginalTweetUserDetailsModel_StatusesCount_def" />
+      <integer name="OriginalTweetUserDetailsModel_FriendsCount_def" />
+      <integer name="OriginalTweetUserDetailsModel_FavouritesCount_def" />
+      <string name="OriginalTweetUserDetailsModel_ProfileImageUrl_def" />
+      <object name="OriginalTweetUserDetailsModel">
+        <property name="FullName" type="string" />
+        <property name="Location" type="string" />
+        <property name="Id" type="integer" />
+        <property name="UserName" type="string" />
+        <property name="FollowersCount" type="integer" />
+        <property name="Description" type="string" />
+        <property name="StatusesCount" type="integer" />
+        <property name="FriendsCount" type="integer" />
+        <property name="FavouritesCount" type="integer" />
+        <property name="ProfileImageUrl" type="string" />
+      </object>
+      <string name="TweetResponseModel_TweetId_def" />
+      <object name="TweetResponseModel">
+        <property name="TweetId" type="string" />
+      </object>
+      <array typeRef="TweetModel" name="TriggerBatchResponse_ux5B_TweetModel_ux5D__value_def" />
+      <object name="TriggerBatchResponse_ux5B_TweetModel_ux5D_">
+        <property name="value" typeRef="TriggerBatchResponse_ux5B_TweetModel_ux5D__value_def" />
+      </object>
+      <array typeRef="TweetModel" name="UserTimeline_responses_200_def" />
+      <array typeRef="TweetModel" name="HomeTimeline_responses_200_def" />
+      <array typeRef="TweetModel" name="SearchTweet_responses_200_def" />
+      <array typeRef="UserDetailsModel" name="Followers_responses_200_def" />
+      <array typeRef="UserDetailsModel" name="MyFollowers_responses_200_def" />
+      <array typeRef="UserDetailsModel" name="Following_responses_200_def" />
+      <array typeRef="UserDetailsModel" name="MyFollowing_responses_200_def" />
+      <string name="Tweet_param_body_def" />
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://unitedstates-002.azure-apim.net/apim/twitter">
+    <resource path="/{connectionId}/usertimeline">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="UserTimeline" visibility="advanced" siena:isDeprecated="false">
+        <doc title="Get user timeline&#xA;This operation gets a list of the most recent tweets posted by a given user." />
+        <request>
+          <param style="query" name="userName" type="xs:string" required="true">
+            <doc title="Twitter handle for the user." />
+          </param>
+          <param style="query" name="maxResults" type="xs:int" default="20">
+            <doc title="Maximum number of tweets to return." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:UserTimeline_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/hometimeline">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="HomeTimeline" visibility="advanced" siena:isDeprecated="false">
+        <doc title="Get home timeline&#xA;This operation gets the most recent tweets and re-tweets posted by me and my followers." />
+        <request>
+          <param style="query" name="maxResults" type="xs:int" default="20">
+            <doc title="Maximum number of tweets to return." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:HomeTimeline_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/searchtweets">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="SearchTweet" visibility="advanced" siena:isDeprecated="false">
+        <doc title="Search tweets&#xA;This operation gets a list of relevant tweets matching the search query." />
+        <request>
+          <param style="query" name="searchQuery" type="xs:string" required="true">
+            <doc title="Search term like &quot;happy hour&quot;, #haiku, from:@username, love OR hate." />
+          </param>
+          <param style="query" name="maxResults" type="xs:int" default="20">
+            <doc title="Maximum number of tweets to return." />
+          </param>
+          <param style="query" name="sinceId" type="xs:string">
+            <doc title="Return tweets after the specified tweet ID." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:SearchTweet_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/followers">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="Followers" visibility="advanced" siena:isDeprecated="false">
+        <doc title="Get followers&#xA;This operation gets the list of users that follow a given user." />
+        <request>
+          <param style="query" name="userName" type="xs:string" required="true">
+            <doc title="Twitter handle for the user." />
+          </param>
+          <param style="query" name="maxResults" type="xs:int" default="20">
+            <doc title="Maximum number of users to return." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:Followers_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/myfollowers">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="MyFollowers" visibility="advanced" siena:isDeprecated="false">
+        <doc title="Get my followers&#xA;This operation gets the list of users who are following me." />
+        <request>
+          <param style="query" name="maxResults" type="xs:int" default="20">
+            <doc title="Maximum number of users to get." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:MyFollowers_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/friends">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="Following" visibility="advanced" siena:isDeprecated="false">
+        <doc title="Get following&#xA;The operation gets the list of people the given user follows." />
+        <request>
+          <param style="query" name="userName" type="xs:string" required="true">
+            <doc title="Twitter handle for the user." />
+          </param>
+          <param style="query" name="maxResults" type="xs:int" default="20">
+            <doc title="Maximum number of users to return." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:Following_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/myfriends">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="MyFollowing" visibility="advanced" siena:isDeprecated="false">
+        <doc title="Get my following&#xA;This operation gets the list of users that I am following." />
+        <request>
+          <param style="query" name="maxResults" type="xs:int" default="20">
+            <doc title="Maximum number of users to return." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:MyFollowing_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/user">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="User" siena:isDeprecated="false">
+        <doc title="Get user&#xA;This operation gets the profile details for a given user, such as user name, description, followers count, and more." />
+        <request>
+          <param style="query" name="userName" type="xs:string" required="true">
+            <doc title="Twitter handle for the user." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:UserDetailsModel" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/posttweet">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="Tweet" visibility="important" siena:isDeprecated="false">
+        <doc title="Post a tweet&#xA;This operation posts a new tweet." />
+        <request>
+          <param style="query" name="tweetText" type="xs:string">
+            <doc title="Text to be posted." />
+          </param>
+          <representation mediaType="application/octet-stream" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:TweetResponseModel" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/retweet">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="Retweet" visibility="important" siena:isDeprecated="false">
+        <doc title="Retweet&#xA;This operation retweets a tweet." />
+        <request>
+          <param style="query" name="tweetId" type="xs:string" required="true">
+            <doc title="Tweet to be retweeted." />
+          </param>
+          <param style="query" name="trimUser" type="xs:boolean" default="false">
+            <doc title="Boolean to indicate whether to trim user information." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:TweetResponseModel" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_twitter" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>
