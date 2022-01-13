@@ -6,9 +6,9 @@ products:
 - power-apps
 - powerapps
 - canvas
-name: BreadCrumb component
+name: Footer component
 description: Reusable canvas component.
-urlFragment: powerapps-breadcrumb-component
+urlFragment: powerapps-footer-component
 ms.date: 01/12/2022
 author: pashasongz
 ms.author: pnp
@@ -24,7 +24,7 @@ Reusable Canvas App component for your app.
 
 Sample screen of the component used on screen.
 
-![View of the component and configurable properties](./assets/breadcrumb-component.png)  
+![View of the component and configurable properties](./assets/footer-component.png)  
 
 ## Applies to
 
@@ -42,26 +42,32 @@ Sample screen of the component used on screen.
 
 Solution|Author(s)
 --------|---------
-Breadcrumb-component | [Pavel Kovalevskij](https://github.com/pashasongz)
+Footer-component | [Pavel Kovalevskij](https://github.com/pashasongz)
 
 ## Version history
 
 Version|Date|Comments
 -------|----|--------
-1.0|January 12, 2022|Initial release
+1.0|January 13, 2022|Initial release
 
 
 ## Features
 
 Configurable properties of component
 
-* Step items
-* Fill color (current)
-* Fill color (done)
-* Fill color (to-do)
-* Font color (current)
-* Font color (done)
-* Font color (to-do)
+* Font color
+* Title color
+* Fill color
+* Footer title
+* Column 1 title
+* Column 1 description
+* Column 1 - show image
+* Column 2 title
+* Column 2 description
+* Column 2 - show image
+* Column 3 title
+* Column 3 description
+* Column 3 - show image
 
 ## Using the component
 
@@ -73,7 +79,7 @@ None
 
 ## Minimal Path to Awesome
 
-* [Download](./solution/breadcrumb-component.msapp) the `.msapp` from the `solution` folder
+* [Download](./solution/footer-component.msapp) the `.msapp` from the `solution` folder
 * Use the `.msapp` file using **File** > **Open** > **Browse** within Power Apps Studio.
 * Save and Publish
 
@@ -96,11 +102,11 @@ You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/devel
 
 ## Support
 
-While we don't support samples, if you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=breadcrumb-component&authors=@pashasongz&title=breadcrumb-component%20-%20).
+While we don't support samples, if you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=footer-component&authors=@pashasongz&title=footer-component%20-%20).
 
-For questions regarding this sample, [create a new question](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=breadcrumb-component&authors=@pashasongz&title=breadcrumb-componentt%20-%20).
+For questions regarding this sample, [create a new question](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=footer-component&authors=@pashasongz&title=footer-componentt%20-%20).
 
-Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=breadcrumb-component&authors=@pashasongz&title=breadcrumb-component%20-%20).
+Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=footer-component&authors=@pashasongz&title=footer-component%20-%20).
 
 ## For more information
 
