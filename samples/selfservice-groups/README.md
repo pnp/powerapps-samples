@@ -1,10 +1,35 @@
-# Instructions
+# SelfService Portal for Microsoft 365
 
-This guide will help you to import the SelfService PowerApp into your own environment. It contains a description on the set-up and configuration  required to make the App work for you. Once installed the application will look as follows:
+This sample app was introduced by an article on the Microsoft PnP Blog. You can read it [here](https://techcommunity.microsoft.com/t5/microsoft-365-pnp-blog/microsoft-365-self-service-using-power-apps/ba-p/3056109).
+
+# Summary
+
+The concept of this app is straightforward: it puts users into groups. And the best part is: they can do it themselves. These groups can be either security or Microsoft 365 groups. 
+
+Using this app, you can offer self-service to your end-users, while staying in control. Next to that, you can make it a user-friendly experience, because you can design your own User Interface around it. 
+
+So, you can put additional information in the UI, as we did in this app. Since it can be used for every group in Azure AD, this can be used within all integrated services like Office 365, Microsoft Endpoint Manager, and even security features like Azure AD Authentication policies, and Conditional Access.  Once installed the application will look as follows:
 
 ![PowerApp overview](images/1641653378.png)
 
 > 💡 This app is based on Azure AD users and groups.
+
+## Applies to
+
+* [Microsoft Power Apps](https://docs.microsoft.com/powerapps/)
+
+## Authors
+
+Solution|Author(s)
+--------|---------
+SelfService Portal M365 | [Jan Bakker](https://github.com/BakkerJan) ([@janbakker_](https://twitter.com/janbakker_)), Jan Bakker consulting
+SelfService Portal M365 | [Albert-Jan Schot](https://github.com/appieschot) ([@appieschot](https://twitter.com/appieschot)), BLIS.Digital
+
+## Version history
+
+Version|Date|Comments
+-------|----|--------
+1.0|January 18, 2022|Initial release
 
 ## YouTube video with instructions
 
@@ -459,3 +484,25 @@ Also copy the icon with the question mark, and add a description in the `onSelec
 ![new feature - qm](images/1641754355.png)
 
 And with that you have a working Power App that allows full self service 🚀.
+
+## Disclaimer
+
+**THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
+
+## Help
+
+We do not support samples, but we this community is always willing to help, and we want to improve these samples. We use GitHub to track issues, which makes it easy for  community members to volunteer their time and help resolve issues.
+
+If you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+
+For questions regarding this sample, [create a new question](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+
+Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+
+## For more information
+
+- [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
+- [Power Apps canvas apps documentation](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/)
+
+
+<img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/readme-template" />
