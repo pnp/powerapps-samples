@@ -24,7 +24,7 @@ Reusable Canvas App component for your app.
 
 Sample screen of the component used on screen.
 
-![View of the component and configurable properties](./assets/icon-button.png)  
+![View of the component and configurable properties](assets/icon-button.PNG)  
 
 ## Applies to
 
