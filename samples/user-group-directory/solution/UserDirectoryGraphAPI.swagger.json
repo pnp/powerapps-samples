@@ -1,0 +1,810 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "GraphAPI",
+    "description": "",
+    "version": "1.0"
+  },
+  "host": "graph.microsoft.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/v1.0/groups/": {},
+    "/v1.0/me/": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "@odata.context": {
+                  "type": "string",
+                  "description": "@odata.context"
+                },
+                "businessPhones": {
+                  "type": "array",
+                  "items": {},
+                  "description": "businessPhones"
+                },
+                "displayName": {
+                  "type": "string",
+                  "description": "displayName"
+                },
+                "givenName": {
+                  "type": "string",
+                  "description": "givenName"
+                },
+                "jobTitle": {
+                  "type": "string",
+                  "description": "jobTitle"
+                },
+                "mail": {
+                  "type": "string",
+                  "description": "mail"
+                },
+                "mobilePhone": {
+                  "type": "string",
+                  "description": "mobilePhone"
+                },
+                "officeLocation": {
+                  "type": "string",
+                  "description": "officeLocation"
+                },
+                "preferredLanguage": {
+                  "type": "string",
+                  "description": "preferredLanguage"
+                },
+                "surname": {
+                  "type": "string",
+                  "description": "surname"
+                },
+                "userPrincipalName": {
+                  "type": "string",
+                  "description": "userPrincipalName"
+                },
+                "id": {
+                  "type": "string",
+                  "description": "id"
+                }
+              }
+            }
+          }
+        },
+        "summary": "GetMyProfile",
+        "parameters": [],
+        "description": "GetMyProfile",
+        "operationId": "GetMyProfile"
+      }
+    },
+    "/v1.0/groups/{id}/members": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "@odata.context": {
+                  "type": "string",
+                  "description": "@odata.context"
+                },
+                "@odata.count": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "@odata.count"
+                },
+                "@odata.nextLink": {
+                  "type": "string",
+                  "description": "@odata.nextLink"
+                },
+                "value": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "@odata.type": {
+                        "type": "string",
+                        "description": "@odata.type"
+                      },
+                      "id": {
+                        "type": "string",
+                        "description": "id"
+                      },
+                      "businessPhones": {
+                        "type": "array",
+                        "items": {},
+                        "description": "businessPhones"
+                      },
+                      "displayName": {
+                        "type": "string",
+                        "description": "displayName"
+                      },
+                      "givenName": {
+                        "type": "string",
+                        "description": "givenName"
+                      },
+                      "jobTitle": {
+                        "type": "string",
+                        "description": "jobTitle"
+                      },
+                      "mail": {
+                        "type": "string",
+                        "description": "mail"
+                      },
+                      "mobilePhone": {
+                        "type": "string",
+                        "description": "mobilePhone"
+                      },
+                      "officeLocation": {
+                        "type": "string",
+                        "description": "officeLocation"
+                      },
+                      "preferredLanguage": {
+                        "type": "string",
+                        "description": "preferredLanguage"
+                      },
+                      "surname": {
+                        "type": "string",
+                        "description": "surname"
+                      },
+                      "userPrincipalName": {
+                        "type": "string",
+                        "description": "userPrincipalName"
+                      }
+                    }
+                  },
+                  "description": "value"
+                }
+              }
+            }
+          }
+        },
+        "summary": "GetGroupMembers",
+        "description": "GetGroupMembers",
+        "operationId": "GetGroupMembers",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "$skiptoken",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ConsistencyLevel",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "eventual"
+          }
+        ]
+      }
+    },
+    "/v1.0/users": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "@odata.context": {
+                  "type": "string",
+                  "description": "@odata.context"
+                },
+                "@odata.count": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "@odata.count"
+                },
+                "@odata.nextLink": {
+                  "type": "string",
+                  "description": "@odata.nextLink"
+                },
+                "value": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "businessPhones": {
+                        "type": "array",
+                        "items": {},
+                        "description": "businessPhones"
+                      },
+                      "displayName": {
+                        "type": "string",
+                        "description": "displayName"
+                      },
+                      "givenName": {
+                        "type": "string",
+                        "description": "givenName"
+                      },
+                      "jobTitle": {
+                        "type": "string",
+                        "description": "jobTitle"
+                      },
+                      "mail": {
+                        "type": "string",
+                        "description": "mail"
+                      },
+                      "mobilePhone": {
+                        "type": "string",
+                        "description": "mobilePhone"
+                      },
+                      "officeLocation": {
+                        "type": "string",
+                        "description": "officeLocation"
+                      },
+                      "preferredLanguage": {
+                        "type": "string",
+                        "description": "preferredLanguage"
+                      },
+                      "surname": {
+                        "type": "string",
+                        "description": "surname"
+                      },
+                      "userPrincipalName": {
+                        "type": "string",
+                        "description": "userPrincipalName"
+                      },
+                      "id": {
+                        "type": "string",
+                        "description": "id"
+                      }
+                    }
+                  },
+                  "description": "value"
+                }
+              }
+            }
+          }
+        },
+        "summary": "GetUserSearchByDisplayName",
+        "description": "GetUserSearchByDisplayName",
+        "operationId": "GetUserSearchByDisplayName",
+        "parameters": [
+          {
+            "name": "$count",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$skiptoken",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ConsistencyLevel",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "eventual"
+          }
+        ]
+      }
+    },
+    "/v1.0/users/{id}/memberOf": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "@odata.context": {
+                  "type": "string",
+                  "description": "@odata.context"
+                },
+                "@odata.count": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "@odata.count"
+                },
+                "@odata.nextLink": {
+                  "type": "string",
+                  "description": "@odata.nextLink"
+                },
+                "value": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "@odata.type": {
+                        "type": "string",
+                        "description": "@odata.type"
+                      },
+                      "id": {
+                        "type": "string",
+                        "description": "id"
+                      },
+                      "deletedDateTime": {
+                        "type": "string",
+                        "description": "deletedDateTime"
+                      },
+                      "classification": {
+                        "type": "string",
+                        "description": "classification"
+                      },
+                      "createdDateTime": {
+                        "type": "string",
+                        "description": "createdDateTime"
+                      },
+                      "creationOptions": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "creationOptions"
+                      },
+                      "description": {
+                        "type": "string",
+                        "description": "description"
+                      },
+                      "displayName": {
+                        "type": "string",
+                        "description": "displayName"
+                      },
+                      "expirationDateTime": {
+                        "type": "string",
+                        "description": "expirationDateTime"
+                      },
+                      "groupTypes": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "groupTypes"
+                      },
+                      "isAssignableToRole": {
+                        "type": "string",
+                        "description": "isAssignableToRole"
+                      },
+                      "mail": {
+                        "type": "string",
+                        "description": "mail"
+                      },
+                      "mailEnabled": {
+                        "type": "boolean",
+                        "description": "mailEnabled"
+                      },
+                      "mailNickname": {
+                        "type": "string",
+                        "description": "mailNickname"
+                      },
+                      "membershipRule": {
+                        "type": "string",
+                        "description": "membershipRule"
+                      },
+                      "membershipRuleProcessingState": {
+                        "type": "string",
+                        "description": "membershipRuleProcessingState"
+                      },
+                      "onPremisesDomainName": {
+                        "type": "string",
+                        "description": "onPremisesDomainName"
+                      },
+                      "onPremisesLastSyncDateTime": {
+                        "type": "string",
+                        "description": "onPremisesLastSyncDateTime"
+                      },
+                      "onPremisesNetBiosName": {
+                        "type": "string",
+                        "description": "onPremisesNetBiosName"
+                      },
+                      "onPremisesSamAccountName": {
+                        "type": "string",
+                        "description": "onPremisesSamAccountName"
+                      },
+                      "onPremisesSecurityIdentifier": {
+                        "type": "string",
+                        "description": "onPremisesSecurityIdentifier"
+                      },
+                      "onPremisesSyncEnabled": {
+                        "type": "string",
+                        "description": "onPremisesSyncEnabled"
+                      },
+                      "preferredDataLocation": {
+                        "type": "string",
+                        "description": "preferredDataLocation"
+                      },
+                      "preferredLanguage": {
+                        "type": "string",
+                        "description": "preferredLanguage"
+                      },
+                      "proxyAddresses": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "proxyAddresses"
+                      },
+                      "renewedDateTime": {
+                        "type": "string",
+                        "description": "renewedDateTime"
+                      },
+                      "resourceBehaviorOptions": {
+                        "type": "array",
+                        "items": {},
+                        "description": "resourceBehaviorOptions"
+                      },
+                      "resourceProvisioningOptions": {
+                        "type": "array",
+                        "items": {},
+                        "description": "resourceProvisioningOptions"
+                      },
+                      "securityEnabled": {
+                        "type": "boolean",
+                        "description": "securityEnabled"
+                      },
+                      "securityIdentifier": {
+                        "type": "string",
+                        "description": "securityIdentifier"
+                      },
+                      "theme": {
+                        "type": "string",
+                        "description": "theme"
+                      },
+                      "visibility": {
+                        "type": "string",
+                        "description": "visibility"
+                      },
+                      "onPremisesProvisioningErrors": {
+                        "type": "array",
+                        "items": {},
+                        "description": "onPremisesProvisioningErrors"
+                      }
+                    }
+                  },
+                  "description": "value"
+                }
+              }
+            }
+          }
+        },
+        "summary": "GetAllGroupsByUser",
+        "description": "GetAllGroupsByUser",
+        "operationId": "GetAllGroupsByUser",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$skiptoken",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ConsistencyLevel",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "eventual"
+          }
+        ]
+      }
+    },
+    "/v1.0/groups": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "@odata.context": {
+                  "type": "string",
+                  "description": "@odata.context"
+                },
+                "@odata.count": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "@odata.count"
+                },
+                "@odata.nextLink": {
+                  "type": "string",
+                  "description": "@odata.nextLink"
+                },
+                "value": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "id"
+                      },
+                      "deletedDateTime": {
+                        "type": "string",
+                        "description": "deletedDateTime"
+                      },
+                      "classification": {
+                        "type": "string",
+                        "description": "classification"
+                      },
+                      "createdDateTime": {
+                        "type": "string",
+                        "description": "createdDateTime"
+                      },
+                      "creationOptions": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "creationOptions"
+                      },
+                      "description": {
+                        "type": "string",
+                        "description": "description"
+                      },
+                      "displayName": {
+                        "type": "string",
+                        "description": "displayName"
+                      },
+                      "expirationDateTime": {
+                        "type": "string",
+                        "description": "expirationDateTime"
+                      },
+                      "groupTypes": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "groupTypes"
+                      },
+                      "isAssignableToRole": {
+                        "type": "string",
+                        "description": "isAssignableToRole"
+                      },
+                      "mail": {
+                        "type": "string",
+                        "description": "mail"
+                      },
+                      "mailEnabled": {
+                        "type": "boolean",
+                        "description": "mailEnabled"
+                      },
+                      "mailNickname": {
+                        "type": "string",
+                        "description": "mailNickname"
+                      },
+                      "membershipRule": {
+                        "type": "string",
+                        "description": "membershipRule"
+                      },
+                      "membershipRuleProcessingState": {
+                        "type": "string",
+                        "description": "membershipRuleProcessingState"
+                      },
+                      "onPremisesDomainName": {
+                        "type": "string",
+                        "description": "onPremisesDomainName"
+                      },
+                      "onPremisesLastSyncDateTime": {
+                        "type": "string",
+                        "description": "onPremisesLastSyncDateTime"
+                      },
+                      "onPremisesNetBiosName": {
+                        "type": "string",
+                        "description": "onPremisesNetBiosName"
+                      },
+                      "onPremisesSamAccountName": {
+                        "type": "string",
+                        "description": "onPremisesSamAccountName"
+                      },
+                      "onPremisesSecurityIdentifier": {
+                        "type": "string",
+                        "description": "onPremisesSecurityIdentifier"
+                      },
+                      "onPremisesSyncEnabled": {
+                        "type": "string",
+                        "description": "onPremisesSyncEnabled"
+                      },
+                      "preferredDataLocation": {
+                        "type": "string",
+                        "description": "preferredDataLocation"
+                      },
+                      "preferredLanguage": {
+                        "type": "string",
+                        "description": "preferredLanguage"
+                      },
+                      "proxyAddresses": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "proxyAddresses"
+                      },
+                      "renewedDateTime": {
+                        "type": "string",
+                        "description": "renewedDateTime"
+                      },
+                      "resourceBehaviorOptions": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "resourceBehaviorOptions"
+                      },
+                      "resourceProvisioningOptions": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "resourceProvisioningOptions"
+                      },
+                      "securityEnabled": {
+                        "type": "boolean",
+                        "description": "securityEnabled"
+                      },
+                      "securityIdentifier": {
+                        "type": "string",
+                        "description": "securityIdentifier"
+                      },
+                      "theme": {
+                        "type": "string",
+                        "description": "theme"
+                      },
+                      "visibility": {
+                        "type": "string",
+                        "description": "visibility"
+                      },
+                      "onPremisesProvisioningErrors": {
+                        "type": "array",
+                        "items": {},
+                        "description": "onPremisesProvisioningErrors"
+                      }
+                    }
+                  },
+                  "description": "value"
+                }
+              }
+            }
+          }
+        },
+        "summary": "GetGroupList",
+        "description": "GetGroupList",
+        "operationId": "GetGroupList",
+        "parameters": [
+          {
+            "name": "$count",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$skiptoken",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ConsistencyLevel",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "eventual"
+          }
+        ]
+      }
+    },
+    "/v1.0/groups/$count": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "GetGroupsCount",
+        "description": "This action is for getting total count",
+        "operationId": "GetGroupsCount",
+        "parameters": [
+          {
+            "name": "ConsistencyLevel",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "oauth2_auth": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "authorizationUrl": "https://login.windows.net/common/oauth2/authorize",
+      "tokenUrl": "https://login.windows.net/common/oauth2/authorize",
+      "scopes": {
+        "https://graph.microsoft.com/.default": "https://graph.microsoft.com/.default"
+      }
+    }
+  },
+  "security": [
+    {
+      "oauth2_auth": [
+        "https://graph.microsoft.com/.default"
+      ]
+    }
+  ],
+  "tags": []
+}
