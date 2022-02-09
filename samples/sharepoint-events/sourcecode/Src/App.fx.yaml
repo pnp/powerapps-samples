@@ -1,0 +1,69 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |
+        =Refresh('Event Attendees');
+        Refresh(Events);
+        // Insert the group id of your admins group here - users in this group will be able to create and manage events and view attendees
+        If(
+            CountRows(
+                Filter(
+                    Office365Groups.ListGroupMembers("05d73b8d-a3d1-4eaf-8c7d-7593d6e35c33").value,
+                    id = Office365Users.MyProfile().Id
+                )
+            ) > 0,
+            Set(
+                gblShowAdmin,
+                true
+            ),
+            Set(
+                gblShowAdmin,
+                false
+            )
+        );
+        Set(
+            gblUser,
+            User()
+        );
+        Set(
+            gblEditEvent,
+            Blank()
+        );
+        Set(
+            gblUserUPN,
+            Office365Users.MyProfileV2().mail
+        );
+        Set(
+            gblShowEventImage,
+            true
+        );
+        ClearCollect(
+            colTabs,
+            {
+                Title: "All Events",
+                Selected: true
+            },
+            {
+                Title: "My Events",
+                Selected: false
+            },
+            {
+                Title: "Past Events",
+                Selected: false
+            }
+        );
+        Clear(colMyEvents);
+        ForAll(
+            Filter(
+                'Event Attendees',
+                Attendee.Email = gblUser.Email
+            ),
+            Collect(
+                colMyEvents,
+                LookUp(
+                    Events,
+                    ID = EventID
+                )
+            )
+        );
+        ClearCollect(colMenu,{ItemTitle:"Create Event",ItemScreen:'Create Event Screen'},{ItemTitle:"Manage Events",ItemScreen:'Manage Events Screen'},{ItemTitle:"Settings",ItemScreen:'Events Screen'})
+

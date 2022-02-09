@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2021/03/ProvisioningSchema">
+  <pnp:Preferences Generator="PnP.Framework, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null" />
+  <pnp:Templates ID="CONTAINER-TEMPLATE-1E85B46E9E684A0F98A4A607DBF1B52A">
+    <pnp:ProvisioningTemplate ID="TEMPLATE-1E85B46E9E684A0F98A4A607DBF1B52A" Version="1" Scope="RootSite">
+      <pnp:Lists>
+        <pnp:ListInstance Title="Event Attendees" Description="" DocumentTemplate="" OnQuickLaunch="true" TemplateType="100" Url="Lists/Event Attendees" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Event Attendees/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Event Attendees/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Event Attendees/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{92632D5B-77AC-4AA4-AD74-519E85CD061A}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Event Attendees/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="EventName" />
+                <FieldRef Name="Attendee" />
+                <FieldRef Name="AttendeeStatus" />
+                <FieldRef Name="EventID" />
+                <FieldRef Name="Modified" />
+                <FieldRef Name="AttendeeEventID" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+              <CustomFormatter />
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field DisplayName="Event Name" Format="Dropdown" MaxLength="255" Name="EventName" Title="Event Name" Type="Text" ID="{5d299e63-b95b-4e4c-81b3-e73dd3fbaf4b}" SourceID="{{listid:Event Attendees}}" StaticName="EventName" ColName="nvarchar4" RowOrdinal="0" />
+            <Field DisplayName="Attendee" Format="Dropdown" List="UserInfo" Name="Attendee" Title="Attendee" Type="User" UserSelectionMode="0" UserSelectionScope="0" ID="{b4f5377a-f1ad-429b-b1f6-46e8d9c6ed0f}" SourceID="{{listid:Event Attendees}}" StaticName="Attendee" ColName="int1" RowOrdinal="0" />
+            <Field DisplayName="Attendee Status" FillInChoice="FALSE" Format="Dropdown" Name="AttendeeStatus" Title="Attendee Status" Type="Choice" ID="{ffe13387-936d-4839-b104-d5680f07901c}" SourceID="{{listid:Event Attendees}}" StaticName="AttendeeStatus" ColName="nvarchar5" RowOrdinal="0" CustomFormatter="" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Version="1">
+              <CHOICES>
+                <CHOICE>Interested</CHOICE>
+                <CHOICE>Registered</CHOICE>
+              </CHOICES>
+            </Field>
+            <Field Type="Number" DisplayName="EventID" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" ID="{a9eb4ba2-d971-43db-baed-1a06ed6ae6ea}" SourceID="{{listid:Event Attendees}}" StaticName="EventID" Name="EventID" ColName="float1" RowOrdinal="0" />
+            <Field Type="Text" DisplayName="Attendee Event ID" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" ID="{e4037262-f1f2-4ae4-9ba7-11c7e21ce36e}" SourceID="{{listid:Event Attendees}}" StaticName="AttendeeEventID" Name="AttendeeEventID" ColName="nvarchar6" RowOrdinal="0" CustomFormatter="" Version="1" />
+          </pnp:Fields>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Event Images" Description="" DocumentTemplate="" TemplateType="109" Url="EventImages" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-52d4-45b3-b544-b1c71b620109" EnableAttachments="false" DefaultDisplayFormUrl="{site}/EventImages/Forms/DispForm.aspx" DefaultEditFormUrl="{site}/EventImages/Forms/EditForm.aspx" DefaultNewFormUrl="{site}/EventImages/Forms/Upload.aspx" ImageUrl="/_layouts/15/images/itil.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x010102" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{1C6DEA16-5A4A-462C-AE2C-E23798FA28FA}" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Pictures" Url="{site}/EventImages/Forms/AllItems.aspx" Level="1" BaseViewID="6" ContentTypeID="0x" ImageUrl="/_layouts/15/images/plicon.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="FileLeafRef" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="DocIcon" />
+                <FieldRef Name="LinkFilename" />
+                <FieldRef Name="ImageSize" />
+                <FieldRef Name="FileSizeDisplay" />
+                <FieldRef Name="Modified" />
+                <FieldRef Name="RequiredField" Explicit="TRUE" />
+                <FieldRef Name="PreviewOnForm" Explicit="TRUE" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">40</RowLimit>
+              <JSLink>clienttemplates.js|callout.js</JSLink>
+            </View>
+            <View Name="{6292D12B-D47E-4DFD-A26D-9BD4034A47A5}" DefaultView="TRUE" Type="HTML" DisplayName="Thumbnails" Url="{site}/EventImages/Forms/Thumbnails.aspx" Level="1" BaseViewID="6" ContentTypeID="0x" ImageUrl="/_layouts/15/images/plicon.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="FileLeafRef" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="DocIcon" />
+                <FieldRef Name="LinkFilenameNoMenu" />
+                <FieldRef Name="ImageSize" />
+                <FieldRef Name="FileSizeDisplay" />
+                <FieldRef Name="Modified" />
+                <FieldRef Name="Created_x0020_Date" Explicit="TRUE" />
+                <FieldRef Name="Author" Explicit="TRUE" />
+                <FieldRef Name="Editor" Explicit="TRUE" />
+                <FieldRef Name="RequiredField" Explicit="TRUE" />
+                <FieldRef Name="ImageWidth" Explicit="TRUE" />
+                <FieldRef Name="ImageHeight" Explicit="TRUE" />
+                <FieldRef Name="NameOrTitle" Explicit="TRUE" />
+                <FieldRef Name="PreviewOnForm" Explicit="TRUE" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>SP.UI.TileView.js|callout.js</JSLink>
+            </View>
+            <View Name="{FDECE10B-158E-4A3A-8FD2-845DDD535A1F}" Type="HTML" DisplayName="Slides" Url="{site}/EventImages/Forms/SinglePict.aspx" Level="1" BaseViewID="6" ContentTypeID="0x" ImageUrl="/_layouts/15/images/plicon.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="FileLeafRef" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkFilenameNoMenu" />
+                <FieldRef Name="FileSizeDisplay" />
+                <FieldRef Name="ImageSize" />
+                <FieldRef Name="NameOrTitle" Explicit="TRUE" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">1</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field ID="{d1cff744-ba61-4189-94d6-97d0a9eb4f6a}" Type="Text" DisplayName="Tags" Name="MediaServiceAutoTags" Group="_Hidden" Hidden="FALSE" Sealed="TRUE" ReadOnly="TRUE" ShowInNewForm="FALSE" ShowInDisplayForm="FALSE" ShowInEditForm="FALSE" ShowInListSettings="FALSE" Viewable="FALSE" Json="FALSE" SourceID="{{listid:Event Images}}" StaticName="MediaServiceAutoTags" ColName="nvarchar11" RowOrdinal="0" />
+            <Field ID="{67aff0cf-8e19-43f2-9987-be89075e1467}" Type="Note" DisplayName="Extracted Text" Name="MediaServiceOCR" Group="_Hidden" Hidden="FALSE" Sealed="TRUE" ReadOnly="TRUE" ShowInNewForm="FALSE" ShowInDisplayForm="FALSE" ShowInEditForm="FALSE" ShowInListSettings="FALSE" Viewable="FALSE" Json="FALSE" SourceID="{{listid:Event Images}}" StaticName="MediaServiceOCR" ColName="ntext4" RowOrdinal="0" />
+          </pnp:Fields>
+          <pnp:FieldRefs>
+            <pnp:FieldRef ID="8c0d0aac-9b76-4951-927a-2490abe13c0b" Name="PreviewOnForm" DisplayName="Preview" />
+            <pnp:FieldRef ID="c53a03f3-f930-4ef2-b166-e0f2210c13c0" Name="FileType" DisplayName="File Type" />
+            <pnp:FieldRef ID="922551b8-c7e0-46a6-b7e3-3cf02917f68a" Name="ImageSize" DisplayName="Picture Size" />
+            <pnp:FieldRef ID="7e68a0f9-af76-404c-9613-6f82bc6dc28c" Name="ImageWidth" DisplayName="Picture Width" />
+            <pnp:FieldRef ID="1944c034-d61b-42af-aa84-647f2e74ca70" Name="ImageHeight" DisplayName="Picture Height" />
+            <pnp:FieldRef ID="a5d2f824-bc53-422e-87fd-765939d863a5" Name="ImageCreateDate" DisplayName="Date Picture Taken" />
+            <pnp:FieldRef ID="9da97a8a-1da5-4a77-98d3-4bc10456e700" Name="Description" DisplayName="Description" />
+            <pnp:FieldRef ID="b66e9b50-a28e-469b-b1a0-af0e45486874" Name="Keywords" DisplayName="Keywords" />
+            <pnp:FieldRef ID="d307dff3-340f-44a2-9f4b-fbfe1ba07459" Name="_CommentCount" DisplayName="Comment count" />
+            <pnp:FieldRef ID="db8d9d6d-dc9a-4fbd-85f3-4a753bfdc58c" Name="_LikeCount" DisplayName="Like count" />
+            <pnp:FieldRef ID="7ebf72ca-a307-4c18-9e5b-9d89e1dae74f" Name="SelectedFlag" DisplayName="Selection Checkbox" />
+            <pnp:FieldRef ID="76d1cc87-56de-432c-8a2a-16e5ba5331b3" Name="NameOrTitle" DisplayName="Name" />
+            <pnp:FieldRef ID="de1baa4b-2117-473b-aa0c-4d824034142d" Name="RequiredField" DisplayName="Required Field" />
+            <pnp:FieldRef ID="ac7bb138-02dc-40eb-b07a-84c15575b6e9" Name="Thumbnail" DisplayName="Thumbnail" />
+          </pnp:FieldRefs>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Events" Description="" DocumentTemplate="" OnQuickLaunch="true" TemplateType="100" Url="Lists/Events" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Events/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Events/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Events/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{51D55280-3FC7-42B5-9A69-F72D4564A4E6}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Events/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="EventName" />
+                <FieldRef Name="StartTime" />
+                <FieldRef Name="EndTime" />
+                <FieldRef Name="Description" />
+                <FieldRef Name="Location" />
+                <FieldRef Name="Capacity" />
+                <FieldRef Name="Registrations" />
+                <FieldRef Name="Created" />
+                <FieldRef Name="Category" />
+                <FieldRef Name="Event_x0020_Image" />
+                <FieldRef Name="EventLink" />
+                <FieldRef Name="ID" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+              <CustomFormatter />
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field DisplayName="Event Name" Format="Dropdown" MaxLength="255" Name="EventName" Title="Event Name" Type="Text" ID="{8212bfc1-224f-4deb-849c-7096b937a122}" SourceID="{{listid:Events}}" StaticName="EventName" ColName="nvarchar4" RowOrdinal="0" />
+            <Field DisplayName="Start Time" FriendlyDisplayFormat="Disabled" Format="DateTime" Name="StartTime" Title="Start Time" Type="DateTime" ID="{af7986ef-c6e9-4e4a-aaad-10ad408a2647}" SourceID="{{listid:Events}}" StaticName="StartTime" ColName="datetime1" RowOrdinal="0" />
+            <Field DisplayName="End Time" FriendlyDisplayFormat="Disabled" Format="DateTime" Name="EndTime" Title="End Time" Type="DateTime" ID="{59f55d46-b3fc-4de7-8b9b-7f4334f5178d}" SourceID="{{listid:Events}}" StaticName="EndTime" ColName="datetime2" RowOrdinal="0" />
+            <Field AppendOnly="FALSE" DisplayName="Description" Format="Dropdown" IsolateStyles="FALSE" Name="Description" NumLines="6" RichText="TRUE" RichTextMode="Compatible" Title="Description" Type="Note" ID="{b2b09a75-a0cb-4ddd-b55e-ff693f081b10}" SourceID="{{listid:Events}}" StaticName="Description" ColName="ntext2" RowOrdinal="0" CustomFormatter="" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" RestrictedMode="TRUE" Version="1" />
+            <Field DisplayName="Location" Format="Dropdown" MaxLength="255" Name="Location" Title="Location" Type="Text" ID="{3b8cc142-84a5-4aa9-a6ff-45a950505dd1}" SourceID="{{listid:Events}}" StaticName="Location" ColName="nvarchar5" RowOrdinal="0" />
+            <Field DisplayName="Capacity" Format="Dropdown" Name="Capacity" Percentage="FALSE" Title="Capacity" Type="Number" ID="{a97f1f4c-069c-430d-95f6-36837b88b699}" SourceID="{{listid:Events}}" StaticName="Capacity" ColName="float1" RowOrdinal="0" />
+            <Field Type="Choice" DisplayName="Category" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Format="Dropdown" FillInChoice="FALSE" ID="{456afc46-0e1e-4815-9209-734498f080cb}" SourceID="{{listid:Events}}" StaticName="Category" Name="Category" ColName="nvarchar6" RowOrdinal="0">
+              <CHOICES>
+                <CHOICE>Conference</CHOICE>
+                <CHOICE>Training</CHOICE>
+                <CHOICE>Seminar</CHOICE>
+              </CHOICES>
+            </Field>
+            <Field Type="URL" DisplayName="Event Image" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Format="Image" ID="{408aeae1-96f7-4487-857b-7b8f3c1c3147}" SourceID="{{listid:Events}}" StaticName="Event_x0020_Image" Name="Event_x0020_Image" ColName="nvarchar7" RowOrdinal="0" ColName2="nvarchar8" RowOrdinal2="0" />
+            <Field DisplayName="Event Link" Format="Hyperlink" IsModern="TRUE" Name="EventLink" Title="Event Link" Type="URL" ID="{bbee6659-e98e-462d-86ca-dcc62cf83ded}" SourceID="{{listid:Events}}" StaticName="EventLink" ColName="nvarchar9" RowOrdinal="0" ColName2="nvarchar10" RowOrdinal2="0" />
+            <Field CommaSeparator="TRUE" DisplayName="Registrations" Format="Dropdown" IsModern="TRUE" Name="Registrations" Percentage="FALSE" Title="Registrations" Type="Number" ID="{579a67f9-ebd2-4e92-9348-510e331d6013}" SourceID="{{listid:Events}}" StaticName="Registrations" ColName="float2" RowOrdinal="0" />
+          </pnp:Fields>
+        </pnp:ListInstance>
+      </pnp:Lists>
+    </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>

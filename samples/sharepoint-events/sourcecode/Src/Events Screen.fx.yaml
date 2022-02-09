@@ -1,0 +1,449 @@
+"'Events Screen' As screen":
+    Height: =App.Height
+    OnVisible: =Refresh(Events)
+    Width: =App.Width
+
+    galEvents As gallery.galleryHorizontal:
+        FocusedBorderThickness: =0
+        Height: =Parent.Height - Self.Y
+        Items: |-
+            =If(
+                galTabs.Selected.TabName = "All Events",
+                 Sort(
+                  Filter(  Events,'Start Time' >= Now()) ,
+                    'Start Time',
+                    Ascending
+                ),
+                If(galTabs.Selected.TabName = "Past Events",Filter(Events,'Start Time' < Now()),
+                colMyEvents
+            ))
+        ShowNavigation: =true
+        ShowScrollbar: =false
+        Width: =If(shpAdminBg.Visible, Parent.Width - shpAdminBg.Width - shpAdminBg.X * 2,Parent.Width - Self.X * 2)
+        X: =If(galTabs.Selected.TabName <> "My Events" && galTabs.Selected.TabName <> "Past Events" && gblShowAdmin, shpAdminBg.X + shpAdminBg.Width + 5,galTabs.X - 10)
+        Y: =galTabs.Height + galTabs.Y
+        ZIndex: =1
+
+        shpEventBg As rectangle:
+            BorderColor: =RGBA(234, 234, 234,1)
+            BorderThickness: =1
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height - Self.Y * 2
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth - 20
+            X: =15
+            Y: |
+                =20
+            ZIndex: =1
+
+        lblCategory As label:
+            Color: =RGBA(163, 162, 160,1)
+            Font: =Font.'Segoe UI'
+            Height: =30
+            OnSelect: =Select(Parent)
+            Size: =11
+            Text: =ThisItem.Category.Value
+            Width: =shpEventBg.Width - Self.X * 2
+            X: =020
+            Y: =shpEventImgOverlay.Y + shpEventImgOverlay.Height + 10
+            ZIndex: =2
+
+        lblEventName As label:
+            Color: =RGBA(0, 0, 0,1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            OnSelect: =Select(Parent)
+            PaddingTop: =0
+            Size: =11
+            Text: =ThisItem.'Event Name'
+            Width: =shpEventBg.Width - Self.X * 2
+            X: =20
+            Y: =lblCategory.Y + lblCategory.Height
+            ZIndex: =3
+
+        lblDate As label:
+            Color: =RGBA(0, 0, 0,1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            OnSelect: =Select(Parent)
+            PaddingTop: =10
+            Size: =9
+            Text: |-
+                =Text(ThisItem.'Start Time',"[$-en-GB]dd-mm-yyyy HH:mm")
+            Width: =shpEventBg.Width - Self.X * 2
+            X: =20
+            Y: =lblLocation.Y - Self.Height
+            ZIndex: =4
+
+        lblLocation As label:
+            Color: =RGBA(163, 162, 160,1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            OnSelect: =Select(Parent)
+            Size: =9
+            Text: =ThisItem.Location
+            Width: =shpEventBg.Width - Self.X * 2
+            X: =20
+            Y: =shpEventBg.Y + shpEventBg.Height - Self.Height - 20
+            ZIndex: =5
+
+        imgEvent As image:
+            Height: =170
+            Image: =ThisItem.'Event Image'
+            ImagePosition: =ImagePosition.Fill
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =2
+            RadiusBottomRight: =2
+            RadiusTopLeft: =2
+            RadiusTopRight: =2
+            Visible: =!IsBlank(ThisItem.'Event Image') && gblShowEventImage
+            Width: =shpEventBg.Width
+            X: =shpEventBg.X
+            Y: =shpEventBg.Y
+            ZIndex: =6
+
+        shpRegisteredBg As circle:
+            Fill: =RGBA(23, 113, 122,1)
+            Height: =30
+            OnSelect: =Select(Parent)
+            Visible: =btnRegister.Text = "Unregister"
+            Width: =30
+            X: =shpEventBg.X + shpEventBg.Width - 15 - Self.Width
+            Y: =If(gblShowEventImage,imgEvent.Y + imgEvent.Height + 10, shpEventBg.Y + 15)
+            ZIndex: =7
+
+        icoRegistered As icon.Check:
+            Color: =RGBA(255,255,255,1)
+            Height: =shpRegisteredBg.Height
+            Icon: =Icon.Check
+            OnSelect: =Select(Parent)
+            PaddingBottom: =5
+            PaddingLeft: =5
+            PaddingRight: =5
+            PaddingTop: =5
+            Visible: =btnRegister.Text = "Unregister"
+            Width: =shpRegisteredBg.Width
+            X: =shpRegisteredBg.X
+            Y: =shpRegisteredBg.Y
+            ZIndex: =8
+
+        shpEventImgOverlay As rectangle:
+            Fill: =If(!IsBlank(ThisItem.'Event Image'),RGBA(0,0,0,0.3),RGBA(255,255,255,1))
+            Height: =imgEvent.Height
+            Visible: =!IsBlank(ThisItem.'Event Image')
+            Width: =imgEvent.Width
+            X: =imgEvent.X
+            Y: =If(IsBlank(ThisItem.'Event Image'),imgEvent.Y + 2, imgEvent.Y)
+            ZIndex: =10
+
+        lblMonth As label:
+            Color: =If(!IsBlank(ThisItem.'Event Image'),RGBA(255,255,255,1),RGBA(0,0,0,1))
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            OnSelect: =Select(Parent)
+            PaddingLeft: =10
+            Size: =15
+            Text: =If(IsBlank(ThisItem.'Start Time'),"MONTH", Upper( Text(ThisItem.'Start Time',"[$-en-US]mmm")))
+            Width: =200
+            X: =lblDay.X
+            Y: =lblDay.Y - lblDay.Height
+            ZIndex: =11
+
+        lblDay As label:
+            Color: =If(!IsBlank(ThisItem.'Event Image'),RGBA(255,255,255,1),RGBA(0,0,0,1))
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =35
+            OnSelect: =Select(Parent)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            Size: =30
+            Text: =If(IsBlank(ThisItem.'Start Time'),"01", Day(ThisItem.'Start Time'))
+            Width: =100
+            X: =20
+            Y: =shpEventImgOverlay.Y + shpEventImgOverlay.Height - Self.Height - 20
+            ZIndex: =12
+
+        shpEventDivider As rectangle:
+            Fill: =RGBA(234, 234, 234,1)
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth - Self.X * 2 - 4
+            X: =shpEventBg.X + 6
+            Y: =shpEventImgOverlay.Y + shpEventImgOverlay.Height
+            ZIndex: =13
+
+        shpEventOverlay As rectangle:
+            Fill: =RGBA(0,0,0,0)
+            Height: =shpEventBg.Height
+            OnSelect: =Set(gblEvent,ThisItem);Navigate('Event Info Screen',ScreenTransition.CoverRight)
+            Width: =shpEventBg.Width
+            X: =shpEventBg.X
+            Y: =shpEventBg.Y
+            ZIndex: =14
+
+        btnRegister As button:
+            BorderThickness: =0
+            Fill: =RGBA(23, 113, 122,1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Normal
+            Height: =30
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: |-
+                =If(
+                    Self.Text = "Register",
+                    EventRegistration.Run(
+                        true,
+                        ThisItem.ID,
+                        0,
+                        ThisItem.'Event Name',
+                        Text(
+                            ThisItem.'Start Time',
+                            DateTimeFormat.UTC
+                        ),
+                        Text(
+                            ThisItem.'End Time',
+                            DateTimeFormat.UTC
+                        ),
+                        If(!IsBlank(ThisItem.'Event Link'),ThisItem.'Event Link',""),
+                        ThisItem.Location
+                    );
+                    Refresh(Events);
+                    Patch(
+                        Events,
+                        ThisItem,
+                        {
+                            Registrations: Sum(
+                                ThisItem.Registrations,
+                                1
+                            )
+                        }
+                    );
+                    Notify(
+                        "Successfully registered for " & ThisItem.'Event Name',
+                        NotificationType.Success,
+                        5000
+                    );
+                    Refresh('Event Attendees');
+                    Clear(colMyEvents);
+                    ForAll(
+                        Filter(
+                            'Event Attendees',
+                            Attendee.Email = gblUser.Email
+                        ),
+                        Collect(
+                            colMyEvents,
+                            LookUp(
+                                Events,
+                                ID = EventID
+                            )
+                        )
+                    );
+                    Set(
+                        gblEventRegistrationID,
+                        LookUp(
+                            'Event Attendees',
+                            Attendee.Email = gblUser.Email && EventID = ThisItem.ID
+                        ).ID
+                    ),
+                    Set(
+                        gblEventRegistrationID,
+                        LookUp(
+                            'Event Attendees',
+                            Attendee.Email = gblUser.Email && EventID = ThisItem.ID
+                        ).ID
+                    );
+                    EventRegistration.Run(
+                        false,
+                        ThisItem.ID,
+                        gblEventRegistrationID,
+                        ThisItem.'Event Name',
+                        Text(
+                            ThisItem.'Start Time',
+                            DateTimeFormat.UTC
+                        ),
+                        Text(
+                            ThisItem.'End Time',
+                            DateTimeFormat.UTC
+                        ),
+                        If(!IsBlank(ThisItem.'Event Link'),ThisItem.'Event Link',""),
+                        ThisItem.Location
+                    );
+                    Refresh('Event Attendees');
+                    
+                // Assume we are unregistering - remove from my events collection
+                RemoveIf(
+                        colMyEvents,
+                        ID = ThisItem.ID
+                    );
+                    Set(
+                        gblEventRegistrationID,
+                        Blank()
+                    );
+                    Notify(
+                        "Successfully unregistered for " & ThisItem.'Event Name',
+                        NotificationType.Success,
+                        5000
+                    );
+                    
+                );
+                Refresh(Events)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =10
+            Text: =If(!IsBlank(LookUp('Event Attendees',Attendee.Email = gblUser.Email && EventID = ThisItem.ID && AttendeeStatus.Value = "Registered")),"Unregister","Register")
+            Tooltip: =If(Self.Text = "Register","Register for this event","Unregister for this event")
+            Visible: |-
+                =If(
+                    !IsBlank(ThisItem.'Event Name') && !IsBlank(ThisItem.'Start Time') && !IsBlank(ThisItem.'End Time') && !IsBlank(ThisItem.Location),
+                    true,
+                    false
+                )
+            Width: =90
+            X: =shpEventBg.X + shpEventBg.Width - 10 - Self.Width
+            Y: =shpEventBg.Y + shpEventBg.Height - 10 - Self.Height
+            ZIndex: =15
+
+    icoRefresh As icon.Reload:
+        Color: =RGBA(23, 113, 122,1)
+        Height: =30
+        Icon: =Icon.Reload
+        OnSelect: |-
+            =Refresh(Events);
+            Refresh('Event Attendees');
+            Clear(colMyEvents);
+            ForAll(
+                Filter(
+                    'Event Attendees',
+                    Attendee.Email = gblUser.Email
+                ),
+                Collect(
+                    colMyEvents,
+                    LookUp(
+                        Events,
+                        ID = EventID
+                    )
+                )
+            )
+        Width: =30
+        X: =galEvents.X + galEvents.Width - Self.Width
+        Y: =galEvents.Y - Self.Height
+        ZIndex: =3
+
+    galTabs As gallery.galleryHorizontal:
+        Height: =60
+        Items: |-
+            =Table(
+                {
+                    TabName: "All Events",
+                    TabScreen: App.ActiveScreen,
+                    Selected:true
+                },
+                {
+                    TabName: "My Events",
+                    TabScreen: App.ActiveScreen,
+                    Selected:false
+                },
+                    {
+                    TabName: "Past Events",
+                    TabScreen: App.ActiveScreen,
+                    Selected:false
+                }
+            )
+        ShowScrollbar: =false
+        TemplateSize: =223
+        X: =30
+        Y: =20
+        ZIndex: =4
+
+        lblTabName As label:
+            Color: =If(ThisItem.IsSelected,RGBA(23, 113, 122,1), RGBA(0, 0, 0, 1))
+            Font: =Font.'Segoe UI'
+            OnSelect: =Select(Parent)
+            Size: =17
+            Text: =ThisItem.TabName
+            ZIndex: =1
+
+    shpAdminBg As rectangle:
+        BorderColor: =RGBA(234, 234, 234,1)
+        BorderThickness: =1
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =galEvents.Height - galEvents.Y + 40
+        OnSelect: =
+        Visible: =galTabs.Selected.TabName <> "My Events" && galTabs.Selected.TabName <> "Past Events"  && gblShowAdmin
+        Width: =310
+        X: =30
+        Y: =galTabs.Height + 25 + galTabs.Y
+        ZIndex: =6
+
+    lblAdminSubtitle As label:
+        Color: =RGBA(163, 162, 160,1)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        OnSelect: =
+        Size: =9
+        Text: ="Create, edit and manage events."
+        Visible: =galTabs.Selected.TabName <> "My Events" && galTabs.Selected.TabName <> "Past Events"  && gblShowAdmin
+        Width: =shpAdminBg.Width - 40
+        X: =lblAdmin.X
+        Y: =shpAdminBg.Y + shpAdminBg.Height - Self.Height - 20
+        ZIndex: =7
+
+    shpAdminTileBg As rectangle:
+        Fill: =RGBA(23, 113, 122,1)
+        Height: =imgEvent.Height
+        OnSelect: =
+        Visible: =galTabs.Selected.TabName <> "My Events" && galTabs.Selected.TabName <> "Past Events" && gblShowAdmin
+        Width: =shpAdminBg.Width
+        X: =shpAdminBg.X
+        Y: =shpAdminBg.Y
+        ZIndex: =8
+
+    lblAdministration As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Text: ="Administration"
+        Visible: =galTabs.Selected.TabName <> "My Events" && galTabs.Selected.TabName <> "Past Events" && gblShowAdmin
+        X: =shpAdminTileBg.X + shpAdminTileBg.Width / 2 - Self.Width / 2
+        Y: =icoCalendar.Y + icoCalendar.Height
+        ZIndex: =9
+
+    icoCalendar As icon.CalendarBlank:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.CalendarBlank
+        Visible: =galTabs.Selected.TabName <> "My Events" && galTabs.Selected.TabName <> "Past Events" && gblShowAdmin
+        X: =shpAdminTileBg.X + shpAdminTileBg.Width / 2 - Self.Width / 2
+        Y: =shpAdminTileBg.Y + shpAdminTileBg.Height / 2 - Self.Height / 2 - 10
+        ZIndex: =10
+
+    lblAdmin As label:
+        Color: =RGBA(0, 0, 0,1)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        OnSelect: =
+        Size: =11
+        Text: ="Admin"
+        Visible: =galTabs.Selected.TabName <> "My Events" && galTabs.Selected.TabName <> "Past Events" && gblShowAdmin
+        Width: =shpAdminBg.Width - 40
+        X: =40
+        Y: =shpAdminTileBg.Y + shpAdminTileBg.Height + 10
+        ZIndex: =11
+
+    shpEventOverlayAdmin As rectangle:
+        Fill: =RGBA(255,255, 255, 0)
+        Height: =shpAdminBg.Height
+        HoverFill: =RGBA(255, 255, 255, 0.41)
+        OnSelect: =Navigate('Menu Screen',ScreenTransition.CoverRight)
+        Visible: =galTabs.Selected.TabName <> "My Events" && galTabs.Selected.TabName <> "Past Events" && gblShowAdmin
+        Width: =shpAdminBg.Width
+        X: =shpAdminBg.X
+        Y: =shpAdminBg.Y
+        ZIndex: =12
+

@@ -1,0 +1,261 @@
+"'Manage Events Screen' As screen":
+    Height: =App.Height
+    OnVisible: |-
+        =Refresh(Events);UpdateContext({locFilter:All})
+    Width: =App.Width
+
+    cmpDlgMES As PopupDialog:
+        ButtonStyles: |-
+            =Table({ButtonText: "Cancel", ButtonFill:RGBA(225,223,221,1), ButtonColor:RGBA(23, 113, 122,1)},{ButtonText: locDlgOKBtnText, ButtonFill:RGBA(23, 113, 122,1), ButtonColor:RGBA(255,255,255,1)})
+        Description: =locDlgDesc
+        OKButtonText: =locDlgOKBtnText
+        OnSelectCancel: |-
+            =UpdateContext({locShowDlg:false})
+        OnSelectOK: |-
+            =If(
+                locDeleteEvent,
+                Remove(
+                    Events,
+                    locEvent
+                );
+                UpdateContext({locDeleteEvent: false});
+                UpdateContext({locEvent: Blank()});
+                Refresh(Events);
+                UpdateContext({locShowDlg: false});
+                Notify(
+                    "Event deleted",
+                    NotificationType.Success,
+                    5000
+                )
+            )
+        Title: =locDlgTitle
+        Visible: =locShowDlg
+
+    lblManageEvents As label:
+        Color: |-
+            =ColorValue("#3b3a39")
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =icoBackMES.Height
+        PaddingLeft: =20
+        Size: =25
+        Text: ="Manage Events"
+        Width: =400
+        X: =icoBackMES.X + icoBackMES.Width
+        Y: =40
+        ZIndex: =1
+
+    galEventMES As gallery.galleryVertical:
+        Fill: =RGBA(250,249, 248,1)
+        Height: =Parent.Height - shpHeaderMES.Height - lblManageEvents.Height - lblManageEvents.Y - 50 - galFilters.Height
+        Items: |-
+            =If(
+                galFilters.Selected.FilterValue = "Week",
+                Filter(
+                    Events,
+                    'Start Time' >= Today()- Weekday(Today()) + 2 && 'End Time' <= Today() + (9 - Weekday(Today()))
+                ),
+                If(galFilters.Selected.FilterValue = "All",Events)
+            )
+        Layout: =Layout.Vertical
+        TemplateSize: =88
+        Width: =966
+        X: =Parent.Width / 2 - Self.Width / 2
+        Y: =shpHeaderMES.Y + shpHeaderMES.Height
+        ZIndex: =2
+
+        shpEventBgMES As rectangle:
+            Fill: =RGBA(23, 113, 122,1)
+            Height: =Self.Width
+            OnSelect: =Select(Parent)
+            Width: =80
+            ZIndex: =1
+
+        shpDateBgMES As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =1
+            Fill: =If(gblShowEventImage, RGBA(255, 255, 255, 0.9),RGBA(255,255,255,1))
+            Height: =Self.Width
+            OnSelect: =Select(Parent)
+            Width: =70
+            X: =shpEventBgMES.X + shpEventBgMES.Width / 2 - Self.Width / 2
+            Y: =shpEventBgMES.Y + shpEventBgMES.Height / 2 - Self.Height / 2
+            ZIndex: =2
+
+        lblMonthMES As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            Height: =25
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: =Text(ThisItem.'Start Time',"[$-en-US]mmm")
+            Width: =shpDateBgMES.Width
+            X: =shpEventBgMES.X + shpEventBgMES.Width / 2 - Self.Width / 2
+            Y: =shpDateBgMES.Y + 5
+            ZIndex: =3
+
+        lblDayMES As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: =Day(ThisItem.'Start Time')
+            Width: =shpDateBgMES.Width
+            X: =shpEventBgMES.X + shpEventBgMES.Width / 2 - Self.Width / 2
+            Y: =lblMonthMES.Y + lblMonthMES.Height
+            ZIndex: =4
+
+        lblEventNameMES As label:
+            Height: =34
+            OnSelect: =Select(Parent)
+            Size: =12
+            Text: =ThisItem.'Event Name'
+            Width: =260
+            X: =shpEventBgMES.X + shpEventBgMES.Width + 20
+            Y: =23
+            ZIndex: =5
+
+        lblCategoryMES As label:
+            Height: =34
+            OnSelect: =Select(Parent)
+            Size: =12
+            Text: =ThisItem.Category.Value
+            Width: =100
+            X: =lblEventNameMES.X + lblEventNameMES.Width
+            Y: =lblEventNameMES.Y
+            ZIndex: =6
+
+        lblRegCapacity As label:
+            Height: =34
+            OnSelect: =Select(Parent)
+            Size: =12
+            Text: =If(!IsBlank(ThisItem.Registrations), Concatenate(Text(ThisItem.Registrations),"/",Text(ThisItem.Capacity)),Concatenate("0/",Text(ThisItem.Capacity)))
+            Width: =260
+            X: =lblCategoryMES.X + lblCategoryMES.Width + 40
+            Y: =lblEventNameMES.Y
+            ZIndex: =7
+
+        icoEdit As icon.Edit:
+            Color: =RGBA(0,0, 0, 1)
+            Height: =30
+            Icon: =Icon.Edit
+            OnSelect: =Set(gblEventEdit,ThisItem); Navigate('Create Event Screen')
+            Width: =30
+            X: =858
+            Y: =lblRegCapacity.Y
+            ZIndex: =8
+
+        icoAttendees As icon.Edit:
+            Color: =RGBA(0,0, 0, 1)
+            Height: =30
+            Icon: =Icon.People
+            OnSelect: =Navigate('Attendees Screen',ScreenTransition.CoverRight);Set(gblEvent,ThisItem)
+            Width: =30
+            X: =794
+            Y: =23
+            ZIndex: =9
+
+        icoDelete As icon.Edit:
+            Color: =RGBA(0,0, 0, 1)
+            Height: =30
+            Icon: =Icon.Trash
+            OnSelect: |-
+                =UpdateContext({locShowDlg: false});
+                UpdateContext({locShowDlg: true});
+                UpdateContext({locDeleteEvent: true});
+                UpdateContext({locDlgTitle: "Delete Event"});
+                UpdateContext({locDlgDesc: "Are you sure you want to delete " & ThisItem.'Event Name' & " ?"});
+                UpdateContext({locDlgOKBtnText: "Delete"});
+                UpdateContext({locEvent:ThisItem})
+            Width: =30
+            X: =Parent.TemplateWidth - Self.Width - 10
+            Y: =23
+            ZIndex: =10
+
+    shpHeaderMES As rectangle:
+        Fill: =RGBA(23, 113, 122,1)
+        Height: =50
+        Width: =galEventMES.Width
+        X: =galEventMES.X
+        Y: =galFilters.Y + galFilters.Height + 10
+        ZIndex: =3
+
+    lblEventNameHeader As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =shpHeaderMES.Height
+        Text: ="Event Name"
+        X: =lblEventNameMES.X + galEventMES.X
+        Y: =shpHeaderMES.Y
+        ZIndex: =4
+
+    lblCategoryHeader As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =shpHeaderMES.Height
+        Text: ="Category"
+        X: =lblEventNameMES.X + galEventMES.X + lblEventNameMES.Width
+        Y: =shpHeaderMES.Y
+        ZIndex: =5
+
+    lblRegCapacityHeader As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =shpHeaderMES.Height
+        Text: ="Registrations/Capacity"
+        Width: =200
+        X: =lblRegCapacity.X + galEventMES.X
+        Y: =shpHeaderMES.Y
+        ZIndex: =6
+
+    icoBackMES As icon.ChevronLeft:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =lblAdminMS.Height
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Navigate('Menu Screen',ScreenTransition.UnCoverRight)
+        PaddingBottom: =5
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =5
+        Width: =Self.Height
+        X: =30
+        Y: =lblAdminMS.Y
+        ZIndex: =7
+
+    galFilters As gallery.galleryHorizontal:
+        Default: |-
+            ={FilterName:"This Week",FilterValue:"Week"}
+        Height: =50
+        Items: |-
+            =Table({FilterName:"This Week",FilterValue:"Week"},{FilterName:"All",FilterValue:"All"})
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =111
+        Width: =234
+        X: =galEventMES.X + galEventMES.Width - Self.Width + 10
+        Y: =lblManageEvents.Y + lblManageEvents.Height + 10
+        ZIndex: =8
+
+        btnFilter As button:
+            AutoDisableOnSelect: =false
+            BorderColor: =Self.Fill
+            BorderThickness: =1.5
+            Color: |-
+                =If(ThisItem.IsSelected,RGBA(255,255,255,1),ColorValue("#bebbb8"))
+            Fill: |-
+                =If(ThisItem.IsSelected, RGBA(23, 113, 122,1),ColorValue("#f3f2f1"))
+            FocusedBorderThickness: =0
+            Font: =Font.'Segoe UI'
+            HoverColor: =Self.Color
+            HoverFill: =RGBA(255,255,255,1)
+            OnSelect: =Set(gblFilter,Self.Text)
+            PressedFill: =RGBA(23, 113, 122,1)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =11
+            Text: =ThisItem.FilterName
+            Width: =90
+            X: =Parent.TemplateWidth - Self.Width
+            Y: =Parent.TemplateHeight / 2 - Self.Height / 2
+            ZIndex: =1
+
