@@ -1,0 +1,787 @@
+"'Security Roles Screen' As screen":
+    Height: =Max(App.Height, App.DesignHeight)
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    OnVisible: =Reset(TextInputUserSearch_1);Reset(ComboBoxNewSecurityRole_1);Reset(ComboBoxFieldSecurityRole_1);Reset(galSecurityRolesList)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    "GallerySecurityRoles_1 As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
+        BorderColor: =RGBA(166, 166, 166, 1)
+        DisabledBorderColor: =GallerySecurityRoles_1.BorderColor
+        DisabledFill: =GallerySecurityRoles_1.Fill
+        Height: =416
+        HoverBorderColor: =GallerySecurityRoles_1.BorderColor
+        HoverFill: =GallerySecurityRoles_1.Fill
+        Items: =galSecurityRolesList.Selected.Users
+        Layout: =Layout.Vertical
+        LoadingSpinnerColor: =GallerySecurityRoles_1.BorderColor
+        PressedBorderColor: =GallerySecurityRoles_1.BorderColor
+        PressedFill: =GallerySecurityRoles_1.Fill
+        ShowScrollbar: =false
+        TemplatePadding: =1
+        TemplateSize: =62
+        Width: =473
+        X: =504
+        Y: =144
+        ZIndex: =1
+
+        Button6_2 As button:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(237, 237, 237, 0.62)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =Parent.TemplateHeight-4
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =Self.Fill
+            OnSelect: =Select(Parent)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =Self.Fill
+            Size: =15
+            Text: =""
+            Width: =471
+            Y: =2
+            ZIndex: =1
+
+        Title3_2 As label:
+            AutoHeight: =true
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =33
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.'Full Name'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =363
+            X: =63
+            Y: =8
+            ZIndex: =2
+
+        Subtitle3_2 As label:
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.'Segoe UI'
+            Height: =28
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: =ThisItem.'Primary Email'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =307
+            X: =63
+            Y: =34
+            ZIndex: =3
+
+        Icon1_5 As icon.Trash:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            Color: =RGBA(203, 59, 59, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =41
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.Trash
+            OnSelect: =Unrelate(galSecurityRolesList.Selected.Users,ThisItem)
+            PaddingBottom: =5
+            PaddingLeft: =5
+            PaddingRight: =5
+            PaddingTop: =5
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =44
+            X: =427
+            Y: =10
+            ZIndex: =5
+
+        Checkbox1_2 As checkbox:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            CheckboxBorderColor: =RGBA(102, 102, 102, 1)
+            CheckboxSize: =30
+            CheckmarkFill: =RGBA(0, 120, 212, 1)
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =62
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(51, 51, 51, 1)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            OnCheck: =Collect(colRemoveUserFromSecurityRole,ThisItem)
+            OnSelect: =Select(Parent)
+            OnUncheck: =Remove(colRemoveUserFromSecurityRole,ThisItem)
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =RGBA(51, 51, 51, 1)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Size: =13
+            Text: =""
+            Width: =30
+            X: =17
+            ZIndex: =6
+
+    ComboBoxNewSecurityRole_1 As combobox:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        ChevronBackground: =RGBA(255, 255, 255, 1)
+        ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+        ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+        ChevronFill: =RGBA(33, 33, 33, 1)
+        ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+        ChevronHoverFill: =RGBA(33, 33, 33, 1)
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        DisplayFields: =["fullname","internalemailaddress"]
+        FocusedBorderColor: =ComboBoxNewSecurityRole_1.BorderColor
+        Font: =Font.'Segoe UI'
+        HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        HoverColor: =RGBA(51, 51, 51, 1)
+        HoverFill: =RGBA(212, 212, 212, 1)
+        InputTextPlaceholder: ="Select User(s)"
+        Items: =Sort(Filter(Users,'Business Unit'.'Business Unit'=galSecurityRolesList.Selected.'Business Unit'.'Business Unit'),'Full Name',Ascending)
+        MoreItemsButtonColor: =ComboBoxNewSecurityRole_1.ChevronBackground
+        PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(0, 120, 212, 1)
+        SearchFields: =["fullname"]
+        SearchItems: =Search(Sort(Filter(Users,'Business Unit'.'Business Unit'=galSecurityRolesList.Selected.'Business Unit'.'Business Unit'),'Full Name',Ascending),ComboBoxNewSecurityRole_1.SearchText,"fullname")
+        SelectionFill: =RGBA(0, 120, 212, 1)
+        SelectionTagColor: =ComboBoxNewSecurityRole_1.HoverColor
+        SelectionTagFill: =ComboBoxNewSecurityRole_1.HoverFill
+        Size: =13
+        Template: =ListItemTemplate.Person
+        Width: =340
+        X: =570
+        Y: =635
+        ZIndex: =1
+
+    "galSecurityRolesList As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+        BorderColor: =RGBA(166, 166, 166, 1)
+        Default: ={}
+        DisabledBorderColor: =galSecurityRolesList.BorderColor
+        DisabledFill: =galSecurityRolesList.Fill
+        Height: =624
+        HoverBorderColor: =galSecurityRolesList.BorderColor
+        HoverFill: =galSecurityRolesList.Fill
+        Items: |-
+            =If(
+                !IsBlank(TextInputUserSearch_1.Text),
+                Sort(
+                    Search(
+                        'Security Roles',
+                        TextInputUserSearch_1.Text,
+                        "name"
+                    ),
+                    Name,
+                    Ascending
+                ),
+                Sort(
+                    'Security Roles',
+                    Name,
+                    Ascending
+                )
+            )
+        Layout: =Layout.Vertical
+        LoadingSpinnerColor: =galSecurityRolesList.BorderColor
+        PressedBorderColor: =galSecurityRolesList.BorderColor
+        PressedFill: =galSecurityRolesList.Fill
+        ShowScrollbar: =false
+        TemplatePadding: =1
+        TemplateSize: =81
+        Width: =370
+        X: =122
+        Y: =144
+        ZIndex: =2
+
+        Button7_1 As button:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =If(ThisItem.IsSelected,ColorFade(RGBA(54, 176, 75, 1),80%), RGBA(237, 237, 237, 0.62))
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =Parent.TemplateHeight-4
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(135, 100, 184, 1), 70%)
+            OnSelect: =Select(Parent)
+            PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -50%)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            Size: =15
+            Text: =""
+            Width: =Parent.Width-4
+            Y: =1
+            ZIndex: =1
+
+        Title2_1 As label:
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =Title2_1.BorderColor
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =29
+            HoverBorderColor: =Title2_1.BorderColor
+            HoverColor: =Title2_1.Color
+            HoverFill: =Title2_1.Fill
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =Title2_1.BorderColor
+            PressedColor: =Title2_1.Color
+            PressedFill: =Title2_1.Fill
+            Text: =ThisItem. Name
+            VerticalAlign: =VerticalAlign.Top
+            Width: =230
+            X: =22
+            Y: =8
+            ZIndex: =2
+
+        Subtitle2_1 As label:
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =Subtitle2_1.BorderColor
+            Font: =Font.'Segoe UI'
+            Height: =15
+            HoverBorderColor: =Subtitle2_1.BorderColor
+            HoverColor: =Subtitle2_1.Color
+            HoverFill: =Subtitle2_1.Fill
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =Subtitle2_1.BorderColor
+            PressedColor: =Subtitle2_1.Color
+            PressedFill: =Subtitle2_1.Fill
+            Size: =11
+            Text: =ThisItem.'Business Unit'.Name
+            VerticalAlign: =VerticalAlign.Top
+            Width: =230
+            X: =22
+            Y: =37
+            ZIndex: =3
+
+        Label3 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =35
+            OnSelect: =Select(Parent)
+            Size: =13
+            Text: =CountRows(ThisItem.Users.User)
+            Width: =47
+            X: =300
+            Y: =2
+            ZIndex: =4
+
+        Label3_5 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =35
+            OnSelect: =Select(Parent)
+            Size: =13
+            Text: =CountRows(ThisItem.Teams.Team)
+            Width: =47
+            X: =300
+            Y: =37
+            ZIndex: =5
+
+        Icon3 As icon.Person:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            Color: =RGBA(0, 120, 212, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =35
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.Person
+            OnSelect: =Select(Parent)
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =21
+            X: =265
+            Y: =2
+            ZIndex: =6
+
+        Icon3_1 As icon.Person:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            Color: =RGBA(0, 120, 212, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =35
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.People
+            OnSelect: =Select(Parent)
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =21
+            X: =265
+            Y: =37
+            ZIndex: =7
+
+    TextInputUserSearch_1 As text:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        BorderThickness: =2
+        Clear: =true
+        Color: =RGBA(51, 51, 51, 1)
+        Default: =
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        FocusedBorderColor: =TextInputUserSearch_1.BorderColor
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =51
+        HintText: ="Search for a security role"
+        HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        HoverColor: =RGBA(51, 51, 51, 1)
+        HoverFill: =RGBA(255, 255, 255, 1)
+        OnChange: =Reset(ComboBoxNewSecurityRole_1);Reset(ComboBoxFieldSecurityRole_1)
+        PressedBorderColor: =RGBA(0, 120, 212, 1)
+        PressedColor: =RGBA(51, 51, 51, 1)
+        PressedFill: =RGBA(255, 255, 255, 1)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =13
+        Width: =335
+        X: =136
+        Y: =87
+        ZIndex: =4
+
+    Button5_2 As button:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(54, 176, 75, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(0, 120, 212, 1), -10%)
+        OnSelect: =ForAll(ComboBoxNewSecurityRole_1.SelectedItems, Relate(galSecurityRolesList.Selected.Users,ThisRecord));Reset(ComboBoxNewSecurityRole_1)
+        PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -50%)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Text: ="Add"
+        Width: =127
+        X: =669
+        Y: =696
+        ZIndex: =5
+
+    "GalleryFieldSecurityProfiles_1 As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
+        BorderColor: =RGBA(166, 166, 166, 1)
+        DisabledBorderColor: =GalleryFieldSecurityProfiles_1.BorderColor
+        DisabledFill: =GalleryFieldSecurityProfiles_1.Fill
+        Height: =436
+        HoverBorderColor: =GalleryFieldSecurityProfiles_1.BorderColor
+        HoverFill: =GalleryFieldSecurityProfiles_1.Fill
+        Items: =galSecurityRolesList.Selected.Teams
+        Layout: =Layout.Vertical
+        LoadingSpinnerColor: =GalleryFieldSecurityProfiles_1.BorderColor
+        PressedBorderColor: =GalleryFieldSecurityProfiles_1.BorderColor
+        PressedFill: =GalleryFieldSecurityProfiles_1.Fill
+        ShowScrollbar: =false
+        TemplatePadding: =1
+        TemplateSize: =55
+        Width: =375
+        X: =983
+        Y: =144
+        ZIndex: =9
+
+        Button6_3 As button:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(237, 237, 237, 0.62)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =Parent.TemplateHeight-4
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =Self.Fill
+            OnSelect: =Select(Parent)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =Self.Fill
+            Size: =15
+            Text: =""
+            Width: =373
+            Y: =2
+            ZIndex: =1
+
+        Title3_3 As label:
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =33
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.'Team Name'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =363
+            X: =10
+            Y: =15
+            ZIndex: =2
+
+        Icon1_4 As icon.Trash:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            Color: =RGBA(203, 59, 59, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =41
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.Trash
+            OnSelect: =Unrelate(galSecurityRolesList.Selected.Teams,ThisItem)
+            PaddingBottom: =5
+            PaddingLeft: =5
+            PaddingRight: =5
+            PaddingTop: =5
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =44
+            X: =314
+            Y: =7
+            ZIndex: =5
+
+    Label3_6 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(9, 33, 98, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =51
+        Size: =16
+        Text: ="Users"
+        Width: =176
+        X: =511
+        Y: =87
+        ZIndex: =10
+
+    Label3_7 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(9, 33, 98, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =51
+        Size: =16
+        Text: ="Teams"
+        Width: =282
+        X: =983
+        Y: =87
+        ZIndex: =11
+
+    Label3_8 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(9, 33, 98, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =51
+        Size: =16
+        Text: ="Add New User(s)"
+        Width: =444
+        X: =511
+        Y: =580
+        ZIndex: =12
+
+    Label3_9 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(9, 33, 98, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =51
+        Size: =16
+        Text: ="Add Team(s)"
+        Width: =383
+        X: =979
+        Y: =580
+        ZIndex: =13
+
+    ComboBoxFieldSecurityRole_1 As combobox:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        ChevronBackground: =RGBA(255, 255, 255, 1)
+        ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+        ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+        ChevronFill: =RGBA(33, 33, 33, 1)
+        ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+        ChevronHoverFill: =RGBA(33, 33, 33, 1)
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        DisplayFields: =["name","componentstate"]
+        FocusedBorderColor: =ComboBoxFieldSecurityRole_1.BorderColor
+        Font: =Font.'Segoe UI'
+        HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        HoverColor: =RGBA(51, 51, 51, 1)
+        HoverFill: =RGBA(212, 212, 212, 1)
+        InputTextPlaceholder: ="Select Team(s)"
+        Items: =Sort(Filter(Teams,'Business Unit'.'Business Unit'=galSecurityRolesList.Selected.'Business Unit'.'Business Unit'),'Team Name',Ascending)
+        MoreItemsButtonColor: =ComboBoxFieldSecurityRole_1.ChevronBackground
+        PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(0, 120, 212, 1)
+        SearchFields: =["name"]
+        SearchItems: =Search(Sort(Filter(Teams,'Business Unit'.'Business Unit'=galSecurityRolesList.Selected.'Business Unit'.'Business Unit'),'Team Name',Ascending),ComboBoxFieldSecurityRole_1.SearchText,"name")
+        SelectionFill: =RGBA(0, 120, 212, 1)
+        SelectionTagColor: =ComboBoxFieldSecurityRole_1.HoverColor
+        SelectionTagFill: =ComboBoxFieldSecurityRole_1.HoverFill
+        Size: =13
+        Template: =ListItemTemplate.Double
+        Width: =296
+        X: =1022
+        Y: =635
+        ZIndex: =14
+
+    Button5_3 As button:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(54, 176, 75, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(0, 120, 212, 1), -10%)
+        OnSelect: =ForAll(ComboBoxFieldSecurityRole_1.SelectedItems, Relate(galSecurityRolesList.Selected.Teams,ThisRecord));Reset(ComboBoxFieldSecurityRole_1)
+        PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -50%)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Text: ="Add"
+        Width: =127
+        X: =1107
+        Y: =696
+        ZIndex: =15
+
+    Label1_3 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(0, 120, 212, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =63
+        Size: =21
+        Text: ="Security Roles - Add Users / Teams"
+        Width: =1254
+        X: =112
+        ZIndex: =16
+
+    Rectangle1_3 As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        DisabledFill: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(179, 179, 179, 1)
+        FocusedBorderThickness: =4
+        Height: =2
+        HoverFill: =RGBA(0, 120, 212, 1)
+        PressedFill: =RGBA(0, 120, 212, 1)
+        Width: =1254
+        X: =112
+        Y: =63
+        ZIndex: =17
+
+    galLeftNavMenu3 As gallery.galleryVertical:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(0, 120, 212, 1)
+        Height: =768
+        Items: =colLeftNavMenu
+        Layout: =Layout.Vertical
+        OnSelect: =Navigate(ThisItem.Screen,None)
+        ShowScrollbar: =false
+        TemplateSize: =92
+        Width: =112
+        ZIndex: =18
+
+        Button3_3 As button:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =0
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =If(App.ActiveScreen=ThisItem.Screen,ColorFade(RGBA(0, 120, 212, 1), -20%), RGBA(0, 0,0,0))
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =92
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(0, 120, 212, 1), -10%)
+            OnSelect: =Select(Parent)
+            PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -50%)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            Size: =15
+            Text: =""
+            Width: =102
+            ZIndex: =1
+
+        Label1_7 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(255, 255, 255, .9)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            OnSelect: =Select(Parent)
+            Size: =11
+            Text: =ThisItem.Name
+            Width: =102
+            Y: =52
+            ZIndex: =2
+
+        Icon2_3 As icon.Add:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            Color: =RGBA(255, 255, 255, .9)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =ThisItem.Icon
+            OnSelect: =Select(Parent)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            X: =19
+            ZIndex: =3
+
+    Button2_2 As button:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        DisplayMode: =If(IsEmpty(colRemoveUserFromSecurityRole),Disabled, DisplayMode.Edit)
+        Fill: =RGBA(0, 120, 212, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Lighter
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(0, 120, 212, 1), -10%)
+        OnSelect: |-
+            =ForAll(
+                colRemoveUserFromSecurityRole,
+                Unrelate(
+                    galSecurityRolesList.Selected.Users,
+                    ThisRecord
+                )
+            );Clear(colRemoveUserFromSecurityRole)
+        PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -50%)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Text: ="Bulk Remove"
+        Width: =145
+        X: =832
+        Y: =98
+        ZIndex: =19
+

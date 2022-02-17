@@ -1,0 +1,50 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "fieldsecurityprofiles",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "fieldsecurityprofile",
+    "MaxGetRowsCount": 500,
+    "Name": "Field Security Profiles",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "applicationuserprofile": "ApplicationUsers",
+      "componentstate": "Component State",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By Impersonator",
+      "description": "Description",
+      "FieldSecurityProfile_SyncErrors": "Sync Errors",
+      "fieldsecurityprofileid": "Field Security Profile (fieldsecurityprofileid)",
+      "fieldsecurityprofileidunique": "Field Security Profile (fieldsecurityprofileidunique)",
+      "ismanaged": "Is Managed",
+      "lk_fieldpermission_fieldsecurityprofileid": "Field Permissions",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "name": "Name",
+      "organizationid": "Organization",
+      "overwritetime": "Record Overwrite Time",
+      "solutionid": "Solution",
+      "systemuserprofiles_association": "Users",
+      "teamprofiles_association": "Teams",
+      "versionnumber": "VersionNumber"
+    },
+    "PreferredName": "Field Security Profiles",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Field Security Profiles (Views)",
+    "Name": "_fieldsecurityprofile_views",
+    "RelatedEntityName": "Field Security Profiles",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "1ff0dc1f-b535-489c-9db2-245408b78602": "Field Security Profile Associated View",
+      "95d21eac-2240-4b0e-a9d1-fb8b45260544": "All Field Security Profiles",
+      "d3f2b932-9223-4337-9bd1-8c2fb004d8e9": "Field Security Profiles Advanced Find View",
+      "e726c252-a3e1-4af8-be89-a8904a724c55": "Field Security Profiles Lookup View"
+    }
+  }
+]

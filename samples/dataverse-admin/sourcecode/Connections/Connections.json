@@ -1,0 +1,65 @@
+{
+  "383c8406-eb22-4ed1-8af1-c1f120ee560c": {
+    "connectionInstanceId": "/providers/microsoft.powerapps/apis/shared_office365users/connections/a428a4cec3ac4e22bca1568a397217eb",
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Users",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1472/1.0.1472.2427/office365users/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365users",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Users"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "383c8406-eb22-4ed1-8af1-c1f120ee560c"
+  },
+  "383e1396-f1ef-4c46-a614-c478788adf99": {
+    "connectionInstanceId": "/providers/microsoft.powerapps/apis/shared_powerplatformforadmins/connections/bc3e6afff0b2473a98e09f1ca9752a4a",
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Power Platform for Admins",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1481/1.0.1481.2460/powerplatformforadmins/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_powerplatformforadmins",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "PowerPlatformforAdmins"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "383e1396-f1ef-4c46-a614-c478788adf99"
+  },
+  "c9c93316-7dda-4bd8-a363-d479465c6be5": {
+    "connectionInstanceId": "/providers/microsoft.powerapps/apis/shared_powerappsforadmins/connections/07d1909c20ff4d8b89982f3f352f904b",
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Power Apps for Admins",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1464/1.0.1464.2404/powerappsforadmins/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_powerappsforadmins",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "PowerAppsforAdmins"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "c9c93316-7dda-4bd8-a363-d479465c6be5"
+  }
+}
