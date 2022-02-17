@@ -27,9 +27,6 @@ The Dataverse admin app enables admins to easily manage users/teams/security rol
 
 ## Authors
 
-> One author per line, please
-> DELETE THIS PARAGRAPH BEFORE SUBMITTING
-
 Solution|Author(s)
 --------|---------
 dataverse-admin| [Vivek Bavishi](https://github.com/thatapiguy) ([@that_api_guy](https://twitter.com/that_api_guy))
@@ -59,10 +56,9 @@ You need to be a system admin in order to perform all the operations listed abov
 
 ## Minimal Path to Awesome
 
-* [Download](./solution/YOURSAMPLENAME.msapp) the `.msapp` from the `solution` folder
-* Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just downloaded.
-* Select the **Data** tab
-* ...
+* [Download](./solution/DataverseAdmin.msapp) the `.msapp` from the `solution` folder
+* Use the `.msapp` file using **File** > **Open** > **Browse** within Power Apps Studio.
+* Save and Publish
 
 ## Using the Source Code
 
