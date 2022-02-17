@@ -9,7 +9,7 @@ The Dataverse admin app enables admins to easily manage users/teams/security rol
 
 
 ![picture of the sample](assets/home-screenshot.png)
-![picture of the sample](assets/users-screenshot.png)
+![picture of the sample](assets/manage-users-screenshot.png)
 ![picture of the sample](assets/copyroles-screenshot.png)
 
 ## Applies to
