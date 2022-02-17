@@ -1,0 +1,43 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =ClearCollect(
+            colLeftNavMenu,
+            {
+                Name: "Home",
+                Screen: 'Home Screen',
+                Icon: Icon.Home
+            },
+            {
+                Name: "Users",
+                Screen: 'Users Screen',
+                Icon: Icon.Person,Description:  "Manage the security roles and field security roles for all users in the organization."
+            },
+            {
+                Name: "Teams",
+                Screen: 'Teams Screen',
+                Icon: Icon.People,Description: "Manage the security roles and field security roles for all Teams in the organization."
+            },
+            {
+                Name: "Security Roles",
+                Screen: 'Security Roles Screen',
+                Icon: Icon.Lock,Description:"Add users and teams to a selected security role."
+            },
+            {
+                Name: "Copy Roles",
+                Screen: 'Copy Roles Screen',
+                Icon: Icon.Copy,Description:"Copy the security roles from one user/team to another user/team."
+            },
+            {
+                Name:"Environments",
+                Screen:'Environments Screen',
+                Icon:Icon.LevelsLayersItems,Description: "Add/Force sync users to an environment."
+            },
+            {
+                Name:"Apps",
+                Screen:'Apps Screen',
+                Icon:Icon.Devices,Description:"Manage the app permissions for all the apps in a tenant."
+            }
+        );
+        ClearCollect(colEnvironments,PowerPlatformforAdmins.GetAdminEnvironment().value)
+
