@@ -1,0 +1,91 @@
+[
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-HelpDesk-theme",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2021-05-19T00:00:00.000Z",
+    "updateDateTime": "2021-05-19T00:00:00.000Z",
+    "title": "Fluent UI Custom Theme",
+    "shortDescription": "Beautiful template for HelpDesk applications, inspiration for you.",
+    "longDescription": [
+      "Beautiful template for HelpDesk applications, inspiration for you, Advantage: Easy to install, Easy to customize, Interface design time reduction and Higher productivity at work."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/HelpDesk-theme",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "TEMPLATE", "HELPDESK"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/HelpDesk-theme/assets/screen1.png?raw=true",
+        "alt": "Home"
+      },
+      {
+        "type": "image",
+        "order": 101,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/HelpDesk-theme/assets/screen2.png?raw=true",
+        "alt": "New Ticket"
+      },
+      {
+        "type": "image",
+        "order": 102,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/HelpDesk-theme/assets/screen3.png?raw=true",
+        "alt": "List Tickets"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "neiydarry28",
+        "name": "Neiy Briceño",
+        "pictureUrl": "https://avatars.githubusercontent.com/u/92815715?v=4"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  }
+]
