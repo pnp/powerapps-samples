@@ -16,15 +16,15 @@ level: advanced
 ms.prod: power-apps
 ---
 
-# BreadCrumb component
+# Footer component
 
 Reusable Canvas App component for your app.
 
 ### Sample Screen
 
-Sample screen of the component used on screen.
+Sample screen of the footer component used on screen.
 
-![View of the component and configurable properties](./assets/footer-component.png)  
+![Preview](./assets/footer-component.PNG)  
 
 ## Applies to
 
