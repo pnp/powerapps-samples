@@ -1,0 +1,64 @@
+[
+    {
+        "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+        "name": "pnp-powerapps-samples-site-design-homepage",
+        "version": "1.0.0.0",
+        "source": "pnp",
+        "creationDateTime": "2022-01-12T00:00:00.000Z",
+        "updateDateTime": "2022-01-12T00:00:00.000Z",
+        "title": "Power Apps Configurable BreadCrumb Component",
+        "shortDescription": "Create a configurable BreadCrumb",
+        "longDescription": [
+            "This Power Apps canvas app component provides a way to create a configurable breacrumb control. "
+        ],
+        "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/breadcrumb-component",
+        "products": [
+            "Power Apps",
+            "Power Platform"
+        ],
+        "categories": [
+            "POWERAPPS"
+        ],
+        "metadata": [
+            {
+                "key": "POWERAPPS-PREMIUM",
+                "value": "no"
+            },
+            {
+                "key": "POWERAPPS-ONPREM",
+                "value": "No"
+            },
+            {
+                "key": "POWERAPPS-CUSTOMCONNECTOR",
+                "value": "No"
+            }
+        ],
+        "thumbnails": [
+            {
+                "type": "image",
+                "order": 100,
+                "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/breadcrumb-component/assets/breadcrumb-component.png?raw=true",
+                "alt": "Preview of the solution"
+            }
+        ],
+        "authors": [
+            {
+                "gitHubAccount": "pashasongz",
+                "name": "Pavel Kovalevskij",
+                "pictureUrl": "https://github.com/pashasongz.png"
+            }
+        ],
+        "references": [
+            {
+                "name": "Create a component for canvas apps",
+                "description": "Learn how to get started building reusable components for canvas apps",
+                "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/create-component"
+            },
+            {
+                "name": "Overview of creating apps in Power Apps",
+                "description": "Power Apps enables everyone to be an app developer. Learn the basics with this overview.",
+                "url": "https://docs.microsoft.com/en-us/powerapps/maker/"
+            }
+        ]
+    }
+]
