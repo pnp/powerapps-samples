@@ -24,7 +24,8 @@ Reusable Canvas App component for your app.
 
 Sample screen of the component used on screen.
 
-![View of the component and configurable properties](./assets/breadcrumb-component.png)  
+View of the component and configurable properties
+![Preview](./assets/breadcrumb-component.PNG)
 
 ## Applies to
 
