@@ -1,0 +1,58 @@
+"'Menu Screen' As screen":
+
+    galMenu As gallery.galleryVertical:
+        Items: =colMenu
+        Layout: =Layout.Vertical
+        TemplatePadding: =15
+        TemplateSize: =70
+        X: =Parent.Width / 2 - Self.Width / 2
+        Y: =lblAdminMS.Y + lblAdminMS.Height + 20
+        ZIndex: =1
+
+        btnMenuItem As button:
+            BorderColor: =RGBA(23, 113, 122,1)
+            Color: =RGBA(23, 113, 122,1)
+            Fill: =RGBA(255, 255, 255,1)
+            FocusedBorderThickness: =0
+            Font: =Font.'Segoe UI'
+            Height: =Parent.TemplateHeight
+            HoverFill: =RGBA(23, 113, 122,1)
+            OnSelect: =If(Self.Text = "Create Event",Set(gblEventEdit,Blank())); Navigate(ThisItem.ItemScreen)
+            PressedColor: =RGBA(255,255,255,1)
+            PressedFill: =Self.HoverFill
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Text: =ThisItem.ItemTitle
+            Width: =Parent.TemplateWidth
+            ZIndex: =3
+
+    lblAdminMS As label:
+        Color: |-
+            =ColorValue("#3b3a39")
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =50
+        PaddingLeft: =20
+        Size: =25
+        Text: ="Admin"
+        Width: =400
+        X: =icoBackMS.X + icoBackMS.Width
+        Y: =40
+        ZIndex: =2
+
+    icoBackMS As icon.ChevronLeft:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =lblAdminMS.Height
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Navigate('Events Screen',ScreenTransition.UnCoverRight)
+        PaddingBottom: =5
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =5
+        Width: =Self.Height
+        X: =30
+        Y: =lblAdminMS.Y
+        ZIndex: =3
+

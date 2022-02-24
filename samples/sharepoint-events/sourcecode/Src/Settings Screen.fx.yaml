@@ -1,0 +1,30 @@
+"'Settings Screen' As screen":
+
+    lblSettings As label:
+        Color: |-
+            =ColorValue("#3b3a39")
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =50
+        PaddingLeft: =20
+        Size: =25
+        Text: ="Settings"
+        Width: =400
+        X: =icoBackAS.X + icoBackAS.Width
+        Y: =40
+        ZIndex: =1
+
+    icoBackSS As icon.ChevronLeft:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =lblViewAttendees.Height
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Navigate('Menu Screen',ScreenTransition.UnCoverRight)
+        PaddingBottom: =5
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =5
+        Width: =Self.Height
+        X: =30
+        Y: =lblViewAttendees.Y
+        ZIndex: =2
+

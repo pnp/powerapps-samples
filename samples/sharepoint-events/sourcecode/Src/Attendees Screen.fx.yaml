@@ -1,0 +1,217 @@
+"'Attendees Screen' As screen":
+
+    lblViewAttendees As label:
+        Color: |-
+            =ColorValue("#3b3a39")
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =50
+        PaddingLeft: =20
+        Size: =25
+        Text: ="View Attendees"
+        Width: =400
+        X: =icoBackAS.X + icoBackAS.Width
+        Y: =40
+        ZIndex: =1
+
+    icoBackAS As icon.ChevronLeft:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =lblViewAttendees.Height
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Navigate('Manage Events Screen',ScreenTransition.UnCoverRight)
+        PaddingBottom: =5
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =5
+        Width: =Self.Height
+        X: =30
+        Y: =lblViewAttendees.Y
+        ZIndex: =2
+
+    galAttendees As gallery.galleryVertical:
+        Fill: =RGBA(250,249, 248,1)
+        Height: =Parent.Height - shpHeaderAS.Height - lblViewAttendees.Height - lblEventNameAS.Height - 100
+        Items: =Filter('Event Attendees',EventID = gblEvent.ID)
+        Layout: =Layout.Vertical
+        TemplateSize: =50
+        Width: =966
+        X: =Parent.Width / 2 - Self.Width / 2
+        Y: =shpHeaderAS.Y + shpHeaderAS.Height
+        ZIndex: =3
+
+        lblUserName As label:
+            Font: =Font.'Segoe UI'
+            Height: =34
+            OnSelect: =Select(Parent)
+            Size: =12
+            Text: =ThisItem.Attendee.DisplayName
+            Width: =260
+            X: =10
+            Y: =Parent.TemplateHeight / 2 - Self.Height / 2
+            ZIndex: =5
+
+        lblEmail As label:
+            Font: =Font.'Segoe UI'
+            Height: =34
+            OnSelect: =Select(Parent)
+            Size: =12
+            Text: =ThisItem.Attendee.Email
+            Width: =500
+            X: =lblUserName.X + lblUserName.Width
+            Y: =lblUserName.Y
+            ZIndex: =6
+
+    shpHeaderAS As rectangle:
+        Fill: =RGBA(23, 113, 122,1)
+        Height: =50
+        Width: =galEventMES.Width
+        X: =galEventMES.X
+        Y: =icoRefreshAS.Y + icoRefreshAS.Height + 10
+        ZIndex: =4
+
+    lblUserNameHeader As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.'Segoe UI'
+        Height: =shpHeaderMES.Height
+        Text: ="Name"
+        X: =galAttendees.X + 20
+        Y: =shpHeaderAS.Y
+        ZIndex: =5
+
+    lblEmailHeader As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.'Segoe UI'
+        Height: =shpHeaderMES.Height
+        Text: ="Email"
+        X: =lblUserName.X + galAttendees.X + lblEventNameMES.Width + 10
+        Y: =shpHeaderAS.Y
+        ZIndex: =6
+
+    lblEventNameAS As label:
+        Color: |-
+            =ColorValue("#3b3a39")
+        Font: =Font.'Segoe UI'
+        PaddingLeft: =25
+        Size: =16
+        Text: =gblEvent.'Event Name'
+        Width: =624
+        X: =lblViewAttendees.X
+        Y: =lblViewAttendees.Y + lblViewAttendees.Height + 10
+        ZIndex: =7
+
+    icoPrint As icon.Print:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =30
+        Icon: =Icon.Print
+        OnSelect: =Navigate('Print Attendees Screen',ScreenTransition.CoverRight)
+        Tooltip: ="Print attendees"
+        Width: =30
+        X: =shpHeaderAS.X + shpHeaderAS.Width - Self.Width - icoEmail.Width - 20
+        Y: =lblEventNameAS.Y + lblEventNameAS.Height
+        ZIndex: =8
+
+    icoRefreshAS As icon.Print:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =30
+        Icon: =Icon.Reload
+        OnSelect: =Refresh('Event Attendees')
+        Tooltip: ="Refresh"
+        Width: =30
+        X: =icoPrint.X - icoPrint.Width - 20
+        Y: =lblEventNameAS.Y + lblEventNameAS.Height
+        ZIndex: =9
+
+    icoEmail As icon.Print:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =32
+        Icon: =Icon.Mail
+        OnSelect: =Set(gblEmail,true)
+        Tooltip: ="Email attendees"
+        Width: =32
+        X: =shpHeaderAS.X + shpHeaderAS.Width - Self.Width
+        Y: =lblEventNameAS.Y + lblEventNameAS.Height
+        ZIndex: =10
+
+    shpOverlayAS As rectangle:
+        Fill: =RGBA(0, 0, 0, 0.6)
+        FocusedBorderThickness: =0
+        Height: =Parent.Height
+        Visible: =gblEmail
+        Width: =Parent.Width
+        ZIndex: =11
+
+    shpDialogEmail As rectangle:
+        Fill: =RGBA(255, 255, 255,1)
+        Height: =Parent.Height / 3
+        Visible: =gblEmail
+        Width: =Parent.Width / 3
+        X: =Parent.Width / 2 - Self.Width / 2
+        Y: =Parent.Height / 2 - Self.Height / 2
+        ZIndex: =13
+
+    rteEmailBody As richTextEditor:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Default: ="Compose email to <strong>" & gblEvent.'Event Name' & "</strong> attendees here."
+        Height: =shpDialogEmail.Height - lblEmailAttendees.Height * 2
+        Visible: =gblEmail
+        Width: =shpDialogEmail.Width - 30
+        X: =Parent.Width / 2 - Self.Width / 2
+        Y: =lblEmailAttendees.Y + lblEmailAttendees.Height
+        ZIndex: =14
+
+    lblEmailAttendees As label:
+        Color: =RGBA(0,0,0,1)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =50
+        PaddingLeft: =15
+        Size: =15
+        Text: ="Email Attendees"
+        Visible: =gblEmail
+        Width: =400
+        X: =shpDialogEmail.X
+        Y: =shpDialogEmail.Y
+        ZIndex: =15
+
+    btnSendEmail As button:
+        BorderThickness: =0
+        Color: =RGBA(255,255, 255, 1)
+        Fill: =RGBA(23, 113, 122,1)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Normal
+        Height: =35
+        HoverFill: =ColorFade(Self.Fill, -20%)
+        OnSelect: =EmailEventAttendees.Run("",gblEvent.ID,rteEmailBody.HtmlText);Notify("Successfully sent email to attendees",NotificationType.Success,5000);Set(gblEmail,false)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =10
+        Text: ="Send email"
+        Visible: =gblEmail
+        Width: =110
+        X: =Parent.Width / 2 - Self.Width / 2 - btnCancel.Width / 2 - 2.5
+        Y: =rteEmailBody.Y + rteEmailBody.Height + 10
+        ZIndex: =16
+
+    btnCancel As button:
+        BorderThickness: =0
+        Color: =RGBA(255,255, 255, 1)
+        Fill: =DimGray
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Normal
+        Height: =35
+        HoverFill: =ColorFade(Self.Fill, -20%)
+        OnSelect: =Set(gblEmail,false)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =10
+        Text: ="Cancel"
+        Visible: =gblEmail
+        Width: =110
+        X: =Parent.Width / 2 - Self.Width / 2 + btnRegisterEIS.Width / 2 + 5
+        Y: =rteEmailBody.Y + rteEmailBody.Height + 10
+        ZIndex: =17
+

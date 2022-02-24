@@ -1,0 +1,146 @@
+PopupDialog As CanvasComponent:
+    Buttons: |-
+        =Table({Label: "Cancel", Fill:RGBA(255,255,255,1), Color:RGBA(0,134,208,1)},{Label: "OK", Fill:RGBA(0,134,208,1), Color:RGBA(255,255,255,1)})
+    ButtonStyles: |-
+        =Table({ButtonText: "Cancel", ButtonFill:RGBA(225,223,221,1), ButtonColor:RGBA(0,134,208,1)},{ButtonText: "OK", ButtonFill:RGBA(0,134,208,1), ButtonColor:RGBA(255,255,255,1)})
+    CancelButtonText: ="Cancel"
+    Description: ="Text"
+    DialogColor: =RGBA(255, 255, 255, 1)
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =App.Height
+    HTMLDescription: =""
+    OKButtonText: ="OK"
+    OnReset: =Set(discardRequest,false);Set(isDialogOpen,false)
+    OnSelectCancel: ="Text"
+    OnSelectOK: ="Text"
+    Screen: =App.ActiveScreen
+    Title: ="Title"
+    Visible: =PopupDialog.IsOpen
+    Width: =App.Width
+    X: =0
+    Y: =0
+    ZIndex: =13
+
+    shpPDlgOverlay As rectangle:
+        DisabledFill: =shpPDlgOverlay.Fill
+        Fill: =RGBA(0, 0, 0, 0.8)
+        FocusedBorderColor: =shpPDlgOverlay.BorderColor
+        Height: =PopupDialog.Height
+        HoverFill: =shpPDlgOverlay.Fill
+        PressedFill: =shpPDlgOverlay.Fill
+        Width: =PopupDialog.Width
+        ZIndex: =1
+
+    shpPDlg As rectangle:
+        DisabledFill: =shpPDlg.Fill
+        Fill: =PopupDialog.DialogColor
+        FocusedBorderColor: =shpPDlg.BorderColor
+        Height: |-
+            =If(
+                htmPDlgDescription.Visible,
+                190 + htmPDlgDescription.Height / 2,
+                220 + lblPDlgDescription.Height / 2
+            )
+        HoverFill: =shpPDlg.Fill
+        PressedFill: =shpPDlg.Fill
+        Width: =576
+        X: =PopupDialog.Width / 2 - Self.Width / 2
+        Y: =PopupDialog.Height / 2 - Self.Height / 2
+        ZIndex: =2
+
+    lblPDlgTitle As label:
+        FocusedBorderColor: =lblPDlgTitle.BorderColor
+        Font: ='Segoe UI'
+        FontWeight: =Semibold
+        Height: =33
+        HoverBorderColor: =lblPDlgTitle.BorderColor
+        HoverColor: =lblPDlgTitle.Color
+        HoverFill: =lblPDlgTitle.Fill
+        PaddingLeft: =15
+        PressedBorderColor: =lblPDlgTitle.BorderColor
+        PressedColor: =lblPDlgTitle.Color
+        PressedFill: =lblPDlgTitle.Fill
+        Size: =18
+        Text: =PopupDialog.Title
+        Width: =525
+        X: =shpPDlg.X
+        Y: =shpPDlg.Y + 20
+        ZIndex: =3
+
+    lblPDlgDescription As label:
+        AutoHeight: =true
+        Color: =RGBA(45, 45, 45, 1)
+        FocusedBorderColor: =lblPDlgDescription.BorderColor
+        Font: ='Segoe UI'
+        Height: =100
+        HoverBorderColor: =lblPDlgDescription.BorderColor
+        HoverColor: =lblPDlgDescription.Color
+        HoverFill: =lblPDlgDescription.Fill
+        PaddingLeft: =15
+        PressedBorderColor: =lblPDlgDescription.BorderColor
+        PressedColor: =lblPDlgDescription.Color
+        PressedFill: =lblPDlgDescription.Fill
+        Text: =PopupDialog.Description
+        VerticalAlign: =VerticalAlign.Top
+        Width: =525
+        X: =shpPDlg.X
+        Y: =lblPDlgTitle.Y + lblPDlgTitle.Height + 10
+        ZIndex: =4
+
+    htmPDlgDescription As htmlViewer:
+        AutoHeight: =true
+        Font: =Font.'Segoe UI'
+        HoverBorderColor: =htmPDlgDescription.BorderColor
+        HtmlText: =PopupDialog.HTMLDescription
+        PressedBorderColor: =htmPDlgDescription.BorderColor
+        Visible: =false
+        Width: =525
+        X: =shpPDlg.X + 16
+        Y: =lblPDlgTitle.Y + lblPDlgTitle.Height + 10
+        ZIndex: =7
+
+    btnDlgOK As button:
+        BorderThickness: =0
+        Color: =LookUp(PopupDialog.ButtonStyles,ButtonText = PopupDialog.OKButtonText).ButtonColor
+        Fill: =LookUp(PopupDialog.ButtonStyles,ButtonText = PopupDialog.OKButtonText).ButtonFill
+        Font: =Font.'Segoe UI'
+        Height: =52
+        HoverFill: =ColorFade(Self.Fill, -20%)
+        OnSelect: =PopupDialog.OnSelectOK()
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Text: =PopupDialog.OKButtonText
+        Width: =187
+        X: =shpPDlg.X + shpPDlg.Width - Self.Width - 25
+        Y: =shpPDlg.Y + shpPDlg.Height - Self.Height - 25
+        ZIndex: =8
+
+    btnDlgCancel As button:
+        BorderThickness: =0
+        Color: =LookUp(PopupDialog.ButtonStyles,ButtonText = PopupDialog.CancelButtonText).ButtonColor
+        Fill: =LookUp(PopupDialog.ButtonStyles,ButtonText = "Cancel").ButtonFill
+        Font: =Font.'Segoe UI'
+        Height: =52
+        HoverFill: =ColorFade(Self.Fill, -20%)
+        OnSelect: =PopupDialog.OnSelectCancel()
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Text: =PopupDialog.CancelButtonText
+        Width: =187
+        X: =btnDlgOK.X - btnDlgOK.Width - 25
+        Y: =btnDlgOK.Y
+        ZIndex: =9
+
+    icoDlgClose As icon.Cancel:
+        Height: =23
+        Icon: =Icon.Cancel
+        OnSelect: =PopupDialog.OnSelectCancel()
+        Width: =23
+        X: =shpPDlg.X + shpPDlg.Width - Self.Width - 15
+        Y: =shpPDlg.Y + 15
+        ZIndex: =10
+

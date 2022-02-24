@@ -1,0 +1,31 @@
+"'Delete Event Screen' As screen":
+    OnVisible: =Select(fncDeleteEvent)
+
+    fncDeleteEvent As label:
+        OnSelect: |-
+            =If(
+                gblDelete,
+                Remove(
+                    Events,
+                    gblDeleteEvent
+                );
+                Set(
+                    gblDelete,
+                    false
+                );
+                Set(
+                    gblDeleteEvent,
+                    Blank()
+                );
+                Notify(
+                    "Event deleted",
+                    NotificationType.Success,
+                    5000
+                );
+                Navigate('Manage Events Screen')
+            )
+        Text: =""
+        X: =40
+        Y: =40
+        ZIndex: =1
+

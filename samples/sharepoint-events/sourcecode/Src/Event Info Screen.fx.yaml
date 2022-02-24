@@ -1,0 +1,316 @@
+"'Event Info Screen' As screen":
+    Height: =App.Height
+    OnVisible: =Set(gblEventRegistrationID,LookUp('Event Attendees',Attendee.Email = gblUser.Email && EventID = gblEvent.ID).ID)
+    Width: =App.Width
+
+    imgEventEIS As image:
+        Height: =Parent.Height - Self.Y * 2
+        Image: =gblEvent.'Event Image'
+        ImagePosition: =ImagePosition.Fill
+        OnSelect: =
+        Visible: =!IsBlank(gblEvent.'Event Image')
+        Width: =Parent.Width / 2
+        X: |
+            =0
+        Y: |
+            =0
+        ZIndex: =1
+
+    lblEventNameEIS As label:
+        AutoHeight: =true
+        Color: =RGBA(0, 0, 0,1)
+        Font: =Font.'Segoe UI'
+        Height: =30
+        OnSelect: =
+        Size: =20
+        Text: =gblEvent.'Event Name'
+        Width: |-
+            =
+            Parent.Width / 2 - 50
+        X: =lblCategoryEIS.X
+        Y: =lblCategoryEIS.Y + lblCategoryEIS.Height + 10
+        ZIndex: =2
+
+    lblCategoryEIS As label:
+        AutoHeight: =true
+        Color: =RGBA(163, 162, 160,1)
+        Font: =Font.'Segoe UI'
+        Height: =30
+        OnSelect: =
+        Size: =15
+        Text: =gblEvent.Category.Value
+        Width: =500
+        X: |-
+            =//lblEventNameEIS.X
+            
+            imgEventEIS.X + imgEventEIS.Width + 20
+        Y: |-
+            =//imgEventEIS.Y + imgEventEIS.Height + 10
+            
+            imgEventEIS.Y + 10
+        ZIndex: =3
+
+    lblLocationEIS As label:
+        AutoHeight: =true
+        Color: =RGBA(163, 162, 160,1)
+        Font: =Font.'Segoe UI'
+        Height: =30
+        OnSelect: =
+        Size: =15
+        Text: =gblEvent.Location
+        Width: |-
+            =
+            
+            Parent.Width / 2 - icoLocation.Width - 50
+        X: |
+            =lblEventNameEIS.X + icoLocation.Width
+        Y: =lblDateTime.Y + lblDateTime.Height + 10
+        ZIndex: =4
+
+    lblDateTime As label:
+        AutoHeight: =true
+        Color: =RGBA(0, 0, 0,1)
+        Font: =Font.'Segoe UI'
+        Height: =30
+        OnSelect: =
+        Size: =15
+        Text: |-
+            =Concatenate(Text(gblEvent.'Start Time',"[$-en-GB]dd-mm-yyyy HH:mm")," - ",Text(gblEvent.'End Time',"[$-en-GB]dd-mm-yyyy HH:mm"))
+        Width: |-
+            =
+            Parent.Width / 2 - 40
+        X: =lblEventNameEIS.X
+        Y: =htmEventDesc.Y + htmEventDesc.Height + 20
+        ZIndex: =5
+
+    icoLocation As icon.Waypoint:
+        Color: =lblLocationEIS.Color
+        Height: =lblLocationEIS.Height
+        Icon: =Icon.Waypoint
+        PaddingBottom: =5
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =5
+        Width: =Self.Height
+        X: =lblEventNameEIS.X
+        Y: =lblLocationEIS.Y
+        ZIndex: =6
+
+    btnRegisterEIS As button:
+        BorderThickness: =0
+        Fill: =RGBA(23, 113, 122,1)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Normal
+        Height: =35
+        HoverFill: =ColorFade(Self.Fill, -20%)
+        OnSelect: |-
+            =If(
+                Self.Text = "Register",
+                EventRegistration.Run(
+                    true,
+                    gblEvent.ID,
+                    0,
+                    gblEvent.'Event Name',
+                    Text(
+                        gblEvent.'Start Time',
+                        DateTimeFormat.UTC
+                    ),
+                    Text(
+                        gblEvent.'End Time',
+                        DateTimeFormat.UTC
+                    ),
+                    If(
+                        !IsBlank(gblEvent.'Event Link'),
+                        gblEvent.'Event Link',
+                        ""
+                    ),
+                    gblEvent.Location
+                );
+                Notify(
+                    "Successfully registered for " & gblEvent.'Event Name',
+                    NotificationType.Success,
+                    5000
+                );
+                Clear(colMyEvents);
+                Collect(
+                    colMyEvents,
+                    gblEvent
+                );
+                Refresh('Event Attendees');
+                Set(
+                    gblEventRegistrationID,
+                    LookUp(
+                        'Event Attendees',
+                        Attendee.Email = gblUser.Email && EventID = gblEvent.ID
+                    ).ID
+                ),
+                EventRegistration.Run(
+                    false,
+                    gblEvent.ID,
+                    gblEventRegistrationID,
+                    gblEvent.'Event Name',
+                    Text(
+                        gblEvent.'Start Time',
+                        DateTimeFormat.UTC
+                    ),
+                    Text(
+                        gblEvent.'End Time',
+                        DateTimeFormat.UTC
+                    ),
+                    If(
+                        !IsBlank(gblEvent.'Event Link'),
+                        gblEvent.'Event Link',
+                        ""
+                    ),
+                    gblEvent.Location
+                );
+                Refresh('Event Attendees');
+                
+            // Assume we are unregistering - remove from my events collection
+            RemoveIf(
+                    colMyEvents,
+                    ID = gblEvent.ID
+                );
+                Set(
+                    gblEventRegistrationID,
+                    Blank()
+                );
+                Notify(
+                    "Successfully unregistered for " & gblEvent.'Event Name',
+                    NotificationType.Success,
+                    5000
+                );
+                
+            )
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =10
+        Text: =If(!IsBlank(LookUp(colMyEvents,ID = gblEvent.ID)),"Unregister","Register")
+        Tooltip: =If(Self.Text = "Register","Register for this event","Unregister for this event")
+        Visible: |-
+            =If(
+                !IsBlank(gblEvent.'Event Name') && !IsBlank(gblEvent.'Start Time') && !IsBlank(gblEvent.'End Time') && !IsBlank(gblEvent.Location),
+                true,
+                false
+            )
+        Width: =110
+        X: =lblEventNameEIS.X + 5
+        Y: =lblLocationEIS.Y + lblLocationEIS.Height + 20
+        ZIndex: =7
+
+    shpEventBgEIS As rectangle:
+        Fill: =RGBA(23, 113, 122,1)
+        Height: =imgEventEIS.Height
+        OnSelect: =
+        Visible: =IsBlank(gblEvent.'Event Image') && gblShowEventImage
+        Width: =imgEventEIS.Width
+        X: |
+            =0
+        Y: |
+            =0
+        ZIndex: =8
+
+    shpRegisteredBgEIS As circle:
+        Fill: =RGBA(23, 113, 122,1)
+        Height: =40
+        OnSelect: =
+        Visible: =btnRegisterEIS.Text = "Unregister"
+        Width: =40
+        X: =Parent.Width - Self.Width - 20
+        Y: =30
+        ZIndex: =10
+
+    icoRegisteredEIS As icon.Check:
+        Color: =RGBA(255,255,255,1)
+        Height: =shpRegisteredBgEIS.Height
+        Icon: =Icon.Check
+        OnSelect: =
+        PaddingBottom: =5
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =5
+        Visible: =btnRegisterEIS.Text = "Unregister"
+        Width: =shpRegisteredBgEIS.Width
+        X: =Parent.Width - Self.Width - 20
+        Y: =30
+        ZIndex: =11
+
+    lblEventLink As label:
+        AutoHeight: =true
+        Color: =Blue
+        Font: =Font.'Segoe UI'
+        Height: =30
+        OnSelect: =Launch(gblEvent.'Event Link')
+        PaddingLeft: =0
+        Size: =12
+        Text: ="Join Event"
+        Underline: =true
+        Visible: =btnRegisterEIS.Text = "Unregister"
+        Width: |-
+            =
+            
+            Parent.Width / 2 - 50
+        X: =btnRegisterEIS.X
+        Y: =btnRegisterEIS.Y + btnRegisterEIS.Height + 30
+        ZIndex: =12
+
+    htmEventDesc As htmlViewer:
+        AutoHeight: =true
+        Font: =Font.'Segoe UI'
+        HtmlText: =gblEvent.Description
+        Size: =18
+        Width: =Parent.Width / 2 - 50
+        X: =lblEventNameEIS.X
+        Y: |
+            =lblEventNameEIS.Y + lblEventNameEIS.Height
+        ZIndex: =13
+
+    shpEventImgOverlayEIS As rectangle:
+        Fill: =If(!IsBlank(gblEvent.'Event Image'),RGBA(0,0,0,0.3),RGBA(255,255,255,1))
+        Height: =imgEventEIS.Height
+        Visible: =!IsBlank(gblEvent.'Event Image')
+        Width: =imgEventEIS.Width
+        X: =imgEventEIS.X
+        Y: =imgEventEIS.Y
+        ZIndex: =14
+
+    icoBackEIS As icon.ChevronLeft:
+        Color: =RGBA(255,255,255,1)
+        Height: =50
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Navigate('Events Screen',ScreenTransition.UnCoverRight)
+        Width: =50
+        X: |
+            =5
+        Y: =15
+        ZIndex: =15
+
+    lblDayEIS As label:
+        Align: =Align.Center
+        Color: =RGBA(255,255,255,1)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =50
+        OnSelect: =
+        Size: =40
+        Text: =Day(gblEvent.'Start Time')
+        Width: =200
+        X: =imgEventEIS.Width / 2 - Self.Width / 2
+        Y: =imgEventEIS.Y + imgEventEIS.Height / 2 - Self.Height / 2
+        ZIndex: =16
+
+    lblMonthEIS As label:
+        Align: =Align.Center
+        Color: =RGBA(255,255,255,1)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        OnSelect: =
+        Size: =30
+        Text: =Upper(Text(gblEvent.'Start Time',"[$-en-US]mmm"))
+        Width: =200
+        X: =imgEventEIS.Width / 2 - Self.Width / 2
+        Y: =imgEventEIS.Y + imgEventEIS.Height / 2 - Self.Height / 2 - lblDayEIS.Height - 10
+        ZIndex: =17
+

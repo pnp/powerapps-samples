@@ -1,0 +1,922 @@
+"'Create Event Screen' As screen":
+    Height: =App.Height
+    OnVisible: =ResetForm(frmEvent);Reset(btnAddEventImage)
+    Width: =App.Width
+
+    frmEvent As form:
+        DataSource: =Events
+        DefaultMode: =If(!IsBlank(gblEventEdit),FormMode.Edit,FormMode.New)
+        Height: =Parent.Height - lblCreateEvent.Height - lblCreateEvent.Y - 30
+        Item: =gblEventEdit
+        OnSuccess: |-
+            =// Only upload an image if an image has been added
+            If(
+                Not("sample" in Text(imgEventImage.Image)),
+            // Convert image to binary
+                Set(
+                    varJSON,
+                    With(
+                        {
+                            wJSON: JSON(
+                                imgEventImage.Image,
+                                JSONFormat.IncludeBinaryData
+                            )
+                        },
+                        With(
+                            {
+                                wCommaPosition: Find(
+                                    ",",
+                                    wJSON
+                                )
+                            },
+                            Mid(
+                                wJSON,
+                                wCommaPosition + 1,
+                                Len(wJSON) - wCommaPosition - 1
+                            )
+                        )
+                    )
+                );
+                
+            // Run flow to upload the event image to the event images list
+            UpdateContext(
+                    {
+                        locTrimmedEventName: Uploadeventimage.Run(
+                            Concat(
+                                Filter(
+                                    Split(
+                                        frmEvent.LastSubmit.'Event Name',
+                                        ""
+                                    ),
+                                    IsMatch(
+                                        Result,
+                                        "^[a-zA-Z0-9]*$"
+                                    )
+                                ),
+                                Result
+                            ),
+                            varJSON,
+                            frmEvent.LastSubmit.ID
+                        )
+                    }
+                )
+            );
+        SnapToColumns: =false
+        Width: =Parent.Width
+        X: |
+            =0
+        Y: =imgEventImage.Y + imgEventImage.Height
+        ZIndex: =2
+
+        crdEventName As typedDataCard.textualEditCard:
+            BorderColor: |-
+                =ColorValue("#3b3a39")
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="EventName"
+            Default: =ThisItem.'Event Name'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: ="Event Name"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =80
+            MaxLength: =DataSourceInfo([@Events], DataSourceInfo.MaxLength, "EventName")
+            Required: =false
+            Update: =txtEventNameValue.Text
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =13
+
+            lblEventNameKey As label:
+                AutoHeight: =true
+                Color: |-
+                    =ColorValue("#3b3a39")
+                Font: =Font.'Segoe UI'
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            txtEventNameValue As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.'Segoe UI'
+                HintText: ="Enter a name for your event"
+                HoverBorderColor: =Self.BorderColor
+                HoverFill: =RGBA(255, 255, 255, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =lblEventNameKey.Y + lblEventNameKey.Height + 5
+                ZIndex: =2
+
+            lblEventNameError As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =txtEventNameValue.Y + txtEventNameValue.Height
+                ZIndex: =3
+
+            lblEventNameStar As label:
+                Align: =Align.Center
+                Height: =lblEventNameKey.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =lblEventNameKey.Y
+                ZIndex: =4
+
+        crdDescription As typedDataCard.textualEditCard:
+            BorderColor: |-
+                =ColorValue("#3b3a39")
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Description"
+            Default: =ThisItem.Description
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: ="Description"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =180
+            MaxLength: =DataSourceInfo([@Events], DataSourceInfo.MaxLength, "Description")
+            Required: =false
+            Update: =rteDescription.HtmlText
+            Width: =Parent.Width
+            X: =0
+            Y: =1
+            ZIndex: =13
+
+            DataCardKey5 As label:
+                AutoHeight: =true
+                Color: |-
+                    =ColorValue("#3b3a39")
+                Font: =Font.'Segoe UI'
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            ErrorMessage5 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =rteDescription.Y + rteDescription.Height
+                ZIndex: =3
+
+            StarVisible5 As label:
+                Align: =Align.Center
+                Height: =DataCardKey5.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey5.Y
+                ZIndex: =4
+
+            rteDescription As richTextEditor:
+                BorderColor: =Parent.BorderColor
+                Default: ="Enter the event <strong>description </strong> here."
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey5.Y + DataCardKey5.Height + 5
+                ZIndex: =5
+
+        crdStartTime As typedDataCard.dateTimeEditCard:
+            BorderColor: |-
+                =ColorValue("#3b3a39")
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="StartTime"
+            Default: =ThisItem.'Start Time'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: ="Start Time"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =dpStartTimeValue.SelectedDate + Time(Value(drpSTHourValue.Selected.Value), Value(drpSTMinuteValue.Selected.Value), 0)
+            Width: =Parent.Width / 2
+            X: =0
+            Y: =2
+            ZIndex: =13
+
+            lblStartTimeKey As label:
+                AutoHeight: =true
+                Color: |-
+                    =ColorValue("#3b3a39")
+                Font: =Font.'Segoe UI'
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            dpStartTimeValue As datepicker:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultDate: =Parent.Default
+                DisplayMode: =Parent.DisplayMode
+                EndYear: =Year(Today())+100
+                Font: =Font.'Segoe UI'
+                IconBackground: |-
+                    =ColorValue("#3b3a39")
+                IsEditable: =true
+                PaddingBottom: =0
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                StartYear: =1899
+                Tooltip: =Parent.DisplayName
+                Width: =(Parent.Width - 60) / 2
+                X: =30
+                Y: =lblStartTimeKey.Y + lblStartTimeKey.Height + 5
+                ZIndex: =2
+
+            drpSTHourValue As dropdown:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                ChevronBackground: |-
+                    =ColorValue("#3b3a39")
+                Default: =Text(Hour(Parent.Default),"00")
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.'Segoe UI'
+                Height: =dpStartTimeValue.Height
+                Items: =["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"]
+                PaddingBottom: =5
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PaddingRight: =5
+                PaddingTop: =5
+                Tooltip: =Parent.DisplayName
+                Width: =dpStartTimeValue.Width / 2 - 10
+                X: =dpStartTimeValue.X + dpStartTimeValue.Width + 10
+                Y: =dpStartTimeValue.Y
+                ZIndex: =3
+
+            lblSTSeparator As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Bold
+                Height: =drpSTHourValue.Height
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: |-
+                    =":"
+                Width: =10
+                Wrap: =false
+                X: =drpSTHourValue.X + drpSTHourValue.Width
+                Y: =drpSTHourValue.Y
+                ZIndex: =4
+
+            drpSTMinuteValue As dropdown:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                ChevronBackground: |-
+                    =ColorValue("#3b3a39")
+                Default: =Text(Minute(Parent.Default),"00")
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.'Segoe UI'
+                Height: =drpSTHourValue.Height
+                Items: =["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59"]
+                PaddingBottom: =5
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PaddingRight: =5
+                PaddingTop: =5
+                Tooltip: =Parent.DisplayName
+                Width: =drpSTHourValue.Width
+                X: =drpSTHourValue.X + drpSTHourValue.Width + lblSTSeparator.Width
+                Y: =drpSTHourValue.Y
+                ZIndex: =5
+
+            lblStartTimeError As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =drpSTHourValue.Y + drpSTHourValue.Height
+                ZIndex: =6
+
+            lblStartTimeStar As label:
+                Align: =Align.Center
+                Height: =lblStartTimeKey.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =lblStartTimeKey.Y
+                ZIndex: =7
+
+        crdEndTime As typedDataCard.dateTimeEditCard:
+            BorderColor: |-
+                =ColorValue("#3b3a39")
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="EndTime"
+            Default: =ThisItem.'End Time'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: ="End Time"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =dpEndTimeValue.SelectedDate + Time(Value(drpETHourValue.Selected.Value), Value(drpETMinuteValue.Selected.Value), 0)
+            Width: =Parent.Width / 2
+            X: =1
+            Y: =2
+            ZIndex: =13
+
+            lblEndTimeKey As label:
+                AutoHeight: =true
+                Color: |-
+                    =ColorValue("#3b3a39")
+                Font: =Font.'Segoe UI'
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            dpEndTimeValue As datepicker:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultDate: =Parent.Default
+                DisplayMode: =Parent.DisplayMode
+                EndYear: =Year(Today())+100
+                Font: =Font.'Segoe UI'
+                IconBackground: |-
+                    =ColorValue("#3b3a39")
+                IsEditable: =true
+                PaddingBottom: =0
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                StartYear: =1899
+                Tooltip: =Parent.DisplayName
+                Width: =(Parent.Width - 60) / 2
+                X: =30
+                Y: =lblEndTimeKey.Y + lblEndTimeKey.Height + 5
+                ZIndex: =2
+
+            drpETHourValue As dropdown:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                ChevronBackground: |-
+                    =ColorValue("#3b3a39")
+                Default: =Text(Hour(Parent.Default),"00")
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.'Segoe UI'
+                Height: =dpEndTimeValue.Height
+                Items: =["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"]
+                PaddingBottom: =5
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PaddingRight: =5
+                PaddingTop: =5
+                Tooltip: =Parent.DisplayName
+                Width: =dpEndTimeValue.Width / 2 - 10
+                X: =dpEndTimeValue.X + dpEndTimeValue.Width + 10
+                Y: =dpEndTimeValue.Y
+                ZIndex: =3
+
+            lblETSeparator As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Bold
+                Height: =drpETHourValue.Height
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: |-
+                    =":"
+                Width: =10
+                Wrap: =false
+                X: =drpETHourValue.X + drpETHourValue.Width
+                Y: =drpETHourValue.Y
+                ZIndex: =4
+
+            drpETMinuteValue As dropdown:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                ChevronBackground: |-
+                    =ColorValue("#3b3a39")
+                Default: =Text(Minute(Parent.Default),"00")
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.'Segoe UI'
+                Height: =drpETHourValue.Height
+                Items: =["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59"]
+                PaddingBottom: =5
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PaddingRight: =5
+                PaddingTop: =5
+                Tooltip: =Parent.DisplayName
+                Width: =drpETHourValue.Width
+                X: =drpETHourValue.X + drpETHourValue.Width + lblETSeparator.Width
+                Y: =drpETHourValue.Y
+                ZIndex: =5
+
+            lblEndTimeError As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =drpETHourValue.Y + drpETHourValue.Height
+                ZIndex: =6
+
+            lblEndTimeStar As label:
+                Align: =Align.Center
+                Height: =lblEndTimeKey.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =lblEndTimeKey.Y
+                ZIndex: =7
+
+        crdLocation As typedDataCard.textualEditCard:
+            BorderColor: |-
+                =ColorValue("#3b3a39")
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Location"
+            Default: =ThisItem.Location
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: ="Location"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@Events], DataSourceInfo.MaxLength, "Location")
+            Required: =false
+            Update: =txtLocationValue.Text
+            Width: =Parent.Width / 2
+            X: =2
+            Y: =3
+            ZIndex: =13
+
+            lblLocationKey As label:
+                AutoHeight: =true
+                Color: |-
+                    =ColorValue("#3b3a39")
+                Font: =Font.'Segoe UI'
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            txtLocationValue As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.'Segoe UI'
+                HintText: ="Where will the event take place"
+                HoverBorderColor: =Self.BorderColor
+                HoverFill: =RGBA(255,255,255,1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =lblLocationKey.Y + lblLocationKey.Height + 5
+                ZIndex: =2
+
+            lblLocationError As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =txtLocationValue.Y + txtLocationValue.Height
+                ZIndex: =3
+
+            lblLocationStar As label:
+                Align: =Align.Center
+                Height: =lblLocationKey.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =lblLocationKey.Y
+                ZIndex: =4
+
+        crdCapacity As typedDataCard.numberEditCard:
+            BorderColor: |-
+                =ColorValue("#3b3a39")
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Capacity"
+            Default: =ThisItem.Capacity
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: ="Capacity"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =Value(txtCapacityValue.Text)
+            Width: =226
+            X: =3
+            Y: =3
+            ZIndex: =13
+
+            lblCapacityKey As label:
+                AutoHeight: =true
+                Color: |-
+                    =ColorValue("#3b3a39")
+                Font: =Font.'Segoe UI'
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            txtCapacityValue As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.'Segoe UI'
+                Format: =TextFormat.Number
+                HintText: ="Enter capacity"
+                HoverBorderColor: =Self.BorderColor
+                HoverFill: =RGBA(255, 255, 255, 1)
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =lblCapacityKey.Y + lblCapacityKey.Height + 5
+                ZIndex: =2
+
+            lblCapacityError As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =txtCapacityValue.Y + txtCapacityValue.Height
+                ZIndex: =3
+
+            lblCapacityStar As label:
+                Align: =Align.Center
+                Height: =lblCapacityKey.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =lblCapacityKey.Y
+                ZIndex: =4
+
+        crdCategory As typedDataCard.comboBoxEditCard:
+            BorderColor: |-
+                =ColorValue("#3b3a39")
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Category"
+            Default: =ThisItem.Category
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: ="Category"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =cmbCategoryValue.Selected
+            Width: =Parent.Width / 3
+            X: =4
+            Y: =3
+            ZIndex: =13
+
+            lblCategoryKey As label:
+                AutoHeight: =true
+                Color: |-
+                    =ColorValue("#3b3a39")
+                Font: =Font.'Segoe UI'
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            cmbCategoryValue As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                ChevronBackground: |-
+                    =ColorValue("#3b3a39")
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.'Segoe UI'
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =RGBA(23, 113, 122,1)
+                InputTextPlaceholder: ="Find category"
+                IsSearchable: =false
+                Items: =Choices([@Events].Category)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =[]
+                SelectionFill: =RGBA(23, 113, 122,1)
+                SelectionTagColor: =RGBA(255,255,255,1)
+                SelectionTagFill: =RGBA(23, 113, 122,1)
+                SelectMultiple: =false
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =lblCategoryKey.Y + lblCategoryKey.Height + 5
+                ZIndex: =2
+
+            lblCategoryError As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =cmbCategoryValue.Y + cmbCategoryValue.Height
+                ZIndex: =3
+
+            lblCategoryStar As label:
+                Align: =Align.Center
+                Height: =lblCategoryKey.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =lblCategoryKey.Y
+                ZIndex: =4
+
+        crdEventLink As typedDataCard.urlEditCard:
+            BorderColor: |-
+                =ColorValue("#3b3a39")
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="EventLink"
+            Default: =ThisItem.'Event Link'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: ="Event Link"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =txtEventLinkValue.Text
+            Width: =Parent.Width
+            X: =2
+            Y: =4
+            ZIndex: =13
+
+            lblEventLinkKey As label:
+                AutoHeight: =true
+                Color: |-
+                    =ColorValue("#3b3a39")
+                Font: =Font.'Segoe UI'
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            txtEventLinkValue As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.'Segoe UI'
+                HintText: ="Enter an optional link for your event (e.g. Microsoft Teams meeting link)"
+                HoverBorderColor: =Self.BorderColor
+                HoverFill: =RGBA(255, 255, 255, 1)
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =lblEventLinkKey.Y + lblEventLinkKey.Height + 5
+                ZIndex: =2
+
+            lblEventLinkError As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =txtEventLinkValue.Y + txtEventLinkValue.Height
+                ZIndex: =3
+
+            lblEventLinkStar As label:
+                Align: =Align.Center
+                Height: =lblEventLinkKey.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =lblEventLinkKey.Y
+                ZIndex: =4
+
+        crdEventImage As typedDataCard.imageViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Event_x0020_Image"
+            Default: =ThisItem.'Event Image'
+            DisplayMode: =DisplayMode.Edit
+            DisplayName: ="Event Image"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Visible: =false
+            Width: =177
+            X: =3
+            Y: =4
+            ZIndex: =13
+
+            lblEventImageKey As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            imgEventImageValue As image:
+                DisplayMode: =Parent.DisplayMode
+                Height: =200
+                Image: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =lblEventImageKey.Y + lblEventImageKey.Height + 5
+                ZIndex: =2
+
+    lblCreateEvent As label:
+        Color: |-
+            =ColorValue("#3b3a39")
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =icoBackMS.Height
+        PaddingLeft: =20
+        Size: =25
+        Text: =If(!IsBlank(gblEditEvent),"Edit event","Create an event")
+        Width: =400
+        X: =icoBackCES.X + icoBackCES.Width
+        Y: =40
+        ZIndex: =5
+
+    btnSave As button:
+        Fill: =RGBA(23, 113, 122,1)
+        FocusedBorderThickness: =0
+        Font: =Font.'Segoe UI'
+        HoverFill: =ColorFade(Self.Fill, -20%)
+        OnSelect: |-
+            =SubmitForm(frmEvent);
+            If(
+                !IsBlank(gblEventEdit),
+                Notify(
+                    "Event Updated",
+                    NotificationType.Success,
+                    5000
+                ),
+                Notify(
+                    "Event created",
+                    NotificationType.Success,
+                    5000
+                )
+            );
+            Set(
+                gblEventEdit,
+                Blank()
+            );
+            Refresh(Events);
+            Navigate(
+                'Menu Screen',
+                ScreenTransition.UnCoverRight
+            )
+        PressedColor: =Self.Color
+        PressedFill: =Self.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Text: =If(!IsBlank(gblEditEvent),"Update","Save")
+        Width: =120
+        X: =btnAddEventImage.X - Self.Width - 20
+        Y: =53
+        ZIndex: =6
+
+    icoBackCES As icon.ChevronLeft:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =lblAdminMS.Height
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Navigate('Menu Screen',ScreenTransition.UnCoverRight)
+        PaddingBottom: =5
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =5
+        Width: =Self.Height
+        X: =30
+        Y: =lblAdminMS.Y
+        ZIndex: =7
+
+    grpAddEventImage As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =13
+
+        imgEventImage As image:
+            Height: =130
+            Image: |-
+                =If(
+                    !IsBlank(gblEventEdit) && IsBlank(btnAddEventImage.Media) && !IsBlank(gblEventEdit.'Event Image'),
+                    gblEventEdit.'Event Image',
+                    If(
+                        !IsBlank(gblEventEdit) && !IsBlank(btnAddEventImage.Media),
+                        btnAddEventImage.Media,
+                        If(
+                            !IsBlank(gblEventEdit),
+                            SampleImage,
+                            If(
+                                IsBlank(btnAddEventImage.Media),
+                                SampleImage,
+                                btnAddEventImage.Media
+                            )
+                        )
+                    )
+                )
+            ImagePosition: =ImagePosition.Fill
+            Transparency: =0.6
+            Width: =Parent.Width + 5
+            ZIndex: =3
+
+        btnAddEventImage As addMedia:
+            Fill: =RGBA(255, 255, 255, 0.5)
+            FocusedBorderThickness: =0
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Normal
+            Height: =146
+            Padding: =5
+            Size: =17
+            Text: ="Click to add picture"
+            Width: =200
+            X: =Parent.Width - Self.Width - 30
+            ZIndex: =4
+
