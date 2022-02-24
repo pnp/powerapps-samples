@@ -1,0 +1,92 @@
+[
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "sharepoint-events",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2022-02-24T00:00:00.000Z",
+    "updateDateTime": "2022-02-24T00:00:00.000Z",
+    "title": "SharePoint Event Registration Power App",
+    "shortDescription": "Proof of concept Power App that is designed to be embedded in a SharePoint site/page, offering event registration functionality. An alternative to the OOTB Events Web Part.",
+    "longDescription": [
+      "Proof of concept Power App that is designed to be embedded in a SharePoint site/page, offering event registration functionality. An alternative to the OOTB Events Web Part."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/sharepoint-events",
+    "products": [
+      "Power Apps",
+      "Power Platform",
+      "SharePoint"
+    ],
+    "tags": [
+      "Power Apps","SharePoint","Events"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/raw/main/samples/sharepoint-events/assets/thumbnail.png?raw=true",
+        "alt": "Theme Light"
+      },
+      {
+        "type": "image",
+        "order": 101,
+        "url": "https://github.com/pnp/powerapps-samples/raw/main/samples/sharepoint-events/assets/thumbnail.png?raw=true",
+        "alt": "Theme Dark"
+      },
+      {
+        "type": "image",
+        "order": 102,
+        "url": "https://github.com/pnp/powerapps-samples/raw/main/samples/sharepoint-events/assets/thumbnail.png?raw=true",
+        "alt": "Phone Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "alexc-MSFT",
+        "name": "Alex Clark",
+        "pictureUrl": "https://github.com/alexc-MSFT.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  }
+]
