@@ -1,0 +1,829 @@
+"'Apps Screen' As screen":
+    Height: =Max(App.Height, App.DesignHeight)
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    OnVisible: =Set(gblSelectedApp,Blank());Reset(galApps);Clear(colAppUsers)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    ComboBoxAddUserApp As combobox:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        ChevronBackground: =RGBA(255, 255, 255, 1)
+        ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+        ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+        ChevronFill: =RGBA(33, 33, 33, 1)
+        ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+        ChevronHoverFill: =RGBA(33, 33, 33, 1)
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        DisplayFields: =["DisplayName","Mail"]
+        DisplayMode: =If(!IsBlank(galEnvironments_Apps.Selected), DisplayMode.Edit,Disabled)
+        FocusedBorderColor: =ComboBoxAddUserApp.BorderColor
+        Font: =Font.'Segoe UI'
+        Height: =45
+        HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        HoverColor: =RGBA(51, 51, 51, 1)
+        HoverFill: =RGBA(212, 212, 212, 1)
+        InputTextPlaceholder: ="Search Users"
+        Items: |-
+            =Office365Users.SearchUser({searchTerm:Self.SearchText})
+        MoreItemsButtonColor: =ComboBoxAddUserApp.ChevronBackground
+        PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(0, 120, 212, 1)
+        SearchFields: =["DisplayName"]
+        SearchItems: |-
+            =Search(Office365Users.SearchUser({searchTerm:Self.SearchText}),ComboBoxAddUserApp.SearchText,"DisplayName")
+        SelectionFill: =RGBA(0, 120, 212, 1)
+        SelectionTagColor: =ComboBoxAddUserApp.HoverColor
+        SelectionTagFill: =ComboBoxAddUserApp.HoverFill
+        Size: =13
+        Template: =ListItemTemplate.Person
+        Width: =204
+        X: =1158
+        Y: =651
+        ZIndex: =1
+
+    "galEnvironments_Apps As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+        BorderColor: =RGBA(166, 166, 166, 1)
+        DisabledBorderColor: =galEnvironments_Apps.BorderColor
+        DisabledFill: =galEnvironments_Apps.Fill
+        Height: =629
+        HoverBorderColor: =galEnvironments_Apps.BorderColor
+        HoverFill: =galEnvironments_Apps.Fill
+        Items: =Filter(colEnvironments,textEnvSearch.Text in properties.displayName)
+        Layout: =Layout.Vertical
+        LoadingSpinnerColor: =galEnvironments_Apps.BorderColor
+        OnSelect: =
+        PressedBorderColor: =galEnvironments_Apps.BorderColor
+        PressedFill: =galEnvironments_Apps.Fill
+        ShowScrollbar: =false
+        TemplatePadding: =2
+        TemplateSize: =81
+        Width: =446
+        X: =118
+        Y: =138
+        ZIndex: =2
+
+        Button7_4 As button:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =If(ThisItem.IsSelected,ColorFade(RGBA(54, 176, 75, 1),80%), RGBA(237, 237, 237, 0.62))
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =Parent.TemplateHeight-4
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(135, 100, 184, 1), 70%)
+            OnSelect: =Select(Parent)
+            PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -50%)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            Size: =15
+            Text: =""
+            Width: =Parent.Width-4
+            Y: =1
+            ZIndex: =1
+
+        Title2_4 As label:
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =Title2_4.BorderColor
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =26
+            HoverBorderColor: =Title2_4.BorderColor
+            HoverColor: =Title2_4.Color
+            HoverFill: =Title2_4.Fill
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =Title2_4.BorderColor
+            PressedColor: =Title2_4.Color
+            PressedFill: =Title2_4.Fill
+            Text: =ThisItem.properties.displayName
+            VerticalAlign: =VerticalAlign.Top
+            Width: =275
+            X: =15
+            Y: =9
+            ZIndex: =2
+
+        Subtitle2_6 As label:
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =Subtitle2_6.BorderColor
+            Font: =Font.'Segoe UI'
+            Height: =21
+            HoverBorderColor: =Subtitle2_6.BorderColor
+            HoverColor: =Subtitle2_6.Color
+            HoverFill: =Subtitle2_6.Fill
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =Subtitle2_6.BorderColor
+            PressedColor: =Subtitle2_6.Color
+            PressedFill: =Subtitle2_6.Fill
+            Size: =11
+            Text: =ThisItem.properties.environmentSku
+            VerticalAlign: =VerticalAlign.Top
+            Width: =288
+            X: =15
+            Y: =35
+            ZIndex: =3
+
+        Subtitle2_7 As label:
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =Subtitle2_7.BorderColor
+            Font: =Font.'Segoe UI'
+            Height: =22
+            HoverBorderColor: =Subtitle2_7.BorderColor
+            HoverColor: =Subtitle2_7.Color
+            HoverFill: =Subtitle2_7.Fill
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =Subtitle2_7.BorderColor
+            PressedColor: =Subtitle2_7.Color
+            PressedFill: =Subtitle2_7.Fill
+            Size: =11
+            Text: =ThisItem.location
+            VerticalAlign: =VerticalAlign.Top
+            Width: =288
+            X: =15
+            Y: =56
+            ZIndex: =6
+
+    btnAddUserRole_App As button:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(54, 176, 75, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =38
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(0, 120, 212, 1), -10%)
+        OnSelect: |-
+            =ForAll(
+                ComboBoxAddUserApp.SelectedItems,
+                PowerAppsforAdmins.EditAdminAppRoleAssignment(
+                    galEnvironments_Apps.Selected.name,
+                    galApps.Selected.name,
+                    {
+                        put: Table(
+                            {
+                                properties: {
+                                    role: DropdownPermission.Selected.Value,
+                                    NotifyShareTargetOption: "NotSpecified",
+                                    principal: {
+                                        email: ThisRecord.Mail,
+                                        id: ThisRecord.Id,
+                                        tenantId: "",
+                                        type: "User"
+                                    },
+                                    roleName: DropdownPermission.Selected.Value,
+                                    capabilities: {Value: ""}
+                                }
+                            }
+                        )
+                    }
+                )
+            );
+            ClearCollect(
+                colAppUsers,
+                PowerAppsforAdmins.GetAdminAppRoleAssignment(
+                    galEnvironments_Apps.Selected.name,
+                    galApps.Selected.name
+                ).value
+            );
+            Reset(galApps);
+            Reset(galUsers_Apps);
+            Reset(ComboBoxAddUserApp);
+            Reset(textAppSearch)
+        PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -50%)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Text: ="Add"
+        Width: =95
+        X: =1146
+        Y: =711
+        ZIndex: =5
+
+    Label1_13 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(0, 120, 212, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =63
+        Size: =21
+        Text: ="Apps"
+        Width: =1254
+        X: =112
+        ZIndex: =7
+
+    Rectangle1_8 As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        DisabledFill: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(179, 179, 179, 1)
+        FocusedBorderThickness: =4
+        Height: =2
+        HoverFill: =RGBA(0, 120, 212, 1)
+        PressedFill: =RGBA(0, 120, 212, 1)
+        Width: =1254
+        X: =112
+        Y: =63
+        ZIndex: =8
+
+    galLeftNavMenu1_2 As gallery.galleryVertical:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(0, 120, 212, 1)
+        Height: =768
+        Items: =colLeftNavMenu
+        Layout: =Layout.Vertical
+        OnSelect: =Navigate(ThisItem.Screen,None)
+        ShowScrollbar: =false
+        TemplateSize: =92
+        Width: =112
+        ZIndex: =17
+
+        Button3_6 As button:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =0
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =If(App.ActiveScreen=ThisItem.Screen,ColorFade(RGBA(0, 120, 212, 1), -20%), RGBA(0, 0,0,0))
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =92
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(0, 120, 212, 1), -10%)
+            OnSelect: =Select(Parent)
+            PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -50%)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            Size: =15
+            Text: =""
+            Width: =102
+            ZIndex: =1
+
+        Label1_12 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(255, 255, 255, .9)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            OnSelect: =Select(Parent)
+            Size: =11
+            Text: =ThisItem.Name
+            Width: =102
+            Y: =52
+            ZIndex: =2
+
+        Icon2_6 As icon.Add:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            Color: =RGBA(255, 255, 255, .9)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =ThisItem.Icon
+            OnSelect: =Select(Parent)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            X: =19
+            ZIndex: =3
+
+    "galApps As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+        BorderColor: =RGBA(166, 166, 166, 1)
+        Default: =If(IsBlank(gblSelectedApp),{},gblSelectedApp)
+        DisabledBorderColor: =galApps.BorderColor
+        DisabledFill: =galApps.Fill
+        Height: =629
+        HoverBorderColor: =galApps.BorderColor
+        HoverFill: =galApps.Fill
+        Items: =Filter(PowerAppsforAdmins.GetAdminApps(galEnvironments_Apps.Selected.name).value,textAppSearch.Text in properties.displayName)
+        Layout: =Layout.Vertical
+        LoadingSpinnerColor: =galApps.BorderColor
+        OnSelect: =Set(gblSelectedApp,ThisItem);ClearCollect(colAppUsers,PowerAppsforAdmins.GetAdminAppRoleAssignment(galEnvironments_Apps.Selected.name,ThisItem.name).value)
+        PressedBorderColor: =galApps.BorderColor
+        PressedFill: =galApps.Fill
+        ShowScrollbar: =false
+        TemplatePadding: =2
+        TemplateSize: =81
+        Width: =446
+        X: =575
+        Y: =139
+        ZIndex: =18
+
+        Button7_5 As button:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =If(ThisItem.IsSelected,ColorFade(RGBA(54, 176, 75, 1),80%), RGBA(237, 237, 237, 0.62))
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =Parent.TemplateHeight-4
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(135, 100, 184, 1), 70%)
+            OnSelect: =Select(Parent)
+            PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -50%)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            Size: =15
+            Text: =""
+            Width: =Parent.Width-4
+            Y: =1
+            ZIndex: =1
+
+        Title2_5 As label:
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =Title2_5.BorderColor
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =26
+            HoverBorderColor: =Title2_5.BorderColor
+            HoverColor: =Title2_5.Color
+            HoverFill: =Title2_5.Fill
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =Title2_5.BorderColor
+            PressedColor: =Title2_5.Color
+            PressedFill: =Title2_5.Fill
+            Text: =ThisItem.properties.displayName
+            VerticalAlign: =VerticalAlign.Top
+            Width: =275
+            X: =83
+            Y: =9
+            ZIndex: =2
+
+        Subtitle2_9 As label:
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =Subtitle2_9.BorderColor
+            Font: =Font.'Segoe UI'
+            Height: =39
+            HoverBorderColor: =Subtitle2_9.BorderColor
+            HoverColor: =Subtitle2_9.Color
+            HoverFill: =Subtitle2_9.Fill
+            OnSelect: =Select(Parent)
+            Overflow: =Overflow.Scroll
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =Subtitle2_9.BorderColor
+            PressedColor: =Subtitle2_9.Color
+            PressedFill: =Subtitle2_9.Fill
+            Size: =9
+            Text: =ThisItem.properties.description
+            VerticalAlign: =VerticalAlign.Top
+            Width: =288
+            X: =83
+            Y: =35
+            ZIndex: =6
+
+        Image3 As image:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: |-
+                =With(
+                    {
+                        RGBAColors: Split(
+                            Substitute(
+                                Substitute(
+                                    ThisItem.properties.backgroundColor,
+                                    "rgba(",
+                                    ""
+                                ),
+                                ")",
+                                ""
+                            ),
+                            ","
+                        )
+                    },
+                    RGBA(
+                        First(RGBAColors).Result,
+                        Last(
+                            FirstN(
+                                RGBAColors,
+                                2
+                            )
+                        ).Result,
+                        Last(
+                            FirstN(
+                                RGBAColors,
+                                3
+                            )
+                        ).Result,
+                        Last(
+                            FirstN(
+                                RGBAColors,
+                                4
+                            )
+                        ).Result
+                    )
+                )
+            FocusedBorderThickness: =4
+            Height: =60
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: =ThisItem.properties.backgroundImageUri
+            OnSelect: =Select(Parent)
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =60
+            X: =12
+            Y: =9
+            ZIndex: =7
+
+        Label2 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =38
+            OnSelect: =Select(Parent)
+            Size: =13
+            Text: =ThisItem.properties.sharedUsersCount
+            Width: =49
+            X: =393
+            Y: =9
+            ZIndex: =8
+
+        Label2_1 As label:
+            Align: =Align.Right
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =17
+            OnSelect: =Select(Parent)
+            Size: =9
+            Text: =ThisItem.properties.owner.displayName
+            Width: =200
+            X: =193
+            Y: =61
+            ZIndex: =9
+
+    "galUsers_Apps As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+        BorderColor: =RGBA(166, 166, 166, 1)
+        Default: ={}
+        DisabledBorderColor: =galUsers_Apps.BorderColor
+        DisabledFill: =galUsers_Apps.Fill
+        Height: =460
+        HoverBorderColor: =galUsers_Apps.BorderColor
+        HoverFill: =galUsers_Apps.Fill
+        Items: =colAppUsers
+        Layout: =Layout.Vertical
+        LoadingSpinnerColor: =galUsers_Apps.BorderColor
+        OnSelect: =
+        PressedBorderColor: =galUsers_Apps.BorderColor
+        PressedFill: =galUsers_Apps.Fill
+        ShowScrollbar: =false
+        TemplatePadding: =2
+        TemplateSize: =62
+        Width: =345
+        X: =1021
+        Y: =139
+        ZIndex: =19
+
+        Button7_6 As button:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =If(ThisItem.IsSelected,ColorFade(RGBA(54, 176, 75, 1),80%), RGBA(237, 237, 237, 0.62))
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =Parent.TemplateHeight-4
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(135, 100, 184, 1), 70%)
+            OnSelect: =Select(Parent)
+            PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -50%)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            Size: =15
+            Text: =""
+            Width: =Parent.Width-4
+            Y: =1
+            ZIndex: =1
+
+        Title2_6 As label:
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =Title2_6.BorderColor
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =26
+            HoverBorderColor: =Title2_6.BorderColor
+            HoverColor: =Title2_6.Color
+            HoverFill: =Title2_6.Fill
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =Title2_6.BorderColor
+            PressedColor: =Title2_6.Color
+            PressedFill: =Title2_6.Fill
+            Text: =ThisItem.properties.principal.displayName
+            VerticalAlign: =VerticalAlign.Top
+            Width: =230
+            X: =83
+            Y: =9
+            ZIndex: =2
+
+        Image3_1 As image:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =
+            FocusedBorderThickness: =4
+            Height: =50
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: =Coalesce( Blank(),Office365Users.UserPhotoV2(ThisItem.properties.principal.email))
+            OnSelect: =Select(Parent)
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            RadiusBottomLeft: =30
+            RadiusBottomRight: =30
+            RadiusTopLeft: =30
+            RadiusTopRight: =30
+            Width: =50
+            X: =12
+            Y: =5
+            ZIndex: =3
+
+        Icon4 As icon.Manufacture:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            Color: =RGBA(0, 120, 212, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =22
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.Support
+            OnSelect: =Select(Parent)
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Visible: =ThisItem.properties.roleName="Owner"
+            Width: =16
+            X: =313
+            Y: =20
+            ZIndex: =4
+
+        Label8 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =27
+            OnSelect: =Select(Parent)
+            Size: =9
+            Text: =ThisItem.properties.roleName
+            Width: =128
+            X: =83
+            Y: =32
+            ZIndex: =5
+
+        Dropdown2 As dropdown:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+            ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+            ChevronFill: =RGBA(33, 33, 33, 1)
+            ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+            ChevronHoverFill: =RGBA(33, 33, 33, 1)
+            Color: =RGBA(51, 51, 51, 1)
+            Default: =ThisItem.properties.roleName
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            DisplayMode: = DisplayMode.Edit
+            Font: =Font.'Segoe UI'
+            Height: =20
+            HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            HoverColor: =RGBA(51, 51, 51, 1)
+            HoverFill: =RGBA(212, 212, 212, 1)
+            Items: =["CanEdit","CanView"]
+            OnChange: |-
+                =PowerAppsforAdmins.EditAdminAppRoleAssignment(
+                        galEnvironments_Apps.Selected.name,
+                       gblSelectedApp.name,
+                        {
+                            put: Table(
+                                {
+                                    properties: {
+                                        role: Dropdown2.Selected.Value,
+                                        NotifyShareTargetOption: "NotSpecified",
+                                        principal: {
+                                            email: ThisItem.properties.principal.email,
+                                            id: ThisItem.properties.principal.id,
+                                            tenantId: "",
+                                            type: ThisItem.properties.principal.type
+                                        },
+                                        roleName: Dropdown2.Selected.Value,
+                                        capabilities: {Value: ""}
+                                    }
+                                }
+                            )
+                        }
+                    )
+            OnSelect: =Select(Parent)
+            PaddingBottom: =5
+            PaddingLeft: =12
+            PaddingRight: =5
+            PaddingTop: =5
+            PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(0, 120, 212, 1)
+            SelectionFill: =RGBA(0, 120, 212, 1)
+            Size: =9
+            Visible: =ThisItem.properties.roleName<>"Owner"
+            Width: =100
+            X: =83
+            Y: =35
+            ZIndex: =6
+
+    DropdownPermission As dropdown:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        ChevronBackground: =RGBA(255, 255, 255, 1)
+        ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+        ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+        ChevronFill: =RGBA(33, 33, 33, 1)
+        ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+        ChevronHoverFill: =RGBA(33, 33, 33, 1)
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Font: =Font.'Segoe UI'
+        Height: =45
+        HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        HoverColor: =RGBA(51, 51, 51, 1)
+        HoverFill: =RGBA(212, 212, 212, 1)
+        Items: =["CanView","CanEdit","CanViewWithShare"]
+        PaddingBottom: =5
+        PaddingLeft: =12
+        PaddingRight: =5
+        PaddingTop: =5
+        PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(0, 120, 212, 1)
+        SelectionFill: =RGBA(0, 120, 212, 1)
+        Size: =13
+        Width: =126
+        X: =1026
+        Y: =651
+        ZIndex: =20
+
+    textAppSearch As text:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        BorderThickness: =2
+        Clear: =true
+        Color: =RGBA(51, 51, 51, 1)
+        Default: =""
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =42
+        HintText: ="Search for an app"
+        HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        HoverColor: =RGBA(51, 51, 51, 1)
+        HoverFill: =RGBA(255, 255, 255, 1)
+        PressedBorderColor: =RGBA(0, 120, 212, 1)
+        PressedColor: =RGBA(51, 51, 51, 1)
+        PressedFill: =RGBA(255, 255, 255, 1)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =13
+        Width: =442
+        X: =579
+        Y: =82
+        ZIndex: =21
+
+    textEnvSearch As text:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        BorderThickness: =2
+        Clear: =true
+        Color: =RGBA(51, 51, 51, 1)
+        Default: =""
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =42
+        HintText: ="Search for an environment"
+        HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        HoverColor: =RGBA(51, 51, 51, 1)
+        HoverFill: =RGBA(255, 255, 255, 1)
+        PressedBorderColor: =RGBA(0, 120, 212, 1)
+        PressedColor: =RGBA(51, 51, 51, 1)
+        PressedFill: =RGBA(255, 255, 255, 1)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =13
+        Width: =414
+        X: =133
+        Y: =82
+        ZIndex: =22
+
+    Label3_18 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(0, 60, 106, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =51
+        Size: =16
+        Text: ="Add one or multiple Users"
+        Width: =340
+        X: =1021
+        Y: =599
+        ZIndex: =23
+
