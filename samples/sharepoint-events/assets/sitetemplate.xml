@@ -160,6 +160,7 @@
             </View>
           </pnp:Views>
           <pnp:Fields>
+            <Field ID="fa564e0f-0c70-4ab9-b863-0177e6ddd247" Type="Text" Name="Title" StaticName="Title" DisplayName="Title" Required="false" />
             <Field DisplayName="Event Name" Format="Dropdown" MaxLength="255" Name="EventName" Title="Event Name" Type="Text" ID="{8212bfc1-224f-4deb-849c-7096b937a122}" SourceID="{{listid:Events}}" StaticName="EventName" ColName="nvarchar4" RowOrdinal="0" />
             <Field DisplayName="Start Time" FriendlyDisplayFormat="Disabled" Format="DateTime" Name="StartTime" Title="Start Time" Type="DateTime" ID="{af7986ef-c6e9-4e4a-aaad-10ad408a2647}" SourceID="{{listid:Events}}" StaticName="StartTime" ColName="datetime1" RowOrdinal="0" />
             <Field DisplayName="End Time" FriendlyDisplayFormat="Disabled" Format="DateTime" Name="EndTime" Title="End Time" Type="DateTime" ID="{59f55d46-b3fc-4de7-8b9b-7f4334f5178d}" SourceID="{{listid:Events}}" StaticName="EndTime" ColName="datetime2" RowOrdinal="0" />
