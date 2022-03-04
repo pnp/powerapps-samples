@@ -1,0 +1,96 @@
+"'Ready?' As screen":
+    BackgroundImage: ='Ready Screen'
+    Fill: =RGBA(0, 0, 0, 0)
+    OnVisible: =Set(Time, 15);Set(varStart, false);Set(varStop, false)
+
+    Title As label:
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Height: =70
+        Size: =21
+        Text: ="Ready, set,focus! "
+        Width: =250
+        X: =195
+        Y: =66
+        ZIndex: =2
+
+    Description As label:
+        Align: =Align.Center
+        Font: =Font.'Segoe UI'
+        Height: =70
+        Size: =14
+        Text: |-
+            ="Achieve your goals and get more done with focus sessions.
+            Tell us how much time you have, and we'll setup the rest."
+        Width: =App.Width
+        Y: =136
+        ZIndex: =3
+
+    Label4 As label:
+        Align: =Align.Center
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Height: =89
+        Size: =55
+        Text: =Time
+        Width: =156
+        X: =195
+        Y: =274
+        ZIndex: =4
+
+    "'up arrow' As icon.ChevronUp":
+        DisplayMode: =If(Time > 59, DisplayMode.Disabled, DisplayMode.Edit)
+        Height: =45
+        Icon: =Icon.ChevronUp
+        OnSelect: =Set(Time, Time + 15)
+        Width: =45
+        X: =400
+        Y: =274
+        ZIndex: =5
+
+    "'down arrow' As icon.ChevronDown":
+        DisplayMode: =If(Time <= 15,Disabled,DisplayMode.Edit)
+        Height: ='up arrow'.Height
+        Icon: =Icon.ChevronDown
+        OnSelect: =Set(Time, Time - 15)
+        Width: ='up arrow'.Width
+        X: =400
+        Y: =363
+        ZIndex: =6
+
+    mins As label:
+        Align: =Align.Center
+        Color: =RGBA(138, 138, 138, 1)
+        Height: =70
+        Text: ="mins"
+        Width: =100
+        X: =223
+        Y: =357
+        ZIndex: =7
+
+    start_focus_session As image:
+        Height: =55
+        HoverBorderColor: =
+        HoverFill: =RGBA(27,133,233,1)
+        Image: ='Focus-time-btn'
+        OnSelect: |-
+            =Set(varStart, true);UpdateContext({setSliderValue: 100});Navigate('Focus-Session')
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =273
+        X: =183
+        Y: =533
+        ZIndex: =10
+
+    "'Minimum time is 60 minuities' As label":
+        Color: =RGBA(255, 0, 0, 1)
+        Height: =22
+        Text: ="*Minimum time is 60 minuites"
+        Visible: =If(Time > 59, true, false)
+        Width: =260
+        X: =329
+        Y: =229
+        ZIndex: =11
+
