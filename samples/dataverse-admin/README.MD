@@ -1,8 +1,5 @@
 # Dataverse Admin
 
-
-
-
 ## Summary
 
 The Dataverse admin app enables admins to easily manage users/teams/security roles/apps and perform some repetitive tasks more efficiently.
@@ -11,6 +8,7 @@ The Dataverse admin app enables admins to easily manage users/teams/security rol
 ![picture of the sample](assets/home-screenshot.png)
 ![picture of the sample](assets/manage-users-screenshot.png)
 ![picture of the sample](assets/copyroles-screenshot.png)
+![picture of the sample](assets/environment-variables.png)
 
 ## Applies to
 
@@ -25,16 +23,12 @@ The Dataverse admin app enables admins to easily manage users/teams/security rol
 ![On-Premises Connectors](https://img.shields.io/badge/On--Premises%20Connectors-No-green.svg "Does not use on-premise connectors")
 ![Custom Connectors](https://img.shields.io/badge/Custom%20Connectors-Not%20Required-green.svg "Does not use custom connectors")
 
-## Authors
-
-Solution|Author(s)
---------|---------
-dataverse-admin| [Vivek Bavishi](https://github.com/thatapiguy) ([@that_api_guy](https://twitter.com/that_api_guy))
 
 ## Version history
 
 Version|Date|Comments
 -------|----|--------
+1.0.1| Apr 6, 2022|Added an option to search for user in the Apps screen and added a new manage environment variables screen
 1.0|Feb 17, 2022|Initial release
 
 ## Features
@@ -45,6 +39,7 @@ All the following operations can be performed using this app:
 * Copy Security roles from one user/team to another.
 * Add users to an environment.
 * Manage app permissions for all the apps in a tenant.
+* Manage all environment variables from a single place.
 
 ## Prerequisites
 
