@@ -1,0 +1,894 @@
+Request_Support As screen:
+    OnVisible: =Clear(col_search); Clear(col_email_addresses); Clear(col_search_list); Clear(col_unique_staff);Reset(dd_email_effort);Reset(dd_email_urgency);Reset(tog_email_charge);Reset(txt_email_body);Reset(txt_email_subject)
+
+    shp_search_background As rectangle:
+        BorderColor: =RGBA(128, 128, 128, 1)
+        BorderThickness: =1
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =120
+        Width: =340
+        X: =476
+        Y: =83
+        ZIndex: =1
+
+    shp_type_background As rectangle:
+        Fill: =RGBA(237, 237, 237, 1)
+        Height: =30
+        Width: =140
+        X: =329
+        Y: =173
+        ZIndex: =2
+
+    ico_back_nav As icon.ChevronLeft:
+        AccessibleLabel: ="Navigate back to home screen"
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =40
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Back()
+        TabIndex: =0
+        Width: =40
+        X: =15
+        Y: =30
+        ZIndex: =4
+
+    lbl_search_network As label:
+        FontWeight: =Semibold
+        Height: =50
+        Size: =24
+        Text: ="Search Network"
+        Width: =313
+        X: =70
+        Y: =25
+        ZIndex: =5
+
+    lbl_level_dd As label:
+        Align: =Left
+        BorderColor: =RGBA(0, 121, 187, 1)
+        FontWeight: =Semibold
+        Height: =29
+        Italic: =true
+        Size: =11
+        Text: ="Level"
+        Width: =168
+        X: =271
+        Y: =79
+        ZIndex: =6
+
+    lbl_gal_header As label:
+        Align: =Left
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(87, 86, 86, 1)
+        FontWeight: =Semibold
+        Height: =55
+        Text: |-
+            ="  Select
+              Staff "
+        Width: =796
+        X: =20
+        Y: =212
+        ZIndex: =7
+
+    lbl_application_dd As label:
+        Align: =Left
+        BorderColor: =RGBA(0, 121, 187, 1)
+        FontWeight: =Semibold
+        Height: =29
+        Italic: =true
+        Size: =11
+        Text: ="Application"
+        Width: =168
+        X: =20
+        Y: =144
+        ZIndex: =8
+
+    dd_level_1 As dropdown:
+        AccessibleLabel: ="Select a level"
+        BorderThickness: =0
+        ChevronBackground: =RGBA(0, 134, 208, 1)
+        Default: ="Intermediate"
+        Fill: =RGBA(237, 237, 237, 1)
+        Height: =30
+        Items: =col_levels.Title
+        OnChange: |-
+            =If(
+                tog_user_1.Value = false,
+                UpdateContext({loc_SearchString: dd_application_1.Selected.Application & " - " & dd_level_1.Selected.Title & " - User"}),
+                UpdateContext({loc_SearchString: dd_application_1.Selected.Application & " - " & dd_level_1.Selected.Title & " - Developer"})
+            )
+        Size: =12
+        Width: =198
+        X: =271
+        Y: =108
+        ZIndex: =9
+
+    dd_application_1 As dropdown:
+        AccessibleLabel: ="Select an application"
+        BorderThickness: =0
+        ChevronBackground: =RGBA(0, 134, 208, 1)
+        Fill: =RGBA(237, 237, 237, 1)
+        Height: =30
+        Items: =Filter(col_applications,Category.Value = dd_category_1.Selected.Category)
+        OnChange: |-
+            =If(
+                tog_user_1.Value = false,
+                UpdateContext({loc_SearchString: dd_application_1.Selected.Application & " - " & dd_level_1.Selected.Title & " - User"}),
+                UpdateContext({loc_SearchString: dd_application_1.Selected.Application & " - " & dd_level_1.Selected.Title & " - Developer"})
+            )
+        Size: =12
+        Width: =300
+        X: =20
+        Y: =173
+        ZIndex: =10
+
+    dd_category_1 As dropdown:
+        AccessibleLabel: ="Select a category"
+        BorderThickness: =0
+        ChevronBackground: =RGBA(0, 134, 208, 1)
+        Fill: =RGBA(237, 237, 237, 1)
+        Height: =30
+        Items: =col_category
+        OnChange: |-
+            =If(
+                tog_user_1.Value = false,
+                UpdateContext({loc_SearchString: dd_application_1.Selected.Application & " - " & dd_level_1.Selected.Title & " - User"}),
+                UpdateContext({loc_SearchString: dd_application_1.Selected.Application & " - " & dd_level_1.Selected.Title & " - Developer"})
+            )
+        Size: =12
+        Width: =245
+        X: =20
+        Y: =108
+        ZIndex: =11
+
+    lbl_category As label:
+        Align: =Left
+        BorderColor: =RGBA(0, 121, 187, 1)
+        FontWeight: =Semibold
+        Height: =29
+        Italic: =true
+        Size: =11
+        Text: ="Category"
+        Width: =168
+        X: =20
+        Y: =79
+        ZIndex: =12
+
+    tog_user_1 As toggleSwitch:
+        AccessibleLabel: |-
+            ="Select a user type: User or Developer"
+        FalseFill: =RGBA(0, 134, 208, 1)
+        FalseText: ="User"
+        Height: =20
+        OnChange: |-
+            =If(
+                tog_user_1.Value = false,
+                UpdateContext({loc_SearchString: dd_application_1.Selected.Application & " - " & dd_level_1.Selected.Title & " - User"}),
+                UpdateContext({loc_SearchString: dd_application_1.Selected.Application & " - " & dd_level_1.Selected.Title & " - Developer"})
+            )
+        Size: =12
+        TextPosition: =TextPosition.Left
+        TrueFill: =RGBA(141, 198, 63, 1)
+        TrueText: ="Developer"
+        Width: =135
+        X: =330
+        Y: =178
+        ZIndex: =13
+
+    gal_search_staff As gallery.variableTemplateHeightGallery:
+        AccessibleLabel: ="List of staff in search results"
+        BorderColor: =RGBA(230, 230, 230, 1)
+        BorderThickness: =1
+        Height: =482
+        Items: |-
+            =SortByColumns(
+                Filter(
+                    col_unique_staff,
+                    dd_country.Selected.Result = Blank() Or Country = dd_country.Selected.Result,
+                    dd_bu.Selected.Result = Blank() Or BusinessUnit = dd_bu.Selected.Result
+                ),
+                "Count",
+                Descending,
+                "Result",
+                Ascending
+            )
+        Layout: =Layout.Vertical
+        TabIndex: =0
+        TemplateSize: =Max(gal_search.Height + 20,110)
+        Width: =796
+        X: =20
+        Y: =267
+        ZIndex: =14
+
+        gal_search As gallery.galleryVertical:
+            AccessibleLabel: ="List of skills per staff"
+            BorderColor: =RGBA(230, 230, 230, 1)
+            BorderThickness: =1
+            Fill: =RGBA(230, 230, 230, 1)
+            Height: =CountRows(gal_search.AllItems) * 23
+            Items: =SortByColumns(Filter(col_search,StaffEmail = ThisItem.Result),"Title",Ascending,"Type",Ascending)
+            Layout: =Layout.Vertical
+            TabIndex: =0
+            TemplatePadding: =1
+            TemplateSize: =20
+            Width: =385
+            X: =381
+            Y: =4
+            ZIndex: =1
+
+            lbl_application As label:
+                Height: =18
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: =ThisItem.Title
+                Width: =250
+                X: =5
+                Y: =1
+                ZIndex: =1
+
+            Rectangle4 As rectangle:
+                Fill: =RGBA(204, 204, 204, 1)
+                Height: =1
+                OnSelect: =Select(Parent)
+                Width: =370
+                X: =5
+                Y: =20
+                ZIndex: =4
+
+            lbl_level As label:
+                Height: =18
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: =If(ThisItem.Type = "User", ThisItem.UserLevel,ThisItem.DeveloperLevel)
+                Width: =100
+                X: =256
+                ZIndex: =5
+
+            ico_user As icon.Person:
+                Color: =RGBA(0, 134, 208, 1)
+                Height: =21
+                Icon: =Icon.Person
+                OnSelect: =Select(Parent)
+                Visible: =If(ThisItem.Type = "User", true, false)
+                X: =210
+                ZIndex: =6
+
+            "ico_developer As icon.'3DPrinting'":
+                Color: =RGBA(141, 198, 63, 1)
+                Height: =21
+                Icon: =Icon.Printing3D
+                OnSelect: =Select(Parent)
+                Visible: =If(ThisItem.Type = "Developer", true, false)
+                X: =210
+                ZIndex: =7
+
+        lbl_staff_email As label:
+            Color: =RGBA(0, 134, 208, 1)
+            FontWeight: =Semibold
+            Height: =30
+            OnSelect: =Select(Parent)
+            Size: =12
+            Text: =ThisItem.Result
+            Width: =349
+            X: =32
+            Y: =4
+            ZIndex: =2
+
+        ico_hide As icon.Trash:
+            AccessibleLabel: ="Hide this staff from results"
+            Color: =RGBA(168, 0, 0, 1)
+            Height: =25
+            Icon: =Icon.Hide
+            OnSelect: |
+                =RemoveIf(
+                    col_email_addresses,
+                    Value = ThisItem.Result
+                );
+                RemoveIf(
+                    col_search,
+                    StaffEmail = ThisItem.Result
+                );
+                Remove(
+                    col_unique_staff,
+                    ThisItem
+                );
+            TabIndex: =0
+            Width: =25
+            X: =6
+            Y: =81
+            ZIndex: =5
+
+        shp_separator As rectangle:
+            Fill: =RGBA(204, 204, 204, 1)
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =790
+            Y: =Max(gal_search.Height + 20,110) - 1
+            ZIndex: =6
+
+        lbl_staff_country As label:
+            Height: =25
+            OnSelect: =Select(Parent)
+            Size: =10
+            Text: =ThisItem.Country
+            Width: =302
+            X: =32
+            Y: =34
+            ZIndex: =7
+
+        lbl_staff_bu As label:
+            Height: =25
+            OnSelect: =Select(Parent)
+            Size: =10
+            Text: =ThisItem.BusinessUnit
+            Width: =302
+            X: =32
+            Y: =56
+            ZIndex: =8
+
+        Checkbox1 As checkbox:
+            CheckboxSize: =25
+            Default: =If(ThisItem.Result in col_email_addresses.Value,true, false)
+            Height: =24
+            OnCheck: =Collect(col_email_addresses,ThisItem.Result)
+            OnSelect: =Select(Parent)
+            OnUncheck: =RemoveIf(col_email_addresses,Value = ThisItem.Result)
+            Size: =10
+            Text: =""
+            Width: =27
+            X: =6
+            Y: =6
+            ZIndex: =9
+
+        lbl_hide_staff As label:
+            Color: =RGBA(128, 128, 128, 1)
+            Height: =25
+            Italic: =true
+            OnSelect: =Select(Parent)
+            Size: =10
+            Text: ="Hide staff in search results"
+            Width: =302
+            X: =33
+            Y: =81
+            ZIndex: =10
+
+        lbl_MatchCount As label:
+            Align: =Center
+            Color: =RGBA(128, 128, 128, 1)
+            Height: =24
+            OnSelect: =Select(Parent)
+            Size: =12
+            Text: =ThisItem.Count
+            Width: =31
+            X: =349
+            Y: =2
+            ZIndex: =11
+
+    shp_gray_background As rectangle:
+        Fill: =RGBA(237, 237, 237, 1)
+        Height: =768
+        Width: =534
+        X: =832
+        ZIndex: =16
+
+    lbl_to As label:
+        Text: |-
+            ="To:"
+        X: =857
+        Y: =52
+        ZIndex: =17
+
+    lbl_email_to As label:
+        BorderColor: =RGBA(128, 128, 128, 1)
+        BorderThickness: =1
+        Height: =46
+        Overflow: =Overflow.Scroll
+        Size: =8
+        Text: =Left(Concat(col_email_addresses,Value & "; "),Len(Concat(col_email_addresses,Value & "; "))-2)
+        Width: =402
+        X: =942
+        Y: =52
+        ZIndex: =18
+
+    lbl_subject As label:
+        Text: |-
+            ="Subject:"
+        X: =857
+        Y: =110
+        ZIndex: =19
+
+    txt_email_subject As text:
+        AccessibleLabel: ="Enter an email subject"
+        BorderColor: =RGBA(128, 128, 128, 1)
+        BorderThickness: =1
+        Default: ="O365 Support Request"
+        HintText: ="Enter an email subject"
+        Size: =12
+        Width: =402
+        X: =942
+        Y: =110
+        ZIndex: =20
+
+    lbl_body As label:
+        Text: |-
+            ="Body:"
+        X: =857
+        Y: =158
+        ZIndex: =21
+
+    lbl_section_header As label:
+        Align: =Left
+        BorderColor: =RGBA(0, 121, 187, 1)
+        FontWeight: =Semibold
+        Size: =14
+        Text: ="Compose and Send an Email"
+        Width: =487
+        X: =857
+        Y: =12
+        ZIndex: =23
+
+    tog_email_charge As toggleSwitch:
+        AccessibleLabel: ="Indicate is requested support is billable or not"
+        FalseFill: =RGBA(168, 0, 0, 1)
+        FalseText: ="Non-Billable"
+        TrueFill: =RGBA(99, 139, 44, 1)
+        TrueText: ="Billable"
+        Width: =162
+        X: =1016
+        Y: =546
+        ZIndex: =24
+
+    lbl_effort As label:
+        Size: =12
+        Text: |-
+            ="Level of Effort:"
+        X: =863
+        Y: =586
+        ZIndex: =25
+
+    dd_email_effort As dropdown:
+        AccessibleLabel: ="Enter an approximate level of effort"
+        BorderThickness: =0
+        ChevronBackground: =RGBA(141, 198, 63, 1)
+        Items: =["Quick Question","0-4 hours","4-16 hours","2-5 days","1-4 weeks","1 month +"]
+        Width: =330
+        X: =1013
+        Y: =586
+        ZIndex: =26
+
+    lbl_urgency As label:
+        Size: =12
+        Text: |-
+            ="Urgency:"
+        X: =866
+        Y: =630
+        ZIndex: =27
+
+    dd_email_urgency As dropdown:
+        AccessibleLabel: ="Enter an approximate urgency for the request"
+        BorderThickness: =0
+        ChevronBackground: =RGBA(141, 198, 63, 1)
+        Default: ="Not urgent"
+        Items: =["Immediate Need","This Week","This Month","Not urgent"]
+        Width: =330
+        X: =1013
+        Y: =630
+        ZIndex: =28
+
+    btn_preview_email As button:
+        BorderThickness: =0
+        Fill: =RGBA(0, 134, 208, 1)
+        Height: =35
+        OnSelect: |-
+            =Launch("mailto:" & lbl_email_to &
+            "?subject=" & txt_email_subject &
+            "&body=" & txt_email_body.Text & "%0A" & "%0A" &
+            "Additional details" & "%0A" &
+            "Charge Code: " & tog_email_charge.Value & "%0A" &
+            "Level of Effort: " & dd_email_effort.Selected.Value & "%0A" &
+            "Urgency: " & dd_email_urgency.Selected.Value & "%0A")
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Text: ="Open Email in Outlook to Send"
+        Width: =477
+        X: =866
+        Y: =716
+        ZIndex: =29
+
+    lbl_charge_code As label:
+        Size: =12
+        Text: |-
+            ="Charge Code:"
+        X: =863
+        Y: =540
+        ZIndex: =30
+
+    lbl_details As label:
+        Align: =Left
+        BorderColor: =RGBA(0, 121, 187, 1)
+        FontWeight: =Semibold
+        Italic: =true
+        Size: =12
+        Text: ="Required Details to include"
+        Width: =487
+        X: =866
+        Y: =506
+        ZIndex: =31
+
+    lbl_search_scenarios As label:
+        Align: =Left
+        BorderColor: =RGBA(0, 121, 187, 1)
+        FontWeight: =Semibold
+        Height: =29
+        Italic: =true
+        Size: =11
+        Text: ="Search Scenarios"
+        Width: =127
+        X: =483
+        Y: =82
+        ZIndex: =33
+
+    lbl_user_type As label:
+        Align: =Left
+        BorderColor: =RGBA(0, 121, 187, 1)
+        FontWeight: =Semibold
+        Height: =29
+        Italic: =true
+        Size: =11
+        Text: ="User Type"
+        Width: =77
+        X: =327
+        Y: =144
+        ZIndex: =34
+
+    dd_country As dropdown:
+        AccessibleLabel: ="Filter by staff country"
+        AllowEmptySelection: =true
+        BorderColor: =RGBA(255, 255, 255, 1)
+        BorderStyle: =Dashed
+        BorderThickness: =0
+        ChevronBackground: =RGBA(0, 94, 146, 1)
+        Default: =Blank()
+        Fill: =RGBA(237, 237, 237, 1)
+        Height: =25
+        Items: =SortByColumns(col_Countries,"Result",Ascending)
+        OnChange: =// ClearCollect(col_BUs,Distinct(Filter(col_unique_staff,Country=dd_country.Selected.Result),BusinessUnit));
+        Size: =10
+        Tooltip: ="Filter search results by a Country"
+        Width: =250
+        X: =178
+        Y: =235
+        ZIndex: =35
+
+    dd_bu As dropdown:
+        AccessibleLabel: ="Filter by staff business unit"
+        AllowEmptySelection: =true
+        BorderColor: =RGBA(128, 128, 128, 1)
+        BorderThickness: =0
+        ChevronBackground: =RGBA(0, 94, 146, 1)
+        Default: =Blank()
+        Fill: =RGBA(237, 237, 237, 1)
+        Height: =25
+        Items: =SortByColumns(col_BUs,"Result",Ascending)
+        OnChange: =// ClearCollect(col_Countries,Distinct(Filter(col_unique_staff,BusinessUnit=dd_bu.Selected.Result),Country));
+        Size: =10
+        Tooltip: ="Filter search results by a Business Unit"
+        Width: =300
+        X: =436
+        Y: =235
+        ZIndex: =36
+
+    ico_user_icon As icon.Person:
+        Color: =RGBA(0, 134, 208, 1)
+        Height: =20
+        Icon: =Icon.Person
+        Visible: =If(tog_user_1.Value, false, true)
+        Width: =20
+        X: =439
+        Y: =148
+        ZIndex: =37
+
+    "ico_dev_icon As icon.'3DPrinting'":
+        Color: =RGBA(141, 198, 63, 1)
+        Height: =20
+        Icon: =Icon.Printing3D
+        Visible: =If(tog_user_1.Value, true, false)
+        Width: =20
+        X: =439
+        Y: =148
+        ZIndex: =38
+
+    lbl_business_unit As label:
+        Align: =Left
+        BorderColor: =RGBA(0, 121, 187, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =Semibold
+        Height: =20
+        Italic: =true
+        Size: =10
+        Text: ="Business Unit"
+        Width: =168
+        X: =436
+        Y: =216
+        ZIndex: =39
+
+    lbl_country As label:
+        Align: =Left
+        BorderColor: =RGBA(0, 121, 187, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =Semibold
+        Height: =20
+        Italic: =true
+        Size: =10
+        Text: ="Country"
+        Width: =168
+        X: =178
+        Y: =216
+        ZIndex: =40
+
+    btn_clear_filters As button:
+        BorderThickness: =0
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(230, 230, 230, 1)
+        OnSelect: |
+            =Reset(dd_country); Reset(dd_bu);
+            ClearCollect(
+                col_Countries,
+                Distinct(
+                    col_unique_staff,
+                    Country
+                )
+            );
+            ClearCollect(
+                col_BUs,
+                Distinct(
+                    col_unique_staff,
+                    BusinessUnit
+                )
+            );
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =10
+        Text: ="Clear Filters"
+        Width: =59
+        X: =747
+        Y: =220
+        ZIndex: =41
+
+    btn_add_search As button:
+        BorderThickness: =0
+        DisplayMode: =If(loc_SearchString in col_search_list.Search,DisplayMode.Disabled,DisplayMode.Edit)
+        Fill: =RGBA(0, 134, 208, 1)
+        Height: =20
+        OnSelect: |
+            =// Make a separate collection for a list of searches currently included in results.
+            Collect(
+                col_search_list,
+                {
+                    Category: dd_category_1.Selected.Category,
+                    Application: dd_application_1.Selected.Application,
+                    Level: dd_level_1.Selected.Title,
+                    Type: If(
+                        tog_user_1.Value = false,
+                        "User",
+                        "Developer"
+                    ),
+                    Search: If(
+                        tog_user_1.Value = false,
+                        dd_application_1.Selected.Application & " - " & dd_level_1.Selected.Title & " - User",
+                        dd_application_1.Selected.Application & " - " & dd_level_1.Selected.Title & " - Developer"
+                    )
+                }
+            );
+            // Check first to see if search should be done for User or Developer.  Then filter by that column and append the type.
+            If(
+                tog_user_1.Value = false,
+                Collect(
+                    col_search,
+                    AddColumns(
+                        ShowColumns(
+                            Filter(
+                                MatrixNetwork,
+                                Title = dd_application_1.Selected.Application,
+                                UserLevel = dd_level_1.Selected.Title
+                            ),
+                            "Title",
+                            "StaffEmail",
+                            "UserLevel",
+                            "DeveloperLevel"
+                        ),
+                        "Type",
+                        "User"
+                    )
+                ),
+                Collect(
+                    col_search,
+                    AddColumns(
+                        ShowColumns(
+                            Filter(
+                                MatrixNetwork,
+                                Title = dd_application_1.Selected.Application,
+                                DeveloperLevel = dd_level_1.Selected.Title
+                            ),
+                            "Title",
+                            "StaffEmail",
+                            "UserLevel",
+                            "DeveloperLevel"
+                        ),
+                        "Type",
+                        "Developer"
+                    )
+                )
+            );
+            // Create separate collection with unique list of staff and associated Country and BU.
+            ClearCollect(
+                col_unique_staff,
+                AddColumns(
+                        Distinct(
+                            col_search,
+                            StaffEmail
+                        ),
+                    "Country", // Office365Users.UserProfile(ThisRecord.Result).Country,      
+                    LookUp(MatrixRoster,EmailAddress = Result).Country.Value,
+                    "BusinessUnit",  // Office365Users.UserProfile(ThisRecord.Result).CompanyName,   
+                    LookUp(MatrixRoster,EmailAddress = Result).BusinessUnit.Value,
+                    "Count",  // How many skills match for this staff so can sort descending.
+                    CountIf(col_search,Result = StaffEmail)
+                )
+            );
+            // List of unique country values from the search results.
+            ClearCollect(
+                col_Countries,
+                Distinct(
+                    col_unique_staff,Country
+                )
+            );
+            // List of unique business unit values from the search results.
+            ClearCollect(
+                col_BUs,
+                Distinct(
+                    col_unique_staff,
+                    BusinessUnit
+                )
+            );
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =8
+        Text: ="Add"
+        Tooltip: ="Click to add current selections to search scenario.  If disabled, you have already added this combination."
+        Width: =75
+        X: =651
+        Y: =86
+        ZIndex: =47
+
+    btn_clear_all As button:
+        BorderThickness: =0
+        DisplayMode: =If(IsEmpty(col_search_list),DisplayMode.Disabled,DisplayMode.Edit)
+        Fill: =RGBA(221, 79, 14, 1)
+        Height: =20
+        OnSelect: =Clear(col_search); Clear(col_email_addresses); Clear(col_search_list); Clear(col_unique_staff)
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =8
+        Text: ="Clear"
+        Width: =75
+        X: =735
+        Y: =86
+        ZIndex: =49
+
+    gal_list_of_searches As gallery.galleryVertical:
+        AccessibleLabel: ="List of existing searches"
+        Height: =90
+        Items: =SortByColumns(col_search_list,"Application",Ascending,"Level",Ascending,"Type",Ascending)
+        Layout: =Layout.Vertical
+        TabIndex: =0
+        TemplatePadding: =2
+        TemplateSize: |
+            =20
+        Width: =337
+        X: =479
+        Y: =111
+        ZIndex: =53
+
+        lbl_search_combination As label:
+            Fill: =RGBA(237, 237, 237, 1)
+            FontWeight: =Normal
+            Height: =20
+            OnSelect: =Select(Parent)
+            Size: =8
+            Text: =ThisItem.Search
+            Width: =Len(lbl_search_combination.Text) * 5.6 + 10
+            ZIndex: =1
+
+        ico_delete_search As icon.Cancel:
+            AccessibleLabel: ="Delete a single search scenario"
+            Height: =10
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =If(
+                    ThisItem.Type = "User",
+                    RemoveIf(
+                        col_search,
+                        Title = ThisItem.Application,
+                        UserLevel = ThisItem.Level,
+                        Type = ThisItem.Type
+                    ),
+                    RemoveIf(
+                        col_search,
+                        Title = ThisItem.Application,
+                        DeveloperLevel = ThisItem.Level,
+                        Type = ThisItem.Type
+                    )
+                );
+                Remove(
+                    col_search_list,
+                    ThisItem
+                );
+                // Create separate collection with unique list of staff and associated Country and BU.
+                ClearCollect(
+                    col_unique_staff,
+                    AddColumns(
+                            Distinct(
+                                col_search,
+                                StaffEmail
+                            ),
+                        "Country", // Office365Users.UserProfile(ThisRecord.Result).Country,      
+                        LookUp(MatrixRoster,EmailAddress = Result).Country.Value,
+                        "BusinessUnit",  // Office365Users.UserProfile(ThisRecord.Result).CompanyName,   
+                        LookUp(MatrixRoster,EmailAddress = Result).BusinessUnit.Value,
+                        "Count",
+                        CountIf(col_search,Result = StaffEmail)
+                    )
+                );
+                ClearCollect(
+                    col_Countries,
+                    Distinct(
+                        col_unique_staff,Country
+                    )
+                );
+                ClearCollect(
+                    col_BUs,
+                    Distinct(
+                        col_unique_staff,
+                        BusinessUnit
+                    )
+                );
+            TabIndex: =0
+            Width: =10
+            X: =lbl_search_combination.Width - 12
+            Y: =5
+            ZIndex: =2
+
+    txt_email_body As text:
+        AccessibleLabel: ="Enter email body text"
+        BorderColor: =DarkGray
+        Clear: =true
+        Default: =""
+        EnableSpellCheck: =true
+        Height: =303
+        HintText: ="Start main body text."
+        HoverBorderColor: =DarkGray
+        Mode: =TextMode.MultiLine
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Width: =486
+        X: =857
+        Y: =203
+        ZIndex: =54
+

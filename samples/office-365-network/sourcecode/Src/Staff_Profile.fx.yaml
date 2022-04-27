@@ -1,0 +1,311 @@
+Staff_Profile As screen:
+    OnVisible: =Reset(cbo_staff_email)
+
+    shp_background_gray As rectangle:
+        Fill: =RGBA(230, 230, 230, 1)
+        Height: =768
+        Width: =916
+        X: =450
+        ZIndex: =2
+
+    ico_back_to_home_nav As icon.ChevronLeft:
+        AccessibleLabel: ="Navigate back to home screen"
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =40
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Back()
+        TabIndex: =0
+        Width: =40
+        X: =15
+        Y: =30
+        ZIndex: =3
+
+    lbl_screen_title_label As label:
+        FontWeight: =Semibold
+        Height: =50
+        Size: =24
+        Text: ="Search by Staff"
+        Width: =380
+        X: =70
+        Y: =25
+        ZIndex: =4
+
+    lbl_screen_description_text As label:
+        Height: =56
+        Text: ="Search by staff email to see profile and skills matrix results."
+        VerticalAlign: =VerticalAlign.Top
+        Width: =361
+        X: =70
+        Y: =75
+        ZIndex: =5
+
+    "gal_user_profile_skills As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+        AccessibleLabel: ="List of user's profile/skills (read only)"
+        BorderColor: =RGBA(179, 179, 179, 1)
+        BorderThickness: =1
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =631
+        Items: |-
+            =Sort(
+                Filter(
+                    Filter(
+                        MatrixNetwork,
+                        StaffEmail = cbo_staff_email.Selected.Mail
+                    ),
+                    UserLevel = "Interested" || UserLevel = "Basic" || UserLevel = "Intermediate" || UserLevel = "Advanced" || DeveloperLevel = "Interested" || DeveloperLevel = "Basic" || DeveloperLevel = "Intermediate" || DeveloperLevel = "Advanced"
+                ),
+                Title,
+                Ascending
+            )
+        Layout: =Layout.Vertical
+        TabIndex: =0
+        TemplatePadding: =0
+        TemplateSize: =35
+        Width: =882
+        X: =465
+        Y: =110
+        ZIndex: =6
+
+        Separator2_1 As rectangle:
+            Fill: =RGBA(179, 179, 179, 1)
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =3
+
+        lbl_user_level_label As label:
+            Align: =Center
+            Color: =If(lbl_user_level_label.Text = "Advanced", White,If(lbl_user_level_label.Text = "None",Gray,Black))
+            Fill: =If(IsBlank(lbl_user_level_label.Text), RGBA(0, 0, 0, 0),If(lbl_user_level_label.Text = "None", RGBA(0, 0, 0, 0),If(lbl_user_level_label.Text = "Interested", ColorFade(RGBA(0, 121, 187, 1),90%),If(lbl_user_level_label.Text = "Basic", ColorFade(RGBA(0, 121, 187, 1),50%),If(lbl_user_level_label.Text = "Intermediate", ColorFade(RGBA(0, 121, 187, 1),20%),RGBA(0, 94, 146, 1))))))
+            FontWeight: =Normal
+            Height: =25
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =12
+            Text: =If(IsBlank(ThisItem.UserLevel),"None",ThisItem.UserLevel)
+            Width: =125
+            X: =485
+            Y: =5
+            ZIndex: =4
+
+        lbl_application_label As label:
+            FontWeight: =Normal
+            Height: =25
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =12
+            Text: =ThisItem.Title
+            Width: =297
+            X: =190
+            Y: =5
+            ZIndex: =5
+
+        lbl_dev_level_label As label:
+            Align: =Center
+            Color: =If(lbl_dev_level_label.Text = "Advanced", White,If(lbl_dev_level_label.Text = "None",Gray,Black))
+            Fill: =If(IsBlank(lbl_dev_level_label.Text), RGBA(0, 0, 0, 0),If(lbl_dev_level_label.Text = "None", RGBA(0, 0, 0, 0),If(lbl_dev_level_label.Text = "Interested", ColorFade(RGBA(0, 121, 187, 1),90%),If(lbl_dev_level_label.Text = "Basic", ColorFade(RGBA(0, 121, 187, 1),50%),If(lbl_dev_level_label.Text = "Intermediate", ColorFade(RGBA(0, 121, 187, 1),20%),RGBA(0, 94, 146, 1))))))
+            FontWeight: =Normal
+            Height: =25
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =12
+            Text: =If(IsBlank(ThisItem.DeveloperLevel),"None",ThisItem.DeveloperLevel)
+            Width: =125
+            X: =675
+            Y: =5
+            ZIndex: =6
+
+        lbl_category_label As label:
+            FontWeight: =Semibold
+            Height: =25
+            Italic: =true
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =10
+            Text: =LookUp(MatrixApplication,Title = ThisItem.Title,Category.Value)
+            X: =18
+            Y: =5
+            ZIndex: =7
+
+    lbl_gal_table_labels As label:
+        Align: =Left
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 121, 187, 1)
+        FontWeight: =Semibold
+        Text: ="   Category                     Application                                                User Level                  Developer Level" 
+        Width: =882
+        X: =465
+        Y: =70
+        ZIndex: =11
+
+    lbl_gallery_title As label:
+        Align: =Left
+        BorderColor: =RGBA(0, 121, 187, 1)
+        FontWeight: =Semibold
+        Italic: =true
+        Size: =14
+        Text: ="Skills Matrix"
+        Width: =168
+        X: =465
+        Y: =30
+        ZIndex: =16
+
+    cbo_staff_email As combobox:
+        AccessibleLabel: ="Search for staff by email address"
+        BorderColor: =RGBA(0, 134, 208, 1)
+        ChevronBackground: =RGBA(0, 134, 208, 1)
+        DisplayFields: =["Mail"]
+        InputTextPlaceholder: ="Search by email"
+        Items: |-
+            =Office365Users.SearchUser({searchTerm:cbo_staff_email.SearchText,top:10}).Mail
+        OnChange: |-
+            =If(IsBlank(cbo_staff_email.Selected.Mail),UpdateContext({locSearchProfile: Blank()}),UpdateContext({locSearchProfile: Office365Users.UserProfileV2(cbo_staff_email.Selected.Mail)}))
+        SearchFields: =["Mail"]
+        SearchItems: |-
+            =Search(Office365Users.SearchUser({searchTerm:cbo_staff_email.SearchText,top:10}).Mail,cbo_staff_email.SearchText,"Mail")
+        SelectMultiple: =false
+        Width: =361
+        X: =70
+        Y: =187
+        ZIndex: =21
+
+    lbl_search_title As label:
+        Align: =Left
+        BorderColor: =RGBA(0, 121, 187, 1)
+        FontWeight: =Semibold
+        Italic: =true
+        Size: =14
+        Text: ="Get staff O365 Profile"
+        Width: =244
+        X: =70
+        Y: =147
+        ZIndex: =22
+
+    img_staff_image As image:
+        Image: |-
+            =If(
+                IsBlank(locSearchProfile.mail),
+                SampleImage,
+                If(Office365Users.UserPhotoMetadata(locSearchProfile.mail).HasPhoto,Office365Users.UserPhoto(locSearchProfile.mail),SampleImage)
+            )
+        RadiusBottomLeft: =100
+        RadiusBottomRight: =100
+        RadiusTopLeft: =100
+        RadiusTopRight: =100
+        X: =70
+        Y: =255
+        ZIndex: =23
+
+    lbl_display_name_header As label:
+        Color: =RGBA(128, 128, 128, 1)
+        FontWeight: =Semibold
+        Height: =20
+        Italic: =true
+        Size: =10
+        Text: |-
+            ="Display name:"
+        Width: =361
+        X: =70
+        Y: =380
+        ZIndex: =24
+
+    lbl_country_value As label:
+        Text: =LookUp(MatrixRoster,EmailAddress = locSearchProfile.mail).Country.Value
+        Width: =361
+        X: =70
+        Y: =460
+        ZIndex: =26
+
+    lbl_state As label:
+        Text: =locSearchProfile.state
+        Width: =361
+        X: =70
+        Y: =520
+        ZIndex: =27
+
+    lbl_business As label:
+        Text: =LookUp(MatrixRoster,EmailAddress = locSearchProfile.mail).BusinessUnit.Value
+        Width: =361
+        X: =70
+        Y: =580
+        ZIndex: =28
+
+    lbl_job_title As label:
+        Text: =locSearchProfile.jobTitle
+        Width: =361
+        X: =70
+        Y: =640
+        ZIndex: =29
+
+    lbl_display_name As label:
+        Text: =locSearchProfile.displayName
+        Width: =361
+        X: =70
+        Y: =400
+        ZIndex: =31
+
+    lbl_country_header As label:
+        Color: =RGBA(128, 128, 128, 1)
+        FontWeight: =Semibold
+        Height: =20
+        Italic: =true
+        Size: =10
+        Text: |-
+            ="Country:"
+        Width: =361
+        X: =70
+        Y: =440
+        ZIndex: =32
+
+    lbl_state_header As label:
+        Color: =RGBA(128, 128, 128, 1)
+        FontWeight: =Semibold
+        Height: =20
+        Italic: =true
+        Size: =10
+        Text: |-
+            ="State:"
+        Width: =361
+        X: =70
+        Y: =500
+        ZIndex: =33
+
+    lbl_business_header As label:
+        Color: =RGBA(128, 128, 128, 1)
+        FontWeight: =Semibold
+        Height: =20
+        Italic: =true
+        Size: =10
+        Text: |-
+            ="Business:"
+        Width: =361
+        X: =70
+        Y: =560
+        ZIndex: =34
+
+    lbl_job_title_header As label:
+        Color: =RGBA(128, 128, 128, 1)
+        FontWeight: =Semibold
+        Height: =20
+        Italic: =true
+        Size: =10
+        Text: |-
+            ="Job Title:"
+        Width: =361
+        X: =70
+        Y: =620
+        ZIndex: =35
+
