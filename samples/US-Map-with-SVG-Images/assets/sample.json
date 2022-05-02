@@ -1,0 +1,91 @@
+[
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "svg-us-map",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2022-03-05T00:00:00.000Z",
+    "updateDateTime": "2022-03-05T00:00:00.000Z",
+    "title": "US Map with SVG Images",
+    "shortDescription": "This sample provides an idea of using SVG images within Power Apps",
+    "longDescription": [
+      "This sample provides an idea of using SVG images within Power Apps. Also, showcases how powerful operations we can perform by using SVG images within Power Apps."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/US-Map-with-SVG-Images",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "Power Apps","SVG"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/US-Map-with-SVG-Images/assets/USMapPopulation.JPG?raw=true",
+        "alt": "Theme Light"
+      },
+      {
+        "type": "image",
+        "order": 101,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/US-Map-with-SVG-Images/assets/USMapStateSElection.JPG?raw=true",
+        "alt": "Theme Dark"
+      },
+      {
+        "type": "image",
+        "order": 102,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/US-Map-with-SVG-Images/assets/USMapwithSVGImage.gif?raw=true",
+        "alt": "Phone Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "rsk2013",
+        "name": "Krishna Rachakonda",
+        "pictureUrl": "https://github.com/rsk2013.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  }
+]

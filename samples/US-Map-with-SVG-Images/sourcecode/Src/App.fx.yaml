@@ -1,0 +1,569 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =
+        ClearCollect(
+            colStatePopulation,
+            [
+                {
+                    State: "Alabama",
+                    Population: 4903185,
+                    Capital: "Montgomery",
+                    Abbreviation: "AL",
+                    Area: 52420
+                },
+                {
+                    State: "Alaska",
+                    Population: 731545,
+                    Capital: "Juneau",
+                    Abbreviation: "AK",
+                    Area: 665384
+                },
+                {
+                    State: "Arizona",
+                    Population: 7278717,
+                    Capital: "Phoenix",
+                    Abbreviation: "AZ",
+                    Area: 113990
+                },
+                {
+                    State: "Arkansas",
+                    Population: 3017804,
+                    Capital: "Little Rock",
+                    Abbreviation: "AR",
+                    Area: 53179
+                },
+                {
+                    State: "California",
+                    Population: 39512223,
+                    Capital: "Sacramento",
+                    Abbreviation: "CA",
+                    Area: 163695
+                },
+                {
+                    State: "Colorado",
+                    Population: 5758736,
+                    Capital: "Denver",
+                    Abbreviation: "CO",
+                    Area: 104094
+                },
+                {
+                    State: "Connecticut",
+                    Population: 3565278,
+                    Capital: "Hartford",
+                    Abbreviation: "CT",
+                    Area: 5543
+                },
+                {
+                    State: "Delaware",
+                    Population: 973764,
+                    Capital: "Dover",
+                    Abbreviation: "DE",
+                    Area: 2489
+                },
+                {
+                    State: "Florida",
+                    Population: 21477737,
+                    Capital: "Tallahassee",
+                    Abbreviation: "FL",
+                    Area: 65758
+                },
+                {
+                    State: "Georgia",
+                    Population: 10617423,
+                    Capital: "Atlanta",
+                    Abbreviation: "GA",
+                    Area: 59425
+                },
+                {
+                    State: "Hawaii",
+                    Population: 1415872,
+                    Capital: "Honolulu",
+                    Abbreviation: "HI",
+                    Area: 10932
+                },
+                {
+                    State: "Idaho",
+                    Population: 1787065,
+                    Capital: "Boise",
+                    Abbreviation: "ID",
+                    Area: 83569
+                },
+                {
+                    State: "Illinois",
+                    Population: 12671821,
+                    Capital: "Springfield",
+                    Abbreviation: "IL",
+                    Area: 57914
+                },
+                {
+                    State: "Indiana",
+                    Population: 6732219,
+                    Capital: "Indianapolis",
+                    Abbreviation: "IN",
+                    Area: 36420
+                },
+                {
+                    State: "Iowa",
+                    Population: 3155070,
+                    Capital: "Des Moines",
+                    Abbreviation: "IA",
+                    Area: 56273
+                },
+                {
+                    State: "Kansas",
+                    Population: 2913314,
+                    Capital: "Topeka",
+                    Abbreviation: "KS",
+                    Area: 82278
+                },
+                {
+                    State: "Kentucky",
+                    Population: 4467673,
+                    Capital: "Frankfort",
+                    Abbreviation: "KY",
+                    Area: 40408
+                },
+                {
+                    State: "Louisiana",
+                    Population: 4648794,
+                    Capital: "Baton Rouge",
+                    Abbreviation: "LA",
+                    Area: 52378
+                },
+                {
+                    State: "Maine",
+                    Population: 1344212,
+                    Capital: "Augusta",
+                    Abbreviation: "ME",
+                    Area: 35380
+                },
+                {
+                    State: "Maryland",
+                    Population: 6045680,
+                    Capital: "Annapolis",
+                    Abbreviation: "MD",
+                    Area: 12406
+                },
+                {
+                    State: "Massachusetts",
+                    Population: 6892503,
+                    Capital: "Boston",
+                    Abbreviation: "MA",
+                    Area: 10554
+                },
+                {
+                    State: "Michigan",
+                    Population: 9986857,
+                    Capital: "Lansing",
+                    Abbreviation: "MI",
+                    Area: 96714
+                },
+                {
+                    State: "Minnesota",
+                    Population: 5639632,
+                    Capital: "St. Paul",
+                    Abbreviation: "MN",
+                    Area: 86936
+                },
+                {
+                    State: "Mississippi",
+                    Population: 2976149,
+                    Capital: "Jackson",
+                    Abbreviation: "MS",
+                    Area: 48432
+                },
+                {
+                    State: "Missouri",
+                    Population: 6137428,
+                    Capital: "Jefferson City",
+                    Abbreviation: "MO",
+                    Area: 69707
+                },
+                {
+                    State: "Montana",
+                    Population: 1068778,
+                    Capital: "Helena",
+                    Abbreviation: "MT",
+                    Area: 147040
+                },
+                {
+                    State: "Nebraska",
+                    Population: 1934408,
+                    Capital: "Lincoln",
+                    Abbreviation: "NE",
+                    Area: 77348
+                },
+                {
+                    State: "Nevada",
+                    Population: 3080156,
+                    Capital: "Carson City",
+                    Abbreviation: "NV",
+                    Area: 110572
+                },
+                {
+                    State: "New Hampshire",
+                    Population: 1359711,
+                    Capital: "Concord",
+                    Abbreviation: "NH",
+                    Area: 9349
+                },
+                {
+                    State: "New Jersey",
+                    Population: 8882190,
+                    Capital: "Trenton",
+                    Abbreviation: "NJ",
+                    Area: 8723
+                },
+                {
+                    State: "New Mexico",
+                    Population: 2096829,
+                    Capital: "Santa Fe",
+                    Abbreviation: "NM",
+                    Area: 121590
+                },
+                {
+                    State: "New York",
+                    Population: 19453561,
+                    Capital: "Albany",
+                    Abbreviation: "NY",
+                    Area: 54555
+                },
+                {
+                    State: "North Carolina",
+                    Population: 10488084,
+                    Capital: "Raleigh",
+                    Abbreviation: "NC",
+                    Area: 53819
+                },
+                {
+                    State: "North Dakota",
+                    Population: 762062,
+                    Capital: "Bismarck",
+                    Abbreviation: "ND",
+                    Area: 70698
+                },
+                {
+                    State: "Ohio",
+                    Population: 11689100,
+                    Capital: "Columbus",
+                    Abbreviation: "OH",
+                    Area: 44826
+                },
+                {
+                    State: "Oklahoma",
+                    Population: 3956971,
+                    Capital: "Oklahoma City",
+                    Abbreviation: "OK",
+                    Area: 69899
+                },
+                {
+                    State: "Oregon",
+                    Population: 4217737,
+                    Capital: "Salem",
+                    Abbreviation: "OR",
+                    Area: 98379
+                },
+                {
+                    State: "Pennsylvania",
+                    Population: 12801989,
+                    Capital: "Harrisburg",
+                    Abbreviation: "PA",
+                    Area: 46054
+                },
+                {
+                    State: "Rhode Island",
+                    Population: 1059361,
+                    Capital: "Providence",
+                    Abbreviation: "RI",
+                    Area: 1545
+                },
+                {
+                    State: "South Carolina",
+                    Population: 5148714,
+                    Capital: "Columbia",
+                    Abbreviation: "SC",
+                    Area: 32020
+                },
+                {
+                    State: "South Dakota",
+                    Population: 884659,
+                    Capital: "Pierre",
+                    Abbreviation: "SD",
+                    Area: 77116
+                },
+                {
+                    State: "Tennessee",
+                    Population: 6829174,
+                    Capital: "Nashville",
+                    Abbreviation: "TN",
+                    Area: 42144
+                },
+                {
+                    State: "Texas",
+                    Population: 28995881,
+                    Capital: "Austin",
+                    Abbreviation: "TX",
+                    Area: 268596
+                },
+                {
+                    State: "Utah",
+                    Population: 3205958,
+                    Capital: "Salt Lake City",
+                    Abbreviation: "UT",
+                    Area: 84897
+                },
+                {
+                    State: "Vermont",
+                    Population: 623989,
+                    Capital: "Montpelier",
+                    Abbreviation: "VT",
+                    Area: 9616
+                },
+                {
+                    State: "Virginia",
+                    Population: 8535519,
+                    Capital: "Richmond",
+                    Abbreviation: "VA",
+                    Area: 42775
+                },
+                {
+                    State: "Washington",
+                    Population: 7614893,
+                    Capital: "Olympia",
+                    Abbreviation: "WA",
+                    Area: 71298
+                },
+                {
+                    State: "West Virginia",
+                    Population: 1792147,
+                    Capital: "Charleston",
+                    Abbreviation: "WV",
+                    Area: 24230
+                },
+                {
+                    State: "Wisconsin",
+                    Population: 5822434,
+                    Capital: "Madison",
+                    Abbreviation: "WI",
+                    Area: 65496
+                },
+                {
+                    State: "Wyoming",
+                    Population: 578759,
+                    Capital: "Cheyenne",
+                    Abbreviation: "WY",
+                    Area: 97813
+                },
+                {
+                    State: "District of Columbia",
+                    Population: 705749,
+                    Capital: "",
+                    Abbreviation: "DC",
+                    Area: 68
+                }
+            ]
+        );
+        /*
+        ClearCollect(
+            colStates,
+            [
+                "Massachusetts",
+                "Minnesota",
+                "Montana",
+                "North Dakota",
+                "Hawaii",
+                "Idaho",
+                "Washington",
+                "Arizona",
+                "California",
+                "Colorado",
+                "Nevada",
+                "New Mexico",
+                "Oregon",
+                "Utah",
+                "Wyoming",
+                "Arkansas",
+                "Iowa",
+                "Kansas",
+                "Missouri",
+                "Nebraska",
+                "Oklahoma",
+                "South Dakota",
+                "Louisiana",
+                "Texas",
+                "Connecticut",
+                "New Hampshire",
+                "Rhode Island",
+                "Vermont",
+                "Alabama",
+                "Florida",
+                "Georgia",
+                "Mississippi",
+                "South Carolina",
+                "Illinois",
+                "Indiana",
+                "Kentucky",
+                "North Carolina",
+                "Ohio",
+                "Tennessee",
+                "Virginia",
+                "Wisconsin",
+                "West Virginia",
+                "Delaware",
+                "District of Columbia",
+                "Maryland",
+                "New Jersey",
+                "New York",
+                "Pennsylvania",
+                "Maine",
+                "Michigan",
+                "Alaska"
+            ]
+        )
+        
+         ClearCollect(
+            colColors,
+            [
+                Color.AliceBlue,
+                Color.AntiqueWhite,
+                Color.Aqua,
+                Color.Aquamarine,
+                Color.Azure,
+                Color.Beige,
+                Color.Bisque,
+                Color.Black,
+                Color.BlanchedAlmond,
+                Color.Blue,
+                Color.BlueViolet,
+                Color.Brown,
+                Color.CadetBlue,
+                Color.Chartreuse,
+                Color.Chocolate,
+                Color.Coral,
+                Color.CornflowerBlue,
+                Color.Cornsilk,
+                Color.Crimson,
+                Color.Cyan,
+                Color.DarkBlue,
+                Color.DarkCyan,
+                Color.DarkGoldenRod,
+                Color.DarkGray,
+                Color.DarkGreen,
+                Color.DarkKhaki,
+                Color.DarkMagenta,
+                Color.DarkOliveGreen,
+                Color.DarkOrange,
+                Color.DarkOrchid,
+                Color.DarkRed,
+                Color.DarkSalmon,
+                Color.DarkSeaGreen,
+                Color.DarkSlateBlue,
+                Color.DarkSlateGray,
+                Color.DarkTurquoise,
+                Color.DarkViolet,
+                Color.DeepPink,
+                Color.DeepSkyBlue,
+                Color.DimGray,
+                Color.DimGrey,
+                Color.DodgerBlue,
+                Color.FireBrick,
+                Color.FloralWhite,
+                Color.ForestGreen,
+                Color.Fuchsia,
+                Color.Gainsboro,
+                Color.GhostWhite,
+                Color.Gold,
+                Color.GoldenRod,
+                Color.Gray,
+                Color.Green,
+                Color.GreenYellow,
+                Color.HotPink,
+                Color.IndianRed,
+                Color.Indigo,
+                Color.Ivory,
+                Color.Khaki,
+                Color.Lavender,
+                Color.LavenderBlush,
+                Color.LawnGreen,
+                Color.LemonChiffon,
+                Color.LightBlue,
+                Color.LightCoral,
+                Color.LightCyan,
+                Color.LightGoldenRodYellow,
+                Color.LightGray,
+                Color.LightGreen,
+                Color.LightPink,
+                Color.LightSalmon,
+                Color.LightSeaGreen,
+                Color.LightSkyBlue,
+                Color.LightSlateGray,
+                Color.LightSteelBlue,
+                Color.LightYellow,
+                Color.Lime,
+                Color.LimeGreen,
+                Color.Linen,
+                Color.Magenta,
+                Color.Maroon,
+                Color.MediumBlue,
+                Color.MediumOrchid,
+                Color.MediumPurple,
+                Color.MediumSeaGreen,
+                Color.MediumSlateBlue,
+                Color.MediumSpringGreen,
+                Color.MediumTurquoise,
+                Color.MediumVioletRed,
+                Color.MidnightBlue,
+                Color.MintCream,
+                Color.MistyRose,
+                Color.Moccasin,
+                Color.NavajoWhite,
+                Color.Navy,
+                Color.OldLace,
+                Color.Olive,
+                Color.OliveDrab,
+                Color.Orange,
+                Color.OrangeRed,
+                Color.Orchid,
+                Color.PaleGoldenRod,
+                Color.PaleGreen,
+                Color.PaleTurquoise,
+                Color.PaleVioletRed,
+                Color.PapayaWhip,
+                Color.PeachPuff,
+                Color.Peru,
+                Color.Pink,
+                Color.Plum,
+                Color.PowderBlue,
+                Color.Purple,
+                Color.Red,
+                Color.RosyBrown,
+                Color.RoyalBlue,
+                Color.SaddleBrown,
+                Color.Salmon,
+                Color.SandyBrown,
+                Color.SeaGreen,
+                Color.SeaShell,
+                Color.Sienna,
+                Color.Silver,
+                Color.SkyBlue,
+                Color.SlateBlue,
+                Color.SlateGray,
+                Color.Snow,
+                Color.SpringGreen,
+                Color.SteelBlue,
+                Color.Tan,
+                Color.Teal,
+                Color.Thistle,
+                Color.Tomato,
+                Color.Transparent,
+                Color.Turquoise,
+                Color.Violet,
+                Color.Wheat,
+                Color.White,
+                Color.WhiteSmoke,
+                Color.Yellow,
+                Color.YellowGreen
+            ]
+        ); */
+
