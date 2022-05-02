@@ -17,13 +17,13 @@ This easy to use app has 3 main sections:
 1. search the matrix for a list of staff with a specific set of skills and levels
 
 Enter Skills
-![picture of skills entry](assets/4-enter-skills.png)
+![picture of skills entry](assets/4-enter-skills.PNG)
 
 Search by User
-![picture of user search](assets/5-search-by-user.png)
+![picture of user search](assets/5-search-by-user.PNG)
 
 Search the Matrix
-![picture of matrix search](assets/6-search-matrix.png)
+![picture of matrix search](assets/6-search-matrix.PNG)
 
 See it in action!
 ![gif of app in use](assets/0-skills-matrix-app.gif)
