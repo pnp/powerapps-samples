@@ -1,0 +1,288 @@
+Approvals As screen:
+
+    Button6_2 As button:
+        BorderStyle: =BorderStyle.None
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledFill: =RGBA(230, 230, 230, 1)
+        Fill: =RGBA(179, 179, 179, 1)
+        HoverFill: =RGBA(166, 166, 166, 1)
+        PaddingRight: =5.29
+        PaddingTop: =5.29
+        PressedFill: =RGBA(166, 166, 166, 1)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        Size: =15.86
+        Text: ="Approvals"
+        Width: =169.25
+        X: =396.66
+        Y: =30
+        ZIndex: =1
+
+    Button5_2 As button:
+        BorderStyle: =BorderStyle.None
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledFill: =RGBA(230, 230, 230, 1)
+        Fill: =RGBA(230, 230, 230, 1)
+        HoverFill: =RGBA(166, 166, 166, 1)
+        OnSelect: =Navigate(InvoiceLines)
+        PaddingRight: =5.29
+        PaddingTop: =5.29
+        PressedFill: =RGBA(166, 166, 166, 1)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        Size: =15.86
+        Text: ="Line Items"
+        Width: =169.25
+        X: =211.55
+        Y: =30
+        ZIndex: =2
+
+    Button4_2 As button:
+        BorderStyle: =BorderStyle.None
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledFill: =RGBA(230, 230, 230, 1)
+        Fill: =RGBA(230, 230, 230, 1)
+        HoverFill: =ColorFade(RGBA(166, 166, 166, 1), -20%)
+        OnSelect: =Navigate(SplashScreen)
+        PaddingRight: =5.29
+        PaddingTop: =5.29
+        PressedFill: =RGBA(166, 166, 166, 1)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        Size: =15.86
+        Text: ="Details"
+        Width: =169.25
+        X: =27.50
+        Y: =30
+        ZIndex: =3
+
+    Label9_2 As label:
+        Fill: =RGBA(230, 230, 230, 1)
+        Height: =574
+        PaddingRight: =5.29
+        PaddingTop: =5.29
+        Size: =13.75
+        Text: =""
+        Width: =1268.27
+        X: =15.86
+        Y: =65
+        ZIndex: =4
+
+    Label2_4 As label:
+        Height: =36
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Text: |-
+            =Concatenate("Invoice Number: ",varInvoiceNumber)
+        Width: =261.71
+        X: =297.23
+        Y: =74
+        ZIndex: =7
+
+    Label2_5 As label:
+        Height: =36
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Text: |-
+            =Concatenate("Invoice Amount: ",varInvoiceAmount)
+        Width: =261.71
+        X: =576.48
+        Y: =74
+        ZIndex: =8
+
+    Label2_3 As label:
+        Height: =36
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Text: |-
+            =Concatenate("Vendor: ",varVendor)
+        Width: =261.71
+        X: =34.91
+        Y: =74
+        ZIndex: =9
+
+    Label10_1 As label:
+        Fill: =RGBA(0, 0, 0, 1)
+        Height: =2
+        PaddingRight: =5.29
+        PaddingTop: =5.29
+        Size: =13.75
+        Text: =""
+        Width: =731.98
+        X: =34.91
+        Y: =110
+        ZIndex: =14
+
+    Label11 As label:
+        FontWeight: =FontWeight.Bold
+        PaddingRight: =5.29
+        PaddingTop: =5.29
+        Size: =25.39
+        Text: ="Review History"
+        Width: =358.58
+        X: =38.08
+        Y: =126
+        ZIndex: =15
+
+    Label12 As label:
+        FontWeight: =FontWeight.Semibold
+        PaddingRight: =5.29
+        PaddingTop: =5.29
+        Size: =13.75
+        Text: ="Requested By"
+        Width: =139.62
+        X: =147.03
+        Y: =180
+        ZIndex: =16
+
+    Label13 As label:
+        PaddingRight: =5.29
+        PaddingTop: =5.29
+        Size: =13.75
+        Text: |
+            =Office365Users.MyProfile().DisplayName
+        Width: =158.66
+        X: =161.84
+        Y: =208
+        ZIndex: =17
+
+    Image1 As image:
+        DisplayMode: =DisplayMode.View
+        Height: =68
+        Image: =Office365Users.UserPhoto(varRequestedBy)
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        RadiusBottomLeft: =50
+        RadiusBottomRight: =50
+        RadiusTopLeft: =50
+        RadiusTopRight: =50
+        Width: =71.93
+        X: =58.18
+        Y: =180
+        ZIndex: =18
+
+    Label14 As label:
+        PaddingRight: =5.29
+        PaddingTop: =5.29
+        Size: =13.75
+        Text: =lstInvoices.Selected.Created
+        Width: =271.85
+        X: =161.84
+        Y: =238
+        ZIndex: =19
+
+    Label15 As label:
+        Fill: =RGBA(0, 0, 0, 1)
+        Height: =18
+        PaddingRight: =5.29
+        PaddingTop: =5.29
+        Size: =13.75
+        Text: =""
+        Width: =2.11
+        X: =95.20
+        Y: =253
+        ZIndex: =20
+
+    Label15_1 As label:
+        Fill: =RGBA(0, 0, 0, 1)
+        Height: =18
+        PaddingRight: =5.29
+        PaddingTop: =5.29
+        Size: =13.75
+        Text: =""
+        Width: =2.11
+        X: =95.20
+        Y: =278
+        ZIndex: =21
+
+    Label15_2 As label:
+        Fill: =RGBA(0, 0, 0, 1)
+        Height: =18
+        PaddingRight: =5.29
+        PaddingTop: =5.29
+        Size: =13.75
+        Text: =""
+        Width: =2.11
+        X: =95.20
+        Y: =303
+        ZIndex: =22
+
+    Label12_1 As label:
+        FontWeight: =FontWeight.Semibold
+        PaddingRight: =5.29
+        PaddingTop: =5.29
+        Size: =13.75
+        Text: ="Approver"
+        Width: =139.62
+        X: =147.03
+        Y: =321
+        ZIndex: =23
+
+    Label13_1 As label:
+        PaddingRight: =5.29
+        PaddingTop: =5.29
+        Size: =13.75
+        Text: ="Diego Siciliani"
+        Width: =158.66
+        X: =161.84
+        Y: =349
+        ZIndex: =24
+
+    Image2 As image:
+        DisplayMode: =DisplayMode.View
+        Height: =18
+        Image: =GreenCheckTransparent
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        RadiusBottomLeft: =50
+        RadiusBottomRight: =50
+        RadiusTopLeft: =50
+        RadiusTopRight: =50
+        Width: =22.21
+        X: =124.81
+        Y: =188
+        ZIndex: =25
+
+    Image1_1 As image:
+        DisplayMode: =DisplayMode.View
+        Height: =68
+        Image: =Diego
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        RadiusBottomLeft: =50
+        RadiusBottomRight: =50
+        RadiusTopLeft: =50
+        RadiusTopRight: =50
+        Width: =71.93
+        X: =58.18
+        Y: =330
+        ZIndex: =26
+
+    Image2_1 As image:
+        DisplayMode: =DisplayMode.View
+        Height: =18
+        Image: =InProgressTransparent
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        RadiusBottomLeft: =50
+        RadiusBottomRight: =50
+        RadiusTopLeft: =50
+        RadiusTopRight: =50
+        Width: =22.21
+        X: =119.53
+        Y: =330
+        ZIndex: =27
+
+    Label14_1 As label:
+        PaddingRight: =5.29
+        PaddingTop: =5.29
+        Size: =13.75
+        Text: ="Pending"
+        Width: =271.85
+        X: =161.84
+        Y: =376
+        ZIndex: =28
+

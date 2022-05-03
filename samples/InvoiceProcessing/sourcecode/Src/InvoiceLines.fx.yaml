@@ -1,0 +1,262 @@
+InvoiceLines As screen:
+
+    Button6_1 As button:
+        BorderStyle: =BorderStyle.None
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledFill: =RGBA(230, 230, 230, 1)
+        Fill: =RGBA(230, 230, 230, 1)
+        HoverFill: =RGBA(166, 166, 166, 1)
+        OnSelect: =Navigate(Approvals)
+        PaddingRight: =5.29
+        PaddingTop: =5.29
+        PressedFill: =RGBA(166, 166, 166, 1)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        Size: =15.86
+        Text: ="Approvals"
+        Width: =169.25
+        X: =396.66
+        Y: =30
+        ZIndex: =1
+
+    Button5_1 As button:
+        BorderStyle: =BorderStyle.None
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledFill: =RGBA(230, 230, 230, 1)
+        Fill: =RGBA(179, 179, 179, 1)
+        HoverFill: =RGBA(166, 166, 166, 1)
+        OnSelect: =Navigate(InvoiceLines)
+        PaddingRight: =5.29
+        PaddingTop: =5.29
+        PressedFill: =RGBA(166, 166, 166, 1)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        Size: =15.86
+        Text: ="Line Items"
+        Width: =169.25
+        X: =211.55
+        Y: =30
+        ZIndex: =2
+
+    Button4_1 As button:
+        BorderStyle: =BorderStyle.None
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledFill: =RGBA(230, 230, 230, 1)
+        Fill: =RGBA(230, 230, 230, 1)
+        HoverFill: =ColorFade(RGBA(166, 166, 166, 1), -20%)
+        OnSelect: =Navigate(SplashScreen)
+        PaddingRight: =5.29
+        PaddingTop: =5.29
+        PressedFill: =RGBA(166, 166, 166, 1)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        Size: =15.86
+        Text: ="Details"
+        Width: =169.25
+        X: =27.50
+        Y: =30
+        ZIndex: =3
+
+    Label9_1 As label:
+        Fill: =RGBA(230, 230, 230, 1)
+        Height: =574
+        PaddingRight: =5.29
+        PaddingTop: =5.29
+        Size: =13.75
+        Text: =""
+        Width: =1268.27
+        X: =15.86
+        Y: =65
+        ZIndex: =4
+
+    DataTable1 As dataTable.datatable:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        BorderStyle: =BorderStyle.Solid
+        BorderThickness: =1
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =479
+        HoverFill: =RGBA(255, 255, 255, 1)
+        Items: =Filter('Invoice Lines',InvoiceID = varInvoiceID)
+        Size: =12.37
+        Width: =721.38
+        X: =125.62
+        Y: =128
+        ZIndex: =5
+
+        Quantity_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Quantity"
+            FieldName: ="Quantity"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =2
+            Text: =ThisItem.Quantity
+            Width: =177.71
+            X: =0.00
+            Y: =0
+            ZIndex: =2
+
+        Description_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Description"
+            FieldName: ="Description"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =ThisItem.Description
+            Width: =177.71
+            X: =177.71
+            Y: =0
+            ZIndex: =3
+
+        UnitPrice_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="UnitPrice"
+            FieldName: ="UnitPrice"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =4
+            Text: =ThisItem.UnitPrice
+            Width: =177.71
+            X: =355.41
+            Y: =0
+            ZIndex: =4
+
+        Total_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Total"
+            FieldName: ="Total"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =5
+            Text: =ThisItem.Total
+            Width: =177.71
+            X: =533.11
+            Y: =0
+            ZIndex: =5
+
+    Label2 As label:
+        Height: =36
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Text: |-
+            =Concatenate("Invoice Number: ",varInvoiceNumber)
+        Width: =261.71
+        X: =387.34
+        Y: =74
+        ZIndex: =7
+
+    Label2_1 As label:
+        Height: =36
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Text: |-
+            =Concatenate("Invoice Amount: ",varInvoiceAmount)
+        Width: =261.71
+        X: =667.12
+        Y: =74
+        ZIndex: =8
+
+    Label2_2 As label:
+        Height: =36
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Text: |-
+            =Concatenate("Vendor: ",varVendor)
+        Width: =261.71
+        X: =125.62
+        Y: =74
+        ZIndex: =9
+
+    Label6 As label:
+        Align: =Align.Right
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Text: |-
+            ="GL Code:"
+        Width: =108
+        X: =879.36
+        Y: =192
+        ZIndex: =10
+
+    txtGLCode As text:
+        Default: ="Text input"
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Width: =249.34
+        X: =996
+        Y: =192
+        ZIndex: =11
+
+    Label10 As label:
+        Fill: =RGBA(0, 0, 0, 1)
+        Height: =2
+        PaddingRight: =5.29
+        PaddingTop: =5.29
+        Size: =13.75
+        Text: =""
+        Width: =731.98
+        X: =124.81
+        Y: =110
+        ZIndex: =14
+
+    Label6_1 As label:
+        Align: =Align.Right
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Text: |-
+            ="Cost Center:"
+        Width: =108
+        X: =879
+        Y: =249
+        ZIndex: =15
+
+    txtGLCode_1 As text:
+        Default: ="Text input"
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Width: =249.34
+        X: =996
+        Y: =249
+        ZIndex: =16
+
+    Label6_2 As label:
+        Align: =Align.Right
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Text: |-
+            ="Tax Code:"
+        Width: =108
+        X: =879
+        Y: =309
+        ZIndex: =17
+
+    txtGLCode_2 As text:
+        Default: ="Text input"
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Width: =249.34
+        X: =996
+        Y: =309
+        ZIndex: =18
+
+    Button1 As button:
+        Text: ="Save"
+        X: =1085
+        Y: =389
+        ZIndex: =19
+

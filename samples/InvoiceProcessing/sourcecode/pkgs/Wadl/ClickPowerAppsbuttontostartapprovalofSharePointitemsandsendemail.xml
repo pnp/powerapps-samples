@@ -1,0 +1,38 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://msmanaged-na.azure-apim.net/apim/logicflows" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="ClickPowerAppsbuttontostartapprovalofSharePointitemsandsendemail" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="Click PowerApps button to start approval of SharePoint items and send email" />
+  <grammars>
+    <jsonTypes targetNamespace="https://msmanaged-na.azure-apim.net/apim/logicflows" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="ManualTriggerInput_Startanapproval_Assignedto_def" />
+      <integer name="ManualTriggerInput_Initializevariable_Value_def" />
+      <object name="ManualTriggerInput">
+        <property name="Startanapproval_Assignedto" type="string" />
+        <property name="Initializevariable_Value" type="integer" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://msmanaged-na.azure-apim.net/apim/logicflows">
+    <resource path="/{connectionId}/triggers/manual/run">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="Run">
+        <doc title="Runs a logic flow trigger." />
+        <request>
+          <param style="query" name="api-version" type="xs:string" required="true" fixed="2015-02-01-preview">
+            <doc title="The api version" />
+          </param>
+          <representation mediaType="application/json">
+            <param style="plain" name="Startanapproval_Assignedto" path="/Startanapproval_Assignedto" type="xs:string" required="true" />
+            <param style="plain" name="Initializevariable_Value" path="/Initializevariable_Value" type="xs:long" required="true" />
+          </representation>
+        </request>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="logicflows" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>

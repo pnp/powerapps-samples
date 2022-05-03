@@ -1,0 +1,12 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =Set(varRotation,"None");
+        Set(varInvoiceID,"");
+        Set(varInvoiceAmount,"");
+        Set(varInvoiceNumber,"");
+        Set(varVendor,"");
+        Set(varCustomerName,"");
+        Set(varImagePosition,"Fit");
+        Set(varReqestedBy,"");
+
