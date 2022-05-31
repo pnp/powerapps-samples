@@ -33,4 +33,4 @@ This repository has adopted the [Microsoft Open Source Code of Conduct](https://
 > Sharing is caring!
 
 <img src="https://telemetry.sharepointpnp.com/powerapps-samples/README.md" />
-Troy is trying to be clever and is trying to sneak in a fun comment on the main markdown within the testing fork. Let's see if the team catches it. :-)
+Troy is trying to be clever and is trying to sneak in a fun comment on the main markdown within the testing fork. Let's see if the team catches it. :-) PS Team will catch easily catch this because they are expecting 31 files and I'll be sending 32 files. I'll assume that they may approve this just for fun.
