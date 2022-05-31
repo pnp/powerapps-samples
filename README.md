@@ -33,3 +33,4 @@ This repository has adopted the [Microsoft Open Source Code of Conduct](https://
 > Sharing is caring!
 
 <img src="https://telemetry.sharepointpnp.com/powerapps-samples/README.md" />
+Troy is trying to be clever and is trying to sneak in a fun comment on the main markdown within the testing fork. Let's see if the team catches it. :-)
