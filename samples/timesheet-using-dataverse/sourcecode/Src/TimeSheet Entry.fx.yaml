@@ -1,0 +1,522 @@
+"'TimeSheet Entry' As screen":
+
+    Rectangle2_2 As rectangle:
+        BorderThickness: =1
+        Fill: =RGBA(238, 204, 204, 1)
+        Height: =651
+        Width: =303
+        X: =500
+        Y: =117
+        ZIndex: =1
+
+    Rectangle2_1 As rectangle:
+        BorderThickness: =1
+        Fill: =RGBA(238, 204, 204, 1)
+        Height: =51
+        Width: =Parent.Width
+        Y: =54
+        ZIndex: =2
+
+    Rectangle1 As rectangle:
+        BorderColor: =RGBA(246, 88, 16, 1)
+        Fill: =RGBA(246, 88, 16, 1)
+        Height: =50
+        Width: =Parent.Width
+        ZIndex: =3
+
+    Label1 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Height: =38
+        Size: =15
+        Text: ="TimeSheet"
+        Width: =218
+        X: =548
+        Y: =5
+        ZIndex: =4
+
+    Rectangle2 As rectangle:
+        BorderThickness: =1
+        Fill: =RGBA(238, 204, 204, 1)
+        Height: =650
+        Width: =493
+        Y: =117
+        ZIndex: =5
+
+    DateWorked_DatePicker As datepicker:
+        AccessibleLabel: ="Date Picker"
+        Format: =DateTimeFormat.LongDate
+        StartOfWeek: =StartOfWeek.Monday
+        TabIndex: =1
+        Width: =330
+        X: =141
+        Y: =58
+        ZIndex: =6
+
+    Label2 As label:
+        FontWeight: =FontWeight.Bold
+        Text: ="Date"
+        Width: =120
+        Y: =58
+        ZIndex: =7
+
+    Label3 As label:
+        FontWeight: =FontWeight.Bold
+        Text: ="Project"
+        Width: =115
+        Y: =129
+        ZIndex: =8
+
+    Label4 As label:
+        FontWeight: =FontWeight.Bold
+        Text: ="Hours Worked"
+        Width: =120
+        Y: =197
+        ZIndex: =9
+
+    Project_ComboBox As combobox:
+        AccessibleLabel: ="Project ComboBox"
+        Default: =Blank()
+        DisplayFields: =["new_name"]
+        InputTextPlaceholder: ="Select Project"
+        Items: =colProjects
+        SearchFields: =["new_name"]
+        SearchItems: =Search(colProjects,Project_ComboBox.SearchText,"new_name")
+        SelectMultiple: =false
+        TabIndex: =2
+        Width: =330
+        X: =141
+        Y: =129
+        ZIndex: =10
+
+    HoursWorked_TextInput As text:
+        AccessibleLabel: ="Hours Worked"
+        Default: =
+        Format: =TextFormat.Number
+        HintText: =0
+        OnChange: |-
+            =//Ensure hours entered is between 0 and 24
+            If(Or(Value(HoursWorked_TextInput.Text) <= 0, Value(HoursWorked_TextInput.Text) >24),Set(varHoursEntryValidation,true),Set(varHoursEntryValidation,false))
+        TabIndex: =3
+        Width: =330
+        X: =141
+        Y: =199
+        ZIndex: =11
+
+    Label5 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =37
+        Text: ="Comments   "
+        Width: =135
+        Y: =270
+        ZIndex: =12
+
+    Comments_TextInput As text:
+        AccessibleLabel: ="Comments"
+        Default: =    
+        Height: =181
+        Mode: =TextMode.MultiLine
+        TabIndex: =4
+        Width: =330
+        X: =141
+        Y: =270
+        ZIndex: =13
+
+    Save_Button As button:
+        DisplayMode: |-
+            =//Enable button if Hours Worked in valid range
+            If(
+                Or(
+                    Value(HoursWorked_TextInput.Text) <= 0,
+                    Value(HoursWorked_TextInput.Text) >24,
+                    Project_ComboBox.Selected.Name = Blank()
+                ),
+                Disabled,
+                Edit
+            )
+        OnSelect: |
+            =//Patch (Save) Timesheet Record to the Timesheet Dataverse Table
+            Patch(
+                Timesheets,
+                {
+                    'Date Worked': DateWorked_DatePicker.SelectedDate,
+                    Project: Project_ComboBox.Selected.Name,
+                    'Hours Worked': Value(HoursWorked_TextInput.Text),
+                    Person: currentUser.FullName,
+                    Comments: Comments_TextInput.Text
+                }
+            );
+            //Refresh the Timesheet collection with the new saved record.
+            ClearCollect(
+                colTimesheets,
+                Filter(
+                    Timesheets,
+                    Person = currentUser.FullName
+                )
+            );
+        TabIndex: =5
+        Text: ="Save"
+        X: =308
+        Y: =488
+        ZIndex: =14
+
+    Label6_1 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        PaddingRight: =5.00
+        PaddingTop: =5.00
+        Size: =13.00
+        Text: ="Total Week Hours"
+        Width: =173
+        X: =502
+        Y: =121
+        ZIndex: =15
+
+    Monday_DatePicker As datepicker:
+        DefaultDate: =DateAdd(DateWorked_DatePicker.SelectedDate,1-Weekday(DateWorked_DatePicker.SelectedDate,StartOfWeek.Monday),Days)
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(0, 0, 0, 0)
+        Format: ="ddd "& ShortDate
+        Height: =35
+        OnChange: =DateAdd(DateWorked_DatePicker.SelectedDate,1-Weekday(DateWorked_DatePicker.SelectedDate,StartOfWeek.Monday),Days)   
+        PaddingRight: =5.00
+        PaddingTop: =0.00
+        Size: =14.00
+        Width: =232
+        X: =507
+        Y: =180
+        ZIndex: =16
+
+    Tuesday_DatePicker As datepicker:
+        DefaultDate: =DateAdd(Monday_DatePicker.SelectedDate,1)
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(0, 0, 0, 0)
+        Format: ="ddd "& ShortDate
+        Height: =31
+        OnChange: =DateAdd(Monday_DatePicker.SelectedDate,1)
+        PaddingRight: =5.00
+        PaddingTop: =0.00
+        Size: =14.00
+        Width: =239
+        X: =507
+        Y: =232
+        ZIndex: =17
+
+    Friday_DatePicker As datepicker:
+        DefaultDate: =DateAdd(Monday_DatePicker.SelectedDate,4)
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(0, 0, 0, 0)
+        Format: ="ddd "& ShortDate
+        Height: =31
+        OnChange: =DateAdd(Monday_DatePicker.SelectedDate,1)
+        PaddingRight: =5.00
+        PaddingTop: =0.00
+        Size: =14.00
+        Width: =232
+        X: =507
+        Y: =378
+        ZIndex: =18
+
+    Thursday_DatePicker As datepicker:
+        DefaultDate: =DateAdd(Monday_DatePicker.SelectedDate,3)
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(0, 0, 0, 0)
+        Format: ="ddd "& ShortDate
+        Height: =33
+        OnChange: =DateAdd(Monday_DatePicker.SelectedDate,1)
+        PaddingRight: =5.00
+        PaddingTop: =0.00
+        Size: =14.00
+        Width: =228
+        X: =507
+        Y: =328
+        ZIndex: =19
+
+    Wedensday_DatePicker As datepicker:
+        DefaultDate: =DateAdd(Monday_DatePicker.SelectedDate,2)
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(0, 0, 0, 0)
+        Format: ="ddd "& ShortDate
+        Height: =31
+        OnChange: =DateAdd(Monday_DatePicker.SelectedDate,1)
+        PaddingRight: =5.00
+        PaddingTop: =0.00
+        Size: =14.00
+        Width: =241
+        X: =507
+        Y: =280
+        ZIndex: =20
+
+    DailyView_Gallery As gallery.galleryVertical:
+        AccessibleLabel: ="Daily View Gallery"
+        BorderThickness: =2
+        Fill: =RGBA(238, 204, 204, 1)
+        Height: =651
+        Items: =Sort(Filter(Timesheets,'Timesheets (Views)'.'My Timesheets','Date Worked'>= Monday_DatePicker.SelectedDate && 'Date Worked' <= Sunday_DatePicker.SelectedDate),'Date Worked')
+        Layout: =Layout.Vertical
+        TabIndex: =6
+        TemplateSize: =84
+        Width: =550
+        X: =816
+        Y: =117
+        ZIndex: =21
+
+        DailyDateWorked_Label As label:
+            OnSelect: =Select(Parent)
+            PaddingRight: =5.00
+            PaddingTop: =5.00
+            Size: =13.00
+            Text: =Text(DateTimeValue(ThisItem.'Date Worked'), "ddd "& ShortDate)
+            VerticalAlign: =VerticalAlign.Top
+            Width: =170
+            X: =2.00
+            Y: =7
+            ZIndex: =1
+
+        Project_Label As label:
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.Project
+            VerticalAlign: =VerticalAlign.Top
+            Width: =280
+            X: =188
+            Y: =7
+            ZIndex: =2
+
+        Comments_Label As label:
+            Height: =36
+            Italic: =true
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =5.00
+            PaddingTop: =0.00
+            Size: =10.00
+            Text: =ThisItem.Comments
+            VerticalAlign: =VerticalAlign.Top
+            Width: =410
+            X: =2
+            Y: =41
+            ZIndex: =3
+
+        Rectangle3_1 As rectangle:
+            Height: =2
+            OnSelect: =Select(Parent)
+            Width: =Parent.Width
+            X: =0.00
+            Y: =96
+            ZIndex: =4
+
+        HoursWorked_Label As label:
+            Align: =Align.Center
+            Height: =41
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =2
+            Size: =16.01
+            Text: =ThisItem.'Hours Worked'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =60
+            X: =470
+            Y: =7
+            ZIndex: =5
+
+        Delete_Icon As icon.Trash:
+            AccessibleLabel: ="Delete Record"
+            Height: =30
+            Icon: =Icon.Trash
+            OnSelect: |-
+                =Remove(Timesheets,ThisItem);ClearCollect(
+                    colTimesheets,
+                    Filter(
+                        Timesheets,
+                        Person = currentUser.FullName
+                    )
+                );
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            Width: =30.00
+            X: =485
+            Y: =53
+            ZIndex: =6
+
+    Saturday_DatePicker As datepicker:
+        DefaultDate: =DateAdd(Monday_DatePicker.SelectedDate,5)
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(0, 0, 0, 0)
+        Format: ="ddd "& ShortDate
+        Height: =31
+        OnChange: =DateAdd(Monday_DatePicker.SelectedDate,1)
+        PaddingRight: =5.00
+        PaddingTop: =0.00
+        Size: =14.00
+        Width: =241
+        X: =507
+        Y: =426
+        ZIndex: =22
+
+    Sunday_DatePicker As datepicker:
+        DefaultDate: =DateAdd(Monday_DatePicker.SelectedDate,6)
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(0, 0, 0, 0)
+        Format: ="ddd "& ShortDate
+        Height: =31
+        OnChange: =DateAdd(Monday_DatePicker.SelectedDate,1)
+        PaddingRight: =5.00
+        PaddingTop: =0.00
+        Size: =14.00
+        Width: =228
+        X: =507
+        Y: =478
+        ZIndex: =23
+
+    MondayHours_Label As label:
+        Align: =Align.Right
+        Height: =35
+        Text: =Sum(Filter(colTimesheets,'Date Worked'=Monday_DatePicker.SelectedDate),'Hours Worked')
+        Width: =50
+        X: =749
+        Y: =180
+        ZIndex: =24
+
+    TuesdayHours_Label As label:
+        Align: =Align.Right
+        Height: =35
+        Text: =Sum(Filter(colTimesheets,'Date Worked'=Tuesday_DatePicker.SelectedDate),'Hours Worked')
+        Width: =50
+        X: =749
+        Y: =226
+        ZIndex: =25
+
+    WedensdayHours_Label As label:
+        Align: =Align.Right
+        Height: =38
+        Text: =Sum(Filter(colTimesheets,'Date Worked'=Wedensday_DatePicker.SelectedDate),'Hours Worked')
+        Width: =50
+        X: =749
+        Y: =270
+        ZIndex: =26
+
+    ThursdayHours_Label As label:
+        Align: =Align.Right
+        Height: =32
+        Text: =Sum(Filter(colTimesheets,'Date Worked'=Thursday_DatePicker.SelectedDate),'Hours Worked')
+        Width: =50
+        X: =749
+        Y: =325
+        ZIndex: =27
+
+    FridayHours_Label As label:
+        Align: =Align.Right
+        Height: =33
+        Text: =Sum(Filter(colTimesheets,'Date Worked'=Friday_DatePicker.SelectedDate),'Hours Worked')
+        Width: =50
+        X: =749
+        Y: =380
+        ZIndex: =28
+
+    SaturdayHours_Label As label:
+        Align: =Align.Right
+        Height: =31
+        Text: =Sum(Filter(colTimesheets,'Date Worked'=Saturday_DatePicker.SelectedDate),'Hours Worked')
+        Width: =50
+        X: =749
+        Y: =428
+        ZIndex: =29
+
+    SundayHours_Label As label:
+        Align: =Align.Right
+        Height: =31
+        Text: =Sum(Filter(colTimesheets,'Date Worked'=Sunday_DatePicker.SelectedDate),'Hours Worked')
+        Width: =50
+        X: =749
+        Y: =478
+        ZIndex: =30
+
+    Label7 As label:
+        Align: =Align.Right
+        FontWeight: =FontWeight.Bold
+        Text: =MondayHours_Label+TuesdayHours_Label+WedensdayHours_Label+ThursdayHours_Label+FridayHours_Label+SaturdayHours_Label+SundayHours_Label
+        Width: =50
+        X: =753
+        Y: =121
+        ZIndex: =31
+
+    Label10 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 0, 0, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =46
+        Size: =12
+        Text: ="Hours Worked must be greater than 0 and less than 24"
+        Visible: =If(varHoursEntryValidation=true,true,false)
+        Width: =475
+        X: =6
+        Y: =224
+        ZIndex: =32
+
+    Rectangle3_2 As rectangle:
+        Height: =2
+        OnSelect: =
+        Width: =303
+        X: =502
+        Y: =169
+        ZIndex: =33
+
+    Rectangle3_3 As rectangle:
+        Height: =2
+        OnSelect: =
+        Width: =303
+        X: =500
+        Y: =214
+        ZIndex: =34
+
+    Rectangle3_4 As rectangle:
+        Height: =2
+        OnSelect: =
+        Width: =303
+        X: =500
+        Y: =421
+        ZIndex: =35
+
+    Rectangle3_5 As rectangle:
+        Height: =2
+        OnSelect: =
+        Width: =303
+        X: =500
+        Y: =522
+        ZIndex: =36
+
+    Rectangle3_6 As rectangle:
+        Height: =2
+        OnSelect: =
+        Width: =303
+        X: =500
+        Y: =365
+        ZIndex: =37
+
+    Rectangle3_7 As rectangle:
+        Height: =2
+        OnSelect: =
+        Width: =303
+        X: =500
+        Y: =317
+        ZIndex: =38
+
+    Rectangle3_8 As rectangle:
+        Height: =2
+        OnSelect: =
+        Width: =303
+        X: =500
+        Y: =265
+        ZIndex: =39
+
+    Rectangle3_9 As rectangle:
+        Height: =2
+        OnSelect: =
+        Width: =303
+        X: =500
+        Y: =472
+        ZIndex: =40
+

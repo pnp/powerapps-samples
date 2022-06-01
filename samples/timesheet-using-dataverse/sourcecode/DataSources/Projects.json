@@ -1,0 +1,97 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "new_projectses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "new_projects",
+    "MaxGetRowsCount": 500,
+    "Name": "Projects",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "new_name": "Name",
+      "new_projects_AsyncOperations": "System Jobs",
+      "new_projects_BulkDeleteFailures": "Bulk Delete Failures",
+      "new_projects_DuplicateBaseRecord": "Duplicate Records (new_projects_DuplicateBaseRecord)",
+      "new_projects_DuplicateMatchingRecord": "Duplicate Records (new_projects_DuplicateMatchingRecord)",
+      "new_projects_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "new_projects_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "new_projects_ProcessSession": "Process Sessions",
+      "new_projects_SyncErrors": "Sync Errors",
+      "new_projectsid": "Projects",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Projects",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Projects (Views)",
+    "Name": "_new_projects_views",
+    "RelatedEntityName": "Projects",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "0d97d1fd-fc4f-42c0-9b42-39420e4ba868": "Projects Advanced Find View",
+      "3da4f4af-2fc7-42bc-9058-ea84a8954d4b": "Projects Associated View",
+      "992bb37a-3961-4106-9bd4-f93d4176e353": "Active Projects",
+      "b6179776-a524-40c8-b9bc-386708b85db3": "Projects Lookup View",
+      "d381b02d-47eb-4784-b3c7-03923c4e4099": "Inactive Projects"
+    }
+  },
+  {
+    "DisplayName": "Status (Projects)",
+    "Name": "new_projects_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Projects"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Projects",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Projects)",
+    "Name": "new_projects_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Projects"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Projects",
+    "Type": "OptionSetInfo"
+  }
+]
