@@ -1,0 +1,131 @@
+cmp_Coachmark As CanvasComponent:
+    ButtonStyles: |-
+        ={
+            Fill: gblAppStyles.ButtonPrimary.Fill,
+            FillDarker: gblAppColors.TeamsDefaultTint60,
+            Color: gblAppStyles.ButtonPrimary.Color,
+            RadiusTopLeft: gblAppStyles.ButtonPrimary.Radius,
+            BorderColor: gblAppStyles.ButtonPrimary.BorderColor,
+            BorderThickness: gblAppStyles.ButtonPrimary.BorderThickness,
+            DisabledBorderColor: gblAppStyles.ButtonPrimary.DisabledBorderColor,
+            DisabledColor: gblAppStyles.ButtonPrimary.DisabledColor,
+            DisabledFill: gblAppStyles.ButtonPrimary.DisabledFill,
+            FocusedBorderColor: gblAppStyles.ButtonPrimary.FocusedBorderColor,
+            FocusedBorderThickness: gblAppStyles.ButtonPrimary.FocusedBorderThickness,
+            HoverBorderColor: gblAppStyles.ButtonPrimary.BorderColor,
+            HoverColor: gblAppStyles.ButtonPrimary.Color,
+            HoverFill: gblAppStyles.ButtonPrimary.Fill,
+            PressedBorderColor: gblAppStyles.ButtonPrimary.PressedBorderColor,
+            PressedColor: gblAppStyles.ButtonPrimary.PressedColor,
+            PressedFill: gblAppStyles.ButtonPrimary.PressedFill,
+            Radius: 4,
+            Width: 68,
+            Height: 32
+        }
+    Fill: =Transparent
+    Height: =238
+    Width: =300
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Button1_2 As button:
+        Align: =Align.Left
+        BorderColor: =cmp_Coachmark.ButtonStyles.BorderColor
+        Color: =cmp_Coachmark.ButtonStyles.Color
+        DisabledBorderColor: =cmp_Coachmark.ButtonStyles.DisabledBorderColor
+        DisabledColor: =cmp_Coachmark.ButtonStyles.DisabledColor
+        DisabledFill: =cmp_Coachmark.ButtonStyles.DisabledFill
+        Fill: =cmp_Coachmark.ButtonStyles.Fill
+        FocusedBorderColor: =cmp_Coachmark.ButtonStyles.FocusedBorderColor
+        Height: =236
+        HoverBorderColor: =cmp_Coachmark.ButtonStyles.HoverBorderColor
+        HoverColor: =cmp_Coachmark.ButtonStyles.HoverColor
+        HoverFill: =cmp_Coachmark.ButtonStyles.HoverFill
+        PaddingTop: =5.27
+        PressedBorderColor: =cmp_Coachmark.ButtonStyles.PressedBorderColor
+        PressedColor: =cmp_Coachmark.ButtonStyles.PressedColor
+        PressedFill: =cmp_Coachmark.ButtonStyles.PressedFill
+        RadiusBottomLeft: =cmp_Coachmark.ButtonStyles.RadiusTopLeft
+        RadiusBottomRight: =cmp_Coachmark.ButtonStyles.RadiusTopLeft
+        RadiusTopLeft: =cmp_Coachmark.ButtonStyles.RadiusTopLeft
+        RadiusTopRight: =cmp_Coachmark.ButtonStyles.RadiusTopLeft
+        Text: =""
+        Width: =295
+        X: =0.00
+        Y: =2
+        ZIndex: =1
+
+    Label6 As label:
+        BorderColor: =Transparent
+        Color: =cmp_Coachmark.ButtonStyles.Color
+        FontWeight: =FontWeight.Bold
+        Height: =30
+        Text: ="Not sure where to start?"
+        Width: =260
+        X: =16
+        Y: =8
+        ZIndex: =2
+
+    Label6_1 As label:
+        BorderColor: =Transparent
+        Color: =cmp_Coachmark.ButtonStyles.Color
+        Height: =78
+        Size: =12
+        Text: |-
+            ="Learn how to: 
+            1. Perform basic operations
+            2. Humblebrag about it
+            3. Enjoy!"
+        Width: =260
+        X: =16
+        Y: =38
+        ZIndex: =3
+
+    btn_Show As button:
+        BorderColor: =cmp_Coachmark.ButtonStyles.Color
+        Color: =cmp_Coachmark.ButtonStyles.Fill
+        DisabledColor: =
+        DisabledFill: =cmp_Coachmark.ButtonStyles.Color
+        Fill: =cmp_Coachmark.ButtonStyles.Color
+        Height: =32
+        HoverBorderColor: =cmp_Coachmark.ButtonStyles.HoverBorderColor
+        HoverColor: =cmp_Coachmark.ButtonStyles.HoverFill
+        HoverFill: =cmp_Coachmark.ButtonStyles.Color
+        PressedBorderColor: =
+        PressedColor: =
+        PressedFill: =
+        RadiusBottomLeft: =2
+        RadiusBottomRight: =2
+        RadiusTopLeft: =2
+        RadiusTopRight: =2
+        Text: ="Show me how"
+        Width: =260
+        X: =16
+        Y: =146
+        ZIndex: =4
+
+    btn_Close As button:
+        BorderColor: =cmp_Coachmark.ButtonStyles.Color
+        BorderThickness: =0.5 
+        Color: =cmp_Coachmark.ButtonStyles.Color
+        DisabledColor: =
+        DisabledFill: =
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =32
+        HoverBorderColor: =cmp_Coachmark.ButtonStyles.HoverBorderColor
+        HoverColor: =cmp_Coachmark.ButtonStyles.Color
+        HoverFill: =cmp_Coachmark.ButtonStyles.Fill
+        PressedBorderColor: =cmp_Coachmark.ButtonStyles.PressedBorderColor
+        PressedColor: =cmp_Coachmark.ButtonStyles.PressedColor
+        PressedFill: =cmp_Coachmark.ButtonStyles.PressedFill
+        RadiusBottomLeft: =2
+        RadiusBottomRight: =2
+        RadiusTopLeft: =2
+        RadiusTopRight: =2
+        Text: ="Close"
+        Width: =260
+        X: =16
+        Y: =190
+        ZIndex: =5
+

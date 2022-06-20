@@ -1,0 +1,158 @@
+cmp_Likert As CanvasComponent:
+    Fill: =Transparent
+    GalleryStyles: |-
+        ={Color: gblAppStyles.Label.Color}
+    Height: =160
+    SliderStyles: |-
+        ={
+            BorderColor: If(
+                gblThemeHiCo,
+                gblAppColors.OverlayTransparent,
+                gblThemeDark,
+                gblAppColors.OverlayTransparent,
+                gblAppColors.OverlayTransparent
+            ),
+            DisabledBorderColor: If(
+                gblThemeHiCo,
+                gblAppColors.HighContrastDisabled,
+                gblThemeDark,
+                gblAppColors.NeutralWebGray150,
+                gblAppColors.NeutralWebGray30
+            ),
+            FocusedBorderColor: If(
+                gblThemeHiCo,
+                gblAppColors.HighContrastSelectedBackground,
+                gblThemeDark,
+                gblAppColors.TeamsDarkTint10,
+                gblAppColors.TeamsDefaultPrimary
+            ),
+            HandleActiveFill: If(
+                gblThemeHiCo,
+                gblAppColors.HighContrastHyperlinks,
+                gblThemeDark,
+                gblAppColors.TeamsDarkTint10,
+                gblAppColors.TeamsDefaultPrimary
+            ),
+            HandleFill: If(
+                gblThemeHiCo,
+                gblAppColors.HighContrastHyperlinks,
+                gblThemeDark,
+                gblAppColors.TeamsDarkTint10,
+                gblAppColors.TeamsDefaultPrimary
+            ),
+            HandleHoverFill: If(
+                gblThemeHiCo,
+                gblAppColors.HighContrastHyperlinks,
+                gblThemeDark,
+                gblAppColors.TeamsDarkTint10,
+                gblAppColors.TeamsDefaultPrimary
+            ),
+            RailFill: If(
+                gblThemeHiCo,
+                gblAppColors.HighContrastHyperlinks,
+                gblThemeDark,
+                gblAppColors.TeamsDarkTint10,
+                gblAppColors.TeamsDefaultPrimary
+            ),
+            RailHoverFill: If(
+                gblThemeHiCo,
+                gblAppColors.HighContrastHyperlinks,
+                gblThemeDark,
+                gblAppColors.TeamsDarkTint10,
+                gblAppColors.TeamsDefaultPrimary
+            ),
+            ValueFill: If(
+                gblThemeHiCo,
+                gblAppColors.HighContrastHyperlinks,
+                gblThemeDark,
+                gblAppColors.TeamsDarkTint10,
+                gblAppColors.TeamsDefaultPrimary
+            ),
+            ValueHoverFill: If(
+                gblThemeHiCo,
+                gblAppColors.HighContrastHyperlinks,
+                gblThemeDark,
+                gblAppColors.TeamsDarkTint10,
+                gblAppColors.TeamsDefaultPrimary
+            ),
+            Default: 3
+        }
+    Width: |
+        =460
+    X: =100
+    Y: =0
+    ZIndex: =1
+
+    sli_3 As slider:
+        AccessibleLabel: ="slider"
+        BorderColor: =cmp_Likert.SliderStyles.BorderColor
+        Default: =cmp_Likert.SliderStyles.Default
+        DisabledBorderColor: =cmp_Likert.SliderStyles.DisabledBorderColor
+        FocusedBorderColor: =cmp_Likert.SliderStyles.FocusedBorderColor
+        HandleActiveFill: =cmp_Likert.SliderStyles.HandleActiveFill
+        HandleFill: =cmp_Likert.SliderStyles.HandleFill
+        HandleHoverFill: =cmp_Likert.SliderStyles.HandleHoverFill
+        HoverBorderColor: =
+        Max: =5  
+        Min: =1
+        PressedBorderColor: =
+        RailFill: =cmp_Likert.SliderStyles.RailFill
+        RailHoverFill: =cmp_Likert.SliderStyles.RailHoverFill
+        ShowValue: =false
+        ValueFill: =cmp_Likert.SliderStyles.ValueFill
+        ValueHoverFill: =cmp_Likert.SliderStyles.ValueHoverFill
+        Width: =420
+        X: =20
+        Y: =39
+        ZIndex: =1
+
+    Gallery1 As gallery.galleryHorizontal:
+        AccessibleLabel: ="agree matrix"
+        BorderColor: =
+        Height: =53.53999999999999
+        Items: |-
+            =Table(
+                {
+                    title: "Strongly disagree",
+                    rating: 1
+                },
+                {
+                    title: "Disagree",
+                    rating: 2
+                },
+                {
+                    title: "Neutral",
+                    rating: 3
+                },
+                {
+                    title: "Agree",
+                    rating: 4
+                },
+                {
+                    title: "Strongly Agree",
+                    rating: 5
+                }
+            )
+        ShowScrollbar: =false
+        TemplatePadding: =5.27
+        TemplateSize: =81
+        Width: =440.53999999999996
+        X: =9.73
+        Y: =79.73
+        ZIndex: =1
+
+        Label5 As label:
+            Align: =Align.Center
+            BorderColor: =Transparent
+            Color: =cmp_Likert.GalleryStyles.Color
+            FontWeight: =If(sli_3.Value= ThisItem.rating, Bold, Normal)
+            OnSelect: =Select(Parent)
+            PaddingRight: =5.27
+            PaddingTop: =5.27
+            Size: =10.54
+            Text: =ThisItem.title
+            Width: =68.52
+            X: =5.27
+            Y: =4
+            ZIndex: =1
+

@@ -1,0 +1,341 @@
+"'Gallery Screen' As screen":
+    OnVisible: =Set(IsEmpty, true)
+
+    cmp_SideNav_4 As cmp_SideNav:
+        Height: =Parent.Height
+        NavDefault: =LookUp(colLanguage, key="navGallery", value)
+        NavItems: =colSidebarMenu
+        Width: =If(isExpand, 200, 50)
+        ZIndex: =7
+
+    Container3 As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height
+        Width: =App.Width-cmp_SideNav_4.Width
+        X: =If(isExpand, 200, 50)
+        ZIndex: =13
+
+        html_DropShadow As htmlViewer:
+            Height: =101
+            HtmlText: |-
+                ="<div style='margin:10px;width:"&Container3.Width&"px;height:"&chb_candy.Height+20&"px;background-color:#;box-shadow:3px 6px 6px 3px  rgba(0,0,0,0.14); border-radius:4px'></div>"
+            Visible: |
+                =true
+            Width: =Container3.Width
+            X: =40
+            Y: =10
+            ZIndex: =1
+
+        "gal_Header As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+            AccessibleLabel: ="Actions"
+            Height: =58
+            Items: |-
+                =Table(
+                    {
+                        name: "Name",
+                        location: "Location",
+                        favoriteIcecream: "IceCream"
+                    }
+                )
+            Layout: =Layout.Vertical
+            ShowScrollbar: =false
+            TemplatePadding: =0
+            TemplateSize: =102
+            Visible: =!IsEmpty
+            Width: =Container3.Width
+            X: =60
+            Y: =108
+            ZIndex: =2
+
+            lbl_Name As label:
+                Height: =Self.Size * 4
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =ThisItem.name
+                VerticalAlign: =VerticalAlign.Top
+                Visible: =false
+                Width: =88
+                X: =32
+                ZIndex: =1
+
+            lbl_IceCream As label:
+                FontWeight: =FontWeight.Normal
+                Height: =27
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: =ThisItem.favoriteIcecream
+                VerticalAlign: =VerticalAlign.Top
+                Width: =120
+                X: =667
+                Y: =11
+                ZIndex: =2
+
+            lbl_Location As label:
+                Height: =Self.Size * 1.8
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: =ThisItem.location
+                VerticalAlign: =VerticalAlign.Top
+                Width: =100 
+                X: =288
+                Y: =11
+                ZIndex: =3
+
+            chb_HeaderName As checkbox:
+                OnCheck: =Set(isAllChecked, true)
+                OnSelect: =Select(Parent)
+                OnUncheck: =Set(isAllChecked, false)
+                Size: =12
+                Text: =ThisItem.name
+                X: =1
+                ZIndex: =4
+
+            icon_Sort As icon.ArrowsUpDown:
+                AccessibleLabel: ="Sort"
+                Height: =16
+                Icon: =Icon.Sort
+                OnSelect: |-
+                    =UpdateContext({SortDescending1: !SortDescending1})
+                Width: =16
+                X: =104
+                Y: =17
+                ZIndex: =5
+
+        "gal_Body As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+            AccessibleLabel: ="Data table"
+            Height: =441
+            Items: =Sort(Filter(colIceCreamTable,txt_Search.Text in name Or txt_Search.Text in favoriteIcecream Or txt_Search.Text in location),name, If(SortDescending1,Ascending, Descending))
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Controls
+            TemplateFill: =
+            TemplatePadding: =
+            TemplateSize: =55
+            Visible: =!IsEmpty
+            Width: =Container3.Width
+            X: =60
+            Y: =153
+            ZIndex: =3
+
+            lbl_BodyName As label:
+                FontWeight: =FontWeight.Normal
+                Height: =32
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0.00
+                PaddingTop: =0.00
+                Text: =ThisItem.name
+                VerticalAlign: =VerticalAlign.Top
+                Visible: =false
+                Width: =82.23
+                X: =33.73
+                Y: =16
+                ZIndex: =1
+
+            lbl_BodyLocation As label:
+                Height: =32
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0.00
+                PaddingTop: =0.00
+                Text: =ThisItem.location
+                VerticalAlign: =VerticalAlign.Top
+                Width: =146.53
+                X: =290
+                Y: =16
+                ZIndex: =2
+
+            lbl_BodyIcecream As label:
+                Height: =32
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0.00
+                PaddingTop: =0.00
+                Text: =ThisItem.favoriteIcecream
+                VerticalAlign: =VerticalAlign.Top
+                Width: =160.23
+                X: =670.45
+                Y: =16
+                ZIndex: =3
+
+            Separator3 As rectangle:
+                Fill: =gblAppStyles.ButtonPrimary.BorderColor
+                Height: =1
+                OnSelect: =Select(Parent)
+                Width: =1219
+                X: =0.00
+                Y: =Parent.TemplateHeight - 1
+                ZIndex: =5
+
+            icon_More As icon.CancelBadge:
+                Fill: =gblAppStyles.Label.Fill
+                Height: =55
+                Icon: =Icon.More
+                OnSelect: =Select(Parent)
+                PaddingRight: =0.00
+                PaddingTop: =0.00
+                Width: =21.08
+                X: =1138.51
+                ZIndex: =6
+
+            chb_Name As checkbox:
+                Default: =isAllChecked
+                OnSelect: =Select(Parent)
+                Text: =ThisItem.name
+                Y: =5
+                ZIndex: =7
+
+        btn_State As button:
+            OnSelect: =Set(IsEmpty,!IsEmpty)
+            Text: =If(IsEmpty, "show me data","show empty state")
+            Width: =196
+            X: =1005
+            Y: =735
+            ZIndex: =6
+
+        "'gr[_Searchbar' As group":
+            Height: =5
+            Width: =5
+            X: =-160
+            Y: =10
+            ZIndex: =8
+
+            txt_Search As text:
+                AccessibleLabel: ="Find"
+                Default: =""
+                Height: =32
+                HintText: ="Find"
+                Width: =210
+                X: =1005
+                Y: =49
+                ZIndex: =4
+
+            icon_Search As icon.Search:
+                Height: =16
+                Icon: =Icon.Search
+                Width: =16
+                X: =1195
+                Y: =58
+                ZIndex: =5
+
+        chb_icecream As checkbox:
+            FontWeight: =FontWeight.Semibold
+            OnSelect: =    
+            Text: ="send icecream"
+            Visible: =!IsEmpty
+            Width: =236
+            X: =80
+            Y: =40
+            ZIndex: =9
+
+        chb_chocolate As checkbox:
+            FontWeight: =FontWeight.Semibold
+            OnSelect: =
+            Text: ="reward with chocolate"
+            Visible: =!IsEmpty
+            Width: =326
+            X: =283
+            Y: =40
+            ZIndex: =10
+
+        chb_candy As checkbox:
+            FontWeight: =FontWeight.Semibold
+            OnSelect: =    
+            Text: ="give them candy"
+            Visible: =!IsEmpty
+            Width: =236
+            X: =559
+            Y: =40
+            ZIndex: =11
+
+        grp_EmptyState As group:
+            Height: =5
+            Width: =5
+            X: =100
+            Y: =100
+            ZIndex: =17
+
+            img_EmptyState As image:
+                Height: =200
+                Image: =undraw_coffee_with_friends_3cbj
+                Visible: =IsEmpty
+                Width: =536
+                X: =292
+                Y: =190
+                ZIndex: =7
+
+            lbl_EmptyState As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Semibold
+                Text: ="Nothing to see here yet."
+                Visible: =IsEmpty
+                Width: =568
+                X: =289
+                Y: =420
+                ZIndex: =8
+
+            lbl_EmptyState_1 As label:
+                Align: =Align.Center
+                Text: ="You can import data or start a new list"
+                Visible: =IsEmpty
+                Width: =536
+                X: =292
+                Y: =460
+                ZIndex: =12
+
+            icon_Import As icon.Import:
+                Height: =40
+                Icon: =Icon.Import
+                Visible: =IsEmpty
+                Width: =16
+                X: =80
+                Y: =40
+                ZIndex: =13
+
+            icon_Add As icon.Import:
+                Height: =40
+                Icon: =Icon.Add
+                Visible: =IsEmpty
+                Width: =16
+                X: =174
+                Y: =40
+                ZIndex: =14
+
+            lbl_Import As label:
+                Height: =32
+                Text: ="Import"
+                Visible: =IsEmpty
+                X: =96
+                Y: =44
+                ZIndex: =15
+
+            lbl_CreateNewList As label:
+                Height: =32
+                Text: ="Create a new list"
+                Visible: =IsEmpty
+                X: =190
+                Y: =44
+                ZIndex: =16
+
+    icon_Hamburger3 As icon.Hamburger:
+        AccessibleLabel: ="Hamburger Menue to navigate"
+        Height: =24
+        Icon: =Icon.Hamburger
+        OnSelect: =Set(isExpand, !isExpand)
+        Width: =24
+        X: =20
+        Y: =10
+        ZIndex: =14
+

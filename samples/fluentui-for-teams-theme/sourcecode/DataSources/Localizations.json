@@ -1,0 +1,100 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "princess_localizations",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "princess_localization",
+    "MaxGetRowsCount": 500,
+    "Name": "Localizations",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "princess_key": "key",
+      "princess_language": "language",
+      "princess_locale": "locale",
+      "princess_localization_AsyncOperations": "System Jobs",
+      "princess_localization_BulkDeleteFailures": "Bulk Delete Failures",
+      "princess_localization_DuplicateBaseRecord": "Duplicate Records (princess_localization_DuplicateBaseRecord)",
+      "princess_localization_DuplicateMatchingRecord": "Duplicate Records (princess_localization_DuplicateMatchingRecord)",
+      "princess_localization_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "princess_localization_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "princess_localization_ProcessSession": "Process Sessions",
+      "princess_localization_SyncErrors": "Sync Errors",
+      "princess_localizationid": "Localization",
+      "princess_value": "value",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Localizations",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Localizations (Views)",
+    "Name": "_princess_localization_views",
+    "RelatedEntityName": "Localizations",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "0cbe822f-1731-4ebd-a1d6-0cefdb2508e4": "Localization Advanced Find View",
+      "1ed70233-1fdf-44d3-ae99-7ac5fe06069a": "Active Localizations",
+      "bf96d341-8a6c-4ff9-a8b8-cb81291caa3e": "Localization Associated View",
+      "e14dd99d-82a1-4d26-99cc-0d9f0fbc8432": "Localization Lookup View",
+      "f307d1e4-5ecd-4a08-80e8-9015bc34de0f": "Inactive Localizations"
+    }
+  },
+  {
+    "DisplayName": "Status (Localizations)",
+    "Name": "princess_localization_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Localizations"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Localizations",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Localizations)",
+    "Name": "princess_localization_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Localizations"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Localizations",
+    "Type": "OptionSetInfo"
+  }
+]

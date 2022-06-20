@@ -1,0 +1,132 @@
+<widget xmlns="http://openajax.org/metadata" spec="1.0" id="http://microsoft.com/appmagic/legend" name="legend" jsClass="AppMagic.Controls.Legend" version="2.1.0" styleable="true" runtimeCost="1" xmlns:appMagic="http://schemas.microsoft.com/appMagic">
+  <author name="Microsoft AppMagic" />
+  <license type="text/html"><![CDATA[<p>TODO:  Need license text here.</p>]]></license>
+  <description><![CDATA[LEGEND
+      Control description here.]]></description>
+  <requires>
+    <require type="css" src="css/legend.css" />
+    <require type="javascript" src="/ctrllib/charts/js/Charts.js" />
+    <require type="other" src="data/LegendSample.xlsx" authoringOnly="true" />
+  </requires>
+  <appMagic:capabilities contextualViewsEnabled="true" autoBorders="true" autoPointerViewState="true" autoDisabledViewState="true" isVersionFlexible="true" />
+  <content><![CDATA[
+    <div class="appmagic-legend-container"
+      aria-hidden="true"
+      data-bind="
+        style: {
+          fontFamily: properties.Font,
+          color: autoProperties.Color,
+          fontSize: properties.Size,
+          fontWeight: properties.FontWeight,
+          fontStyle: properties.Italic
+        }
+    ">
+      <ul data-bind="foreach: viewmodel.items">
+        <li>
+          <svg class="legend-item-color-box" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+            <circle cx="24" cy="24" r="20" data-bind="attr: {fill: fill}" />
+          </svg>
+          <span class="legend-item-label" data-bind="text: label"></span>
+        </li>
+      </ul>
+    </div>
+  ]]></content>
+  <properties>
+    <!-- Data -->
+    <property name="Items" localizedName="##legend_Items##" datatype="Array" direction="in" isPrimaryInputProperty="true" hasEditableNameMap="true">
+      <title>legend items</title>
+      <appMagic:category>data</appMagic:category>
+      <appMagic:displayName>##legend_Items_DisplayName##</appMagic:displayName>
+      <appMagic:sampleDataSource name="LegendSample" location="data/LegendSample.xlsx" />
+      <properties>
+        <property name="Value" localizedName="##legend_Value##" datatype="String"></property>
+      </properties>
+      <appMagic:tooltip>##legend_Items_Tooltip##</appMagic:tooltip>
+    </property>
+    <!-- Design -->
+    <property name="ItemColorSet" localizedName="##chart_ItemColorSet##" datatype="Array" direction="in" defaultValue="[RGBA(1, 176, 241, 1), RGBA(146, 208, 81, 1), RGBA(112, 48, 160, 1), RGBA(253, 193, 0, 1), RGBA(176, 0, 0, 1), RGBA(0, 210, 210, 1), RGBA(119, 119, 119, 1), RGBA(255, 131, 6, 1), RGBA(2, 33, 97, 1), RGBA(0, 175, 82, 1)]" isExpr="true">
+      <title>ItemColorSet</title>
+      <appMagic:category>design</appMagic:category>
+      <appMagic:helperUI>themes</appMagic:helperUI>
+      <appMagic:displayName>##chart_ItemColorSet_DisplayName##</appMagic:displayName>
+      <properties>
+        <property name="Value" localizedName="##chart_ItemColorSet_Value##" datatype="Color"></property>
+      </properties>
+      <appMagic:tooltip>##chart_ItemColorSet_Tooltip##</appMagic:tooltip>
+    </property>
+  </properties>
+  <appMagic:includeProperties>
+    <appMagic:includeProperty name="ContentLanguage" />
+    <appMagic:includeProperty name="Color" />
+    <appMagic:includeProperty name="DisabledColor" defaultValue="RGBA(186, 186, 186, 1)" />
+    <appMagic:includeProperty name="BorderColor" />
+    <appMagic:includeProperty name="DisabledBorderColor" defaultValue="RGBA(56, 56, 56, 1)" />
+    <appMagic:includeProperty name="PressedBorderColor" defaultValue="Self.BorderColor" />
+    <appMagic:includeProperty name="HoverBorderColor" defaultValue="Self.BorderColor" />
+    <appMagic:includeProperty name="BorderStyle" />
+    <appMagic:includeProperty name="BorderThickness" />
+    <appMagic:includeProperty name="DisabledFill" defaultValue="RGBA(0, 0, 0, 0)" />
+    <appMagic:includeProperty name="Font" />
+    <appMagic:includeProperty name="Size" datatype="Number" defaultValue="11" converter="ptConverter" />
+    <appMagic:includeProperty name="FontWeight" datatype="FontWeight" defaultValue="%FontWeight.RESERVED%.Normal" isExpr="true" />
+    <appMagic:includeProperty name="Italic" />
+    <appMagic:includeProperty name="X" />
+    <appMagic:includeProperty name="Y" />
+    <appMagic:includeProperty name="Width" defaultValue="150" />
+    <appMagic:includeProperty name="Height" defaultValue="40" />
+    <appMagic:includeProperty name="Visible" />
+    <appMagic:includeProperty name="DisplayMode" />
+    <!-- Hidden properties -->
+    <appMagic:includeProperty name="minimumWidth" defaultValue="1" />
+    <appMagic:includeProperty name="minimumHeight" defaultValue="1" />
+    <appMagic:includeProperty name="maximumWidth" defaultValue="1366" />
+    <appMagic:includeProperty name="maximumHeight" defaultValue="768" />
+  </appMagic:includeProperties>
+  <!-- Display metadata providing property visibility, order, sections, and grouping in UI (e.g. properties panel) -->
+  <appMagic:displayMetadata>
+    <appMagic:section>
+      <appMagic:property name="DisplayMode" />
+      <appMagic:property name="Visible" />
+      <appMagic:propertyGroup name="Position">
+        <appMagic:property name="X" />
+        <appMagic:property name="Y" />
+      </appMagic:propertyGroup>
+      <appMagic:propertyGroup name="Size">
+        <appMagic:property name="Width" />
+        <appMagic:property name="Height" />
+      </appMagic:propertyGroup>
+    </appMagic:section>
+    <appMagic:section>
+      <appMagic:propertyGroup name="Color">
+        <appMagic:property name="Color" showInFloatie="true" />
+      </appMagic:propertyGroup>
+      <appMagic:property name="Font" displayType="FontEnum" showInFloatie="true" />
+      <appMagic:property name="Size" labelOverride="##FontSize_Property##" showInFloatie="true" />
+      <appMagic:property name="FontWeight" displayType="EnumIcon" itemsOrder="Bold;Semibold;Normal;Lighter" />
+      <appMagic:propertyGroup name="Style">
+        <appMagic:property name="Italic" displayType="ToggleButton" />
+      </appMagic:propertyGroup>
+      <appMagic:propertyGroup name="Border">
+        <appMagic:property name="BorderStyle" />
+        <appMagic:property name="BorderThickness" />
+        <appMagic:property name="BorderColor" />
+      </appMagic:propertyGroup>
+    </appMagic:section>
+    <appMagic:section>
+      <appMagic:propertyGroup name="DisabledColor">
+        <appMagic:property name="DisabledColor" />
+        <appMagic:property name="DisabledFill" />
+        <appMagic:property name="DisabledBorderColor" />
+      </appMagic:propertyGroup>
+      <appMagic:propertyGroup name="HoverColor">
+        <appMagic:property name="HoverBorderColor" />
+      </appMagic:propertyGroup>
+      <appMagic:propertyGroup name="PressedColor">
+        <appMagic:property name="PressedBorderColor" />
+      </appMagic:propertyGroup>
+    </appMagic:section>
+  </appMagic:displayMetadata>
+  <appMagic:conversion from="2.0.0" to="2.1.0">
+    <appMagic:conversionAction type="add" name="ContentLanguage" />
+  </appMagic:conversion>
+</widget>

@@ -1,0 +1,326 @@
+<widget xmlns="http://openajax.org/metadata" spec="1.0" id="http://microsoft.com/appmagic/barChart" name="barChart" jsClass="AppMagic.Controls.BarChart" styleable="true" version="2.3.0" runtimeCost="1" xmlns:appMagic="http://schemas.microsoft.com/appMagic">
+  <author name="Microsoft AppMagic" />
+  <license type="text/html"><![CDATA[<p>TODO:  Need license text here.</p>]]></license>
+  <description><![CDATA[BarChart
+      Control description here.]]></description>
+  <requires>
+    <require type="css" src="css/barChart.css" />
+    <require type="css" src="/ctrllib/charts/css/charts.css" />
+    <require type="javascript" src="/openSource/modified/flotr2.js" />
+    <require type="javascript" src="/ctrllib/charts/js/Charts.js" />
+    <require type="other" src="data/ColumnChartSample.xlsx" authoringOnly="true" />
+  </requires>
+  <appMagic:capabilities contextualViewsEnabled="true" autoBorders="true" autoPointerViewState="true" autoDisabledViewState="true" isVersionFlexible="true" />
+  <appMagic:accessibilityChecks>
+    <appMagic:accessibilityCheck type="HelpfulControlSettingNeeded" property="Markers" />
+  </appMagic:accessibilityChecks>
+  <content><![CDATA[
+  <div class="appmagic-barchart-container appmagic-chart" data-bind="
+    style: {
+      width: properties.Width,
+      height: properties.Height,
+      paddingTop: properties.PaddingTop,
+      paddingRight: properties.PaddingRight,
+      paddingBottom: properties.PaddingBottom,
+      paddingLeft: properties.PaddingLeft,
+      fontSize: properties.Size,
+      fontFamily: properties.Font,
+      color: properties.Color,
+    }
+  ">
+    <div class="appmagic-barchart-outerscroll" aria-hidden="true" data-bind="
+      style: {
+        width: scrollWidth,
+        height: canvasHeight,
+      }
+    ">
+      <div class="appmagic-barchart" data-bind="
+        style: {
+          width: canvasWidth,
+          height: canvasHeight,
+          paddingRight: paddingForXLabels
+        }
+      ">
+      </div>
+    </div>
+    <div data-bind="if: viewState.displayMode() !== AppMagic.Constants.DisplayMode.View">
+      <div data-bind="foreach: interactiveItems">
+        <button data-bind="
+          text: label,
+          click: $parent.selectItem,
+          disable: $parent.viewState.displayMode() !== AppMagic.Constants.DisplayMode.Edit,
+          attr: {
+            'aria-describedby': $parent.barChartCaptionId
+          }
+        ">
+        </button>
+      </div>
+    </div>
+    <table>
+      <caption data-bind="
+        text: (properties.AccessibleLabel && properties.AccessibleLabel()) || AppMagic.Strings.BarChartTableCaption,
+        attr: {
+          id: $data.barChartCaptionId,
+        }
+      "></caption>
+      <tr>
+        <th scope="col" data-bind="text: properties.Items()
+          && properties.Items()[AppMagic.Constants.nameMapProperty]
+          && properties.Items()[AppMagic.Constants.nameMapProperty].Labels"></th>
+        <!-- ko foreach: properties.SeriesLabels() -->
+        <th scope="col" data-bind="text: Value"></th>
+        <!-- /ko -->
+      </tr>
+      <!-- ko foreach: properties.Items() -->
+      <tr>
+        <th scope="row" data-bind="text: $data && $data.Labels"></th>
+        <!-- ko foreach: $parent.properties.SeriesLabels() -->
+        <td data-bind="text: $parentContext.$data && $parentContext.$data['Series' + ($index() + 1)]"></td>
+        <!-- /ko -->
+      </tr>
+      <!-- /ko -->
+    </table>
+  </div>
+  ]]></content>
+  <properties>
+    <property name="Items" localizedName="##chart_Items##" datatype="Array" direction="in" isPrimaryInputProperty="true" hasEditableNameMap="true">
+      <title>Items</title>
+      <appMagic:category>data</appMagic:category>
+      <appMagic:displayName>##chart_Items_DisplayName##</appMagic:displayName>
+      <appMagic:sampleDataSource name="ColumnChartSample" location="data/ColumnChartSample.xlsx" />
+      <properties>
+        <property name="Labels" localizedName="##barChart_Labels##" datatype="String"></property>
+        <property name="Series1" localizedName="##barChart_Series1##" datatype="Number"></property>
+        <property name="Series2" localizedName="##barChart_Series2##" datatype="Number"></property>
+        <property name="Series3" localizedName="##barChart_Series3##" datatype="Number"></property>
+        <property name="Series4" localizedName="##barChart_Series4##" datatype="Number"></property>
+        <property name="Series5" localizedName="##barChart_Series5##" datatype="Number"></property>
+        <property name="Series6" localizedName="##barChart_Series6##" datatype="Number"></property>
+        <property name="Series7" localizedName="##barChart_Series7##" datatype="Number"></property>
+        <property name="Series8" localizedName="##barChart_Series8##" datatype="Number"></property>
+        <property name="Series9" localizedName="##barChart_Series9##" datatype="Number"></property>
+      </properties>
+      <appMagic:tooltip>##chart_Items_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="Selected" localizedName="##barChart_Selected##" datatype="object" direction="out" isPrimaryOutputProperty="true">
+      <title>Selected that is going to be passed through</title>
+      <appMagic:passThroughReference>Items</appMagic:passThroughReference>
+      <appMagic:category>data</appMagic:category>
+      <appMagic:displayName>##barChart_Selected_DisplayName##</appMagic:displayName>
+      <properties>
+        <property name="Value" localizedName="##barChart_Value##" datatype="Number" />
+        <property name="Color" localizedName="##chart_Color##" datatype="color" />
+        <property name="Label" localizedName="##chart_Label##" datatype="string" />
+      </properties>
+    </property>
+    <property name="SelectedItems" localizedName="##barChart_SelectedSeries##" datatype="Array" direction="out">
+      <title>Selected Series item that is going to be passed through</title>
+      <appMagic:passThroughReference>Items</appMagic:passThroughReference>
+      <appMagic:category>data</appMagic:category>
+      <appMagic:displayName>##barChart_SelectedSeries_DisplayName##</appMagic:displayName>
+      <properties>
+        <property name="Value" localizedName="##barChart_Value##" datatype="Number"></property>
+      </properties>
+    </property>
+    <property name="SeriesLabels" localizedName="##chart_SeriesLabels##" datatype="Array" direction="out">
+      <title>Series Labels that are going to be passed through</title>
+      <appMagic:category>data</appMagic:category>
+      <appMagic:displayName>##chart_SeriesLabels_DisplayName##</appMagic:displayName>
+      <properties>
+        <property name="Value" localizedName="##chart_SeriesLabels_Value##" datatype="String"></property>
+      </properties>
+    </property>
+    <property name="ItemColorSet" localizedName="##chart_ItemColorSet##" datatype="Array" defaultValue="[RGBA(1, 176, 241, 1), RGBA(146, 208, 81, 1), RGBA(112, 48, 160, 1), RGBA(253, 193, 0, 1), RGBA(176, 0, 0, 1), RGBA(0, 210, 210, 1), RGBA(119, 119, 119, 1), RGBA(255, 131, 6, 1), RGBA(2, 33, 97, 1), RGBA(0, 175, 82, 1)]" isExpr="true">
+      <title>ItemColorSet</title>
+      <appMagic:category>design</appMagic:category>
+      <appMagic:displayName>##chart_ItemColorSet_DisplayName##</appMagic:displayName>
+      <properties>
+        <property name="Value" localizedName="##chart_ItemColorSet_Value##" datatype="Color"></property>
+      </properties>
+      <appMagic:tooltip>##chart_ItemColorSet_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="GridStyle" localizedName="##chart_GridStyle##" datatype="GridStyle" defaultValue="%GridStyle.RESERVED%.XOnly" direction="in" isExpr="true">
+      <title>GridStyle</title>
+      <appMagic:category>design</appMagic:category>
+      <appMagic:displayName>##chart_GridStyle_DisplayName##</appMagic:displayName>
+    </property>
+    <property name="Markers" localizedName="##CommonProperties_Markers##" datatype="Boolean" defaultValue="true">
+      <title>Markers</title>
+      <appMagic:category>design</appMagic:category>
+      <appMagic:helperUI>boolean</appMagic:helperUI>
+      <appMagic:displayName>##CommonProperties_Markers_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##CommonProperties_Markers_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="MarkerSuffix" localizedName="##chart_MarkerSuffix##" datatype="String" defaultValue="" isExpr="true">
+      <title>MarkerSuffix</title>
+      <appMagic:category>design</appMagic:category>
+      <appMagic:displayName>##chart_MarkerSuffix_DisplayName##</appMagic:displayName>
+    </property>
+    <property name="ItemsGap" localizedName="##BarChart_ItemsGap##" datatype="Number" defaultValue="0" minimum="-100" maximum="100">
+      <title>ItemsGap</title>
+      <appMagic:category>design</appMagic:category>
+      <appMagic:helperUI>fade</appMagic:helperUI>
+      <appMagic:displayName>##BarChart_ItemsGap_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##BarChart_ItemsGap_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="SeriesAxisMin" localizedName="##CommonProperties_SeriesAxisMin##" datatype="Number" defaultValue="" isExpr="true">
+      <title>Series Axis Min</title>
+      <appMagic:category>design</appMagic:category>
+      <appMagic:displayName>##CommonProperties_SeriesAxisMin_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##CommonProperties_SeriesAxisMin_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="SeriesAxisMax" localizedName="##CommonProperties_SeriesAxisMax##" datatype="Number" defaultValue="" isExpr="true">
+      <title>Series Axis Max</title>
+      <appMagic:category>design</appMagic:category>
+      <appMagic:displayName>##CommonProperties_SeriesAxisMax_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##CommonProperties_SeriesAxisMax_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="NumberOfSeries" localizedName="##BarChart_NumberOfSeries##" datatype="Number" defaultValue="1" minimum="1" maximum="9">
+      <title>Number Of Series</title>
+      <appMagic:category>design</appMagic:category>
+      <appMagic:helperUI>numberOfSeries</appMagic:helperUI>
+      <appMagic:displayName>##BarChart_NumberOfSeries_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##BarChart_NumberOfSeries_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="XLabelAngle" localizedName="##CommonProperties_XLabelAngle##" datatype="Number" defaultValue="60">
+      <title>X Label Angle</title>
+      <appMagic:category>design</appMagic:category>
+      <appMagic:displayName>##CommonProperties_XLabelAngle_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##CommonProperties_XAngle_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="YLabelAngle" localizedName="##CommonProperties_YLabelAngle##" datatype="Number" defaultValue="0">
+      <title>Y Label Angle</title>
+      <appMagic:category>design</appMagic:category>
+      <appMagic:displayName>##CommonProperties_YLabelAngle_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##CommonProperties_YAngle_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="FadeOnHover" localizedName="##CommonProperties_FadeOnHover##" datatype="Number" defaultValue="30" minimum="-100" maximum="100" hidden="true">
+      <title>Fade On Hover</title>
+      <appMagic:category>design</appMagic:category>
+      <appMagic:helperUI>fade</appMagic:helperUI>
+      <appMagic:displayName>##CommonProperties_FadeOnHover_DisplayName##</appMagic:displayName>
+    </property>
+    <property name="FadeOnClick" localizedName="##CommonProperties_FadeOnClick##" datatype="Number" defaultValue="30" minimum="-100" maximum="100" hidden="true">
+      <title>Fade On Click</title>
+      <appMagic:category>design</appMagic:category>
+      <appMagic:helperUI>fade</appMagic:helperUI>
+      <appMagic:displayName>##CommonProperties_FadeOnClick_DisplayName##</appMagic:displayName>
+    </property>
+    <property name="FadeOnClickBorder" localizedName="##CommonProperties_FadeOnClickBorder##" datatype="Number" defaultValue="-50" minimum="-100" maximum="100" hidden="true">
+      <title>Fade On Click Border</title>
+      <appMagic:category>design</appMagic:category>
+      <appMagic:helperUI>fade</appMagic:helperUI>
+      <appMagic:displayName>##CommonProperties_FadeOnClickBorder_DisplayName##</appMagic:displayName>
+    </property>
+    <property name="MinimumBarWidth" localizedName="##CommonProperties_MinimumBarWidth##" datatype="Number" defaultValue="25" minimum="10" maximum="100">
+      <title>Minimum Bar Width</title>
+      <appMagic:category>design</appMagic:category>
+      <appMagic:helperUI>minimumBarWidth</appMagic:helperUI>
+      <appMagic:displayName>##CommonProperties_MinimumBarWidth_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##CommonProperties_MinimumBarWidth_Tooltip##</appMagic:tooltip>
+    </property>
+  </properties>
+  <appMagic:includeProperties>
+    <!-- Data properties-->
+    <appMagic:includeProperty name="ContentLanguage" />
+    <appMagic:includeProperty name="AccessibleLabel" />
+    <!-- Design properties -->
+    <appMagic:includeProperty name="DisabledBorderColor" defaultValue="RGBA(56, 56, 56, 1)" />
+    <appMagic:includeProperty name="PressedBorderColor" defaultValue="ColorFade(Self.BorderColor, -30%)" />
+    <appMagic:includeProperty name="HoverBorderColor" defaultValue="ColorFade(Self.BorderColor, 30%)" />
+    <appMagic:includeProperty name="Size" defaultValue="10" />
+    <appMagic:includeProperty name="Color" />
+    <appMagic:includeProperty name="BorderColor" />
+    <appMagic:includeProperty name="BorderStyle" />
+    <appMagic:includeProperty name="BorderThickness" />
+    <appMagic:includeProperty name="X" />
+    <appMagic:includeProperty name="Y" />
+    <appMagic:includeProperty name="Font" />
+    <appMagic:includeProperty name="Width" defaultValue="400" />
+    <appMagic:includeProperty name="Height" defaultValue="400" />
+    <appMagic:includeProperty name="Visible" defaultValue="true" />
+    <appMagic:includeProperty name="DisplayMode" />
+    <appMagic:includeProperty name="PaddingTop" defaultValue="0" />
+    <appMagic:includeProperty name="PaddingRight" defaultValue="50" />
+    <appMagic:includeProperty name="PaddingBottom" defaultValue="0" />
+    <appMagic:includeProperty name="PaddingLeft" defaultValue="50" />
+    <appMagic:includeProperty name="TabIndex" defaultValue="0" />
+    <!-- Behavior properties -->
+    <appMagic:includeProperty name="OnSelect" direction="in" />
+    <!-- Hidden properties -->
+    <appMagic:includeProperty name="minimumWidth" defaultValue="10" />
+    <appMagic:includeProperty name="minimumHeight" defaultValue="10" />
+    <appMagic:includeProperty name="maximumWidth" defaultValue="1366" />
+    <appMagic:includeProperty name="maximumHeight" defaultValue="768" />
+  </appMagic:includeProperties>
+  <appMagic:propertyDependencies>
+    <appMagic:propertyDependency input="Items" output="SelectedItems" />
+    <appMagic:propertyDependency input="Items" output="Selected" />
+  </appMagic:propertyDependencies>
+  <!-- Display metadata providing property visibility, order, sections, and grouping in UI (e.g. properties panel) -->
+  <appMagic:displayMetadata>
+    <appMagic:section>
+      <appMagic:property name="Items" serverProvidesValue="true" hasNameMaps="true" computedValueType="ItemsWithNameMaps" hasAdvancedNameMapsOnly="true" />
+    </appMagic:section>
+    <appMagic:section>
+      <appMagic:property name="GridStyle" showInFloatie="true" />
+      <appMagic:property name="Markers" />
+      <appMagic:property name="ItemsGap" />
+      <appMagic:property name="NumberOfSeries" />
+      <appMagic:property name="SeriesAxisMin" />
+      <appMagic:property name="SeriesAxisMax" />
+      <appMagic:property name="XLabelAngle" />
+      <appMagic:property name="YLabelAngle" />
+      <appMagic:property name="DisplayMode" />
+    </appMagic:section>
+    <appMagic:section>
+      <appMagic:property name="Visible" />
+      <appMagic:propertyGroup name="Position">
+        <appMagic:property name="X" />
+        <appMagic:property name="Y" />
+      </appMagic:propertyGroup>
+      <appMagic:propertyGroup name="Size">
+        <appMagic:property name="Width" />
+        <appMagic:property name="Height" />
+      </appMagic:propertyGroup>
+      <appMagic:propertyGroup name="Padding">
+        <appMagic:property name="PaddingTop" labelOverride="##Padding_Top_Title##" />
+        <appMagic:property name="PaddingBottom" labelOverride="##Padding_Bottom_Title##" />
+        <appMagic:property name="PaddingLeft" labelOverride="##Padding_Left_Title##" />
+        <appMagic:property name="PaddingRight" labelOverride="##Padding_Right_Title##" />
+      </appMagic:propertyGroup>
+    </appMagic:section>
+    <appMagic:section>
+      <appMagic:propertyGroup name="Color">
+        <appMagic:property name="Color" showInFloatie="true" />
+      </appMagic:propertyGroup>
+      <appMagic:property name="Font" displayType="FontEnum" showInFloatie="true" />
+      <appMagic:property name="Size" labelOverride="##FontSize_Property##" showInFloatie="true" />
+      <appMagic:propertyGroup name="Border">
+        <appMagic:property name="BorderStyle" />
+        <appMagic:property name="BorderThickness" />
+        <appMagic:property name="BorderColor" />
+      </appMagic:propertyGroup>
+    </appMagic:section>
+    <appMagic:section>
+      <appMagic:propertyGroup name="DisabledColor">
+        <appMagic:property name="DisabledBorderColor" />
+      </appMagic:propertyGroup>
+      <appMagic:propertyGroup name="HoverColor">
+        <appMagic:property name="HoverBorderColor" />
+      </appMagic:propertyGroup>
+      <appMagic:propertyGroup name="PressedColor">
+        <appMagic:property name="PressedBorderColor" />
+      </appMagic:propertyGroup>
+    </appMagic:section>
+  </appMagic:displayMetadata>
+  <appMagic:conversion from="2.0.0" to="2.1.0">
+    <appMagic:conversionAction type="add" name="TabIndex" />
+  </appMagic:conversion>
+  <appMagic:conversion from="2.1.0" to="2.2.0">
+    <appMagic:conversionAction type="add" name="ContentLanguage" />
+  </appMagic:conversion>
+  <appMagic:conversion from="2.2.0" to="2.3.0">
+    <appMagic:conversionAction type="add" name="AccessibleLabel" />
+  </appMagic:conversion>
+</widget>
