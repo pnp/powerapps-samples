@@ -11,15 +11,13 @@ A Power App made for user work timesheets. The app is made up of 3 core componen
 - Model Driven App – Manage the Timesheet administration. e.g. Entering new projects
 - Canvas App – Where each user enters their time against a project
 
-![picture of the sample](assets/preview.png)
+![picture of the sample](https://github.com/pnp/powerapps-samples/blob/main/samples/timesheet-using-dataverse/assets/preview.png)
 
 ## Applies to
 
 * [Microsoft Power Apps](https://docs.microsoft.com/powerapps/)
 
 ## Compatibility
-
-> Don't worry about this section, we'll take care of it. Unless you really want to...
 
 ![Power Apps Source File Pack and Unpack Utility 0.20](https://img.shields.io/badge/Packing%20Tool-0.20-green.svg)
 ![Premium License](https://img.shields.io/badge/Premium%20License-Not%20Required-green.svg "Premium Power Apps license not required")
@@ -42,8 +40,6 @@ Version|Date|Comments
 1.0|June 01, 2022|Initial release
 
 ## Features
-
-> Description of the sample with possible additional details than in short summary.
 
 This sample illustrates the following concepts:
 
@@ -74,8 +70,6 @@ The data is stored in 2 Dataverse tables.
 **THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
 
 ## Help
-
-> Note: don't worry about this section, we'll update the links.
 
 We do not support samples, but we this community is always willing to help, and we want to improve these samples. We use GitHub to track issues, which makes it easy for  community members to volunteer their time and help resolve issues.
 
