@@ -31,7 +31,7 @@ Darren Lutchner
 
 Solution|Author(s)
 --------|---------
-folder name | [Author Name] https://github.com/Dlutchy ([@yourtwitterhandle] https://twitter.com/assist_365, 365 Assist
+Dataverse Timesheet | [Darren Lutchner] https://github.com/Dlutchy ([@assist_365] https://twitter.com/assist_365)
 
 ## Version history
 
