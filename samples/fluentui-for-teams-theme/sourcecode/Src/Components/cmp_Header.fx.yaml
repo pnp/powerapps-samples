@@ -1,0 +1,92 @@
+cmp_Header As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =50
+    LabelStyles: |-
+        ={
+            BorderColor: If(
+                gblThemeHiCo,
+                gblAppColors.OverlayTransparent,
+                gblThemeDark,
+                gblAppColors.OverlayTransparent,
+                gblAppColors.OverlayTransparent
+            ),
+            BorderThickness: 0,
+            Color: If(
+                gblThemeHiCo,
+                gblAppColors.NeutralWebWhite,
+                gblThemeDark,
+                gblAppColors.NeutralWebWhite,
+                gblAppColors.NeutralWebGray180
+            ),
+            DisabledBorderColor: If(
+                gblThemeHiCo,
+                gblAppColors.OverlayTransparent,
+                gblThemeDark,
+                gblAppColors.OverlayTransparent,
+                gblAppColors.OverlayTransparent
+            ),
+            DisabledColor: If(
+                gblThemeHiCo,
+                gblAppColors.HighContrastDisabled,
+                gblThemeDark,
+                gblAppColors.NeutralWebGray80,
+                gblAppColors.NeutralWebGray80
+            ),
+            DisabledFill: If(
+                gblThemeHiCo,
+                gblAppColors.OverlayTransparent,
+                gblThemeDark,
+                gblAppColors.OverlayTransparent,
+                gblAppColors.OverlayTransparent
+            ),
+            Fill: If(
+                gblThemeHiCo,
+                gblAppColors.OverlayTransparent,
+                gblThemeDark,
+                gblAppColors.OverlayTransparent,
+                gblAppColors.OverlayTransparent
+            ),
+            FocusedBorderColor: If(
+                gblThemeHiCo,
+                gblAppColors.HighContrastDisabled,
+                gblThemeDark,
+                gblAppColors.OverlayTransparent,
+                gblAppColors.OverlayTransparent
+            ),
+            FocusedBorderThickness: 0,
+            HoverBorderColor: Transparent,
+            HoverColor: If(
+                gblThemeHiCo,
+                gblAppColors.NeutralWebWhite,
+                gblThemeDark,
+                gblAppColors.NeutralWebWhite,
+                gblAppColors.NeutralWebGray190
+            ),
+            HoverFill: Transparent,
+            PressedBorderColor: Transparent,
+            PressedColor: If(
+                gblThemeHiCo,
+                gblAppColors.NeutralWebWhite,
+                gblThemeDark,
+                gblAppColors.NeutralWebGray40,
+                gblAppColors.NeutralWebGray150
+            ),
+            PressedFill: Transparent,
+            Height: 32,
+            Width: 208
+        }
+    RectangleStyles: |-
+        ={Fill: gblAppStyles.ButtonPrimary.Fill, Color: gblAppStyles.Header.Color}
+    Width: =1366
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    shp_Rectangle_1 As rectangle:
+        BorderColor: =cmp_Header.LabelStyles.BorderColor
+        Fill: =Transparent
+        Height: =50
+        Width: =1440.00
+        X: =0.00
+        ZIndex: =1
+

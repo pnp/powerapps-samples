@@ -1,0 +1,99 @@
+cmp_SideNav As CanvasComponent:
+    Fill: =Transparent
+    Height: =700 
+    NavDefault: =LookUp(colLanguage, key="navControls", value)
+    NavItems: |-
+        =Table(
+            {Value: "Item 1", Icon: Icon.Waypoint, Screen: App.ActiveScreen},
+            {Value: "Item 2", Icon: Icon.Waypoint, Screen: App.ActiveScreen},
+            {Value: "Item 3", Icon: Icon.Waypoint, Screen: App.ActiveScreen},
+            {Value: "Item 4", Icon: Icon.Waypoint, Screen: App.ActiveScreen},
+            {Value: "Item 5", Icon: Icon.Waypoint, Screen: App.ActiveScreen},
+            {Value: "Item 6", Icon: Icon.Waypoint, Screen: App.ActiveScreen}
+         )
+    NavStyles: |-
+        ={
+            Color: gblAppStyles.Dropdown.Color,
+            CurrentIndicatorColor: gblAppStyles.ButtonPrimary.BorderColor,
+            HoverFill: gblAppStyles.Dropdown.HoverFill,
+            SelectedFill: gblAppStyles.Dropdown.SelectionFill,
+            HoverColor:gblAppStyles.Label.HoverColor
+        }
+    Width: =200
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    gal_Nav As gallery.galleryVertical:
+        AccessibleLabel: ="Navigation Menu"
+        BorderColor: =
+        Height: =640
+        Items: =cmp_SideNav.NavItems
+        Layout: =Layout.Vertical
+        OnSelect: =Navigate(ThisItem.Screen)
+        ShowScrollbar: =false
+        TemplateFill: |
+            =If(
+                ThisItem.Value = cmp_SideNav.NavDefault,
+                cmp_SideNav.NavStyles.HoverFill,
+                Transparent
+            )
+        TemplatePadding: =0   
+        TemplateSize: =65
+        Width: =200
+        X: =0.00
+        Y: =50
+        ZIndex: =1
+
+        icon_SideNav As icon.Add:
+            BorderColor: =
+            Color: =cmp_SideNav.NavStyles.Color
+            DisabledBorderColor: =
+            DisabledColor: =
+            DisabledFill: =
+            Height: =24
+            HoverBorderColor: =
+            HoverColor: =cmp_SideNav.NavStyles.Color
+            HoverFill: =
+            Icon: =ThisItem.Icon
+            OnSelect: =Select(Parent)
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: =
+            PressedFill: =
+            Width: =24
+            X: =14
+            Y: =16
+            ZIndex: =1
+
+        lbl_SideNav_Text As label:
+            BorderColor: =
+            Color: =cmp_SideNav.NavStyles.Color
+            HoverColor: =cmp_SideNav.NavStyles.Color
+            LineHeight: =1
+            OnSelect: =Select(Parent)
+            PaddingRight: =5.27
+            PaddingTop: =5.27
+            Text: =ThisItem.Value
+            Width: =149
+            Wrap: =false
+            X: =51
+            Y: =8
+            ZIndex: =2
+
+        lbl_SideNav_Current As label:
+            Align: =Align.Center
+            BorderColor: =
+            Color: =
+            Fill: =cmp_SideNav.NavStyles.CurrentIndicatorColor
+            Height: =65
+            OnSelect: =Select(Parent)
+            PaddingRight: =5.27
+            PaddingTop: =5.27
+            Size: =12
+            Text: =ThisItem.Value
+            Visible: =ThisItem.Value=cmp_SideNav.NavDefault
+            Width: =6.33
+            X: =0.00
+            ZIndex: =3
+

@@ -1,0 +1,772 @@
+{
+  "ControlStates": {
+    "cmp_Dropdown": {
+      "AllowAccessToGlobals": false,
+      "ControlPropertyState": [
+        "Fill",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "Height",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "Width",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        "X",
+        "Y",
+        "ZIndex",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "{BorderColor: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.NeutralWebWhite,\r\n                        gblThemeDark,\r\n                        gblAppColors.OverlayTransparent,\r\n                        gblAppColors.OverlayTransparent\r\n                    ),\r\n                    BorderThickness: If(\r\n                        gblThemeHiCo,\r\n                        1,\r\n                        gblThemeDark,\r\n                        0,\r\n                        0\r\n                    ),\r\n                    Color: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.NeutralWebWhite,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebWhite,\r\n                        gblAppColors.NeutralWebGray180\r\n                    ),\r\n                    DisabledBorderColor: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.HighContrastDisabled,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebGray80,\r\n                        gblAppColors.NeutralWebGray80\r\n                    ),\r\n                    DisabledColor: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.NeutralWebBlack,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebGray130,\r\n                        gblAppColors.NeutralWebGray130\r\n                    ),\r\n                    DisabledFill: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.HighContrastDisabled,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebGray150,\r\n                        gblAppColors.NeutralWebGray30\r\n                    ),\r\n                    Fill: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.NeutralWebBlack,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebGray220,\r\n                        gblAppColors.NeutralWebWhite\r\n                    ),\r\n                    FocusedBorderColor: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.HighContrastSelectedBackground,\r\n                        gblThemeDark,\r\n                        gblAppColors.TeamsDefaultPrimary,\r\n                        gblAppColors.TeamsDefaultPrimary\r\n                    ),\r\n                    FocusedBorderThickness: If(\r\n                        gblThemeHiCo,\r\n                        1,\r\n                        gblThemeDark,\r\n                        1,\r\n                        1\r\n                    ),\r\n                    HoverBorderColor: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.HighContrastSelectedBackground,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebGray140,\r\n                        gblAppColors.NeutralWebGray40\r\n                    ),\r\n                    HoverColor: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.NeutralWebWhite,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebWhite,\r\n                        gblAppColors.NeutralWebGray190\r\n                    ),\r\n                    HoverFill: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.NeutralWebBlack,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebGray140,\r\n                        gblAppColors.NeutralWebGray40\r\n                    ),\r\n                    PressedBorderColor: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.HighContrastSelectedBackground,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebGray120,\r\n                        gblAppColors.NeutralWebGray60\r\n                    ),\r\n                    PressedColor: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.NeutralWebBlack,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebWhite,\r\n                        gblAppColors.NeutralWebGray190\r\n                    ),\r\n                    PressedFill: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.HighContrastSelectedBackground,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebGray120,\r\n                        gblAppColors.NeutralWebGray60\r\n                    ),\r\n                    Radius: 3,\r\n                    Height: 32,\r\n                    Width: 208\r\n                }",
+          "InvariantPropertyName": "TextInputStyles",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "{\n    BorderColor: If(\n        gblThemeHiCo,\n        gblAppColors.HighContrastHyperlinks,\n        gblThemeDark,\n        gblAppColors.TeamsDarkTint10,\n        gblAppColors.TeamsDefaultPrimary\n    ),\n    BorderThickness: If(\n        gblThemeHiCo,\n        4,\n        gblThemeDark,\n        0,\n        0\n    ),\n    Color: If(\n        gblThemeHiCo,\n        gblAppColors.HighContrastHyperlinks,\n        gblThemeDark,\n        gblAppColors.NeutralWebWhite,\n        gblAppColors.NeutralWebWhite\n    ),\n    DisabledBorderColor: If(\n        gblThemeHiCo,\n        gblAppColors.HighContrastDisabled,\n        gblThemeDark,\n        gblAppColors.NeutralWebGray150,\n        gblAppColors.NeutralWebGray30\n    ),\n    DisabledColor: If(\n        gblThemeHiCo,\n        gblAppColors.NeutralWebBlack,\n        gblThemeDark,\n        gblAppColors.NeutralWebGray130,\n        gblAppColors.NeutralWebGray60\n    ),\n    DisabledFill: If(\n        gblThemeHiCo,\n        gblAppColors.HighContrastDisabled,\n        gblThemeDark,\n        gblAppColors.NeutralWebGray150,\n        gblAppColors.NeutralWebGray30\n    ),\n    Fill: If(\n        gblThemeHiCo,\n        gblAppColors.NeutralWebBlack,\n        gblThemeDark,\n        gblAppColors.TeamsDarkTint10,\n        gblAppColors.TeamsDefaultPrimary\n    ),\n    FocusedBorderColor: If(\n        gblThemeHiCo,\n        gblAppColors.HighContrastSelectedBackground,\n        gblThemeDark,\n        gblAppColors.TeamsDarkShade20,\n        gblAppColors.NeutralMobileBlack\n    ),\n    FocusedBorderThickness: If(\n        gblThemeHiCo,\n        3,\n        gblThemeDark,\n        2.5,\n        2.5\n    ),\n    HoverBorderColor: If(\n        gblThemeHiCo,\n        gblAppColors.HighContrastHyperlinks,\n        gblThemeDark,\n        gblAppColors.TeamsDefaultTint10,\n        gblAppColors.TeamsDefaultShade10\n    ),\n    HoverColor: If(\n        gblThemeHiCo,\n        gblAppColors.NeutralWebBlack,\n        gblThemeDark,\n        gblAppColors.NeutralWebWhite,\n        gblAppColors.NeutralWebWhite\n    ),\n    HoverFill: If(\n        gblThemeHiCo,\n        gblAppColors.HighContrastHyperlinks,\n        gblThemeDark,\n        gblAppColors.TeamsDefaultTint10,\n        gblAppColors.TeamsDefaultShade10\n    ),\n    PressedBorderColor: If(\n        gblThemeHiCo,\n        gblAppColors.HighContrastSelectedBackground,\n        gblThemeDark,\n        gblAppColors.TeamsDefaultShade10,\n        gblAppColors.TeamsDefaultShade20\n    ),\n    PressedColor: If(\n        gblThemeHiCo,\n        gblAppColors.NeutralWebBlack,\n        gblThemeDark,\n        gblAppColors.NeutralWebWhite,\n        gblAppColors.NeutralWebWhite\n    ),\n    PressedFill: If(\n        gblThemeHiCo,\n        gblAppColors.HighContrastSelectedBackground,\n        gblThemeDark,\n        gblAppColors.TeamsDefaultShade10,\n        gblAppColors.TeamsDefaultShade20\n    )\n}",
+          "InvariantPropertyName": "RectangleStyles",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "{\r\n                    BorderColor: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.NeutralWebWhite,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebGray180,\r\n                        gblAppColors.NeutralWebWhite\r\n                    ),\r\n                    BorderThickness: If(\r\n                        gblThemeHiCo,\r\n                        1,\r\n                        gblThemeDark,\r\n                        1,\r\n                        1\r\n                    ),\r\n                    ChevronBackground: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.NeutralWebBlack,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebGray220,\r\n                        gblAppColors.NeutralWebWhite\r\n                    ),\r\n                    ChevronDisabledBackground: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.HighContrastDisabled,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebGray130,\r\n                        gblAppColors.NeutralWebGray130\r\n                    ),\r\n                    ChevronDisabledFill: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.HighContrastBackground,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebGray80,\r\n                        gblAppColors.NeutralWebGray80\r\n                    ),\r\n                    ChevronFill: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.HighContrastHyperlinks,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebWhite10,\r\n                        gblAppColors.NeutralWebGray130\r\n                    ),\r\n                    ChevronHoverBackground: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.NeutralWebBlack,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebGray200,\r\n                        gblAppColors.NeutralWebWhite\r\n                    ),\r\n                    ChevronHoverFill: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.HighContrastHyperlinks,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebWhite,\r\n                        gblAppColors.NeutralWebGray130\r\n                    ),\r\n                    Color: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.HighContrastSelectedBackground,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebWhite,\r\n                        gblAppColors.NeutralWebGray130\r\n                    ),\r\n                    DisabledBorderColor: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.HighContrastDisabled,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebGray80,\r\n                        gblAppColors.NeutralWebGray80\r\n                    ),\r\n                    DisabledColor: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.HighContrastDisabled,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebGray130,\r\n                        gblAppColors.NeutralWebGray130\r\n                    ),\r\n                    DisabledFill: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.HighContrastDisabled,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebGray150,\r\n                        gblAppColors.NeutralWebGray30\r\n                    ),\r\n                    Fill: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.NeutralWebBlack,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebGray220,\r\n                        gblAppColors.NeutralWebWhite\r\n                    ),\r\n                    FocusedBorderColor: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.HighContrastSelectedBackground,\r\n                        gblThemeDark,\r\n                        gblAppColors.TeamsDefaultPrimary,\r\n                        gblAppColors.TeamsDefaultPrimary\r\n                    ),\r\n                    FocusedBorderThickness: If(\r\n                        gblThemeHiCo,\r\n                        1,\r\n                        gblThemeDark,\r\n                        1,\r\n                        1\r\n                    ),\r\n                    HoverBorderColor: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.HighContrastHyperlinks,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebGray180,\r\n                        gblAppColors.NeutralWebWhite\r\n                    ),\r\n                    HoverColor: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.HighContrastHyperlinks,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebWhite,\r\n                        gblAppColors.NeutralWebGray130\r\n                    ),\r\n                    HoverFill: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.HighContrastBackground,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebGray150,\r\n                        gblAppColors.NeutralWebGray30\r\n                    ),\r\n                    PressedBorderColor: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.HighContrastHyperlinks,\r\n                        gblThemeDark,\r\n                        gblAppColors.TeamsDefaultPrimary,\r\n                        gblAppColors.TeamsDefaultPrimary\r\n                    ),\r\n                    PressedColor: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.NeutralWebWhite,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebWhite,\r\n                        gblAppColors.NeutralWebGray130\r\n                    ),\r\n                    PressedFill: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.HighContrastBackground,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebGray180,\r\n                        gblAppColors.NeutralWebWhite\r\n                    ),\r\n                    SelectionColor: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.HighContrastBackground,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebWhite,\r\n                        gblAppColors.NeutralWebGray190\r\n                    ),\r\n                    SelectionFill: If(\r\n                        gblThemeHiCo,\r\n                        gblAppColors.HighContrastSelectedBackground,\r\n                        gblThemeDark,\r\n                        gblAppColors.NeutralWebGray120,\r\n                        gblAppColors.NeutralWebGray60\r\n                    ),\r\n                    Height: 32\r\n                }",
+          "InvariantPropertyName": "DropdownStyles",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
+      ],
+      "IsAutoGenerated": false,
+      "IsComponentDefinition": true,
+      "IsDataControl": false,
+      "IsFromScreenLayout": false,
+      "IsGroupControl": false,
+      "IsLocked": false,
+      "LayoutName": "",
+      "MetaDataIDKey": "",
+      "Name": "cmp_Dropdown",
+      "ParentIndex": 0,
+      "PersistMetaDataIDKey": false,
+      "Properties": [
+        {
+          "Category": "Data",
+          "PropertyName": "TextInputStyles",
+          "RuleProviderType": "System"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "RectangleStyles",
+          "RuleProviderType": "System"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "DropdownStyles",
+          "RuleProviderType": "System"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Fill",
+          "RuleProviderType": "System"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Height",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Width",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "X",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Y",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "ZIndex",
+          "RuleProviderType": "Unknown"
+        }
+      ],
+      "StyleName": "",
+      "Type": "ControlInfo"
+    },
+    "drp_2": {
+      "AllowAccessToGlobals": true,
+      "ControlPropertyState": [
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "DropDownSample",
+          "InvariantPropertyName": "Items",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(255, 255, 255, 1)",
+          "InvariantPropertyName": "SelectionColor",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(255, 255, 255, 1)",
+          "InvariantPropertyName": "ChevronFill",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(255, 255, 255, 1)",
+          "InvariantPropertyName": "ChevronHoverFill",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(244, 244, 244, 1)",
+          "InvariantPropertyName": "ChevronDisabledFill",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(56, 96, 178, 1)",
+          "InvariantPropertyName": "ChevronBackground",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "ColorFade(RGBA(56, 96, 178, 1), -20%)",
+          "InvariantPropertyName": "ChevronHoverBackground",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(166, 166, 166, 1)",
+          "InvariantPropertyName": "ChevronDisabledBackground",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(56, 96, 178, 1)",
+          "InvariantPropertyName": "SelectionFill",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(0, 0, 0, 1)",
+          "InvariantPropertyName": "Color",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(0, 0, 0, 1)",
+          "InvariantPropertyName": "HoverColor",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(255, 255, 255, 1)",
+          "InvariantPropertyName": "PressedColor",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(166, 166, 166, 1)",
+          "InvariantPropertyName": "DisabledColor",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(0, 18, 107, 1)",
+          "InvariantPropertyName": "BorderColor",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(166, 166, 166, 1)",
+          "InvariantPropertyName": "DisabledBorderColor",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "ColorFade(Self.BorderColor, 15%)",
+          "InvariantPropertyName": "HoverBorderColor",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Self.HoverBorderColor",
+          "InvariantPropertyName": "PressedBorderColor",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        "BorderStyle",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Self.BorderColor",
+          "InvariantPropertyName": "FocusedBorderColor",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(255, 255, 255, 1)",
+          "InvariantPropertyName": "Fill",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(244, 244, 244, 1)",
+          "InvariantPropertyName": "DisabledFill",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(0, 18, 107, 1)",
+          "InvariantPropertyName": "PressedFill",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(186, 202, 226, 1)",
+          "InvariantPropertyName": "HoverFill",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Font.'Open Sans'",
+          "InvariantPropertyName": "Font",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        "FontWeight",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "X",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "Y",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "Width",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        "Height",
+        "DisplayMode",
+        "ZIndex",
+        "BorderThickness",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "4",
+          "InvariantPropertyName": "FocusedBorderThickness",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "Size",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        "Italic",
+        "Underline",
+        "Strikethrough",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "PaddingTop",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "PaddingRight",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        "PaddingBottom",
+        "PaddingLeft",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "\"\"",
+          "InvariantPropertyName": "AccessibleLabel",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
+      ],
+      "HasDynamicProperties": false,
+      "IsAutoGenerated": false,
+      "IsComponentDefinition": false,
+      "IsDataControl": false,
+      "IsFromScreenLayout": false,
+      "IsGroupControl": false,
+      "IsLocked": false,
+      "LayoutName": "",
+      "MetaDataIDKey": "",
+      "Name": "drp_2",
+      "ParentIndex": 0,
+      "PersistMetaDataIDKey": false,
+      "Properties": [
+        {
+          "Category": "Data",
+          "NameMap": "{\"Value\":\"Value\"}",
+          "PropertyName": "Items",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "AccessibleLabel",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "PaddingTop",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Strikethrough",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Underline",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Italic",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Size",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "FocusedBorderThickness",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "BorderThickness",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "ZIndex",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "DisplayMode",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Height",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Width",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Y",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "X",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "FontWeight",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Font",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "PaddingLeft",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "PaddingRight",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "HoverFill",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "PaddingBottom",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "PressedFill",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "DisabledFill",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Fill",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "BorderStyle",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "DisabledBorderColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "BorderColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "DisabledColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "PressedColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "HoverColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Color",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "SelectionFill",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "ChevronDisabledBackground",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "ChevronHoverBackground",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "ChevronBackground",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "ChevronDisabledFill",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "ChevronHoverFill",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "ChevronFill",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "SelectionColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "PressedBorderColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "FocusedBorderColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "HoverBorderColor",
+          "RuleProviderType": "Unknown"
+        }
+      ],
+      "StyleName": "defaultDropdownStyle",
+      "Type": "ControlInfo"
+    },
+    "rec_Underline_1": {
+      "AllowAccessToGlobals": true,
+      "ControlPropertyState": [
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(56, 96, 178, 1)",
+          "InvariantPropertyName": "Fill",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Self.Fill",
+          "InvariantPropertyName": "DisabledFill",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        "PressedFill",
+        "HoverFill",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(0, 18, 107, 1)",
+          "InvariantPropertyName": "BorderColor",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        "BorderStyle",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Self.BorderColor",
+          "InvariantPropertyName": "FocusedBorderColor",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        "DisplayMode",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "40",
+          "InvariantPropertyName": "X",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "113",
+          "InvariantPropertyName": "Y",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "Width",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "Height",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        "ZIndex",
+        "BorderThickness",
+        "FocusedBorderThickness"
+      ],
+      "HasDynamicProperties": false,
+      "IsAutoGenerated": false,
+      "IsComponentDefinition": false,
+      "IsDataControl": false,
+      "IsFromScreenLayout": false,
+      "IsGroupControl": false,
+      "IsLocked": false,
+      "LayoutName": "",
+      "MetaDataIDKey": "",
+      "Name": "rec_Underline_1",
+      "ParentIndex": 1,
+      "PersistMetaDataIDKey": false,
+      "Properties": [
+        {
+          "Category": "Design",
+          "PropertyName": "Height",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "X",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "FocusedBorderThickness",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "BorderThickness",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Width",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "DisplayMode",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "FocusedBorderColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "BorderStyle",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Fill",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "ZIndex",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "DisabledFill",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "BorderColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Y",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "HoverFill",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "PressedFill",
+          "RuleProviderType": "Unknown"
+        }
+      ],
+      "StyleName": "defaultRectangleStyle",
+      "Type": "ControlInfo"
+    }
+  },
+  "TopParentName": "cmp_Dropdown"
+}

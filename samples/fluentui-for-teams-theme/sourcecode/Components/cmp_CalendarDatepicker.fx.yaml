@@ -1,0 +1,824 @@
+cmp_CalendarDatepicker As CanvasComponent:
+    CalendarBodyStyles: |-
+        ={
+            WeekdayFill: gblAppStyles.TextInput.Fill,
+            WeekdayColor: gblAppStyles.TextInput.Color,
+            IconColor: gblAppStyles.Label.Color,
+            IconHoverColor: gblAppStyles.Label.HoverColor,
+            SelectedCircleFill: gblAppStyles.ButtonPrimary.BorderColor,
+            SelectedCircleColor: gblAppStyles.ButtonSecondary.Fill,
+            Dropdown: {
+                BorderColor: If(
+                    gblThemeHiCo,
+                    gblAppColors.NeutralWebWhite,
+                    gblThemeDark,
+                    gblAppColors.NeutralWebGray180,
+                    gblAppColors.NeutralWebWhite
+                ),
+                BorderThickness: If(
+                    gblThemeHiCo,
+                    1,
+                    gblThemeDark,
+                    1,
+                    1
+                ),
+                ChevronBackground: If(
+                    gblThemeHiCo,
+                    gblAppColors.NeutralWebBlack,
+                    gblThemeDark,
+                    gblAppColors.NeutralWebGray220,
+                    gblAppColors.NeutralWebWhite
+                ),
+                ChevronDisabledBackground: If(
+                    gblThemeHiCo,
+                    gblAppColors.HighContrastDisabled,
+                    gblThemeDark,
+                    gblAppColors.NeutralWebGray130,
+                    gblAppColors.NeutralWebGray130
+                ),
+                ChevronDisabledFill: If(
+                    gblThemeHiCo,
+                    gblAppColors.HighContrastBackground,
+                    gblThemeDark,
+                    gblAppColors.NeutralWebGray80,
+                    gblAppColors.NeutralWebGray80
+                ),
+                ChevronFill: If(
+                    gblThemeHiCo,
+                    gblAppColors.HighContrastHyperlinks,
+                    gblThemeDark,
+                    gblAppColors.NeutralWebWhite10,
+                    gblAppColors.NeutralWebGray130
+                ),
+                ChevronHoverBackground: If(
+                    gblThemeHiCo,
+                    gblAppColors.NeutralWebBlack,
+                    gblThemeDark,
+                    gblAppColors.NeutralWebGray200,
+                    gblAppColors.NeutralWebWhite
+                ),
+                ChevronHoverFill: If(
+                    gblThemeHiCo,
+                    gblAppColors.HighContrastHyperlinks,
+                    gblThemeDark,
+                    gblAppColors.NeutralWebWhite,
+                    gblAppColors.NeutralWebGray130
+                ),
+                Color: If(
+                    gblThemeHiCo,
+                    gblAppColors.HighContrastSelectedBackground,
+                    gblThemeDark,
+                    gblAppColors.NeutralWebWhite,
+                    gblAppColors.NeutralWebGray130
+                ),
+                DisabledBorderColor: If(
+                    gblThemeHiCo,
+                    gblAppColors.HighContrastDisabled,
+                    gblThemeDark,
+                    gblAppColors.NeutralWebGray80,
+                    gblAppColors.NeutralWebGray80
+                ),
+                DisabledColor: If(
+                    gblThemeHiCo,
+                    gblAppColors.HighContrastDisabled,
+                    gblThemeDark,
+                    gblAppColors.NeutralWebGray130,
+                    gblAppColors.NeutralWebGray130
+                ),
+                DisabledFill: If(
+                    gblThemeHiCo,
+                    gblAppColors.HighContrastDisabled,
+                    gblThemeDark,
+                    gblAppColors.NeutralWebGray150,
+                    gblAppColors.NeutralWebGray30
+                ),
+                Fill: If(
+                    gblThemeHiCo,
+                    gblAppColors.NeutralWebBlack,
+                    gblThemeDark,
+                    gblAppColors.NeutralWebGray220,
+                    gblAppColors.NeutralWebWhite
+                ),
+                FocusedBorderColor: If(
+                    gblThemeHiCo,
+                    gblAppColors.HighContrastSelectedBackground,
+                    gblThemeDark,
+                    gblAppColors.TeamsDefaultPrimary,
+                    gblAppColors.TeamsDefaultPrimary
+                ),
+                FocusedBorderThickness: If(
+                    gblThemeHiCo,
+                    1,
+                    gblThemeDark,
+                    1,
+                    1
+                ),
+                HoverBorderColor: If(
+                    gblThemeHiCo,
+                    gblAppColors.HighContrastHyperlinks,
+                    gblThemeDark,
+                    gblAppColors.NeutralWebGray180,
+                    gblAppColors.NeutralWebWhite
+                ),
+                HoverColor: If(
+                    gblThemeHiCo,
+                    gblAppColors.HighContrastHyperlinks,
+                    gblThemeDark,
+                    gblAppColors.NeutralWebWhite,
+                    gblAppColors.NeutralWebGray130
+                ),
+                HoverFill: If(
+                    gblThemeHiCo,
+                    gblAppColors.HighContrastBackground,
+                    gblThemeDark,
+                    gblAppColors.NeutralWebGray150,
+                    gblAppColors.NeutralWebGray30
+                ),
+                PressedBorderColor: If(
+                    gblThemeHiCo,
+                    gblAppColors.HighContrastHyperlinks,
+                    gblThemeDark,
+                    gblAppColors.TeamsDefaultPrimary,
+                    gblAppColors.TeamsDefaultPrimary
+                ),
+                PressedColor: If(
+                    gblThemeHiCo,
+                    gblAppColors.NeutralWebWhite,
+                    gblThemeDark,
+                    gblAppColors.NeutralWebWhite,
+                    gblAppColors.NeutralWebGray130
+                ),
+                PressedFill: If(
+                    gblThemeHiCo,
+                    gblAppColors.HighContrastBackground,
+                    gblThemeDark,
+                    gblAppColors.NeutralWebGray180,
+                    gblAppColors.NeutralWebWhite
+                ),
+                SelectionColor: If(
+                    gblThemeHiCo,
+                    gblAppColors.HighContrastBackground,
+                    gblThemeDark,
+                    gblAppColors.NeutralWebWhite,
+                    gblAppColors.NeutralWebGray190
+                ),
+                SelectionFill: If(
+                    gblThemeHiCo,
+                    gblAppColors.HighContrastSelectedBackground,
+                    gblThemeDark,
+                    gblAppColors.NeutralWebGray120,
+                    gblAppColors.NeutralWebGray60
+                ),
+                Height: 32,
+                Width: 208
+            }
+        }
+    CalendarHeaderStyles: |-
+        ={Fill: gblAppStyles.ButtonPrimary.Fill, Color: gblAppStyles.ButtonPrimary.Color}
+    DatepickerStyles: |-
+        ={
+            Color: gblAppStyles.Label.Color,
+            Fill: gblAppStyles.TextInput.Fill,
+            BorderColor: gblAppStyles.TextInput.BorderColor
+        }
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =718
+    InputDate: =Now()
+    OnReset: =Set(_dateSelected, Today());Set(visible_variable, true); Set(myDateOutputvar,_dateSelected)
+    OnSelect: =true
+    visible_var: =visible_variable
+    Width: =450
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    HtmlText1_1 As htmlViewer:
+        AutoHeight: =true
+        Height: =670
+        HtmlText: |+
+            ="<div style='margin:10px;width:"&cmp_CalendarDatepicker.Width-25&"px;height:"&cmp_CalendarDatepicker.Height &"px;background-color:#;box-shadow:3px 3px 6px 3px  rgba(0,0,0,0.14); border-radius:4px'></div>"
+            
+        PaddingRight: =5.27
+        PaddingTop: =5.27
+        Size: =11.60
+        Visible: =isShowCalendar
+        Width: =474.38
+        X: =0.00
+        Y: =48
+        ZIndex: =1
+
+    grp_CalendarBody_2 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =-6
+        ZIndex: =11
+
+        WeekdayGallery1_2 As gallery.WeekdayGallery:
+            AccessibleLabel: ="Days of the week"
+            BorderColor: =Transparent
+            Fill: =
+            Height: =57
+            Items: =["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+            ShowScrollbar: =false
+            TemplatePadding: =0.00
+            TemplateSize: =63.25
+            Visible: =isShowCalendar
+            Width: =442.75
+            X: =15.81
+            Y: =303
+            ZIndex: =2
+
+            Title6_2 As label:
+                Align: =Align.Center
+                BorderStyle: =BorderStyle.None
+                Color: =cmp_CalendarDatepicker.CalendarBodyStyles.WeekdayColor
+                Fill: =cmp_CalendarDatepicker.CalendarBodyStyles.WeekdayFill
+                Height: =WeekdayGallery1_2.TemplateHeight
+                OnSelect: =Select(Parent)
+                PaddingRight: =5.27
+                PaddingTop: =5.27
+                Size: =13.96
+                Text: =ThisItem.Value
+                VerticalAlign: =Middle
+                Width: =63.25
+                Wrap: =false
+                X: =0.00
+                Y: =WeekdayGallery1_2.TemplateHeight / 2 - Self.Height / 2
+                ZIndex: =1
+
+        MonthDayGallery1_2 As gallery.MonthDayGallery:
+            AccessibleLabel: ="Days of selected month"
+            BorderColor: =Transparent
+            Height: =358
+            Items: =[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19, 20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41]
+            Layout: =Layout.Vertical
+            ShowScrollbar: =false
+            TemplatePadding: =0
+            TemplateSize: =60
+            Visible: =isShowCalendar
+            Width: =442.75
+            WrapCount: =7
+            X: =15.81
+            Y: =360
+            ZIndex: =3
+
+            Subcircle1_2 As circle:
+                BorderColor: =Transparent
+                Fill: =cmp_CalendarDatepicker.CalendarBodyStyles.SelectedCircleFill
+                Height: =35.45
+                OnSelect: =Select(Parent)
+                Visible: =And(DateAdd(_firstDayInView, ThisItem.Value) = _dateSelected, Title7_2.Visible)
+                Width: =35.45
+                X: =13.90
+                Y: =MonthDayGallery1_2.TemplateHeight / 2 - Self.Height / 2
+                ZIndex: =2
+
+            Title7_2 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Color: =If(DateAdd(_firstDayInView, ThisItem.Value) = _dateSelected, cmp_CalendarDatepicker.CalendarBodyStyles.SelectedCircleColor, DateAdd(_firstDayInView, ThisItem.Value) = Today(), RGBA(47, 41, 43, 1), LblMonthSelected1_2.Color)        
+                Fill: |-
+                    =/*Fill value changes if the gallery item day = today, or if it lies outside of the current month*/             
+                    If(
+                        /*Date selected is today*/
+                        DateAdd(_firstDayInView, ThisItem.Value) = Today() && DateAdd(_firstDayInView, ThisItem.Value) = _dateSelected, RGBA(0,0,0,0),
+                        /*Today when it is not selected*/
+                        DateAdd(_firstDayInView, ThisItem.Value) = Today(), ColorFade(Subcircle1_2.Fill, 0.67), 
+                        /*The day is outside the range of the currently selected month*/
+                        Abs(Self.Text - ThisItem.Value) > 10,RGBA(200, 200, 200, 0.3), RGBA(0, 0, 0, 0))
+                FocusedBorderColor: =Self.Color
+                FocusedBorderThickness: =2
+                Height: =MonthDayGallery1_2.TemplateHeight
+                OnSelect: =Set(_dateSelected, DateAdd(_firstDayInView, ThisItem.Value, Days)); Set(thisIsTheDay, _dateSelected)
+                PaddingRight: =5.27
+                PaddingTop: =5.27
+                Size: =11.82
+                TabIndex: =0
+                Text: =Day(DateAdd(_firstDayInView,ThisItem.Value,Days))
+                VerticalAlign: =Middle
+                Visible: |-
+                    =/*This item is in a row containing no days of the visible month. It is in the row after the row where the last day of the month occurs*/ 
+                     !(DateAdd(_firstDayInView,ThisItem.Value,Days) - Weekday(DateAdd(_firstDayInView,ThisItem.Value,Days)) + 1 > _lastDayOfMonth)
+                Width: =63.25
+                Wrap: =false
+                X: =0.00
+                ZIndex: =3
+
+        LblMonthSelected1_2 As label:
+            Align: =Align.Center
+            Color: =cmp_CalendarDatepicker.CalendarBodyStyles.WeekdayColor
+            Fill: =cmp_CalendarDatepicker.CalendarBodyStyles.WeekdayFill
+            Height: =58
+            PaddingRight: =5.27
+            PaddingTop: =5.27
+            Text: =Text(_firstDayOfMonth, "mmmm yyyy")
+            Visible: =isShowCalendar
+            Width: =442.75
+            Wrap: =false
+            X: =15.81
+            Y: =262
+            ZIndex: =4
+
+        iconPrevMonth1_2 As icon.ChevronLeft:
+            AccessibleLabel: ="previous month"
+            BorderColor: =
+            Color: =cmp_CalendarDatepicker.CalendarBodyStyles.IconColor
+            DisabledBorderColor: =
+            DisabledColor: =
+            DisabledFill: =
+            Height: =20
+            HoverBorderColor: =
+            HoverColor: =cmp_CalendarDatepicker.CalendarBodyStyles.IconHoverColor
+            HoverFill: =
+            Icon: =Icon.ChevronLeft
+            OnSelect: |-
+                =/*changes month view to previous month*/
+                Set(_firstDayOfMonth, DateAdd(_firstDayOfMonth, -1, Months));
+                Set(_firstDayInView, DateAdd(_firstDayOfMonth,-(Mod(Weekday(_firstDayOfMonth)-3,7)+1),Days));
+                Set(_lastDayOfMonth, DateAdd(DateAdd(_firstDayOfMonth, 1, Months), -1, Days));
+                /*collects calendar events for all days in current month view. Updates _minDate to prevent duplicate data collection if user returns to this month view*/
+                If(_minDate > _firstDayOfMonth, Set(_minDate, _firstDayOfMonth); 
+                //Collect(MyCalendarEvents, Office365Outlook.GetEventsCalendarViewV2(_myCalendar.Name, Text(_minDate, UTC), Text(_lastDayOfMonth, UTC)).value)
+                )
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: =
+            PressedFill: =
+            TabIndex: =0
+            Tooltip: ="View previous month"
+            Visible: =isShowCalendar
+            Width: =21.08
+            X: =35.84
+            Y: =281
+            ZIndex: =5
+
+        iconNextMonth1_2 As icon.ChevronRight:
+            AccessibleLabel: ="next month"
+            BorderColor: =
+            Color: =cmp_CalendarDatepicker.CalendarBodyStyles.IconColor
+            DisabledBorderColor: =
+            DisabledColor: =
+            DisabledFill: =
+            Height: =20
+            HoverBorderColor: =
+            HoverColor: =cmp_CalendarDatepicker.CalendarBodyStyles.IconHoverColor
+            HoverFill: =
+            Icon: =Icon.ChevronRight
+            OnSelect: |-
+                =/*changes month view to next month*/
+                Set(_firstDayOfMonth, DateAdd(_firstDayOfMonth, 1, Months));
+                Set(_firstDayInView, DateAdd(_firstDayOfMonth,-(Mod(Weekday(_firstDayOfMonth)-3,7)+1),Days));
+                /*collects calendar events for all days in current month view. Updates _maxDate to prevent duplicate data collection if user returns to this month view*/
+                Set(_lastDayOfMonth, DateAdd(DateAdd(_firstDayOfMonth, 1, Months), -1, Days));
+                If(_lastDayOfMonth > _maxDate, Set(_maxDate, _lastDayOfMonth); 
+                //Collect(MyCalendarEvents, Office365Outlook.GetEventsCalendarViewV2(_myCalendar.Name, Text(_firstDayOfMonth, UTC), Text(_maxDate, UTC)).value)
+                )
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: =
+            PressedFill: =
+            TabIndex: =0
+            Tooltip: ="View next month"
+            Visible: =isShowCalendar
+            Width: =21.08
+            X: =415.34
+            Y: =281
+            ZIndex: =6
+
+    grp_CalendarHeader_2 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =13
+
+        lbl_Year_2 As label:
+            Align: =Align.Center
+            Color: =cmp_CalendarDatepicker.CalendarHeaderStyles.Color
+            Fill: =cmp_CalendarDatepicker.CalendarHeaderStyles.Fill
+            Height: =44
+            PaddingRight: =5.27
+            PaddingTop: =5.27
+            Size: =21.08
+            Text: |+
+                =Text(_dateSelected,"[$-en]yyyy")
+                
+            VerticalAlign: =VerticalAlign.Top
+            Visible: =isShowCalendar
+            Width: =449.08
+            Wrap: =false
+            X: =15.81
+            Y: =218
+            ZIndex: =7
+
+        lbl_Day_2 As label:
+            Align: =Align.Center
+            Color: =cmp_CalendarDatepicker.CalendarHeaderStyles.Color
+            Fill: =cmp_CalendarDatepicker.CalendarHeaderStyles.Fill
+            Height: =76
+            PaddingRight: =5.27
+            PaddingTop: =5.27
+            Size: =42.17
+            Text: |+
+                =Text(_dateSelected,"[$-en]dd")
+                
+            VerticalAlign: =VerticalAlign.Top
+            Visible: =isShowCalendar
+            Width: =449.08
+            Wrap: =false
+            X: =15.81
+            Y: =142
+            ZIndex: =8
+
+        lbl_Month_2 As label:
+            Align: =Align.Center
+            Color: =cmp_CalendarDatepicker.CalendarHeaderStyles.Color
+            Fill: =cmp_CalendarDatepicker.CalendarHeaderStyles.Fill
+            Height: =41
+            PaddingRight: =5.27
+            PaddingTop: =5.27
+            Size: =21.08
+            Text: |+
+                =Text(_dateSelected,"[$-en]mmmm")
+                
+            VerticalAlign: =VerticalAlign.Top
+            Visible: =isShowCalendar
+            Width: =449.08
+            Wrap: =false
+            X: =15.81
+            Y: =101
+            ZIndex: =9
+
+        lbl_Weekday_2 As label:
+            Align: =Align.Center
+            Color: =cmp_CalendarDatepicker.CalendarHeaderStyles.Color
+            Fill: =cmp_CalendarDatepicker.CalendarHeaderStyles.Fill
+            Height: =41
+            PaddingRight: =5.27
+            PaddingTop: =5.27
+            Text: |+
+                =Text(_dateSelected,"[$-en]dddd")
+                
+            VerticalAlign: =VerticalAlign.Top
+            Visible: =isShowCalendar
+            Width: =449.08
+            Wrap: =false
+            X: =15.81
+            Y: =60
+            ZIndex: =10
+
+        iconPin As icon.CalendarBlank:
+            AccessibleLabel: ="today"
+            BorderColor: =
+            Color: =cmp_CalendarDatepicker.CalendarHeaderStyles.Color
+            DisabledBorderColor: =
+            DisabledColor: =
+            DisabledFill: =
+            Height: =20
+            HoverBorderColor: =
+            HoverColor: =cmp_CalendarDatepicker.CalendarHeaderStyles.Color
+            HoverFill: =
+            Icon: =Icon.Pin
+            OnSelect: |-
+                =/*resets calendar view and date selection to today*/
+                Set(_dateSelected, Today());
+                Set(_firstDayOfMonth, DateAdd(Today(), 1 - Day(Today()), Days));
+                Set(_firstDayInView, DateAdd(_firstDayOfMonth,-(Mod(Weekday(_firstDayOfMonth)-3,7)+1),Days));
+                Set(_lastDayOfMonth, DateAdd(DateAdd(_firstDayOfMonth, 1, Months), -1, Days))
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: =
+            PressedFill: =
+            TabIndex: =0
+            Tooltip: ="Reset selected date to today"
+            Visible: =isShowCalendar
+            Width: =21.08
+            X: =35.84
+            Y: =76
+            ZIndex: =11
+
+        iconOK As icon.Add:
+            AccessibleLabel: ="ok"
+            BorderColor: =
+            Color: =cmp_CalendarDatepicker.CalendarHeaderStyles.Color
+            DisabledBorderColor: =
+            DisabledColor: =
+            DisabledFill: =
+            Height: =20
+            HoverBorderColor: =
+            HoverColor: =cmp_CalendarDatepicker.CalendarHeaderStyles.Color
+            HoverFill: =
+            Icon: =Icon.Check
+            OnSelect: =Set(visible_variable, false);Set(isShowCalendar, false); Set(thisIsTheDay, _dateSelected)
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: =
+            PressedFill: =
+            Visible: =isShowCalendar
+            Width: =21.08
+            X: =418.51
+            Y: =76
+            ZIndex: =12
+
+    DatePicker_2 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =16
+
+        lbl_DatePicker As label:
+            BorderColor: =cmp_CalendarDatepicker.DatepickerStyles.BorderColor
+            Color: =cmp_CalendarDatepicker.DatepickerStyles.Color
+            Fill: =cmp_CalendarDatepicker.DatepickerStyles.Fill
+            Height: =32
+            PaddingRight: =5.27
+            PaddingTop: =5.27
+            Text: |-
+                =//Text(cmp_CalendarDatepicker.InputDate, DateTimeFormat.LongDate)
+                Text(thisIsTheDay, DateTimeFormat.LongDate)
+            Width: =450
+            Y: =16
+            ZIndex: =13
+
+        icn_Calendar As icon.Controller:
+            BorderColor: =
+            Color: =cmp_CalendarDatepicker.DatepickerStyles.Color
+            DisabledBorderColor: =
+            DisabledColor: =
+            DisabledFill: =
+            Height: =20
+            HoverBorderColor: =
+            HoverColor: =
+            HoverFill: =
+            Icon: =Icon.CalendarBlank
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: =
+            PressedFill: =
+            Width: =22
+            X: =419
+            Y: =22
+            ZIndex: =14
+
+        btn_ShowCalendar As button:
+            BorderColor: =Transparent
+            Color: =Transparent
+            DisabledBorderColor: =Transparent
+            DisabledColor: =Transparent
+            DisabledFill: =Transparent
+            Fill: =Transparent
+            FocusedBorderColor: =Transparent
+            Height: =60
+            HoverBorderColor: =Transparent
+            HoverColor: =Transparent
+            HoverFill: =Transparent
+            OnSelect: |-
+                =cmp_CalendarDatepicker.OnSelect();Set(_dateSelected, Today());
+                Set(_firstDayOfMonth, DateAdd(Today(), 1 - Day(Today()), Days));
+                Set(_firstDayInView, DateAdd(_firstDayOfMonth,-(Mod(Weekday(_firstDayOfMonth)-3,7)+1),Days));
+                Set(_lastDayOfMonth, DateAdd(DateAdd(_firstDayOfMonth, 1, Months), -1, Days));Set(isShowCalendar, true)
+            PaddingRight: =5.27
+            PaddingTop: =5.27
+            PressedBorderColor: =Transparent
+            PressedColor: =Transparent
+            PressedFill: =Transparent
+            Text: =""
+            Width: =450
+            ZIndex: =15
+
+    Label1_1 As label:
+        BorderColor: =
+        Color: =Black
+        PaddingRight: =5.27
+        PaddingTop: =5.27
+        Text: =
+        Width: =158.13
+        X: =146.53
+        Y: =661
+        ZIndex: =18
+
+    iconPrevYear As icon.ChevronLeft:
+        AccessibleLabel: ="1 year back"
+        BorderColor: =
+        Color: =cmp_CalendarDatepicker.CalendarHeaderStyles.Color
+        DisabledBorderColor: =
+        DisabledColor: =
+        DisabledFill: =
+        Height: =20
+        HoverBorderColor: =
+        HoverColor: =cmp_CalendarDatepicker.CalendarHeaderStyles.Color
+        HoverFill: =
+        Icon: =Icon.ChevronLeft
+        OnSelect: |-
+            =/*changes month view to previous month*/
+            Set(_firstDayOfMonth, DateAdd(_firstDayOfMonth, -1, Years));
+            Set(_firstDayInView, DateAdd(_firstDayOfMonth,-(Mod(Weekday(_firstDayOfMonth)-3,7)+1),Days));
+            Set(_lastDayOfMonth, DateAdd(DateAdd(_firstDayOfMonth, 1, Months), -1, Days));
+            /*collects calendar events for all days in current month view. Updates _minDate to prevent duplicate data collection if user returns to this month view*/
+            If(_minDate > _firstDayOfMonth, Set(_minDate, _firstDayOfMonth); 
+            //Collect(MyCalendarEvents, Office365Outlook.GetEventsCalendarViewV2(_myCalendar.Name, Text(_minDate, UTC), Text(_lastDayOfMonth, UTC)).value)
+            )
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        PressedBorderColor: =
+        PressedFill: =
+        TabIndex: =0
+        Tooltip: ="View previous month"
+        Visible: =isShowCalendar
+        Width: =21.08
+        X: =168.67
+        Y: =236
+        ZIndex: =20
+
+    iconNextYear As icon.ChevronLeft:
+        AccessibleLabel: ="1 year +"
+        BorderColor: =
+        Color: =cmp_CalendarDatepicker.CalendarHeaderStyles.Color
+        DisabledBorderColor: =
+        DisabledColor: =
+        DisabledFill: =
+        Height: =20
+        HoverBorderColor: =
+        HoverColor: =cmp_CalendarDatepicker.CalendarHeaderStyles.Color
+        HoverFill: =
+        Icon: =Icon.ChevronRight
+        OnSelect: |-
+            =/*changes month view to next year*/
+            Set(_firstDayOfMonth, DateAdd(_firstDayOfMonth, 1, Years));
+            Set(_firstDayInView, DateAdd(_firstDayOfMonth,-(Mod(Weekday(_firstDayOfMonth)-3,7)+1),Days));
+            Set(_lastDayOfMonth, DateAdd(DateAdd(_firstDayOfMonth, 1, Months), -1, Days));
+            /*collects calendar events for all days in current month view. Updates _minDate to prevent duplicate data collection if user returns to this month view*/
+            If(_minDate > _firstDayOfMonth, Set(_minDate, _firstDayOfMonth); 
+            //Collect(MyCalendarEvents, Office365Outlook.GetEventsCalendarViewV2(_myCalendar.Name, Text(_minDate, UTC), Text(_lastDayOfMonth, UTC)).value)
+            )
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        PressedBorderColor: =
+        PressedFill: =
+        TabIndex: =0
+        Tooltip: ="View previous month"
+        Visible: =isShowCalendar
+        Width: =21.08
+        X: =284.63
+        Y: =236
+        ZIndex: =21
+
+    grp_Prev10Years As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =28
+
+        icon10PrevYear1 As icon.ChevronLeft:
+            AccessibleLabel: ="10 years back"
+            BorderColor: =
+            Color: =cmp_CalendarDatepicker.CalendarHeaderStyles.Color
+            DisabledBorderColor: =
+            DisabledColor: =
+            DisabledFill: =
+            Height: =20
+            HoverBorderColor: =
+            HoverColor: =cmp_CalendarDatepicker.CalendarHeaderStyles.Color
+            HoverFill: =
+            Icon: =Icon.ChevronLeft
+            OnSelect: |-
+                =/*changes month view to 10 years ago*/
+                Set(_firstDayOfMonth, DateAdd(_firstDayOfMonth, -10, Years));
+                Set(_firstDayInView, DateAdd(_firstDayOfMonth,-(Mod(Weekday(_firstDayOfMonth)-3,7)+1),Days));
+                Set(_lastDayOfMonth, DateAdd(DateAdd(_firstDayOfMonth, 1, Months), -1, Days));
+                /*collects calendar events for all days in current month view. Updates _minDate to prevent duplicate data collection if user returns to this month view*/
+                If(_minDate > _firstDayOfMonth, Set(_minDate, _firstDayOfMonth); 
+                //Collect(MyCalendarEvents, Office365Outlook.GetEventsCalendarViewV2(_myCalendar.Name, Text(_minDate, UTC), Text(_lastDayOfMonth, UTC)).value)
+                )
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: =
+            PressedFill: =
+            TabIndex: =0
+            Tooltip: ="View previous month"
+            Visible: =isShowCalendar
+            Width: =21.08
+            X: =127.55
+            Y: =236
+            ZIndex: =22
+
+        icon10PrevYear2 As icon.ChevronLeft:
+            AccessibleLabel: ="10 years back"
+            BorderColor: =
+            Color: =cmp_CalendarDatepicker.CalendarHeaderStyles.Color
+            DisabledBorderColor: =
+            DisabledColor: =
+            DisabledFill: =
+            Height: =20
+            HoverBorderColor: =
+            HoverColor: =cmp_CalendarDatepicker.CalendarHeaderStyles.Color
+            HoverFill: =
+            Icon: =Icon.ChevronLeft
+            OnSelect: |-
+                =/*changes month view to 10 years ago*/
+                Set(_firstDayOfMonth, DateAdd(_firstDayOfMonth, -10, Years));
+                Set(_firstDayInView, DateAdd(_firstDayOfMonth,-(Mod(Weekday(_firstDayOfMonth)-3,7)+1),Days));
+                Set(_lastDayOfMonth, DateAdd(DateAdd(_firstDayOfMonth, 1, Months), -1, Days));
+                /*collects calendar events for all days in current month view. Updates _minDate to prevent duplicate data collection if user returns to this month view*/
+                If(_minDate > _firstDayOfMonth, Set(_minDate, _firstDayOfMonth); 
+                //Collect(MyCalendarEvents, Office365Outlook.GetEventsCalendarViewV2(_myCalendar.Name, Text(_minDate, UTC), Text(_lastDayOfMonth, UTC)).value)
+                )
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: =
+            PressedFill: =
+            TabIndex: =0
+            Tooltip: ="View previous month"
+            Visible: =isShowCalendar
+            Width: =21.08
+            X: =131.77
+            Y: =236
+            ZIndex: =24
+
+    grp_Next10Years As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =28
+
+        icon10NextYear1 As icon.ChevronLeft:
+            AccessibleLabel: ="10 years+"
+            BorderColor: =
+            Color: =cmp_CalendarDatepicker.CalendarHeaderStyles.Color
+            DisabledBorderColor: =
+            DisabledColor: =
+            DisabledFill: =
+            Height: =20
+            HoverBorderColor: =
+            HoverColor: =cmp_CalendarDatepicker.CalendarHeaderStyles.Color
+            HoverFill: =
+            Icon: =Icon.ChevronRight
+            OnSelect: |-
+                =/*changes month view to +10 years */
+                Set(_firstDayOfMonth, DateAdd(_firstDayOfMonth, 10, Years));
+                Set(_firstDayInView, DateAdd(_firstDayOfMonth,-(Mod(Weekday(_firstDayOfMonth)-3,7)+1),Days));
+                Set(_lastDayOfMonth, DateAdd(DateAdd(_firstDayOfMonth, 1, Months), -1, Days));
+                /*collects calendar events for all days in current month view. Updates _minDate to prevent duplicate data collection if user returns to this month view*/
+                If(_minDate > _firstDayOfMonth, Set(_minDate, _firstDayOfMonth); 
+                //Collect(MyCalendarEvents, Office365Outlook.GetEventsCalendarViewV2(_myCalendar.Name, Text(_minDate, UTC), Text(_lastDayOfMonth, UTC)).value)
+                )
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: =
+            PressedFill: =
+            TabIndex: =0
+            Tooltip: ="View previous month"
+            Visible: =isShowCalendar
+            Width: =21.08
+            X: =321.52
+            Y: =236
+            ZIndex: =26
+
+        icon10NextYear2 As icon.ChevronLeft:
+            AccessibleLabel: ="10 years+"
+            BorderColor: =
+            Color: =cmp_CalendarDatepicker.CalendarHeaderStyles.Color
+            DisabledBorderColor: =
+            DisabledColor: =
+            DisabledFill: =
+            Height: =20
+            HoverBorderColor: =
+            HoverColor: =cmp_CalendarDatepicker.CalendarHeaderStyles.Color
+            HoverFill: =
+            Icon: =Icon.ChevronRight
+            OnSelect: |-
+                =/*changes month view to +10 years */
+                Set(_firstDayOfMonth, DateAdd(_firstDayOfMonth, 10, Years));
+                Set(_firstDayInView, DateAdd(_firstDayOfMonth,-(Mod(Weekday(_firstDayOfMonth)-3,7)+1),Days));
+                Set(_lastDayOfMonth, DateAdd(DateAdd(_firstDayOfMonth, 1, Months), -1, Days));
+                /*collects calendar events for all days in current month view. Updates _minDate to prevent duplicate data collection if user returns to this month view*/
+                If(_minDate > _firstDayOfMonth, Set(_minDate, _firstDayOfMonth); 
+                //Collect(MyCalendarEvents, Office365Outlook.GetEventsCalendarViewV2(_myCalendar.Name, Text(_minDate, UTC), Text(_lastDayOfMonth, UTC)).value)
+                )
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: =
+            PressedFill: =
+            TabIndex: =0
+            Tooltip: ="View previous month"
+            Visible: =isShowCalendar
+            Width: =21.08
+            X: =325.74
+            Y: =236
+            ZIndex: =27
+
+    Label2 As label:
+        BorderColor: =
+        Color: =cmp_CalendarDatepicker.CalendarHeaderStyles.Color
+        PaddingRight: =5.27
+        PaddingTop: =5.27
+        Text: =//Year(Today()) -Year(Date(yearSelected,1,1))
+        Width: =158.13
+        X: =300.44
+        Y: =177
+        ZIndex: =29
+

@@ -1,0 +1,174 @@
+cmp_Toast As CanvasComponent:
+    ButtonStyles: |-
+        ={
+            Fill: gblAppStyles.ButtonPrimary.Fill,
+            FillDarker: gblAppStyles.Toast.FillDarker,
+            Color: gblAppStyles.ButtonPrimary.Color,
+            RadiusTopLeft: gblAppStyles.ButtonPrimary.Radius,
+            BorderColor: gblAppStyles.ButtonPrimary.BorderColor,
+            BorderThickness: gblAppStyles.ButtonPrimary.BorderThickness,
+            DisabledBorderColor: gblAppStyles.ButtonPrimary.DisabledBorderColor,
+            DisabledColor: gblAppStyles.ButtonPrimary.DisabledColor,
+            DisabledFill: gblAppStyles.ButtonPrimary.DisabledFill,
+            FocusedBorderColor: gblAppStyles.ButtonPrimary.FocusedBorderColor,
+            FocusedBorderThickness: gblAppStyles.ButtonPrimary.FocusedBorderThickness,
+            HoverBorderColor: gblAppStyles.ButtonPrimary.BorderColor,
+            HoverColor: gblAppStyles.ButtonPrimary.Color,
+            HoverFill: gblAppStyles.ButtonPrimary.Fill,
+            PressedBorderColor: gblAppStyles.ButtonPrimary.PressedBorderColor,
+            PressedColor: gblAppStyles.ButtonPrimary.PressedColor,
+            PressedFill: gblAppStyles.ButtonPrimary.PressedFill,
+            Radius: 4,
+            Width: 68,
+            Height: 32
+        }
+    Fill: =Transparent
+    Height: =124
+    IconStyles: |-
+        ={Color:gblAppStyles.Label.Color}
+    LabelStyles: |-
+        ={Color: gblAppStyles.ButtonPrimary.Color}
+    LowerButtonStyles: |-
+        ={
+            Fill: gblAppStyles.Toast.Fill,
+        FillDarker:gblAppStyles.Toast.FillDarker,
+            Color: Red
+        }
+    TextInputStyles: |-
+        ={Fill: Transparent,
+        BorderColor: gblAppStyles.ButtonPrimary.Color,
+        Color: gblAppStyles.ButtonPrimary.Color,
+        HoverColor:gblAppStyles.ButtonPrimary.Color,
+        HoverBorderColor:gblAppStyles.ButtonPrimary.Fill,
+        HoverFill:gblAppStyles.ButtonPrimary.Fill,
+        BorderThickness:0,
+        PressedBorderColor: gblAppStyles.ButtonPrimary.Fill }
+    Width: =320
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    btn_upper As button:
+        Align: =Align.Left
+        BorderColor: =cmp_Toast.ButtonStyles.BorderColor
+        Color: =cmp_Toast.ButtonStyles.Color
+        DisabledBorderColor: =cmp_Toast.ButtonStyles.DisabledBorderColor
+        DisabledColor: =cmp_Toast.ButtonStyles.DisabledColor
+        DisabledFill: =cmp_Toast.ButtonStyles.DisabledFill
+        Fill: =cmp_Toast.ButtonStyles.Fill
+        FocusedBorderColor: =cmp_Toast.ButtonStyles.FocusedBorderColor
+        Height: =76
+        HoverBorderColor: =cmp_Toast.ButtonStyles.HoverBorderColor
+        HoverColor: =cmp_Toast.ButtonStyles.HoverColor
+        HoverFill: =cmp_Toast.ButtonStyles.HoverFill
+        PaddingLeft: =70
+        PressedBorderColor: =cmp_Toast.ButtonStyles.PressedBorderColor
+        PressedColor: =cmp_Toast.ButtonStyles.PressedColor
+        PressedFill: =cmp_Toast.ButtonStyles.PressedFill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =cmp_Toast.ButtonStyles.RadiusTopLeft
+        RadiusTopRight: =cmp_Toast.ButtonStyles.RadiusTopLeft
+        Text: ="What do you think?"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =316
+        X: =2
+        Y: =2
+        ZIndex: =1
+
+    btn_lower As button:
+        BorderColor: =cmp_Toast.ButtonStyles.BorderColor
+        Color: =cmp_Toast.ButtonStyles.Color
+        DisabledBorderColor: =cmp_Toast.ButtonStyles.DisabledBorderColor
+        DisabledColor: =cmp_Toast.ButtonStyles.DisabledColor
+        DisabledFill: =cmp_Toast.ButtonStyles.DisabledFill
+        Fill: =cmp_Toast.LowerButtonStyles.FillDarker
+        FocusedBorderColor: =cmp_Toast.ButtonStyles.FocusedBorderColor
+        Height: =48
+        HoverBorderColor: =Transparent
+        HoverColor: =cmp_Toast.ButtonStyles.HoverColor
+        HoverFill: =cmp_Toast.ButtonStyles.FillDarker
+        PressedBorderColor: =cmp_Toast.ButtonStyles.PressedBorderColor
+        PressedColor: =cmp_Toast.ButtonStyles.PressedColor
+        PressedFill: =cmp_Toast.ButtonStyles.PressedFill
+        RadiusBottomLeft: =cmp_Toast.ButtonStyles.RadiusTopLeft
+        RadiusBottomRight: =cmp_Toast.ButtonStyles.RadiusTopLeft
+        RadiusTopLeft: =0
+        RadiusTopRight: =0   
+        Text: =""
+        Width: =316
+        X: =2
+        Y: =76
+        ZIndex: =2
+
+    Icon1 As icon.Leave:
+        BorderColor: =cmp_Toast.ButtonStyles.Color
+        Color: =cmp_Toast.LabelStyles.Color
+        DisabledBorderColor: =
+        DisabledColor: =
+        DisabledFill: =
+        Height: =16
+        HoverBorderColor: =Transparent
+        HoverColor: =cmp_Toast.ButtonStyles.Color
+        HoverFill: =
+        Icon: =Icon.Send
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        PressedBorderColor: =
+        PressedFill: =
+        Width: =16.87
+        X: =cmp_Toast.Width-Self.Width-8    
+        Y: =95
+        ZIndex: =3
+
+    TextInput1 As text:
+        AccessibleLabel: ="Textinput as example"
+        BorderColor: =cmp_Toast.TextInputStyles.BorderColor
+        BorderThickness: =cmp_Toast.TextInputStyles.BorderThickness
+        Color: =cmp_Toast.TextInputStyles.Color
+        Default: =""
+        Fill: =cmp_Toast.TextInputStyles.Fill
+        Height: =32
+        HintText: ="type here..."
+        HoverBorderColor: =Transparent
+        HoverColor: =cmp_Toast.ButtonStyles.Color
+        HoverFill: =cmp_Toast.ButtonStyles.FillDarker
+        PressedBorderColor: =Transparent
+        Width: =251
+        X: =11.60
+        Y: =84
+        ZIndex: =4
+
+    Label4 As label:
+        BorderColor: =cmp_Toast.ButtonStyles.Color
+        Color: =cmp_Toast.LabelStyles.Color
+        Height: =24
+        PaddingRight: =5.27
+        PaddingTop: =5.27
+        Size: =12
+        Text: ="Let us know"
+        Width: =208
+        X: =70
+        Y: =44
+        ZIndex: =5
+
+    Icon2 As icon.ShoppingCart:
+        BorderColor: =cmp_Toast.ButtonStyles.Color
+        Color: =cmp_Toast.LabelStyles.Color
+        DisabledBorderColor: =
+        DisabledColor: =
+        DisabledFill: =
+        Height: =44
+        HoverBorderColor: =
+        HoverColor: =
+        HoverFill: =
+        Icon: =Icon.Enhance
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        PressedBorderColor: =
+        PressedFill: =
+        Width: =46.38
+        X: =11.60
+        Y: =25
+        ZIndex: =6
+

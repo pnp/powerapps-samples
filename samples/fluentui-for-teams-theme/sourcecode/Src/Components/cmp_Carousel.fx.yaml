@@ -1,0 +1,268 @@
+cmp_Carousel As CanvasComponent:
+    ButtonStyles: |-
+        ={
+            Fill: gblAppStyles.ButtonPrimary.Fill,
+            FillDarker: gblAppColors.TeamsDefaultTint60,
+            Color: gblAppStyles.ButtonPrimary.Color,
+            RadiusTopLeft: gblAppStyles.ButtonPrimary.Radius,
+            BorderColor: gblAppStyles.ButtonPrimary.BorderColor,
+            BorderThickness: gblAppStyles.ButtonPrimary.BorderThickness,
+            DisabledBorderColor: gblAppStyles.ButtonPrimary.DisabledBorderColor,
+            DisabledColor: gblAppStyles.ButtonPrimary.DisabledColor,
+            DisabledFill: gblAppStyles.ButtonPrimary.DisabledFill,
+            FocusedBorderColor: gblAppStyles.ButtonPrimary.FocusedBorderColor,
+            FocusedBorderThickness: gblAppStyles.ButtonPrimary.FocusedBorderThickness,
+            HoverBorderColor: gblAppStyles.ButtonPrimary.BorderColor,
+            HoverColor: gblAppStyles.ButtonPrimary.Color,
+            HoverFill: gblAppStyles.ButtonPrimary.Fill,
+            PressedBorderColor: gblAppStyles.ButtonPrimary.PressedBorderColor,
+            PressedColor: gblAppStyles.ButtonPrimary.PressedColor,
+            PressedFill: gblAppStyles.ButtonPrimary.PressedFill,
+            Radius: 4,
+            Width: 68,
+            Height: 32,
+            BackGround:gblAppStyles.Background.Fill
+        }
+    Fill: =Transparent
+    GalleryContent: |-
+        =Table(
+            {
+                Id: 1,
+                Body: "Sweet roll bear claw soufflé marzipan marzipan cake cookie sweet roll dragée.",
+                Image: undraw_coffee_with_friends_3cbj
+            },
+            {
+                Id: 2,
+                Body: "Cake sugar plum sesame snaps liquorice danish. Chupa chups jelly gummies brownie liquorice jelly. ",
+                Image: undraw_donut_love_kau1
+            },
+            {
+                Id: 3,
+                Body: "Pastry toffee pastry chocolate bar liquorice pie bonbon candy canes.",
+                Image: 'undraw_ice_cream_s-2-rh'
+            }
+        )
+    GalleryStyles: =
+    Height: =280
+    OnClose: =true
+    OnReset: =Set(cmpPageCount,1)
+    StepperStyles: |-
+        ={
+            SelectedFill: gblAppStyles.ButtonPrimary.Color,
+            UnselectedFill: gblAppColors.TeamsDarkShade20
+        }
+    Width: =310
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Hexagon1 As hexagon:
+        BorderColor: =cmp_Carousel.ButtonStyles.Color
+        BorderThickness: =1
+        Fill: =cmp_Carousel.ButtonStyles.Color
+        Width: =105.42
+        X: =0.00
+        Y: =100
+        ZIndex: =1
+
+    Image2 As image:
+        BorderColor: =cmp_Carousel.ButtonStyles.Color
+        BorderThickness: =1.5
+        Fill: =cmp_Carousel.ButtonStyles.BackGround
+        Height: =164
+        Image: =LookUp(cmp_Carousel.GalleryContent,Id=cmpPageCount,Image)
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        Width: =295.17
+        X: =6.33
+        Y: =2
+        ZIndex: =2
+
+    btn_middle As button:
+        Align: =Align.Left
+        BorderColor: =cmp_Carousel.ButtonStyles.BorderColor
+        Color: =cmp_Carousel.ButtonStyles.Color
+        DisabledBorderColor: =cmp_Carousel.ButtonStyles.DisabledBorderColor
+        DisabledColor: =cmp_Carousel.ButtonStyles.DisabledColor
+        DisabledFill: =cmp_Carousel.ButtonStyles.DisabledFill
+        Fill: =cmp_Carousel.ButtonStyles.Fill
+        FocusedBorderColor: =cmp_Carousel.ButtonStyles.FocusedBorderColor
+        FontWeight: =FontWeight.Normal
+        Height: =80
+        HoverBorderColor: =cmp_Carousel.ButtonStyles.HoverBorderColor
+        HoverColor: =cmp_Carousel.ButtonStyles.HoverColor
+        HoverFill: =cmp_Carousel.ButtonStyles.HoverFill
+        PaddingLeft: =16
+        PaddingRight: =16.87
+        PaddingTop: =5.27
+        PressedBorderColor: =cmp_Carousel.ButtonStyles.PressedBorderColor
+        PressedColor: =cmp_Carousel.ButtonStyles.PressedColor
+        PressedFill: =cmp_Carousel.ButtonStyles.PressedFill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0   
+        RadiusTopRight: =0   
+        Size: =12
+        Text: =LookUp(cmp_Carousel.GalleryContent,Id=cmpPageCount,Body)
+        VerticalAlign: =VerticalAlign.Top
+        Width: =295.17
+        X: =6.33
+        Y: =160
+        ZIndex: =3
+
+    btn_middle_1 As button:
+        Align: =Align.Left
+        BorderColor: =cmp_Carousel.ButtonStyles.BorderColor
+        Color: =cmp_Carousel.ButtonStyles.Color
+        DisabledBorderColor: =cmp_Carousel.ButtonStyles.DisabledBorderColor
+        DisabledColor: =cmp_Carousel.ButtonStyles.DisabledColor
+        DisabledFill: =cmp_Carousel.ButtonStyles.DisabledFill
+        Fill: =cmp_Carousel.ButtonStyles.Fill
+        FocusedBorderColor: =cmp_Carousel.ButtonStyles.FocusedBorderColor
+        FontWeight: =FontWeight.Normal
+        Height: =36
+        HoverBorderColor: =cmp_Carousel.ButtonStyles.HoverBorderColor
+        HoverColor: =cmp_Carousel.ButtonStyles.HoverColor
+        HoverFill: =cmp_Carousel.ButtonStyles.HoverFill
+        PaddingLeft: =16
+        PaddingRight: =16.87
+        PaddingTop: =5.27
+        PressedBorderColor: =cmp_Carousel.ButtonStyles.PressedBorderColor
+        PressedColor: =cmp_Carousel.ButtonStyles.PressedColor
+        PressedFill: =cmp_Carousel.ButtonStyles.PressedFill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0   
+        RadiusTopRight: =0   
+        Size: =12
+        Text: =""
+        Width: =295.17
+        X: =6.33
+        Y: =240
+        ZIndex: =4
+
+    Rectangle2 As rectangle:
+        BorderColor: =Transparent
+        Fill: =RGBA(166, 166, 166, 1)
+        Height: =1
+        Width: =261.43
+        X: =16.87
+        Y: =236
+        ZIndex: =5
+
+    Icon3 As icon.ChevronRight:
+        AccessibleLabel: ="next"
+        BorderColor: =Transparent
+        Color: =cmp_Carousel.ButtonStyles.Color
+        DisabledBorderColor: =
+        DisabledColor: =
+        DisabledFill: =
+        Height: =16
+        HoverBorderColor: =
+        HoverColor: =cmp_Carousel.ButtonStyles.Color
+        HoverFill: =
+        Icon: =Icon.ChevronRight
+        OnSelect: |-
+            =If(
+                cmpPageCount = CountRows(cmp_Carousel.GalleryContent),
+                cmp_Carousel.OnClose(),
+                Set(
+                    cmpPageCount,
+                    cmpPageCount + 1
+                )
+            )
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        PressedBorderColor: =
+        PressedFill: =
+        TabIndex: =1
+        Width: =16.87
+        X: =261.43
+        Y: =246
+        ZIndex: =6
+
+    "gal_Stepper As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver4.0'":
+        AccessibleLabel: ="pages"
+        BorderColor: =
+        Height: =47
+        Items: =cmp_Carousel.GalleryContent.Id
+        ShowScrollbar: =false
+        TemplatePadding: =0.00
+        TemplateSize: =14
+        Width: =56.93
+        X: =123.34
+        Y: =233
+        ZIndex: =7
+
+        Circle3 As circle:
+            BorderColor: =Transparent
+            Fill: |-
+                =If(
+                    cmpPageCount = ThisItem.Id,
+                    cmp_Carousel.StepperStyles.SelectedFill,
+                  cmp_Carousel.StepperStyles.UnselectedFill
+                )
+            Height: =4.22
+            OnSelect: =Select(Parent)
+            Width: =4.22
+            X: =16.87
+            Y: =16
+            ZIndex: =4
+
+    Icon3_1 As icon.ChevronRight:
+        AccessibleLabel: ="back"
+        BorderColor: =Transparent
+        Color: =cmp_Carousel.ButtonStyles.Color
+        DisabledBorderColor: =
+        DisabledColor: =
+        DisabledFill: =
+        Height: =16
+        HoverBorderColor: =
+        HoverColor: =cmp_Carousel.ButtonStyles.Color
+        HoverFill: =
+        Icon: =Icon.ChevronLeft
+        OnSelect: |-
+            =If(
+                cmpPageCount = 1,
+                Set(
+                    cmpPageCount,
+                    CountRows(cmp_Carousel.GalleryContent)
+                ),
+                Set(
+                    cmpPageCount,
+                    cmpPageCount - 1
+                )
+            )
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        PressedBorderColor: =
+        PressedFill: =
+        TabIndex: =2
+        Width: =16.87
+        X: =16.87
+        Y: =246
+        ZIndex: =8
+
+    Icon6 As icon.Cancel:
+        AccessibleLabel: ="cancel"
+        BorderColor: =Transparent
+        Color: =cmp_Carousel.ButtonStyles.Fill
+        DisabledBorderColor: =
+        DisabledColor: =
+        DisabledFill: =
+        Height: =16
+        HoverBorderColor: =
+        HoverColor: =
+        HoverFill: =
+        Icon: =Icon.Cancel
+        OnSelect: =cmp_Carousel.OnClose()
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        PressedBorderColor: =
+        PressedFill: =
+        TabIndex: =3
+        Width: =16.87
+        X: =269.87
+        Y: =8
+        ZIndex: =9
+
