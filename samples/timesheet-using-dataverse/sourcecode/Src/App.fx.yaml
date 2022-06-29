@@ -1,0 +1,22 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =Set(
+            currentUser,
+            User()
+        );
+        ClearCollect(
+            colTimesheets,
+            Filter(
+                Timesheets,
+                Person = currentUser.FullName
+            )
+        );
+        ClearCollect(colProjects,{new_name: Blank()});
+        Collect(colProjects,Projects);
+        //Validation to ensure number of hours entered are within range.
+        Set(
+            varHoursEntryValidation,
+            false
+        );
+

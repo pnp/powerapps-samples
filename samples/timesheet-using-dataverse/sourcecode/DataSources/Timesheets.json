@@ -1,0 +1,102 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "new_timesheetses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "new_timesheets",
+    "MaxGetRowsCount": 500,
+    "Name": "Timesheets",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "new_comments": "Comments",
+      "new_dateworked": "Date Worked",
+      "new_hoursworked": "Hours Worked",
+      "new_name": "Project",
+      "new_person": "Person",
+      "new_timesheets_AsyncOperations": "System Jobs",
+      "new_timesheets_BulkDeleteFailures": "Bulk Delete Failures",
+      "new_timesheets_DuplicateBaseRecord": "Duplicate Records (new_timesheets_DuplicateBaseRecord)",
+      "new_timesheets_DuplicateMatchingRecord": "Duplicate Records (new_timesheets_DuplicateMatchingRecord)",
+      "new_timesheets_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "new_timesheets_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "new_timesheets_ProcessSession": "Process Sessions",
+      "new_timesheets_SyncErrors": "Sync Errors",
+      "new_timesheetsid": "Timesheets",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Timesheets",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Timesheets (Views)",
+    "Name": "_new_timesheets_views",
+    "RelatedEntityName": "Timesheets",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "15374864-84de-4670-bbe4-ade5a7b55a4c": "Timesheets Lookup View",
+      "2ae6bad1-748d-4647-b5f2-59432aac54fd": "Inactive Timesheets",
+      "2bbeda6c-99c2-4ad6-ac07-80e11dca4b1f": "Timesheets Advanced Find View",
+      "86925f0b-c4d8-ec11-a7b6-00224818cf4b": "My Timesheets",
+      "c44c6ada-9c3b-4262-bc8d-0f38a0a27505": "Active Timesheets",
+      "e5908ed4-a3dc-4389-9c55-af3396c7ca9a": "Timesheets Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (Timesheets)",
+    "Name": "new_timesheets_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Timesheets"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Timesheets",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Timesheets)",
+    "Name": "new_timesheets_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Timesheets"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Timesheets",
+    "Type": "OptionSetInfo"
+  }
+]
