@@ -1,0 +1,400 @@
+SplashScreen As screen:
+
+    Button6 As button:
+        BorderStyle: =BorderStyle.None
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledFill: =RGBA(230, 230, 230, 1)
+        Fill: =RGBA(230, 230, 230, 1)
+        HoverFill: =RGBA(166, 166, 166, 1)
+        OnSelect: |
+            =Navigate(Approvals)
+        PaddingRight: =5.29
+        PaddingTop: =5.29
+        PressedFill: =RGBA(166, 166, 166, 1)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        Size: =15.86
+        Text: ="Approvals"
+        Width: =169.25
+        X: =396.66
+        Y: =30
+        ZIndex: =1
+
+    Button5 As button:
+        BorderStyle: =BorderStyle.None
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledFill: =RGBA(230, 230, 230, 1)
+        Fill: =RGBA(230, 230, 230, 1)
+        HoverFill: =RGBA(166, 166, 166, 1)
+        OnSelect: =Navigate(InvoiceLines)
+        PaddingRight: =5.29
+        PaddingTop: =5.29
+        PressedFill: =RGBA(166, 166, 166, 1)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        Size: =15.86
+        Text: ="Line Items"
+        Width: =169.25
+        X: =211.55
+        Y: =30
+        ZIndex: =2
+
+    Button4 As button:
+        BorderStyle: =BorderStyle.None
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledFill: =RGBA(230, 230, 230, 1)
+        Fill: =RGBA(179, 179, 179, 1)
+        HoverFill: =ColorFade(RGBA(166, 166, 166, 1), -20%)
+        PaddingRight: =5.29
+        PaddingTop: =5.29
+        PressedFill: =RGBA(166, 166, 166, 1)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        Size: =15.86
+        Text: ="Details"
+        Width: =169.25
+        X: =27.50
+        Y: =30
+        ZIndex: =3
+
+    Label9 As label:
+        Fill: =RGBA(230, 230, 230, 1)
+        Height: =760
+        PaddingRight: =5.29
+        PaddingTop: =5.29
+        Size: =13.75
+        Text: =""
+        Width: =1268.27
+        X: =15.86
+        Y: =65
+        ZIndex: =4
+
+    imgInvoice As image:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        BorderThickness: =1
+        CalculateOriginalDimensions: =true
+        Fill: =RGBA(255, 255, 255, 1)
+        FlipHorizontal: =Flip
+        Height: =648
+        Image: =lstInvoices.Selected.Thumbnail.Large
+        ImagePosition: =varImagePosition
+        ImageRotation: |
+            =Rotation
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        RadiusBottomLeft: =1
+        RadiusBottomRight: =1
+        RadiusTopLeft: =1
+        RadiusTopRight: =1
+        Width: =562.45
+        X: =380.80
+        Y: =110
+        ZIndex: =5
+
+    lstInvoices As listbox:
+        Height: =648
+        Items: =Filter(Invoices,Status.Value=ddStatus.SelectedText.Value)
+        OnSelect: |-
+            =Set(varInvoiceID,Text(lstInvoices.Selected.ID));
+            Set(varInvoiceAmount,Text(lstInvoices.Selected.InvoiceTotal));
+            Set(varInvoiceNumber,Text(lstInvoices.Selected.InvoiceId));
+            Set(varVendor,Text(lstInvoices.Selected.VendorName));
+            Set(varCustomerName,Text(lstInvoices.Selected.CustomerName));
+            Set(varRequestedBy,lstInvoices.Selected.'Created By'.Email);
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        SelectMultiple: =false
+        Size: =12.37
+        Width: =312.15
+        X: =27.50
+        Y: =110
+        ZIndex: =6
+
+    ddRotation As dropdown:
+        Items: =["ImageRotation.None","rotate90","rotate270","rotate180"]
+        OnChange: |-
+            =UpdateContext({Rotation: ddRotation.Selected.Value})
+        PaddingRight: =9.52
+        PaddingTop: =9.52
+        Size: =12.37
+        Width: =209.37
+        X: =380.80
+        Y: =771
+        ZIndex: =7
+
+    optFlip As toggleSwitch:
+        OnChange: |-
+            =UpdateContext({Flip: optFlip.Value})
+        Size: =12.37
+        Width: =87.55
+        X: =666.40
+        Y: =780
+        ZIndex: =8
+
+    Label5 As label:
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Text: |-
+            ="Flip
+            "
+        Width: =48.55
+        X: =625.14
+        Y: =777
+        ZIndex: =9
+
+    ddStatus As dropdown:
+        Height: =46
+        Items: =Sort(Distinct(Invoices,Status.Value),Result,Ascending)
+        OnChange: =
+        PaddingRight: =9.52
+        PaddingTop: =9.52
+        Size: =12.37
+        Width: =182.72
+        X: =156.55
+        Y: =771
+        ZIndex: =10
+
+    Label3_2 As label:
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Text: ="Invoice Status"
+        Width: =118.96
+        X: =27.50
+        Y: =774
+        ZIndex: =11
+
+    ddImagePosition As dropdown:
+        Height: =46
+        Items: =["Fill","Center","Fit","Stretch"]
+        OnChange: |-
+            =UpdateContext({varImagePosition: ddImagePosition.Selected.Value})
+        PaddingRight: =9.52
+        PaddingTop: =9.52
+        Size: =12.37
+        Width: =177.01
+        X: =765.83
+        Y: =771
+        ZIndex: =12
+
+    Label7 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =26
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Text: ="Customer Name"
+        Width: =312.15
+        X: =27.50
+        Y: =84
+        ZIndex: =13
+
+    lblBorder As label:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        BorderThickness: =1
+        FontWeight: =FontWeight.Bold
+        Height: =707
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =14.28
+        Text: |-
+            ="Invoice Properties
+            "
+        VerticalAlign: =VerticalAlign.Top
+        Width: =293.12
+        X: =975.27
+        Y: =110
+        ZIndex: =14
+
+    Label3 As label:
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Text: ="Invoice Number"
+        Width: =142.75
+        X: =986.90
+        Y: =170
+        ZIndex: =15
+
+    TextInput1 As text:
+        Default: =varInvoiceNumber
+        Height: =38
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Width: =262.66
+        X: =984.78
+        Y: =210
+        ZIndex: =16
+
+    Label4 As label:
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Text: ="Invoice Date"
+        Width: =142.75
+        X: =986.90
+        Y: =256
+        ZIndex: =17
+
+    TextInput1_1 As text:
+        Default: =lstInvoices.Selected.InvoiceDate
+        Height: =38
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Width: =262.66
+        X: =986.90
+        Y: =296
+        ZIndex: =18
+
+    Label4_1 As label:
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Text: ="Invoice Amount"
+        Width: =142.75
+        X: =986.90
+        Y: =348
+        ZIndex: =19
+
+    TextInput1_2 As text:
+        Default: =varInvoiceAmount
+        Height: =38
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Width: =262.66
+        X: =986.90
+        Y: =388
+        ZIndex: =20
+
+    TextInput1_3 As text:
+        Default: =varVendor
+        Height: =38
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Width: =262.66
+        X: =984.78
+        Y: =484
+        ZIndex: =21
+
+    Label4_2 As label:
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Text: ="Vendor Name"
+        Width: =142.75
+        X: =986.90
+        Y: =444
+        ZIndex: =22
+
+    Button3 As button:
+        OnSelect: |-
+            =ClickPowerAppsbuttontostartapprovalofSharePointitemsandsendemail.Run(cboApprover.Selected.Mail,txtID.Text);
+            ddStatus.SelectedText.Value="Captured";
+            Refresh(Invoices);
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =14.28
+        Text: ="Assign"
+        Width: =152.27
+        X: =1094.79
+        Y: =758
+        ZIndex: =23
+
+    cboApprover As combobox:
+        DisplayFields: =["DisplayName","Mail"]
+        Height: =37
+        Items: |-
+            =Office365Users.SearchUser({searchTerm:cboApprover.SearchText,top:10})
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        SearchFields: =["DisplayName"]
+        SearchItems: |-
+            =Search(Office365Users.SearchUser({searchTerm:cboApprover.SearchText,top:10}),cboApprover.SearchText,"DisplayName")
+        SelectMultiple: =false
+        Size: =12.37
+        Template: =ListItemTemplate.Person
+        Width: =260.76
+        X: =986.90
+        Y: =685
+        ZIndex: =24
+
+    Label4_3 As label:
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Text: ="Approver"
+        Width: =142.75
+        X: =986.90
+        Y: =645
+        ZIndex: =25
+
+    txtID As text:
+        Default: =lstInvoices.Selected.ID
+        DisplayMode: =DisplayMode.Disabled
+        Height: =32
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Width: =59.00
+        X: =1014.40
+        Y: =143
+        ZIndex: =26
+
+    Label3_1 As label:
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Text: ="ID"
+        Width: =29.50
+        X: =986.90
+        Y: =138
+        ZIndex: =27
+
+    Icon1 As icon.Reload:
+        Height: =26
+        Icon: =Icon.Reload
+        OnSelect: =Refresh(Invoices)
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        Width: =31.41
+        X: =1149.80
+        Y: =79
+        ZIndex: =28
+
+    Label1 As label:
+        Height: =26
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Text: ="Refresh"
+        Width: =87.55
+        X: =1180.47
+        Y: =84
+        ZIndex: =29
+
+    txtCustomerName As text:
+        Default: =varCustomerName
+        Height: =38
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Width: =262.66
+        X: =986.90
+        Y: =574
+        ZIndex: =30
+
+    Label4_4 As label:
+        PaddingRight: =4.76
+        PaddingTop: =4.76
+        Size: =12.37
+        Text: ="Customer Name"
+        Width: =142.75
+        X: =989.02
+        Y: =534
+        ZIndex: =31
+
