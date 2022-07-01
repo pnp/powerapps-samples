@@ -60,6 +60,30 @@ This sample
 
 ![Fluent UI for Teams walkthrough](assets/FluentUiforTeams.gif)
 
+## Applies to
+
+* [Microsoft Power Apps](https://docs.microsoft.com/powerapps/)
+
+## Compatibility
+
+![Power Apps Source File Pack and Unpack Utility 0.20](https://img.shields.io/badge/Packing%20Tool-0.20-green.svg)
+![Premium License](https://img.shields.io/badge/Premium%20License-Not%20Required-green.svg "Premium Power Apps license not required")
+![Experimental Features](https://img.shields.io/badge/Experimental%20Features-No-green.svg "Does not rely on experimental features")
+![On-Premises Connectors](https://img.shields.io/badge/On--Premises%20Connectors-No-green.svg "Does not use on-premise connectors")
+![Custom Connectors](https://img.shields.io/badge/Custom%20Connectors-Not%20Required-green.svg "Does not use custom connectors")
+
+## Authors
+
+Solution|Author(s)
+--------|---------
+Fluent UI for Teams theme | [Luise Freese](https://github.com/luisefreese) ([@LuiseFreese](https://www.twitter.com/LuiseFreese) )
+
+## Version history
+
+Version|Date|Comments
+-------|----|--------
+1.0|June 20, 2021|Initial release
+
 ## Context
 
 The app is context aware in terms of language (example in navigation, works in English and German) and Teams theme. Users can override the context by selecting a different language and theme in the app. (This also serves development and debugging purposes.)
