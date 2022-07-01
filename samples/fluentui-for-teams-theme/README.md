@@ -38,7 +38,7 @@ This sample
   * [Slider](#slider)
   * [Textlabel](#textlabel)
   * [Textinput](#textinput)
-  * [Toggle](#toggle)=-jhk?
+  * [Toggle](#toggle)
 * exemplifies [canvas components](#components) for
   * [Carousel](#carousel-component)
   * [Coachmark](#coachmark-component)
@@ -247,5 +247,4 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 ## For more information
 
 - [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
-- [Power Apps canvas apps documentation](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/)
-
+- [Power Apps canvas apps documentation](https://docs.microsoft.com//powerapps/maker/canvas-apps/)
