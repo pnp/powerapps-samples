@@ -82,7 +82,7 @@ Fluent UI for Teams theme | [Luise Freese](https://github.com/luisefreese) ([@Lu
 
 Version|Date|Comments
 -------|----|--------
-1.0|June 20, 2021|Initial release
+1.0|June 20, 2022 |Initial release
 
 ## Context
 
