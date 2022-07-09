@@ -1,0 +1,83 @@
+[
+    {
+      "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+      "name": "pnp-powerapps-samples-timesheet",
+      "version": "1.0.0.0",
+      "source": "pnp",
+      "creationDateTime": "2022-06-01T00:00:00.000Z",
+      "updateDateTime": "2022-06-01T00:00:00.000Z",
+      "title": "Timesheet using Dataverse",
+      "shortDescription": "A Power App made for user work timesheets. The app is made up of 3 core components",
+      "longDescription": [
+        "A Power App made for user work timesheets. The app is made up of 3 core components"
+      ],
+      "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/Timesheet",
+      "products": [
+        "Power Apps",
+        "Power Platform"
+      ],
+      "tags": [
+    
+      ],
+      "categories": [
+        "POWERAPPS"
+      ],
+      "metadata": [
+        {
+          "key": "POWERAPPS-MANIFEST-VERSION",
+          "value": "0.20"
+        },
+        {
+          "key": "POWERAPPS-TYPE",
+          "value": ["Canvas", "Model-driven", "Solution"]
+        },
+        {
+          "key": "POWERAPPS-EXPERIMENTAL",
+          "value": "No"
+        },
+        {
+          "key": "POWERAPPS-PREMIUM",
+          "value": "Yes"
+        },
+        {
+          "key": "POWERAPPS-ONPREM",
+          "value": "No"
+        },
+        {
+          "key": "POWERAPPS-CUSTOMCONNECTOR",
+          "value": "No"
+        },
+        {
+          "key": "POWERAPPS-CONNECTORS",
+          "value": ""
+        }
+      ],
+      "thumbnails": [
+        {
+          "type": "image",
+          "order": 100,
+          "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/timesheet-using-dataverse/assets/preview.png",
+          "alt": "Timesheet Home Screen"
+        }
+      ],
+      "authors": [
+        {
+          "gitHubAccount": "Dlutchy",
+          "name": "Darren Lutchner",
+          "pictureUrl": "https://github.com/Dlutchy.png"
+        }
+      ],
+      "references": [
+        {
+          "name": "Overview of creating apps in Power Apps",
+          "description": "Power Apps is a high-productivity development platform for business apps.",
+          "url": "https://docs.microsoft.com/powerapps/maker/"
+        },
+        {
+          "name": "Power Apps canvas apps documentation",
+          "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+          "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+        }
+      ]
+    }
+  ]

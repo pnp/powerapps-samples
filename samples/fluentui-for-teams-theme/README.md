@@ -38,7 +38,7 @@ This sample
   * [Slider](#slider)
   * [Textlabel](#textlabel)
   * [Textinput](#textinput)
-  * [Toggle](#toggle)=-jhk?
+  * [Toggle](#toggle)
 * exemplifies [canvas components](#components) for
   * [Carousel](#carousel-component)
   * [Coachmark](#coachmark-component)
@@ -59,6 +59,30 @@ This sample
 ## Demo
 
 ![Fluent UI for Teams walkthrough](assets/FluentUiforTeams.gif)
+
+## Applies to
+
+* [Microsoft Power Apps](https://docs.microsoft.com/powerapps/)
+
+## Compatibility
+
+![Power Apps Source File Pack and Unpack Utility 0.20](https://img.shields.io/badge/Packing%20Tool-0.20-green.svg)
+![Premium License](https://img.shields.io/badge/Premium%20License-Not%20Required-green.svg "Premium Power Apps license not required")
+![Experimental Features](https://img.shields.io/badge/Experimental%20Features-No-green.svg "Does not rely on experimental features")
+![On-Premises Connectors](https://img.shields.io/badge/On--Premises%20Connectors-No-green.svg "Does not use on-premise connectors")
+![Custom Connectors](https://img.shields.io/badge/Custom%20Connectors-Not%20Required-green.svg "Does not use custom connectors")
+
+## Authors
+
+Solution|Author(s)
+--------|---------
+Fluent UI for Teams theme | [Luise Freese](https://github.com/luisefreese) ([@LuiseFreese](https://www.twitter.com/LuiseFreese) )
+
+## Version history
+
+Version|Date|Comments
+-------|----|--------
+1.0|June 20, 2022 |Initial release
 
 ## Context
 
@@ -247,5 +271,4 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 ## For more information
 
 - [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
-- [Power Apps canvas apps documentation](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/)
-
+- [Power Apps canvas apps documentation](https://docs.microsoft.com//powerapps/maker/canvas-apps/)

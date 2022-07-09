@@ -1,5 +1,23 @@
-# Title of the sample
-Timesheet using Dataverse
+---
+page_type: sample
+languages:
+- powerapps-comma
+products:
+- power-apps
+- powerapps
+- canvas
+name: Timesheet Power App Template
+description: "This timesheet application for user work timesheets. The app is made up of 3 core components Dataverse, modeldriven app, canvas app"
+urlFragment: timesheet-using-dataverse
+ms.date: 6/01/2022
+author: Dlutchy
+ms.author: pnp
+level: intermediate
+ms.prod: power-apps
+---
+
+
+# Timesheet using Dataverse
 
 ## Summary
 
@@ -49,21 +67,20 @@ This sample illustrates the following concepts:
 
 ## Data Sources
 
-The data is stored in 2 Dataverse tables.
+The data is stored in 2 Dataverse tables
+
 - Projects
 - Timesheets
-
 
 ## Minimal Path to Awesome
 
 * [Download](./solution/TimeSheetCommunityDemo_x_x_x_x.zip) the `.zip` from the `solution` folder
 * Open **Power Apps Studio** (https://make.powerapps.com/)
 * [Optional] Choose environment
-* Go to Menu item **Solutions **
-* Select **Import Solutions** 
+* Go to Menu item **Solutions**
+* Select **Import Solutions**
 * Browse for downloded '.zip' file. Select **Next**.
 * Select **Import**
-
 
 ## Disclaimer
 
@@ -82,8 +99,6 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 ## For more information
 
 - [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
-- [Power Apps canvas apps documentation](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/)
-
+- [Power Apps canvas apps documentation](https://docs.microsoft.com/powerapps/maker/canvas-apps/)
 
 <img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/timesheet-using-dataverse" />
-
