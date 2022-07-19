@@ -22,7 +22,7 @@ Color contrast ratio is important for accessibility - here is a Power Apps canva
 
 ## Demo
 
-![contrast checker walkthrough](assets/contrastcheck.gif)
+![contrast checker walkthrough](assets/contrastcheckv11.gif)
 
 ## Applies to
 
