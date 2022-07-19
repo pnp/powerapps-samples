@@ -46,6 +46,7 @@ Accessibility color contrast checker | [Luise Freese](https://github.com/luisefr
 
 Version|Date|Comments
 -------|----|--------
+1.1| July 19, 2022| New features: display hex value of colors, input RGBA value with either sliders or input fields
 1.0|July 3, 2022 |Initial release
 
 ## Minimal Path to Awesome
