@@ -14,7 +14,7 @@ As a dataset the CIA world factbook data was used and integrated into the app
 
 ![Switching countries](./assets/SwitchCountries.gif)
 
-![Population view for germany](./assets/SomSVGs.png)
+![Population view for germany](./assets/SomeSVGs.png)
 
 
 ## Applies to
@@ -35,7 +35,7 @@ As a dataset the CIA world factbook data was used and integrated into the app
 
 Solution|Author(s)
 --------|---------
-The SVG World - SVG examples | [Robin Rosengrün](https://github.com/PowerRobin) ([@r2power](https://twitter.com/r2power))
+The SVG World - SVG examples | [Robin Rosengrün](https://github.com/PowerRobin) ([@power_r2](https://twitter.com/power_r2))
 
 ## Version history
 
@@ -52,16 +52,12 @@ This application gives you a general idea how SVGs can be used in Power Apps and
 
 ## Prerequisites
 
-You and everyone viewing the app needs to use the "." as decimal separator (1.0 not 1,0) otherwise some SVGs won't work, because SVG-code requires this format!
+You and everyone viewing the app needs to use the `.` as decimal separator (`1.0` not `1,0`) otherwise some SVGs won't work, because SVG-code requires this format!
 Just change your language to English in your browser settings!
 
 ## Data Sources
 
 The excel file is included in the msapp-file as a static datasource, but is also included her for [Download](./assets/TheSvgWorldDataset.xlsx)
-
-### MySample List
-
-Not Applicable
 
 ## Minimal Path to Awesome
 
