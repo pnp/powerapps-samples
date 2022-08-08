@@ -1,0 +1,42 @@
+cmp_ProgressBar_hor As CanvasComponent:
+    barCurrentFill: |-
+        =ColorValue("#168aad")
+    barCurrentValue: |-
+        =42 // preferably to be replaced by a variable, idea: use a slider control, set its OnChange property to Set(gbl_barValue, Self.Value)
+    barHeight: =42  
+    barMaxFill: |-
+        =ColorValue("#1e6091")
+    barMaxValue: =100
+    barWidth: =200 
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =cmp_ProgressBar_hor.barHeight+10
+    labelColor: =White
+    Width: =cmp_ProgressBar_hor.barWidth+10
+    X: =0
+    Y: =0
+    ZIndex: =11
+
+    lbl_barTotal_1 As label:
+        Fill: =cmp_ProgressBar_hor.barMaxFill
+        Font: =Font.'Segoe UI'
+        Height: =cmp_ProgressBar_hor.barHeight
+        Size: =12
+        Text: =""
+        Width: =cmp_ProgressBar_hor.barWidth
+        X: =5
+        Y: =5
+        ZIndex: =1
+
+    lbl_barCurrent_1 As label:
+        Align: =Align.Center
+        Color: =cmp_ProgressBar_hor.labelColor
+        Fill: =cmp_ProgressBar_hor.barCurrentFill
+        Font: =Font.'Segoe UI'
+        Height: =lbl_barTotal_1.Height
+        Size: =12
+        Text: =RoundUp(100*(cmp_ProgressBar_hor.barCurrentValue/cmp_ProgressBar_hor.barMaxValue),0) & "%"
+        Width: =lbl_barTotal_1.Width*cmp_ProgressBar_hor.barCurrentValue/cmp_ProgressBar_hor.barMaxValue
+        X: = lbl_barTotal_1.X
+        Y: =lbl_barTotal_1.Y
+        ZIndex: =2
+
