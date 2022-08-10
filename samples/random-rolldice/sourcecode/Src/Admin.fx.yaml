@@ -1,0 +1,292 @@
+Admin As screen:
+    OnVisible: |-
+        =Reset(PlayerName1Txt);
+        Reset(PlayerIcon1Txt);
+        Reset(PlayerColor1Txt);
+        Reset(PlayerName2Txt);
+        Reset(PlayerIcon2Txt);
+        Reset(PlayerColor2Txt);
+        Reset(TrackSizeTxt);
+        Reset(DiceColorTxt);
+        Reset(SpeedTxt);
+
+    Container1 As groupContainer.manualLayoutContainer:
+        BorderColor: =RGBA(149, 149, 149, 1)
+        BorderThickness: =1
+        Height: =892
+        Width: =618
+        X: =11
+        Y: =120
+        ZIndex: =1
+
+        PlayerName1 As label:
+            Font: =Font.Arial
+            Height: =70
+            Size: =21
+            Text: ="Player Name 1"
+            Width: =209
+            Y: =20
+            ZIndex: =1
+
+        PlayerName1Txt As text:
+            Clear: =true
+            Default: =Player1.PlayerName
+            Font: =Font.Arial
+            Height: =70
+            Size: =21
+            Width: =400
+            X: =209
+            Y: =20
+            ZIndex: =2
+
+        PlayerIcon1 As label:
+            Font: =Font.Arial
+            Height: =70
+            Size: =21
+            Text: ="Player Icon 1"
+            Width: =209
+            Y: =90
+            ZIndex: =3
+
+        PlayerIcon1Txt As text:
+            Clear: =true
+            Default: =Player1.PlayerIcon
+            Font: =Font.Arial
+            Height: =70
+            HintText: ="Emoji or Win + ."
+            Size: =21
+            Width: =400
+            X: =209
+            Y: =90
+            ZIndex: =4
+
+        PlayerColor1 As label:
+            Font: =Font.Arial
+            Height: =70
+            Size: =21
+            Text: ="Color"
+            Width: =209
+            Y: =160
+            ZIndex: =11
+
+        PlayerColor1Txt As text:
+            Clear: =true
+            Default: =Player1.Color
+            Font: =Font.Arial
+            Height: =70
+            HintText: =""
+            Size: =21
+            Width: =400
+            X: =209
+            Y: =160
+            ZIndex: =12
+
+        PlayerName2 As label:
+            Font: =Font.Arial
+            Height: =70
+            Size: =21
+            Text: ="Player Name 2"
+            Width: =209
+            Y: =297
+            ZIndex: =13
+
+        PlayerName2Txt As text:
+            Clear: =true
+            Default: =Player2.PlayerName
+            Font: =Font.Arial
+            Height: =70
+            Size: =21
+            Width: =400
+            X: =209
+            Y: =297
+            ZIndex: =14
+
+        PlayerIcon2 As label:
+            Font: =Font.Arial
+            Height: =70
+            Size: =21
+            Text: ="Player Icon 2"
+            Width: =209
+            Y: =367
+            ZIndex: =15
+
+        PlayerIcon2Txt As text:
+            Clear: =true
+            Default: =Player2.PlayerIcon
+            Font: =Font.Arial
+            Height: =70
+            HintText: ="Emoji or Win + ."
+            Size: =21
+            Width: =400
+            X: =209
+            Y: =367
+            ZIndex: =16
+
+        PlayerColor2 As label:
+            Font: =Font.Arial
+            Height: =70
+            Size: =21
+            Text: ="Color"
+            Width: =209
+            Y: =437
+            ZIndex: =17
+
+        PlayerColor2Txt As text:
+            Clear: =true
+            Default: =Player2.Color
+            Font: =Font.Arial
+            Height: =70
+            HintText: =""
+            Size: =21
+            Width: =400
+            X: =209
+            Y: =437
+            ZIndex: =18
+
+        UpdateInfoPlayers As button:
+            Fill: =RGBA(116, 116, 116, 1)
+            Font: =Font.Arial
+            Height: =70
+            HoverFill: =ColorFade(UpdateInfoPlayers.Color, -20%)
+            OnSelect: |-
+                =Set(
+                    Player1,
+                    Patch(
+                        Player1,
+                        {
+                            PlayerName: PlayerName1Txt.Text,
+                            PlayerIcon: PlayerIcon1Txt.Text,
+                            Color: PlayerColor1Txt.Text
+                        }
+                    )
+                );
+                Set(
+                    Player2,
+                    Patch(
+                        Player2,
+                        {
+                            PlayerName: PlayerName2Txt.Text,
+                            PlayerIcon: PlayerIcon2Txt.Text,
+                            Color: PlayerColor2Txt.Text
+                        }
+                    )
+                );
+                Set(
+                    Global,
+                    Patch(
+                        Global,
+                        {
+                            TrackSize: Value(TrackSizeTxt.Text),
+                            DiceColor: DiceColorTxt.Text,
+                            Speed: SpeedTxt.Text
+                        }
+                    )
+                );
+                
+                Notify("Players information updated",NotificationType.Success);
+            Size: =24
+            Text: ="Update"
+            Tooltip: =false
+            Width: =280
+            X: =171
+            Y: =798
+            ZIndex: =19
+
+        TrackSizeLabel As label:
+            Font: =Font.Arial
+            Height: =70
+            Size: =21
+            Text: ="Track Size"
+            Width: =209
+            Y: =554
+            ZIndex: =20
+
+        TrackSizeTxt As text:
+            Clear: =true
+            Default: =Global.TrackSize
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =70
+            HintText: =""
+            Size: =21
+            Width: =400
+            X: =209
+            Y: =554
+            ZIndex: =21
+
+        DiceColorTxt As text:
+            Clear: =true
+            Default: =Global.DiceColor
+            Font: =Font.Arial
+            Height: =70
+            HintText: =""
+            Size: =21
+            Width: =400
+            X: =209
+            Y: =624
+            ZIndex: =22
+
+        DiceColorLabel As label:
+            Font: =Font.Arial
+            Height: =70
+            Size: =21
+            Text: ="Dice Color"
+            Width: =209
+            Y: =624
+            ZIndex: =23
+
+        SpeedTxt As text:
+            Clear: =true
+            Default: =Global.Speed
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =70
+            HintText: =""
+            Size: =21
+            Width: =400
+            X: =209
+            Y: =694
+            ZIndex: =24
+
+        SpeedLabel As label:
+            Font: =Font.Arial
+            Height: =70
+            Size: =21
+            Text: ="Speed"
+            Width: =209
+            Y: =694
+            ZIndex: =25
+
+    Container2_1 As groupContainer.manualLayoutContainer:
+        BorderColor: =RGBA(149, 149, 149, 1)
+        BorderThickness: =1
+        Fill: =RGBA(237, 237, 237, 1)
+        Height: =100
+        Width: =640
+        Y: =1036
+        ZIndex: =3
+
+        NavHome As icon.Settings:
+            Color: =RGBA(116, 116, 116, 1)
+            Height: =74
+            Icon: =Icon.Home
+            OnSelect: =Navigate(Home)
+            Width: =77
+            X: =10
+            Y: =10
+            ZIndex: =1
+
+    HeaderAdmin As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 121, 187, 1)
+        BorderThickness: =1
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(102, 182, 227, 1)
+        Font: =Font.'Lato Hairline'
+        FontWeight: =FontWeight.Bold
+        Height: =120
+        Size: =40
+        Text: ="Global values"
+        Width: =640
+        ZIndex: =4
+
