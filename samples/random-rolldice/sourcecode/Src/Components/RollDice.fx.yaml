@@ -1,0 +1,134 @@
+RollDice As CanvasComponent:
+    Color: ="Text"
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =200
+    Random1: =100
+    Random2: =100
+    Width: =420
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    RollRandomDice1 As htmlViewer:
+        Height: =200
+        HtmlText: |-
+            =Concatenate("<div>
+                <div style='display:flex;'>
+                    <div style='padding:10px 10px;'>
+                        <div style='background-Color:", RollDice.Color, ";width:30px;height:30px;text-align:center;border-radius:25px 25px 25px 25px;visibility:",If(RollDice.Random1 = 4 Or RollDice.Random1 = 5 Or RollDice.Random1 = 6,"","Hidden"),";'
+                            ></div>
+                    </div>
+                    <div style='padding:10px 10px;'>
+                        <div style='width:30px;height:30px;text-align:center;border-radius:25px 25px 25px 25px;' ></div>
+                    </div>
+                    <div
+                        style='padding:10px 10px;'>
+                        <div style='background-Color:", RollDice.Color, ";width:30px;height:30px;text-align:center;border-radius:25px 25px 25px 25px;visibility:",If(RollDice.Random1 = 2 Or RollDice.Random1 = 3 Or RollDice.Random1 = 4 Or RollDice.Random1 = 5 Or RollDice.Random1 = 6,"","Hidden"),";'
+                            ></div>
+                    </div>
+                </div>
+                <div style='display:flex;'>
+                    <div style='padding:10px 10px;'>
+                        <div style='background-Color:", RollDice.Color, ";width:30px;height:30px;text-align:center;border-radius:25px 25px 25px 25px;visibility:",If(RollDice.Random1 = 6,"","Hidden"),";'
+                            ></div>
+                    </div>
+                    <div style='padding:10px 10px;'>
+                        <div style='background-Color:", RollDice.Color, ";width:30px;height:30px;text-align:center;border-radius:25px 25px 25px 25px;visibility:",If(RollDice.Random1 = 1 Or RollDice.Random1 = 3 Or RollDice.Random1 = 5,"","Hidden"),";'
+                            ></div>
+                    </div>
+                    <div style='padding:10px 10px;'>
+                        <div style='background-Color:", RollDice.Color, ";width:30px;height:30px;text-align:center;border-radius:25px 25px 25px 25px;visibility:",If(RollDice.Random1 = 6,"","Hidden"),";'
+                            ></div>
+                    </div>
+                </div>
+                <div style='display:flex;'>
+                    <div
+                        style='padding:10px 10px;'>
+                        <div style='background-Color:", RollDice.Color, ";width:30px;height:30px;text-align:center;border-radius:25px 25px 25px 25px;visibility:",If(RollDice.Random1 = 2 Or RollDice.Random1 = 3 Or RollDice.Random1 = 4  Or RollDice.Random1 = 5 Or RollDice.Random1 = 6,"","Hidden"),";'
+                            ></div>
+                    </div>
+                    <div style='padding:10px 10px;'>
+                        <div style='width:30px;height:30px;text-align:center;border-radius:25px 25px 25px 25px;'
+                            class='ms-fontWeight-semibold ms-fontSize-10'></div>
+                    </div>
+                    <div
+                        style='padding:10px 10px;'>
+                        <div style='background-Color:", RollDice.Color, ";width:30px;height:30px;text-align:center;border-radius:25px 25px 25px 25px;visibility:",If(RollDice.Random1 = 4  Or RollDice.Random1 = 5 Or RollDice.Random1 = 6,"","Hidden"),";'
+                            ></div>
+                    </div>
+                </div>
+            </div>")
+        Width: =205
+        ZIndex: =1
+
+    RollRandomDice2 As htmlViewer:
+        Height: =200
+        HtmlText: |-
+            =Concatenate("<div>
+                <div style='display:flex;'>
+                    <div style='padding:10px 10px;'>
+                        <div style='background-Color:", RollDice.Color, ";width:30px;height:30px;text-align:center;border-radius:25px 25px 25px 25px;visibility:",If(RollDice.Random2 = 4 Or RollDice.Random2 = 5 Or RollDice.Random2 = 6,"","Hidden"),";'
+                            ></div>
+                    </div>
+                    <div style='padding:10px 10px;'>
+                        <div style='width:30px;height:30px;text-align:center;border-radius:25px 25px 25px 25px;' ></div>
+                    </div>
+                    <div
+                        style='padding:10px 10px;'>
+                        <div style='background-Color:", RollDice.Color, ";width:30px;height:30px;text-align:center;border-radius:25px 25px 25px 25px;visibility:",If(RollDice.Random2 = 2 Or RollDice.Random2 = 3 Or RollDice.Random2 = 4 Or RollDice.Random2 = 5 Or RollDice.Random2 = 6,"","Hidden"),";'
+                            ></div>
+                    </div>
+                </div>
+                <div style='display:flex;'>
+                    <div style='padding:10px 10px;'>
+                        <div style='background-Color:", RollDice.Color, ";width:30px;height:30px;text-align:center;border-radius:25px 25px 25px 25px;visibility:",If(RollDice.Random2 = 6,"","Hidden"),";'
+                            ></div>
+                    </div>
+                    <div style='padding:10px 10px;'>
+                        <div style='background-Color:", RollDice.Color, ";width:30px;height:30px;text-align:center;border-radius:25px 25px 25px 25px;visibility:",If(RollDice.Random2 = 1 Or RollDice.Random2 = 3 Or RollDice.Random2 = 5,"","Hidden"),";'
+                            ></div>
+                    </div>
+                    <div style='padding:10px 10px;'>
+                        <div style='background-Color:", RollDice.Color, ";width:30px;height:30px;text-align:center;border-radius:25px 25px 25px 25px;visibility:",If(RollDice.Random2 = 6,"","Hidden"),";'
+                            ></div>
+                    </div>
+                </div>
+                <div style='display:flex;'>
+                    <div
+                        style='padding:10px 10px;'>
+                        <div style='background-Color:", RollDice.Color, ";width:30px;height:30px;text-align:center;border-radius:25px 25px 25px 25px;visibility:",If(RollDice.Random2 = 2 Or RollDice.Random2 = 3 Or RollDice.Random2 = 4  Or RollDice.Random2 = 5 Or RollDice.Random2 = 6,"","Hidden"),";'
+                            ></div>
+                    </div>
+                    <div style='padding:10px 10px;'>
+                        <div style='width:30px;height:30px;text-align:center;border-radius:25px 25px 25px 25px;'
+                            class='ms-fontWeight-semibold ms-fontSize-10'></div>
+                    </div>
+                    <div
+                        style='padding:10px 10px;'>
+                        <div style='background-Color:", RollDice.Color, ";width:30px;height:30px;text-align:center;border-radius:25px 25px 25px 25px;visibility:",If(RollDice.Random2 = 4  Or RollDice.Random2 = 5 Or RollDice.Random2 = 6,"","Hidden"),";'
+                            ></div>
+                    </div>
+                </div>
+            </div>")
+        X: =225
+        ZIndex: =2
+
+    RollDiceBorder2 As image:
+        Height: =163
+        Image: |-
+            ="data:image/svg+xml;utf8," & EncodeUrl("<svg viewBox='0 0 44 44' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <path stroke-width='1' stroke='" & RollDice.Color &"' d='m40,2l-36,0c-1.10457,0 -2,1.14233 -2,2.55147l0,35.72059c0,1.40918 0.89543,2.55147 2,2.55147l36,0c1.1046,0 2,-1.14229 2,-2.55147l0,-35.72059c0,-1.40914 -0.8954,-2.55147 -2,-2.55147z'/>
+            </svg>")
+        Width: =165
+        X: =220
+        ZIndex: =3
+
+    RollDiceBorder1 As image:
+        Height: =163
+        Image: |-
+            ="data:image/svg+xml;utf8," & EncodeUrl("<svg viewBox='0 0 44 44' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <path stroke-width='1' stroke='" & RollDice.Color &"' d='m40,2l-36,0c-1.10457,0 -2,1.14233 -2,2.55147l0,35.72059c0,1.40918 0.89543,2.55147 2,2.55147l36,0c1.1046,0 2,-1.14229 2,-2.55147l0,-35.72059c0,-1.40914 -0.8954,-2.55147 -2,-2.55147z'/>
+            </svg>")
+        Width: =165
+        ZIndex: =4
+
