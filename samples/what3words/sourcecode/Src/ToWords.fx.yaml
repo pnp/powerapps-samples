@@ -1,0 +1,144 @@
+ToWords As screen:
+    Fill: =RGBA(230, 230, 230, 1)
+
+    Image2_1 As image:
+        Height: =194
+        Image: =what3words
+        Width: =232
+        X: =408
+        ZIndex: =1
+
+    "Gallery3 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+        Height: =467
+        Items: ='What3Words(IndependentPublisher)'.ConvertToWord(TextInput1.Text)
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =368
+        Visible: =If(togglevalue,true,false)
+        Y: =668
+        ZIndex: =1
+
+        Title5 As label:
+            Height: =34
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.words
+            VerticalAlign: =VerticalAlign.Top
+            Width: =434
+            X: =167
+            Y: =133
+            ZIndex: =1
+
+        Title5_1 As label:
+            FontWeight: =FontWeight.Normal
+            Height: =39
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.country
+            VerticalAlign: =VerticalAlign.Top
+            Width: =435
+            X: =186
+            Y: =79
+            ZIndex: =2
+
+        Title5_2 As label:
+            Height: =37
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.map
+            VerticalAlign: =VerticalAlign.Top
+            Width: =505
+            X: =131
+            Y: =181
+            ZIndex: =3
+
+        Label1 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =60
+            OnSelect: =Select(Parent)
+            Size: =20
+            Text: |-
+                ="Words:"
+            Width: =166
+            X: =60
+            Y: =118
+            ZIndex: =4
+
+        Label1_1 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =71
+            OnSelect: =Select(Parent)
+            Size: =20
+            Text: |-
+                ="Country:"
+            Width: =166
+            X: =60
+            Y: =60
+            ZIndex: =5
+
+        Label1_2 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =60
+            OnSelect: =Select(Parent)
+            Size: =20
+            Text: |-
+                ="URL:"
+            Width: =166
+            X: =60
+            Y: =167
+            ZIndex: =6
+
+    Label2 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =70
+        Size: =21
+        Text: ="Enter a standard latitude/longitude"
+        Width: =511
+        X: =14
+        Y: =328
+        ZIndex: =2
+
+    TextInput1 As text:
+        Default: ="51.484909,-0.127430"
+        Height: =55
+        HintText: |-
+            ="Example: 51.484909,-0.127430"
+        Size: =21
+        Width: =572
+        X: =32
+        Y: =398
+        ZIndex: =3
+
+    convert As button:
+        Fill: =RGBA(184, 0, 0, 1)
+        Height: =70
+        OnSelect: |-
+            =UpdateContext({togglevalue: !togglevalue})
+        Size: =24
+        Text: ="Convert "
+        Width: =254
+        X: =193
+        Y: =498
+        ZIndex: =4
+
+    Icon1 As icon.BackArrow:
+        BorderColor: =RGBA(238, 204, 204, 1)
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =49
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate(Home)
+        Width: =44
+        X: =18
+        Y: =26
+        ZIndex: =5
+
