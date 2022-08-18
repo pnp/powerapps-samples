@@ -37,9 +37,7 @@ Version|Date|Comments
 
 This sample illustrates the following concepts:
 
-* topic 1
-* topic 2
-* topic 3
+* Displays the temperature and humidity of a given GPS coordinates.
 
 ## Prerequisites
 
