@@ -1,0 +1,108 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://europe-002.azure-apim.net/apim/openweather-20connector-5f0f321de3082a67e9-5fe1fd9d61a58e062d" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="OpenWeatherConnector" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="OpenWeather Connector">OpenWeather connector</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://europe-002.azure-apim.net/apim/openweather-20connector-5f0f321de3082a67e9-5fe1fd9d61a58e062d" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <integer name="GetOpenWeather_responses_default_def_coord_def_lon_def" />
+      <integer name="GetOpenWeather_responses_default_def_coord_def_lat_def" />
+      <object name="GetOpenWeather_responses_default_def_coord_def">
+        <property name="lon" type="integer" />
+        <property name="lat" type="integer" />
+      </object>
+      <integer name="GetOpenWeather_responses_default_def_weather_def_items_def_id_def" />
+      <string name="GetOpenWeather_responses_default_def_weather_def_items_def_main_def" />
+      <string name="GetOpenWeather_responses_default_def_weather_def_items_def_description_def" />
+      <string name="GetOpenWeather_responses_default_def_weather_def_items_def_icon_def" />
+      <object name="GetOpenWeather_responses_default_def_weather_def_items_def">
+        <property name="id" type="integer" />
+        <property name="main" type="string" />
+        <property name="description" type="string" />
+        <property name="icon" type="string" />
+      </object>
+      <array typeRef="GetOpenWeather_responses_default_def_weather_def_items_def" name="GetOpenWeather_responses_default_def_weather_def" />
+      <string name="GetOpenWeather_responses_default_def_base_def" />
+      <number name="GetOpenWeather_responses_default_def_main_def_temp_def" />
+      <number name="GetOpenWeather_responses_default_def_main_def_feels_like_def" />
+      <number name="GetOpenWeather_responses_default_def_main_def_temp_min_def" />
+      <number name="GetOpenWeather_responses_default_def_main_def_temp_max_def" />
+      <integer name="GetOpenWeather_responses_default_def_main_def_pressure_def" />
+      <integer name="GetOpenWeather_responses_default_def_main_def_humidity_def" />
+      <object name="GetOpenWeather_responses_default_def_main_def">
+        <property name="temp" type="number" />
+        <property name="feels_like" type="number" />
+        <property name="temp_min" type="number" />
+        <property name="temp_max" type="number" />
+        <property name="pressure" type="integer" />
+        <property name="humidity" type="integer" />
+      </object>
+      <integer name="GetOpenWeather_responses_default_def_visibility_def" />
+      <number name="GetOpenWeather_responses_default_def_wind_def_speed_def" />
+      <integer name="GetOpenWeather_responses_default_def_wind_def_deg_def" />
+      <number name="GetOpenWeather_responses_default_def_wind_def_gust_def" />
+      <object name="GetOpenWeather_responses_default_def_wind_def">
+        <property name="speed" type="number" />
+        <property name="deg" type="integer" />
+        <property name="gust" type="number" />
+      </object>
+      <integer name="GetOpenWeather_responses_default_def_clouds_def_all_def" />
+      <object name="GetOpenWeather_responses_default_def_clouds_def">
+        <property name="all" type="integer" />
+      </object>
+      <integer name="GetOpenWeather_responses_default_def_dt_def" />
+      <integer name="GetOpenWeather_responses_default_def_sys_def_type_def" />
+      <integer name="GetOpenWeather_responses_default_def_sys_def_id_def" />
+      <string name="GetOpenWeather_responses_default_def_sys_def_country_def" />
+      <integer name="GetOpenWeather_responses_default_def_sys_def_sunrise_def" />
+      <integer name="GetOpenWeather_responses_default_def_sys_def_sunset_def" />
+      <object name="GetOpenWeather_responses_default_def_sys_def">
+        <property name="type" type="integer" />
+        <property name="id" type="integer" />
+        <property name="country" type="string" />
+        <property name="sunrise" type="integer" />
+        <property name="sunset" type="integer" />
+      </object>
+      <integer name="GetOpenWeather_responses_default_def_timezone_def" />
+      <integer name="GetOpenWeather_responses_default_def_id_def" />
+      <string name="GetOpenWeather_responses_default_def_name_def" />
+      <integer name="GetOpenWeather_responses_default_def_cod_def" />
+      <object name="GetOpenWeather_responses_default_def">
+        <property name="coord" typeRef="GetOpenWeather_responses_default_def_coord_def" />
+        <property name="weather" typeRef="GetOpenWeather_responses_default_def_weather_def" />
+        <property name="base" type="string" />
+        <property name="main" typeRef="GetOpenWeather_responses_default_def_main_def" />
+        <property name="visibility" type="integer" />
+        <property name="wind" typeRef="GetOpenWeather_responses_default_def_wind_def" />
+        <property name="clouds" typeRef="GetOpenWeather_responses_default_def_clouds_def" />
+        <property name="dt" type="integer" />
+        <property name="sys" typeRef="GetOpenWeather_responses_default_def_sys_def" />
+        <property name="timezone" type="integer" />
+        <property name="id" type="integer" />
+        <property name="name" type="string" />
+        <property name="cod" type="integer" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://europe-002.azure-apim.net/apim/openweather-20connector-5f0f321de3082a67e9-5fe1fd9d61a58e062d">
+    <resource path="/{connectionId}/data/2.5/weather">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetOpenWeather" actionName="GetOpenWeather" siena:isDeprecated="false">
+        <doc title="GetOpenWeather&#xA;GetOpenWeather" />
+        <request>
+          <param style="query" name="lat" type="xs:string" required="true" />
+          <param style="query" name="lon" type="xs:string" required="true" />
+          <param style="query" name="units" type="xs:string" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:GetOpenWeather_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_openweather-20connector-5f0f321de3082a67e9-5fe1fd9d61a58e062d" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>
