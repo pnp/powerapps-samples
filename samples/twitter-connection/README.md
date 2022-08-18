@@ -49,7 +49,7 @@ You need to sign in with your own twitter credentials.
 
 ## Minimal Path to Awesome
 
-* [Download](./solution/YOURSAMPLENAME.msapp) the `.msapp` from the `solution` folder
+* [Download](./solution/TwitterConnectorApp.msapp) the `.msapp` from the `solution` folder
 * Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just downloaded.
 * Select the **Data** tab
 * Select **Add data**
