@@ -1,0 +1,104 @@
+PlayerProgress As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =350
+    Player1: |-
+        ={PlayerName: "",PlayerIcon: "",PlayerPosition: 0,Result: "",
+        PlayerPlay:false, PlayerColor: ""}
+    Player2: |-
+        ={PlayerName: "",PlayerIcon: "",PlayerPosition: 0,Result: "",
+        PlayerPlay:false, PlayerColor: ""}
+    TrackSize: =100
+    Width: =640
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Player1Progress As htmlViewer:
+        Font: =Font.Arial
+        Height: =101
+        HtmlText: |-
+            =Concatenate("
+            <div style='padding:20px 20px 20px 30px'>
+                <div>
+                    <div style='background-color:#eee;border-radius:25px;width:500px;box-shadow:inset 5px 5px 10px #bebebe, inset -5px -5px 15px #ffffff,0px 5px 10px #bebebe,-5px -5px 10px #ffffff;'
+                        title='80%'>
+                        <div style='width:",(PlayerProgress.Player1.PlayerPosition * 500)/PlayerProgress.TrackSize,"px;height:40px;border-radius:25px;background-color:",PlayerProgress.Player1.PlayerColor,";'>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    style='font-size:40px;position:absolute;border:2px solid #eee;display:inline-block;background-color:white;border-radius:50%;height:80px;width:80px;box-shadow:0 0 5px #eee;margin-left:",((PlayerProgress.Player1.PlayerPosition * 500)/PlayerProgress.TrackSize)-35,"px;margin-top:-55px;'>
+                    <div style='margin-top:5px;padding-left:5px;'>",PlayerProgress.Player1.PlayerIcon ,"</div>
+                </div>
+            </div>
+            ")
+        Width: =571
+        X: =69
+        Y: =70
+        ZIndex: =1
+
+    Player2Progress As htmlViewer:
+        Font: =Font.Arial
+        Height: =92
+        HtmlText: |-
+            =Concatenate("
+            <div style='padding:20px 20px 20px 30px'>
+                <div>
+                    <div style='background-color:#eee;border-radius:25px;width:500px;box-shadow:inset 5px 5px 10px #bebebe, inset -5px -5px 15px #ffffff,0px 5px 10px #bebebe,-5px -5px 10px #ffffff;'
+                        title='80%'>
+                        <div style='width:",(PlayerProgress.Player2.PlayerPosition * 500)/PlayerProgress.TrackSize,"px;height:40px;border-radius:25px;background-color:",PlayerProgress.Player2.PlayerColor,";'>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    style='font-size:40px;position:absolute;border:2px solid #eee;display:inline-block;background-color:white;border-radius:50%;height:80px;width:80px;box-shadow:0 0 5px #eee;margin-left:",((PlayerProgress.Player2.PlayerPosition * 500)/PlayerProgress.TrackSize)-35,"px;margin-top:-55px;'>
+                    <div style='margin-top:5px;padding-left:5px;'>",PlayerProgress.Player2.PlayerIcon ,"</div>
+                </div>
+            </div>
+            ")
+        Width: =571
+        X: =69
+        Y: =241
+        ZIndex: =2
+
+    Player2Title As label:
+        Font: =Font.Arial
+        Height: =70
+        Size: =21
+        Text: =Concatenate(PlayerProgress.Player2.PlayerName, " ", If(PlayerProgress.Player2.PlayerPlay = true, "✔️") )
+        Width: =540
+        X: =100
+        Y: =171
+        ZIndex: =3
+
+    Player1Title As label:
+        Font: =Font.Arial
+        Height: =70
+        Size: =21
+        Text: =Concatenate( PlayerProgress.Player1.PlayerName, " ", If( PlayerProgress.Player1.PlayerPlay = true, "✔️") )
+        Width: =540
+        X: =100
+        ZIndex: =4
+
+    ResultPlayer1 As label:
+        Align: =Align.Center
+        Font: =Font.Arial
+        Height: =70
+        Size: =35
+        Text: =PlayerProgress.Player1.Result
+        Width: =64
+        X: =3
+        Y: =70
+        ZIndex: =5
+
+    ResultPlayer2 As label:
+        Align: =Align.Center
+        Font: =Font.Arial
+        Height: =70
+        Size: =35
+        Text: =PlayerProgress.Player2.Result
+        Width: =64
+        X: =3
+        Y: =241
+        ZIndex: =6
+

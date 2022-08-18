@@ -28,8 +28,8 @@
                 
                 
             Width: =324
-            X: =61
-            Y: =431
+            X: =66
+            Y: =432
             ZIndex: =1
 
         html_DropShadowScreen As htmlViewer:
@@ -65,7 +65,7 @@
             Size: =11
             Text: ="Log in"
             Width: =250
-            X: =95
+            X: =100
             Y: =467
             ZIndex: =3
 
@@ -94,7 +94,7 @@
             Width: =197
             X: =116
             Y: =426
-            ZIndex: =6
+            ZIndex: =5
 
         img_Postcard As image:
             Height: =52
@@ -109,7 +109,7 @@
             Width: =77
             X: =176
             Y: =144
-            ZIndex: =7
+            ZIndex: =6
 
         html_DropShadowEmail As htmlViewer:
             Height: =123
@@ -133,7 +133,7 @@
             Width: =318
             X: =66
             Y: =275
-            ZIndex: =8
+            ZIndex: =7
 
         txt_Email As text:
             AccessibleLabel: ="Email"
@@ -153,7 +153,7 @@
             Width: =250
             X: =100
             Y: =310
-            ZIndex: =9
+            ZIndex: =8
 
         lbl_Email As label:
             Font: =Font.'Segoe UI'
@@ -163,7 +163,7 @@
             Width: =250
             X: =100
             Y: =283
-            ZIndex: =10
+            ZIndex: =9
 
         html_DropShadowPassword As htmlViewer:
             Height: =123
@@ -187,7 +187,7 @@
             Width: =318
             X: =66
             Y: =350
-            ZIndex: =11
+            ZIndex: =10
 
         txt_Password As text:
             AccessibleLabel: ="Password"
@@ -208,7 +208,7 @@
             Width: =250
             X: =100
             Y: =385
-            ZIndex: =12
+            ZIndex: =11
 
         lbl_Password As label:
             Font: =Font.'Segoe UI'
@@ -218,7 +218,7 @@
             Width: =250
             X: =100
             Y: =358
-            ZIndex: =13
+            ZIndex: =12
 
         lbl_or As label:
             Align: =Align.Center
@@ -231,7 +231,7 @@
             Width: =197
             X: =119
             Y: =515
-            ZIndex: =14
+            ZIndex: =13
 
         img_Twitter As image:
             Height: =16
@@ -243,7 +243,7 @@
             Width: =16
             X: =170
             Y: =543
-            ZIndex: =15
+            ZIndex: =14
 
         img_Insta As image:
             Height: =16
@@ -254,7 +254,7 @@
             Width: =16
             X: =211
             Y: =543
-            ZIndex: =16
+            ZIndex: =15
 
         img_Google As image:
             Height: =16
@@ -266,7 +266,7 @@
             Width: =16
             X: =253
             Y: =543
-            ZIndex: =17
+            ZIndex: =16
 
         lbl_SignUp As label:
             Align: =Align.Center
@@ -281,7 +281,7 @@
             Width: =69
             X: =259
             Y: =639
-            ZIndex: =23
+            ZIndex: =22
 
         lbl_NoAccount As label:
             Align: =Align.Center
@@ -293,162 +293,7 @@
             Width: =169
             X: =106
             Y: =639
-            ZIndex: =24
-
-    grp_backgroundColor As group:
-        Height: =5
-        Width: =5
-        X: =60
-        Y: =60
-        ZIndex: =39
-
-        sli_Red_1 As slider:
-            AccessibleLabel: ="red value for background"
-            BorderStyle: =BorderStyle.None
-            Default: =236
-            HandleFill: =Red
-            HandleSize: =16
-            Height: =120
-            Layout: =Layout.Vertical
-            Max: =255
-            OnChange: =
-            RailFill: =LightGray
-            Tooltip: ="red value for background"
-            ValueFill: =LightGray
-            Width: =39
-            X: =411
-            Y: =321
-            ZIndex: =34
-
-        sli_Green_1 As slider:
-            AccessibleLabel: ="green value for background"
-            BorderStyle: =BorderStyle.None
-            Default: =236
-            HandleFill: =Green
-            HandleSize: =16
-            Height: =120
-            Layout: =Layout.Vertical
-            Max: =255
-            OnChange: =
-            RailFill: =LightGray
-            Tooltip: ="red value for background"
-            ValueFill: =LightGray
-            Width: =39
-            X: =438
-            Y: =321
-            ZIndex: =35
-
-        sli_Blue_1 As slider:
-            AccessibleLabel: ="b lue value for background"
-            BorderStyle: =BorderStyle.None
-            Default: =236
-            HandleFill: =Blue
-            HandleSize: =16
-            Height: =120
-            Layout: =Layout.Vertical
-            Max: =255
-            OnChange: =
-            RailFill: =LightGray
-            Tooltip: ="red value for background"
-            ValueFill: =LightGray
-            Width: =39
-            X: =466
-            Y: =322
-            ZIndex: =36
-
-        btn_BackgroundColor As button:
-            Color: =Black
-            Fill: =RGBA(sli_Red_1.Value,sli_Green_1.Value, sli_Blue_1.Value ,1)
-            Height: =98
-            HoverFill: =Self.Fill
-            RadiusBottomLeft: =4
-            RadiusBottomRight: =4
-            RadiusTopLeft: =4
-            RadiusTopRight: =4
-            Text: |-
-                ="background: 
-                RGB(" & sli_Red_1.Value & ", " & sli_Green_1.Value & ", " & sli_Blue_1.Value & " ,1) "
-            Tooltip: ="red value for background"
-            Width: =245
-            X: =506
-            Y: =322
-            ZIndex: =38
-
-    grp_primaryColor As group:
-        Height: =5
-        Width: =5
-        X: =60
-        Y: =60
-        ZIndex: =39
-
-        btn_ColorReference As button:
-            BorderStyle: =BorderStyle.None
-            Fill: =RGBA(sli_Red.Value, sli_Green.Value, sli_Blue.Value,1)  
-            Height: =98
-            HoverBorderColor: =Self.Fill
-            OnSelect: =
-            RadiusBottomLeft: =4
-            RadiusBottomRight: =4
-            RadiusTopLeft: =4
-            RadiusTopRight: =4
-            Text: |-
-                ="primary color: 
-                RGB(" & sli_Red.Value & ", " & sli_Green.Value & ", " & sli_Blue.Value & " ,1) "
-            Width: =246
-            X: =505
-            Y: =132
-            ZIndex: =18
-
-        sli_Red As slider:
-            AccessibleLabel: ="red value"
-            BorderStyle: =BorderStyle.None
-            Default: =1
-            HandleFill: =Red
-            HandleSize: =16
-            Height: =119
-            Layout: =Layout.Vertical
-            Max: =255
-            OnChange: =
-            RailFill: =LightGray
-            ValueFill: =LightGray
-            Width: =39
-            X: =412
-            Y: =131
-            ZIndex: =19
-
-        sli_Green As slider:
-            AccessibleLabel: ="green value"
-            BorderStyle: =BorderStyle.None
-            Default: =1
-            HandleFill: =Green
-            HandleSize: =16
-            Height: =119
-            Layout: =Layout.Vertical
-            Max: =255
-            OnChange: =
-            RailFill: =LightGray
-            ValueFill: =LightGray
-            Width: =39
-            X: =439
-            Y: =131
-            ZIndex: =20
-
-        sli_Blue As slider:
-            AccessibleLabel: ="blue value"
-            BorderStyle: =BorderStyle.None
-            Default: =1
-            HandleFill: =Blue
-            HandleSize: =16
-            Height: =120
-            Layout: =Layout.Vertical
-            Max: =255
-            OnChange: =
-            RailFill: =LightGray
-            ValueFill: =LightGray
-            Width: =39
-            X: =467
-            Y: =132
-            ZIndex: =21
+            ZIndex: =23
 
     grp_Calculation As group:
         Height: =5
@@ -465,80 +310,550 @@
             Width: =131
             X: =751
             Y: =131
-            ZIndex: =22
+            ZIndex: =21
 
         lbl_brightnessDifference As label:
             Fill: |
                 =White
+            Font: =Font.'Segoe UI'
             Text: ="brightness difference"
             Width: =261
             X: =411
             Y: =524
-            ZIndex: =26
+            ZIndex: =24
 
         lbl_colorDifference As label:
             Fill: |
                 =White
+            Font: =Font.'Segoe UI'
             Height: =44
             Text: ="color difference"
-            Width: =261
+            Width: =265
             X: =411
             Y: =560
-            ZIndex: =27
+            ZIndex: =25
 
         lblbrightnessDifferenceValue As label:
             Color: =If(Value(Self.Text) < 125, Red, Black)
-            Text: =(299*sli_Red_1.Value + 587*sli_Green_1.Value + sli_Blue_1.Value*237)/1000 - (299*sli_Blue.Value + 587*sli_Green.Value + 114*sli_Blue.Value)/1000
-            Width: =94
-            X: =592
+            Fill: =White
+            Font: =Font.'Segoe UI'
+            Text: =Round((299*sli_Red_1.Value + 587*sli_Green_1.Value + sli_Blue_1.Value*237)/1000 -(299*sli_Red.Value + 587*sli_Green.Value + sli_Blue.Value*237)/1000,0)
+            Width: =129
+            X: =672
             Y: =524
-            ZIndex: =29
+            ZIndex: =26
 
         lbl_colorDifferenceValue As label:
             Color: =If(Value(Self.Text) < 500, Red, Black)
+            Fill: =White
+            Font: =Font.'Segoe UI'
             Text: =-((sli_Red.Value -sli_Red_1.Value) + (sli_Green.Value-sli_Green_1.Value )+(sli_Blue.Value-sli_Blue_1.Value))
-            X: =592
-            Y: =563
-            ZIndex: =30
+            Width: =135
+            X: =672
+            Y: =564
+            ZIndex: =27
 
         lbl_Result As label:
             Color: =If(Value(lbl_colorDifferenceValue.Text) > 500 And Value(lblbrightnessDifferenceValue.Text) >125, Black, Red)
             Fill: |
                 =White
+            Font: =Font.'Segoe UI'
             Height: =51
-            Text: =If(Value(lblbrightnessDifferenceValue.Text) < 125  Or Value(lbl_colorDifferenceValue.Text) <500, "failed color contrast check according to W3.org", "passed color contrast check according to W3.org") 
-            Width: =455
+            Text: =If(Value(lblbrightnessDifferenceValue.Text) < 125  Or Value(lbl_colorDifferenceValue.Text) <500, "failed color contrast check according to WCAG 2.1", "passed color contrast check according to WCAG 2.1") 
+            Width: =488
             X: =411
             Y: =615
-            ZIndex: =31
+            ZIndex: =28
 
         lbl_brightnessDifferenceCheck As label:
+            Align: =Align.Right
             Color: |
                 =Black
             Fill: |
                 =White
+            Font: =Font.'Segoe UI'
             Text: ="- min 125"
-            Width: =102
-            X: =665
+            Width: =162
+            X: =735
             Y: =524
-            ZIndex: =32
+            ZIndex: =29
 
         lbl_colorDifferenceCheck As label:
+            Align: =Align.Right
             Color: =Black
             Fill: |
                 =White
+            Font: =Font.'Segoe UI'
             Text: ="- min 500"
-            Width: =102
-            X: =665
+            Width: =147
+            X: =750
             Y: =564
-            ZIndex: =33
+            ZIndex: =30
 
         icon_Result As icon.Check:
             Color: =If(Value(lbl_colorDifferenceValue.Text) > 500 And Value(lblbrightnessDifferenceValue.Text) >125, Green, Red)
             Height: =53
             Icon: =If(Value(lbl_colorDifferenceValue.Text) > 500 And Value(lblbrightnessDifferenceValue.Text) >125, Icon.Check, Icon.Cancel)
             Width: =49
-            X: =816
+            X: =846
             Y: =615
+            ZIndex: =35
+
+    grp_backgroundColor As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =43
+
+        sli_Red_1 As slider:
+            AccessibleLabel: ="red value for background"
+            BorderStyle: =BorderStyle.None
+            Default: =defaultRedBG
+            HandleFill: =Red
+            HandleSize: =16
+            Height: =120
+            Layout: =Layout.Vertical
+            Max: =255
+            OnChange: |-
+                =Set(
+                    ColorAsHexBg,
+                    Match(
+                        JSON(
+                            btn_BackgroundColor.Fill,
+                            JSONFormat.IgnoreUnsupportedTypes
+                        ),
+                        "#[a-fA-F0-9]{6}"
+                    ).FullMatch
+                );
+                Set(isInputBGRedReset, true)
+            RailFill: =LightGray
+            Reset: =isInputBGRedReset
+            Tooltip: ="red value for background"
+            ValueFill: =LightGray
+            Width: =39
+            X: =411
+            Y: =318
+            ZIndex: =31
+
+        sli_Green_1 As slider:
+            AccessibleLabel: ="green value for background"
+            BorderStyle: =BorderStyle.None
+            Default: =defaultGreenBG
+            HandleFill: =Green
+            HandleSize: =16
+            Height: =120
+            Layout: =Layout.Vertical
+            Max: =255
+            OnChange: |-
+                =Set(
+                    ColorAsHexBg,
+                    Match(
+                        JSON(
+                            btn_BackgroundColor.Fill,
+                            JSONFormat.IgnoreUnsupportedTypes
+                        ),
+                        "#[a-fA-F0-9]{6}"
+                    ).FullMatch
+                );
+                Set(isInputBGGreenReset, true)
+            RailFill: =LightGray
+            Reset: =isInputBGGreenReset
+            Tooltip: ="red value for background"
+            ValueFill: =LightGray
+            Width: =39
+            X: =490
+            Y: =318
+            ZIndex: =32
+
+        sli_Blue_1 As slider:
+            AccessibleLabel: ="b lue value for background"
+            BorderStyle: =BorderStyle.None
+            Default: =defaultBlueBG
+            HandleFill: =Blue
+            HandleSize: =16
+            Height: =120
+            Layout: =Layout.Vertical
+            Max: =255
+            OnChange: |-
+                =Set(
+                    ColorAsHexBg,
+                    Match(
+                        JSON(
+                            btn_BackgroundColor.Fill,
+                            JSONFormat.IgnoreUnsupportedTypes
+                        ),
+                        "#[a-fA-F0-9]{6}"
+                    ).FullMatch
+                );
+                Set(isInputBGBlueReset, true)
+            RailFill: =LightGray
+            Reset: =isInputBGBlueReset
+            Tooltip: ="red value for background"
+            ValueFill: =LightGray
+            Width: =39
+            X: =569
+            Y: =318
+            ZIndex: =33
+
+        btn_BackgroundColor As button:
+            Color: =Black
+            Fill: =RGBA(sli_Red_1.Value,sli_Green_1.Value, sli_Blue_1.Value ,1)
+            Height: =164
+            HoverBorderColor: =Self.BorderColor
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Text: |-
+                ="background: 
+                RGB(" & sli_Red_1.Value & ", " & sli_Green_1.Value & ", " & sli_Blue_1.Value & " ,1) " & Char(13) & ColorAsHexBg
+            Tooltip: ="red value for background"
+            Width: =245
+            X: =654
+            Y: =321
+            ZIndex: =34
+
+        txt_RedBG As text:
+            AccessibleLabel: ="Email"
+            BorderColor: =LightGray
+            Default: =sli_Red_1.Value
+            Fill: |
+                =White
+            Font: =Font.'Segoe UI'
+            Height: =32
+            HintText: ="Red"
+            HoverBorderColor: =Self.BorderColor
+            HoverFill: =Self.Fill
+            OnChange: |
+                =If(
+                    Value(Self.Text) > 255 || Value(Self.Text) < 0,
+                    Notify(
+                        "please enter a value between 0 and 255",
+                        NotificationType.Error
+                    )
+                );
+                Set(
+                    defaultRedBG,
+                    Value(Self.Text)
+                );
+            PressedBorderColor: =Self.BorderColor
+            RadiusBottomLeft: =10
+            RadiusBottomRight: =10
+            RadiusTopLeft: =10
+            RadiusTopRight: =10
+            Reset: =    
+            Size: =9
+            Tooltip: ="Enter a value between 0 and 255"
+            Width: =50
+            X: =406
+            Y: =450
+            ZIndex: =40
+
+        txt_GreenBG As text:
+            AccessibleLabel: ="Email"
+            BorderColor: =LightGray
+            Default: =sli_Green_1.Value
+            Fill: |
+                =White
+            Font: =Font.'Segoe UI'
+            Height: =32
+            HintText: ="Green"
+            HoverBorderColor: =Self.BorderColor
+            HoverFill: =Self.Fill
+            OnChange: |
+                =If(
+                    Value(Self.Text) > 255 || Value(Self.Text) < 0,
+                    Notify(
+                        "please enter a value between 0 and 255",
+                        NotificationType.Error
+                    )
+                );
+                
+                Set(
+                    defaultGreenBG,
+                    Value(Self.Text)
+                );
+            PressedBorderColor: =Self.BorderColor
+            RadiusBottomLeft: =10
+            RadiusBottomRight: =10
+            RadiusTopLeft: =10
+            RadiusTopRight: =10
+            Reset: =    
+            Size: =9
+            Tooltip: ="Enter a value between 0 and 255"
+            Width: =50
+            X: =484
+            Y: =450
+            ZIndex: =41
+
+        txt_BlueBG As text:
+            AccessibleLabel: ="Email"
+            BorderColor: =LightGray
+            Default: =sli_Blue_1.Value
+            Fill: |
+                =White
+            Font: =Font.'Segoe UI'
+            Height: =32
+            HintText: ="Blue"
+            HoverBorderColor: =Self.BorderColor
+            HoverFill: =Self.Fill
+            OnChange: |
+                =If(
+                    Value(Self.Text) > 255 || Value(Self.Text) < 0,
+                    Notify(
+                        "please enter a value between 0 and 255",
+                        NotificationType.Error
+                    )
+                );
+                
+                Set(
+                    defaultBlueBG,
+                    Value(Self.Text)
+                );
+            PressedBorderColor: =Self.BorderColor
+            RadiusBottomLeft: =10
+            RadiusBottomRight: =10
+            RadiusTopLeft: =10
+            RadiusTopRight: =10
+            Reset: =
+            Size: =9
+            Tooltip: ="Enter a value between 0 and 255"
+            Width: =50
+            X: =563
+            Y: =450
+            ZIndex: =42
+
+    grp_primaryColor As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =43
+
+        btn_ColorReference As button:
+            BorderStyle: =BorderStyle.None
+            Fill: =RGBA(sli_Red.Value, sli_Green.Value, sli_Blue.Value,1)      
+            Height: =164
+            HoverBorderColor: =Self.Fill
+            HoverFill: =Self.Fill
+            OnSelect: =
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Text: |-
+                ="primary color: 
+                RGB(" & sli_Red.Value & ", " & sli_Green.Value & ", " & sli_Blue.Value & " ,1) " & Char(13) & ColorAsHex
+            Width: =246
+            X: =654
+            Y: =132
+            ZIndex: =17
+
+        sli_Red As slider:
+            AccessibleLabel: ="red value"
+            BorderStyle: =BorderStyle.None
+            Default: =defaultRed
+            HandleFill: =Red
+            HandleSize: =16
+            Height: =119
+            Layout: =Layout.Vertical
+            Max: =255
+            OnChange: |-
+                =Set(
+                    ColorAsHex,
+                    Match(
+                        JSON(
+                            btn_ColorReference.Fill,
+                            JSONFormat.IgnoreUnsupportedTypes
+                        ),
+                        "#[a-fA-F0-9]{6}"
+                    ).FullMatch
+                );
+                Set(
+                    isInputRedReset,
+                    true
+                )
+            RailFill: =LightGray
+            Reset: =true
+            ValueFill: =LightGray
+            Width: =39
+            X: =412
+            Y: =131
+            ZIndex: =18
+
+        sli_Green As slider:
+            AccessibleLabel: ="green value"
+            BorderStyle: =BorderStyle.None
+            Default: =defaultGreen
+            HandleFill: =Green
+            HandleSize: =16
+            Height: =119
+            Layout: =Layout.Vertical
+            Max: =255
+            OnChange: |-
+                =Set(
+                    ColorAsHex,
+                    Match(
+                        JSON(
+                            btn_ColorReference.Fill,
+                            JSONFormat.IgnoreUnsupportedTypes
+                        ),
+                        "#[a-fA-F0-9]{6}"
+                    ).FullMatch
+                );
+                Set(
+                    isInputGreenReset,
+                    true
+                )
+            RailFill: =LightGray
+            ValueFill: =LightGray
+            Width: =39
+            X: =490
+            Y: =131
+            ZIndex: =19
+
+        sli_Blue As slider:
+            AccessibleLabel: ="blue value"
+            BorderStyle: =BorderStyle.None
+            Default: =defaultBlue
+            HandleFill: =Blue
+            HandleSize: =16
+            Height: =120
+            Layout: =Layout.Vertical
+            Max: =255
+            OnChange: |-
+                =Set(
+                    ColorAsHex,
+                    Match(
+                        JSON(
+                            btn_ColorReference.Fill,
+                            JSONFormat.IgnoreUnsupportedTypes
+                        ),
+                        "#[a-fA-F0-9]{6}"
+                    ).FullMatch
+                );
+                Set(
+                    isInputBlueReset,
+                    true
+                )
+            RailFill: =LightGray
+            Reset: =isInputBlueReset
+            ValueFill: =LightGray
+            Width: =39
+            X: =569
+            Y: =132
+            ZIndex: =20
+
+        txt_Red As text:
+            AccessibleLabel: ="Email"
+            BorderColor: =LightGray
+            Default: =sli_Red.Value
+            Fill: |
+                =White
+            Font: =Font.'Segoe UI'
+            Height: =32
+            HintText: ="Red"
+            HoverBorderColor: =Self.BorderColor
+            HoverFill: =Self.Fill
+            OnChange: |
+                =If(
+                    Value(Self.Text) > 255 || Value(Self.Text) < 0,
+                    Notify(
+                        "please enter a value between 0 and 255",
+                        NotificationType.Error
+                    )
+                );
+                Set(
+                    defaultRed,
+                    Value(Self.Text)
+                );
+            PressedBorderColor: =Self.BorderColor
+            RadiusBottomLeft: =10
+            RadiusBottomRight: =10
+            RadiusTopLeft: =10
+            RadiusTopRight: =10
+            Reset: =
+            Size: =9
+            Tooltip: ="Enter a value between 0 and 255"
+            Width: =50
+            X: =sli_Red.X+(sli_Red.Width-Self.Width)/2
+            Y: =256
+            ZIndex: =36
+
+        txt_Green As text:
+            AccessibleLabel: ="Email"
+            BorderColor: =LightGray
+            Default: =sli_Green.Value
+            Fill: |
+                =White
+            Font: =Font.'Segoe UI'
+            Height: =32
+            HintText: ="Green"
+            HoverBorderColor: =Self.BorderColor
+            HoverFill: =Self.Fill
+            OnChange: |+
+                =If(
+                    Value(Self.Text) > 255 || Value(Self.Text) < 0,
+                    Notify(
+                        "please enter a value between 0 and 255",
+                        NotificationType.Error
+                    )
+                );
+                Set(
+                    defaultGreen,
+                    Value(Self.Text)
+                );
+                
+            PressedBorderColor: =Self.BorderColor
+            RadiusBottomLeft: =10
+            RadiusBottomRight: =10
+            RadiusTopLeft: =10
+            RadiusTopRight: =10
+            Reset: =
+            Size: =9
+            TabIndex: =
+            Tooltip: ="Enter a value between 0 and 255"
+            Width: =50
+            X: =sli_Green.X+(sli_Green.Width-Self.Width)/2
+            Y: =256
+            ZIndex: =38
+
+        txt_Blue As text:
+            AccessibleLabel: ="Email"
+            BorderColor: =LightGray
+            Default: =sli_Blue.Value
+            Fill: |
+                =White
+            Font: =Font.'Segoe UI'
+            Height: =32
+            HintText: ="Blue"
+            HoverBorderColor: =Self.BorderColor
+            HoverFill: =Self.Fill
+            OnChange: |
+                =If(
+                    Value(Self.Text) > 255 || Value(Self.Text) < 0,
+                    Notify(
+                        "please enter a value between 0 and 255",
+                        NotificationType.Error
+                    )
+                );
+                Set(
+                    defaultBlue,
+                    Value(Self.Text)
+                );
+            PressedBorderColor: =Self.BorderColor
+            RadiusBottomLeft: =10
+            RadiusBottomRight: =10
+            RadiusTopLeft: =10
+            RadiusTopRight: =10
+            Reset: =
+            Size: =9
+            Tooltip: ="Enter a value between 0 and 255"
+            Width: =50
+            X: =sli_Blue.X+(sli_Blue.Width-Self.Width)/2
+            Y: =256
             ZIndex: =39
 

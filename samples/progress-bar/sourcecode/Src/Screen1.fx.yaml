@@ -1,0 +1,119 @@
+Screen1 As screen:
+
+    cmp_ProgressBar_hor_1 As cmp_ProgressBar_hor:
+        Height: =cmp_ProgressBar_hor_1.barHeight+10
+        Width: =cmp_ProgressBar_hor_1.barWidth+10
+        X: =16
+        Y: =357
+        ZIndex: =1
+
+    cmp_ProgressBar_hor_2 As cmp_ProgressBar_hor:
+        barCurrentFill: |-
+            =ColorValue("#d76a03")
+        barMaxFill: |-
+            =ColorValue("#ec9f05")
+        Height: =cmp_ProgressBar_hor_2.barHeight+10
+        Width: =cmp_ProgressBar_hor_2.barWidth+10
+        X: =16
+        Y: =289
+        ZIndex: =2
+
+    cmp_ProgressBar_hor_3 As cmp_ProgressBar_hor:
+        barCurrentFill: |-
+            =ColorValue("#FFB5A7")
+        barMaxFill: |-
+            =ColorValue("#FCD5CE")
+        barWidth: =400
+        Height: =cmp_ProgressBar_hor_3.barHeight+10
+        Width: =cmp_ProgressBar_hor_3.barWidth+10
+        X: =16
+        Y: =100
+        ZIndex: =3
+
+    cmp_ProgressBar_hor_4 As cmp_ProgressBar_hor:
+        barCurrentFill: |-
+            =ColorValue("#7B8F4B")
+        barHeight: =80
+        barMaxFill: |-
+            =ColorValue("#DDE5B6")
+        barWidth: =300
+        Height: =cmp_ProgressBar_hor_4.barHeight+10
+        Width: =cmp_ProgressBar_hor_4.barWidth+10
+        X: =16
+        Y: =169
+        ZIndex: =4
+
+    cmp_ProgressBar_vert_1 As cmp_ProgressBar_vert:
+        barCurrentFill: |-
+            =ColorValue("#3c1518")
+        barMaxFill: |-
+            =ColorValue("#d58936")
+        barWidth: =120
+        Height: =cmp_ProgressBar_vert_1.barHeight+10
+        Width: =cmp_ProgressBar_vert_1.barWidth+10
+        X: =16
+        Y: =435
+        ZIndex: =5
+
+    cmp_ProgressBar_vert_2 As cmp_ProgressBar_vert:
+        barCurrentFill: |-
+            =ColorValue("#ffd60a")
+        barMaxFill: |-
+            =ColorValue("#ffc300")
+        Height: =cmp_ProgressBar_vert_2.barHeight+10
+        labelColor: =Black
+        Width: =cmp_ProgressBar_vert_2.barWidth+10
+        X: =170
+        Y: =435
+        ZIndex: =6
+
+    cmp_ProgressBar_vert_3 As cmp_ProgressBar_vert:
+        barCurrentFill: |-
+            =ColorValue("#5a189a")
+        barMaxFill: |-
+            =ColorValue("#c77dff")
+        Height: =cmp_ProgressBar_vert_3.barHeight+10
+        Width: =cmp_ProgressBar_vert_3.barWidth+10
+        X: =251
+        Y: =435
+        ZIndex: =7
+
+    cmp_ProgressBar_vert_4 As cmp_ProgressBar_vert:
+        barCurrentFill: |-
+            =ColorValue("#7bf1a8")
+        barHeight: =400
+        barMaxFill: |-
+            =ColorValue("#c1fba4")
+        barWidth: =80
+        Height: =cmp_ProgressBar_vert_4.barHeight+10
+        Width: =cmp_ProgressBar_vert_4.barWidth+10
+        X: =353
+        Y: =235
+        ZIndex: =8
+
+    cmp_ProgressBar_hor_5 As cmp_ProgressBar_hor:
+        barCurrentFill: |-
+            =ColorValue("#a63a50")
+        barHeight: =26
+        barMaxFill: |-
+            =ColorValue("#f0e7d8")
+        barWidth: =500
+        Height: =cmp_ProgressBar_hor_5.barHeight+10
+        Width: =cmp_ProgressBar_hor_5.barWidth+10
+        X: =16
+        Y: =28
+        ZIndex: =9
+
+    cmp_ProgressBar_vert_5 As cmp_ProgressBar_vert:
+        barCurrentFill: |-
+            =ColorValue("#f06543")
+        barHeight: =400
+        barMaxFill: |-
+            =ColorValue("#e8e9eb")
+        barWidth: =80
+        Height: =cmp_ProgressBar_vert_5.barHeight+10
+        Width: =cmp_ProgressBar_vert_5.barWidth+10
+        X: =467
+        Y: =235
+        ZIndex: =10
+
