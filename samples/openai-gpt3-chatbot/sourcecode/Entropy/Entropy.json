@@ -1,0 +1,202 @@
+{
+  "ComponentIndexes": {
+    "btn_Reset": 4,
+    "btn_Send": 16,
+    "Dark - Button": 3,
+    "Dark - Reset": 4,
+    "Dark - Text input": 2,
+    "txt_Neumorphic": 11
+  },
+  "ControlUniqueGuids": {},
+  "ControlUniqueIds": {
+    "App": 1,
+    "btn_Reset": 33,
+    "btn_Send": 45,
+    "Button3_1": 8,
+    "Button3_2": 12,
+    "Chatbot": 14,
+    "Chatbot Neumorphic": 31,
+    "Dark - Button": 6,
+    "Dark - Reset": 10,
+    "Dark - Text input": 3,
+    "drp_n_SelectChatbot": 35,
+    "drp_SelectChatbot": 18,
+    "gal_ChatBubble": 20,
+    "gal_n_ChatBubble": 36,
+    "galleryTemplate1_1": 21,
+    "galleryTemplate1_2": 37,
+    "grp_bubbleBot": 26,
+    "grp_bubbleUser": 27,
+    "grp_n_bubbleBot": 42,
+    "grp_n_bubbleUser": 43,
+    "html_Bot": 22,
+    "html_n_Bot": 38,
+    "html_n_User": 39,
+    "html_User": 23,
+    "HtmlText1_16": 7,
+    "HtmlText1_17": 11,
+    "HtmlText1_7": 4,
+    "ico_Restart": 19,
+    "Image2_2": 9,
+    "Image2_4": 13,
+    "img_Bot": 17,
+    "img_bubbleHandleBot": 25,
+    "img_bubbleHandleUser": 24,
+    "img_LoadingBot": 32,
+    "img_n_bubbleHandleBot": 40,
+    "img_n_bubbleHandleUser": 41,
+    "img_Send": 30,
+    "lbl_Chat": 16,
+    "lbl_n_Chat": 34,
+    "lbl_n_TextHeight": 46,
+    "lbl_TextHeight": 28,
+    "rec_Header": 15,
+    "TextInput1": 5,
+    "txt_Neumorphic": 44,
+    "txt_Reply": 29
+  },
+  "FunctionParamsInvariantScripts": {},
+  "FunctionParamsInvariantScriptsOnInstances": {},
+  "HeaderLastSavedDateTimeUTC": "08/20/2022 19:28:08",
+  "IsLegacyComponentAllowGlobalScopeCase": false,
+  "LocalConnectionIDReferences": {
+    "6cae21bc-dea8-461d-b7cb-80cbb2742c76": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/dcfa7b9a72ec4b0195b8d2b1ed8fc6ee-9994ed00ea84d37b\"",
+    "a204c1d2-b541-492d-8bd0-afe03627ab10": "\"/providers/microsoft.powerapps/apis/shared_openaiip/connections/1c779662142d46c98c40f3762647cdaf\""
+  },
+  "LocalDatabaseReferencesAsEmpty": false,
+  "LocalResourceFileNames": {
+    "Robot": "2a92eff7-d3b6-41ae-ba97-c75925b32f52.svg",
+    "send": "fae555b9-760a-4ce5-802e-eb9f9b598818.png"
+  },
+  "LocalResourceRootPaths": {
+    "Robot": "https://docserverpwaprodneu.blob.core.windows.net/e4d6b6dd-b133-4dbb-84f7-e63e7f6033d6-1/resource/Assets0Images02a92eff7-d3b6-41ae-ba97-c75925b32f52.svg?sv=2017-04-17&sr=b&sig=K7sm%2Bm9RzC6r9tM1hJ5WpjshjiuDcic21ee%2B0hSXDJ8%3D&spr=https&se=2022-08-21T19%3A42%3A45Z&sp=r",
+    "send": "https://docserverpwaprodneu.blob.core.windows.net/e4d6b6dd-b133-4dbb-84f7-e63e7f6033d6-1/resource/Assets0Images0fae555b9-760a-4ce5-802e-eb9f9b598818.png?sv=2017-04-17&sr=b&sig=HU6ey%2BKuD6BgDAm%2BFkcrjOv%2Bj1k615JH%2BA62P54Ow6Y%3D&spr=https&se=2022-08-21T19%3A42%3A45Z&sp=r"
+  },
+  "OldLogoFileName": "qyyxignx.jpg",
+  "OrderComponentMetadata": {
+    "08a466b87f2046a691eb6f85e8efc7d7": 0,
+    "3d7003144b0647d082b135f7a1799d82": 2,
+    "5065eefbd92642da97505ea6f3b567e6": 1
+  },
+  "OrderComponentTemplate": {
+    "08a466b87f2046a691eb6f85e8efc7d7": 0,
+    "3d7003144b0647d082b135f7a1799d82": 2,
+    "5065eefbd92642da97505ea6f3b567e6": 1
+  },
+  "OrderDataSource": {
+    "colChatbots": 5,
+    "colConversation": 4,
+    "CustomGallerySample": 2,
+    "DropDownSample": 3,
+    "GPT3conversationAPI": 0,
+    "OpenAI(IndependentPublisher)": 1
+  },
+  "OrderGroupControls": {
+    "grp_bubbleBot": {
+      "html_Bot": 0,
+      "img_bubbleHandleBot": 1
+    },
+    "grp_bubbleUser": {
+      "html_User": 0,
+      "img_bubbleHandleUser": 1
+    },
+    "grp_n_bubbleBot": {
+      "html_n_Bot": 0,
+      "img_n_bubbleHandleBot": 1
+    },
+    "grp_n_bubbleUser": {
+      "html_n_User": 0,
+      "img_n_bubbleHandleUser": 1
+    }
+  },
+  "OrderPcfTemplate": {},
+  "OrderTemplate": {},
+  "OrderXMLTemplate": {
+    "button": 8,
+    "dropdown": 3,
+    "gallery": 5,
+    "htmlViewer": 6,
+    "icon": 4,
+    "image": 2,
+    "label": 1,
+    "rectangle": 0,
+    "text": 7
+  },
+  "PublishOrderIndices": {
+    "App": 0,
+    "btn_Reset": 1,
+    "btn_Send": 13,
+    "Button3_1": 34,
+    "Button3_2": 37,
+    "Chatbot": 0,
+    "Chatbot Neumorphic": 0,
+    "Dark - Button": 3,
+    "Dark - Reset": 3,
+    "Dark - Text input": 21,
+    "drp_n_SelectChatbot": 3,
+    "drp_SelectChatbot": 18,
+    "gal_ChatBubble": 20,
+    "gal_n_ChatBubble": 4,
+    "galleryTemplate1_1": 21,
+    "galleryTemplate1_2": 5,
+    "grp_bubbleBot": 26,
+    "grp_bubbleUser": 27,
+    "grp_n_bubbleBot": 6,
+    "grp_n_bubbleUser": 9,
+    "html_Bot": 22,
+    "html_n_Bot": 7,
+    "html_n_User": 8,
+    "html_User": 23,
+    "HtmlText1_16": 33,
+    "HtmlText1_17": 36,
+    "HtmlText1_7": 31,
+    "ico_Restart": 19,
+    "Image2_2": 35,
+    "Image2_4": 38,
+    "img_Bot": 17,
+    "img_bubbleHandleBot": 25,
+    "img_bubbleHandleUser": 24,
+    "img_LoadingBot": 0,
+    "img_n_bubbleHandleBot": 10,
+    "img_n_bubbleHandleUser": 11,
+    "img_Send": 30,
+    "lbl_Chat": 16,
+    "lbl_n_Chat": 2,
+    "lbl_n_TextHeight": 14,
+    "lbl_TextHeight": 28,
+    "rec_Header": 15,
+    "TextInput1": 32,
+    "txt_Neumorphic": 12,
+    "txt_Reply": 29
+  },
+  "ResourcesJsonIndices": {
+    "Image-Robot": 1,
+    "Image-SampleImage": 0,
+    "Image-send": 2
+  },
+  "RuleScreenIdWithoutScreen": {},
+  "TemplateVersions": {},
+  "VolatileProperties": {
+    "AnalysisLoadTime": 0.39267469999999999,
+    "ControlCount": {
+      "08a466b87f2046a691eb6f85e8efc7d7": 2,
+      "3d7003144b0647d082b135f7a1799d82": 2,
+      "5065eefbd92642da97505ea6f3b567e6": 2,
+      "button": 2,
+      "dropdown": 2,
+      "gallery": 2,
+      "galleryTemplate": 2,
+      "group": 4,
+      "htmlViewer": 7,
+      "icon": 1,
+      "image": 9,
+      "label": 4,
+      "rectangle": 1,
+      "screen": 2,
+      "text": 2
+    },
+    "DeserializationLoadTime": 1.4360576,
+    "ErrorCount": 0
+  },
+  "WasLocalDatabaseReferencesEmpty": true
+}

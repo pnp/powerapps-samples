@@ -1,0 +1,55 @@
+{
+  "6cae21bc-dea8-461d-b7cb-80cbb2742c76": {
+    "connectionParameters": {
+      "workFlowCallbackUri": "https://prod-229.westeurope.logic.azure.com:443/workflows/7f60647b5b57498f846df558e0818584/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=3jKRj5nJZNH70j8TDEX4aYMVZlIJIFrX98RfSDOrkis",
+      "workflowEndpoint": "/subscriptions/5c340b36-e0fa-450e-b6c2-cb7e0327fc56/resourceGroups/d272d73f5254451eb3782104267b34bf-4faa3ee4a738435f91e4c70cb50884f3/providers/Microsoft.Logic/workflows/dcfa7b9a-72ec-4b01-95b8-d2b1ed8fc6ee",
+      "workflowName": "dcfa7b9a-72ec-4b01-95b8-d2b1ed8fc6ee",
+      "workflowPath": "/subscriptions/5c340b36-e0fa-450e-b6c2-cb7e0327fc56/resourceGroups/d272d73f5254451eb3782104267b34bf-4faa3ee4a738435f91e4c70cb50884f3/providers/Microsoft.Logic/workflows/dcfa7b9a-72ec-4b01-95b8-d2b1ed8fc6ee"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1534/1.0.1534.2605/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "dcfa7b9a-72ec-4b01-95b8-d2b1ed8fc6ee"
+        }
+      },
+      "parameterHintsV2": {
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "dcfa7b9a-72ec-4b01-95b8-d2b1ed8fc6ee"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "GPT3conversationAPI"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "6cae21bc-dea8-461d-b7cb-80cbb2742c76"
+  },
+  "a204c1d2-b541-492d-8bd0-afe03627ab10": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Premium",
+      "displayName": "OpenAI (Independent Publisher)",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1580/1.0.1580.2838/openaiip/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_openaiip",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "OpenAI(IndependentPublisher)"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "a204c1d2-b541-492d-8bd0-afe03627ab10"
+  }
+}

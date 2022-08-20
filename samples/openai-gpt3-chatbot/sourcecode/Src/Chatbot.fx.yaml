@@ -1,0 +1,383 @@
+Chatbot As screen:
+    Fill: =White
+    LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
+    OnVisible: |-
+        =Set(varPromptWarmUp, "The following is a conversation with a human called Seline. Seline is helpful, creative, clever, and very friendly.
+        
+        You: Hello, who are you?
+        Seline: I am Seline. How can I help you today?");
+            Set(varDisplayFirstMessage, "I am Seline. How can I help you today?");
+            Set(varBotname, "Seline");
+            Set(varPresets, {Temperature: 0.9, max_tokens: 100, top_p: 1, frequency_penalty: 0.0, presence_penalty: 0.6});
+        
+        Select(ico_Restart)
+
+    rec_Header As rectangle:
+        BorderColor: =RGBA(197, 203, 207, 1)
+        Fill: =Gray
+        Height: =75
+        Width: =768
+        ZIndex: =1
+
+    gal_ChatBubble As gallery.variableTemplateHeightGallery:
+        BorderColor: =RGBA(197, 203, 207, 1)
+        FocusedBorderThickness: =0
+        Height: =1220-txt_Reply.Height
+        Items: =colConversation
+        Layout: =Layout.Vertical
+        ShowNavigation: =true
+        ShowScrollbar: =false
+        TemplateSize: =280
+        Width: =768
+        Y: =90
+        ZIndex: =2
+
+        grp_bubbleBot As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =6
+
+            html_Bot As htmlViewer:
+                AutoHeight: =true
+                Height: =195
+                HtmlText: |-
+                    ="<div 
+                        style='
+                            display: inline-block;
+                            position: relative;
+                            background: #ededed;
+                            color: #333;
+                            font-size: 25px;
+                            box-shadow: 2px 2px 2px 0px #A3A3A3;
+                            text-align: left;
+                            margin:5px;
+                            border-radius: 10px;
+                            padding: 20px;'>
+                            
+                            "&Substitute(ThisItem.Text, "\n", "<br>")&"
+                    
+                            <div 
+                                style='
+                                    text-align: right;
+                                    color: gray;
+                                    font-size:16px;
+                                    padding-top: 10px;'>
+                                "&Text(ThisItem.Time, "hh:mm")&"</div>
+                    
+                            </div>"
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Visible: =!ThisItem.User
+                Width: =514
+                X: =20
+                ZIndex: =1
+
+            img_bubbleHandleBot As image:
+                BorderColor: =RGBA(197, 203, 207, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Height: =28
+                Image: |-
+                    ="data:image/svg+xml;utf8, " & EncodeUrl(
+                        "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.2' viewBox='0 0 100 100' >"
+                    
+                    
+                    //triangle
+                    &"<path d='M0 0 100 0 100 100Z' fill='#ededed'/>"
+                    
+                    
+                    
+                    &"</svg>"
+                    )
+                OnSelect: =Select(Parent)
+                Visible: =!ThisItem.User
+                Width: =20
+                X: =8
+                Y: =11
+                ZIndex: =3
+
+        grp_bubbleUser As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =6
+
+            html_User As htmlViewer:
+                AutoHeight: =true
+                Height: =195
+                HtmlText: |-
+                    ="<div
+                        style='
+                            display: inline-block;
+                            float:right;
+                            position: relative;
+                            background: #c0ffaf;
+                            color: #333;
+                            font-size: 25px;
+                            box-shadow: -2px 2px 2px 0px #A3A3A3;
+                            text-align: left;
+                            margin:5px;
+                            border-radius: 10px;
+                            padding: 20px;'>
+                            
+                            "&ThisItem.Text&"
+                    
+                            <div 
+                                style='
+                                    text-align: right;
+                                    color: gray;
+                                    font-size:16px;
+                                    padding-top: 10px;'>
+                                "&Text(ThisItem.Time, "hh:mm")&"</div>
+                    
+                            </div>"
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Visible: =ThisItem.User
+                Width: =514
+                X: =217
+                ZIndex: =4
+
+            img_bubbleHandleUser As image:
+                BorderColor: =RGBA(197, 203, 207, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Height: =28
+                Image: |-
+                    ="data:image/svg+xml;utf8, " & EncodeUrl(
+                        "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.2' viewBox='0 0 100 100' >"
+                    
+                    
+                    //triangle
+                    &"<path d='M0 0 100 0 0 100Z' fill='#C0FFAF'/>"
+                    
+                    
+                    
+                    &"</svg>"
+                    )
+                OnSelect: =Select(Parent)
+                Visible: =ThisItem.User
+                Width: =20
+                X: =723
+                Y: =8
+                ZIndex: =5
+
+    lbl_Chat As label:
+        BorderColor: =RGBA(197, 203, 207, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =Bold
+        Height: =71
+        Size: =18
+        Text: ="Chat with GPT3"
+        Width: =577
+        X: =145
+        Y: =4
+        ZIndex: =3
+
+    img_Bot As image:
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =60
+        Image: =Robot
+        RadiusBottomLeft: =30
+        RadiusBottomRight: =30
+        RadiusTopLeft: =30
+        RadiusTopRight: =30
+        Width: =60
+        X: =62
+        Y: =10
+        ZIndex: =4
+
+    txt_Reply As text:
+        BorderColor: =RGBA(197, 203, 207, 1)
+        BorderThickness: =0
+        Color: =Black
+        Default: =
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: |-
+            =ColorValue("#ededed")
+        FocusedBorderThickness: =0
+        Height: =Max(lbl_TextHeight.Height, 71)
+        HintText: ="Reply to GPT3"
+        HoverBorderColor: =RGBA(197, 203, 207, 1)
+        HoverColor: =Black
+        Mode: =TextMode.MultiLine
+        PaddingBottom: =10
+        PaddingLeft: =20
+        PaddingRight: =20
+        PaddingTop: =10
+        RadiusBottomLeft: =50
+        RadiusBottomRight: =50
+        RadiusTopLeft: =50
+        RadiusTopRight: =50
+        Size: =30
+        Width: =620
+        X: =35
+        Y: =1340-Self.Height
+        ZIndex: =6
+
+    lbl_TextHeight As label:
+        AutoHeight: =true
+        BorderColor: =RGBA(197, 203, 207, 1)
+        Color: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Height: =61
+        PaddingBottom: =10
+        PaddingLeft: =20
+        PaddingRight: =20
+        PaddingTop: =10
+        Size: =30
+        Text: =txt_Reply.Text
+        Width: =620
+        X: =35
+        Y: =759
+        ZIndex: =7
+
+    img_Send As image:
+        BorderColor: =RGBA(197, 203, 207, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Height: =70
+        Image: =send
+        OnSelect: |-
+            =Collect(
+                colConversation,
+                {
+                    ID: CountRows(colConversation),
+                    User: true,
+                    Time: Now(),
+                    Text: txt_Reply.Text
+                }
+            );
+            Reset(txt_Reply);
+            With(
+                {
+                    Chatbot: drp_SelectChatbot.Selected,
+                    Presets: drp_SelectChatbot.Selected.Presets
+                },
+                Set(
+                    varPrompt,
+                    Chatbot.WarmUp & " " & Concat(
+                        Filter(
+                            colConversation,
+                            ID > 0
+                        ),
+                        If(
+                            User,
+                            " \n You:",
+                            !User,
+                            " \n " & varBotname & ":"
+                        ) & " " & Text
+                    ) & " \n " & varBotname & ": "
+                );
+                Set(
+                    varReply,
+                    'OpenAI(IndependentPublisher)'.Completion(
+                        "text-davinci-002",
+                        varPrompt,
+                        {
+                            temperature: Presets.Temperature,
+                            max_tokens: Presets.max_tokens,
+                            top_p: Presets.top_p,
+                            frequency_penalty: Presets.frequency_penalty,
+                            stop: ["You:"]
+                        }
+                    )
+                );
+                Collect(
+                    colConversation,
+                    {
+                        ID: CountRows(colConversation),
+                        User: false,
+                        Time: Now(),
+                        Text: Substitute(First(varReply.choices).text, varBotname&": ", "")
+                    }
+                )
+            )
+        Transparency: =0.4
+        Width: =70
+        X: =679
+        Y: =1270
+        ZIndex: =8
+
+    ico_Restart As icon.Reload:
+        BorderColor: =RGBA(197, 203, 207, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =43
+        Icon: =Icon.Reload
+        OnSelect: |-
+            =Switch(drp_SelectChatbot.Selected.Name,
+                "Robin",
+                Set(varPromptWarmUp, "Robin is a chatbot that reluctantly answers questions with sarcastic responses:
+            
+                You: How many pounds are in a kilogram?
+                Robin: This again? There are 2.2 pounds in a kilogram. Please make a note of this.
+                You: What does HTML stand for?
+                Robin: Was Google too busy? Hypertext Markup Language. The T is for try to ask better questions in the future.
+                You: When did the first airplane fly?
+                Robin: On December 17, 1903, Wilbur and Orville Wright made the first flights. I wish they’d come and take me away.");
+                Set(varDisplayFirstMessage, "Hi, I'm Robin - a chatbot that tends to be a little sarcastic from time to time...");
+                Set(varBotname, "Robin");
+                Set(varPresets, {Temperature: 0.5, max_tokens: 100, top_p: 0.3, frequency_penalty: 0.5, presence_penalty: 0.0}),
+            
+                "Seline",
+                Set(varPromptWarmUp, "The following is a conversation with a human called Seline. Seline is helpful, creative, clever, and very friendly.
+            
+                You: Hello, who are you?
+                Seline: I am Seline. How can I help you today?");
+                    Set(varDisplayFirstMessage, "I am Seline. How can I help you today?");
+                    Set(varBotname, "Seline");
+                    Set(varPresets, {Temperature: 0.9, max_tokens: 100, top_p: 1, frequency_penalty: 0.0, presence_penalty: 0.6})
+                
+            );
+            
+            //Display first
+            
+            ClearCollect(colConversation,
+                {ID:0, Text:drp_SelectChatbot.Selected.FirstMessage, User: false, Time: Now()});
+        Width: =47
+        X: =702
+        Y: =16
+        ZIndex: =9
+
+    drp_SelectChatbot As dropdown:
+        BorderColor: =RGBA(197, 203, 207, 1)
+        ChevronBackground: =RGBA(100, 118, 132, 1)
+        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+        ChevronHoverBackground: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Default: ="Seline"
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FontWeight: =Bold
+        Height: =43
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =RGBA(62, 74, 83, 1)
+        Items: =colChatbots
+        OnChange: =Select(ico_Restart)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(197, 203, 207, 1)
+        SelectionFill: =RGBA(100, 118, 132, 1)
+        Size: =16
+        Width: =256
+        X: =269
+        Y: =16
+        ZIndex: =10
+
