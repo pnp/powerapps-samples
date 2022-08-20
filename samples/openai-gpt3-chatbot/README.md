@@ -50,7 +50,7 @@ The UI is based on the [Neumorphic UI Kit](https://github.com/misskristine94/Neu
 ## Prerequisites
 
 You need to get an API key from [OpenAI](https://openai.com/api/) which has a free 3 month test phase, where you get 18$ of credit, which is enough to play around with this app for a few hours (and you need no credit card to register).
-The connector is an independent publisher connector. If it doesn't work probably check first if it is excluded by your environments DLP.
+The connector is an independent publisher connector. If it doesn't work probably check first if it is excluded by your environments DLP. Also it is a premium connector, so you need some sort of premium Power Apps license (or start a trial for free).
 
 ## Data Sources
 
