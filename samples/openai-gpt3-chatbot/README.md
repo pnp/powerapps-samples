@@ -30,7 +30,7 @@ Furthermore it has some nice design elements you can integrate in your own apps.
 
 Solution|Author(s)
 --------|---------
-The SVG World - SVG examples | [Robin Rosengrün](https://github.com/PowerRobin) ([@power_r2](https://twitter.com/power_r2))
+GPT-3 chatbot | [Robin Rosengrün](https://github.com/PowerRobin) ([@power_r2](https://twitter.com/power_r2))
 
 ## Version history
 
