@@ -1,0 +1,34 @@
+{
+  "dce214ef-66a3-42d6-8b8e-843ab447b93c": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1578/1.0.1578.2813/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://accelerationdevcom.sharepoint.com/sites/test0365group": {
+        "dataSources": {
+          "Notes": {
+            "tableName": "6e9ef3f5-635e-4871-8a7c-8809425df5bc"
+          },
+          "TagList": {
+            "tableName": "f8d10c1c-e2e1-41a1-a97c-ab58c7aa0f78"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "TagList",
+      "Notes"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "dce214ef-66a3-42d6-8b8e-843ab447b93c"
+  }
+}
