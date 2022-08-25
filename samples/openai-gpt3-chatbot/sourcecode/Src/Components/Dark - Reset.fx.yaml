@@ -1,0 +1,104 @@
+"'Dark - Reset' As CanvasComponent":
+    BorderRadius: =25
+    ButtonSelected: =varButtonSelected
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =640
+    IconColorActive: |-
+        ="#1E56C8"
+    IconColour: |-
+        ="#BDBDBD"
+    IconName: ="calendar"
+    LinealGradient: =false
+    LinealGradientColor1: |-
+        ="#2c3e50"
+    LinealGradientColor2: |-
+        ="#3498db"
+    OnSelect: =
+    Width: =640
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    HtmlText1_17 As htmlViewer:
+        Height: =Parent.Height
+        HtmlText: |-
+            ="<div style='margin:15px;width: "& HtmlText1_17.Width - 30 &"px;height: "& HtmlText1_17.Height -31  &"px; 
+                    background: linear-gradient(135deg, rgba(60,60,68,1) 0%, rgba(70,70,78,1) 100%);
+            
+            
+            box-shadow: 
+               "& If(Button3_2.Pressed,"inset 3px 3px 3px 0px #1e2126, inset -3px -3px 3px 0px rgba(80,80,90,1)",  " -2px -2px 4px 0px rgba(80,80,90,1), 2px 2px 4px 0px #1e2126" ) &"  ;
+            
+            
+            
+                
+                 border-radius:"& 'Dark - Reset'.BorderRadius &"px'></div>"
+        PaddingBottom: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Width: =Parent.Width
+        ZIndex: =1
+
+    Image2_4 As image:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Height: =Button3_2.Height/4*3
+        Image: |-
+            ="data:image/svg+xml;utf8, "&EncodeUrl(" <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' fill='"&If(Button3_2.Pressed ,'Dark - Reset'.IconColorActive,'Dark - Reset'.IconColour)&"' viewBox='0 0 512 512'>
+            
+            "&If('Dark - Reset'.LinealGradient= true ,"<defs>  
+             <linearGradient id='gradient' x1='0%' y1='0%' x2='0%' y2='100%'>  
+             <stop offset='0%' style='stop-color: "&'Dark - Reset'.LinealGradientColor1&" ;'></stop>  
+             <stop offset='100%' style='stop-color: "&'Dark - Reset'.LinealGradientColor2&" ;'></stop>  
+             </linearGradient>  
+            </defs>","")&"
+             
+            <filter id='glow'> 
+              <feGaussianBlur stdDeviation='0.7' result='coloredBlur'/> 
+              <feMerge> 
+              <feMergeNode in='coloredBlur'/> 
+              <feMergeNode in='SourceGraphic'/> 
+              </feMerge> 
+            </filter> 
+            
+            "&Switch('Dark - Reset'.IconName,"calendar","<path fill='"&If('Dark - Reset'.LinealGradient= true ,""&If(Button3_2.Pressed ,"url(#gradient)",'Dark - Reset'.IconColour)&"",""&If(Button3_2.Pressed ,'Dark - Reset'.IconColorActive,'Dark - Reset'.IconColour)&"")&"'
+            
+             d='M449.9 39.96l-48.5 48.53C362.5 53.19 311.4 32 256 32C161.5 32 78.59 92.34 49.58 182.2c-5.438 16.81 3.797 34.88 20.61 40.28c16.97 5.5 34.86-3.812 40.3-20.59C130.9 138.5 189.4 96 256 96c37.96 0 73 14.18 100.2 37.8L311.1 178C295.1 194.8 306.8 223.4 330.4 224h146.9C487.7 223.7 496 215.3 496 204.9V59.04C496 34.99 466.9 22.95 449.9 39.96zM441.8 289.6c-16.94-5.438-34.88 3.812-40.3 20.59C381.1 373.5 322.6 416 256 416c-37.96 0-73-14.18-100.2-37.8L200 334C216.9 317.2 205.2 288.6 181.6 288H34.66C24.32 288.3 16 296.7 16 307.1v145.9c0 24.04 29.07 36.08 46.07 19.07l48.5-48.53C149.5 458.8 200.6 480 255.1 480c94.45 0 177.4-60.34 206.4-150.2C467.9 313 458.6 294.1 441.8 289.6z'/>
+            
+            </svg>")&"
+            
+            ")
+        Width: =Button3_2.Width/5*3
+        X: =('Dark - Reset'.Width - Self.Width)/2+5
+        Y: =('Dark - Reset'.Height - Self.Height)/2
+        ZIndex: =2
+
+    Button3_2 As button:
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =0
+        FontWeight: =FontWeight.Semibold
+        Height: =HtmlText1_17.Height - 31
+        HoverBorderColor: =Transparent
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =RGBA(196,196,196,0.2)
+        OnSelect: =Set(varButtonSelected, !varButtonSelected); 'Dark - Reset'.OnSelect(); 
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        PressedFill: =RGBA(196,196,196,0.4)
+        RadiusBottomLeft: =15
+        RadiusBottomRight: =15
+        RadiusTopLeft: =15
+        RadiusTopRight: =15
+        Size: =15
+        Text: =""
+        Width: =HtmlText1_17.Width - 30
+        X: =20
+        Y: =15
+        ZIndex: =3
+

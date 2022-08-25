@@ -1,0 +1,106 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://europe-002.azure-apim.net/apim/openaiip" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="OpenAI(IndependentPublisher)" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="OpenAI (Independent Publisher)">Connect to the OpenAI API and use the Power of GPT3, API key must be entered as "Bearer YOUR_API_KEY"</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://europe-002.azure-apim.net/apim/openaiip" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="Completion_param_body_def_prompt_def" />
+      <integer name="Completion_param_body_def_n_def" />
+      <integer name="Completion_param_body_def_best_of_def" />
+      <number name="Completion_param_body_def_temperature_def" />
+      <integer name="Completion_param_body_def_max_tokens_def" />
+      <number name="Completion_param_body_def_top_p_def" />
+      <number name="Completion_param_body_def_frequency_penalty_def" />
+      <number name="Completion_param_body_def_presence_penalty_def" />
+      <string name="Completion_param_body_def_user_def" />
+      <string name="Completion_param_body_def_stop_def_items_def" />
+      <array type="string" name="Completion_param_body_def_stop_def" />
+      <object name="Completion_param_body_def">
+        <property name="prompt" type="string" />
+        <property name="n" type="integer" />
+        <property name="best_of" type="integer" />
+        <property name="temperature" type="number" />
+        <property name="max_tokens" type="integer" />
+        <property name="top_p" type="number" />
+        <property name="frequency_penalty" type="number" />
+        <property name="presence_penalty" type="number" />
+        <property name="user" type="string" />
+        <property name="stop" typeRef="Completion_param_body_def_stop_def" />
+      </object>
+      <string name="Completion_responses_200_def_id_def" />
+      <string name="Completion_responses_200_def_object_def" />
+      <integer name="Completion_responses_200_def_created_def" />
+      <string name="Completion_responses_200_def_model_def" />
+      <string name="Completion_responses_200_def_choices_def_items_def_text_def" />
+      <integer name="Completion_responses_200_def_choices_def_items_def_index_def" />
+      <string name="Completion_responses_200_def_choices_def_items_def_logprobs_def" />
+      <string name="Completion_responses_200_def_choices_def_items_def_finish_reason_def" />
+      <object name="Completion_responses_200_def_choices_def_items_def">
+        <property name="text" type="string" />
+        <property name="index" type="integer" />
+        <property name="logprobs" type="string" />
+        <property name="finish_reason" type="string" />
+      </object>
+      <array typeRef="Completion_responses_200_def_choices_def_items_def" name="Completion_responses_200_def_choices_def" />
+      <object name="Completion_responses_200_def">
+        <property name="id" type="string" />
+        <property name="object" type="string" />
+        <property name="created" type="integer" />
+        <property name="model" type="string" />
+        <property name="choices" typeRef="Completion_responses_200_def_choices_def" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://europe-002.azure-apim.net/apim/openaiip">
+    <resource path="/{connectionId}/v1/engines/{engine}/completions">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="engine" type="xs:string" required="true" default="text-davinci-002">
+        <doc title="The used engine, choose between text-davinci-002, text-curie-001, text-babbage-001, text-ada-001" />
+        <option value="text-davinci-002" />
+        <option value="text-curie-001" />
+        <option value="text-babbage-001" />
+        <option value="text-ada-001" />
+      </param>
+      <method siena:requiresAuthentication="true" name="POST" id="Completion" actionName="Completion" visibility="important" siena:isDeprecated="false">
+        <doc title="GPT3 Completes your prompt&#xA;GPT3 Completes your prompt" />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="prompt" path="/prompt" type="xs:string" required="true" default="What is your favorite animal and why? Tell me also about the size and weight of this animal.">
+              <doc title="prompt" />
+            </param>
+            <param style="plain" name="n" path="/n" type="xs:int" default="1" />
+            <param style="plain" name="best_of" path="/best_of" type="xs:int" default="1" />
+            <param style="plain" name="temperature" path="/temperature" type="xs:float" default="1">
+              <doc title="temperature" />
+            </param>
+            <param style="plain" name="max_tokens" path="/max_tokens" type="xs:int" default="100">
+              <doc title="max tokens" />
+            </param>
+            <param style="plain" name="top_p" path="/top_p" type="xs:float">
+              <doc title="top p" />
+            </param>
+            <param style="plain" name="frequency_penalty" path="/frequency_penalty" type="xs:float" default="0">
+              <doc title="frequency penalty" />
+            </param>
+            <param style="plain" name="presence_penalty" path="/presence_penalty" type="xs:float" default="0">
+              <doc title="presence penalty" />
+            </param>
+            <param style="plain" name="user" path="/user" type="xs:string">
+              <doc title="user" />
+            </param>
+            <param style="plain" name="stop" path="/stop" type="service:Completion_param_body_def_stop_def" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:Completion_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_openaiip" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>
