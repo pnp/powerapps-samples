@@ -1,0 +1,846 @@
+screenGame As screen:
+    Fill: =RGBA(0, 0, 0, 1)
+    LoadingSpinnerColor: =RGBA(211, 66, 9, 1)
+    OnVisible: =Select(btnStart)
+
+    galleryTable As gallery.galleryHorizontal:
+        BorderColor: =RGBA(131, 24, 75, 1)
+        DisplayMode: =If(IsWinner=false,DisplayMode.Edit,Disabled)
+        Height: =573
+        Items: =[1,2,3,4,5,6,7,8,9]
+        ShowScrollbar: =false
+        TemplateSize: =203
+        Width: =636
+        WrapCount: =3
+        Y: =273
+        ZIndex: =1
+
+        btnSquare As button:
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayMode: =If(CountIf(allSelections,Value=ThisItem.Value)>0, DisplayMode.Disabled,Edit)
+            Fill: =RGBA(211, 66, 9, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =181.33333333333334
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+            OnSelect: |-
+                =//Save player selection
+                Switch(
+                    currentPlayer,
+                    0,
+                    Collect(
+                        playerOneSelections,
+                        ThisItem.Value
+                    );
+                    Select(btnCheckWin1),
+                    1,
+                    Collect(
+                        playerTwoSelections,
+                        ThisItem.Value
+                    );
+                    Select(btnCheckWin2)
+                );
+                //Change player
+                If(
+                    currentPlayer = 0,
+                    UpdateContext({currentPlayer: 1}),
+                    UpdateContext({currentPlayer: 0})
+                );
+                //Store in all selection collection
+                Collect(
+                    allSelections,
+                    ThisItem.Value
+                )
+            Size: =64
+            Text: |-
+                =//Code to show X or O based on player selection
+                If(
+                    CountIf(
+                        playerOneSelections,
+                        Value = ThisItem.Value
+                    ) > 0,
+                    "X",
+                    CountIf(
+                        playerTwoSelections,
+                        Value = ThisItem.Value
+                    ) > 0,
+                    "O",
+                    ""
+                )
+            Width: =200
+            X: =3
+            Y: =3
+            ZIndex: =1
+
+    btnStart As button:
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(211, 66, 9, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =70
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+        OnSelect: |-
+            =UpdateContext({currentPlayer: 0});
+            ClearCollect(
+                playerOneSelections,
+                Blank()
+            );
+            ClearCollect(
+                playerTwoSelections,
+                Blank()
+            );
+            ClearCollect(
+                allSelections,
+                Blank()
+            );
+            //Winning collection rows
+            Concurrent(
+                ClearCollect(
+                    winningCollection1,
+                    1,
+                    2,
+                    3
+                ),
+                ClearCollect(
+                    winningCollection2,
+                    1,
+                    4,
+                    7
+                ),
+                ClearCollect(
+                    winningCollection3,
+                    1,
+                    5,
+                    9
+                ),
+                ClearCollect(
+                    winningCollection4,
+                    4,
+                    5,
+                    6
+                ),
+                ClearCollect(
+                    winningCollection5,
+                    7,
+                    8,
+                    9
+                ),
+                ClearCollect(
+                    winningCollection6,
+                    2,
+                    5,
+                    8
+                ),
+                ClearCollect(
+                    winningCollection7,
+                    3,
+                    6,
+                    9
+                ),
+                ClearCollect(
+                    winningCollection8,
+                    3,
+                    5,
+                    7
+                ),
+                ClearCollect(
+                    winningCollection9,
+                    7,
+                    5,
+                    3
+                ),
+                UpdateContext(
+                    {
+                        Winner: Blank(),
+                        IsWinner: false
+                    }
+                );
+            )
+        Size: =24
+        Text: ="Play Game!"
+        Width: =280
+        X: =178
+        Y: =83
+        ZIndex: =2
+
+    btnCheckWin1 As button:
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(211, 66, 9, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =53
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+        OnSelect: |
+            =UpdateContext(
+                {
+                    Winner: Blank(),
+                    IsWinner: false
+                }
+            );
+            //Check Win condition user 1
+            //winningCollection1
+            ClearCollect(
+                playerOneWinningPositionCount,
+                Blank()
+            );
+            ForAll(
+                playerOneSelections As pos,
+                If(
+                    CountIf(
+                        winningCollection1,
+                        Value = pos.Value
+                    ) > 0,
+                    Collect(
+                        playerOneWinningPositionCount,
+                        pos.Value
+                    )
+                )
+            );
+            If(
+                CountRows(playerOneWinningPositionCount) = 3,
+                UpdateContext(
+                    {
+                        Winner: "Player 1",
+                        IsWinner: true
+                    }
+                );
+                
+            );
+            //winningCollection2
+            If (
+                IsWinner=false,
+                ClearCollect(
+                    playerOneWinningPositionCount,
+                    Blank()
+                );
+                ForAll(
+                    playerOneSelections As pos,
+                    If(
+                        CountIf(
+                            winningCollection2,
+                            Value = pos.Value
+                        ) > 0,
+                        Collect(
+                            playerOneWinningPositionCount,
+                            pos.Value
+                        )
+                    )
+                );
+                If(
+                    CountRows(playerOneWinningPositionCount) = 3,
+                    UpdateContext(
+                        {
+                            Winner: "Player 1",
+                            IsWinner: true
+                        }
+                    );
+                )
+            );
+            //winningCollection3
+            If (
+                 IsWinner=false,
+                ClearCollect(
+                    playerOneWinningPositionCount,
+                    Blank()
+                );
+                ForAll(
+                    playerOneSelections As pos,
+                    If(
+                        CountIf(
+                            winningCollection3,
+                            Value = pos.Value
+                        ) > 0,
+                        Collect(
+                            playerOneWinningPositionCount,
+                            pos.Value
+                        )
+                    )
+                );
+                If(
+                    CountRows(playerOneWinningPositionCount) = 3,
+                    UpdateContext(
+                        {
+                            Winner: "Player 1",
+                            IsWinner: true
+                        }
+                    );
+                )
+            );
+            //winningCollection4
+            If (
+                 IsWinner=false,
+                ClearCollect(
+                    playerOneWinningPositionCount,
+                    Blank()
+                );
+                ForAll(
+                    playerOneSelections As pos,
+                    If(
+                        CountIf(
+                            winningCollection4,
+                            Value = pos.Value
+                        ) > 0,
+                        Collect(
+                            playerOneWinningPositionCount,
+                            pos.Value
+                        )
+                    )
+                );
+                If(
+                    CountRows(playerOneWinningPositionCount) = 3,
+                    UpdateContext(
+                        {
+                            Winner: "Player 1",
+                            IsWinner: true
+                        }
+                    );
+                )
+            );
+            //winningCollection5
+            If (
+                IsWinner=false,
+                ClearCollect(
+                    playerOneWinningPositionCount,
+                    Blank()
+                );
+                ForAll(
+                    playerOneSelections As pos,
+                    If(
+                        CountIf(
+                            winningCollection5,
+                            Value = pos.Value
+                        ) > 0,
+                        Collect(
+                            playerOneWinningPositionCount,
+                            pos.Value
+                        )
+                    )
+                );
+                If(
+                    CountRows(playerOneWinningPositionCount) = 3,
+                    UpdateContext(
+                        {
+                            Winner: "Player 1",
+                            IsWinner: true
+                        }
+                    );
+                )
+            );
+            //winningCollection6
+            If (
+                IsWinner=false,
+                ClearCollect(
+                    playerOneWinningPositionCount,
+                    Blank()
+                );
+                ForAll(
+                    playerOneSelections As pos,
+                    If(
+                        CountIf(
+                            winningCollection6,
+                            Value = pos.Value
+                        ) > 0,
+                        Collect(
+                            playerOneWinningPositionCount,
+                            pos.Value
+                        )
+                    )
+                );
+                If(
+                    CountRows(playerOneWinningPositionCount) = 3,
+                    UpdateContext(
+                        {
+                            Winner: "Player 1",
+                            IsWinner: true
+                        }
+                    );
+                )
+            );
+            //winningCollection7
+            If (
+                IsWinner=false,
+                ClearCollect(
+                    playerOneWinningPositionCount,
+                    Blank()
+                );
+                ForAll(
+                    playerOneSelections As pos,
+                    If(
+                        CountIf(
+                            winningCollection7,
+                            Value = pos.Value
+                        ) > 0,
+                        Collect(
+                            playerOneWinningPositionCount,
+                            pos.Value
+                        )
+                    )
+                );
+                If(
+                    CountRows(playerOneWinningPositionCount) = 3,
+                    UpdateContext(
+                        {
+                            Winner: "Player 1",
+                            IsWinner: true
+                        }
+                    );
+                )
+            );
+            //winningCollection8
+            If (
+                 IsWinner=false,
+                ClearCollect(
+                    playerOneWinningPositionCount,
+                    Blank()
+                );
+                ForAll(
+                    playerOneSelections As pos,
+                    If(
+                        CountIf(
+                            winningCollection8,
+                            Value = pos.Value
+                        ) > 0,
+                        Collect(
+                            playerOneWinningPositionCount,
+                            pos.Value
+                        )
+                    )
+                );
+                If(
+                    CountRows(playerOneWinningPositionCount) = 3,
+                    UpdateContext(
+                        {
+                            Winner: "Player 1",
+                            IsWinner: true
+                        }
+                    );
+                )
+            );
+            //winningCollection9
+            If (
+                 IsWinner=false,
+                ClearCollect(
+                    playerOneWinningPositionCount,
+                    Blank()
+                );
+                ForAll(
+                    playerOneSelections As pos,
+                    If(
+                        CountIf(
+                            winningCollection9,
+                            Value = pos.Value
+                        ) > 0,
+                        Collect(
+                            playerOneWinningPositionCount,
+                            pos.Value
+                        )
+                    )
+                );
+                If(
+                    CountRows(playerOneWinningPositionCount) = 3,
+                    UpdateContext(
+                        {
+                            Winner: "Player 1",
+                            IsWinner: true
+                        }
+                    );
+                )
+            );
+        Size: =24
+        Text: ="1"
+        Visible: =false
+        Width: =66
+        Y: =1083
+        ZIndex: =3
+
+    btnCheckWin2 As button:
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(211, 66, 9, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =53
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+        OnSelect: |-
+            =UpdateContext(
+                {
+                    Winner: Blank(),
+                    IsWinner: false
+                }
+            );
+            //Check Win condition user 2
+            //winningCollection1
+            ClearCollect(
+                playerTwoWinningPositionCount,
+                Blank()
+            );
+            ForAll(
+                playerTwoSelections As pos,
+                If(
+                    CountIf(
+                        winningCollection1,
+                        Value = pos.Value
+                    ) > 0,
+                    Collect(
+                        playerTwoWinningPositionCount,
+                        pos.Value
+                    )
+                )
+            );
+            If(
+                CountRows(playerTwoWinningPositionCount) = 3,
+                UpdateContext(
+                    {
+                        Winner: "Player 1",
+                        IsWinner: true
+                    }
+                );
+                
+            );
+            //winningCollection2
+            If (
+                IsWinner=false,
+                ClearCollect(
+                    playerTwoWinningPositionCount,
+                    Blank()
+                );
+                ForAll(
+                    playerTwoSelections As pos,
+                    If(
+                        CountIf(
+                            winningCollection2,
+                            Value = pos.Value
+                        ) > 0,
+                        Collect(
+                            playerTwoWinningPositionCount,
+                            pos.Value
+                        )
+                    )
+                );
+                If(
+                    CountRows(playerTwoWinningPositionCount) = 3,
+                    UpdateContext(
+                        {
+                            Winner: "Player 1",
+                            IsWinner: true
+                        }
+                    );
+                )
+            );
+            //winningCollection3
+            If (
+                 IsWinner=false,
+                ClearCollect(
+                    playerTwoWinningPositionCount,
+                    Blank()
+                );
+                ForAll(
+                    playerTwoSelections As pos,
+                    If(
+                        CountIf(
+                            winningCollection3,
+                            Value = pos.Value
+                        ) > 0,
+                        Collect(
+                            playerTwoWinningPositionCount,
+                            pos.Value
+                        )
+                    )
+                );
+                If(
+                    CountRows(playerTwoWinningPositionCount) = 3,
+                    UpdateContext(
+                        {
+                            Winner: "Player 1",
+                            IsWinner: true
+                        }
+                    );
+                )
+            );
+            //winningCollection4
+            If (
+                 IsWinner=false,
+                ClearCollect(
+                    playerTwoWinningPositionCount,
+                    Blank()
+                );
+                ForAll(
+                    playerTwoSelections As pos,
+                    If(
+                        CountIf(
+                            winningCollection4,
+                            Value = pos.Value
+                        ) > 0,
+                        Collect(
+                            playerTwoWinningPositionCount,
+                            pos.Value
+                        )
+                    )
+                );
+                If(
+                    CountRows(playerTwoWinningPositionCount) = 3,
+                    UpdateContext(
+                        {
+                            Winner: "Player 1",
+                            IsWinner: true
+                        }
+                    );
+                )
+            );
+            //winningCollection5
+            If (
+                IsWinner=false,
+                ClearCollect(
+                    playerTwoWinningPositionCount,
+                    Blank()
+                );
+                ForAll(
+                    playerTwoSelections As pos,
+                    If(
+                        CountIf(
+                            winningCollection5,
+                            Value = pos.Value
+                        ) > 0,
+                        Collect(
+                            playerTwoWinningPositionCount,
+                            pos.Value
+                        )
+                    )
+                );
+                If(
+                    CountRows(playerTwoWinningPositionCount) = 3,
+                    UpdateContext(
+                        {
+                            Winner: "Player 1",
+                            IsWinner: true
+                        }
+                    );
+                )
+            );
+            //winningCollection6
+            If (
+                IsWinner=false,
+                ClearCollect(
+                    playerTwoWinningPositionCount,
+                    Blank()
+                );
+                ForAll(
+                    playerTwoSelections As pos,
+                    If(
+                        CountIf(
+                            winningCollection6,
+                            Value = pos.Value
+                        ) > 0,
+                        Collect(
+                            playerTwoWinningPositionCount,
+                            pos.Value
+                        )
+                    )
+                );
+                If(
+                    CountRows(playerTwoWinningPositionCount) = 3,
+                    UpdateContext(
+                        {
+                            Winner: "Player 1",
+                            IsWinner: true
+                        }
+                    );
+                )
+            );
+            //winningCollection7
+            If (
+                IsWinner=false,
+                ClearCollect(
+                    playerTwoWinningPositionCount,
+                    Blank()
+                );
+                ForAll(
+                    playerTwoSelections As pos,
+                    If(
+                        CountIf(
+                            winningCollection7,
+                            Value = pos.Value
+                        ) > 0,
+                        Collect(
+                            playerTwoWinningPositionCount,
+                            pos.Value
+                        )
+                    )
+                );
+                If(
+                    CountRows(playerTwoWinningPositionCount) = 3,
+                    UpdateContext(
+                        {
+                            Winner: "Player 1",
+                            IsWinner: true
+                        }
+                    );
+                )
+            );
+            //winningCollection8
+            If (
+                 IsWinner=false,
+                ClearCollect(
+                    playerTwoWinningPositionCount,
+                    Blank()
+                );
+                ForAll(
+                    playerTwoSelections As pos,
+                    If(
+                        CountIf(
+                            winningCollection8,
+                            Value = pos.Value
+                        ) > 0,
+                        Collect(
+                            playerTwoWinningPositionCount,
+                            pos.Value
+                        )
+                    )
+                );
+                If(
+                    CountRows(playerTwoWinningPositionCount) = 3,
+                    UpdateContext(
+                        {
+                            Winner: "Player 1",
+                            IsWinner: true
+                        }
+                    );
+                )
+            );
+            //winningCollection9
+            If (
+                 IsWinner=false,
+                ClearCollect(
+                    playerTwoWinningPositionCount,
+                    Blank()
+                );
+                ForAll(
+                    playerTwoSelections As pos,
+                    If(
+                        CountIf(
+                            winningCollection9,
+                            Value = pos.Value
+                        ) > 0,
+                        Collect(
+                            playerTwoWinningPositionCount,
+                            pos.Value
+                        )
+                    )
+                );
+                If(
+                    CountRows(playerTwoWinningPositionCount) = 3,
+                    UpdateContext(
+                        {
+                            Winner: "Player 2",
+                            IsWinner: true
+                        }
+                    );
+                )
+            );
+        Size: =24
+        Text: ="2"
+        Visible: =false
+        Width: =66
+        X: =89
+        Y: =1083
+        ZIndex: =4
+
+    Rectangle1 As rectangle:
+        BorderColor: =RGBA(131, 24, 75, 1)
+        Fill: =RGBA(211, 66, 9, 1)
+        Height: =64
+        Width: =640
+        ZIndex: =5
+
+    btnHome As icon.Home:
+        BorderColor: =RGBA(131, 24, 75, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Icon: =Icon.Home
+        OnSelect: =Navigate(screenHome,ScreenTransition.CoverRight)
+        X: =2
+        ZIndex: =6
+
+    lblInfo As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(131, 24, 75, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =64
+        Size: =21
+        Text: |-
+            =Concatenate("Current Player: ",currentPlayer)
+        Width: =551
+        X: =89
+        ZIndex: =7
+
+    grpPopUpWin As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =12
+
+        Rectangle2 As rectangle:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Fill: =RGBA(211, 66, 9, 1)
+            Height: =1136
+            Visible: =IsWinner=true
+            Width: =640
+            ZIndex: =8
+
+        imgWin As image:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Height: =1136
+            Image: =WinnerFireworks
+            ImagePosition: =ImagePosition.Stretch
+            Visible: =IsWinner=true
+            Width: =640
+            ZIndex: =9
+
+        lblInfoWinner As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =70
+            Size: =30
+            Text: |-
+                =Concatenate("The Winner is Player: ", Text(currentPlayer))
+            Visible: =IsWinner=true
+            Width: =560
+            X: =38
+            Y: =13
+            ZIndex: =10
+
+        btnStartAgain As button:
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(211, 66, 9, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =70
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+            OnSelect: =Select(btnStart)
+            Size: =24
+            Text: ="Start Again"
+            Visible: =IsWinner=true
+            Width: =280
+            X: =180
+            Y: =1032
+            ZIndex: =11
+
