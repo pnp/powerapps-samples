@@ -1,0 +1,157 @@
+ImageSlider As CanvasComponent:
+    ActionButtonColor: =RGBA(0, 0, 0, 1)
+    ActionButtonFillColor: =RGBA(237, 237, 237, 1)
+    CurrentIndex: =If(currentIndex=Blank(),1,currentIndex)
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =320
+    Images: |-
+        =Table(
+            
+            {
+                ID:1,
+                Image: "https://images.pexels.com/photos/12161836/pexels-photo-12161836.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+                AltText: ""
+            },
+            {
+                ID:2,
+                Image: "https://images.pexels.com/photos/12780808/pexels-photo-12780808.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+                AltText: ""
+            }
+        
+        )
+    TotalSize: =CountIf(ImageSlider.Images,Image<>"")
+    Width: =640
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    imgSlide As image:
+        AccessibleLabel: ="Image"
+        Height: =Parent.Height
+        Image: |-
+            =If(
+                ImageSlider.CurrentIndex = Blank(),
+                Index(
+                    ImageSlider.Images,
+                    1
+                ).Image,
+                Index(
+                    ImageSlider.Images,
+                    ImageSlider.CurrentIndex
+                ).Image
+            )
+        ImagePosition: =ImagePosition.Fill
+        TabIndex: =1
+        Tooltip: |-
+            =If(
+                ImageSlider.CurrentIndex = Blank(),
+                Index(
+                    ImageSlider.Images,
+                    1
+                ).AltText,
+                Index(
+                    ImageSlider.Images,
+                    ImageSlider.CurrentIndex
+                ).AltText
+            )
+        Width: =Parent.Width
+        ZIndex: =1
+
+    icNext As icon.ChevronRight:
+        AccessibleLabel: ="Next"
+        Color: =ImageSlider.ActionButtonColor
+        Fill: =ImageSlider.ActionButtonFillColor
+        Height: =40
+        Icon: =Icon.ChevronRight
+        OnSelect: =If(currentIndex<ImageSlider.TotalSize,Set(currentIndex,ImageSlider.CurrentIndex+1),Set(currentIndex,1))
+        TabIndex: =2
+        Tooltip: ="Next Image"
+        Width: =40
+        X: =Parent.Width-Self.Width-2
+        Y: =Parent.Height/2-Self.Height/2
+        ZIndex: =2
+
+    icPrev As icon.ChevronLeft:
+        AccessibleLabel: ="Prev"
+        Color: =ImageSlider.ActionButtonColor
+        Fill: =ImageSlider.ActionButtonFillColor
+        Height: =40
+        Icon: =Icon.ChevronLeft
+        OnSelect: =If(currentIndex>1,Set(currentIndex,ImageSlider.CurrentIndex-1),Set(currentIndex,ImageSlider.TotalSize))
+        TabIndex: =3
+        Tooltip: ="Prev Image"
+        Width: =40
+        X: =2
+        Y: =Parent.Height/2-Self.Height/2
+        ZIndex: =3
+
+    btnIndicatorMask As button:
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(204, 204, 204, 0.4)
+        Height: =galIndicator.Height
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        TabIndex: =4
+        Text: =""
+        Width: =galIndicator.Width
+        X: =galIndicator.X
+        Y: =galIndicator.Y
+        ZIndex: =4
+
+    "galIndicator As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver4.0'":
+        AccessibleLabel: ="Indicator"
+        Height: =30
+        Items: =ImageSlider.Images
+        TabIndex: =5
+        TemplatePadding: =0
+        TemplateSize: =30
+        Width: =galIndicator.TemplateWidth*ImageSlider.TotalSize
+        X: =Parent.Width/2-Self.Width/2
+        Y: =Parent.Height-Self.Height-10
+        ZIndex: =5
+
+        circleDot As circle:
+            Fill: |-
+                =If(If(
+                    ImageSlider.CurrentIndex = Blank(),
+                    Index(
+                        ImageSlider.Images,
+                        1
+                    ).ID,
+                    Index(
+                        ImageSlider.Images,
+                        ImageSlider.CurrentIndex
+                    ).ID
+                )=ThisItem.ID,ImageSlider.ActionButtonColor,RGBA(255, 255, 255, 1))
+            Height: |-
+                =If(If(
+                    ImageSlider.CurrentIndex = Blank(),
+                    Index(
+                        ImageSlider.Images,
+                        1
+                    ).ID,
+                    Index(
+                        ImageSlider.Images,
+                        ImageSlider.CurrentIndex
+                    ).ID
+                )=ThisItem.ID,15,10)
+            OnSelect: =Select(Parent)
+            Width: |-
+                =If(If(
+                    ImageSlider.CurrentIndex = Blank(),
+                    Index(
+                        ImageSlider.Images,
+                        1
+                    ).ID,
+                    Index(
+                        ImageSlider.Images,
+                        ImageSlider.CurrentIndex
+                    ).ID
+                )=ThisItem.ID,15,10)
+            X: =Parent.TemplateWidth/2-Self.Width/2
+            Y: =Parent.TemplateHeight/2-Self.Height/2
+            ZIndex: =1
+
