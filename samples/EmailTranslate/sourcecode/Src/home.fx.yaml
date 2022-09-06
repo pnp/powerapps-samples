@@ -1,0 +1,30 @@
+"home As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
+
+    RectQuickActionBar3 As rectangle:
+        Height: =88
+        Width: =Parent.Width
+        ZIndex: =1
+
+    LblAppName2 As label:
+        Align: =Align.Center
+        Height: =88
+        Text: ="HOME"
+        Width: =Parent.Width
+        ZIndex: =2
+
+    Button1 As button:
+        Height: =82
+        OnSelect: =Navigate(sendto)
+        Size: =20
+        Text: ="New Email"
+        Width: =266
+        X: =550
+        Y: =338
+        ZIndex: =3
+
+    Image4 As image:
+        Height: =88
+        Image: =banner
+        Width: =1366
+        ZIndex: =6
+
