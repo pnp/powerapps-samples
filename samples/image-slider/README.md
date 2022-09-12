@@ -16,13 +16,13 @@ level: beginner
 ms.prod: power-apps
 ---
 
-# Progress Bars Component Library
+# Image Slider Component Library
 
 ## Summary
 
 This component library features a customizable image slider which can be used to display set of images one by one.
 
-![progress bar in animation](./assets/image-slider.gif)  
+![Image Slider bar in animation](./assets/image-slider.gif)  
 
 ## Applies to
 
@@ -40,7 +40,7 @@ This component library features a customizable image slider which can be used to
 
 Solution|Author(s)
 --------|---------
-Progress Bars | [Sagar Vishwakarma](https://github.com/sagar7046) 
+Image Slider | [Sagar Vishwakarma](https://github.com/sagar7046) 
 
 ## Version history
 
