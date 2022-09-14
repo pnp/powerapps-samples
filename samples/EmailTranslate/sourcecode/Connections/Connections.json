@@ -1,0 +1,63 @@
+{
+  "2b7f2924-83ef-4b6b-bbb3-f0b987cb7699": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Outlook",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1591/1.0.1591.2961/office365/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Outlook"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "2b7f2924-83ef-4b6b-bbb3-f0b987cb7699"
+  },
+  "47ef5d22-b3c6-45e5-8b0c-2fa10f27db57": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Users",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1593/1.0.1593.2980/office365users/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365users",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Users"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "47ef5d22-b3c6-45e5-8b0c-2fa10f27db57"
+  },
+  "74fb9752-4fba-42ff-aa82-ff8486392597": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Microsoft Translator",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1445/1.0.1445.2347/microsofttranslator/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_microsofttranslator",
+      "parameterHints": {},
+      "parameterHintsV2": {},
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_microsofttranslator/connections/1060b5ca861c49b9bd6c9ba41a4a310f"
+    },
+    "datasets": {},
+    "dataSources": [
+      "MicrosoftTranslator"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "74fb9752-4fba-42ff-aa82-ff8486392597"
+  }
+}

@@ -1,0 +1,40 @@
+SampleScreen As screen:
+
+    ImageSlider_1 As ImageSlider:
+        ActionButtonColor: =RGBA(39, 67, 125, 1)
+        Height: =640
+        Images: =colImages
+        Width: =1136
+
+    Button2 As button:
+        Height: =70
+        OnSelect: |-
+            =ClearCollect(
+                colImages,
+                {
+                    ID:1,
+                    Image:"https://images.pexels.com/photos/11495942/pexels-photo-11495942.jpeg?cs=tinysrgb&w=1260&h=750&dpr=1",
+                    AltText:"monk"
+                },
+                {
+                    ID:2,
+                    Image:"https://images.pexels.com/photos/11166329/pexels-photo-11166329.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                    AltText:""
+                },
+                {
+                    ID:3,
+                    Image:"https://images.pexels.com/photos/2158014/pexels-photo-2158014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                    AltText:""
+                },
+                {
+                    ID:4,
+                    Image:"https://images.pexels.com/photos/2164378/pexels-photo-2164378.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                    AltText:""
+                }
+            )
+        Size: =24
+        Text: ="Button"
+        Visible: =false
+        Width: =280
+        ZIndex: =2
+

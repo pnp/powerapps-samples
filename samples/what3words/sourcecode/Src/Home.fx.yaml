@@ -1,0 +1,33 @@
+Home As screen:
+    Fill: =RGBA(230, 230, 230, 1)
+
+    Image2 As image:
+        Height: =337
+        Image: =what3words
+        Width: =472
+        X: =84
+        Y: =27
+        ZIndex: =3
+
+    Button1 As button:
+        Fill: =RGBA(184, 0, 0, 1)
+        Height: =70
+        OnSelect: =Navigate(ToLatLon)
+        Size: =24
+        Text: ="Convert To Lat Long"
+        Width: =357
+        X: =141
+        Y: =711
+        ZIndex: =4
+
+    Button1_1 As button:
+        Fill: =RGBA(184, 0, 0, 1)
+        Height: =70
+        OnSelect: =Navigate(ToWords)
+        Size: =24
+        Text: ="Convert To Words"
+        Width: =357
+        X: =141
+        Y: =581
+        ZIndex: =5
+

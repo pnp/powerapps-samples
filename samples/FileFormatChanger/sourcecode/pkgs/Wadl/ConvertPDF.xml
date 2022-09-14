@@ -1,0 +1,49 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://europe-002.azure-apim.net/apim/logicflows" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="ConvertPDF" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="ConvertPDF" />
+  <grammars>
+    <jsonTypes targetNamespace="https://europe-002.azure-apim.net/apim/logicflows" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="ManualTriggerInput_Findfilesinfolderbypath_SearchQuery_def" />
+      <string name="ManualTriggerInput_Findfilesinfolderbypath_FolderPath_def" />
+      <string name="ManualTriggerInput_ConverttoPDF_PDFFilename_def" />
+      <object name="ManualTriggerInput">
+        <property name="Findfilesinfolderbypath_SearchQuery" type="string" />
+        <property name="Findfilesinfolderbypath_FolderPath" type="string" />
+        <property name="ConverttoPDF_PDFFilename" type="string" />
+      </object>
+      <string name="ResponseActionOutput_response_def" />
+      <object name="ResponseActionOutput">
+        <property name="response" type="string" />
+      </object>
+      <object name="Run_responses_default_def" />
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://europe-002.azure-apim.net/apim/logicflows">
+    <resource path="/{connectionId}/triggers/manual/run">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="Run">
+        <doc title="Runs a logic flow trigger." />
+        <request>
+          <param style="query" name="api-version" type="xs:string" required="true" fixed="2015-02-01-preview">
+            <doc title="The api version" />
+          </param>
+          <representation mediaType="application/json">
+            <param style="plain" name="Findfilesinfolderbypath_SearchQuery" path="/Findfilesinfolderbypath_SearchQuery" type="xs:string" required="true" />
+            <param style="plain" name="Findfilesinfolderbypath_FolderPath" path="/Findfilesinfolderbypath_FolderPath" type="xs:string" required="true" />
+            <param style="plain" name="ConverttoPDF_PDFFilename" path="/ConverttoPDF_PDFFilename" type="xs:string" required="true" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:ResponseActionOutput" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="logicflows" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>
