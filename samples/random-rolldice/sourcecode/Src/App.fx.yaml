@@ -1,0 +1,46 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =Set(
+            Global,
+            {
+                TrackSize: 50,
+                DiceColor: "#e81123",
+                Speed: "500"
+            }
+        );
+        Set(
+            Player1,
+            {
+                PlayerId: 1,
+                PlayerName: "Player 1",
+                PlayerIcon: "🐇",
+                Type: "Human",
+                GamesWon: 0,
+                StartPlay: true,
+                Color: "#e81123"
+            }
+        );
+        Set(
+            Player2,
+            {
+                PlayerId: 2,
+                PlayerName: "Player 2",
+                PlayerIcon: "🐢",
+                Type: "Human",
+                GamesWon: 0,
+                StartPlay: false,
+                Color: "#e81123"
+            }
+        );
+        Set(
+            Game,
+            {
+                Player1position: Global.TrackSize,
+                Player1Play: true,
+                Player2position: Global.TrackSize,
+                Player2Play: false
+            }
+        );
+    StartScreen: =
+

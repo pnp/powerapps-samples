@@ -1,0 +1,106 @@
+"'Dark - Button' As CanvasComponent":
+    BorderRadius: =25
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =640
+    IconColorActive: |-
+        ="#1E56C8"
+    IconColour: |-
+        ="#BDBDBD"
+    IconName: ="calendar"
+    IsSelected: =true
+    LinealGradient: =false
+    LinealGradientColor1: |-
+        ="#2c3e50"
+    LinealGradientColor2: |-
+        ="#3498db"
+    OnSelect: =
+    Width: =640
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    HtmlText1_16 As htmlViewer:
+        Height: =Parent.Height
+        HtmlText: |-
+            ="<div style='margin:15px;width: "& HtmlText1_16.Width - 30 &"px;height: "& HtmlText1_16.Height -31  &"px; 
+                    background: linear-gradient(135deg, rgba(60,60,68,1) 0%, rgba(70,70,78,1) 100%);
+            
+            
+            box-shadow: 
+               "& If('Dark - Button'.IsSelected,"inset 3px 3px 3px 0px #1e2126, inset -3px -3px 3px 0px rgba(80,80,90,1)",  " -2px -2px 4px 0px rgba(80,80,90,1), 2px 2px 4px 0px #1e2126" ) &"  ;
+            
+            
+            
+                
+                 border-radius:"& 'Dark - Button'.BorderRadius &"px'></div>"
+        PaddingBottom: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Width: =Parent.Width
+        ZIndex: =1
+
+    Image2_2 As image:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Height: =Button3_1.Height/4*3
+        Image: |-
+            ="data:image/svg+xml;utf8, "&EncodeUrl(" <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' fill='"&If('Dark - Button'.IsSelected ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"' viewBox='0 0 512 512'>
+            
+            "&If('Dark - Button'.LinealGradient= true ,"<defs>  
+             <linearGradient id='gradient' x1='0%' y1='0%' x2='0%' y2='100%'>  
+             <stop offset='0%' style='stop-color: "&'Dark - Button'.LinealGradientColor1&" ;'></stop>  
+             <stop offset='100%' style='stop-color: "&'Dark - Button'.LinealGradientColor2&" ;'></stop>  
+             </linearGradient>  
+            </defs>","")&"
+             
+            <filter id='glow'> 
+              <feGaussianBlur stdDeviation='0.7' result='coloredBlur'/> 
+              <feMerge> 
+              <feMergeNode in='coloredBlur'/> 
+              <feMergeNode in='SourceGraphic'/> 
+              </feMerge> 
+            </filter> 
+            
+            "&Switch('Dark - Button'.IconName,"calendar","<path fill='"&If('Dark - Button'.LinealGradient= true ,""&If('Dark - Button'.IsSelected ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If('Dark - Button'.IsSelected ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"'
+            
+             d='M511.6 36.86l-64 415.1c-1.5 9.734-7.375 18.22-15.97 23.05c-4.844 2.719-10.27 4.097-15.68 4.097c-4.188 0-8.319-.8154-12.29-2.472l-122.6-51.1l-50.86 76.29C226.3 508.5 219.8 512 212.8 512C201.3 512 192 502.7 192 491.2v-96.18c0-7.115 2.372-14.03 6.742-19.64L416 96l-293.7 264.3L19.69 317.5C8.438 312.8 .8125 302.2 .0625 289.1s5.469-23.72 16.06-29.77l448-255.1c10.69-6.109 23.88-5.547 34 1.406S513.5 24.72 511.6 36.86z'/>
+            
+            </svg>")&"
+            
+            ")
+        Width: =Button3_1.Width/5*3
+        X: =('Dark - Button'.Width - Self.Width)/2+5
+        Y: =('Dark - Button'.Height - Self.Height)/2
+        ZIndex: =2
+
+    Button3_1 As button:
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =0
+        FontWeight: =FontWeight.Semibold
+        Height: =HtmlText1_16.Height - 31
+        HoverBorderColor: =Transparent
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =RGBA(196,196,196,0.2)
+        OnSelect: |-
+            =Set(varButtonSelected, !varButtonSelected);
+            'Dark - Button'.OnSelect(); 
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        PressedFill: =RGBA(196,196,196,0.4)
+        RadiusBottomLeft: =15
+        RadiusBottomRight: =15
+        RadiusTopLeft: =15
+        RadiusTopRight: =15
+        Size: =15
+        Text: =""
+        Width: =HtmlText1_16.Width - 30
+        X: =20
+        Y: =15
+        ZIndex: =3
+

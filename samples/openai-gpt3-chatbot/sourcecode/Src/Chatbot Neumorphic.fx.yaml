@@ -1,0 +1,375 @@
+"'Chatbot Neumorphic' As screen":
+    Fill: =RGBA(43, 46, 51, 1)
+    LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
+    OnVisible: |-
+        =//blue orange
+        //Set(varSelectedTheme, {LinealGradient1: "#0094ff", LinealGradient2: "#ff6a00"});
+        
+        //pink orange
+        Set(varSelectedTheme, {LinealGradient1: "#ee0979", LinealGradient2: "#ff6a00"}); 
+        
+        //Reset the chat
+        ClearCollect(colConversation,
+            {ID:0, Text:drp_n_SelectChatbot.Selected.FirstMessage, User: false, Time: Now()});
+
+    lbl_n_Chat As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(197, 203, 207, 1)
+        Color: =RGBA(189, 189, 189, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =Bold
+        Height: =86
+        Size: =22
+        Text: ="Chat with "&drp_n_SelectChatbot.Selected.Name
+        Width: =768
+        Y: =6
+        ZIndex: =1
+
+    gal_n_ChatBubble As gallery.variableTemplateHeightGallery:
+        BorderColor: =RGBA(197, 203, 207, 1)
+        FocusedBorderThickness: =0
+        Height: =1260-txt_Neumorphic.Height
+        Items: =colConversation
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplateSize: =280
+        Width: =768
+        Y: =90
+        ZIndex: =2
+
+        grp_n_bubbleBot As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =6
+
+            img_n_bubbleHandleBot As image:
+                BorderColor: =RGBA(197, 203, 207, 1)
+                BorderStyle: =BorderStyle.None
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Height: =20
+                Image: |-
+                    ="data:image/svg+xml;utf8, " & EncodeUrl(
+                        "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.2' viewBox='0 0 100 100' >"
+                    
+                    
+                    //triangle
+                    &"<path d='M0 0 100 0 100 100Z' fill='"&varSelectedTheme.LinealGradient2&"'/>"
+                    
+                    
+                    
+                    &"</svg>"
+                    )
+                OnSelect: =Select(Parent)
+                Visible: =!ThisItem.User
+                Width: =20
+                X: =5
+                Y: =20
+                ZIndex: =1
+
+            html_n_Bot As htmlViewer:
+                AutoHeight: =true
+                Height: =195
+                HtmlText: |-
+                    ="
+                    <div 
+                        style='
+                            display: inline-block;
+                            position: relative;
+                            margin: 5px;
+                            background: linear-gradient(135deg, rgba(60,60,68,1) 0%, rgba(70,70,78,1) 100%);"
+                            &"box-shadow: inset 3px 3px 3px 0px "&varSelectedTheme.LinealGradient2&", inset -3px -3px 3px 0px rgba(80,80,90,1);"
+                            //&"box-shadow: inset 3px 3px 3px 0px #1e2126, inset -3px -3px 3px 0px rgba(80,80,90,1);"
+                            &"border-radius:15px;
+                            padding: 20px;
+                            text-align: left;
+                            font-size: 25px;
+                            color: rgba(189, 189, 189, 1)'>
+                            
+                            "&Substitute(ThisItem.Text, "\n", "<br>")&"
+                    
+                            <div 
+                                style='
+                                    text-align: right;
+                                    color: "&varSelectedTheme.LinealGradient2&";
+                                    font-size:16px;
+                                    padding-top: 10px;'>
+                                "&Text(ThisItem.Time, "hh:mm")&"</div>
+                    
+                            </div>"
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Visible: =!ThisItem.User
+                Width: =514
+                X: =20
+                ZIndex: =2
+
+        grp_n_bubbleUser As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =6
+
+            img_n_bubbleHandleUser As image:
+                BorderColor: =RGBA(197, 203, 207, 1)
+                BorderStyle: =BorderStyle.None
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Height: =20
+                Image: |-
+                    ="data:image/svg+xml;utf8, " & EncodeUrl(
+                        "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.2' viewBox='0 0 100 100' >"
+                    
+                    
+                    //triangle
+                    &"<path d='M0 0 100 0 0 100Z' fill='"&varSelectedTheme.LinealGradient1&"'/>"
+                    
+                    
+                    
+                    &"</svg>"
+                    )
+                OnSelect: =Select(Parent)
+                Visible: =ThisItem.User
+                Width: =20
+                X: =726
+                Y: =20
+                ZIndex: =3
+
+            html_n_User As htmlViewer:
+                AutoHeight: =true
+                Height: =195
+                HtmlText: |-
+                    ="<div 
+                        style='
+                            display: inline-block;
+                            position: relative;
+                            float:right;
+                            margin: 5px;
+                            background: linear-gradient(135deg, rgba(60,60,68,1) 0%, rgba(70,70,78,1) 100%);"
+                            &"box-shadow: inset 3px -3px 3px 0px rgba(80,80,90,1), inset -3px 3px 3px 0px "&varSelectedTheme.LinealGradient1&";"
+                            //&"box-shadow: inset 3px 3px 3px 0px #1e2126, inset -3px -3px 3px 0px rgba(80,80,90,1);"
+                            &"border-radius:15px;
+                            padding: 20px;
+                            text-align: left;
+                            font-size: 25px;
+                            color: rgba(189, 189, 189, 1)'>
+                            
+                            "&ThisItem.Text&"
+                    
+                            <div 
+                                style='
+                                    text-align: right;
+                                    color: "&varSelectedTheme.LinealGradient1&";
+                                    font-size:16px;
+                                    padding-top: 10px;'>
+                                "&Text(ThisItem.Time, "hh:mm")&"</div>
+                    
+                            </div>"
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Visible: =ThisItem.User
+                Width: =514
+                X: =217
+                ZIndex: =4
+
+    lbl_n_TextHeight As label:
+        AutoHeight: =true
+        BorderColor: =RGBA(197, 203, 207, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.'Segoe UI'
+        Height: =61
+        Size: =22
+        Text: =txt_Neumorphic.Text
+        Width: =txt_Neumorphic.Width-50
+        X: =25
+        Y: =1264
+        ZIndex: =3
+
+    drp_n_SelectChatbot As dropdown:
+        BorderColor: =RGBA(197, 203, 207, 1)
+        ChevronBackground: =RGBA(100, 118, 132, 1)
+        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+        ChevronHoverBackground: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Default: ="GPT-3"
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FontWeight: =Bold
+        Height: =43
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =RGBA(62, 74, 83, 1)
+        Items: =colChatbots
+        OnChange: =Select(btn_Reset)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(197, 203, 207, 1)
+        SelectionFill: =RGBA(100, 118, 132, 1)
+        Size: =16
+        Visible: =false
+        Width: =256
+        X: =343
+        Y: =25
+        ZIndex: =4
+
+    "txt_Neumorphic As 'Dark - Text input'":
+        ActiveLinealGradient1: =varSelectedTheme.LinealGradient1
+        ActiveLinealGradient2: =varSelectedTheme.LinealGradient2
+        FontSize: =22
+        Height: =Min(Max(lbl_n_TextHeight.Height+50, 132),203)
+        HintText: ="✎ Reply to GPT-3"
+        Mode: =TextMode.MultiLine
+        Width: =655
+        Y: ='Chatbot Neumorphic'.Height-Self.Height
+        ZIndex: =5
+
+    "btn_Send As 'Dark - Button'":
+        BorderRadius: =15
+        Height: =txt_Neumorphic.Height-2
+        IsSelected: =Len(txt_Neumorphic.Text)>0
+        LinealGradient: =true
+        LinealGradientColor1: =varSelectedTheme.LinealGradient1
+        LinealGradientColor2: =varSelectedTheme.LinealGradient2
+        OnSelect: |-
+            =Set(varWaiting, true);
+            
+            Collect(
+                colConversation,
+                {
+                    ID: CountRows(colConversation),
+                    User: true,
+                    Time: Now(),
+                    Text: txt_Neumorphic.Text
+                }
+            );
+            Reset(txt_Neumorphic);
+            With(
+                {
+                    Chatbot: drp_n_SelectChatbot.Selected,
+                    Presets: drp_n_SelectChatbot.Selected.Presets
+                },
+                Set(
+                    varPrompt,
+                    Chatbot.WarmUp & " " & Concat(
+                        Filter(
+                            colConversation,
+                            ID > 0
+                        ),
+                        If(
+                            User,
+                            " \n You:",
+                            !User,
+                            " \n " & Chatbot.Name & ":"
+                        ) & " " & Text
+                    ) & " \n " & Chatbot.Name & ": "
+                );
+                Set(
+                    varReply,
+                    'OpenAI(IndependentPublisher)'.Completion(
+                        "text-davinci-002",
+                        varPrompt,
+                        {
+                            temperature: Presets.Temperature,
+                            max_tokens: Presets.max_tokens,
+                            top_p: Presets.top_p,
+                            frequency_penalty: Presets.frequency_penalty,
+                            stop: ["You:"]
+                        }
+                    )
+                );
+                Collect(
+                    colConversation,
+                    {
+                        ID: CountRows(colConversation),
+                        User: false,
+                        Time: Now(),
+                        Text: Substitute(First(varReply.choices).text, Chatbot.Name&": ", "")
+                    }
+                )
+            );
+            
+            Set(varWaiting, false);
+        Width: =128
+        X: =636
+        Y: |
+            =txt_Neumorphic.Y+2
+        ZIndex: =6
+
+    img_LoadingBot As image:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Height: =75
+        Image: |-
+            ="data:image/svg+xml;utf8, "&EncodeUrl(" <svg xmlns='http://www.w3.org/2000/svg' width='640' height='512' fill='"&If(varWaiting ,"#1E56C8","#BDBDBD")&"' viewBox='0 -100 640 640'>
+            
+            <defs>  
+             <linearGradient id='gradient' x1='0%' y1='0%' x2='0%' y2='100%'>  
+             <stop offset='0%' style='stop-color: "&varSelectedTheme.LinealGradient1&" ;'></stop>  
+             <stop offset='100%' style='stop-color: "&varSelectedTheme.LinealGradient2&" ;'></stop>  
+             </linearGradient>  
+            </defs>
+             
+            <filter id='glow'> 
+              <feGaussianBlur stdDeviation='0.7' result='coloredBlur'/> 
+              <feMerge> 
+              <feMergeNode in='coloredBlur'/> 
+              <feMergeNode in='SourceGraphic'/> 
+              </feMerge> 
+            </filter> 
+            
+            <path fill='"&If(varWaiting , "url(#gradient)", "#BDBDBD")&"'
+            
+             d='M9.375 233.4C3.375 239.4 0 247.5 0 256v128c0 8.5 3.375 16.62 9.375 22.62S23.5 416 32 416h32V224H32C23.5 224 15.38 227.4 9.375 233.4z
+             M464 96H352V32c0-17.62-14.38-32-32-32S288 14.38 288 32v64H176C131.8 96 96 131.8 96 176V448c0 35.38 28.62 64 64 64h320c35.38 0 64-28.62 64-64V176C544 131.8 508.3 96 464 96z
+             M416 296c-22.12 0-40-17.88-40-40S393.9 216 416 216S456 233.9 456 256S438.1 296 416 296z
+             M630.6 233.4C624.6 227.4 616.5 224 608 224h-32v192h32c8.5 0 16.62-3.375 22.62-9.375S640 392.5 640 384V256C640 247.5 636.6 239.4 630.6 233.4z"
+             &"M256 416H192v-32h64V416zM448 416h-64v-32h64V416z"
+             &"'/>"
+            
+            &"<line x1='192' x2='448' stroke-width='32' stroke='rgba(43, 46, 51, 1)' y1='416' y2='416' />"
+            
+            &"<circle cx='224' r='40' cy='256' fill='rgba(43, 46, 51, 1)'>"
+                &If(varWaiting, "<animate attributeName='r'
+                    values='20;60;20'
+                    dur='1s'
+                    repeatCount='indefinite' />")
+            &"</circle>"
+            
+            
+            &"<circle cx='416' r='40' cy='256' fill='rgba(43, 46, 51, 1)' >"
+                &If(varWaiting, "<animate attributeName='r'
+                    values='20;60;20'
+                    dur='1s'
+                    repeatCount='indefinite'
+                    begin='-0.5s' />")
+            &"</circle>"
+            
+            
+            &"</svg>")
+        Width: =120
+        ZIndex: =7
+
+    "btn_Reset As 'Dark - Reset'":
+        BorderRadius: =15
+        Height: =90
+        LinealGradient: =true
+        LinealGradientColor1: =varSelectedTheme.LinealGradient1
+        LinealGradientColor2: =varSelectedTheme.LinealGradient2
+        OnSelect: |-
+            =ClearCollect(colConversation,
+                {ID:0, Text:drp_n_SelectChatbot.Selected.FirstMessage, User: false, Time: Now()});
+        Width: =90
+        X: =662
+        Y: =2
+        ZIndex: =8
+

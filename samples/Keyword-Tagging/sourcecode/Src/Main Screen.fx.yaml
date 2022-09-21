@@ -1,0 +1,450 @@
+"'Main Screen' As screen":
+    OnVisible: =ClearCollect(Tags,TagList)
+
+    "galSuggestedTags As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+        Height: =90
+        Items: =Filter(Tags, Category = dropCategory.Selected.Value Or Category = "All")
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =28
+        Width: =572
+        WrapCount: =5
+        X: =704
+        Y: =524
+        ZIndex: =1
+
+        btnTag As button:
+            Color: =RGBA(50, 86, 160, 1)
+            Fill: =RGBA(175, 191, 224, 1)
+            Font: =Font.'Lato Light'
+            Height: =22
+            OnSelect: =Collect(SelectedTags,ThisItem)
+            RadiusBottomLeft: =50
+            RadiusBottomRight: =50
+            RadiusTopLeft: =50
+            RadiusTopRight: =50
+            Size: =10
+            Text: =ThisItem.Title
+            Visible: =If(ThisItem.Title exactin SelectedTags.Title, false, true)
+            Width: =113
+            Y: =4
+            ZIndex: =4
+
+    "galNotes As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+        Height: =651
+        Items: =Notes
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =151
+        Width: =495
+        Y: =117
+        ZIndex: =2
+
+        Title3 As label:
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Title
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =39
+            ZIndex: =1
+
+        NextArrow3 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =60
+            Icon: =Icon.ChevronRight
+            OnSelect: |
+                =Clear(SelectedTags);
+                UpdateContext({ctxFormMode:"Edit"});
+                Set(
+                    varCurItem,
+                    ThisItem
+                );
+                // Split up string and build collection
+                ForAll(
+                    Split(
+                        varCurItem.Tag,
+                        ", "
+                    ),
+                    Patch(
+                        SelectedTags,
+                        Defaults(SelectedTags),
+                        {Title: ThisRecord.Result}
+                    )
+                );
+                // Removes the last comma to avoid a blank tag
+                Remove(
+                    SelectedTags,
+                    Last(SelectedTags)
+                );
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="View item details"
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =2
+
+        Separator3 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =3
+
+        Title3_1 As label:
+            AutoHeight: =true
+            Height: =71
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =12
+            Text: =ThisItem.Tag
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =39
+            Y: =64
+            ZIndex: =4
+
+        Title3_2 As label:
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =12
+            Text: =ThisItem.Category
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =40
+            Y: =40
+            ZIndex: =5
+
+    txtTitle As text:
+        BorderThickness: =1
+        Default: =varCurItem.Title
+        Font: =Font.Lato
+        Width: =457
+        X: =819
+        Y: =72
+        ZIndex: =3
+
+    rteNotes As richTextEditor:
+        BorderColor: =RGBA(136, 160, 209, 1)
+        Default: =varCurItem.Note
+        Height: =261
+        Width: =572
+        X: =704
+        Y: =162
+        ZIndex: =4
+
+    icoSeparator As rectangle:
+        Height: =2
+        Width: =572
+        X: =704
+        Y: =487
+        ZIndex: =5
+
+    lblSuggestedTags As label:
+        Font: =Font.'Lato Light'
+        Height: =30
+        Text: ="Suggested Tags"
+        X: =704
+        Y: =494
+        ZIndex: =6
+
+    "galSelectedTags As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+        Height: =63
+        Items: =SelectedTags
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =28
+        Width: =572
+        WrapCount: =5
+        X: =704
+        Y: =423
+        ZIndex: =7
+
+        btnTagSelected As button:
+            Color: =RGBA(50, 86, 160, 1)
+            DisplayMode: =DisplayMode.View
+            Fill: =RGBA(175, 191, 224, 1)
+            Font: =Font.'Lato Light'
+            Height: =22
+            OnSelect: =Remove(SelectedTags,ThisItem)
+            RadiusBottomLeft: =50
+            RadiusBottomRight: =50
+            RadiusTopLeft: =50
+            RadiusTopRight: =50
+            Size: =10
+            Text: =ThisItem.Title
+            Width: =113
+            Y: =4
+            ZIndex: =4
+
+        icoRemove As icon.Blocked:
+            BorderColor: =RGBA(50, 86, 160, 1)
+            Color: =RGBA(50, 86, 160, 1)
+            DisabledColor: =RGBA(50, 86, 160, 1)
+            Height: =22
+            HoverColor: =RGBA(50, 86, 160, 1)
+            Icon: =Icon.Blocked
+            OnSelect: =Remove(SelectedTags,ThisItem)
+            PaddingBottom: =5
+            PaddingLeft: =10
+            PaddingRight: =5
+            PaddingTop: =5
+            PressedBorderColor: =RGBA(50, 86, 160, 1)
+            PressedColor: =RGBA(50, 86, 160, 1)
+            Width: =29
+            X: =83
+            Y: =4
+            ZIndex: =5
+
+    txtNewTag As text:
+        BorderColor: =RGBA(50, 86, 160, 1)
+        Color: =RGBA(50, 86, 160, 1)
+        Default: =""
+        DelayOutput: =true
+        Height: =25
+        HintText: ="Create new"
+        HoverBorderColor: =RGBA(50, 86, 160, 1)
+        MaxLength: =10
+        OnChange: |-
+            =UpdateContext({ShowDupError: false});
+        PaddingLeft: =5
+        Size: =10
+        Tooltip: ="Max 10 Characters"
+        Width: =150
+        X: =710
+        Y: =622
+        ZIndex: =8
+
+    icoNewTag As icon.Add:
+        Height: =25
+        Icon: =Icon.Add
+        OnSelect: |-
+            =If(
+                txtNewTag.Text exactin Tags.Title,
+                UpdateContext({ShowDupError: true}),
+                Patch(
+                    SelectedTags,
+                    Defaults(SelectedTags),
+                    {Title: txtNewTag.Text}
+                );
+                Patch(
+                    Tags,
+                    Defaults(Tags),
+                    {Title: txtNewTag.Text}
+                );
+                Collect(
+                    NewTags,
+                    {
+                        Value: txtNewTag.Text,
+                        NewCategory: dropCategory.Selected.Value
+                    }
+                );
+                Reset(txtNewTag);
+                UpdateContext({ShowDupError: false});
+                
+            )
+        PaddingBottom: =3
+        PaddingLeft: =3
+        PaddingRight: =3
+        PaddingTop: =3
+        Width: =24
+        X: =836
+        Y: =622
+        ZIndex: =9
+
+    btnSubmit As button:
+        OnSelect: |
+            =If(
+                ctxFormMode = "New",
+                Patch(
+                    Notes,
+                    Defaults(Notes),
+                    {
+                        Title: txtTitle.Text,
+                        Note: rteNotes.HtmlText,
+                        Category: dropCategory.Selected.Value,
+                        // Turn Collection of Titles into a String to Store in Data Source
+                        Tag: Concat(
+                            SelectedTags,
+                            Title & ", "
+                        )
+                    }
+                ),
+                Patch(
+                    Notes,
+                    LookUp(
+                        Notes,
+                        ID = varCurItem.ID
+                    ),
+                    {
+                        Title: txtTitle.Text,
+                        Note: rteNotes.HtmlText,
+                        Category: dropCategory.Selected.Value,
+                        // Turn Collection of Titles into a String to Store in Data Source
+                        Tag: Concat(
+                            SelectedTags,
+                            Title & ", "
+                        )
+                    }
+                )
+            );
+            // Execute if new tags have been created
+            If(
+                CountRows(NewTags) <> 0,
+                ForAll(
+                    NewTags,
+                    Patch(
+                        TagList,
+                        Defaults(TagList),
+                        {Title: Value}
+                    )
+                ),
+            // Update Tags Collection from Data Source
+                ClearCollect(
+                    Tags,
+                    TagList
+                )
+            );
+            Clear(SelectedTags);
+            Clear(NewTags);
+            Set(
+                varCurItem,
+                Blank()
+            );
+            UpdateContext(
+                {
+                    ShowDupError: false,
+                    ctxFormMode: Blank()
+                }
+            );
+            Reset(rteNotes);
+            Reset(txtTitle);
+            Reset(dropCategory);
+            Reset(txtNewTag);
+        Text: ="Submit"
+        Width: =137
+        X: =854
+        Y: =685
+        ZIndex: =10
+
+    btnCancel As button:
+        Color: =RGBA(136, 160, 209, 1)
+        Fill: =RGBA(215, 223, 240, 1)
+        OnSelect: |
+            =Set(
+                varCurItem,
+                Blank()
+            );
+            UpdateContext(
+                {
+                    ShowDupError: false,
+                    ctxFormMode: Blank()
+                }
+            );
+            Clear(SelectedTags);
+            Clear(NewTags);
+            Reset(rteNotes);
+            Reset(txtTitle);
+            Reset(dropCategory);
+            Reset(txtNewTag);
+        Text: ="Cancel"
+        Width: =137
+        X: =704
+        Y: =685
+        ZIndex: =11
+
+    lblFormTitle As label:
+        Color: =RGBA(50, 86, 160, 1)
+        Font: =Font.'Lato Black'
+        Text: |-
+            ="Title:"
+        Width: =115
+        X: =704
+        Y: =72
+        ZIndex: =12
+
+    lblFormCategory As label:
+        Color: =RGBA(50, 86, 160, 1)
+        Font: =Font.'Lato Black'
+        Text: |-
+            ="Category:"
+        Width: =115
+        X: =704
+        Y: =117
+        ZIndex: =13
+
+    dropCategory As dropdown:
+        BorderThickness: =1
+        Default: =varCurItem.Category
+        Items: =["All","Power Apps", "Power Automate", "Power BI", "Power Virtual Agents"]
+        Width: =457
+        X: =819
+        Y: =117
+        ZIndex: =14
+
+    lblDuplicateTagWarn As label:
+        Color: =RGBA(168, 0, 0, 1)
+        Font: =Font.Lato
+        Height: =25
+        Size: =10
+        Text: ="Tag Already Exists!"
+        Visible: =ShowDupError
+        X: =710
+        Y: =647
+        ZIndex: =15
+
+    lblNotesGallery As label:
+        Color: =RGBA(0, 134, 208, 1)
+        FontWeight: =FontWeight.Semibold
+        Text: ="Notes Data Source"
+        Width: =495
+        Y: =72
+        ZIndex: =16
+
+    btnNewNote As button:
+        OnSelect: |
+            =UpdateContext({ctxFormMode: "New"});
+            Set(
+                varCurItem,
+                Blank()
+            );
+            Reset(rteNotes);
+            Reset(txtTitle);
+            Reset(dropCategory);
+            Reset(txtNewTag);
+        Text: ="New Note"
+        Width: =218
+        X: =99
+        ZIndex: =18
+
+    Rectangle1 As rectangle:
+        Height: =728
+        Width: =4
+        X: =583
+        Y: =22
+        ZIndex: =19
+
+    lblNotesGallery_1 As label:
+        Align: =Align.Center
+        Color: =RGBA(0, 134, 208, 1)
+        FontWeight: =FontWeight.Semibold
+        Text: ="Left Side of Screen is for Testing Purposes Only"
+        Width: =495
+        Y: =40
+        ZIndex: =20
+

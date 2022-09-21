@@ -1,0 +1,124 @@
+Screen1 As screen:
+    Fill: =RGBA(241, 244, 249, 1)
+
+    Rectangle1 As rectangle:
+        Width: =640
+        Y: =52
+        ZIndex: =1
+
+    title As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.'Dancing Script'
+        FontWeight: =FontWeight.Bold
+        Height: =102
+        Size: =40
+        Text: ="Weather"
+        Width: =640
+        Y: =45
+        ZIndex: =2
+
+    latitudeInput As text:
+        Default: =""
+        Height: =56
+        HintText: |-
+            ="Ex: 36.169941"
+        Size: =21
+        Width: =421
+        X: =187
+        Y: =293
+        ZIndex: =3
+
+    longitudeInput As text:
+        Default: =""
+        Height: =56
+        HintText: |-
+            ="Ex: -115.139832"
+        Size: =21
+        Width: =421
+        X: =187
+        Y: =369
+        ZIndex: =4
+
+    unitInput As dropdown:
+        Height: =56
+        Items: =["metric", "imperial"] 
+        Size: =21
+        Width: =421
+        X: =187
+        Y: =443
+        ZIndex: =5
+
+    searchButton As button:
+        Height: =70
+        OnSelect: |-
+            =Set(flowResult, getMainForecast.Run(latitudeInput.Text, longitudeInput.Text));
+            
+            UpdateContext(
+                {
+                    WeatherForecast: OpenWeatherConnector.GetOpenWeather(
+                        latitudeInput.Text,
+                        longitudeInput.Text,
+                        unitInput.SelectedText
+                    )
+                }
+            )
+        Size: =24
+        Text: ="Search"
+        Width: =280
+        X: =172
+        Y: =583
+        ZIndex: =6
+
+    latitudeLabel As label:
+        Height: =56
+        Size: =21
+        Text: |-
+            ="Latitude:"
+        Width: =155
+        X: =32
+        Y: =293
+        ZIndex: =7
+
+    longitudeLabel As label:
+        Height: =56
+        Size: =21
+        Text: |-
+            ="Longitude:"
+        Width: =155
+        X: =32
+        Y: =369
+        ZIndex: =8
+
+    unitLabel As label:
+        Height: =56
+        Size: =21
+        Text: |-
+            ="Unit:"
+        Width: =155
+        X: =32
+        Y: =443
+        ZIndex: =9
+
+    Label3_1 As label:
+        FontWeight: =FontWeight.Semibold
+        Height: =70
+        Size: =25
+        Text: |-
+            ="Temperature (Kelvin): " & WeatherForecast.main.temp
+        Width: =560
+        X: =32
+        Y: =711
+        ZIndex: =10
+
+    Label3_2 As label:
+        FontWeight: =FontWeight.Semibold
+        Height: =70
+        Size: =25
+        Text: |-
+            ="Humidity: " & WeatherForecast.main.humidity &"%"
+        Width: =560
+        X: =32
+        Y: =781
+        ZIndex: =11
+

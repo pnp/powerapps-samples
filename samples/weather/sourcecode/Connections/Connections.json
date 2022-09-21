@@ -1,0 +1,23 @@
+{
+  "5c2923e9-9d0b-4bfb-b702-3c57325e22d5": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "OpenWeather Connector",
+      "iconUri": "https://prodapiicons.cdn.powerappscdn.net/20220722t000000zfc86ff962db84a88a4ef774443258947/customconnectoricon.jpg",
+      "id": "/providers/microsoft.powerapps/apis/shared_openweather-20connector-5f0f321de3082a67e9-5fe1fd9d61a58e062d",
+      "isCustomApiConnection": true,
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "OpenWeatherConnector"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "5c2923e9-9d0b-4bfb-b702-3c57325e22d5"
+  }
+}

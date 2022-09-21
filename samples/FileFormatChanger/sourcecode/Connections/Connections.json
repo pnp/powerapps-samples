@@ -1,0 +1,125 @@
+{
+  "554294b5-78a4-4746-b6e5-e970f989004a": {
+    "connectionParameters": {},
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1534/1.0.1534.2605/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "ed28cb61-f945-4630-9d16-a029e653f189": {
+          "value": "shared_onedriveforbusiness"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "803800fa-4ce2-4c82-9707-b8bfde75b100"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_onedriveforbusiness": {
+          "value": "ed28cb61-f945-4630-9d16-a029e653f189"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "803800fa-4ce2-4c82-9707-b8bfde75b100"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "GetAllFilesFromFolder"
+    ],
+    "dependencies": {
+      "shared_onedriveforbusiness": "ed28cb61-f945-4630-9d16-a029e653f189"
+    },
+    "dependents": [],
+    "id": "554294b5-78a4-4746-b6e5-e970f989004a"
+  },
+  "9ccc9708-0a37-4259-bad0-9d2bf0d01e03": {
+    "connectionParameters": {},
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1534/1.0.1534.2605/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "ed28cb61-f945-4630-9d16-a029e653f189": {
+          "value": "shared_onedriveforbusiness"
+        },
+        "efaf1832-1e93-4080-a430-0fe8bd1e6994": {
+          "value": "shared_encodiandocumentmanager"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "0126fc79-8a37-44e0-8f6e-d5ab629ebb1b"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_encodiandocumentmanager": {
+          "value": "efaf1832-1e93-4080-a430-0fe8bd1e6994"
+        },
+        "shared_onedriveforbusiness": {
+          "value": "ed28cb61-f945-4630-9d16-a029e653f189"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "0126fc79-8a37-44e0-8f6e-d5ab629ebb1b"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "ConvertPDF"
+    ],
+    "dependencies": {
+      "shared_encodiandocumentmanager": "efaf1832-1e93-4080-a430-0fe8bd1e6994",
+      "shared_onedriveforbusiness": "ed28cb61-f945-4630-9d16-a029e653f189"
+    },
+    "dependents": [],
+    "id": "9ccc9708-0a37-4259-bad0-9d2bf0d01e03"
+  },
+  "ed28cb61-f945-4630-9d16-a029e653f189": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "OneDrive for Business",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1546/1.0.1546.2665/onedriveforbusiness/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_onedriveforbusiness",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "9ccc9708-0a37-4259-bad0-9d2bf0d01e03",
+      "554294b5-78a4-4746-b6e5-e970f989004a"
+    ],
+    "id": "ed28cb61-f945-4630-9d16-a029e653f189"
+  },
+  "efaf1832-1e93-4080-a430-0fe8bd1e6994": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Encodian",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1583/1.0.1583.2865/encodiandocumentmanager/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_encodiandocumentmanager",
+      "parameterHints": {},
+      "parameterHintsV2": {},
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_encodiandocumentmanager/connections/f1565c324ffb408e8c3f843a403a8294"
+    },
+    "datasets": {},
+    "dataSources": [
+      "Encodian"
+    ],
+    "dependencies": {},
+    "dependents": [
+      "9ccc9708-0a37-4259-bad0-9d2bf0d01e03"
+    ],
+    "id": "efaf1832-1e93-4080-a430-0fe8bd1e6994"
+  }
+}

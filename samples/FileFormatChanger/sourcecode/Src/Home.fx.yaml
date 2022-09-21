@@ -1,0 +1,104 @@
+Home As screen:
+
+    Rectangle5 As rectangle:
+        Fill: =RGBA(99, 115, 255, 1)
+        Height: =584
+        Width: =640
+        ZIndex: =1
+
+    Root As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =6
+
+        Button2 As button:
+            BorderColor: =RGBA(99, 115, 255, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =230
+            HoverBorderColor: =ColorFade(Self.BorderColor, 1%)
+            PaddingTop: =25
+            RadiusBottomLeft: =15
+            RadiusBottomRight: =15
+            RadiusTopLeft: =15
+            RadiusTopRight: =15
+            Size: =23
+            Text: ="From Root Folder"
+            VerticalAlign: =VerticalAlign.Top
+            Visible: =false
+            Width: =237
+            X: =52
+            Y: =764
+            ZIndex: =3
+
+        Icon1 As icon.Folder:
+            BorderColor: =RGBA(99, 115, 255, 1)
+            Color: =RGBA(99, 115, 255, 1)
+            Height: =79
+            HoverBorderColor: =ColorFade(Self.BorderColor, 1%)
+            Icon: =Icon.Folder
+            Visible: =false
+            Width: =94
+            X: =123
+            Y: =879
+            ZIndex: =5
+
+    Label8 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.'Lato Black'
+        Height: =372
+        Size: =40
+        Text: ="PDF Converter"
+        Width: =560
+        X: =40
+        Y: =116
+        ZIndex: =7
+
+    Selected As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =7
+
+        Button2_1 As button:
+            BorderColor: =RGBA(99, 115, 255, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =230
+            HoverBorderColor: =ColorFade(Self.BorderColor, 1%)
+            OnSelect: =Navigate(SelectedF_screen, ScreenTransition.Cover)
+            PaddingTop: =25
+            RadiusBottomLeft: =15
+            RadiusBottomRight: =15
+            RadiusTopLeft: =15
+            RadiusTopRight: =15
+            Size: =24
+            Text: ="From Selected Folder"
+            VerticalAlign: =VerticalAlign.Top
+            Width: =237
+            X: =201
+            Y: =764
+            ZIndex: =4
+
+        Icon2 As icon.DocumentwithContent:
+            Color: =RGBA(99, 115, 255, 1)
+            Height: =72
+            HoverBorderColor: =ColorFade(Self.BorderColor, 1%)
+            Icon: =Icon.DocumentWithContent
+            OnSelect: =Navigate(SelectedF_screen, ScreenTransition.Cover)
+            Width: =82
+            X: =278
+            Y: =886
+            ZIndex: =6
+
+    Circle1 As circle:
+        Fill: =RGBA(99, 115, 255, 1)
+        Height: =277
+        Width: =640
+        Y: =441
+        ZIndex: =8
+
