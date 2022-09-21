@@ -1,0 +1,83 @@
+"'Dark - Text input' As CanvasComponent":
+    ActiveLinealGradient1: |-
+        ="#2c3e50"
+    ActiveLinealGradient2: |-
+        ="#3498db"
+    Fill: =RGBA(0, 0, 0, 0)
+    FontSize: =12
+    Height: =122
+    HintText: ="✎ Start typing here"
+    IsSelected: =false
+    Mode: =TextMode.SingleLine
+    OnReset: =Reset(TextInput1)
+    Text: =TextInput1.Text
+    Width: =250
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    HtmlText1_7 As htmlViewer:
+        Height: =Parent.Height
+        HtmlText: |-
+            ="<div 
+                style='
+                    margin:15px;
+                    width: "& HtmlText1_7.Width - 30 &"px;
+                    height: "& HtmlText1_7.Height - 31 &"px; 
+                    background: linear-gradient(135deg, rgba(60,60,68,1) 0%, rgba(70,70,78,1) 100%);
+                    box-shadow: inset 3px 3px 3px 0px #1e2126, inset -3px -3px 3px 0px rgba(80,80,90,1);
+                    border-radius:15px'>
+                 
+                 "& If(varIsSelected, "
+                 <div style='
+                    position:absolute;  
+                    transform:translate(3%);
+                    top: 15px;
+                    width: 90%; 
+                    height:5px; 
+                    background: linear-gradient(90deg, "& 'Dark - Text input'.ActiveLinealGradient2 &", "& 'Dark - Text input'.ActiveLinealGradient1 &");
+                    border-radius: 36px' "
+                    //background: linear-gradient(90deg, "& 'Dark - Text input'.ActiveLinealGradient1 &", "& 'Dark - Text input'.ActiveLinealGradient2 &");"
+                    &"box-shadow: "&'Dark - Text input'.ActiveLinealGradient1 &"  0px 2px 2px,
+                        inset -3px -3px 2px "& 'Dark - Text input'.ActiveLinealGradient2 &" ; '" 
+                    &"</div>", "")
+            
+                 &"</div>"
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Width: =Parent.Width
+        ZIndex: =1
+
+    TextInput1 As text:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =0
+        Color: =RGBA(189, 189, 189, 1)
+        Default: =
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =HtmlText1_7.Height - 50
+        HintText: ='Dark - Text input'.HintText
+        HoverBorderColor: =RGBA(0, 18, 107, 1)
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =RGBA(196,196,196,0.3)
+        Mode: ='Dark - Text input'.Mode
+        OnChange: =Set(varIsSelected, false); 
+        OnSelect: =Set(varIsSelected, true); 
+        PaddingLeft: =5
+        RadiusBottomLeft: =10
+        RadiusBottomRight: =10
+        RadiusTopLeft: =10
+        RadiusTopRight: =10
+        Size: ='Dark - Text input'.FontSize
+        Width: =HtmlText1_7.Width - 50
+        X: =25
+        Y: =25
+        ZIndex: =2
+

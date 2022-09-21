@@ -1,0 +1,117 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://europe-002.azure-apim.net/apim/what3wordsip" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="What3Words(IndependentPublisher)" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="What3Words (Independent Publisher)">What3Words divides the world into 3 metre squares and this connector will help you translate from conventional methods like latitude and longitude to their respective words and vice versa.</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://europe-002.azure-apim.net/apim/what3wordsip" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="ConvertToWord_responses_200_def_country_def" />
+      <number name="ConvertToWord_responses_200_def_square_def_southwest_def_lng_def" />
+      <number name="ConvertToWord_responses_200_def_square_def_southwest_def_lat_def" />
+      <object name="ConvertToWord_responses_200_def_square_def_southwest_def">
+        <property name="lng" type="number" />
+        <property name="lat" type="number" />
+      </object>
+      <number name="ConvertToWord_responses_200_def_square_def_northeast_def_lng_def" />
+      <number name="ConvertToWord_responses_200_def_square_def_northeast_def_lat_def" />
+      <object name="ConvertToWord_responses_200_def_square_def_northeast_def">
+        <property name="lng" type="number" />
+        <property name="lat" type="number" />
+      </object>
+      <object name="ConvertToWord_responses_200_def_square_def">
+        <property name="southwest" typeRef="ConvertToWord_responses_200_def_square_def_southwest_def" />
+        <property name="northeast" typeRef="ConvertToWord_responses_200_def_square_def_northeast_def" />
+      </object>
+      <string name="ConvertToWord_responses_200_def_nearestPlace_def" />
+      <number name="ConvertToWord_responses_200_def_coordinates_def_lng_def" />
+      <number name="ConvertToWord_responses_200_def_coordinates_def_lat_def" />
+      <object name="ConvertToWord_responses_200_def_coordinates_def">
+        <property name="lng" type="number" />
+        <property name="lat" type="number" />
+      </object>
+      <string name="ConvertToWord_responses_200_def_words_def" />
+      <string name="ConvertToWord_responses_200_def_language_def" />
+      <string name="ConvertToWord_responses_200_def_map_def" />
+      <object name="ConvertToWord_responses_200_def">
+        <property name="country" type="string" />
+        <property name="square" typeRef="ConvertToWord_responses_200_def_square_def" />
+        <property name="nearestPlace" type="string" />
+        <property name="coordinates" typeRef="ConvertToWord_responses_200_def_coordinates_def" />
+        <property name="words" type="string" />
+        <property name="language" type="string" />
+        <property name="map" type="string" />
+      </object>
+      <string name="ConvertToLatLng_responses_200_def_country_def" />
+      <number name="ConvertToLatLng_responses_200_def_square_def_southwest_def_lng_def" />
+      <number name="ConvertToLatLng_responses_200_def_square_def_southwest_def_lat_def" />
+      <object name="ConvertToLatLng_responses_200_def_square_def_southwest_def">
+        <property name="lng" type="number" />
+        <property name="lat" type="number" />
+      </object>
+      <number name="ConvertToLatLng_responses_200_def_square_def_northeast_def_lng_def" />
+      <number name="ConvertToLatLng_responses_200_def_square_def_northeast_def_lat_def" />
+      <object name="ConvertToLatLng_responses_200_def_square_def_northeast_def">
+        <property name="lng" type="number" />
+        <property name="lat" type="number" />
+      </object>
+      <object name="ConvertToLatLng_responses_200_def_square_def">
+        <property name="southwest" typeRef="ConvertToLatLng_responses_200_def_square_def_southwest_def" />
+        <property name="northeast" typeRef="ConvertToLatLng_responses_200_def_square_def_northeast_def" />
+      </object>
+      <string name="ConvertToLatLng_responses_200_def_nearestPlace_def" />
+      <number name="ConvertToLatLng_responses_200_def_coordinates_def_lng_def" />
+      <number name="ConvertToLatLng_responses_200_def_coordinates_def_lat_def" />
+      <object name="ConvertToLatLng_responses_200_def_coordinates_def">
+        <property name="lng" type="number" />
+        <property name="lat" type="number" />
+      </object>
+      <string name="ConvertToLatLng_responses_200_def_words_def" />
+      <string name="ConvertToLatLng_responses_200_def_language_def" />
+      <string name="ConvertToLatLng_responses_200_def_map_def" />
+      <object name="ConvertToLatLng_responses_200_def">
+        <property name="country" type="string" />
+        <property name="square" typeRef="ConvertToLatLng_responses_200_def_square_def" />
+        <property name="nearestPlace" type="string" />
+        <property name="coordinates" typeRef="ConvertToLatLng_responses_200_def_coordinates_def" />
+        <property name="words" type="string" />
+        <property name="language" type="string" />
+        <property name="map" type="string" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://europe-002.azure-apim.net/apim/what3wordsip">
+    <resource path="/{connectionId}/convert-to-3wa">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="ConvertToWord" actionName="ConvertToWord" siena:isDeprecated="false">
+        <doc title="Convert to Words&#xA;Convert a standard latitude/longitude to words" />
+        <request>
+          <param style="query" name="coordinates" type="xs:string" required="true">
+            <doc title="The input co-ordinates separated by a comma." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:ConvertToWord_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/convert-to-coordinates">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="ConvertToLatLng" actionName="ConvertToLatLng" siena:isDeprecated="false">
+        <doc title="Convert To Lat Long&#xA;Convert What3Words to Lat Long" />
+        <request>
+          <param style="query" name="words" type="xs:string" required="true">
+            <doc title="The words to convert in the correct format xxx.xxx.xxx" />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:ConvertToLatLng_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_what3wordsip" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>

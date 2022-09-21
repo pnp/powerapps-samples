@@ -1,0 +1,170 @@
+ToLatLon As screen:
+    Fill: =RGBA(230, 230, 230, 1)
+
+    Image2_2 As image:
+        Height: =194
+        Image: =what3words
+        Width: =232
+        X: =408
+        ZIndex: =1
+
+    "Gallery3_1 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+        Height: =467
+        Items: ='What3Words(IndependentPublisher)'.ConvertToLatLng(TextInput1_1.Text)
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =368
+        Visible: =If(togglevalue,true,false)
+        Y: =668
+        ZIndex: =1
+
+        Title5_4 As label:
+            Height: =34
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.coordinates.lat
+            VerticalAlign: =VerticalAlign.Top
+            Width: =434
+            X: =192
+            Y: =133
+            ZIndex: =1
+
+        Title5_3 As label:
+            FontWeight: =FontWeight.Normal
+            Height: =39
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.country
+            VerticalAlign: =VerticalAlign.Top
+            Width: =435
+            X: =186
+            Y: =79
+            ZIndex: =2
+
+        Title5_5 As label:
+            Height: =37
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.map
+            VerticalAlign: =VerticalAlign.Top
+            Width: =505
+            X: =131
+            Y: =231
+            ZIndex: =3
+
+        Label1_4 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =60
+            OnSelect: =Select(Parent)
+            Size: =20
+            Text: |-
+                ="Latitude:"
+            Width: =166
+            X: =60
+            Y: =118
+            ZIndex: =4
+
+        Label1_3 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =71
+            OnSelect: =Select(Parent)
+            Size: =20
+            Text: |-
+                ="Country:"
+            Width: =166
+            X: =60
+            Y: =60
+            ZIndex: =5
+
+        Label1_5 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =60
+            OnSelect: =Select(Parent)
+            Size: =20
+            Text: |-
+                ="URL:"
+            Width: =166
+            X: =60
+            Y: =217
+            ZIndex: =6
+
+        Title5_6 As label:
+            Height: =35
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.coordinates.lng
+            VerticalAlign: =VerticalAlign.Top
+            Width: =414
+            X: =211
+            Y: =182
+            ZIndex: =7
+
+        Label1_6 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =60
+            OnSelect: =Select(Parent)
+            Size: =20
+            Text: |-
+                ="Longitude:"
+            Width: =166
+            X: =60
+            Y: =167
+            ZIndex: =8
+
+    Label2_1 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =70
+        Size: =21
+        Text: ="Enter a standard 3 words"
+        Width: =359
+        X: =22
+        Y: =328
+        ZIndex: =2
+
+    TextInput1_1 As text:
+        Default: ="limit.broom.flip"
+        Height: =55
+        HintText: |-
+            ="Example: sugar.melt.forgot"
+        Size: =21
+        Width: =572
+        X: =32
+        Y: =398
+        ZIndex: =3
+
+    convert_1 As button:
+        Fill: =RGBA(184, 0, 0, 1)
+        Height: =70
+        OnSelect: |-
+            =UpdateContext({togglevalue: !togglevalue})
+        Size: =24
+        Text: ="Convert "
+        Width: =254
+        X: =193
+        Y: =498
+        ZIndex: =4
+
+    Icon1_1 As icon.BackArrow:
+        BorderColor: =RGBA(238, 204, 204, 1)
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =49
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate(Home)
+        Width: =44
+        X: =18
+        Y: =26
+        ZIndex: =5
+

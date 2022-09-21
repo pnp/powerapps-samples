@@ -1,0 +1,2113 @@
+"'The SVG World' As screen":
+    Fill: =RGBA(230,230,230,1)
+    OnVisible: |-
+        =//Select Germany
+        UpdateContext({locCountry:LookUp(colCountries,ISO_Code="DE"), locCountryOld:LookUp(colCountries,ISO_Code="DE")});
+        Select(btn_Superman);
+        Select(btn_Calculations);
+        Select(btn_SVGsHeader);
+        Select(btn_ChangeViewBox);Select(btn_ChangeViewBox);
+        
+        //Hide functions
+        UpdateContext({locFunctions:false})
+
+    gal_Continents As gallery.variableTemplateHeightGallery:
+        Height: =If(locFunctions,232,670)
+        Items: =Filter(colContinentColors,!IsBlank(ContinentName),ContinentName<>"Antarctica")
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplateFill: =White
+        TemplateSize: =250
+        Width: =368
+        X: =18
+        Y: =81
+        ZIndex: =1
+
+        lbl_Continent As label:
+            FontWeight: =Bold
+            Height: =38
+            OnSelect: =Select(Parent)
+            Size: =20
+            Text: =ThisItem.ContinentName
+            Width: =215
+            X: =33
+            Y: =7
+            ZIndex: =1
+
+        ico_ExpandContinent As icon.ChevronDown:
+            Height: =52
+            Icon: =If(ThisItem.Extended,Icon.ChevronUp,Icon.ChevronDown)
+            OnSelect: |-
+                =Patch(colContinentColors,LookUp(colContinentColors,Extended),{Extended:false});
+                Patch(colContinentColors,ThisItem,{Extended:!ThisItem.Extended})
+            Width: =55
+            X: =284
+            ZIndex: =2
+
+        gal_Countries As gallery.galleryVertical:
+            Height: =rec_Marker.Height-50
+            Items: =Sort(Filter(colCountries,Continent=ThisItem.ContinentName),ISO_Code)
+            Layout: =Layout.Vertical
+            ShowScrollbar: =false
+            TemplatePadding: =0
+            TemplateSize: =33
+            Visible: =ThisItem.Extended
+            Width: =327
+            WrapCount: =6
+            X: =27
+            Y: =52
+            ZIndex: =5
+
+            html_Flag As htmlViewer:
+                Height: =50
+                HtmlText: |-
+                    ="<div
+                        style='
+                            position: relative;
+                            text-align: center;
+                            cursor: help;'>
+                    <img 
+                        style='
+                        opacity: 0.6;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 43px;
+                        height: 27px;
+                        opacity: 0.3;
+                        border-radius: 8px;
+                        box-shadow: 2px 1px 2px 1px #ddd;
+                        cursor: help;'
+                        src='https://flagpedia.net/data/flags/w580/"&Lower(ThisItem.ISO_Code)&".png'/>
+                        <b style='
+                        opacity: 1;'>
+                    
+                    <b>"&ThisItem.ISO_Code&"
+                    </div>
+                    "
+                    
+                    //&ThisItem.ISO_Code&"</button>"
+                OnSelect: |-
+                    =UpdateContext({locCountryOld:locCountry, locCity:Blank()});
+                    UpdateContext({locCountry:ThisItem});
+                    Select(btn_Calculations);
+                    Select(btn_ChangeViewBox);
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =14
+                Width: =45
+                ZIndex: =4
+
+        rec_Marker As rectangle:
+            Fill: =RGBA(ThisItem.R, ThisItem.G, ThisItem.B, If(ThisItem.Extended,1,0.5))
+            Height: =If(ThisItem.Extended,RoundUp(CountRows(Filter(colCountries,Continent=ThisItem.ContinentName))/4,0)*21+gal_Countries.X+40,70)
+            OnSelect: =Select(Parent)
+            Width: =20
+            ZIndex: =6
+
+    con_Country As groupContainer.manualLayoutContainer:
+        Fill: =White
+        Height: =665
+        Width: =405
+        X: =407
+        Y: =86
+        ZIndex: =2
+
+        can_Country As fluidGrid.fluidGridWithBlankCard:
+            BorderThickness: =0
+            Height: =507
+            Width: =Parent.Width
+            Y: =158
+            ZIndex: =1
+
+            crd_Transportation As dataCard:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                BorderStyle: =BorderStyle.Solid
+                BorderThickness: =0
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =500
+                Visible: =LookUp(colMenu,Selected).Position=5
+                Width: =Parent.Width
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+                lbl_Transportation As label:
+                    FontWeight: =Bold
+                    Text: ="Transportation"
+                    X: =lbl_Overview.X
+                    Y: =lbl_Overview.Y
+                    ZIndex: =1
+
+                lbl_CounterRoads As label:
+                    Align: =Center
+                    FontWeight: =Bold
+                    Height: =36
+                    Size: =20
+                    Text: =Round(tim_Counter.Value/tim_Counter.Duration*locCountry.'transportation/roadways/total'/1000,1)&" k"
+                    Width: =Parent.Width/3
+                    Y: =95
+                    ZIndex: =2
+
+                lbl_CounterRailways As label:
+                    Align: =Center
+                    FontWeight: =Bold
+                    Height: =36
+                    Size: =20
+                    Text: =Round(tim_Counter.Value/tim_Counter.Duration*locCountry.'transportation/railways/total',-1)
+                    Width: =Parent.Width/3
+                    X: =Parent.Width/3
+                    Y: =95
+                    ZIndex: =3
+
+                lbl_CounterAirports As label:
+                    Align: =Center
+                    FontWeight: =Bold
+                    Height: =36
+                    Size: =20
+                    Text: =Round(tim_Counter.Value/tim_Counter.Duration*locCountry.'transportation/airports',0)
+                    Width: =Parent.Width/3
+                    X: =269
+                    Y: =95
+                    ZIndex: =4
+
+                lbl_Roads As label:
+                    Align: =Center
+                    Height: =20
+                    Size: =8
+                    Text: ="km Roadways"
+                    Width: =89
+                    X: =23
+                    Y: =122
+                    ZIndex: =5
+
+                lbl_Railway As label:
+                    Align: =Center
+                    Height: =17
+                    Size: =8
+                    Text: ="km Railways"
+                    Width: =73
+                    X: =165
+                    Y: =123
+                    ZIndex: =6
+
+                lbl_Airports As label:
+                    Align: =Center
+                    Height: =17
+                    Size: =8
+                    Text: ="Airports"
+                    Width: =73
+                    X: =300
+                    Y: =122
+                    ZIndex: =7
+
+                img_Truck As image:
+                    BorderColor: =RGBA(168, 0, 0, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =75
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: |-
+                        ="data:image/svg+xml;utf8, " & EncodeUrl(
+                        "<svg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'>"
+                        
+                        &"<g fill='"&locColour&")'>"
+                        &varIcon.truck
+                        &"<animateTransform attributeName='transform'
+                                type='translate'
+                                values='0 0;0 2;0 0'
+                                dur='0.8s'
+                                repeatCount='indefinite'
+                                />"
+                        &"</g>"
+                        
+                        //Refresher
+                        &"<circle cx='500' cy='1000' r='"&varRefresh&"'/>"
+                        
+                        
+                        &"</svg>"
+                        )
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =89
+                    X: =25
+                    Y: =40
+                    ZIndex: =8
+
+                img_Train As image:
+                    BorderColor: =RGBA(168, 0, 0, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =75
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: |-
+                        ="data:image/svg+xml;utf8, " & EncodeUrl(
+                        "<svg width='500' height='450' viewBox='0 0 500 450' xmlns='http://www.w3.org/2000/svg'>"
+                        
+                        &"<g fill='"&locColour&")'>"
+                        &varIcon.train
+                        &"<animateTransform attributeName='transform'
+                                type='translate'
+                                values='0 0;0 2;0 0'
+                                dur='0.6s'
+                                repeatCount='indefinite'
+                                />"
+                        &"</g>"
+                        
+                        //Refresher
+                        &"<circle cx='500' cy='1000' r='"&varRefresh&"'/>"
+                        
+                        
+                        &"</svg>"
+                        )
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =89
+                    X: =160
+                    Y: =40
+                    ZIndex: =9
+
+                img_Airplane As image:
+                    BorderColor: =RGBA(168, 0, 0, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =75
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: |-
+                        ="data:image/svg+xml;utf8, " & EncodeUrl(
+                        "<svg width='100' height='80' viewBox='0 0 100 80' xmlns='http://www.w3.org/2000/svg'>"
+                        
+                        &"<g fill='"&locColour&")'>"
+                        &varIcon.plane
+                        &"<animateTransform attributeName='transform'
+                                type='translate'
+                                values='0 0;0 2;0 0'
+                                dur='0.9s'
+                                repeatCount='indefinite'
+                                />"
+                        &"</g>"
+                        
+                        //Refresher
+                        &"<circle cx='500' cy='1000' r='"&varRefresh&"'/>"
+                        
+                        
+                        &"</svg>"
+                        )
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =89
+                    X: =289
+                    Y: =43
+                    ZIndex: =10
+
+                img_TransportationBubbleDiagram As image:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =327
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: |-
+                        ="data:image/svg+xml;utf8, " & EncodeUrl(
+                        "<svg width='610' height='587' viewBox='-90 -20 610 587' xmlns='http://www.w3.org/2000/svg'>"
+                        //Axis
+                        &Concat([0,1],
+                        "<line x1='-50' x2='480' y1='500' y2='500' stroke='black' stroke-width='5' "&If(Value=1,"transform='rotate(270,0,500)'")&"/>
+                        <path d='M 485 500 465 490 465 510 Z' fill='black' "&If(Value=1,"transform='rotate(270,0,500)'")&"/>"
+                        )
+                        //x-Axis-Captions
+                        &Concat([1,2,3,4],
+                        "<line x1='"&Value*100&"' x2='"&Value*100&"' y1='500' y2='510' stroke='black' stroke-width='3' />"
+                        &"<text x='"&Value*100-15&"' y='537' font-size='25' color='black' font-family='sans-serif'>10<tspan baseline-shift='super'>"&Value+2&"</tspan></text>")
+                        &"<text x='"&250&"' y='560' font-size='25' color='black' text-anchor='middle' font-family='sans-serif'>km Railway</text>"
+                        
+                        //y-Axis-Captions
+                        &Concat([0,1,2,3],
+                        "<line x1='-10' x2='0' y1='"&500-40-Value*135&"' y2='"&500-40-Value*135&"' stroke='black' stroke-width='3' />"
+                        &"<text x='-55' y='"&500-30-Value*135&"' font-size='25' color='black' text-anchor='right' font-family='sans-serif'>10<tspan baseline-shift='super'>"&Value+4&"</tspan></text>")
+                        &"<text x='"&250&"' y='440' font-size='25' color='black' text-anchor='middle' font-family='sans-serif' transform='rotate(270,0,500)'>km Roadway</text>"
+                        
+                        //Values (only Countries with more than 100 km Railway
+                        &Concat(Filter(colCountries,Continent=locCountry.Continent,Value('transportation/railways/total')>100, Value('transportation/roadways/total')>50000),
+                        "<circle cx='"&100*Ln(Value('transportation/railways/total'))/Ln(10)-200&"' 
+                        cy='"&500-50*Ln(Value('transportation/roadways/total'))/Ln(10)*2.7+500&"' 
+                        r='"&Value((5*Ln(Value('transportation/airports')))/Ln(10))&"' 
+                        fill='"&locColour&",0.7)' "&If(locCountry.ISO_Code=ISO_Code,"stroke='black' stroke-width='4'")&">"
+                        &"<animate attributeName='r'
+                                values='0;"&Value((5*Ln(Value('transportation/airports')))/Ln(10))&"'
+                                dur='1s'
+                                repeatCount='1'
+                                />"
+                        &"</circle>")
+                        
+                        //Captions for the 5 Countries with teh most ariports
+                        &Concat(FirstN(Sort(Filter(colCountries,Continent=locCountry.Continent,Value('transportation/railways/total')>100, Value('transportation/roadways/total')>50000),Value('transportation/airports'),Descending),5),
+                        "<text x='"&100*Ln(Value('transportation/railways/total'))/Ln(10)-162&"'
+                         y='"&500-50*Ln(Value('transportation/roadways/total'))/Ln(10)*2.7+500&"'
+                          font-size='25' color='black' text-anchor='middle' font-family='sans-serif'>"
+                          &ISO_Code
+                          &"<animate attributeName='opacity'
+                                values='0;0;1'
+                                dur='1.1s'
+                                repeatCount='1'
+                                />
+                        </text>")
+                        
+                        //Refresher
+                        &"<circle cx='500' cy='1000' r='"&varRefresh&"'/>"
+                        
+                        &"</svg>"
+                        )
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =405
+                    Y: =170
+                    ZIndex: =11
+
+                lbl_EnergyRenewable_1 As label:
+                    FontWeight: =Semibold
+                    Height: =38
+                    Text: ="Compared to other Countries in "&locCountry.Continent
+                    Width: =352
+                    X: =26
+                    Y: =157
+                    ZIndex: =12
+
+            crd_Energy As dataCard.blankCard:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                BorderStyle: =BorderStyle.Solid
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =500
+                Visible: =LookUp(colMenu,Selected).Position=4
+                Width: =Parent.Width
+                X: =0
+                Y: =1
+                ZIndex: =2
+
+                lbl_Energy As label:
+                    FontWeight: =Bold
+                    Text: ="Electricity production"
+                    Width: =221
+                    X: =lbl_Overview.X
+                    Y: =lbl_Overview.Y
+                    ZIndex: =1
+
+                gal_Energy As gallery.galleryVertical:
+                    Height: =276
+                    Items: =colEnergy
+                    Layout: =Layout.Vertical
+                    TemplatePadding: =0
+                    TemplateSize: =113
+                    Width: =365
+                    WrapCount: =2
+                    X: =5
+                    Y: =40
+                    ZIndex: =3
+
+                    lbl_CapEnergy As label:
+                        Align: =Center
+                        Height: =38
+                        OnSelect: =Select(Parent)
+                        Text: =ThisItem.Category
+                        Width: =178
+                        ZIndex: =1
+
+                    img_EnergyFill As image:
+                        BorderColor: =RGBA(168, 0, 0, 1)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        FocusedBorderThickness: =4
+                        Height: =75
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        Image: |-
+                            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                            "<svg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'>"
+                            
+                            &"<g fill='"&locColour&")'>"
+                            &ThisItem.Icon
+                            &"<rect x='0' y='0' height='100' width='100' fill='white' opacity='0.7' transform='translate(0,"&-ThisItem.Value*100&")'>"
+                            &"<animateTransform attributeName='transform'
+                                    type='translate'
+                                    from='0 0'
+                                    to='0 "&-ThisItem.Value*100&"'
+                                    dur='1s'
+                                    repeatCount='1'
+                                    />"
+                            &"</rect>"
+                            &"</g>"
+                            
+                            //Refresher
+                            &"<circle cx='500' cy='1000' r='"&varRefresh&"'/>"
+                            
+                            
+                            &"</svg>"
+                            )
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedFill: =RGBA(0, 0, 0, 0)
+                        Width: =89
+                        X: =If(Mod(ThisItem.No,2)=1,90,0)
+                        Y: =38
+                        ZIndex: =2
+
+                    lbl_EnergyPercent As label:
+                        Align: =Center
+                        FontWeight: =Bold
+                        Height: =43
+                        OnSelect: =Select(Parent)
+                        Size: =20
+                        Text: =Round(tim_Counter.Value/tim_Counter.Duration*ThisItem.Value*100,0)&" %"
+                        Width: =90
+                        X: =If(Mod(ThisItem.No,2)=0,90,0)
+                        Y: =56
+                        ZIndex: =3
+
+                img_EnergyGauge As image:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =169
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: |-
+                        ="data:image/svg+xml;utf8, " & EncodeUrl(
+                        "<svg width='560' height='340' viewBox='-40 -30 580 340' xmlns='http://www.w3.org/2000/svg'>"
+                               // <circle cx='250' cy='250' r='20' stroke-opacity='"&varTest&"'/>
+                        
+                        //Numbers and short lines
+                        &Concat(Sequence(5,0,1),"<line x1='250' y1='493' x2='250' y2='492' stroke-width='5' stroke='black' stroke-linecap='round' transform='rotate("&Value*45+90&" 250 250)'/>
+                             <text x='220' y='-10' font-size='30' color='black' font-family='sans-serif' font-weight='bold' transform='rotate("&Value*45-90&" 250 250)'>"&Value*25&" %</text>")
+                        
+                        //background line
+                        &"<circle cx='250' cy='250' r='200' stroke='"&locColour&")' stroke-width='50' fill='transparent' stroke-dasharray='"&1256.63/2&", 90000' transform='rotate(180,250,250)'/>"
+                        
+                        &"<path d='M 50 250 A 200 200 0 0 1 450 250' fill='none' stroke='white' opacity='0.7' stroke-width='60' transform='rotate("&(locCountry.'energy/electricity_from_other_renewable_sources'+locCountry.'energy/electricity_from_hydroelectric_plants')*180&" 250 250)'>"
+                        &"<animateTransform attributeName='transform'
+                                    type='rotate'
+                                    from='0 250 250'
+                                    to='"&(locCountry.'energy/electricity_from_other_renewable_sources'+locCountry.'energy/electricity_from_hydroelectric_plants')*180&" 250 250'
+                                    begin='0s'
+                                    dur='1s'
+                                    repeatCount='1'/>"
+                                    &"</path>"
+                        
+                        &"<path
+                               style='fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2'
+                               d='m 240.44341,344.94584 c -5.4197,-54.38238 -9.19717,-96.57193 -8.81689,-98.47334 2.02586,-10.1293 13.11259,-17.36742 22.64201,-14.78214 8.19864,2.22425 14.34493,9.9409 14.34493,18.01002 0,3.12361 -17.07726,177.64477 -18.43257,188.37182 -0.14039,1.11116 -4.52226,-40.7957 -9.73748,-93.12636 z m 17.13607,-87.10817 c 5.68434,-5.68434 3.13814,-16.067 -4.4344,-18.08224 -7.21512,-1.92012 -13.82605,2.88341 -13.82605,10.04606 0,5.01192 1.26662,7.48399 4.82362,9.41431 4.69664,2.54877 10.06002,1.99868 13.43683,-1.37813 z' transform='rotate("&(locCountry.'energy/electricity_from_other_renewable_sources'+locCountry.'energy/electricity_from_hydroelectric_plants')*180+90&" 250 250)'>"
+                        &"<animateTransform attributeName='transform'
+                                    type='rotate'
+                                    from='90 250 250'
+                                    to='"&(locCountry.'energy/electricity_from_other_renewable_sources'+locCountry.'energy/electricity_from_hydroelectric_plants')*180+90&" 250 250'
+                                    begin='0s'
+                                    dur='1s'
+                                    repeatCount='1'/>"
+                        &"</path>"
+                        
+                        //Refresher
+                        &"<circle cx='500' cy='1000' r='"&varRefresh&"'/>"
+                        
+                        &"</svg>"
+                        )
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =370
+                    Y: =316
+                    ZIndex: =4
+
+                lbl_EnergyRenewable As label:
+                    FontWeight: =Semibold
+                    Text: ="Renewable electricity production"
+                    Width: =314
+                    X: =5
+                    Y: =276
+                    ZIndex: =5
+
+            crd_Economy As dataCard.blankCard:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                BorderStyle: =BorderStyle.Solid
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =500
+                Visible: =LookUp(colMenu,Selected).Position=3
+                Width: =405
+                X: =0
+                Y: =2
+                ZIndex: =3
+
+                lbl_Economy As label:
+                    FontWeight: =Bold
+                    Text: ="Economy"
+                    X: =lbl_Overview.X
+                    Y: =lbl_Overview.Y
+                    ZIndex: =1
+
+                img_GraphGDP As image:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =224
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: |-
+                        ="data:image/svg+xml;utf8, " & EncodeUrl(
+                        "<svg "
+                        
+                        //ViewBox on continent
+                        &"viewBox='"&LookUp(colContinentColors,ContinentName=locCountry.Continent).ViewBox&"' xmlns='http://www.w3.org/2000/svg'>"
+                        
+                        //Countries with opacity
+                        &Concat(Filter(colCountries,Continent=locCountry.Continent),
+                        "<path d='"&Path&"' fill='"&locColour&","&'economy/gdp_per_capita_ppp/2017'/Max(Filter(colCountries,Continent=locCountry.Continent),'economy/gdp_per_capita_ppp/2017')&"' stroke-width='0'>"
+                        &"<animate attributeName='opacity'
+                                values='0;1'
+                                dur='1s'
+                                repeatCount='1'
+                                />"
+                        &"</path>")
+                        
+                        //Outline of countries
+                        &Concat(colCountries,
+                        "<path d='"&Path&"' fill='transparent' stroke='black' stroke-width='"&If(locCountry.ISO_Code=ISO_Code,"0.5%","0.1%")&"'/>")
+                        
+                        //Refresher
+                        &"<circle cx='500' cy='1000' r='"&varRefresh&"'/>"
+                        
+                        &"</svg>"
+                        )
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =386
+                    X: =5
+                    Y: =270
+                    ZIndex: =3
+
+                img_LegendGDP As image:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =83
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: |-
+                        ="data:image/svg+xml;utf8, " & EncodeUrl(
+                        "<svg "
+                        
+                        //ViewBox on continent
+                        &"viewBox='0 0 120 25' xmlns='http://www.w3.org/2000/svg'>"
+                        
+                        &"  <defs>
+                            <linearGradient id='Gradient1'
+                                            x1='0%' y1='0%'
+                                            x2='100%' y2='0%'
+                                            spreadMethod='pad'>
+                              <stop offset='0%'   stop-color='"&locColour&"' stop-opacity='0'/>
+                              <stop offset='100%' stop-color='"&locColour&"' stop-opacity='1'/>
+                            </linearGradient>
+                          </defs>"
+                        
+                        //Chart Legend
+                        &"<rect x='10' y='10' width='100' height='5' fill='url(#Gradient1)'/>"
+                        &"<text x='8' y='5' font-size='4' color='black' font-family='sans-serif'>0 $</text>"
+                        &"<text x='100' y='5' font-size='4' color='black' font-family='sans-serif'>"&Max(Filter(colCountries,Continent=locCountry.Continent),'economy/gdp_per_capita_ppp/2017')&" $</text>"
+                        
+                        //Country Marker
+                        &"<rect x='"&8+locCountry.'economy/gdp_per_capita_ppp/2017'/Max(Filter(colCountries,Continent=locCountry.Continent),'economy/gdp_per_capita_ppp/2017')*100&"' y='9' width='4' height='7' fill='transparent' stroke='black'>"
+                        &"<animate attributeName='x'
+                                values='8;"&8+locCountry.'economy/gdp_per_capita_ppp/2017'/Max(Filter(colCountries,Continent=locCountry.Continent),'economy/gdp_per_capita_ppp/2017')*100&"'
+                                dur='1s'
+                                repeatCount='1'
+                                />"
+                        &"</rect>"
+                        
+                        //Refresher
+                        &"<circle cx='500' cy='1000' r='"&varRefresh&"'/>"
+                        
+                        &"</svg>"
+                        )
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =386
+                    Y: =210
+                    ZIndex: =4
+
+                lbl_GDP_Graph As label:
+                    Align: =Left
+                    FontWeight: =Semibold
+                    Height: =30
+                    Size: =12
+                    Text: ="GDP (PPP) per Country"
+                    Width: =206
+                    X: =95
+                    Y: =197
+                    ZIndex: =5
+
+                lbl_CapHighLow As label:
+                    Align: =Center
+                    FontWeight: =Semibold
+                    Height: =37
+                    Size: =12
+                    Text: ="Highest/Lowest "&locCountry.Continent
+                    Width: =283
+                    X: =56
+                    Y: =105
+                    ZIndex: =6
+
+                lbl_GDP As label:
+                    Align: =Center
+                    FontWeight: =Semibold
+                    Height: =30
+                    Size: =12
+                    Text: ="GDP (PPP)"
+                    Width: =206
+                    X: =90
+                    Y: =33
+                    ZIndex: =7
+
+                lbl_GDPCountry As label:
+                    Align: =Right
+                    FontWeight: =Bold
+                    Height: =30
+                    Size: =20
+                    Text: =Round(tim_Counter.Value/tim_Counter.Duration*locCountry.'economy/gdp_per_capita_ppp/2017',-2)&" US$"
+                    Width: =206
+                    X: =44
+                    Y: =63
+                    ZIndex: =8
+
+                ico_IndicatorGDPGrowth As icon.ArrowRight:
+                    Color: =RGBA(locCountry.R, locCountry.G, locCountry.B, 1)
+                    Height: =41
+                    Icon: =Icon.ArrowRight
+                    Rotation: =-(tim_Counter.Value/tim_Counter.Duration)*locCountry.'economy/gdp_real_growth_rate/2017'*700
+                    Width: =39
+                    X: =262
+                    Y: =57
+                    ZIndex: =9
+
+                lbl_GrowthGDP As label:
+                    Color: =If(locCountry.'economy/gdp_real_growth_rate/2017'>0,Green,Red)
+                    Height: =41
+                    Size: =10
+                    Text: =If(locCountry.'economy/gdp_real_growth_rate/2017'>0,"+")&locCountry.'economy/gdp_real_growth_rate/2017'*100&" % (2017)"
+                    Width: =71
+                    X: =315
+                    Y: =57
+                    ZIndex: =10
+
+                lbl_LowGDP As label:
+                    Align: =Center
+                    FontWeight: =Normal
+                    Height: =37
+                    Size: =12
+                    Text: |-
+                        =With(
+                            {
+                                Country: First(
+                                    Sort(
+                                        Filter(
+                                            colCountries,
+                                            Value('economy/gdp_per_capita_ppp/2017') > 0,
+                                            Continent = locCountry.Continent
+                                        ),
+                                        Value('economy/gdp_per_capita_ppp/2017'),
+                                        Ascending
+                                    )
+                                )
+                            },
+                            Country.name & ": " & Country.'economy/gdp_per_capita_ppp/2017' & " US$"
+                        )
+                    Width: =192
+                    X: =5
+                    Y: =142
+                    ZIndex: =11
+
+                lbl_HighGDP As label:
+                    Align: =Center
+                    FontWeight: =Normal
+                    Height: =37
+                    Size: =12
+                    Text: |-
+                        =With(
+                            {
+                                Country: Last(
+                                    Sort(
+                                        Filter(
+                                            colCountries,
+                                            Value('economy/gdp_per_capita_ppp/2017') > 0,
+                                            Continent = locCountry.Continent
+                                        ),
+                                        Value('economy/gdp_per_capita_ppp/2017'),
+                                        Ascending
+                                    )
+                                )
+                            },
+                            Country.name & ": " & Country.'economy/gdp_per_capita_ppp/2017' & " US$"
+                        )
+                    Width: =194
+                    X: =197
+                    Y: =142
+                    ZIndex: =12
+
+            crd_geography As dataCard.blankCard:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                BorderStyle: =BorderStyle.Solid
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =500
+                Visible: =LookUp(colMenu,Selected).Position=2
+                Width: =Parent.Width
+                X: =0
+                Y: =3
+                ZIndex: =4
+
+                lbl_Geography As label:
+                    FontWeight: =Bold
+                    Text: ="Geography"
+                    X: =lbl_Overview.X
+                    Y: =lbl_Overview.Y
+                    ZIndex: =1
+
+                html_OverviewGeography As htmlViewer:
+                    AutoHeight: =true
+                    Height: =123
+                    HtmlText: |-
+                        ="<b>Area</b>: "&locCountry.'geography/area_sqkm'&" km²<br>"
+                        &"<b>Area Comparative</b>: "&locCountry.'geography/area_comparative'&"<br>"
+                        &"<b>Terrain</b>: "&locCountry.'geography/terrain'&"<br>"
+                        &"<b>Climate</b>: "&locCountry.'geography/climate'&"<br>"
+                        &"<b>Highest Point</b>: "&locCountry.'geography/elevation/highest_point'&"<br>"
+                    Size: =10
+                    Width: =378
+                    X: =5
+                    Y: =40
+                    ZIndex: =2
+
+                img_LandUsePieChart As image:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =239
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: |-
+                        ="data:image/svg+xml;utf8, " & EncodeUrl(
+                        "<svg width='900' height='500' viewBox='-300 -300 900 600' xmlns='http://www.w3.org/2000/svg'>"
+                        
+                        &Concat(colLandUse,
+                        "<circle cx='0' cy='0' r='125' stroke='"&locColour&","&No*0.2&")' stroke-width='250' fill='transparent' transform='rotate(270)' stroke-dasharray='0,"&SumBefore*785.398163397&","&Value*785.398163397&",3000'>"
+                        //Animation
+                        &"<animate attributeName='stroke-dasharray'
+                                values='0,0,0,3000; 0,"&SumBefore*785.398163397&","&Value*785.398163397&",3000'
+                                dur='1s'
+                                repeatCount='1'
+                                />
+                        </circle>"
+                        
+                        //Legend
+                        &"<g>"
+                        &"<rect x='300' y='"&-280+80*No&"' width='50' height='50' fill='"&locColour&","&No*0.2&"'/>"
+                        &"<text x='380' y='"&-235+80*No&"' font-size='45' color='black' font-family='sans-serif'>"&Category&"</text>"
+                        &"<animate attributeName='opacity'
+                                values='0;0;1'
+                                dur='1s'
+                                repeatCount='1'
+                                />"
+                        &"</g>")
+                        
+                        //Refresher
+                        &"<circle cx='500' cy='1000' r='"&varRefresh&"'/>"
+                        
+                        &"</svg>"
+                        )
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =378
+                    X: =5
+                    Y: =232
+                    ZIndex: =3
+
+                lbl_LandUse As label:
+                    Align: =Left
+                    FontWeight: =Semibold
+                    Height: =30
+                    Size: =12
+                    Text: ="Land Use"
+                    Width: =98
+                    X: =100
+                    Y: =232
+                    ZIndex: =4
+
+            crd_Population As dataCard.blankCard:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                BorderStyle: =BorderStyle.Solid
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =500
+                Visible: =LookUp(colMenu,Selected).Position=1
+                Width: =Parent.Width
+                X: =0
+                Y: =4
+                ZIndex: =5
+
+                lbl_Population As label:
+                    FontWeight: =Bold
+                    Text: ="Population"
+                    X: =lbl_Overview.X
+                    Y: =lbl_Overview.Y
+                    ZIndex: =1
+
+                lbl_PopulationCount As label:
+                    Align: =Left
+                    AutoHeight: =true
+                    Height: =35
+                    Size: =12
+                    Text: |-
+                        ="Population: "&Round(locCountry.'people_and_society/population'/1000000,2)  &" M "&Substitute(locCountry.'people_and_society/nationality/noun',"(s)","s")
+                    Width: =304
+                    X: =8
+                    Y: =34
+                    ZIndex: =2
+
+                img_PopulationChart As image:
+                    BorderColor: =RGBA(168, 0, 0, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =158
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: |-
+                        ="data:image/svg+xml;utf8, " & EncodeUrl(
+                        "<svg width='150' height='80' viewBox='0 0 150 80' xmlns='http://www.w3.org/2000/svg'>"
+                        &Concat(colPopDistribution,"<line x1='30' y1='"&No*12&"' x2='"&30+Value*170&"' y2='"&No*12&"' stroke='"&locColour&"' stroke-width='7'>"
+                        &"<animate attributeName='x2'
+                                values='30; "&30+Value*170&"'
+                                dur='1s'
+                                repeatCount='1'
+                                />"
+                        &"</line>"
+                        &"<text x='"&35+Value*170&"' y='"&No*12+3&"' font-size='8' color='black' font-family='sans-serif'>"&Text(Value*100,"[$-en-GB]0.0%")
+                        &"
+                        <animate attributeName='x'
+                                values='35; "&35+Value*170&"'
+                                dur='1s'
+                                repeatCount='1'
+                                />"
+                        &"<animate attributeName='opacity'
+                                values='0;0;1'
+                                dur='1s'
+                                repeatCount='1'
+                                />
+                        </text>
+                        <text x='0' y='"&No*12+3&"' font-size='8' color='black' font-family='sans-serif'>"&Category&"</text>"
+                        )
+                        
+                        //Refresher
+                        &"<circle cx='500' cy='1000' r='"&varRefresh&"'/>"
+                        &"</svg>"
+                        )
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =301
+                    X: =11
+                    Y: =108
+                    ZIndex: =3
+
+                lbl_PopDistribution As label:
+                    Align: =Left
+                    FontWeight: =Semibold
+                    Height: =29
+                    Size: =12
+                    Text: ="Age Distribution"
+                    Width: =298
+                    X: =8
+                    Y: =87
+                    ZIndex: =4
+
+                lbl_PopHDI As label:
+                    Align: =Left
+                    FontWeight: =Semibold
+                    Height: =29
+                    Size: =12
+                    Text: ="Human Development Index"
+                    Width: =298
+                    X: =14
+                    Y: =278
+                    ZIndex: =5
+
+                img_CircleChart As image:
+                    BorderColor: =RGBA(168, 0, 0, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =208
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: |-
+                        ="data:image/svg+xml;utf8, " & EncodeUrl(
+                        "<svg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'>"
+                        &"<circle cx='25' cy='25' r='15.9154943' fill='transparent' stroke='lightgray' stroke-width='5'/>"
+                        &"<circle cx='25' cy='25' r='15.9154943' fill='transparent' stroke='"&locColour&")' stroke-width='5' stroke-dasharray='"&locCountry.HumanDevelopmentIndex*50&", "&100-locCountry.HumanDevelopmentIndex*100&","&locCountry.HumanDevelopmentIndex*50&"' transform='rotate(90,25,25)'>"
+                        &"<animate attributeName='stroke-dasharray'
+                                values='0, 100, 0;"&locCountry.HumanDevelopmentIndex*50&", "&100-locCountry.HumanDevelopmentIndex*100&","&locCountry.HumanDevelopmentIndex*50&"'
+                                dur='1s'
+                                repeatCount='1'
+                                />"
+                        &"</circle>"
+                        
+                        //Refresher
+                        &"<circle cx='500' cy='1000' r='"&varRefresh&"'/>"
+                        &"</svg>"
+                        )
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =233
+                    X: =5
+                    Y: =280
+                    ZIndex: =6
+
+                lbl_HDIValue As label:
+                    Align: =Center
+                    FontWeight: =Bold
+                    Size: =18
+                    Text: =If(Value(locCountry.HumanDevelopmentIndex)=0,"na",Round(tim_Counter.Value/tim_Counter.Duration*locCountry.HumanDevelopmentIndex,2))
+                    Width: =76
+                    X: =83
+                    Y: =364
+                    ZIndex: =7
+
+            crd_Overview As dataCard.blankCard:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                BorderStyle: =BorderStyle.Solid
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =500
+                Visible: =LookUp(colMenu,Selected).Position=0
+                Width: =Parent.Width
+                X: =0
+                Y: =5
+                ZIndex: =6
+
+                lbl_Overview As label:
+                    FontWeight: =Bold
+                    Text: ="Overview"
+                    X: =5
+                    ZIndex: =1
+
+                html_OverviewInfo As htmlViewer:
+                    AutoHeight: =true
+                    Height: =133
+                    HtmlText: |-
+                        ="<b>Government type</b>: "&First(Split(locCountry.'government/government_type',";")).Result&"<br>"
+                        &"<b>Head of Government</b>: "&locCountry.'government/executive_branch/head_of_government'&"<br>"
+                        &"<b>Capital</b>: "&locCountry.'government/capital/name'&"<br>"
+                        &"<b>Currency</b>: "&locCountry.'economy/currency'&"<br><br>"
+                        
+                        &"<b>Introduction</b>:<br>"
+                        &locCountry.introduction
+                    Size: =10
+                    Width: =378
+                    X: =5
+                    Y: =40
+                    ZIndex: =6
+
+        lbl_CountryName As label:
+            AutoHeight: =true
+            FontWeight: =Bold
+            Height: =77
+            Size: =20
+            Text: =locCountry.name
+            Width: =258
+            X: =15
+            Y: =10
+            ZIndex: =2
+
+        img_flag As image:
+            BorderColor: =RGBA(116, 116, 116, 1)
+            BorderThickness: =1
+            Height: =54
+            Image: |-
+                ="https://flagpedia.net/data/flags/w580/"&Lower(locCountry.ISO_Code)&".png"
+            ImagePosition: =ImagePosition.Stretch
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            Tooltip: =locCountry.'government/flag_description'
+            Width: =77
+            X: =323
+            Y: =4
+            ZIndex: =6
+
+        img_Menu As image:
+            BorderColor: =RGBA(168, 0, 0, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =80
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: |-
+                ="data:image/svg+xml;utf8, " & EncodeUrl(
+                "<svg width='700' height='120' viewBox='0 0 700 120' xmlns='http://www.w3.org/2000/svg'>"
+                //&Concat(colPopDistribution,"<line x1='30' y1='"&No*12&"' x2='"&30+Value*170&"' y2='"&No*12&"' stroke='"&locColour&"' stroke-width='7'>"
+                
+                //Moving Line underneath
+                &"<rect x='"&LookUp(colMenu,Selected).Position*120&"' y='100' width='96' height='10' fill='"&locColour&")'>"
+                &"<animate attributeName='x'
+                        values='"&LookUp(colMenu,LastSelected).Position*120&"; "&LookUp(colMenu,Selected).Position*120&"'
+                        dur='1s'
+                        repeatCount='1'
+                        />"
+                &"</rect>"
+                
+                &Concat(colMenu,
+                "<g fill='"&locColour&")' opacity='"&If(Selected,"1","0.5")&"' transform='translate("&Position*120&" 0)'>"
+                &Icon
+                &"<animate attributeName='opacity'
+                        values='"&If(Selected,"0.5; 1",LastSelected, "1; 0.5", "0.5;0.5")&"'
+                        dur='1s'
+                        repeatCount='1'
+                        />"
+                        
+                
+                &"</g>")
+                
+                //Refresher
+                &"<circle cx='500' cy='1000' r='"&varRefresh&"'/>"
+                
+                
+                &"</svg>"
+                )
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =369
+            X: =20
+            Y: =78
+            ZIndex: =10
+
+        grp_MenuButtons As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =18
+
+            btn_Menu3 As button:
+                Color: =Transparent
+                Fill: =Transparent
+                Height: =50
+                HoverColor: =Transparent
+                HoverFill: =Transparent
+                OnSelect: |
+                    =Set(varResetCounter,true);Set(varResetCounter,false);
+                    
+                    UpdateIf(colMenu,LastSelected,{LastSelected:false});
+                    UpdateIf(colMenu,Selected,{Selected:false, LastSelected:true});
+                    UpdateIf(colMenu,Position=Value(Self.Text),{Selected:true});
+                    Set(varRefresh,Second(Now()));
+                Text: ="3"
+                Width: =50
+                X: =210
+                Y: =87
+                ZIndex: =11
+
+            btn_Menu0 As button:
+                Color: =Transparent
+                Fill: =Transparent
+                Height: =50
+                HoverColor: =Transparent
+                HoverFill: =Transparent
+                OnSelect: |-
+                    =UpdateIf(colMenu,LastSelected,{LastSelected:false});
+                    UpdateIf(colMenu,Selected,{Selected:false, LastSelected:true});
+                    UpdateIf(colMenu,Position=Value(Self.Text),{Selected:true});
+                    Set(varRefresh,Second(Now()))
+                Text: ="0"
+                Width: =50
+                X: =21
+                Y: =87
+                ZIndex: =12
+
+            btn_Menu1 As button:
+                Color: =Transparent
+                Fill: =Transparent
+                Height: =50
+                HoverColor: =Transparent
+                HoverFill: =Transparent
+                OnSelect: |
+                    =Set(varResetCounter,true);Set(varResetCounter,false);
+                    
+                    UpdateIf(colMenu,LastSelected,{LastSelected:false});
+                    UpdateIf(colMenu,Selected,{Selected:false, LastSelected:true});
+                    UpdateIf(colMenu,Position=Value(Self.Text),{Selected:true});
+                    Set(varRefresh,Second(Now()));
+                Text: ="1"
+                Width: =50
+                X: =84
+                Y: =87
+                ZIndex: =13
+
+            btn_Menu2 As button:
+                Color: =Transparent
+                Fill: =Transparent
+                Height: =50
+                HoverColor: =Transparent
+                HoverFill: =Transparent
+                OnSelect: |-
+                    =UpdateIf(colMenu,LastSelected,{LastSelected:false});
+                    UpdateIf(colMenu,Selected,{Selected:false, LastSelected:true});
+                    UpdateIf(colMenu,Position=Value(Self.Text),{Selected:true});
+                    Set(varRefresh,Second(Now()))
+                Text: ="2"
+                Width: =50
+                X: =147
+                Y: =87
+                ZIndex: =14
+
+            btn_Menu4 As button:
+                Color: =Transparent
+                Fill: =Transparent
+                Height: =50
+                HoverColor: =Transparent
+                HoverFill: =Transparent
+                OnSelect: |
+                    =Set(varResetCounter,true);Set(varResetCounter,false);
+                    
+                    UpdateIf(colMenu,LastSelected,{LastSelected:false});
+                    UpdateIf(colMenu,Selected,{Selected:false, LastSelected:true});
+                    UpdateIf(colMenu,Position=Value(Self.Text),{Selected:true});
+                    Set(varRefresh,Second(Now()));
+                Text: ="4"
+                Width: =50
+                X: =273
+                Y: =87
+                ZIndex: =15
+
+            btn_Menu5 As button:
+                Color: =Transparent
+                Fill: =Transparent
+                Height: =50
+                HoverColor: =Transparent
+                HoverFill: =Transparent
+                OnSelect: |-
+                    =Set(varResetCounter,true);Set(varResetCounter,false);
+                    
+                    UpdateIf(colMenu,LastSelected,{LastSelected:false});
+                    UpdateIf(colMenu,Selected,{Selected:false, LastSelected:true});
+                    UpdateIf(colMenu,Position=Value(Self.Text),{Selected:true});
+                    Set(varRefresh,Second(Now()))
+                Text: ="5"
+                Width: =50
+                X: =336
+                Y: =87
+                ZIndex: =16
+
+    con_Cities As groupContainer.manualLayoutContainer:
+        Fill: =White
+        X: =837
+        Y: =86
+        ZIndex: =6
+
+        gal_Cities As gallery.galleryVertical:
+            Height: =141
+            Items: =SortByColumns(Filter(colCities,!IsBlank(Name)),"Type",Ascending,"POP",Descending)
+            Layout: =Layout.Vertical
+            ShowScrollbar: =false
+            TemplateSize: =41
+            Width: =467
+            X: =15
+            Y: =54
+            ZIndex: =1
+
+            lbl_CityName As label:
+                FontWeight: =If(ThisItem.Type="Capital", Bold, Normal)
+                Height: =41
+                OnSelect: =Select(Parent)
+                Text: =ThisItem.Name
+                Width: =168
+                X: =12
+                ZIndex: =1
+
+            img_BG_Effect As image:
+                BorderColor: =RGBA(168, 0, 0, 1)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =40
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Image: |-
+                    ="data:image/svg+xml;utf8, " & EncodeUrl(
+                    "<svg width='400' height='40' viewBox='-2 0 400 40' xmlns='http://www.w3.org/2000/svg'>"
+                    
+                    //
+                    &"<rect x='0' y='1' width='"&If(ThisItem.Selected,"396","198")&"' height='38' rx='15' ry='15' stroke-width='2' fill='Transparent' opacity='"&If(ThisItem.Selected,"1","0.2")&"' stroke='"&locColour&")'>"
+                    &If(ThisItem.Selected||ThisItem.LastSelected,
+                    "<animate attributeName='width'
+                            values='"&If(ThisItem.Selected,"198;198;396","396;198;198")&"'
+                            dur='1s'
+                            repeatCount='1'
+                            />")
+                    &If(ThisItem.Selected||ThisItem.LastSelected,
+                    "<animate attributeName='opacity'
+                            values='"&If(ThisItem.Selected,"0.2;0.2;0.2;0.2;1","1;1;1;1;0.2")&"'
+                            dur='1s'
+                            repeatCount='1'
+                            />")
+                     &"</rect>"
+                    
+                    &If(ThisItem.Selected||ThisItem.LastSelected,
+                    "<rect x='0' y='0' width='"&If(ThisItem.Selected,"396","0")&"' height='40' rx='15' ry='15' stroke-width='1' fill='"&locColour&")' opacity='0.2' stroke='"&locColour&")'>"
+                    &"<animate attributeName='width'
+                            values='"&If(ThisItem.Selected,"0;396","396;0")&"'
+                            dur='1s'
+                            repeatCount='1'
+                            />
+                     </rect>")   
+                    
+                    //Population, whole group is animated (text and Symbol)
+                    &If(ThisItem.Selected||ThisItem.LastSelected,
+                    "<g fill='"&locColour&")' transform='scale(0.4) translate(550 5)' opacity='"&If(ThisItem.Selected,"1","0")&"'>"
+                    &varIcon.population
+                    &"<text x='350' y='69' font-size='55' color='"&locColour&")' font-family='sans-serif' text-anchor='end'>"&If(ThisItem.POP>100000,Round(ThisItem.POP/1000000,2)&" M",ThisItem.POP)
+                    &"</text>"
+                    
+                    &"<animate attributeName='fill'
+                            values='"&If(ThisItem.Selected,locColour&",0);"&locColour&",0);"&locColour&",0);"&locColour&",0);"&locColour&",1)",
+                            locColour&",1);"&locColour&",0);"&locColour&",0);"&locColour&",0)")&"'
+                            dur='1s'
+                            repeatCount='1'
+                            />"
+                    &"</g>")
+                    
+                    //Refresher
+                    &"<circle cx='500' cy='1000' r='"&varRefreshCities&"'/>"
+                    
+                    &"</svg>"
+                    )
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =400
+                ZIndex: =4
+
+            btn_Select_City As button:
+                Fill: =Transparent
+                HoverFill: =Transparent
+                OnSelect: |-
+                    =UpdateIf(colCities,LastSelected&&Name<>ThisItem.Name, {LastSelected:false});
+                    Patch(colCities,LookUp(colCities,Selected), {Selected:false, LastSelected:true});
+                    Patch(colCities,ThisItem,{Selected:!ThisItem.Selected});
+                    UpdateContext({locCity:ThisItem});
+                    Set(varRefreshCities,Second(Now()));
+                    Select(btn_ChangeViewBox)
+                PressedFill: =Self.Fill
+                Text: =""
+                Width: =If(ThisItem.Selected,400,200)
+                Y: =1
+                ZIndex: =5
+
+        lbl_Cities As label:
+            FontWeight: =Bold
+            Height: =44
+            Size: =20
+            Text: =locCountry.'people_and_society/nationality/adjective'&" Cities"
+            Width: =467
+            X: =lbl_CountryName.X
+            Y: =lbl_CountryName.Y
+            ZIndex: =2
+
+    con_Map As groupContainer.manualLayoutContainer:
+        Fill: =White
+        Height: =435
+        X: =837
+        Y: =313
+        ZIndex: =8
+
+        img_Map_badZoom As image:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =371
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: |-
+                ="data:image/svg+xml;utf8, " & EncodeUrl(
+                "<svg "
+                
+                //Change ViewBox with and without ZoomEffect
+                &"viewBox='"&If(
+                    tgl_ZoomEffect.Value,
+                    (tim_Zoom.Value/tim_Zoom.Duration)*(locViewBoxNew.X-locViewBoxOld.X)+locViewBoxOld.X&" 
+                    "&(tim_Zoom.Value/tim_Zoom.Duration)*(locViewBoxNew.Y-locViewBoxOld.Y)+locViewBoxOld.Y&"
+                    "&(tim_Zoom.Value/tim_Zoom.Duration)*(locViewBoxNew.Width-locViewBoxOld.Width)+locViewBoxOld.Width&"
+                    "&(tim_Zoom.Value/tim_Zoom.Duration)*(locViewBoxNew.Height-locViewBoxOld.Height)+locViewBoxOld.Height,
+                    locViewBoxNew.X&" "&locViewBoxNew.Y&" "&locViewBoxNew.Width&" "&locViewBoxNew.Height)&"'"
+                //&"viewBox='"&locViewBoxNew.X&" "&locViewBoxNew.Y&" "&locViewBoxNew.Width&" "&locViewBoxNew.Height&"'"
+                
+                &" xmlns='http://www.w3.org/2000/svg'>"
+                
+                &Concat(colCountries,
+                "<path d='"&Path&"' fill='rgba("&R&","&G&","&B&","&If(locZoom&&locCountry.ISO3_Code=ISO3_Code,"0.3","0.7")&"' stroke='black' stroke-width='0.2%'/>")
+                
+                &If(!locZoom,
+                "<path d='"&locCountry.Path&"' fill='transparent' stroke='red' stroke-width='0.4%'>"
+                &"<animate attributeName='stroke'
+                        values='red; darkred; red'
+                        dur='1s'
+                        repeatCount='indefinite'
+                        />"
+                &"</path>")
+                
+                //Highlight marked City
+                &If(locZoom,"<circle cx='"&locCity.X&"' cy='"&locCity.Y&"' r='5' fill='transparent' stroke='"&locColour&")' stroke-width='1%'>"
+                &"<animate attributeName='r'
+                        values='0%; 5%'
+                        dur='0.7s'
+                        repeatCount='indefinite'
+                        />"
+                &"</circle>")
+                
+                //Display Cities
+                &If(locZoom,Concat(colCities,
+                "<circle cx='"&X&"' cy='"&Y&"' r='"&(8-POP_RANK)*If(tgl_ZoomEffect.Value,(tim_Zoom.Value/tim_Zoom.Duration),1)*0.2&"%' fill='"&If(Type="Capital","red","rgba(50,50,50,1)")&"' stroke='black' stroke-width='"&If(Type="Capital","0.5%","0")&"'/>"))
+                
+                &"</svg>"
+                )
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Visible: =false
+            Width: =500
+            Y: =64
+            ZIndex: =1
+
+        tgl_ZoomEffect As toggleSwitch:
+            BorderStyle: =BorderStyle.None
+            Default: =true
+            FalseText: ="Direct zoom"
+            Height: =19
+            TrueFill: =ColorValue(locSuperman.darkpurple)
+            TrueText: ="Fancy zoom"
+            Visible: =false
+            Width: =161
+            X: =284
+            Y: =10
+            ZIndex: =3
+
+        lbl_Cities_1 As label:
+            FontWeight: =Bold
+            Size: =20
+            Text: ="Map"
+            Width: =74
+            X: =20
+            ZIndex: =4
+
+        img_FancyMan As image:
+            BorderColor: =RGBA(168, 0, 0, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =64
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: |-
+                ="data:image/svg+xml;utf8, " & EncodeUrl(
+                "<svg viewBox='0 0 70 100' xmlns='http://www.w3.org/2000/svg'>"
+                
+                //Cape
+                &"<path d='"&locSuperman.CapeStanding&"' fill='"&If(tgl_ZoomEffect.Value,locSuperman.darkpurple,locSuperman.darkgray)&"'>"
+                &If(tgl_ZoomEffect.Value,"<animate attributeName='d' 
+                           values='"&locSuperman.CapeFlying1&";"&locSuperman.CapeFlying2&";"&locSuperman.CapeFlying1&"'
+                           dur='0.5s'
+                           repeatCount='indefinite' 
+                  />")
+                &"</path>"
+                
+                &"<path d='"&locSuperman.Superman1&"' fill='darkgray'>"
+                &If(tgl_ZoomEffect.Value,"<animate attributeName='d' 
+                           values='"&locSuperman.Superman1&";"&locSuperman.Superman2&";"&locSuperman.Superman1&"'
+                           dur='0.1s'
+                           repeatCount='indefinite' 
+                  />")
+                &"</path>"
+                
+                &"<path d='"&locSuperman.Eye1&"' fill='"&If(tgl_ZoomEffect.Value,locSuperman.lightgreen,"white")&"'/>"
+                &"<path d='"&locSuperman.Eye2&"' fill='"&If(tgl_ZoomEffect.Value,locSuperman.lightgreen,"white")&"'/>"
+                
+                //Logo, P&R changing fill
+                &"<path d='"&locSuperman.Logo&"' fill='white'/>"
+                &"<path d='"&locSuperman.P&"' fill='"&locSuperman.darkgray&"'>"
+                &If(tgl_ZoomEffect.Value,"<animate attributeName='fill'
+                        values='"&locSuperman.darkgreen&";"&locSuperman.lightgreen&";"&locSuperman.darkgreen&"'
+                        dur='2s'
+                        repeatCount='indefinite'
+                        />")
+                &"</path>"
+                &"<path d='"&locSuperman.R&"' fill='"&If(tgl_ZoomEffect.Value,locSuperman.darkgreen,locSuperman.darkgray)&"'>"
+                &If(tgl_ZoomEffect.Value,"<animate attributeName='fill'
+                        values='"&locSuperman.darkpurple&";"&locSuperman.purple&";"&locSuperman.darkpurple&"'
+                        dur='2s'
+                        repeatCount='indefinite'
+                        />")
+                &"</path>"
+                
+                &"</svg>"
+                )
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Visible: =false
+            Width: =51
+            X: =445
+            ZIndex: =5
+
+        img_ZoomMap As image:
+            BorderColor: =RGBA(168, 0, 0, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =64
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: |-
+                ="data:image/svg+xml;utf8, " & EncodeUrl(
+                varZoomBtnSVG
+                )
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Tooltip: ="Toggle Zoom"
+            Width: =141
+            X: =359
+            ZIndex: =7
+
+        Label1 As label:
+            Align: =Center
+            FontWeight: =Bold
+            Height: =18
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =7
+            Text: ="Click here to zoom"&If(locZoom," out")
+            Width: =109
+            X: =370
+            Y: =46
+            ZIndex: =8
+
+        img_Map As image:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =White
+            FocusedBorderThickness: =4
+            Height: =371
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: |-
+                ="data:image/svg+xml;utf8, " & EncodeUrl(
+                varMapSvgCode
+                )
+            OnSelect: =Select(btn_Zoom)
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =500
+            Y: =64
+            ZIndex: =9
+
+        btn_Zoom As button:
+            Color: =Transparent
+            Fill: =Transparent
+            Height: =64
+            HoverFill: =RGBA(0,0,0,0.5)
+            OnSelect: |-
+                =UpdateContext({locZoom:!locZoom});
+                Select(btn_ChangeViewBox);
+            Text: ="Zoom "&If(locZoom,"out", "in")
+            Width: =109
+            X: =370
+            ZIndex: =10
+
+    grp_Footer As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =14
+
+        html_Copyright As htmlViewer:
+            AutoHeight: =true
+            Height: =16
+            HtmlText: |
+                ="R2Power - lern PowerApps - &copy; Robin Rosengrün 2022"
+            OnSelect: |-
+                =Launch("https://www.youtube.com/channel/UCAYTr-CNtPd8SZhC0bci9pw")
+            PaddingTop: =0
+            Size: =7
+            Width: =253
+            X: =1109
+            Y: =751
+            ZIndex: =11
+
+        img_YTLogo As image:
+            Height: =17
+            Image: ='YT-Logo'
+            OnSelect: |-
+                =Launch("https://www.youtube.com/channel/UCAYTr-CNtPd8SZhC0bci9pw")
+            Width: =55
+            X: =1048
+            Y: =751
+            ZIndex: =12
+
+    grp_Header As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =19
+
+        html_Sources As htmlViewer:
+            Height: =83
+            HtmlText: |-
+                ="<b>Sources</b><br>
+                Data: https://www.cia.gov/the-world-factbook/<br>
+                Shape-file countries: https://ec.europa.eu/eurostat/<br>
+                Flags: https://flagpedia.net/<br>"
+            Size: =7
+            Width: =246
+            X: =1093
+            ZIndex: =10
+
+        img_HeaderWorld As image:
+            BorderColor: =RGBA(168, 0, 0, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =72
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: |-
+                ="data:image/svg+xml;utf8, " & EncodeUrl(
+                "<svg viewBox='0 -5 400 45' xmlns='http://www.w3.org/2000/svg'>"
+                
+                //THE
+                &"<g fill='darkgray'>"
+                &locHeader.the
+                &"<animateTransform attributeName='transform'
+                        type='translate'
+                        values='50;50;0;0;0; 50;50'
+                        dur='10s'
+                        repeatCount='indefinite'
+                        />"
+                &"</g>"
+                
+                //SVG
+                &"<g fill='transparent' transform='translate(105)' stroke-width='2' stroke='"&locColour&")'>"
+                &locHeader.svg
+                /*&"<animate attributeName='opacity'
+                        values='0;0;1;0;0'
+                        dur='10s'
+                        repeatCount='indefinite'
+                        />"*/
+                &"<animate attributeName='stroke-dasharray'
+                        values='0,1000;0,1000;0,1000;0,1000;150,1000;150,1000;150,1000;0,1000;0,1000;0,1000;0,1000'
+                        dur='10s'
+                        repeatCount='indefinite'
+                        />"
+                &"</g>"
+                
+                //WORLD
+                &"<g fill='darkgray)'>"
+                &locHeader.world
+                &"<animateTransform attributeName='transform'
+                        type='translate'
+                        values='168;168; 218;218;218;168;168'
+                        dur='10s'
+                        repeatCount='indefinite'
+                        />"
+                &"</g>"
+                
+                &"</svg>"
+                )
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =616
+            X: =301
+            Y: =6
+            ZIndex: =16
+
+        img_HeaderGlobe As image:
+            BorderColor: =RGBA(168, 0, 0, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =65
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: |-
+                ="data:image/svg+xml;utf8, " & EncodeUrl(
+                "<svg viewBox='1190 80 730 710' xmlns='http://www.w3.org/2000/svg'>"
+                
+                &"<g>"
+                //Map1
+                &"<g fill='"&locColour&")'>"
+                &locWorldMap
+                &"<animateTransform attributeName='transform'
+                        type='translate'
+                        values='0; 2000'
+                        dur='10s'
+                        repeatCount='indefinite'
+                        />"
+                &"</g>"
+                
+                //Map2
+                &"<g fill='"&locColour&")'>"
+                &locWorldMap
+                &"<animateTransform attributeName='transform'
+                        type='translate'
+                        values='0; 2000'
+                        begin='-5s'
+                        dur='10s'
+                        repeatCount='indefinite'
+                        />"
+                &"</g>"
+                
+                
+                //Circle stencil
+                &"<path d='M 1117.1429,437.14286 V 0 H 1560 2002.8571 V 437.14286 874.28571 H 1560 1117.1429 Z m 496.0418,341.29157 c 129.1672,-22.52489 236.043,-114.63569 275.335,-237.2972 40.4822,-126.37723 7.7037,-262.63622 -85.5179,-355.4947 -31.7066,-31.58306 -51.2236,-45.79793 -87.8541,-63.98681 -57.9836,-28.791849 -93.1226,-37.050394 -158.0048,-37.135151 -72.5341,-0.09475 -124.6396,13.719022 -181.2865,48.061161 -147.9341,89.6849 -208.1557,268.10716 -145.228,430.27541 20.7867,53.56855 52.8071,97.16452 104.6169,142.43689 37.0697,32.39217 103.8936,62.39443 163.1455,73.2482 28.4895,5.21871 84.5512,5.16606 114.7939,-0.10772 z' fill='rgba(230,230,230,1)' stroke='black' stroke-width='10'/>"
+                
+                &"</g>"
+                
+                &"</svg>"
+                )
+            OnSelect: |-
+                =UpdateContext({locFunctions:!locFunctions})
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Tooltip: ="Click me to toggle the function button visibility"
+            Width: =106
+            X: =3
+            Y: =6
+            ZIndex: =18
+
+    con_functions As groupContainer.manualLayoutContainer:
+        BorderThickness: =1
+        Fill: =White
+        Height: =412
+        Visible: =locFunctions
+        Width: =358
+        X: =23
+        Y: =339
+        ZIndex: =21
+
+        btn_Calculations As button:
+            Fill: =DarkGreen
+            OnSelect: |-
+                =//Reset Counter for counting labels
+                Set(varResetCounter,true);Set(varResetCounter,false);
+                
+                //Data for SVGs
+                ClearCollect(colPopDistribution,
+                {No:1, Category:"65+", Value:locCountry.'people_and_society/age_structure/65_years_and_over'},
+                {No:2, Category:"55-64", Value:locCountry.'people_and_society/age_structure/55_64_years'},
+                {No:3, Category:"25-54", Value:locCountry.'people_and_society/age_structure/25_54_years'},
+                {No:4, Category:"15-24", Value:locCountry.'people_and_society/age_structure/15_24_years'},
+                {No:5, Category:"0-14", Value:locCountry.'people_and_society/age_structure/0_14_years'}
+                );
+                ClearCollect(colLandUse,
+                {No:1, Category:"Arable land", Value:locCountry.'geography/land_use/agricultural_land_arable_land', SumBefore:0},
+                {No:2, Category:"Crops", Value:locCountry.'geography/land_use/agricultural_land_permanent_crops', SumBefore:locCountry.'geography/land_use/agricultural_land_arable_land'},
+                {No:3, Category:"Pasture", Value:locCountry.'geography/land_use/agricultural_land_permanent_pasture', SumBefore:locCountry.'geography/land_use/agricultural_land_arable_land'+locCountry.'geography/land_use/agricultural_land_permanent_crops'},
+                {No:4, Category:"Forest", Value:locCountry.'geography/land_use/forest', SumBefore:locCountry.'geography/land_use/agricultural_land_arable_land'+locCountry.'geography/land_use/agricultural_land_permanent_crops'+locCountry.'geography/land_use/agricultural_land_permanent_pasture'},
+                {No:5, Category:"Other", Value:locCountry.'geography/land_use/other', SumBefore:locCountry.'geography/land_use/agricultural_land_arable_land'+locCountry.'geography/land_use/agricultural_land_permanent_crops'+locCountry.'geography/land_use/agricultural_land_permanent_pasture'+locCountry.'geography/land_use/forest'}
+                );
+                ClearCollect(colEnergy,
+                {No:1, Category:"Fossil fuels", Value:locCountry.'energy/electricity_from_fossil_fuels', Icon:varIcon.oil},
+                {No:2, Category:"nuclear", Value:locCountry.'energy/electricity_from_nuclear_fuels', Icon:varIcon.radioactive},
+                {No:3, Category:"Hydroelectric", Value:locCountry.'energy/electricity_from_hydroelectric_plants', Icon:varIcon.water},
+                {No:4, Category:"Other renewables", Value:locCountry.'energy/electricity_from_other_renewable_sources', Icon:varIcon.windpower}
+                );
+                
+                //for use in SVGs, will turn out as rgba(xxx,xxx,xxx  there is intentionally no closed bracket, so you can set the opacity in the svgs
+                UpdateContext({locColour:"RGBA("&locCountry.R&","&locCountry.G&","&locCountry.B});
+                
+                //Write Cities into collection
+                ClearCollect(colCities,AddColumns(Filter(tbl_Cities,ISO2_CountryCode=locCountry.ISO_Code),"Selected",false,"LastSelected",false));
+                
+                //Variable to refresh SVGs
+                Set(varRefresh,Second(Now()));
+                Set(varRefreshMap,Second(Now()));
+            Size: =10
+            Text: ="Calculations"
+            Width: =200
+            X: =20
+            Y: =89
+            ZIndex: =1
+
+        tim_Zoom As timer:
+            Duration: =1000
+            Fill: =Gray
+            Reset: =varReset
+            Start: =!varReset
+            Width: =88
+            X: =247
+            Y: =360
+            ZIndex: =2
+
+        btn_ChangeViewBox As button:
+            Fill: =DarkGreen
+            OnSelect: |
+                =//ViewBoxWorld
+                UpdateContext({locViewBoxWorld:{X:0, Y:0, Width:1000, Height:1000/varAspectRatioMap}});
+                
+                //This is important if fancy-zoom is enabled
+                
+                Set(varAspectRatioMap,img_Map_badZoom.Width/img_Map_badZoom.Height);
+                
+                //Old viewbox as starting points
+                UpdateContext({locViewBoxOld:{X:locViewBoxNew.X, Y:locViewBoxNew.Y, Width:locViewBoxNew.Width, Height:locViewBoxNew.Height}});
+                
+                //If Zoom is Off, Set Viewbox to World, otherwise to Country
+                If(!locZoom,
+                UpdateContext({locViewBoxNew:locViewBoxWorld}),
+                
+                //Set ViewBox so, that the whole Map-Image is filled out
+                If(locCountry.BoxWidth/locCountry.BoxHeight>varAspectRatioMap,
+                UpdateContext({locViewBoxNew:{X:locCountry.Xmin, Y:locCountry.Ymid-locCountry.BoxWidth/varAspectRatioMap/2, Width:locCountry.BoxWidth, Height:locCountry.BoxWidth/varAspectRatioMap}}),
+                UpdateContext({locViewBoxNew:{X:locCountry.Xmid-locCountry.BoxHeight*varAspectRatioMap/2, Y:locCountry.Ymin, Width:locCountry.BoxHeight*varAspectRatioMap, Height:locCountry.BoxHeight}})
+                ));
+                
+                //Experimenting SVG-Animating the Zoom
+                Set(varZoomFactor,{New:1000/locViewBoxNew.Width,Old:1000/locViewBoxOld.Width});
+                
+                //RefreshMap
+                Set(varRefreshMap,Second(Now()));
+                //Reset Timer
+                Set(varReset,true);Set(varReset,false);
+                
+                Select(btn_MapSvgCode);
+                Select(btn_ZoomMapSvgCode)
+            Size: =10
+            Text: ="Change ViewBox"
+            Width: =200
+            X: =20
+            Y: =143
+            ZIndex: =3
+
+        tim_Counter As timer:
+            Duration: =1000
+            Fill: =Gray
+            Reset: =varResetCounter
+            Start: =!varResetCounter
+            Width: =88
+            X: =247
+            Y: =251
+            ZIndex: =4
+
+        btn_Superman As button:
+            Fill: =Purple
+            OnSelect: |-
+                =//Load Superman SVG-Parts
+                UpdateContext({locSuperman:{
+                darkpurple:"#742474",
+                purple:"#A300A3",
+                darkgreen:"#28570F",
+                lightgreen:"#42A30E",
+                darkgray:"#1e1e1e",
+                Eye1:"m 25.785654,14.014724 c -0.133641,-0.335778 -1.060172,-0.574553 -1.598262,-0.298738 -0.148412,0.07608 0.420612,0.578694 0.734631,0.590872 0.393697,0.01527 0.900007,-0.200744 0.863631,-0.292134 z",
+                Eye2:"m 27.330384,13.95874 c -0.03615,-0.273161 1.331491,-0.990778 1.455545,-0.886555 0.110462,0.09284 -0.01651,0.60743 -0.20365,0.771374 -0.258172,0.226079 -1.233231,0.256892 -1.251895,0.115181 z",
+                CapeStanding:"m 17.355887,81.571738 c 0.337931,0.253047 3.06729,0.410589 4.522939,0.905714 0.425776,0.144867 0.824658,0.365027 1.210182,0.596856 0.413332,0.248473 0.70993,0.713591 1.173584,0.845699 0.265306,0.0756 0.595572,-0.209318 0.825572,-0.05707 0.142005,0.09392 0.04086,0.368321 0.167019,0.482684 0.497688,0.451025 1.297823,0.353317 1.959306,0.46877 1.259217,0.219748 2.53362,0.379301 3.811004,0.423221 1.804108,0.06184 3.611363,-0.08248 5.410678,-0.227434 1.242014,-0.100059 2.503739,-0.137605 3.711776,-0.442978 1.069291,-0.270253 2.042338,-0.83436 3.076976,-1.216223 1.222075,-0.451025 2.46264,-0.850274 3.695983,-1.26946 2.516389,-0.855398 6.200336,-1.710246 7.557276,-2.541895 0.253597,-0.155403 -0.01726,-0.658511 0.190111,-0.871673 0.433279,-0.44554 1.416381,-0.842777 1.218043,-1.431766 -0.672604,-1.998838 -1.809775,-5.890226 -2.828115,-9.383955 -1.198095,-4.110456 -4.203435,-5.070237 -5.348357,-9.195862 -0.616794,-2.222842 -0.724931,-6.017045 -1.110637,-8.291432 -0.615894,-3.630735 -1.217864,-3.384383 -3.039625,-6.89868 -1.127666,-2.175286 -1.012395,-5.75448 -1.809785,-8.071259 -0.885952,-2.57378 2.748131,-11.770357 1.611807,-14.243725 -0.460729,-1.002505 -2.615976,-1.063984 -3.375935,-1.86392 -0.647542,-0.681572 -4.189429,-0.519642 -5.59455,-0.366312 -0.575995,0.06285 -2.309016,0.60381 -2.888127,0.585879 -1.296358,-0.04016 -2.802257,0.529705 -4.079074,0.757871 -1.608508,0.287449 -4.222033,-0.29916 -5.423996,0.421202 -1.537153,0.921451 -2.59749,0.861617 -3.688738,1.380893 -1.329606,0.63272 -2.716591,0.827035 -3.751164,1.874901 -0.900955,0.912483 -2.146002,2.568291 -2.518571,3.795304 -0.441696,1.454632 0.810768,2.705413 0.720326,4.222964 -0.148636,2.494027 2.05903,4.834626 3.603736,7.211055 1.657531,2.550012 1.947489,4.878722 2.628001,7.843 0.519165,2.261467 -0.453242,5.799478 -0.290634,8.114056 0.251127,3.574698 0.432856,6.161268 0.522312,9.743648 0.07222,2.892627 1.647284,5.531 1.633689,8.424489 -0.01135,2.411775 -3.814534,8.042202 -3.502975,8.275692 z",
+                CapeFlying1:"m 19.146906,1.3330179 c -1.280072,0.9423994 -2.564503,2.0863756 -3.70025,3.4666335 -0.94926,1.1536951 -1.744824,2.4447031 -2.386874,3.7938 -0.904248,1.9003136 -1.671636,3.9051006 -2.026401,5.9794986 -0.271714,1.589261 -0.594294,3.316095 -0.05803,4.83668 0.446451,1.266169 1.603204,2.168352 2.563643,3.106304 2.116571,2.066819 4.49051,3.882363 6.977305,5.484708 3.626714,2.336832 7.524429,4.258771 11.489021,5.960508 2.314527,0.99354 3.724675,1.595154 6.206771,2.023289 0.527324,0.09095 1.723966,0.153986 2.148462,0.462188 1.454993,1.056486 1.054284,2.363876 3.423067,3.471078 2.024938,0.946519 3.16968,1.306424 5.395655,1.509706 2.415875,0.220667 5.576999,0.171777 7.952321,-0.321117 3.194095,-0.662727 6.840751,-1.172305 9.146943,-3.479442 1.906202,-1.906991 2.928798,-4.865927 2.872818,-7.561679 -0.07274,-3.501341 -2.102803,-5.200056 -3.98372,-7.220162 -2.289928,-2.459388 -4.499164,-4.930348 -5.400028,-8.0275 -0.655768,-2.254349 -0.446631,-4.8421912 0.40016,-7.0319605 0.698407,-1.8063773 2.204926,-3.2337717 3.658356,-4.5137924 1.390588,-1.2246518 2.382606,-1.7462332 4.726195,-2.92634055 -2.722508,0.004659 -3.463925,-0.23469878 -5.180026,-0.043401 -4.710547,0.52511159 -9.419303,1.54668305 -13.843397,3.24739555 -3.060378,1.1764756 -5.952022,2.8570696 -8.404492,5.0331768 -1.768243,1.5690241 -3.433402,3.2938371 -4.347899,5.4738411 -0.638026,1.520994 -0.657603,3.031608 -0.844601,4.875577 -0.157637,1.553983 -1.779037,2.745609 -3.175227,3.445717 -2.472872,1.240005 -5.540899,1.392786 -8.254802,0.856494 -1.170654,-0.231278 -3.213049,-0.504272 -3.152834,-1.696155 0.05184,-1.025925 0.169519,-2.439625 -0.470971,-3.379554 -0.771775,-1.132508 -2.281151,-1.58692 -3.582122,-2.017673 -1.39681,-0.46248 -2.115525,-1.725741 -2.229646,-3.076613 -0.1277,-1.511864 -0.266774,-3.6722064 0.296415,-5.3288276 0.828499,-2.4368403 2.616248,-3.9158765 3.784192,-6.4023775 z",
+                CapeFlying2:"m 19.899766,1.9840664 c -1.280057,0.9423941 -2.741066,1.2621382 -3.876821,2.6423961 -0.949326,1.1536941 -2.069829,2.862459 -2.711831,4.2115558 -0.904305,1.9003127 -1.922984,3.6605337 -2.27773,5.7349317 -0.271786,1.589261 -0.594203,3.316095 -0.05803,4.83668 0.446434,1.266169 1.603113,2.168352 2.56364,3.106304 2.116579,2.066819 4.490514,3.882363 6.977309,5.484708 3.626714,2.336832 7.524429,4.258771 11.489021,5.960508 2.314527,0.99354 3.724678,1.595154 6.206772,2.023289 0.527327,0.09095 1.723965,0.153986 2.148461,0.462188 1.454998,1.056486 1.026291,2.451939 3.190494,3.561927 1.988906,1.020068 3.25934,1.451335 5.485305,1.654617 2.415874,0.220666 5.84398,0.460358 8.219301,-0.03248 3.194096,-0.662728 6.432451,-1.108266 8.738632,-3.415419 1.906212,-1.906995 3.217834,-5.103687 3.161844,-7.799435 -0.07274,-3.501347 -2.170811,-5.900572 -4.051729,-7.920679 -2.289928,-2.459387 -4.202959,-4.642122 -5.103823,-7.739275 -0.655779,-2.25435 -0.384976,-4.60922 0.461815,-6.7989891 0.698407,-1.8063774 1.910331,-3.405113 3.36375,-4.6851326 C 65.216731,2.0471084 65.767592,1.995364 68.232447,1.135095 65.79187,0.59861179 64.511155,0.6446651 62.795054,0.83597033 58.084497,1.3610861 54.073861,2.1393178 49.649768,3.8400346 46.58939,5.0165112 43.576871,6.4064901 41.124404,8.5825964 c -1.768246,1.5690256 -3.433405,3.2938376 -4.347898,5.4738406 -0.638026,1.520994 -0.657607,3.031609 -0.844601,4.875577 -0.157641,1.553985 -1.779041,2.74561 -3.175231,3.445719 -2.472872,1.240003 -5.540899,1.392784 -8.254798,0.856493 -1.170658,-0.231279 -3.213048,-0.504273 -3.152833,-1.696154 0.05184,-1.025926 0.169519,-2.439625 -0.470971,-3.379556 -0.771781,-1.132507 -2.281157,-1.586919 -3.58212,-2.017672 -1.396833,-0.462488 -1.791698,-2.226148 -1.905803,-3.577017 -0.127699,-1.511855 -0.176276,-3.0947898 0.38692,-4.7514111 0.828446,-2.4368403 2.293549,-3.332821 4.122696,-5.8283411 z",
+                Superman1:"m 39.808475,19.310936 c 0.86144,0.332095 1.48171,0.490915 1.83532,0.921266 0.55093,0.506102 1.32582,0.628327 1.82406,1.198469 1.39845,1.299653 2.43007,1.431942 3.10689,3.242747 1.56404,3.687461 2.28497,3.403689 5.10375,7.482052 1.01166,0.775071 1.75068,3.429579 3.36704,6.256777 0.73775,1.366987 2.09809,4.934327 2.78552,6.087803 0.30282,0.704626 1.09344,1.216034 1.01165,2.051724 -0.1095,1.248238 0.73702,2.283752 0.98183,3.465296 0.13552,0.708835 0.44042,1.362046 0.91743,1.905474 -0.2386,0.543611 -0.50281,1.074231 -0.77782,1.598447 -0.39302,0.72823 -0.28342,1.63925 -0.84643,2.287887 -0.13306,-0.03864 -0.40382,-0.118173 -0.53922,-0.158884 -0.0428,0.419007 -0.24481,0.747625 -0.64863,0.887416 -0.73263,-0.184985 -1.47366,0.09443 -2.20629,0.146069 -0.3632,-0.511408 -0.20401,-1.263059 -0.30281,-1.853858 -0.14607,-0.384425 0.45432,-0.686147 0.67553,-0.922547 0.27519,0.404369 0.23512,0.806176 0.20072,1.261777 0.3374,-0.09461 0.7017,-0.32258 1.04752,-0.382595 -0.35863,-0.335205 -0.80289,-0.42413 -0.96829,-0.922547 -0.15248,-0.298611 -0.0918,-0.274641 0.0823,-0.480851 0.16981,0.04523 0.57142,-0.0079 0.74323,0.03715 -0.60143,-0.889429 -1.76166,-0.457614 -2.64675,-0.511408 -0.23201,0.356613 -0.28836,0.56758 -0.45157,0.960788 0.24481,0.876438 0.60307,1.911055 -0.14672,2.589938 -0.22761,-0.180558 -0.53062,-0.326606 -0.53281,-0.65742 -0.0793,-0.709018 -0.72915,-1.145224 -1.05575,-1.753242 0.0624,-0.479021 0.29184,-0.834903 0.44462,-1.283734 0.28983,-0.661811 -0.2428,-1.426636 0.19322,-2.058147 0.65541,-0.945235 1.41383,-1.924887 1.41584,-3.134518 -0.31801,-1.529649 -1.01605,-3.112836 -2.42755,-3.922708 -1.03764,-0.517812 -1.83046,-1.409437 -2.38043,-2.414742 -0.53922,0.01282 -2.8521,-5.346526 -3.36333,-5.569862 -3.95129,-1.299104 -4.24576,-1.985745 -5.74515,-4.698548 -0.78422,-0.635829 0.20164,3.57087 -0.0173,4.570522 -0.29221,1.099847 -0.36631,3.127949 -1.05593,4.053735 0.18462,2.48579 0.53922,4.956301 0.97305,7.409686 0.17829,0.921632 -0.0236,1.890581 0.23859,2.794885 0.62522,1.127842 1.64986,1.95711 2.41681,2.984115 1.63065,1.931292 2.89157,4.20864 3.47604,6.68142 0.37161,2.354416 0.56502,4.73485 0.60161,7.119419 0.13514,1.321244 0.76464,2.55005 1.45866,3.665065 1.08923,0.532816 2.76264,0.889612 3.67995,1.723234 1.43085,1.05264 2.51282,2.84555 2.70827,4.665266 0.32459,2.713279 -0.50848,4.939431 -0.55807,7.637816 -0.0514,0.930049 0.7125,1.879822 1.15712,2.633979 0.39541,0.590635 -0.10724,1.310448 0.1848,1.933378 0.39962,1.555448 1.2594,2.034287 2.08,3.362081 0.79483,1.501654 0.73664,3.322393 0.42724,4.916523 -0.16322,0.54562 0.0275,1.18017 -0.56539,1.40577 -0.56502,0.17396 -1.21749,-0.031 -1.5677,-0.55934 -0.81423,-1.08302 -2.05127,-1.69615 -2.47438,-2.99579 -0.0558,-0.92163 -0.12891,-1.845348 -0.31361,-2.751903 -0.22121,-1.566244 -1.58765,-2.621116 -2.04739,-4.090458 -0.10102,-0.633816 0.0601,-1.269828 0.0366,-1.903407 0.0665,-1.271841 -0.4298,-2.517828 -1.16224,-3.540497 -0.47262,-0.659433 -1.20506,-1.054836 -1.74885,-1.643458 -0.70682,-0.880829 -1.36772,-1.260497 -1.64071,-2.373207 -0.14381,-0.526411 -0.21774,-1.23177 -0.56996,-1.674197 -0.70262,-1.130038 -2.47673,-1.855816 -3.43267,-2.71306 -0.77983,-0.586609 -0.86784,-1.626259 -1.33424,-2.421146 -1.71445,-0.822826 -3.02482,-2.397578 -3.52542,-4.234456 -0.27702,-0.681024 -0.19102,-1.566061 -0.82703,-2.047205 -1.69085,-1.686457 -3.23327,-3.630776 -3.84771,-5.983124 -0.93023,-0.236401 -1.90565,-0.163407 -2.85294,-0.305198 -0.16265,0.358809 -2.39776,3.04047 -2.77132,3.280585 -0.3546,0.782024 -0.76702,1.533858 -1.16022,2.29656 -0.25123,0.951639 -0.31801,1.944301 -0.60784,2.8895 0.89364,0.558431 2.03804,1.508241 2.02304,2.668359 -0.18462,1.190053 -0.52093,2.285746 -0.11921,3.493108 0.29422,0.79904 1.47586,0.618812 1.75507,1.430661 0.22359,0.683219 -0.15452,1.522696 -0.30703,2.195229 -0.39741,1.495251 -0.46255,2.774832 0.20768,4.214202 0.44261,0.919437 0.88924,1.798253 0.99006,2.831644 -0.11384,0.859239 -0.19889,2.048541 -0.64589,2.800356 -0.46402,0.807823 -0.86144,1.692861 -1.60924,2.281483 -1.23324,-0.472435 -1.74428,-1.79807 -2.32672,-2.876491 -0.38881,-0.771228 -0.81203,-1.645836 -0.47042,-2.517828 0.48982,-1.53404 0.59301,-3.149595 0.73061,-4.743522 0.0537,-1.147237 -0.27062,-2.444896 -1.24604,-3.151663 -1.75306,-1.301849 -3.92516,-1.946369 -5.54491,-3.441546 -1.16873,-1.192248 -1.80078,-3.10667 -1.37972,-4.670645 0.25576,-0.876621 0.49417,-1.783066 1.00326,-2.554386 0.17829,-0.322214 0.45988,-0.661811 0.32437,-1.054653 -0.18471,-0.947431 -0.37222,-2.230872 -1.10898,-2.920495 -1.19021,-1.201031 -1.38943,-2.706985 -1.14235,-4.361221 0.32663,-2.63601 1.55188,-4.695272 3.73235,-6.169152 0.68321,-0.403637 1.3152,-1.487748 1.97474,-1.923735 0.51983,-0.468409 1.07295,-0.798125 1.23177,-1.560754 0.44042,-1.087039 -0.33941,-2.161233 -0.20182,-3.276249 -0.0386,-1.016046 0.33942,-2.410405 -0.68523,-3.06347 -1.52763,-1.252629 -2.9711,-2.732693 -3.68014,-4.6146 -0.26425,1.076243 -0.507,2.1848 -1.09353,3.138653 -0.59088,0.979634 -1.23093,1.950705 -1.5962,3.041971 -0.35019,1.349239 -0.5758,2.844452 -1.581119,3.886334 -0.513402,0.358809 -1.104275,0.0043 -1.570562,-0.255613 -1.306124,-0.799407 -3.007659,-0.509213 -4.2708268,-1.40285 -1.046218,-0.704627 -1.475947,-1.948638 -1.959195,-3.052913 -0.32022,-0.835635 -1.03566,-1.424257 -1.744514,-1.924888 -0.442537,-0.30721 -0.212211,-0.987319 -0.497941,-1.412546 -0.586536,-0.502626 -1.441639,-0.655225 -1.905657,-1.308253 -0.360928,-0.530803 -0.565046,-1.158032 -1.016064,-1.628454 -0.474768,-0.436206 0.02706,-1.074048 0.08078,-1.594056 -0.122508,-0.311602 -0.400995,-0.593013 -0.521241,-0.904615 -0.161145,-0.425411 0.314251,-0.820814 0.52911,-1.123817 -0.137586,-0.42541 -0.53552,-0.725851 -0.443166,-1.19426 0.02356,-0.53062 0.732003,-0.715788 1.090669,-0.952189 -0.02789,-0.322031 -0.166957,-0.519458 -0.248566,-0.830877 0.118174,-0.345818 0.405973,-0.552028 0.711113,-0.721826 0.657401,0.191389 1.2869,-0.148142 1.939965,-0.161146 0.352258,0.120434 0.625161,0.386804 0.923717,0.597405 0.251423,-0.120434 0.536841,-0.128165 0.818235,-0.160368 0.356777,0.227617 0.489085,0.590635 0.744661,0.923461 -0.143994,0.820815 0.15581,1.423892 0.291127,2.231642 0.167553,1.183648 -0.921632,2.410405 -0.169626,3.518998 0.579931,0.625216 0.928658,1.612901 1.768684,1.907249 0.8011988,0.03656 1.5049108,-0.02862 2.2482488,0.312883 -0.774212,-0.945053 -0.802409,-2.263533 -0.179306,-3.404366 0.320915,-0.676266 0.840575,-1.539896 1.388742,-1.667794 -0.115913,-0.223409 -0.22974,-0.444622 -0.343768,-0.665836 -0.274989,-1.25025 -0.603498,-2.541578 -0.343586,-3.826209 0.341518,-1.649862 0.936801,-2.823447 2.668232,-4.169996 1.731454,-1.346493 5.641684,-2.195156 6.262264,-2.425482 0.62065,-0.230362 2.14437,-0.859787 2.84264,-1.083013 0.0731,-1.147237 -0.4523,-2.250743 -0.5813,-3.391374 -0.0322,-0.567306 -0.98512,-0.829779 -0.98951,-1.39897 -0.0386,-0.678882 -0.39321,-1.327611 -0.18901,-2.01083 0.217,0.167553 0.43401,0.337182 0.64662,0.511335 0.0258,-1.334217 -0.63126,-2.885715 0.0434,-4.16396 -1.05484,-0.4382005 -0.68615,-1.4489955 -0.34472,-2.1902784 -0.66822,-0.255576 -0.55294,0.5071449 -0.75275,0.9818849 -0.25561,-0.7993149 0.61076,-1.9374219 1.28117,-1.3337229 -0.3266,0.448941 -0.22066,0.9527009 0.34875,1.2384119 0.55642,-0.232009 1.05264,-0.5671219 1.55106,-0.8978999 0.44462,-0.348105 0.98384,-0.01508 1.44347,0.111765 -0.0149,-0.139659 -0.27629,-0.401167 -0.29148,-0.54083 0.90443,0.376009 2.46773,0.368946 2.67619,1.5763069 -0.0558,-0.354527 -0.30575,-0.7208559 -0.34234,-1.0774509 0.37601,0.272721 0.73976,0.7250099 0.84734,1.1590569 0.48708,0.142706 0.84278,0.615007 0.14814,0.588604 0.93884,0.8119405 0.63163,2.1203395 0.57783,3.1987785 0.12044,0.04297 0.3632,0.126844 0.48341,0.167742 0.10517,0.762574 -0.1095,1.540207 0.10951,2.292223 -0.13947,0.274989 -0.73537,0.595228 -0.88778,0.861727 0.13532,1.304045 0.12668,2.579214 0.41242,3.861594 0.32459,0.315811 2.61167,-0.527875 3.98647,-0.901139 0.42541,-0.180557 1.0499,-0.208954 1.5635,-0.165937 1.36039,0.03659 1.91478,0.08612 3.87663,0.378752 z",
+                Superman2:"m 39.808475,19.310936 c 0.86144,0.332095 1.48171,0.490915 1.83532,0.921266 0.55093,0.506102 1.32582,0.628327 1.82406,1.198469 1.39845,1.299653 2.43007,1.431942 3.10689,3.242747 1.56404,3.687461 2.28497,3.403689 5.10375,7.482052 1.01166,0.775071 1.75068,3.429579 3.36704,6.256777 0.73775,1.366987 2.09809,4.934327 2.78552,6.087803 0.30282,0.704626 1.09344,1.216034 1.01165,2.051724 -0.1095,1.248238 0.73702,2.283752 0.98183,3.465296 0.13552,0.708835 0.44042,1.362046 0.91743,1.905474 -0.2386,0.543611 -0.50281,1.074231 -0.77782,1.598447 -0.39302,0.72823 -0.28342,1.63925 -0.84643,2.287887 -0.13306,-0.03864 -0.40382,-0.118173 -0.53922,-0.158884 -0.0428,0.419007 -0.24481,0.747625 -0.64863,0.887416 -0.73263,-0.184985 -1.47366,0.09443 -2.20629,0.146069 -0.3632,-0.511408 -0.20401,-1.263059 -0.30281,-1.853858 -0.14607,-0.384425 0.45432,-0.686147 0.67553,-0.922547 0.27519,0.404369 0.23512,0.806176 0.20072,1.261777 0.3374,-0.09461 0.7017,-0.32258 1.04752,-0.382595 -0.35863,-0.335205 -0.80289,-0.42413 -0.96829,-0.922547 -0.15248,-0.298611 -0.0918,-0.274641 0.0823,-0.480851 0.16981,0.04523 0.57142,-0.0079 0.74323,0.03715 -0.60143,-0.889429 -1.76166,-0.457614 -2.64675,-0.511408 -0.23201,0.356613 -0.28836,0.56758 -0.45157,0.960788 0.24481,0.876438 0.60307,1.911055 -0.14672,2.589938 -0.22761,-0.180558 -0.53062,-0.326606 -0.53281,-0.65742 -0.0793,-0.709018 -0.72915,-1.145224 -1.05575,-1.753242 0.0624,-0.479021 0.29184,-0.834903 0.44462,-1.283734 0.28983,-0.661811 -0.2428,-1.426636 0.19322,-2.058147 0.65541,-0.945235 1.41383,-1.924887 1.41584,-3.134518 -0.31801,-1.529649 -1.01605,-3.112836 -2.42755,-3.922708 -1.03764,-0.517812 -1.83046,-1.409437 -2.38043,-2.414742 -0.53922,0.01282 -2.8521,-5.346526 -3.36333,-5.569862 -3.95129,-1.299104 -4.24576,-1.985745 -5.74515,-4.698548 -0.78422,-0.635829 0.20164,3.57087 -0.0173,4.570522 -0.29221,1.099847 -0.36631,3.127949 -1.05593,4.053735 0.18462,2.48579 0.53922,4.956301 0.97305,7.409686 0.17829,0.921632 -0.0236,1.890581 0.23859,2.794885 0.62522,1.127842 1.64986,1.95711 2.41681,2.984115 1.63065,1.931292 2.89157,4.20864 3.47604,6.68142 0.37161,2.354416 0.56502,4.73485 0.60161,7.119419 0.13514,1.321244 0.76464,2.55005 1.45866,3.665065 1.08923,0.532816 2.76264,0.889612 3.67995,1.723234 1.43085,1.05264 2.51282,2.84555 2.70827,4.665266 0.32459,2.713279 -0.50848,4.939431 -0.55807,7.637816 -0.0514,0.930049 0.7125,1.879822 1.15712,2.633979 0.39541,0.590635 -0.10724,1.310448 0.1848,1.933378 0.39962,1.555448 1.2594,2.034287 2.08,3.362081 0.79483,1.501654 0.73664,3.322393 0.42724,4.916523 -0.16322,0.54562 0.0275,1.18017 -0.56539,1.40577 -0.56502,0.17396 -1.21749,-0.031 -1.5677,-0.55934 -0.81423,-1.08302 -2.05127,-1.69615 -2.47438,-2.99579 -0.0558,-0.92163 -0.12891,-1.845348 -0.31361,-2.751903 -0.22121,-1.566244 -1.58765,-2.621116 -2.04739,-4.090458 -0.10102,-0.633816 0.0601,-1.269828 0.0366,-1.903407 0.0665,-1.271841 -0.4298,-2.517828 -1.16224,-3.540497 -0.47262,-0.659433 -1.20506,-1.054836 -1.74885,-1.643458 -0.70682,-0.880829 -1.36772,-1.260497 -1.64071,-2.373207 -0.14381,-0.526411 -0.21774,-1.23177 -0.56996,-1.674197 -0.70262,-1.130038 -2.47673,-1.855816 -3.43267,-2.71306 -0.77983,-0.586609 -0.86784,-1.626259 -1.33424,-2.421146 -1.71445,-0.822826 -3.02482,-2.397578 -3.52542,-4.234456 -0.27702,-0.681024 -0.19102,-1.566061 -0.82703,-2.047205 -1.69085,-1.686457 -3.23327,-3.630776 -3.84771,-5.983124 -0.93023,-0.236401 -1.90565,-0.163407 -2.85294,-0.305198 -0.16265,0.358809 -2.39776,3.04047 -2.77132,3.280585 -0.3546,0.782024 -0.76702,1.533858 -1.16022,2.29656 -0.25123,0.951639 -0.31801,1.944301 -0.60784,2.8895 0.89364,0.558431 2.03804,1.508241 2.02304,2.668359 -0.18462,1.190053 -0.52093,2.285746 -0.11921,3.493108 0.29422,0.79904 1.47586,0.618812 1.75507,1.430661 0.22359,0.683219 -0.15452,1.522696 -0.30703,2.195229 -0.39741,1.495251 -0.46255,2.774832 0.20768,4.214202 0.44261,0.919437 0.88924,1.798253 0.99006,2.831644 -0.11384,0.859239 -0.19889,2.048541 -0.64589,2.800356 -0.46402,0.807823 -0.86144,1.692861 -1.60924,2.281483 -1.23324,-0.472435 -1.74428,-1.79807 -2.32672,-2.876491 -0.38881,-0.771228 -0.81203,-1.645836 -0.47042,-2.517828 0.48982,-1.53404 0.59301,-3.149595 0.73061,-4.743522 0.0537,-1.147237 -0.27062,-2.444896 -1.24604,-3.151663 -1.75306,-1.301849 -3.92516,-1.946369 -5.54491,-3.441546 -1.16873,-1.192248 -1.80078,-3.10667 -1.37972,-4.670645 0.25576,-0.876621 0.49417,-1.783066 1.00326,-2.554386 0.17829,-0.322214 0.45988,-0.661811 0.32437,-1.054653 -0.18471,-0.947431 -0.37222,-2.230872 -1.10898,-2.920495 -1.19021,-1.201031 -1.38943,-2.706985 -1.14235,-4.361221 0.32663,-2.63601 1.55188,-4.695272 3.73235,-6.169152 0.68321,-0.403637 1.3152,-1.487748 1.97474,-1.923735 0.51983,-0.468409 1.07295,-0.798125 1.23177,-1.560754 0.44042,-1.087039 -0.33941,-2.161233 -0.20182,-3.276249 -0.0386,-1.016046 0.33942,-2.410405 -0.68523,-3.06347 -1.52763,-1.252629 -2.9711,-2.732693 -3.68014,-4.6146 -0.26425,1.076243 -0.507,2.1848 -1.09353,3.138653 -0.59088,0.979634 -1.23093,1.950705 -1.5962,3.041971 -0.35019,1.349239 -0.5758,2.844452 -1.581119,3.886334 -0.513402,0.358809 -1.104275,0.0043 -1.570562,-0.255613 -1.306124,-0.799407 -3.007659,-0.509213 -4.2708268,-1.40285 -1.046218,-0.704627 -1.475947,-1.948638 -1.959195,-3.052913 -0.32022,-0.835635 -1.03566,-1.424257 -1.744514,-1.924888 -0.442537,-0.30721 -0.212211,-0.987319 -0.497941,-1.412546 -0.586536,-0.502626 -1.441639,-0.655225 -1.905657,-1.308253 -0.360928,-0.530803 -0.565046,-1.158032 -1.016064,-1.628454 -0.474768,-0.436206 0.02706,-1.074048 0.08078,-1.594056 -0.122508,-0.311602 -0.400995,-0.593013 -0.521241,-0.904615 -0.161145,-0.425411 0.314251,-0.820814 0.52911,-1.123817 -0.137586,-0.42541 -0.53552,-0.725851 -0.443166,-1.19426 0.02356,-0.53062 0.732003,-0.715788 1.090669,-0.952189 -0.02789,-0.322031 -0.166957,-0.519458 -0.248566,-0.830877 0.118174,-0.345818 0.405973,-0.552028 0.711113,-0.721826 0.657401,0.191389 1.2869,-0.148142 1.939965,-0.161146 0.352258,0.120434 0.625161,0.386804 0.923717,0.597405 0.251423,-0.120434 0.536841,-0.128165 0.818235,-0.160368 0.356777,0.227617 0.489085,0.590635 0.744661,0.923461 -0.143994,0.820815 0.15581,1.423892 0.291127,2.231642 0.167553,1.183648 -0.921632,2.410405 -0.169626,3.518998 0.579931,0.625216 0.928658,1.612901 1.768684,1.907249 0.8011988,0.03656 1.5049108,-0.02862 2.2482488,0.312883 -0.774212,-0.945053 -0.802409,-2.263533 -0.179306,-3.404366 0.320915,-0.676266 0.840575,-1.539896 1.388742,-1.667794 -0.115913,-0.223409 -0.22974,-0.444622 -0.343768,-0.665836 -0.274989,-1.25025 -0.603498,-2.541578 -0.343586,-3.826209 0.341518,-1.649862 0.936801,-2.823447 2.668232,-4.169996 1.731454,-1.346493 5.641684,-2.195156 6.262264,-2.425482 0.62065,-0.230362 2.14437,-0.859787 2.84264,-1.083013 0.0731,-1.147237 -0.4523,-2.250743 -0.5813,-3.391374 -0.0322,-0.567306 -0.98512,-0.829779 -0.98951,-1.39897 -0.0386,-0.678882 -0.39321,-1.327611 -0.18901,-2.01083 0.217,0.167553 0.43401,0.337182 0.64662,0.511335 0.0258,-1.334217 -0.63126,-2.885715 0.0434,-4.16396 -1.05484,-0.4382005 -0.68615,-1.4489955 -0.34472,-2.1902784 -0.66822,-0.255576 -0.55294,0.5071449 -0.75275,0.9818849 -0.25561,-0.7993149 0.61076,-1.9374219 1.28117,-1.3337229 -0.3266,0.448941 -0.22066,0.9527009 0.34875,1.2384119 0.55642,-0.232009 1.05264,-0.5671219 1.55106,-0.8978999 0.44462,-0.348105 0.98384,-0.01508 1.44347,0.111765 -0.0149,-0.139659 -0.27629,-0.401167 -0.29148,-0.54083 0.90443,0.376009 2.46773,0.368946 2.67619,1.5763069 -0.0558,-0.354527 -0.30575,-0.7208559 -0.34234,-1.0774509 0.37601,0.272721 0.73976,0.7250099 0.84734,1.1590569 0.48708,0.142706 0.84278,0.615007 0.14814,0.588604 0.93884,0.8119405 0.63163,2.1203395 0.57783,3.1987785 0.12044,0.04297 0.3632,0.126844 0.48341,0.167742 0.10517,0.762574 -0.1095,1.540207 0.10951,2.292223 -0.13947,0.274989 -0.73537,0.595228 -0.88778,0.861727 0.13532,1.304045 0.12668,2.579214 0.41242,3.861594 0.32459,0.315811 2.61167,-0.527875 3.98647,-0.901139 0.42541,-0.180557 1.0499,-0.208954 1.5635,-0.165937 1.36039,0.03659 1.91478,0.08612 3.87663,0.378752 z",
+                Logo:"m 37.575762,29.501133 c 3e-6,3.481055 -2.808906,5.478435 -7.496018,6.485877 -4.624675,0.994022 -9.314756,-0.50878 -9.314756,-3.98969 0,-3.481053 2.745977,-7.207802 7.94896,-8.039681 4.990229,-0.797863 8.861814,2.062256 8.861814,5.543494 z",
+                R:"m 29.275669,26.853005 q -0.0257,-0.132211 0.01995,-0.199886 0.05325,-0.07895 0.185467,-0.104651 l 2.266476,-0.440559 q 1.510983,-0.293705 2.354055,0.110845 0.841237,0.395106 1.063352,1.537788 0.229457,1.180456 -0.753765,1.9204 l 1.886741,2.093172 q 0.07502,0.08342 0.08787,0.149528 0.02754,0.141654 -0.208556,0.187546 l -1.350441,0.262499 q -0.207761,0.04038 -0.322655,0.0039 -0.105446,-0.0383 -0.244208,-0.197542 l -1.968571,-2.312476 q -0.06557,-0.08525 -0.07475,-0.132476 -0.02019,-0.103881 0.170781,-0.180204 0.506552,-0.167064 0.779908,-0.475014 0.271522,-0.317391 0.185246,-0.761242 -0.09178,-0.472183 -0.445644,-0.62881 -0.346252,-0.167907 -0.960089,-0.04859 l -0.481627,0.09362 q -0.09443,0.01836 -0.11726,0.05219 -0.02282,0.03384 -0.0045,0.128275 l 0.912322,4.693493 q 0.0257,0.13221 -0.02755,0.211165 -0.04565,0.06767 -0.187303,0.09521 L 30.766026,33.159 q -0.132211,0.0257 -0.20933,-0.01811 -0.06951,-0.05509 -0.09521,-0.187303 z",
+                P:"m 22.907235,28.059379 q -0.02436,-0.147963 0.02865,-0.221811 0.06182,-0.08616 0.209762,-0.110524 l 2.578835,-0.424158 q 1.659331,-0.272923 2.593231,0.257338 0.944466,0.528515 1.166973,1.881348 0.222507,1.352832 -0.529414,2.192929 -0.741358,0.838361 -2.390121,1.109545 l -0.634141,0.104303 q -0.09512,0.0156 -0.13218,0.0543 -0.0265,0.03692 -0.01083,0.132042 l 0.250326,1.521934 q 0.02436,0.147963 -0.03744,0.234121 -0.05299,0.07387 -0.211521,0.09992 l -1.426814,0.234675 q -0.147963,0.02436 -0.232378,-0.02694 -0.07559,-0.06356 -0.09991,-0.211521 z m 3.28655,2.95472 q 1.395108,-0.229462 1.231701,-1.222948 -0.08518,-0.517881 -0.468724,-0.671894 -0.374714,-0.166321 -1.082836,-0.04986 l -0.549588,0.09039 q -0.105684,0.01741 -0.130448,0.06487 -0.0265,0.03692 -0.01083,0.132042 l 0.264227,1.606488 q 0.0156,0.09513 0.05431,0.13218 0.03692,0.0265 0.142606,0.0091 z"}})
+            Size: =10
+            Text: ="Define PowerRobin"
+            Width: =200
+            X: =20
+            Y: =251
+            ZIndex: =5
+
+        btn_SVGsHeader As button:
+            Fill: =Purple
+            OnSelect: |-
+                =//Paths for Header Text
+                UpdateContext(
+                    {
+                        locHeader: {
+                            the: "<path
+                         d='m 8.2773395,8.0640068 q 0,-0.3840003 -0.1706668,-0.5120004 Q 7.9786726,7.3813396 7.5946723,7.3813396 H 1.1520009 Q 1.4305115e-8,7.3813396 1.4305115e-8,6.2293387 V 1.1520016 Q 1.4305115e-8,7.6293945e-7 1.1520009,7.6293945e-7 H 23.509351 q 0.597334,0 0.853334,0.29866688706055 0.298667,0.25600019 0.298667,0.85333395 v 5.0773371 q 0,0.5973338 -0.298667,0.8960007 -0.256,0.2560002 -0.853334,0.2560002 h -6.442672 q -0.384,0 -0.554667,0.1706668 -0.128,0.1280001 -0.128,0.5120004 V 28.714689 q 0,0.597334 -0.298667,0.896 -0.256,0.256001 -0.853334,0.256001 H 9.4293404 q -0.5973338,0 -0.8960007,-0.256001 -0.2560002,-0.298666 -0.2560002,-0.896 z'
+                         id='path867' />
+                      <path
+                         d='m 28.288012,1.1520016 q 0,-0.59733376 0.256,-0.85333395 Q 28.842679,7.6293945e-7 29.440013,7.6293945e-7 h 5.760004 q 0.64,0 0.896001,0.29866688706055 0.298666,0.25600019 0.298666,0.85333395 v 9.1306734 q 0,0.384 0.128001,0.554667 0.128,0.128 0.554667,0.128 h 8.874673 q 0.384,0 0.512,-0.128 0.170667,-0.170667 0.170667,-0.554667 V 1.1520016 Q 46.634692,7.6293945e-7 47.82936,7.6293945e-7 h 5.760004 q 1.194667,0 1.194667,1.15200083706055 V 28.714689 q 0,1.152001 -1.194667,1.152001 H 47.82936 q -1.194668,0 -1.194668,-1.152001 v -9.685341 q 0,-0.384 -0.170667,-0.512 -0.128,-0.170667 -0.512,-0.170667 h -8.874673 q -0.426667,0 -0.554667,0.170667 -0.128001,0.128 -0.128001,0.512 v 9.685341 q 0,0.597334 -0.298666,0.896 -0.256001,0.256001 -0.896001,0.256001 h -5.760004 q -0.597334,0 -0.896001,-0.256001 -0.256,-0.298666 -0.256,-0.896 z'
+                         id='path869' />
+                      <path
+                         d='m 59.776025,1.1520016 q 0,-0.59733376 0.256,-0.85333395 Q 60.330692,7.6293945e-7 60.928026,7.6293945e-7 h 18.98668 q 1.194668,0 1.194668,1.15200083706055 v 4.7360035 q 0,0.6400005 -0.298667,0.8960007 -0.256,0.2560002 -0.896001,0.2560002 h -18.98668 q -0.597334,0 -0.896001,-0.2560002 -0.256,-0.2560002 -0.256,-0.8960007 z m 0,11.3920084 q 0,-0.597334 0.256,-0.896001 0.298667,-0.298666 0.896001,-0.298666 h 18.98668 q 1.194668,0 1.194668,1.194667 v 4.65067 q 0,0.597334 -0.298667,0.896001 -0.298667,0.256 -0.896001,0.256 h -18.98668 q -0.597334,0 -0.896001,-0.256 -0.256,-0.298667 -0.256,-0.896001 z m -0.04267,11.434675 q 0,-0.64 0.256,-0.896 0.298667,-0.256001 0.896001,-0.256001 h 19.072014 q 0.597334,0 0.896001,0.256001 0.298667,0.256 0.298667,0.896 v 4.736004 q 0,1.152001 -1.194668,1.152001 H 60.885359 q -0.597334,0 -0.896001,-0.256001 -0.256,-0.298666 -0.256,-0.896 z'
+                         id='path871' />",
+                            svg: "<path
+                         d='m 2.8160021,21.58935 q 0.3840003,-0.64 0.853334,-0.64 0.3413335,0 0.8533339,0.384 1.5786679,1.152001 3.4560026,1.877335 1.8773347,0.682667 3.7546694,0.682667 1.877335,0 2.816002,-0.554667 0.981334,-0.597334 0.981334,-1.578668 0,-0.682667 -0.469333,-1.152001 -0.469334,-0.469333 -1.536002,-0.810667 -1.024,-0.384 -3.072002,-0.896001 -3.1573356,-0.768 -5.2053371,-1.877334 Q 3.2000024,15.872013 2.0906682,14.080011 1.0240008,12.28801 1.0240008,9.6853414 q 0,-3.0293355 1.4506677,-5.2053372 Q 3.9680029,2.2613359 6.5706716,1.1520018 9.1733402,8.9263916e-7 12.544009,8.9263916e-7 q 6.058672,0 10.752008,3.79733620736084 0.512001,0.3840002 0.512001,0.8960006 0,0.426667 -0.298667,0.853334 l -2.560002,3.9253362 q -0.384,0.5546671 -0.810667,0.5546671 -0.426667,0 -0.810668,-0.3413336 -3.456002,-2.5173352 -6.698671,-2.5173352 -1.536001,0 -2.389335,0.5973338 -0.8533344,0.5546671 -0.8533344,1.4933345 0,0.7253338 0.4693337,1.1946675 0.4693337,0.469334 1.4080007,0.810667 0.938668,0.298667 2.816002,0.768001 3.37067,0.810667 5.504005,2.005335 2.133335,1.152001 3.200002,2.944002 1.109334,1.749335 1.109334,4.26667 0,3.029335 -1.493334,5.248004 -1.493335,2.218668 -4.224003,3.413336 -2.730669,1.152 -6.357339,1.152 -3.2853353,0 -6.1013374,-0.981334 -2.8160021,-1.024 -5.03467044,-2.773335 -0.34133358,-0.256 -0.51200038,-0.469334 Q -1.0490417e-8,26.581354 -1.0490417e-8,26.282687 q 0,-0.426667 0.384000290490417,-0.981334 z'
+                         id='path874' />
+                      <path
+                         d='m 26.666625,1.962669 q -0.213333,-0.3840003 -0.213333,-0.7253339 0,-0.64000043 0.981334,-0.64000043 h 6.058671 q 0.810667,0 1.237334,0.29866689 0.426667,0.25600024 0.810668,1.06666744 L 42.709304,16.597347 49.749309,1.962669 Q 50.175976,1.1520018 50.602643,0.89600156 51.02931,0.59733467 51.839977,0.59733467 h 5.802671 q 0.981335,0 0.981335,0.59733373 0,0.2986669 -0.256001,0.7680006 L 44.586639,29.056023 q -0.597334,1.237334 -1.066668,1.706667 -0.426667,0.512001 -0.981334,0.512001 -0.512,0 -0.938667,-0.512001 -0.426667,-0.469333 -1.066668,-1.706667 z'
+                         id='path876' />
+                      <path
+                         d='m 80.085231,16.42668 q 0,-0.597334 0.256,-0.896001 0.298667,-0.298667 0.896001,-0.298667 h 5.802671 q 0.597334,0 0.853334,0.298667 0.298667,0.298667 0.298667,0.896001 v 9.941341 q 0,0.682667 -0.256,1.066667 -0.213334,0.384 -0.810667,0.725334 -2.816003,1.408001 -5.760005,2.176001 -2.901335,0.725334 -6.101338,0.725334 -4.565336,0 -8.234672,-1.877334 -3.62667,-1.920002 -5.717338,-5.376004 -2.048002,-3.456003 -2.048002,-7.978673 0,-4.693337 2.090669,-8.2773395 Q 63.445219,3.9680038 67.157222,2.0053357 70.911891,8.9263916e-7 75.647895,8.9263916e-7 q 3.157335,0 6.016004,0.89600066736084 2.901336,0.89600064 5.205337,2.47466854 0.768001,0.5120004 0.768001,1.0666674 0,0.3840003 -0.341334,0.853334 L 84.906568,9.045341 q -0.469333,0.7253338 -0.981334,0.7253338 -0.384,0 -0.853334,-0.2986669 -1.706668,-0.981334 -3.498669,-1.4933344 -1.792001,-0.5120004 -3.840003,-0.5120004 -2.517335,0 -4.352003,1.0666675 -1.834668,1.0240007 -2.816002,2.9013354 -0.938668,1.834668 -0.938668,4.181337 0,2.346668 0.981334,4.224003 0.981334,1.834668 2.730669,2.858668 1.792001,1.024001 4.053336,1.024001 2.432002,0 4.01067,-0.64 0.384,-0.128 0.512,-0.298667 0.170667,-0.213334 0.170667,-0.640001 z'
+                         id='path878' />",
+                            world: "<path
+                         d='M 0.21333349,2.0053357 Q 0,1.4933353 0,1.2373351 0,0.59733467 1.0666675,0.59733467 h 6.0586711 q 0.8106673,0 1.1520009,0.25600019 Q 8.6613398,1.0666684 9.0026734,1.9200023 L 13.909344,14.378678 19.413348,2.4746694 q 0.554667,-1.1093342 0.896,-1.49333444 0.341334,-0.38400029 0.810668,-0.38400029 0.469333,0 0.768,0.38400029 0.341334,0.38400024 0.896001,1.49333444 L 28.245354,14.293345 33.109358,1.9200023 q 0.341334,-0.8106672 0.682667,-1.06666744 0.384,-0.25600019 1.237334,-0.25600019 h 6.058672 q 1.024,0 1.024,0.68266713 0,0.3413336 -0.170666,0.7253339 L 30.634689,28.970689 q -0.554667,1.322668 -0.938667,1.749335 -0.341333,0.469333 -0.810667,0.469333 -0.426667,0 -0.768001,-0.426667 -0.298667,-0.384 -0.938667,-1.664001 L 21.077349,16.085346 14.976011,29.098689 q -0.597334,1.237334 -0.938667,1.664001 -0.341334,0.426667 -0.768001,0.426667 -0.469333,0 -0.853334,-0.469333 -0.341333,-0.426667 -0.896,-1.749335 z'
+                         id='path881' />
+                      <path
+                         d='m 43.178668,15.616013 q 0,-4.522671 2.048001,-8.0640065 2.090668,-3.541336 5.760005,-5.5466708 Q 54.65601,8.9263916e-7 59.264013,8.9263916e-7 q 4.65067,0 8.320006,2.00533480736084 3.669336,1.9626681 5.717338,5.5040041 2.090668,3.5413362 2.090668,8.0213392 0,4.52267 -2.090668,8.064006 -2.048002,3.498669 -5.760004,5.504004 -3.669337,1.962668 -8.362673,1.962668 -4.565337,0 -8.234673,-1.962668 -3.62667,-1.962668 -5.717338,-5.461337 -2.048001,-3.541336 -2.048001,-8.021339 z m 16.042678,8.021339 q 2.176002,0 3.968003,-0.981334 1.792002,-1.024001 2.816002,-2.858669 1.024001,-1.834668 1.024001,-4.224003 0,-2.432002 -1.024001,-4.26667 -1.024,-1.8346681 -2.816002,-2.8160021 -1.749334,-1.0240008 -3.925336,-1.0240008 -2.218668,0 -3.968003,1.0240008 -1.749335,0.981334 -2.773335,2.8160021 -0.981334,1.834668 -0.981334,4.26667 0,2.389335 0.981334,4.224003 1.024,1.834668 2.773335,2.858669 1.749335,0.981334 3.925336,0.981334 z'
+                         id='path883' />
+                      <path
+                         d='m 79.871984,1.7493355 q 0,-0.5973337 0.256,-0.85333394 0.298667,-0.29866689 0.896001,-0.29866689 h 10.240007 q 6.826672,0 10.154678,2.47466853 3.328,2.4320018 3.328,7.5946728 0,5.333337 -4.906671,7.722672 l 6.442671,10.709341 q 0.256,0.426667 0.256,0.725334 0,0.640001 -1.06667,0.640001 h -6.101335 q -0.938667,0 -1.408001,-0.256001 -0.426667,-0.256 -0.896001,-1.066667 L 90.453325,17.408014 q -0.213333,-0.426667 -0.213333,-0.640001 0,-0.469333 0.896,-0.64 2.346669,-0.298667 3.797336,-1.408001 1.450668,-1.152001 1.450668,-3.157336 0,-2.1333347 -1.408001,-3.1146688 -1.365334,-1.0240008 -4.13867,-1.0240008 h -2.176001 q -0.426667,0 -0.554667,0.1280001 -0.128,0.1280001 -0.128,0.5546671 V 29.312023 q 0,0.597334 -0.298667,0.896 -0.256001,0.256001 -0.896001,0.256001 h -5.760004 q -0.597334,0 -0.896001,-0.256001 -0.256,-0.298666 -0.256,-0.896 z'
+                         id='path885' />
+                      <path
+                         d='m 109.65333,1.7493355 q 0,-0.5973337 0.256,-0.85333394 0.29867,-0.29866689 0.896,-0.29866689 h 5.76001 q 0.64,0 0.896,0.29866689 0.29867,0.25600024 0.29867,0.85333394 V 22.400018 q 0,0.384 0.128,0.554667 0.128,0.128 0.55466,0.128 h 10.58134 q 0.59734,0 0.85334,0.298667 0.29866,0.256 0.29866,0.853334 v 5.077337 q 0,0.597334 -0.29866,0.896 -0.256,0.256001 -0.85334,0.256001 h -18.21868 q -0.59733,0 -0.896,-0.256001 -0.256,-0.298666 -0.256,-0.896 z'
+                         id='path887' />
+                      <path
+                         d='m 134.14399,1.7493355 q 0,-0.5973337 0.256,-0.85333394 0.29866,-0.29866689 0.896,-0.29866689 h 10.92267 q 5.20534,0 8.87468,1.79200133 3.712,1.7920013 5.632,5.0773371 1.92,3.2853359 1.92,7.7226729 0,4.65067 -2.048,8.106672 -2.00533,3.413336 -5.888,5.290671 -3.84001,1.877335 -9.25868,1.877335 h -10.15467 q -0.59734,0 -0.896,-0.256001 -0.256,-0.298666 -0.256,-0.896 z m 11.30667,21.4186825 q 4.35201,0 6.57067,-2.048001 2.26134,-2.048002 2.26134,-5.717338 0,-2.304002 -0.98134,-3.968003 -0.98133,-1.7066679 -2.944,-2.6026685 -1.92,-0.9386674 -4.736,-0.9386674 h -2.688 q -0.42667,0 -0.55467,0.1706668 -0.128,0.1280001 -0.128,0.5120004 V 22.485351 q 0,0.384 0.128,0.554667 0.128,0.128 0.55467,0.128 z'
+                         id='path889' />"
+                        },
+                        locWorldMap:"<path d='M 56 845 53 845 47 841 45 833 47 829 53 830 59 842 56 845 Z M 308 835 304 834 308 828 312 824 317 825 308 835 Z M 963 809 967 815 960 813 963 809 Z M 289 816 290 819 284 821 279 819 276 816 279 809 285 806 287 807 287 813 289 816 Z M 162 768 166 769 171 771 167 775 160 774 162 768 Z M 154 766 158 771 155 773 152 770 154 766 Z M 292 761 294 763 293 768 289 764 292 761 Z M 227 751 233 751 235 753 234 758 217 755 227 751 Z M 303 727 305 727 310 741 311 750 308 758 301 759 300 755 303 752 299 749 296 754 294 754 290 748 301 744 303 736 301 734 303 727 Z M 341 688 337 695 334 696 328 701 326 708 324 707 319 718 319 725 324 727 330 743 331 754 330 757 334 762 332 765 331 777 328 782 323 785 324 787 317 793 307 799 312 805 312 813 310 817 307 819 302 819 295 815 290 807 290 801 276 805 270 808 273 817 273 823 275 827 274 835 278 836 285 847 287 852 291 857 300 860 314 858 331 851 335 848 336 842 345 839 350 835 353 827 360 821 364 815 372 818 375 825 377 834 372 835 372 839 381 837 381 845 375 847 377 850 374 855 365 859 358 859 356 858 349 847 345 849 338 855 330 865 325 867 307 869 304 870 301 874 302 881 307 887 312 891 318 893 325 893 333 891 336 896 336 903 339 903 346 890 360 878 375 877 380 874 387 869 395 861 401 853 404 851 411 849 415 852 417 848 415 840 415 835 406 834 400 831 399 823 402 816 409 810 413 808 420 800 420 797 427 794 431 791 435 785 437 778 440 776 448 768 458 761 462 761 468 756 472 743 475 746 476 751 479 750 479 743 483 741 483 748 493 744 494 748 501 746 506 743 511 738 518 739 526 737 530 740 534 738 545 737 556 739 567 740 588 733 593 732 592 726 595 725 599 731 608 736 610 733 611 727 618 721 623 720 631 716 633 718 640 715 639 710 645 706 653 706 659 710 660 713 664 716 668 716 674 718 676 717 690 720 694 719 694 728 691 731 692 743 698 748 702 737 706 734 710 734 717 729 717 725 720 722 730 718 735 714 738 714 744 711 751 711 765 710 771 710 774 707 786 705 792 707 800 710 802 713 806 710 808 706 814 704 819 709 822 709 826 713 836 712 836 714 846 711 850 708 855 713 859 713 860 708 870 707 873 705 878 709 888 711 898 712 901 714 912 722 921 726 926 723 928 727 935 730 941 731 946 738 964 743 966 746 974 752 971 755 972 758 968 767 964 768 957 775 958 778 951 780 951 788 950 796 952 806 956 816 954 824 958 822 958 827 955 827 951 830 950 833 945 835 944 842 944 850 946 859 944 862 945 871 949 878 954 888 948 891 948 894 957 892 957 897 961 898 962 904 966 906 967 909 965 912 972 916 976 918 976 924 979 922 980 927 985 926 993 934 997 936 998 940 998 1579 1 1579 1 940 5 936 11 939 15 942 19 942 31 948 42 961 48 963 50 971 54 971 55 974 61 975 63 974 71 974 74 977 79 977 83 975 89 963 104 964 109 967 116 966 118 962 117 958 107 959 95 954 84 945 78 936 76 926 76 912 73 899 73 889 71 881 71 876 75 868 82 864 95 861 97 858 90 852 81 851 78 845 75 843 73 838 64 830 63 827 65 820 62 818 63 813 67 807 73 808 77 812 80 811 84 815 90 812 88 807 95 810 96 803 93 799 88 800 89 795 96 799 95 793 101 790 107 790 110 788 112 784 119 784 120 780 124 777 132 780 140 781 147 779 164 778 171 777 173 774 177 777 182 777 182 773 186 773 187 781 191 780 191 774 195 778 202 778 204 780 204 785 208 784 209 779 214 780 218 785 222 784 218 776 221 773 220 771 223 766 220 763 215 766 213 762 223 764 228 761 234 765 238 764 248 765 255 762 259 765 261 764 266 767 269 767 273 771 276 770 275 765 280 763 282 768 287 767 289 770 293 769 303 765 308 764 312 761 314 757 313 748 313 744 309 731 315 728 314 724 315 718 313 714 322 703 323 700 328 697 331 694 341 688 Z M 980 586 983 588 979 595 975 597 973 603 970 606 962 605 962 603 967 596 974 592 980 586 Z M 980 562 991 574 990 583 986 587 985 581 982 580 985 574 980 565 980 562 Z M 901 584 905 586 911 585 910 592 907 595 903 592 901 584 Z M 310 643 306 643 305 633 309 632 312 637 316 641 316 644 310 643 Z M 896 492 899 501 903 502 903 506 906 514 912 517 915 524 924 533 926 543 923 555 920 557 916 566 916 573 909 575 906 578 902 574 898 577 889 574 883 561 880 559 876 564 872 556 864 552 850 555 844 558 843 560 833 560 828 564 823 564 819 561 821 558 821 553 819 546 815 537 817 535 815 530 816 524 823 519 836 515 845 506 848 501 853 499 858 502 861 497 867 492 876 494 878 497 875 502 885 508 891 509 893 502 893 495 896 492 Z M 637 494 640 503 637 510 631 532 625 534 622 532 620 523 623 517 622 509 624 506 632 502 633 499 637 494 Z M 846 457 845 459 833 460 835 464 838 467 841 472 834 469 834 475 831 475 831 466 832 459 835 457 843 458 846 457 Z M 794 477 801 479 807 478 812 479 814 483 807 483 795 481 794 477 Z M 891 467 901 471 904 475 909 477 908 481 915 489 910 488 905 483 901 481 895 486 891 486 888 483 885 484 883 475 875 473 867 468 868 461 871 462 872 467 876 470 882 464 891 467 Z M 766 446 771 446 779 454 782 454 787 459 787 462 793 467 793 476 790 476 784 471 775 459 774 456 765 447 766 446 Z M 826 449 825 451 829 457 826 459 821 470 806 468 802 458 804 455 807 456 810 452 813 451 816 448 820 447 823 442 831 446 826 449 Z M 848 433 850 435 851 440 848 445 844 442 844 437 848 433 Z M 722 433 727 439 726 442 722 443 721 438 722 433 Z M 835 408 840 412 837 417 833 419 834 411 835 408 Z M 301 405 306 405 308 408 298 408 301 405 Z M 345 293 344 299 349 302 353 310 353 314 344 310 336 310 337 306 343 294 345 293 Z M 897 284 897 291 900 304 896 303 895 309 897 314 893 314 894 295 893 291 893 285 897 284 Z M 483 281 482 289 476 293 472 293 474 286 472 284 473 280 476 280 477 276 483 276 483 281 Z M 499 293 501 297 490 297 486 291 488 286 492 284 491 278 486 277 484 273 484 264 486 259 491 258 489 264 495 265 492 270 498 280 502 286 505 288 502 293 499 293 Z M 77 260 78 264 76 266 71 264 77 260 Z M 197 97 194 99 190 95 194 92 197 97 Z M 228 91 232 93 237 97 237 101 233 104 229 99 227 96 228 91 Z M 209 84 212 83 215 87 218 87 224 94 226 102 221 104 220 100 212 99 213 92 210 88 209 84 Z M 786 84 792 92 791 98 782 100 776 102 781 86 786 84 Z M 664 68 659 71 658 66 664 68 Z M 672 59 672 64 670 67 665 65 665 60 672 59 Z M 641 59 643 61 641 64 636 65 636 60 641 59 Z M 772 72 775 72 777 77 776 85 777 90 773 92 768 89 763 88 762 82 759 80 762 76 763 72 770 71 772 72 Z M 239 52 241 50 245 53 249 64 253 66 253 69 257 70 260 79 264 84 261 87 256 96 251 98 249 100 245 99 239 89 243 82 236 84 233 76 232 72 236 60 236 57 241 55 239 52 Z M 758 78 753 76 754 72 759 73 758 78 Z M 557 67 562 72 562 67 574 71 575 75 570 83 566 85 563 83 558 83 556 79 552 78 550 71 555 65 557 67 Z M 632 59 628 66 625 64 632 59 Z M 771 61 770 63 770 69 762 71 759 73 756 69 759 62 758 58 766 52 768 58 771 61 Z M 679 62 675 63 675 58 681 58 679 62 Z M 663 57 660 62 657 63 652 61 654 56 663 57 Z M 261 219 266 218 272 223 275 231 268 227 266 232 263 230 261 224 261 219 Z M 457 213 462 218 462 220 459 226 450 231 444 230 440 226 438 222 439 218 435 213 438 211 442 217 447 213 457 213 Z M 16 211 19 207 24 208 29 213 26 218 23 217 20 226 13 221 9 217 3 217 1 221 1 193 14 202 16 211 Z M 287 198 292 198 292 203 286 205 287 198 Z M 264 174 265 172 262 168 263 159 265 155 270 151 274 152 278 163 287 161 291 163 296 173 301 172 304 177 310 180 314 187 310 188 315 200 320 201 330 210 326 217 322 220 317 213 314 217 318 222 322 230 316 240 310 238 307 235 302 233 297 226 290 224 288 226 284 225 284 221 286 218 293 219 294 213 300 206 298 199 285 186 277 184 271 186 254 180 256 174 251 173 251 164 253 157 255 153 260 150 264 152 260 160 261 169 264 174 Z M 5 171 7 176 1 177 1 172 5 171 Z M 908 135 916 136 918 140 911 141 908 135 Z M 237 131 241 135 241 142 238 142 232 138 234 134 237 131 Z M 639 191 635 195 634 191 639 191 Z M 230 187 234 191 233 196 225 194 228 186 230 187 Z M 356 186 352 191 348 187 348 183 352 183 356 186 Z M 183 162 187 158 194 162 195 159 201 166 200 158 201 155 206 158 208 161 211 173 213 180 220 183 220 187 216 194 209 193 205 191 198 195 187 196 185 191 177 189 176 184 172 176 175 173 170 171 172 162 175 159 182 155 184 157 183 162 Z M 895 150 898 154 897 157 889 154 891 151 895 150 Z M 162 143 168 146 175 146 180 154 170 162 166 168 166 171 160 176 152 165 157 151 154 145 162 143 Z M 222 150 225 151 231 150 230 155 228 158 232 161 232 168 231 170 225 173 223 169 215 160 219 161 222 159 219 154 222 150 Z M 276 152 283 152 288 157 288 160 278 160 276 152 Z M 210 156 208 159 203 154 209 151 210 156 Z M 885 125 889 129 893 126 895 129 899 129 903 132 900 138 895 140 893 139 886 142 883 141 880 135 881 128 885 125 Z M 201 129 204 127 208 131 206 138 203 139 199 137 188 144 183 142 190 136 179 138 174 135 177 126 179 123 183 122 187 124 192 132 198 133 197 127 194 124 197 118 199 119 201 129 Z M 226 120 229 122 230 125 228 138 222 138 221 131 216 133 219 127 217 124 222 120 226 120 Z M 232 117 235 115 240 116 242 120 247 119 252 124 251 127 255 133 260 133 267 129 272 129 278 131 280 134 280 139 277 143 273 144 257 144 251 143 245 140 244 136 245 129 242 123 236 123 232 119 232 117 Z M 691 120 689 124 681 129 676 131 668 137 667 141 664 144 657 156 654 163 654 168 656 175 659 178 653 180 649 178 648 172 644 172 646 160 650 154 649 151 652 149 658 134 664 128 668 127 670 124 673 125 678 124 686 116 690 116 691 120 Z M 415 1 420 4 422 3 427 5 432 11 433 15 442 21 445 26 441 30 432 35 424 34 418 35 413 41 424 37 432 39 441 37 442 40 441 48 445 47 452 50 454 45 462 43 467 46 468 51 460 60 457 63 451 77 447 77 446 82 447 92 443 91 441 101 445 107 444 111 449 113 448 118 445 116 441 117 446 130 446 136 442 135 443 142 446 145 444 150 443 153 438 156 434 153 430 154 428 157 432 164 437 168 440 173 439 181 435 181 432 174 426 177 423 177 421 181 427 183 430 181 436 185 435 187 427 195 414 199 408 202 404 212 399 214 398 217 392 217 389 221 387 229 382 236 380 251 376 251 373 245 367 247 363 241 361 235 357 230 355 220 351 214 351 202 353 197 358 196 360 184 355 184 350 181 354 178 355 171 352 169 348 173 346 170 348 165 346 163 349 159 345 152 344 143 339 138 338 130 331 125 324 123 315 128 310 126 307 122 308 119 305 118 304 113 310 113 311 111 300 103 298 100 300 95 309 90 310 88 317 87 321 81 321 74 314 72 313 67 324 53 329 54 329 42 335 36 347 31 349 36 355 42 359 40 357 30 360 29 366 36 368 32 367 27 373 23 381 23 381 21 374 21 372 15 391 13 390 7 393 4 405 1 409 2 415 1 Z M 177 108 180 111 178 120 175 124 166 127 162 127 164 119 170 111 175 112 177 108 Z M 196 103 195 108 189 111 186 109 186 105 188 102 195 101 196 103 Z M 233 107 235 105 242 106 241 110 234 109 233 107 Z M 206 106 210 111 208 113 206 106 Z M 546 73 551 80 553 86 557 87 560 91 562 100 564 99 567 108 562 108 559 104 556 95 553 96 551 109 549 110 547 119 545 120 540 113 540 108 538 102 541 101 541 97 536 100 533 93 530 84 530 78 533 76 538 75 543 77 546 73 Z M 294 16 298 14 306 14 307 16 314 17 314 21 320 19 325 26 329 28 330 33 322 43 321 50 309 63 302 74 302 77 292 83 293 85 293 93 290 101 287 104 281 113 283 115 284 119 280 123 266 122 264 124 257 123 252 120 252 117 258 114 256 107 258 104 264 107 263 101 258 100 258 97 260 91 264 90 266 85 264 79 261 77 260 69 268 70 278 65 281 58 273 63 268 61 264 65 260 62 255 62 251 56 250 50 245 45 251 38 258 37 262 29 264 28 269 32 271 30 273 21 279 17 286 17 287 14 294 16 Z M 339 557 338 562 342 566 343 571 338 576 331 578 328 580 327 585 320 589 321 592 319 595 318 600 314 601 313 605 318 612 313 617 312 621 309 622 309 628 307 632 304 633 302 638 296 634 296 630 294 623 291 618 295 608 292 606 294 602 297 600 298 588 295 585 297 579 296 573 301 559 302 544 305 533 304 526 306 521 305 512 302 509 292 503 278 479 275 477 275 472 278 469 276 467 278 458 281 456 286 450 286 442 282 436 280 435 276 440 273 438 268 437 267 434 262 432 262 429 256 423 246 421 240 415 233 416 229 415 213 409 209 406 208 397 197 383 189 376 186 369 182 368 182 372 191 383 193 389 189 389 188 385 183 382 184 378 179 374 174 362 171 360 166 358 155 337 156 334 155 329 156 318 156 313 153 305 144 297 146 293 144 289 139 283 139 278 133 273 133 269 128 261 121 260 113 254 104 251 101 251 93 246 88 251 80 256 80 246 73 255 73 261 61 270 61 272 53 272 63 264 63 260 55 256 49 251 45 252 42 248 40 242 43 234 48 233 54 228 53 224 42 225 39 224 34 217 43 211 46 214 51 214 53 212 49 207 46 207 45 203 39 197 39 194 44 193 47 190 51 183 54 182 58 178 63 177 66 174 73 178 82 182 86 180 90 183 99 185 105 185 108 187 114 188 121 193 127 187 130 190 137 184 141 185 147 182 152 190 157 190 159 186 162 186 173 192 179 193 184 197 181 201 188 202 195 200 198 204 202 200 200 196 206 193 211 200 213 199 219 202 226 202 228 196 234 198 235 202 240 196 239 194 239 189 234 186 232 174 236 169 235 152 237 148 241 147 250 150 246 159 241 164 238 169 242 173 243 178 246 183 243 186 251 195 252 191 255 193 256 202 260 204 263 195 265 192 263 186 271 187 274 195 271 196 275 204 274 207 266 213 263 210 256 226 251 227 248 234 245 235 240 243 237 252 238 258 241 258 244 265 254 268 257 271 264 276 271 276 272 287 279 295 282 290 281 282 279 279 285 275 288 270 286 262 282 258 285 252 285 242 285 236 293 238 296 237 302 244 305 245 307 255 313 260 318 256 320 248 329 263 329 271 333 276 341 279 345 284 346 290 342 293 339 294 334 299 317 299 311 303 319 303 322 304 320 313 321 315 329 320 320 325 317 322 314 322 306 325 303 330 305 332 295 338 290 347 288 349 290 354 288 357 282 361 275 367 275 374 278 383 275 388 270 380 271 376 266 373 254 372 251 374 247 375 242 374 237 375 231 379 230 383 229 396 231 402 234 407 238 409 246 408 250 401 256 399 258 403 255 416 266 416 269 417 268 429 272 435 276 435 279 434 287 436 290 434 293 429 301 428 302 430 309 428 312 431 316 431 320 432 326 430 331 434 342 443 348 444 353 445 358 449 362 457 360 461 366 461 385 468 389 468 397 474 402 475 403 480 402 486 398 490 392 501 392 505 390 515 383 526 377 526 370 530 366 533 365 543 360 549 358 549 354 558 348 564 340 562 339 557 Z M 591 538 590 543 583 552 577 557 569 561 563 561 554 563 550 557 551 553 546 543 542 539 540 529 540 524 533 510 533 505 535 498 538 491 536 486 537 484 533 473 526 466 525 462 528 452 525 448 517 448 511 442 506 443 494 447 489 446 479 448 474 446 464 438 463 434 460 430 453 425 452 419 454 416 455 408 455 403 453 400 460 385 464 379 468 378 473 372 473 368 476 362 481 360 484 354 487 356 495 356 504 351 528 349 531 356 528 360 534 364 542 365 544 369 553 372 558 364 582 370 584 368 591 370 595 369 600 358 600 353 596 351 591 353 587 350 581 352 576 349 574 338 580 338 581 335 587 335 592 332 600 333 604 335 611 336 615 334 615 329 612 327 603 319 606 316 604 312 596 316 598 320 595 322 586 314 579 323 576 330 578 333 574 337 569 335 563 339 564 344 564 350 562 351 554 337 554 333 547 326 543 324 541 320 536 318 534 319 534 323 539 329 547 337 546 340 538 335 535 334 529 328 528 324 524 323 517 328 511 326 509 327 509 332 503 335 499 340 497 348 494 351 488 351 484 353 482 350 476 348 474 344 476 335 475 327 480 326 494 327 496 326 497 315 493 311 487 308 491 305 496 305 497 302 504 299 504 296 511 292 516 285 524 283 524 275 523 270 524 266 529 267 530 271 527 274 528 279 531 281 536 280 540 282 551 278 555 280 558 275 558 268 560 264 564 266 568 266 565 255 572 253 577 254 581 250 578 248 572 249 566 251 562 251 559 246 560 242 558 236 568 222 570 218 567 216 562 217 559 222 560 225 557 229 552 233 547 242 548 247 553 252 550 257 547 260 546 265 544 272 541 271 537 275 530 256 527 256 521 262 516 259 516 254 513 246 514 239 521 233 527 230 528 227 534 219 538 208 541 201 545 199 551 187 558 186 561 182 565 183 568 177 570 176 575 181 577 175 586 182 582 185 590 189 600 192 614 203 614 209 612 212 606 214 599 212 595 219 597 224 601 228 605 228 601 222 603 220 610 224 612 222 611 217 617 211 622 213 623 208 621 205 623 199 627 197 629 201 625 205 628 208 632 208 633 203 641 197 649 193 651 198 655 195 658 196 664 193 669 193 667 189 669 186 678 189 686 194 690 198 692 194 687 184 686 174 690 170 691 162 693 160 698 160 702 162 702 166 699 173 702 178 701 192 704 196 703 202 698 210 701 210 704 208 707 202 707 194 705 191 704 187 706 180 703 173 708 166 711 169 717 164 720 165 726 170 732 171 728 165 724 163 724 153 737 151 741 150 738 144 739 140 746 134 759 129 760 126 766 128 770 128 774 122 780 121 780 117 783 111 789 106 794 110 791 114 798 116 800 118 808 118 812 120 812 125 816 129 814 136 810 142 806 144 800 152 797 152 798 157 805 154 806 148 814 152 820 152 829 153 828 156 836 159 841 159 843 152 845 151 849 154 854 154 859 159 859 166 856 168 859 174 863 179 865 177 867 169 873 173 877 171 888 172 887 168 890 163 894 161 903 163 908 165 911 165 916 167 915 170 920 173 923 178 932 176 940 177 944 183 943 186 948 189 955 187 963 189 972 194 974 192 973 184 980 186 988 186 996 189 999 193 999 221 995 226 998 236 997 238 991 236 979 243 973 249 967 248 953 252 953 255 949 261 953 263 949 274 949 278 944 281 943 285 935 296 931 278 932 269 949 250 954 246 956 236 953 237 952 241 946 247 944 247 941 240 934 243 929 249 927 254 922 256 920 253 915 252 909 255 906 254 897 255 894 256 883 270 875 278 879 279 882 284 887 280 891 285 892 290 889 296 888 306 882 317 875 326 869 329 865 327 861 332 860 336 853 340 859 349 859 355 851 359 851 348 846 346 848 341 844 339 839 341 839 337 836 336 830 342 826 342 832 349 835 347 838 350 832 355 835 364 838 367 838 376 832 384 832 387 823 395 808 399 799 399 794 404 793 407 796 411 802 417 803 424 802 429 796 432 791 432 786 430 785 427 780 423 777 426 775 433 779 440 786 446 787 456 781 452 778 444 772 435 774 428 771 415 765 416 761 415 761 407 755 400 754 396 750 398 743 399 739 404 725 414 722 418 723 423 721 431 715 438 712 435 706 419 704 415 701 404 700 400 697 402 691 397 688 391 684 387 671 388 659 386 656 382 652 384 643 380 638 372 633 375 635 381 643 386 644 392 650 391 655 386 658 392 663 393 666 397 656 410 653 412 645 414 645 416 635 421 621 424 618 413 613 404 609 401 606 392 597 379 593 380 599 395 602 397 604 407 607 409 610 417 614 419 620 426 623 431 642 427 641 434 633 448 628 453 621 458 615 466 611 468 608 477 609 483 612 492 613 501 608 508 603 510 596 517 598 523 598 529 590 535 591 538 Z M 636 345 636 347 644 351 650 350 649 343 646 338 652 335 649 331 645 331 642 326 641 322 646 319 647 313 642 312 632 318 630 322 632 328 637 337 636 345 Z M 271 395 276 394 293 402 291 404 286 404 282 399 273 397 271 395 Z M 835 398 833 393 836 389 838 389 835 398 Z M 890 335 894 341 890 352 889 356 883 358 879 357 876 362 873 357 865 361 866 364 864 368 861 369 863 360 868 355 875 354 883 349 886 346 888 340 888 337 890 335 Z M 543 345 540 350 534 347 543 345 Z M 896 321 901 324 903 327 898 329 897 332 891 327 893 322 896 321 Z M 527 336 527 342 523 342 523 337 527 336 Z' id='AD'/>"
+                    }
+                )
+            Size: =10
+            Text: ="SVGs Header"
+            Width: =200
+            X: =20
+            Y: =196
+            ZIndex: =6
+
+        btn_MapSvgCode As button:
+            Fill: =Purple
+            OnSelect: |-
+                =//Set Map svg text
+                Set(varMapSvgCode,
+                "<svg "
+                
+                &"viewBox='0 0 1000 "&1000/varAspectRatioMap&"'"
+                
+                
+                &" xmlns='http://www.w3.org/2000/svg'>"
+                
+                //move whole map according to selected country zoom on/off
+                &"<g transform='translate("&-locViewBoxNew.X*varZoomFactor.New&" "&-locViewBoxNew.Y*varZoomFactor.New&")'>"
+                
+                &"<animateTransform attributeName='transform'
+                        type='translate'
+                        values='"&-locViewBoxOld.X*varZoomFactor.Old&" "&-locViewBoxOld.Y*varZoomFactor.Old&";"&-locViewBoxNew.X*varZoomFactor.New&" "&-locViewBoxNew.Y*varZoomFactor.New&"'
+                        dur='5s'
+                        repeatCount='1'
+                        />"
+                
+                //scale whole map according to selected country zoom on/off
+                &"<g transform='scale("&varZoomFactor.New&")'>"
+                &"<animateTransform attributeName='transform'
+                        type='scale'
+                        values='"&varZoomFactor.Old&"; "&varZoomFactor.New&"'
+                        dur='5s'
+                        repeatCount='1'
+                        />"
+                
+                //Display Countries, keep stroke width the same during zooming
+                &"<g>"
+                &Concat(colCountries,
+                "<path d='"&Path&"' vector-effect='non-scaling-stroke' fill='rgba("&R&","&G&","&B&","&If(locZoom&&locCountry.ISO3_Code=ISO3_Code,"0.3","0.7")&"' stroke='black' stroke-width='1'/>")
+                &"<animate attributeName='stroke-width'
+                        values='"&0.2/varZoomFactor.Old&"%; "&0.2/varZoomFactor.New&"%'
+                        dur='5s'
+                        repeatCount='1'
+                        />"
+                &"</g>"
+                
+                //Flash selected Country when zoomed out
+                &If(!locZoom,
+                "<path d='"&locCountry.Path&"' vector-effect='non-scaling-stroke' fill='transparent' stroke='red' stroke-width='3'>"
+                &"<animate attributeName='stroke'
+                        values='red; darkred; red'
+                        dur='1s'
+                        repeatCount='indefinite'
+                        />"
+                &"</path>")
+                
+                //Highlight marked City
+                &If(locZoom&&!IsBlank(locCity),"<circle cx='"&locCity.X&"' cy='"&locCity.Y&"' r='5' fill='transparent' stroke='"&locColour&")' stroke-width='"&1/varZoomFactor.New&"%'>"
+                &"<animate attributeName='r'
+                        values='0%; "&5/varZoomFactor.New&"%'
+                        dur='0.7s'
+                        repeatCount='indefinite'
+                        />"
+                &"</circle>")
+                
+                //Display Cities
+                &"<g>"
+                &If(locZoom,Concat(colCities,
+                "<circle cx='"&X&"' cy='"&Y&"' r='"&(8-POP_RANK)*0.2/varZoomFactor.New&"%' fill='"&If(Type="Capital","red","rgba(50,50,50,1)")&"' stroke='black' stroke-width='"&If(Type="Capital",0.7/varZoomFactor.New&"%","0")&"'/>"))
+                //Fade in when zoomed in and ViewBoxChanges
+                &If(locViewBoxNew.X<>locViewBoxOld.X=0,
+                "<animate attributeName='opacity'
+                        values='0;0;0;0;0;0;1'
+                        dur='6s'
+                        repeatCount='1'
+                        />")
+                &"</g>"
+                
+                &"</g>"
+                &"</g>"
+                
+                
+                //Refresher
+                &"<circle cx='500' cy='1000' r='"&varRefreshMap&"'/>"
+                &"</svg>")
+            Size: =10
+            Text: ="Map SVG Code"
+            Width: =200
+            X: =20
+            Y: =305
+            ZIndex: =7
+
+        btn_ZoomMapSvgCode As button:
+            Fill: =Purple
+            OnSelect: |-
+                =//Set Map svg text
+                Set(varZoomBtnSVG,
+                "<svg viewBox='0 0 1300 710' xmlns='http://www.w3.org/2000/svg'>"
+                
+                //Map1
+                &"<g fill='"&locColour&",0.3)'>"
+                &locWorldMap
+                /*&"<animate attributeName='opacity'
+                        values='0;1'
+                        dur='1s'
+                        repeatCount='Indefinite'
+                        />"*/
+                &"</g>"
+                
+                //Country
+                &"<path d='"&locCountry.Path&"' fill='"&locColour&",1)'/>"
+                
+                
+                //MagnifyingGlass
+                &"<g "&If(locViewBoxNew.X=0,"opacity='0.2'")&" transform='translate("&locViewBoxNew.X+locViewBoxNew.Width/2-38*(10/varZoomFactor.New+2)&" "&locViewBoxNew.Y+locViewBoxNew.Height/2-38*(10/varZoomFactor.New+2)&")'>"
+                &"<animateTransform attributeName='transform'
+                        type='translate'
+                        values='"&locViewBoxOld.X+locViewBoxOld.Width/2-38*(10/varZoomFactor.Old+2)&" "&locViewBoxOld.Y+locViewBoxOld.Height/2-38*(10/varZoomFactor.Old+2)&";
+                        "&locViewBoxNew.X+locViewBoxNew.Width/2-38*(10/varZoomFactor.New+2)&" "&locViewBoxNew.Y+locViewBoxNew.Height/2-38*(10/varZoomFactor.New+2)&"'
+                        dur='5s'
+                        repeatCount='1'
+                        />"
+                //Change Opacity if coming from zoomed out or going to zoomed out
+                &If(locViewBoxNew.X=0||locViewBoxOld.X=0,
+                "<animate attributeName='opacity'
+                        values='"&If(locViewBoxNew.X=0,"1;0.2","0.2;1")&"'
+                        dur='5s'
+                        repeatCount='1'
+                        />")
+                
+                &"<g transform='scale("&10/varZoomFactor.New+2&")'>"
+                &"<animateTransform attributeName='transform'
+                        type='scale'
+                        values='"&10/varZoomFactor.Old+2&"; "&10/varZoomFactor.New+2&"'
+                        dur='5s'
+                        repeatCount='1'
+                        />"
+                &"<path d='M85.5 75.6 73 63.1C71.3 61.4 69 60.8 66.8 61.2L62.4 56.8C66.3 51.8 68.6 45.4 68.6 38.6 68.6 22.1 55.1 8.6 38.6 8.6 22.1 8.6 8.6 22.1 8.6 38.6 8.6 55.1 22.1 68.6 38.6 68.6 45.4 68.6 51.7 66.3 56.8 62.4L61.2 66.8C60.8 69 61.4 71.3 63.1 73L75.6 85.5C77 86.9 78.8 87.6 80.6 87.6 82.4 87.6 84.2 86.9 85.6 85.5 88.2 82.7 88.2 78.3 85.5 75.6ZM38.5 62.5C25.3 62.5 14.5 51.7 14.5 38.5 14.5 25.3 25.3 14.5 38.5 14.5 51.7 14.5 62.5 25.3 62.5 38.5 62.5 51.7 51.7 62.5 38.5 62.5Z' 
+                />"
+                &"</g>"
+                &"</g>"
+                
+                //Refresher
+                &"<circle cx='500' cy='1000' r='"&varRefreshMap&"'/>"
+                
+                &"</svg>")
+            Size: =10
+            Text: ="ZoomMap SVG Code"
+            Width: =200
+            X: =20
+            Y: =360
+            ZIndex: =8
+
+        lbl_Timer1 As label:
+            Height: =39
+            Size: =10
+            Text: ="Timer for Counters"
+            Width: =88
+            X: =247
+            Y: =212
+            ZIndex: =9
+
+        lbl_Timer2 As label:
+            Height: =39
+            Size: =10
+            Text: ="Old Timer for MapZoom"
+            Width: =98
+            X: =247
+            Y: =321
+            ZIndex: =10
+
+        HtmlText2 As htmlViewer:
+            Height: =83
+            HtmlText: ="<b><font color=green>Functions</font></b> and <b><font color=purple>SVG images</font></b> in here"
+            Size: =20
+            Width: =299
+            X: =20
+            Y: =6
+            ZIndex: =12
+

@@ -1,0 +1,210 @@
+Home As screen:
+    OnVisible: =
+
+    RollDice_1 As button:
+        Fill: =RGBA(116, 116, 116, 1)
+        Height: =58
+        HoverFill: =ColorFade(RollDice_1.Color, -20%)
+        OnSelect: |-
+            =UpdateContext({Random1: 0});
+            UpdateContext({Random2: 0});
+            
+            
+            Set(Game,Patch(Game,{ Player1position: Value(Global.TrackSize), Player1Play: Player1.StartPlay}));
+            Set(Game,Patch(Game,{ Player2position: Value(Global.TrackSize), Player2Play: Player2.StartPlay}));
+            
+            If(
+                Game.Player1position = Global.TrackSize,
+                UpdateContext({Result1: "🏁"})
+            );
+            If(
+                Game.Player2position = Global.TrackSize,
+                UpdateContext({Result2: "🏁"})
+            );
+            
+            UpdateContext({TimerGo: false});
+            UpdateContext({TimerGo: true});
+            UpdateContext({TimerRestart: true});
+        Size: =24
+        Text: ="+ New game"
+        Width: =206
+        X: =217
+        Y: =913
+        ZIndex: =21
+
+    TimerRollHome As timer:
+        Duration: =Global.Speed
+        Height: =31
+        OnTimerStart: |
+            =UpdateContext(
+                {
+                    Random1: RandBetween(
+                        1,
+                        6
+                    )
+                }
+            );
+            UpdateContext(
+                {
+                    Random2: RandBetween(
+                        1,
+                        6
+                    )
+                }
+            );
+            If(
+                Game.Player1Play = true,
+                Set(
+                    Game,
+                    Patch(
+                        Game,
+                        {
+                            Player1position: If(
+                                ((Game.Player1position - Random1) - Random2) < 1,
+                                0,
+                                ((Game.Player1position - Random1) - Random2)
+                            ),
+                            Player1Play: false
+                        }
+                    )
+                );
+                Set(
+                    Game,
+                    Patch(
+                        Game,
+                        {Player2Play: true}
+                    )
+                );
+                ,
+                If(
+                    Game.Player2Play = true,
+                    Set(
+                        Game,
+                        Patch(
+                            Game,
+                            {
+                                Player2position: If(
+                                    ((Game.Player2position - Random1) - Random2) < 1,
+                                    0,
+                                    ((Game.Player2position - Random1) - Random2)
+                                ),
+                                Player2Play: false
+                            }
+                        )
+                    );
+                    Set(
+                        Game,
+                        Patch(
+                            Game,
+                            {Player1Play: true}
+                        )
+                    );
+                )
+            );
+            If(
+                Game.Player1position = 0,
+                UpdateContext({TimerGo: false});
+                Set(
+                    Player1,
+                    Patch(Player1,{GamesWon: (Player1.GamesWon + 1), StartPlay:true})
+                );
+                Set(
+                    Player2,
+                    Patch(Player2,{ StartPlay:false})
+                );
+                UpdateContext({Result1: "🥇"});
+                UpdateContext({Result2: "🥈"}),
+                If(
+                    Game.Player2position = 0,
+                    UpdateContext({TimerGo: false});
+                    Set(
+                        Player2,
+                        Patch(Player2, {GamesWon: (Player2.GamesWon + 1), StartPlay:true})
+                    );
+                    Set(
+                    Player1,
+                    Patch(Player1,{ StartPlay:false})
+                );
+                    UpdateContext({Result2: "🥇"});
+                UpdateContext({Result1: "🥈"}),
+                UpdateContext({Result2: "🏁"})
+                );
+                
+            );
+        Repeat: =TimerRestart
+        Start: =TimerGo
+        Visible: =false
+        Width: =79
+        ZIndex: =26
+
+    RollDice_2 As RollDice:
+        Color: =Global.DiceColor
+        Height: =186
+        Random1: =Random1
+        Random2: =Random2
+        Width: =397
+        X: =121
+        Y: =294
+        ZIndex: =27
+
+    Container2 As groupContainer.manualLayoutContainer:
+        BorderColor: =RGBA(149, 149, 149, 1)
+        BorderThickness: =1
+        Fill: =RGBA(237, 237, 237, 1)
+        Height: =100
+        Width: =640
+        Y: =1037
+        ZIndex: =28
+
+        NavAdmin As icon.Settings:
+            Color: =RGBA(116, 116, 116, 1)
+            Height: =74
+            Icon: =Icon.Settings
+            OnSelect: =Navigate(Admin)
+            Width: =77
+            X: =540
+            Y: =10
+            ZIndex: =1
+
+    PlayerProgress_1 As PlayerProgress:
+        Height: =422
+        Player1: |
+            ={PlayerName: Player1.PlayerName,PlayerIcon: Player1.PlayerIcon,PlayerPosition: Game.Player1position,Result: Result1,
+            PlayerPlay:Game.Player1Play,PlayerColor: Player1.Color}
+        Player2: |-
+            ={PlayerName: Player2.PlayerName,PlayerIcon: Player2.PlayerIcon,PlayerPosition: Game.Player2position,Result: Result2,
+            PlayerPlay:Game.Player2Play,PlayerColor: Player2.Color}
+        TrackSize: =Global.TrackSize
+        Y: =480
+        ZIndex: =29
+
+    HeaderHome As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 121, 187, 1)
+        BorderThickness: =1
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(102, 182, 227, 1)
+        Font: =Font.'Dancing Script'
+        FontWeight: =FontWeight.Bold
+        Height: =120
+        Size: =38
+        Text: ="🐢The Tortoise and the Hare🐇"
+        Width: =640
+        ZIndex: =30
+
+    PlayerStatus2 As htmlViewer:
+        Height: =70
+        HtmlText: |-
+            ="<div style='Text-align:center'>"& Concatenate(Player2.PlayerName," 🏆 Wins: ") & "<label style='font-weight:bold;color:"& Player2.Color &"'>" & Player2.GamesWon &"</label></div>"
+        Width: =640
+        Y: =220
+        ZIndex: =31
+
+    PlayerStatus1 As htmlViewer:
+        Height: =70
+        HtmlText: |-
+            ="<div style='Text-align:center'>"& Concatenate(Player1.PlayerName," 🏆 Wins: ") & "<label style='font-weight:bold;color:"& Player1.Color &"'>" & Player1.GamesWon &"</label></div>"
+        Width: =640
+        Y: =150
+        ZIndex: =32
+
