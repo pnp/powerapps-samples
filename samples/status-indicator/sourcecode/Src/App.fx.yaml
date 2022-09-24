@@ -1,3 +1,0 @@
-App As appinfo:
-    OnStart: =Set(varUser, User()); Set(issues, Filter('Issue tracker','Created By'.DisplayName = varUser.FullName));Set(varSortPriority, "Created"); Set(SortAscending, true);
-
