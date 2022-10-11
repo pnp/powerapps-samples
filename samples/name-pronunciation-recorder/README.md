@@ -6,10 +6,10 @@ We live in an incredibly diverse society, but one of the challenges that can com
 
 One possible extension of this solution is having your users also share their pronouns as a part of their recording.  Our organization's example prompt for recordings is "My name is Jane Doe, and my pronouns are they/them".  Feel free to adapt to your organization's needs, but we felt this was more inclusive.
 
-![Screenshot of the Power App before a user records anything](assets/Screenshot1.PNG)
-![Screenshot of the Power App after a user has recorded their name but before they've uploaded it.  They can preview, erase, and re-record in this state.](assets/Screenshot2.PNG)
-![Screenshot of the Power App after the user has uploaded their name pronunciation.](assets/Screenshot3.PNG)
-![Screenshot of a SharePoint page with the Power App embedded on the left and a document library with the recordings embedded on the right.](assets/Screenshot4.PNG)
+![Screenshot of the Power App before a user records anything](Assets/Screenshot1.PNG)
+![Screenshot of the Power App after a user has recorded their name but before they've uploaded it.  They can preview, erase, and re-record in this state.](Assets/Screenshot2.PNG)
+![Screenshot of the Power App after the user has uploaded their name pronunciation.](Assets/Screenshot3.PNG)
+![Screenshot of a SharePoint page with the Power App embedded on the left and a document library with the recordings embedded on the right.](Assets/Screenshot4.PNG)
 
 ## Applies to
 
