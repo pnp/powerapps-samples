@@ -29,9 +29,6 @@ One possible extension of this solution is having your users also share their pr
 
 ## Authors
 
-> One author per line, please
-> DELETE THIS PARAGRAPH BEFORE SUBMITTING
-
 Solution|Author(s)
 --------|---------
 name-pronunciation-recorder | [Lindsay Shelton](https://github.com/lsheltonSTO) ([@lshelton_tech](https://twitter.com/lshelton_tech)), Stowers Institute for Medical Research
