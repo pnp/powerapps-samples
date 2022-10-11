@@ -9,7 +9,9 @@ One possible extension of this solution is having your users also share their pr
 ![Screenshot of the Power App before a user records anything](Assets/Screenshot1.PNG)
 ![Screenshot of the Power App after a user has recorded their name but before they've uploaded it.  They can preview, erase, and re-record in this state.](Assets/Screenshot2.PNG)
 ![Screenshot of the Power App after the user has uploaded their name pronunciation.](Assets/Screenshot3.PNG)
-![Screenshot of a SharePoint page with the Power App embedded on the left and a document library with the recordings embedded on the right.](Assets/Screenshot4.PNG)
+![Screenshot of a SharePoint page with the Power App embedded on the left and a document library with the recordings embedded on the right.](Assets/Screenshot4.png)
+
+You can go to this blog post for more details about the implementations of this solution https://lindsaytshelton.com/2022/09/30/how-to-create-a-name-pronunciation-database-using-the-power-platform/
 
 ## Applies to
 
