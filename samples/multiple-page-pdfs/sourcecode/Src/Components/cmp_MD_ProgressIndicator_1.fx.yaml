@@ -1,0 +1,85 @@
+cmp_MD_ProgressIndicator_1 As CanvasComponent:
+    Fill: =Transparent
+    Height: =6
+    OnReset: =
+    primaryColorHex: =defaults.primaryColorHex
+    primaryColorTransparentHex: =defaults.primaryColorTransparentHex
+    transitionStart: =Self.Visible
+    Width: =Parent.Width
+    X: =0
+    Y: =0
+    ZIndex: =2
+
+    img_Loading_1 As image:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =ColorValue(cmp_MD_ProgressIndicator_1.primaryColorTransparentHex)
+        Height: =Parent.Height
+        Image: |-
+            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                "<svg xmlns='http://www.w3.org/2000/svg' height='10' width='50'>
+                
+            <rect x='0' y='0' width='10' height='10' fill='"&cmp_MD_ProgressIndicator_1.primaryColorHex&"'>
+                <animate
+                    attributeName='x'
+                    dur='2s'
+                    from='-30'
+                    to='80'
+                    repeatCount='indefinite'
+                    />
+                <animate
+                    attributeName='width'
+                    dur='2s'
+                    values='10;30;10'
+                    repeatCount='indefinite'
+                    />
+            </rect>
+            
+            <rect x='0' y='0' width='10' height='10' fill='"&cmp_MD_ProgressIndicator_1.primaryColorHex&"'>
+                <animate
+                    attributeName='x'
+                    dur='2s'
+                    begin='-1s'
+                    from='-30'
+                    to='80'
+                    repeatCount='indefinite'
+                    />
+                <animate
+                    attributeName='width'
+                    dur='2s'
+                    values='10;30;10'
+                    repeatCount='indefinite'
+                    />
+            </rect>
+                
+            </svg>"
+            )
+        ImagePosition: =ImagePosition.Fill
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        Width: =0.00
+        X: =0.00
+        Y: |-
+            =
+                    -cmp_MD_ProgressIndicator_1.Height*(tim_ProgressIndicator_1.Value-200)/200
+        ZIndex: =1
+
+    tim_ProgressIndicator_1 As timer:
+        Color: =RGBA(255, 255, 255, 1)
+        Duration: =200
+        Fill: =RGBA(56, 96, 178, 1)
+        Font: =Font.'Open Sans'
+        Height: =10
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+        PaddingRight: =5.73
+        PaddingTop: =5.73
+        Reset: =!cmp_MD_ProgressIndicator_1.transitionStart
+        Size: =14.90
+        Start: =cmp_MD_ProgressIndicator_1.transitionStart
+        Visible: =false
+        Width: =320.83
+        X: =45.83
+        ZIndex: =2
+

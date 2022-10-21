@@ -1,0 +1,226 @@
+"'Multiple page PDF' As screen":
+    Fill: =defaults.elementBackgroundColor
+    OnVisible: |-
+        =UpdateContext({locMenu: false});
+        Set(varPages, 5)
+
+    cmp_MD_Navigation_Drawer_10 As cmp_MD_Navigation_Drawer_7:
+        expandSidebar: =true
+        Height: =Parent.Height-Self.Y
+        items: =cmp_MD_Navigation_Drawer_9.items
+        Y: =55
+
+    cmp_MD_AppBar_top_4 As cmp_MD_AppBar_top_1:
+        icon1: |-
+            ="data:image/svg+xml;utf8, " & EncodeUrl(
+            //Set Map svg text
+            Substitute(LookUp(MaterialDesignIcons, name=If(locMenu, "menu-open", "menu"), svgPath), "<svg ", "<svg fill='"&defaults.backgroundColorHex&"' ")
+            )
+        icon2: |-
+            ="data:image/svg+xml;utf8, " & EncodeUrl(
+            //Set Map svg text
+            Substitute(LookUp(MaterialDesignIcons, name="twitter", svgPath), "<svg ", "<svg fill='"&defaults.backgroundColorHex&"' ")
+            )
+        icon3: |-
+            ="data:image/svg+xml;utf8, " & EncodeUrl(
+            //Set Map svg text
+            Substitute(LookUp(MaterialDesignIcons, name="linkedin", svgPath), "<svg ", "<svg fill='"&defaults.backgroundColorHex&"' ")
+            )
+        icon4: |-
+            ="data:image/svg+xml;utf8, " & EncodeUrl(
+            //Set Map svg text
+            Substitute(LookUp(MaterialDesignIcons, name="github", svgPath), "<svg ", "<svg fill='"&defaults.backgroundColorHex&"' ")
+            )
+        onSelectContext: |-
+            =Launch("https://github.com/PowerRobin")
+        onSelectSearch: |-
+            =Launch("https://www.linkedin.com/in/robin-rosengr%C3%BCn-ab35091b6/")
+        onselectShare: |-
+            =Launch("https://twitter.com/power_r2")
+        titleText: =Parent.Name
+        Width: =2200.00
+        X: =0.00
+        ZIndex: =2
+
+    gal_PDF As gallery.galleryVertical:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =con_singlePDF.Height
+        Items: =Sequence(varPages)
+        Layout: =Layout.Vertical
+        TemplateSize: =con_singlePDF.Height
+        Width: =con_singlePDF.Width
+        X: =con_singlePDF.X
+        Y: =con_singlePDF.Y
+        ZIndex: =3
+
+        con_Back As groupContainer.manualLayoutContainer:
+            Height: =Parent.TemplateHeight-1
+            Visible: =ThisItem.Value=varPages
+            Width: =Parent.TemplateWidth
+            Y: =1
+            ZIndex: =1
+
+            Label1_6 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Open Sans'
+                FontWeight: =FontWeight.Bold
+                Height: =734
+                Overflow: =Overflow.Scroll
+                Size: =50
+                Text: ="This is the last page!"
+                Width: =752
+                Y: =216
+                ZIndex: =7
+
+        con_Middle As groupContainer.manualLayoutContainer:
+            Height: =Parent.TemplateHeight
+            Visible: =ThisItem.Value>1 && ThisItem.Value<varPages
+            Width: =Parent.TemplateWidth
+            ZIndex: =2
+
+            Label1_1 As label:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Open Sans'
+                Size: =13
+                Text: ="Header Page"&ThisItem.Value
+                X: =20
+                Y: =20
+                ZIndex: =2
+
+            Label1_2 As label:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Open Sans'
+                Height: =826
+                Overflow: =Overflow.Scroll
+                Size: =13
+                Text: |-
+                    ="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+                    
+                    Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
+                    
+                    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   
+                    
+                    Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer"
+                Width: =714
+                X: =20
+                Y: =136
+                ZIndex: =3
+
+            Label1_3 As label:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Open Sans'
+                Size: =13
+                Text: ="Footer Page"&ThisItem.Value
+                X: =20
+                Y: =1016
+                ZIndex: =4
+
+            Image2_2 As image:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Image: =r2power_1
+                X: =634
+                Y: =20
+                ZIndex: =5
+
+        con_Front As groupContainer.manualLayoutContainer:
+            Height: =Parent.TemplateHeight
+            Visible: =ThisItem.Value=1
+            Width: =Parent.TemplateWidth
+            ZIndex: =3
+
+            Label1_5 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(109, 49, 162, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Open Sans'
+                FontWeight: =FontWeight.Bold
+                Height: =188
+                Overflow: =Overflow.Scroll
+                Size: =50
+                Text: ="Welcome to my PDF made from a gallery"
+                Width: =714
+                X: =20
+                Y: =342
+                ZIndex: =3
+
+            Image2_3 As image:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Image: =r2power_1
+                X: =634
+                Y: =20
+                ZIndex: =5
+
+    PdfViewer2_1 As pdfViewer:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Document: =varPDFmultiple
+        Fill: =RGBA(0, 0, 0, 0.5)
+        Height: =938
+        Width: =663
+        X: =1364
+        Y: =230
+        ZIndex: =4
+
+    cmp_MD_Button_6 As cmp_MD_Button_4:
+        adjustPaddingLeft: =20
+        buttonText: ="GENERATE PDF"
+        onSelect: |-
+            =Set(
+                varPages,
+                cmp_MD_Slider_3.value
+            );
+            Set(
+                varPDFmultiple,
+                PDF(
+                    gal_PDF,
+                    {
+                        Orientation: PaperOrientation.Portrait,
+                        Size: PaperSize.A4,
+                        Margin: "20px",
+                        ExpandContainers: true
+                    //,DPI: 96 //Standard: 96
+                    }
+                )
+            )
+        svgIcon: =LookUp(MaterialDesignIcons, name="file-pdf-outline", svgPath)
+        Width: =526
+        X: =1432
+        Y: =86
+        ZIndex: =5
+
+    cmp_MD_Slider_3 As cmp_MD_Slider_2:
+        elementBackgroundColorHex: |-
+            ="#ffffff"
+        Height: =67
+        valueDefault: =5
+        valueMax: =10
+        valueMin: =3
+        Width: =381
+        X: =1563
+        Y: =160
+        ZIndex: =6
+
+    Label8 As Label:
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =14
+        Height: =44
+        Text: |-
+            ="# pages:"
+        Width: =83
+        X: =1495
+        Y: =183
+        ZIndex: =7
+

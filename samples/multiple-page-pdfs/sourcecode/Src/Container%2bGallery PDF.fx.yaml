@@ -1,0 +1,265 @@
+"'Container+Gallery PDF' As screen":
+    Fill: =defaults.elementBackgroundColor
+    OnVisible: |-
+        =UpdateContext({locMenu: false})
+
+    cmp_MD_Navigation_Drawer_11 As cmp_MD_Navigation_Drawer_7:
+        expandSidebar: =true
+        Height: =Parent.Height-Self.Y
+        items: =cmp_MD_Navigation_Drawer_9.items
+        Y: =55
+
+    cmp_MD_AppBar_top_2 As cmp_MD_AppBar_top_1:
+        icon1: |-
+            ="data:image/svg+xml;utf8, " & EncodeUrl(
+            //Set Map svg text
+            Substitute(LookUp(MaterialDesignIcons, name=If(locMenu, "menu-open", "menu"), svgPath), "<svg ", "<svg fill='"&defaults.backgroundColorHex&"' ")
+            )
+        icon2: |-
+            ="data:image/svg+xml;utf8, " & EncodeUrl(
+            //Set Map svg text
+            Substitute(LookUp(MaterialDesignIcons, name="twitter", svgPath), "<svg ", "<svg fill='"&defaults.backgroundColorHex&"' ")
+            )
+        icon3: |-
+            ="data:image/svg+xml;utf8, " & EncodeUrl(
+            //Set Map svg text
+            Substitute(LookUp(MaterialDesignIcons, name="linkedin", svgPath), "<svg ", "<svg fill='"&defaults.backgroundColorHex&"' ")
+            )
+        icon4: |-
+            ="data:image/svg+xml;utf8, " & EncodeUrl(
+            //Set Map svg text
+            Substitute(LookUp(MaterialDesignIcons, name="github", svgPath), "<svg ", "<svg fill='"&defaults.backgroundColorHex&"' ")
+            )
+        onSelectContext: |-
+            =Launch("https://github.com/PowerRobin")
+        onSelectSearch: |-
+            =Launch("https://www.linkedin.com/in/robin-rosengr%C3%BCn-ab35091b6/")
+        onselectShare: |-
+            =Launch("https://twitter.com/power_r2")
+        titleText: =Parent.Name
+        Width: =2200.00
+        X: =0.00
+        ZIndex: =2
+
+    con_combined As groupContainer.verticalAutoLayoutContainer:
+        Height: =1082
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        LayoutOverflowY: =LayoutOverflow.Scroll
+        Width: =752
+        X: =con_singlePDF.X
+        Y: =con_singlePDF.Y
+        ZIndex: =3
+
+        con_singlePDF_2 As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =1082
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            Width: =752
+            X: =418
+            Y: =86
+            ZIndex: =1
+
+            Label1_14 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(109, 49, 162, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Open Sans'
+                FontWeight: =FontWeight.Lighter
+                Height: =113
+                Overflow: =Overflow.Scroll
+                Size: =50
+                Text: ="Invoice"
+                Width: =752
+                Y: =231
+                ZIndex: =3
+
+            Gallery1_2 As gallery.galleryVertical:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Height: =207
+                Items: |-
+                    =Table(
+                        {no: 1, price: 123},
+                        {no: 2, price: 456},
+                        {no: 3, price: 789}
+                    )
+                Layout: =Layout.Vertical
+                TemplateFill: =LightGray
+                TemplatePadding: =5
+                TemplateSize: =60
+                X: =40
+                Y: =384
+                ZIndex: =8
+
+                Label4_4 As label:
+                    BorderColor: =RGBA(0, 18, 107, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =Font.'Open Sans'
+                    OnSelect: =Select(Parent)
+                    Size: =14
+                    Text: ="Position "&ThisItem.no
+                    X: =21
+                    Y: =12
+                    ZIndex: =1
+
+                Label4_5 As label:
+                    Align: =Align.Right
+                    BorderColor: =RGBA(0, 18, 107, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =Font.'Open Sans'
+                    OnSelect: =Select(Parent)
+                    Size: =14
+                    Text: =Text(ThisItem.price, "0 €")
+                    X: =464
+                    Y: =12
+                    ZIndex: =2
+
+            HtmlText1_3 As htmlViewer:
+                Height: =63
+                HtmlText: |-
+                    ="<div  align='right' style='font-weight: 900'>"&Sum(Gallery1_2.AllItems, price)&" €</div>"
+                Size: =14
+                Width: =226
+                X: =440
+                Y: =591
+                ZIndex: =9
+
+            Label6_2 As label:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Open Sans'
+                Height: =35
+                Size: =11
+                Text: |-
+                    =User().FullName&" plumbing - pay to account: 123456789, Lehmann Brothers"
+                Width: =608
+                X: =84
+                Y: =1020
+                ZIndex: =12
+
+        gal_PDF_1 As gallery.galleryVertical:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =con_singlePDF.Height
+            Items: =Sequence(3)
+            Layout: =Layout.Vertical
+            LayoutMinHeight: =1082
+            LayoutMinWidth: =320
+            TemplateFill: |-
+                =Switch(ThisItem.Value,
+                    1, Salmon,
+                    2, LightBlue,
+                    3, LightGoldenRodYellow
+                )
+            TemplateSize: =con_singlePDF.Height
+            Width: =con_singlePDF.Width
+            ZIndex: =2
+
+            Label9 As Label:
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =50
+                Height: =272
+                Text: ="page "&ThisItem.Value
+                Width: =531
+                X: =120
+                Y: =770
+                ZIndex: =1
+
+            Label9_1 As Label:
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =50
+                Height: =272
+                Text: ="Here comes the gallery"
+                Width: =531
+                X: =120
+                Y: =20
+                ZIndex: =2
+
+        con_singlePDF_3 As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =1082
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            Width: =752
+            X: =418
+            Y: =86
+            ZIndex: =3
+
+            Label1_15 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(109, 49, 162, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Open Sans'
+                FontWeight: =FontWeight.Lighter
+                Height: =113
+                Overflow: =Overflow.Scroll
+                Size: =50
+                Text: ="Terms & Conditions"
+                Width: =752
+                Y: =34
+                ZIndex: =3
+
+            Label6_3 As label:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Open Sans'
+                Height: =825
+                Overflow: =Overflow.Scroll
+                Size: =11
+                Text: |-
+                    ="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+                    
+                    Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
+                    
+                    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   
+                    
+                    Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer"
+                Width: =608
+                X: =72
+                Y: =136
+                ZIndex: =12
+
+    PdfViewer2_2 As pdfViewer:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Document: =varPDFcombined
+        Fill: =RGBA(0, 0, 0, 0.5)
+        Height: =PdfViewer2.Height
+        Width: =663
+        X: =1384
+        Y: =PdfViewer2.Y
+        ZIndex: =4
+
+    cmp_MD_Button_7 As cmp_MD_Button_4:
+        adjustPaddingLeft: =20
+        buttonText: ="GENERATE PDF"
+        onSelect: |-
+            =Set(
+                varPDFcombined,
+                PDF(
+                   con_combined,
+                    {
+                        Orientation: PaperOrientation.Portrait,
+                        Size: PaperSize.A4,
+                        Margin: "20px",
+                        ExpandContainers: true
+                    //,DPI: 96 //Standard: 96
+                    }
+                )
+            )
+        svgIcon: =LookUp(MaterialDesignIcons, name="file-pdf-outline", svgPath)
+        Width: =526
+        X: =1432
+        Y: =86
+        ZIndex: =5
+

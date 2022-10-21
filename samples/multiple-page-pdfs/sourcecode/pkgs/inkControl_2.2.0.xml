@@ -1,0 +1,455 @@
+<widget xmlns="http://openajax.org/metadata" spec="1.0" id="http://microsoft.com/appmagic/inkControl" name="inkControl" jsClass="AppMagic.Controls.Ink.InkControl" version="2.2.0" styleable="true" runtimeCost="1" xmlns:appMagic="http://schemas.microsoft.com/appMagic">
+  <author name="Microsoft AppMagic" />
+  <license type="text/html"><![CDATA[<p>TODO:  Need license text here.</p>]]></license>
+  <description><![CDATA[INK
+      Control description here.]]></description>
+  <requires>
+    <require type="css" src="css/inkControl.css" />
+    <require type="javascript" src="js/InkControl.Common.js" />
+    <require type="javascript" src="js/inkControl.js" />
+    <require type="markup" src="/controls/common/ruleValueEditor/ruleValueEditor.html" group="inkCtrlRuleValueEditor" />
+    <require type="other" src="/controls/common/ruleValueEditor/ruleValueEditor.css" group="inkCtrlRuleValueEditor" />
+  </requires>
+  <appMagic:capabilities contextualViewsEnabled="true" autoBorders="true" isVersionFlexible="true" />
+  <appMagic:accessibilityChecks controlIsInteractive="true">
+    <appMagic:accessibilityCheck type="AlternativeInputNeeded" />
+    <appMagic:accessibilityCheck type="HelpfulControlSettingNeeded" property="ShowControls" />
+  </appMagic:accessibilityChecks>
+  <content><![CDATA[
+    <div
+      class="appmagic-inkControl" data-bind="
+        style: {
+          backgroundColor: properties.Fill
+        },
+        attr: {
+          title: properties.Tooltip || null,
+          'aria-label': properties.AccessibleLabel() || null
+        }"
+    >
+      <div class="canvasDiv" aria-hidden="true">
+        <canvas
+          class="appmagic-inkControl-draw-canvas"
+          touch-action="none"
+          data-bind="
+            attr: {
+              width: properties.Width,
+              height: properties.Height
+            }"
+        ></canvas>
+      </div>
+      <div
+        class="appmagic-inkControl-commandBar"
+        aria-hidden="true"
+        data-bind="
+          visible: properties.ShowControls,
+          css: {
+            disabled: isDisabled(),
+            readonly: properties.DisplayMode() === AppMagic.Constants.DisplayMode.View
+        }"
+      >
+        <div class="appmagic-inkControl-commandBar-penModes">
+          <div
+            class="button"
+            data-bind="
+              click: function (data, evt) { handleModeClicked('draw', data); },
+              css: { active: properties.Mode() === 'draw' }"
+          >
+            <div class="icon">
+               <svg class="inkControl-svg" xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="-10 -15 50 60">
+                <path class="inkControl-svg-fill" fill="#FFF" d="M28.8 26.5l-.6-1c-.8-1-1.5-2.3-2-3.6l-1-5.7v-2.6-.7s-.2-.6-.4-.7c-.7-.5-2.3-1.3-5.8-3l-5-2.7
+                1-1L11.3 0 10 .8l3.3 4.6-.6.6L11 7.7l-5.7 5.7L1 10l-1 1 5.4 4.3L6.7 14 12 24.5c.2.4.2.4 3 .5h1c1.7.2 3.4.6 5.4 1 1.4.4 4 2 5 2.8l.5.3
+                2-2-.2-.5zm-12.8-3h-3L7.8 13l3-3L13 7.6l11 5.6v3.1c0 2 .5 3.8 1 5.8.3 1.3 1 2.3 1.5 3.3l-6-5.8c.2-.3.2-.5.2-.8 0-1.3-1-2.2-2-2.2-1.2
+                0-2 1-2 2 0 1.2.8 2 2 2h1l6 5.8-4-2c-2-.4-3.8-.8-5.7-1m2.6-4c-.3 0-.6-.4-.6-.7 0-.5.3-.8.6-.8.4 0 .7.3.7.7 0 .2-.3.5-.7.5"/>
+               </svg>
+            </div>
+          </div>
+          <div
+            class="button"
+            data-bind="
+              click: function (data, evt) { handleModeClicked('erase', data); },
+              css: { active: properties.Mode() === 'erase' }"
+          >
+            <div class="icon">
+              <svg class="inkControl-svg" xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="-11 -16 50 60">
+              <g>
+                <polygon class="inkControl-svg-fill" fill="#FFFFFF" points="15.706,21.961 6.264,12.928 7.172,12.021 16.614,21.053 	"/>
+                <polygon class="inkControl-svg-fill" fill="#FFFFFF" points="28.225,28.225 9.903,28.225 9.622,26.942 28.225,26.942 	"/>
+                <path class="inkControl-svg-fill" fill="#FFFFFF" d="M28.125,10.144L18.493,0L0,18.495l9.923,9.73L28.125,10.144z M1.814,18.495L18.493,1.814l7.818,8.329
+                  L9.903,26.502L1.814,18.495z"/>
+              </g>
+              </svg>
+            </div>
+          </div>
+          <div
+            class="button"
+            data-bind="
+              click: function (data, evt) {
+                handleResetClicked(data);
+              }"
+          >
+            <div class="icon">
+              <svg class="inkControl-svg" xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="-13 -19 50 60">
+                <g>
+                  <line fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-miterlimit="10" x1="0.53" y1="0.53" x2="22.53" y2="22.53"/>
+                  <line fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-miterlimit="10" x1="22.53" y1="0.53" x2="0.53" y2="22.53"/>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="splitter"></div>
+        </div>
+
+        <!-- "handleButtonClicked" is wrapped in the function closure because with "handleButtonClicked.bind($data, 'propertyName')", controlContext gets passed as 'this' parameter -->
+        <!-- As we need to access the methods in inkControl.js, we dont want to pass controlControl as this parameter. So, we specify bound function in initControlContext as this.handleButtonClicked.bind(this) -->
+        <div class="appmagic-inkControl-commandBar-buttons">
+          <div class="appmagic-inkControl-flyout-container"
+            data-bind="
+              controlFlyout: {
+                contentSelector: '.appmagic-inkControl-flyout',
+                openOn: null,
+                showEvent: openFlyoutEvent,
+                closeEvent: closeFlyoutEvent,
+                onShow: onOpen,
+                onClose: onClose,
+                position: 'top center',
+                contentAttachment: 'bottom center'
+              }"
+          >
+            <!-- ko foreach: _commandBarButtons -->
+              <div class="button" data-bind="
+                visible: visible,
+                click: function (data, evt) { $parent.handleButtonClicked($data.propertyName, $parent, evt); },
+                css: { active: $data.propertyName === $parent._currentProperty() }"
+              >
+                <div class="icon">
+                  <!-- ko if: $data.propertyName === 'Color' -->
+                    <svg class="inkControl-svg" xmlns="http://www.w3.org/2000/svg" focusable="false" width="30px" height="28.702px" viewBox="0 0 30 28.702">
+                      <g>
+                        <path fill="#FAFCFD" d="M28.955,1.013c-1.35-1.35-3.705-1.35-5.055,0L7.878,17.035l-2.586,7.641l7.395-2.429l16.269-16.18
+                          C30.348,4.673,30.348,2.406,28.955,1.013z M9.769,17.072l13.25-13.25l3.127,3.127l-13.25,13.249
+                          C12.429,18.706,11.262,17.539,9.769,17.072z M8.818,18.246c1.51,0.205,2.698,1.393,2.904,2.903l-4.598,1.695L8.818,18.246z
+                          M27.991,5.104L27.11,5.985l-3.127-3.127l0.882-0.882c0.835-0.834,2.292-0.834,3.127,0C28.853,2.838,28.853,4.241,27.991,5.104z"/>
+                      </g>
+                      <polygon fill="#FAFCFD" points="4.396,4.885 17.495,4.885 19.088,3.385 2.896,3.385 2.896,22.885 6.87,22.885 6.87,21.385 4.396,21.385 "/>
+                    </svg>
+                    <div class="colorBar" data-bind="style: { backgroundColor: $parent.properties.Color}"></div>
+                  <!-- /ko -->
+
+                  <!-- ko if: $data.propertyName === 'Size' -->
+                    <svg class="inkControl-svg" xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="-10 -17 50 60">
+                      <g>
+                        <rect y="6.488" fill="#FFFFFF" width="31.74" height="1.27"/>
+                        <rect fill="#FFFFFF" width="31.74" height="0.9"/>
+                        <rect y="14.599" fill="#FFFFFF" width="31.74" height="2.539"/>
+                        <rect y="22.349" fill="#FFFFFF" width="31.74" height="3.809"/>
+                      </g>
+                    </svg>
+                  <!-- /ko -->
+
+                  <!-- ko if: $data.propertyName === 'More' -->
+                    <svg class="inkControl-svg" xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 50 60">
+                      <g>
+                          <path fill="#FFFFFF" d="m22.708424,30.120243c0,-1.56132 1.11531,-2.6022 2.6024,-2.6022s2.60241,1.04088 2.60241,2.6022c0,1.56132 -1.11532,2.60221 -2.60241,2.60221c-1.48709,0 -2.6024,-1.04089 -2.6024,-2.60221z"/>
+                          <path fill="#FFFFFF" d="m10.884777,30.403803c0,-1.56132 1.11531,-2.6022 2.6024,-2.6022s2.60241,1.04088 2.60241,2.6022c0,1.56132 -1.11532,2.60221 -2.60241,2.60221c-1.48709,0 -2.6024,-1.04089 -2.6024,-2.60221z"/>
+                          <path fill="#FFFFFF" d="m33.930869,30.120243c0,-1.56132 1.11531,-2.6022 2.6024,-2.6022s2.60241,1.04088 2.60241,2.6022c0,1.56132 -1.11532,2.60221 -2.60241,2.60221c-1.48709,0 -2.6024,-1.04089 -2.6024,-2.60221z"/>
+                      </g>
+                    </svg>
+                  <!-- /ko -->
+                </div>
+              </div>
+            <!-- /ko -->
+          </div>
+
+          <!-- ko stopBinding: true -->
+            <div class="appmagic-inkControl-flyout">
+              <!-- ko if: !(_isOverFlowButtonClicked()) -->
+                <div class="appmagic-inkControl-flyoutContent">
+                  <!-- ko if: _isOverflowPropertyClicked() -->
+                    <div class="appmagic-inkControl-propertyName" data-bind="text: _currentProperty()"></div>
+                  <!-- /ko -->
+
+                  <div class="visualIntellisense" data-bind="with: rule">
+                    <!-- ko with: getPresentationValueForTemplate('range') -->
+                      <div class="container center">
+                        <input
+                          class="valueSlider"
+                          type="range"
+                          data-bind="
+                            attr: {
+                              min: rangeMin,
+                              max: rangeMax },
+                            textInput: rangeValue,
+                            clickBubble: false,
+                            event: {
+                              pointerdown: handleRangeMouseDown.bind($parent),
+                              pointerup: handleRangeMouseUp.bind($parent) }"
+                          tabindex="-1"
+                        />
+                        <div class="valueTextBoxContainer">
+                          <input
+                            class="valueTextBox"
+                            type="text"
+                            maxlength="4"
+                            data-bind="
+                              textInput: textBoxValue,
+                              clickBubble: false,
+                              event: { blur: handleBlur }"
+                            tabindex="-1"
+                          />
+                        </div>
+                      </div>
+                    <!-- /ko -->
+                    <!-- ko with: getPresentationValueForTemplate('overflow') -->
+                      <div
+                        class="container"
+                        data-bind="
+                          foreach: AppMagic.Common.VisualIntellisense.Overflows,
+                          focusRoot: selectedIndex"
+                      >
+                        <div
+                          class="textItem"
+                          data-bind="
+                            text: displayText,
+                            clickOrEnter: $parent.handleClick.bind($parent, text, $index()),
+                            clickBubble: false,
+                            css: {
+                              selected: $parent.normalizedValue === displayText || $parent.normalizedValue === text
+                            },
+                            focusElement: $index(),
+                            event: {
+                              keydown: $parent.handleKeyDown.bind(
+                                $parent,
+                                AppMagic.Common.VisualIntellisense.Overflows,
+                                true
+                              ),
+                              blur: $parent.handleBlur. bind($parent)
+                            }"
+                        ></div>
+                      </div>
+                    <!-- /ko -->
+                    <!-- ko with: getPresentationValueForTemplate('color') -->
+                      <div class="colorsContainer">
+                        <div
+                          class="colorsDiv"
+                          data-bind="
+                            foreach: preDefinedColors,
+                            focusRoot: true"
+                        >
+                          <div
+                            class="colorRow"
+                            data-bind="
+                              property: {
+                                index: $index()
+                              },
+                              template: {
+                                name: 'ruleValueColorTemplate',
+                                foreach: $data
+                                }"
+                          ></div>
+                        </div>
+
+                        <!-- Bind to an array with 1 item since recentlyUsedColors forms only 1 row of colors. -->
+                        <div
+                          class="recentlyUsedContainer"
+                          data-bind="foreach: [recentlyUsedColors]"
+                        >
+                          <div
+                            class="colorRow"
+                            data-bind="
+                              property: {
+                                index: AppMagic.Common.VisualIntellisense.ColorMruIndex
+                              },
+                              template: {
+                                name: 'ruleValueColorTemplate',
+                                foreach: $data
+                                }"
+                          ></div>
+                        </div>
+                        <div class="container center">
+                          <input
+                            class="valueSlider"
+                            type="range"
+                            step="0.1"
+                            data-bind="
+                              value: rangeValue,
+                              attr: { min: rangeMin, max: rangeMax },
+                              clickBubble: false,
+                              event: { pointerdown: handleRangeMouseDown.bind($parent),
+                              pointerup: handleRangeMouseUp.bind($parent) }"
+                            tabindex="-1"
+                          />
+                          <div class="valueTextBoxContainer">
+                            <input
+                              class="valueTextBox"
+                              type="text"
+                              maxlength="4"
+                              data-bind="
+                                value: textBoxValue,
+                                valueUpdate: 'keyup',
+                                clickBubble: false"
+                              tabindex="-1"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    <!-- /ko -->
+                  </div>
+                </div>
+              <!-- /ko -->
+
+              <!-- ko if: _isOverFlowButtonClicked() -->
+                <div class="appmagic-inkControl-flyoutContent">
+                  <!-- ko foreach: _overflowProperties -->
+                    <div
+                      class="appmagic-inkControl-flyoutMenuItem"
+                      data-bind="
+                        click: function (data, evt) {
+                          $parent.handlePropertyClicked($data.propertyName, $parent);
+                        }"
+                    >
+                      <div data-bind="text: propertyName"></div>
+                    </div>
+                  <!-- /ko -->
+                </div>
+              <!-- /ko -->
+            </div>
+          <!-- /ko -->
+        </div>
+      </div>
+    </div>
+    ]]></content>
+  <properties>
+    <property name="RecognizedText" localizedName="##inkControl_RecognizedText##" datatype="String" defaultValue="" direction="out">
+      <title>Recognized Text</title>
+      <appMagic:category>Data</appMagic:category>
+    </property>
+    <property name="Strokes" localizedName="##inkControl_Strokes##" datatype="PenImage" direction="out">
+      <title>Strokes output </title>
+      <appMagic:category>Data</appMagic:category>
+    </property>
+    <property name="Image" localizedName="##inkControl_Image##" datatype="Image" direction="out" isPrimaryOutputProperty="true">
+      <title>Image output </title>
+      <appMagic:category>Data</appMagic:category>
+    </property>
+    <!-- Hiding DefaultStrokes property due to crashes because of bug in Windows.UI.Input.Inking.dll. Related bugs: 104328 & 102217 -->
+    <property name="DefaultStrokes" localizedName="##inkControl_DefaultStrokes##" datatype="PenImage" direction="in" defaultValue="" converter="encodeImageUrl" format="uri" hidden="true">
+      <title>Image content</title>
+      <appMagic:category>data</appMagic:category>
+      <appMagic:displayName>##inkControl_DefaultStrokes_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##inkControl_DefaultStrokes_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="Reset" localizedName="##commonProperties_Reset##" datatype="Boolean" direction="in" defaultValue="false">
+      <title>Reset</title>
+      <appMagic:category>data</appMagic:category>
+      <appMagic:helperUI>boolean</appMagic:helperUI>
+      <appMagic:displayName>##commonProperties_Reset_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##commonProperties_Reset_Tooltip##</appMagic:tooltip>
+    </property>
+    <!-- Task: 90908 Enum -->
+    <property name="Mode" localizedName="##inkControl_Mode##" datatype="PenMode" direction="in" isExpr="true" defaultValue="%PenMode.RESERVED%.Draw" canBeCompressed="false">
+      <title>Mode</title>
+      <appMagic:category>design</appMagic:category>
+      <appMagic:helperUI>penMode</appMagic:helperUI>
+      <appMagic:displayName>##inkControl_Mode_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##inkControl_Mode_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="Color" localizedName="##inkControl_Color##" datatype="Color" direction="in" isExpr="true" defaultValue="RGBA(0, 0, 0, 1)" converter="argbConverter" isPrimaryInputProperty="true" canBeCompressed="false">
+      <title>Color</title>
+      <appMagic:category>design</appMagic:category>
+      <appMagic:helperUI>color</appMagic:helperUI>
+      <appMagic:displayName>##inkControl_Color_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##inkControl_Color_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="Input" localizedName="##inkControl_Input##" datatype="Number" direction="in" defaultValue="7">
+      <title>Input device Type</title>
+      <appMagic:category>design</appMagic:category>
+      <appMagic:helperUI>penType</appMagic:helperUI>
+      <appMagic:displayName>##inkControl_Input_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##inkControl_Input_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="Size" localizedName="##inkControl_Size##" datatype="Number" direction="in" defaultValue="2" minimum="0" maximum="20" canBeCompressed="false">
+      <title>Pen size</title>
+      <appMagic:category>design</appMagic:category>
+      <appMagic:helperUI>penThickness</appMagic:helperUI>
+      <appMagic:displayName>##inkControl_Size_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##inkControl_Size_Tooltip##</appMagic:tooltip>
+    </property>
+  </properties>
+  <appMagic:includeProperties>
+    <!-- Data -->
+    <appMagic:includeProperty name="AccessibleLabel" />
+    <appMagic:includeProperty name="Tooltip" />
+    <appMagic:includeProperty name="ContentLanguage" />
+    <!-- Design -->
+    <appMagic:includeProperty name="Fill" />
+    <appMagic:includeProperty name="BorderColor" />
+    <appMagic:includeProperty name="BorderStyle" />
+    <appMagic:includeProperty name="BorderThickness" defaultValue="2" />
+    <appMagic:includeProperty name="Visible" />
+    <appMagic:includeProperty name="DisplayMode" />
+    <appMagic:includeProperty name="Width" defaultValue="368" nullDefault="0" webDefaultValue="250" />
+    <appMagic:includeProperty name="Height" defaultValue="230" nullDefault="0" webDefaultValue="180" />
+    <appMagic:includeProperty name="X" />
+    <appMagic:includeProperty name="Y" />
+    <appMagic:includeProperty name="ShowControls" defaultValue="true" />
+    <!-- Behavior -->
+    <!-- TASK: 85476: Do Behavior properties make sense as input only? -->
+    <appMagic:includeProperty name="OnSelect" direction="in" />
+    <!--Hidden properties -->
+    <appMagic:includeProperty name="maximumHeight" defaultValue="768" />
+    <appMagic:includeProperty name="maximumWidth" defaultValue="1366" />
+    <appMagic:includeProperty name="minimumHeight" defaultValue="32" />
+    <appMagic:includeProperty name="minimumWidth" defaultValue="245" />
+  </appMagic:includeProperties>
+  <!--Property Dependencies -->
+  <appMagic:propertyDependencies>
+    <appMagic:propertyDependency input="DefaultStrokes" output="RecognizedText" />
+    <appMagic:propertyDependency input="DefaultStrokes" output="Strokes" />
+    <appMagic:propertyDependency input="Reset" output="RecognizedText" />
+    <appMagic:propertyDependency input="Reset" output="Strokes" />
+  </appMagic:propertyDependencies>
+  <appMagic:insertMetadata>
+    <appMagic:category name="Input" priority="30" />
+  </appMagic:insertMetadata>
+  <!-- Display metadata providing property visibility, order, sections, and grouping in UI (e.g. properties panel) -->
+  <appMagic:displayMetadata>
+    <appMagic:section>
+      <appMagic:property name="Mode" />
+      <appMagic:property name="ShowControls" />
+      <appMagic:property name="DisplayMode" />
+      <appMagic:property name="Size" labelOverride="##FontSize_Property##" showInFloatie="true" />
+    </appMagic:section>
+    <appMagic:section>
+      <appMagic:property name="Visible" />
+      <appMagic:propertyGroup name="Position">
+        <appMagic:property name="X" />
+        <appMagic:property name="Y" />
+      </appMagic:propertyGroup>
+      <appMagic:propertyGroup name="Size">
+        <appMagic:property name="Width" />
+        <appMagic:property name="Height" />
+      </appMagic:propertyGroup>
+    </appMagic:section>
+    <appMagic:section>
+      <appMagic:propertyGroup name="Color">
+        <appMagic:property name="Color" showInFloatie="true" />
+        <appMagic:property name="Fill" showInFloatie="true" />
+      </appMagic:propertyGroup>
+      <appMagic:propertyGroup name="Border">
+        <appMagic:property name="BorderStyle" />
+        <appMagic:property name="BorderThickness" />
+        <appMagic:property name="BorderColor" />
+      </appMagic:propertyGroup>
+      <appMagic:property name="Tooltip" />
+    </appMagic:section>
+  </appMagic:displayMetadata>
+  <appMagic:conversion from="2.0.0" to="2.1.0">
+    <appMagic:conversionAction type="add" name="AccessibleLabel" />
+  </appMagic:conversion>
+  <appMagic:conversion from="2.1.0" to="2.1.1">
+    <!-- Removed defaultValue for BorderColor. BorderColor default now defined in theme. -->
+  </appMagic:conversion>
+  <appMagic:conversion from="2.1.1" to="2.2.0">
+    <appMagic:conversionAction type="add" name="ContentLanguage" />
+  </appMagic:conversion>
+</widget>
