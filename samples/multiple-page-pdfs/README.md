@@ -6,7 +6,7 @@ This app showcases how you can use the new PDF()-function to create pixel perfec
 
 ![single page PDF](./assets/singlePagePDF.png)
 
-![multiple page PDF](./assets/singlePagePDF.gif)
+![multiple page PDF](./assets/multiplePagePDF.gif)
 
 ![send PDF](./assets/sendPDF.png)
 
@@ -39,7 +39,8 @@ Version|Date|Comments
 
 ## Features
 
-This application gives you a general idea how to use the new PDF() function. It provides a pattern you can copy to creat single or multiple page PDFs. Additionally the app shows a way to send the PDF via mail without needing an extra Flow.
+This application gives you a general idea how to use the new PDF() function in more complex scenarios. It provides a pattern you can copy to create single or multiple page PDFs.
+Additionally the app shows a way to send the PDF via mail without needing an extra Flow.
 
 ## Prerequisites
 
@@ -51,7 +52,7 @@ No datasource needed.
 
 ## Minimal Path to Awesome
 
-* [Download](./solution/multiple-page-pdf.msapp) the `.msapp` from the `solution` folder
+* [Download](./solution/multiple-page-pdfs.msapp) the `.msapp` from the `solution` folder
 * Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just downloaded.
 * Select the **Data** tab
 
