@@ -1,0 +1,190 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": true,
+  "ComponentManifest": {
+    "AllowAccessToGlobals": false,
+    "AllowCustomization": true,
+    "Description": "",
+    "Name": "cmp_MD_Snackbar_1",
+    "TemplateGuid": "eb79c42dd09b4bcdaf9e109b509cc6dd"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [
+    {
+      "Category": 0,
+      "DisplayName": "text",
+      "Hidden": false,
+      "Name": "text",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "Text",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "actionText",
+      "Hidden": false,
+      "Name": "actionText",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 2,
+      "DisplayName": "actionOnSelect",
+      "Hidden": false,
+      "Name": "actionOnSelect",
+      "PropertyDataTypeKey": "Boolean",
+      "Tooltip": "OnSelect Property of the action",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"_MinPrimitive\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 2,
+      "DisplayName": "onHide",
+      "Hidden": false,
+      "Name": "onHide",
+      "PropertyDataTypeKey": "Boolean",
+      "Tooltip": "Set visibility to false",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"_MinPrimitive\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "transitionAnimation",
+      "Hidden": false,
+      "Name": "transitionAnimation",
+      "PropertyDataTypeKey": "Boolean",
+      "Tooltip": "Animate the transition or stay in place?",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"_MinPrimitive\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "duration",
+      "Hidden": false,
+      "Name": "duration",
+      "PropertyDataTypeKey": "Number",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "timerStart",
+      "Hidden": false,
+      "Name": "timerStart",
+      "PropertyDataTypeKey": "Boolean",
+      "Tooltip": "Set to true when timer should start, set to false in onHide property",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"_MinPrimitive\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "transitionTime",
+      "Hidden": false,
+      "Name": "transitionTime",
+      "PropertyDataTypeKey": "Number",
+      "Tooltip": "transition TIme in ms",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "actionColor",
+      "Hidden": false,
+      "Name": "actionColor",
+      "PropertyDataTypeKey": "Color",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "backgroundColor",
+      "Hidden": false,
+      "Name": "backgroundColor",
+      "PropertyDataTypeKey": "Color",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "textColor",
+      "Hidden": false,
+      "Name": "textColor",
+      "PropertyDataTypeKey": "Color",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "outsideMargin",
+      "Hidden": false,
+      "Name": "outsideMargin",
+      "PropertyDataTypeKey": "Number",
+      "Tooltip": "Margin of the Button to all sides",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "borderRadius",
+      "Hidden": false,
+      "Name": "borderRadius",
+      "PropertyDataTypeKey": "Number",
+      "Tooltip": "Border Radius of the Button",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "font",
+      "Hidden": false,
+      "Name": "font",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "Font of the Button",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "fontSize",
+      "Hidden": false,
+      "Name": "fontSize",
+      "PropertyDataTypeKey": "Number",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "textPaddingLeft",
+      "Hidden": false,
+      "Name": "textPaddingLeft",
+      "PropertyDataTypeKey": "Number",
+      "Tooltip": "TextPaddingLeft in Pixels",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "fontWeight",
+      "Hidden": false,
+      "Name": "fontWeight",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "Font Weight of the Button",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "boxShadow",
+      "Hidden": false,
+      "Name": "boxShadow",
+      "PropertyDataTypeKey": "Boolean",
+      "Tooltip": "If you want custom box shadow, insert it here in the format \"box-shadow: 5px 5px 15px 5px #000000;\"",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"_MinPrimitive\",\"EnumString\":\"\",\"Type\":[]}}"
+    }
+  ],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "638019780992499793",
+  "Name": "eb79c42dd09b4bcdaf9e109b509cc6dd",
+  "OverridableProperties": {},
+  "TemplateOriginalName": "9eff78f2015d42f2a3f8a9e6d09bf12f",
+  "Version": "637973753888304613"
+}

@@ -1,0 +1,35 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =Set(defaults,
+            {
+                primaryColor: ColorValue("#6200EE"),
+                secondaryColor: ColorValue("#03DAC6"),
+                disabledColor: Gray,
+                backgroundColor: White,
+                elementBackgroundColor: RGBA(240, 240, 240, 1),
+                textColor: RGBA(0, 0, 0, 1),
+                errorColor: ColorValue("#B00020"),
+                font: "Roboto, 'Segoe UI'",
+                fontSize: 14,
+                borderRadius: 15
+            }
+        );
+        
+        Set(defaults,
+            Patch(defaults,
+            {
+                primaryColorHex: Match(JSON(defaults.primaryColor,IgnoreUnsupportedTypes),"#[a-fA-F0-9]{6}").FullMatch,
+                primaryColorTransparentHex: Match(JSON(defaults.primaryColor,IgnoreUnsupportedTypes),"#[a-fA-F0-9]{6}").FullMatch&"4d",
+                secondaryColorHex: Match(JSON(defaults.secondaryColor,IgnoreUnsupportedTypes),"#[a-fA-F0-9]{6}").FullMatch,
+                disabledColorHex: Match(JSON(defaults.disabledColor,IgnoreUnsupportedTypes),"#[a-fA-F0-9]{6}").FullMatch,
+                backgroundColorHex: Match(JSON(defaults.backgroundColor,IgnoreUnsupportedTypes),"#[a-fA-F0-9]{6}").FullMatch,
+                errorColorHex: Match(JSON(defaults.errorColor,IgnoreUnsupportedTypes),"#[a-fA-F0-9]{6}").FullMatch,
+                elementBackgroundColorHex: Match(JSON(defaults.elementBackgroundColor,IgnoreUnsupportedTypes),"#[a-fA-F0-9]{6}").FullMatch
+            }
+            )
+        );
+    StartScreen: |-
+        =//Parameter für anderen Startscreen
+        If(Param("screen")="screen2", Screen2, 'Container+Gallery PDF')
+

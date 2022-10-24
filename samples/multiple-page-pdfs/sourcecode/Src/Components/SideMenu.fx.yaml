@@ -1,0 +1,84 @@
+SideMenu As CanvasComponent:
+    BgColor: =defaults.primaryColor
+    Fill: =Self.BgColor
+    Font: =defaults.font
+    Height: =App.Height
+    iconColorHex: ="Text"
+    Items: |-
+        =Table(
+        {Item: "Screen 1", Screen: Screen1, Icon: Icon.Home},
+        {Item: "Screen 2", Screen: Screen2, Icon: Icon.ToolsWrench},
+        {Item: "Screen 3", Screen: Screen3, Icon: Icon.Settings})
+    OnReset: =false
+    TextColor: =defaults.backgroundColor
+    varMenuVisible: =true
+    Width: =100
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    GalleryMenu_1 As gallery.galleryVertical:
+        BorderColor: =RGBA(142, 166, 175, 1)
+        Fill: =Transparent
+        Height: =App.Height
+        Items: =SideMenu.Items
+        Layout: =Layout.Vertical
+        TemplateSize: =87
+        Width: =114.58
+        X: =0.00
+        ZIndex: =1
+
+        Icon1 As icon.Add:
+            BorderColor: =Transparent
+            Color: =SideMenu.TextColor
+            DisabledBorderColor: =Self.Color
+            DisabledColor: =Self.Color
+            Height: =31
+            Icon: =ThisItem.Icon
+            OnSelect: =Select(Parent)
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            Width: =114.58
+            X: =0.00
+            Y: =16
+            ZIndex: =1
+
+        MenuButton_1 As button:
+            BorderColor: =Self.Fill
+            BorderThickness: =0
+            Color: =SideMenu.TextColor
+            DisabledBorderColor: =ColorFade(Self.BorderColor, 50%)
+            DisabledColor: =Self.Color
+            DisabledFill: =RGBA(255,255,255,0.3)
+            DisplayMode: =If(ThisItem.Screen = App.ActiveScreen, DisplayMode.Disabled, DisplayMode.Edit)
+            Fill: =If(App.ActiveScreen=ThisItem.Screen, RGBA(255,255,255,0.5), Transparent)
+            Font: =SideMenu.Font
+            FontWeight: =Bold
+            Height: =87
+            HoverBorderColor: =ColorFade(Self.BorderColor, (-15 * 1.3)%)
+            HoverFill: =RGBA(255,255,255,0.5)
+            OnSelect: =Navigate(ThisItem.Screen)
+            PaddingRight: =5.73
+            PaddingTop: =51.56
+            PressedBorderColor: =ColorFade(Self.BorderColor, (-20 * 1.3)%)
+            PressedFill: =RGBA(255,255,255,0.7)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =11.46
+            Text: =ThisItem.Item
+            Width: =114.58
+            X: =0.00
+            ZIndex: =2
+
+        Rectangle1 As rectangle:
+            BorderColor: =Transparent
+            Fill: =SideMenu.TextColor
+            Height: =87
+            OnSelect: =Select(Parent)
+            Visible: =App.ActiveScreen=ThisItem.Screen
+            Width: =9.17
+            X: =0.00
+            ZIndex: =3
+

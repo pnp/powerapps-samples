@@ -1,0 +1,230 @@
+cmp_MD_DialogSignature As CanvasComponent:
+    action1OnSelect: =true
+    action1Text: ="ACTION1"
+    action2OnSelect: =true
+    action2Text: ="ACTION2"
+    actionBeneath: =false
+    backgroundColor: =defaults.backgroundColor
+    backGroundColorHex: =defaults.backgroundColorHex
+    borderRadius: =Max(defaults.borderRadius, 20)
+    boxShadow: =true
+    dialogHeight: =500
+    dialogWidth: =500
+    Fill: =RGBA(0,0,0,0.3)
+    font: =defaults.font
+    fontSize: =defaults.fontSize
+    header: ="Meaningful Header"
+    Height: =App.DesignHeight
+    OnReset: |-
+        =//Otherwise the Auto-Height Labels don't set the height correctly
+        Set(varWidth, cmp_MD_DialogSignature.dialogWidth+1);
+        Set(varWidth, cmp_MD_DialogSignature.dialogWidth);
+    PenInput: =PenInput2.Image
+    primaryColor: =defaults.primaryColor
+    text: ="Do you really really really want to delete this?"
+    textColor: =RGBA(30, 30, 30, 1)
+    textPaddingLeft: =20
+    timerStart: =true
+    transitionAnimation: =true
+    Visible: =true
+    Width: =App.DesignWidth
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    con_Dialog_2 As groupContainer.manualLayoutContainer:
+        Fill: =Transparent
+        Height: |-
+            =//cmp_MD_Dialog.dialogHeight+20
+            600
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        Width: =595.83
+        X: =(Parent.Width-Self.Width)/2
+        Y: =(Parent.Height-Self.Height)/2
+        ZIndex: =4
+
+        html_dialogBoxshadow_2 As htmlViewer:
+            Fill: =Transparent
+            Height: =Parent.Height
+            HtmlText: |-
+                ="<div 
+                    style='
+                        top:10px;
+                        left:10px;
+                        position: absolute;
+                        width: "&Parent.Width-20&"px;
+                        height: "&Parent.Height-20&"px;     
+                        box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.25);
+                        border-radius: "&cmp_MD_DialogSignature.borderRadius&"px;
+                        '
+                >
+                
+                </div>
+                
+                "
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            Size: =12.60
+            Visible: =cmp_MD_DialogSignature.boxShadow
+            Width: =595.83
+            X: =0.00
+            ZIndex: =1
+
+        btn_dialogBG_2 As button:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =0
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =Transparent
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =cmp_MD_DialogSignature.backgroundColor
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(56, 96, 178, 1)
+            Font: =Font.'Open Sans'
+            Height: =Parent.Height-20
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            PaddingRight: =5.73
+            PaddingTop: =5.73
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            RadiusBottomLeft: =cmp_MD_DialogSignature.borderRadius
+            RadiusBottomRight: =cmp_MD_DialogSignature.borderRadius
+            RadiusTopLeft: =cmp_MD_DialogSignature.borderRadius
+            RadiusTopRight: =cmp_MD_DialogSignature.borderRadius
+            Size: =27.50
+            Text: =""
+            Width: =572.92
+            X: =11.46
+            Y: =10
+            ZIndex: =2
+
+        btn_dialogAction1_2 As button:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            BorderStyle: =BorderStyle.None
+            Color: =cmp_MD_DialogSignature.primaryColor
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =Transparent
+            Fill: =Transparent
+            Font: =cmp_MD_DialogSignature.font
+            FontWeight: =Normal
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =ColorFade(Self.Color, 30%)
+            HoverFill: =Transparent
+            OnSelect: =cmp_MD_DialogSignature.action1OnSelect()
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Transparent
+            RadiusBottomLeft: =10
+            RadiusBottomRight: =10
+            RadiusTopLeft: =10
+            RadiusTopRight: =10
+            Size: =16.04
+            Text: =cmp_MD_DialogSignature.action1Text
+            Width: =123.98
+            X: =442
+            Y: =516
+            ZIndex: =3
+
+        btn_dialogAction2_2 As button:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            BorderStyle: =BorderStyle.None
+            Color: =cmp_MD_DialogSignature.primaryColor
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =Transparent
+            Fill: =Transparent
+            Font: =cmp_MD_DialogSignature.font
+            FontWeight: =Normal
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =ColorFade(Self.Color, 30%)
+            HoverFill: =Transparent
+            OnSelect: =cmp_MD_DialogSignature.action2OnSelect()
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Transparent
+            RadiusBottomLeft: =10
+            RadiusBottomRight: =10
+            RadiusTopLeft: =10
+            RadiusTopRight: =10
+            Size: =16.04
+            Text: =cmp_MD_DialogSignature.action2Text
+            Width: =123.98
+            X: =309
+            Y: =516
+            ZIndex: =4
+
+        lbl_dialogText_2 As label:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =cmp_MD_DialogSignature.textColor
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.'Open Sans'
+            Height: =72
+            PaddingBottom: =40
+            PaddingLeft: =40
+            PaddingRight: =45.83
+            PaddingTop: =45.83
+            Size: =16.04
+            Text: =cmp_MD_DialogSignature.text
+            Width: =595.83
+            X: =0.00
+            Y: =If(IsBlank(cmp_MD_DialogSignature.header), 0, lbl_dialogHeader_2.Height)
+            ZIndex: =5
+
+        lbl_dialogHeader_2 As label:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =cmp_MD_DialogSignature.textColor
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Height: =72
+            PaddingBottom: =0
+            PaddingLeft: =40
+            PaddingRight: =45.83
+            PaddingTop: =45.83
+            Size: =20.63
+            Text: =cmp_MD_DialogSignature.header
+            Width: =595.83
+            X: =0.00
+            ZIndex: =6
+
+        PenInput2 As inkControl:
+            Height: =234
+            ShowControls: =false
+            X: =113
+            Y: =205
+            ZIndex: =7
+
+        Label1 As Label:
+            DisplayMode: =DisplayMode.Edit
+            FontSize: =14
+            Height: =34
+            Text: ="Sign here"
+            Width: =294
+            X: =118
+            Y: =217
+            ZIndex: =8
+
+        Icon2 As icon.ArrowDown:
+            Icon: =Icon.Erase
+            OnSelect: =Reset(PenInput2)
+            X: =432
+            Y: =211
+            ZIndex: =9
+
