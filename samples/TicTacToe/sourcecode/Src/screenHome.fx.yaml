@@ -1,0 +1,77 @@
+screenHome As screen:
+    Fill: =RGBA(0, 0, 0, 1)
+    LoadingSpinnerColor: =RGBA(211, 66, 9, 1)
+
+    btnPlay As button:
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(211, 66, 9, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =114
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+        OnSelect: =Navigate(screenGame)
+        RadiusBottomLeft: =100
+        RadiusBottomRight: =100
+        RadiusTopLeft: =100
+        RadiusTopRight: =100
+        Size: =30
+        Text: ="Play"
+        Width: =344
+        X: =146
+        Y: =334
+        ZIndex: =1
+
+    lblInfo_1 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(131, 24, 75, 1)
+        Color: =RGBA(246, 88, 16, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Bold
+        Height: =148
+        Size: =60
+        Text: ="TIC TAC TOE"
+        Width: =631
+        X: =3
+        Y: =6
+        ZIndex: =2
+
+    btnExit As button:
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(211, 66, 9, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =114
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+        OnSelect: =Exit()
+        RadiusBottomLeft: =100
+        RadiusBottomRight: =100
+        RadiusTopLeft: =100
+        RadiusTopRight: =100
+        Size: =30
+        Text: ="Exit"
+        Width: =344
+        X: =146
+        Y: =492
+        ZIndex: =3
+
+    lblSite As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(131, 24, 75, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Lighter
+        Height: =70
+        OnSelect: =Launch(lblSite.Text)
+        Size: =30
+        Text: |-
+            ="https://angelogulisano.com/"
+        Width: =560
+        X: =38
+        Y: =990
+        ZIndex: =5
+
