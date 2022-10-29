@@ -7,7 +7,7 @@ Keyword Tagger
 
 This app sample allows users to easily and intuitively apply existing or newly created “Tags” during or after the content creation process. It uses only out of the box functionality to provide a rich user experience.
 
-![Overview of Sample](./Assets/annimation.gif)
+![Overview of Sample](./assets/annimation.gif)
 
 ## Applies to
 
@@ -63,7 +63,7 @@ This SharePoint list contains the master list of all tags. Set the list up as fo
 |Single line of text|Title|Yes|
 |Single line of text|Category|Yes|
 
-![Tag List](./Assets/tag-list.png)
+![Tag List](./assets/tag-list.png)
 
 ### Notes List
 
@@ -76,7 +76,7 @@ This SharePoint list contains the output of the sample form. Set the list up as 
 |Multiple lines of text line of text|Tag|Yes|
 |Single line of text|Category|Yes|
 
-![Notes List](./Assets/notes-list.png)
+![Notes List](./assets/notes-list.png)
 
 ## Minimal Path to Awesome
 
