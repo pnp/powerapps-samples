@@ -2,7 +2,7 @@
 
 This repository contains community samples that demonstrate different usage patterns for Power Apps.
 
-> We welcome community contributions to the `samples` folder in this repository for demonstrating different use cases with Power Apps. 
+> We welcome community contributions to the `samples` folder in this repository for demonstrating different use cases with Power Apps.
 
 ## Have issues or questions?
 
@@ -10,7 +10,7 @@ Please use following logic on submitting your questions or issues to right locat
 
 ## Additional resources
 
-- [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/power-platform/bd-p/PowerPlatform)
+- [Power Platform Community](https://powerusers.microsoft.com/)
 
 ## Using the samples
 
