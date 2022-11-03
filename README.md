@@ -12,6 +12,9 @@ Please use following logic on submitting your questions or issues to right locat
 
 - [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/power-platform/bd-p/PowerPlatform)
 
+## Submitting the samples
+
+Please refer to [this article](https://github.com/pnp/powerapps-samples/wiki/How-to-submit-a-Power-App-sample) to guide you on how to submit a power App sample.
 ## Using the samples
 
 Please refer to [this article](https://github.com/pnp/powerapps-samples/wiki/How-to-use-Power-Apps-samples) to get you started.
