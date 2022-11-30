@@ -1,0 +1,1519 @@
+"'Clock Time Picker' As CanvasComponent":
+    AMPM: =varAMPM
+    CloseClock: ="Text"
+    Fill: =RGBA(0, 0, 0, 0)
+    FullTime: |-
+        =Text(varSelectedHour &":"& varSelectedMinute)
+    Height: =320
+    Hour: =varSelectedHour
+    Minute: =varSelectedMinute
+    OnReset: |
+        =Set(
+            varShowHour,
+            false
+        );
+        Set(
+            varShowMinute,
+            false
+        );
+        Set(
+            varHourX,
+            Blank()
+        );
+        Set(
+            varHourY,
+            Blank()
+        );
+        Set(
+            varSelectedHour,
+            Blank()
+        );
+        Set(
+            varSelectedMinute,
+            Blank()
+        ); 
+        Set(varAMPM, "am")
+    SaveTime: ="Text"
+    Width: =250
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    grp_ClockTimePicker_AmPm As group:
+        Height: =5
+        Width: =5
+        X: =-56
+        Y: =-73
+        ZIndex: =17
+
+        tgl_ClockTimePicker_AMPM As toggleSwitch:
+            Default: =If(varAMPM = "pm", true, false) 
+            FalseFill: =RGBA(136, 160, 209, 1)
+            FalseHoverFill: =ColorFade(tgl_ClockTimePicker_AMPM.FalseFill, 15%)
+            FalseText: =
+            FocusedBorderColor: =tgl_ClockTimePicker_AMPM.BorderColor
+            FocusedBorderThickness: =0
+            Font: =Font.Lato
+            Height: =18
+            HoverBorderColor: =ColorFade(tgl_ClockTimePicker_AMPM.BorderColor, 15%)
+            OnCheck: |-
+                =Set(varAMPM, "pm");
+                If(varSelectedHour="00",	Set(varSelectedHour,"12"),
+                varSelectedHour="01",	Set(varSelectedHour,"13"),
+                varSelectedHour="02",	Set(varSelectedHour,"14"),
+                varSelectedHour="03",	Set(varSelectedHour,"15"),
+                varSelectedHour="04",	Set(varSelectedHour,"16"),
+                varSelectedHour="05",	Set(varSelectedHour,"17"),
+                varSelectedHour="06",	Set(varSelectedHour,"18"),
+                varSelectedHour="07",	Set(varSelectedHour,"19"),
+                varSelectedHour="08",	Set(varSelectedHour,"20"),
+                varSelectedHour="09",	Set(varSelectedHour,"21"),
+                varSelectedHour="10",	Set(varSelectedHour,"22"),
+                varSelectedHour="11",	Set(varSelectedHour,"23"),
+                varSelectedHour)	
+            OnUncheck: |
+                =Set(varAMPM,"am");
+                If(varSelectedHour="12",	Set(varSelectedHour,"00"),
+                varSelectedHour="13",	Set(varSelectedHour,"01"),
+                varSelectedHour="14",	Set(varSelectedHour,"02"),
+                varSelectedHour="15",	Set(varSelectedHour,"03"),
+                varSelectedHour="16",	Set(varSelectedHour,"04"),
+                varSelectedHour="17",	Set(varSelectedHour,"05"),
+                varSelectedHour="18",	Set(varSelectedHour,"06"),
+                varSelectedHour="19",	Set(varSelectedHour,"07"),
+                varSelectedHour="20",	Set(varSelectedHour,"08"),
+                varSelectedHour="21",	Set(varSelectedHour,"09"),
+                varSelectedHour="22",	Set(varSelectedHour,"10"),
+                varSelectedHour="23",	Set(varSelectedHour,"11"),
+                varSelectedHour)					
+            PressedBorderColor: =ColorFade(tgl_ClockTimePicker_AMPM.BorderColor, -15%)
+            ShowLabel: =false
+            Size: =9
+            TrueFill: =RGBA(0, 0, 0, 1)
+            TrueHoverFill: =ColorFade(tgl_ClockTimePicker_AMPM.TrueFill, 15%)
+            TrueText: =
+            Width: =31
+            X: =109
+            Y: =185
+            ZIndex: =19
+
+        img_ClockTimePicker_Morning As image:
+            Height: =18
+            Image: =img_Day
+            Width: =18
+            X: =89
+            Y: =185
+            ZIndex: =20
+
+        img_ClockTimePicker_Night As image:
+            Height: =18
+            Image: =img_Night
+            Width: =18
+            X: =142
+            Y: =185
+            ZIndex: =21
+
+    grp_ClockTimePicker_Hours As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =18
+
+        btn_ClockTimePicker_Hour12 As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(204, 204, 204, 1)
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =Self.Fill
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =30
+            HoverBorderColor: =Self.Fill
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: |-
+                =Set(varHourX, Self.X); Set(varHourY, Self.Y);
+                If(varAMPM = "am", Set(varSelectedHour, "00"), varAMPM = "pm", Set(varSelectedHour, "12"), Set(varSelectedHour, "00"));
+                Set(varShowHour, true)
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =13
+            Text: ="12"
+            Width: =30
+            X: =110
+            Y: =79
+            ZIndex: =7
+
+        btn_ClockTimePicker_Hour5 As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(204, 204, 204, 1)
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =Self.Fill
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =30
+            HoverBorderColor: =Self.Fill
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: |-
+                =Set(varHourX, Self.X); Set(varHourY, Self.Y);
+                If(varAMPM = "am", Set(varSelectedHour, "05"), varAMPM = "pm", Set(varSelectedHour, "17"), Set(varSelectedHour, "05"));
+                Set(varShowHour, true)
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =13
+            Text: ="5"
+            Width: =30
+            X: =157
+            Y: =259
+            ZIndex: =8
+
+        btn_ClockTimePicker_Hour3 As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(204, 204, 204, 1)
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =Self.Fill
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =30
+            HoverBorderColor: =Self.Fill
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: |-
+                =Set(varHourX, Self.X); Set(varHourY, Self.Y);
+                If(varAMPM = "am", Set(varSelectedHour, "03"), varAMPM = "pm", Set(varSelectedHour, "15"), Set(varSelectedHour, "03"));
+                Set(varShowHour, true)
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =13
+            Text: ="3"
+            Width: =30
+            X: =210
+            Y: =179
+            ZIndex: =9
+
+        btn_ClockTimePicker_Hour9 As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(204, 204, 204, 1)
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =Self.Fill
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =30
+            HoverBorderColor: =Self.Fill
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: |-
+                =Set(varHourX, Self.X); Set(varHourY, Self.Y);
+                If(varAMPM = "am", Set(varSelectedHour, "09"), varAMPM = "pm", Set(varSelectedHour, "21"), Set(varSelectedHour, "09"));
+                Set(varShowHour, true)
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =13
+            Text: ="9"
+            Width: =30
+            X: =10
+            Y: =179
+            ZIndex: =10
+
+        btn_ClockTimePicker_Hour1 As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(204, 204, 204, 1)
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =Self.Fill
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =30
+            HoverBorderColor: =Self.Fill
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: |-
+                =Set(varHourX, Self.X); Set(varHourY, Self.Y);
+                If(varAMPM = "am", Set(varSelectedHour, "01"), varAMPM = "pm", Set(varSelectedHour, "13"), Set(varSelectedHour, "01"));
+                Set(varShowHour, true)
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =13
+            Text: ="1"
+            Width: =30
+            X: =157
+            Y: =96
+            ZIndex: =11
+
+        btn_ClockTimePicker_Hour2 As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(204, 204, 204, 1)
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =Self.Fill
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =30
+            HoverBorderColor: =Self.Fill
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: |-
+                =Set(varHourX, Self.X); Set(varHourY, Self.Y);
+                If(varAMPM = "am", Set(varSelectedHour, "02"), varAMPM = "pm", Set(varSelectedHour, "14"), Set(varSelectedHour, "02"));
+                Set(varShowHour, true)
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =13
+            Text: ="2"
+            Width: =30
+            X: =190
+            Y: =134
+            ZIndex: =12
+
+        btn_ClockTimePicker_Hour10 As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(204, 204, 204, 1)
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =Self.Fill
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =30
+            HoverBorderColor: =Self.Fill
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: |-
+                =Set(varHourX, Self.X); Set(varHourY, Self.Y);
+                If(varAMPM = "am", Set(varSelectedHour, "10"), varAMPM = "pm", Set(varSelectedHour, "22"), Set(varSelectedHour, "10"));
+                Set(varShowHour, true)
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =13
+            Text: ="10"
+            Width: =30
+            X: =30
+            Y: =134
+            ZIndex: =13
+
+        btn_ClockTimePicker_Hour11 As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(204, 204, 204, 1)
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =Self.Fill
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =30
+            HoverBorderColor: =Self.Fill
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: |-
+                =Set(varHourX, Self.X); Set(varHourY, Self.Y);
+                If(varAMPM = "am", Set(varSelectedHour, "11"), varAMPM = "pm", Set(varSelectedHour, "23"), Set(varSelectedHour, "11"));
+                Set(varShowHour, true)
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =13
+            Text: ="11"
+            Width: =30
+            X: =63
+            Y: =96
+            ZIndex: =14
+
+        btn_ClockTimePicker_Hour4 As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(204, 204, 204, 1)
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =Self.Fill
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =30
+            HoverBorderColor: =Self.Fill
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: |-
+                =Set(varHourX, Self.X); Set(varHourY, Self.Y);
+                If(varAMPM = "am", Set(varSelectedHour, "04"), varAMPM = "pm", Set(varSelectedHour, "16"), Set(varSelectedHour, "04"));
+                Set(varShowHour, true)
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =13
+            Text: ="4"
+            Width: =30
+            X: =190
+            Y: =224
+            ZIndex: =15
+
+        btn_ClockTimePicker_Hour6 As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(204, 204, 204, 1)
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =Self.Fill
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =30
+            HoverBorderColor: =Self.Fill
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: |-
+                =Set(varHourX, Self.X); Set(varHourY, Self.Y);
+                If(varAMPM = "am", Set(varSelectedHour, "06"), varAMPM = "pm", Set(varSelectedHour, "18"), Set(varSelectedHour, "06"));
+                Set(varShowHour, true)
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =13
+            Text: ="6"
+            Width: =30
+            X: =110
+            Y: =279
+            ZIndex: =16
+
+        btn_ClockTimePicker_Hour8 As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(204, 204, 204, 1)
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =Self.Fill
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =30
+            HoverBorderColor: =Self.Fill
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: |-
+                =Set(varHourX, Self.X); Set(varHourY, Self.Y);
+                If(varAMPM = "am", Set(varSelectedHour, "08"), varAMPM = "pm", Set(varSelectedHour, "20"), Set(varSelectedHour, "08"));
+                Set(varShowHour, true)
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =13
+            Text: ="8"
+            Width: =30
+            X: =30
+            Y: =224
+            ZIndex: =17
+
+        btn_ClockTimePicker_Hour7 As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(204, 204, 204, 1)
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =Self.Fill
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =30
+            HoverBorderColor: =Self.Fill
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: |-
+                =Set(varHourX, Self.X); Set(varHourY, Self.Y);
+                If(varAMPM = "am", Set(varSelectedHour, "07"), varAMPM = "pm", Set(varSelectedHour, "19"), Set(varSelectedHour, "07"));
+                Set(varShowHour, true)
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =13
+            Text: ="7"
+            Width: =30
+            X: =63
+            Y: =259
+            ZIndex: =18
+
+    grp_ClockTimePicker_Minutes As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =33
+
+        btn_ClockTimePicker_Minute00 As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =Self.Fill
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =Self.Fill
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =25
+            HoverBorderColor: =Self.Fill
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: |-
+                =Set(varMinuteX, Self.X); Set(varMinuteY, Self.Y);
+                Set(varSelectedMinute, Self.Text);
+                Set(varShowMinute, true)
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =10
+            Text: ="00"
+            Width: =25
+            X: =113
+            Y: =124
+            ZIndex: =22
+
+        btn_ClockTimePicker_Minute30 As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =Self.Fill
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =Self.Fill
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =25
+            HoverBorderColor: =Self.Fill
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: |-
+                =Set(varMinuteX, Self.X); Set(varMinuteY, Self.Y);
+                Set(varSelectedMinute, Self.Text);
+                Set(varShowMinute, true)
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =10
+            Text: ="30"
+            Width: =25
+            X: =113
+            Y: =239
+            ZIndex: =23
+
+        btn_ClockTimePicker_Minute45 As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =Self.Fill
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =Self.Fill
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =25
+            HoverBorderColor: =Self.Fill
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: |-
+                =Set(varMinuteX, Self.X); Set(varMinuteY, Self.Y);
+                Set(varSelectedMinute, Self.Text);
+                Set(varShowMinute, true)
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =10
+            Text: ="45"
+            Width: =25
+            X: =53
+            Y: =181
+            ZIndex: =24
+
+        btn_ClockTimePicker_Minute15 As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =Self.Fill
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =Self.Fill
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =25
+            HoverBorderColor: =Self.Fill
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: |-
+                =Set(varMinuteX, Self.X); Set(varMinuteY, Self.Y);
+                Set(varSelectedMinute, Self.Text);
+                Set(varShowMinute, true)
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =10
+            Text: ="15"
+            Width: =25
+            X: =172
+            Y: =181
+            ZIndex: =25
+
+        btn_ClockTimePicker_Minute5 As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =Self.Fill
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =Self.Fill
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =25
+            HoverBorderColor: =Self.Fill
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: |-
+                =Set(varMinuteX, Self.X); Set(varMinuteY, Self.Y);
+                Set(varSelectedMinute, "05");
+                Set(varShowMinute, true)
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =10
+            Text: ="5"
+            Width: =25
+            X: =144
+            Y: =132
+            ZIndex: =26
+
+        btn_ClockTimePicker_Minute10 As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =Self.Fill
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =Self.Fill
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =25
+            HoverBorderColor: =Self.Fill
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: |-
+                =Set(varMinuteX, Self.X); Set(varMinuteY, Self.Y);
+                Set(varSelectedMinute, Self.Text);
+                Set(varShowMinute, true)
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =10
+            Text: ="10"
+            Width: =25
+            X: =164
+            Y: =152
+            ZIndex: =27
+
+        btn_ClockTimePicker_Minute20 As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =Self.Fill
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =Self.Fill
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =25
+            HoverBorderColor: =Self.Fill
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: |-
+                =Set(varMinuteX, Self.X); Set(varMinuteY, Self.Y);
+                Set(varSelectedMinute, Self.Text);
+                Set(varShowMinute, true)
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =10
+            Text: ="20"
+            Width: =25
+            X: =164
+            Y: =211
+            ZIndex: =28
+
+        btn_ClockTimePicker_Minute25 As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =Self.Fill
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =Self.Fill
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =25
+            HoverBorderColor: =Self.Fill
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: |-
+                =Set(varMinuteX, Self.X); Set(varMinuteY, Self.Y);
+                Set(varSelectedMinute, Self.Text);
+                Set(varShowMinute, true)
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =10
+            Text: ="25"
+            Width: =25
+            X: =144
+            Y: =231
+            ZIndex: =29
+
+        btn_ClockTimePicker_Minute35 As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =Self.Fill
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =Self.Fill
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =25
+            HoverBorderColor: =Self.Fill
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: |-
+                =Set(varMinuteX, Self.X); Set(varMinuteY, Self.Y);
+                Set(varSelectedMinute, Self.Text);
+                Set(varShowMinute, true)
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =10
+            Text: ="35"
+            Width: =25
+            X: =81
+            Y: =231
+            ZIndex: =30
+
+        btn_ClockTimePicker_Minute40 As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =Self.Fill
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =Self.Fill
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =25
+            HoverBorderColor: =Self.Fill
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: |-
+                =Set(varMinuteX, Self.X); Set(varMinuteY, Self.Y);
+                Set(varSelectedMinute, Self.Text);
+                Set(varShowMinute, true)
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =10
+            Text: ="40"
+            Width: =25
+            X: =61
+            Y: =210
+            ZIndex: =31
+
+        btn_ClockTimePicker_Minute55 As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =Self.Fill
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =Self.Fill
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =25
+            HoverBorderColor: =Self.Fill
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: |-
+                =Set(varMinuteX, Self.X); Set(varMinuteY, Self.Y);
+                Set(varSelectedMinute, Self.Text);
+                Set(varShowMinute, true)
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =10
+            Text: ="55"
+            Width: =25
+            X: =81
+            Y: =132
+            ZIndex: =32
+
+        btn_ClockTimePicker_Minute50 As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =Self.Fill
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =Self.Fill
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =25
+            HoverBorderColor: =Self.Fill
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: |-
+                =Set(varMinuteX, Self.X); Set(varMinuteY, Self.Y);
+                Set(varSelectedMinute, Self.Text);
+                Set(varShowMinute, true)
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =10
+            Text: ="50"
+            Width: =25
+            X: =61
+            Y: =152
+            ZIndex: =33
+
+    grp_ClockTimePicker_SelectedHourMinute As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =35
+
+        btn_ClockTimePicker_Hour As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(128, 128, 128, 1)
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            DisabledFill: =RGBA(128, 128, 128, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =30
+            HoverBorderColor: =Self.BorderColor
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: =
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =13
+            Text: =""
+            Visible: =If(And(IsBlank(varHourY),IsBlank(varHourX)), false, varShowHour)
+            Width: =30
+            X: =If(IsBlank(varHourX), btn_ClockTimePicker_Hour12.X, varHourX)
+            Y: =If(IsBlank(varHourY), btn_ClockTimePicker_Hour12.Y, varHourY)
+            ZIndex: =5
+
+        btn_ClockTimePicker_Minute As button:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(128, 128, 128, 1)
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            DisabledFill: =RGBA(128, 128, 128, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            Height: =25
+            HoverColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =RGBA(237, 237, 237, 0.68)
+            OnSelect: =
+            PressedColor: =Black
+            PressedFill: =RGBA(230, 230, 230, 1)
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Size: =13
+            Text: =""
+            Visible: =If(And(IsBlank(varMinuteY),IsBlank(varMinuteX)), false, varShowMinute)
+            Width: =25
+            X: =If(IsBlank(varMinuteX), btn_ClockTimePicker_Minute00.X, varMinuteX)
+            Y: =If(IsBlank(varMinuteY), btn_ClockTimePicker_Minute00.Y, varMinuteY)
+            ZIndex: =6
+
+    grp_ClockTimePicker_ManualHours As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =39
+
+        drp_ClockTimePicker_Hours As dropdown:
+            AccessibleLabel: ="Shift"
+            BorderColor: =RGBA(241, 244, 249, 1)
+            BorderThickness: =0
+            ChevronBackground: =RGBA(230, 230, 230, 1)
+            ChevronFill: =RGBA(0, 0, 0, 1)
+            ChevronHoverBackground: =RGBA(230, 230, 230, 1)
+            ChevronHoverFill: =RGBA(0, 0, 0, 1)
+            Default: |-
+                =If(IsBlank(varSelectedHour),  "00",
+                varSelectedHour)
+            DisplayMode: =
+            Fill: =RGBA(241, 244, 249, 1)
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            HoverBorderColor: =drp_ClockTimePicker_Hours.BorderColor
+            HoverFill: =RGBA(130, 141, 158, 1)
+            Items: |-
+                =If(varAMPM = "am",
+                Table(
+                {Hour:"00"},
+                {Hour:"01"},
+                {Hour:"02"},
+                {Hour:"03"},
+                {Hour:"04"},
+                {Hour:"05"},
+                {Hour:"06"},
+                {Hour:"07"},
+                {Hour:"08"},
+                {Hour:"09"},
+                {Hour:"10"},
+                {Hour:"11"}
+                ) ,
+                varAMPM = "pm",
+                Table(
+                {Hour:"12"},
+                {Hour:"13"},
+                {Hour:"14"},
+                {Hour:"15"},
+                {Hour:"16"},
+                {Hour:"17"},
+                {Hour:"18"},
+                {Hour:"19"},
+                {Hour:"20"},
+                {Hour:"21"},
+                {Hour:"22"},
+                {Hour:"23"}),
+                Table(
+                {Hour:"00"},
+                {Hour:"01"},
+                {Hour:"02"},
+                {Hour:"03"},
+                {Hour:"04"},
+                {Hour:"05"},
+                {Hour:"06"},
+                {Hour:"07"},
+                {Hour:"08"},
+                {Hour:"09"},
+                {Hour:"10"},
+                {Hour:"11"}
+                )
+                )
+            OnChange: |-
+                =Set(varSelectedHour, drp_ClockTimePicker_Hours.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BHour');
+                If(Or(varSelectedHour="00",varSelectedHour="12"),Set(varHourX,btn_ClockTimePicker_Hour12.X);Set(varHourY,btn_ClockTimePicker_Hour12.Y);Set(varShowHour, true),
+                Or(varSelectedHour="01",varSelectedHour="13"),Set(varHourX,btn_ClockTimePicker_Hour1.X);Set(varHourY,btn_ClockTimePicker_Hour1.Y);Set(varShowHour, true),
+                Or(varSelectedHour="02",varSelectedHour="14"),Set(varHourX,btn_ClockTimePicker_Hour2.X);Set(varHourY,btn_ClockTimePicker_Hour2.Y);Set(varShowHour, true),
+                Or(varSelectedHour="03",varSelectedHour="15"),Set(varHourX,btn_ClockTimePicker_Hour3.X);Set(varHourY,btn_ClockTimePicker_Hour3.Y);Set(varShowHour, true),
+                Or(varSelectedHour="04",varSelectedHour="16"),Set(varHourX,btn_ClockTimePicker_Hour4.X);Set(varHourY,btn_ClockTimePicker_Hour4.Y);Set(varShowHour, true),
+                Or(varSelectedHour="05",varSelectedHour="17"),Set(varHourX,btn_ClockTimePicker_Hour5.X);Set(varHourY,btn_ClockTimePicker_Hour5.Y);Set(varShowHour, true),
+                Or(varSelectedHour="06",varSelectedHour="18"),Set(varHourX,btn_ClockTimePicker_Hour6.X);Set(varHourY,btn_ClockTimePicker_Hour6.Y);Set(varShowHour, true),
+                Or(varSelectedHour="07",varSelectedHour="19"),Set(varHourX,btn_ClockTimePicker_Hour7.X);Set(varHourY,btn_ClockTimePicker_Hour7.Y);Set(varShowHour, true),
+                Or(varSelectedHour="08",varSelectedHour="20"),Set(varHourX,btn_ClockTimePicker_Hour8.X);Set(varHourY,btn_ClockTimePicker_Hour8.Y);Set(varShowHour, true),
+                Or(varSelectedHour="09",varSelectedHour="21"),Set(varHourX,btn_ClockTimePicker_Hour9.X);Set(varHourY,btn_ClockTimePicker_Hour9.Y);Set(varShowHour, true),
+                Or(varSelectedHour="10",varSelectedHour="22"),Set(varHourX,btn_ClockTimePicker_Hour10.X);Set(varHourY,btn_ClockTimePicker_Hour10.Y);Set(varShowHour, true),
+                Or(varSelectedHour="11",varSelectedHour="23"),Set(varHourX,btn_ClockTimePicker_Hour11.X);Set(varHourY,btn_ClockTimePicker_Hour11.Y);Set(varShowHour, true),
+                Set(varShowHour, false))
+            PressedBorderColor: =drp_ClockTimePicker_Hours.HoverBorderColor
+            PressedColor: =RGBA(128, 128, 128, 1)
+            PressedFill: =RGBA(214, 223, 238, 1)
+            SelectionColor: =RGBA(0, 0, 0, 1)
+            SelectionFill: =RGBA(241, 244, 249, 1)
+            Width: =81
+            X: =5
+            Y: =22
+            ZIndex: =34
+
+        ico_ClockTimePicker_HourDown As icon.ChevronDown:
+            Color: =RGBA(0, 0, 0, 1)
+            DisplayMode: |-
+                =If(Or(IsBlank(varSelectedHour),
+                    varSelectedHour = "00"), DisplayMode.Disabled, DisplayMode.Edit)
+            FocusedBorderThickness: =0
+            Height: =20
+            Icon: =Icon.ChevronDown
+            OnSelect: |
+                =If(varAMPM = "am",
+                
+                If(
+                varSelectedHour = "01", Set(varSelectedHour, "00");Set(varHourX,btn_ClockTimePicker_Hour12.X);Set(varHourY,btn_ClockTimePicker_Hour12.Y);Set(varShowHour, true),
+                varSelectedHour = "02", Set(varSelectedHour, "01");Set(varHourX,btn_ClockTimePicker_Hour1.X);Set(varHourY,btn_ClockTimePicker_Hour1.Y);Set(varShowHour, true),
+                varSelectedHour = "03", Set(varSelectedHour, "02");Set(varHourX,btn_ClockTimePicker_Hour2.X);Set(varHourY,btn_ClockTimePicker_Hour2.Y);Set(varShowHour, true),
+                varSelectedHour = "04", Set(varSelectedHour, "03");Set(varHourX,btn_ClockTimePicker_Hour3.X);Set(varHourY,btn_ClockTimePicker_Hour3.Y);Set(varShowHour, true),
+                varSelectedHour = "05", Set(varSelectedHour, "04");Set(varHourX,btn_ClockTimePicker_Hour4.X);Set(varHourY,btn_ClockTimePicker_Hour4.Y);Set(varShowHour, true),
+                varSelectedHour = "06", Set(varSelectedHour, "05");Set(varHourX,btn_ClockTimePicker_Hour5.X);Set(varHourY,btn_ClockTimePicker_Hour5.Y);Set(varShowHour, true),
+                varSelectedHour = "07", Set(varSelectedHour, "06");Set(varHourX,btn_ClockTimePicker_Hour6.X);Set(varHourY,btn_ClockTimePicker_Hour6.Y);Set(varShowHour, true),
+                varSelectedHour = "08", Set(varSelectedHour, "07");Set(varHourX,btn_ClockTimePicker_Hour7.X);Set(varHourY,btn_ClockTimePicker_Hour7.Y);Set(varShowHour, true),
+                varSelectedHour = "09", Set(varSelectedHour, "08");Set(varHourX,btn_ClockTimePicker_Hour8.X);Set(varHourY,btn_ClockTimePicker_Hour8.Y);Set(varShowHour, true),
+                varSelectedHour = "10", Set(varSelectedHour, "09");Set(varHourX,btn_ClockTimePicker_Hour9.X);Set(varHourY,btn_ClockTimePicker_Hour9.Y);Set(varShowHour, true),
+                varSelectedHour = "11", Set(varSelectedHour, "10");Set(varHourX,btn_ClockTimePicker_Hour10.X);Set(varHourY,btn_ClockTimePicker_Hour10.Y);Set(varShowHour, true),
+                varSelectedHour = "12", Set(varSelectedHour, "11");Set(varHourX,btn_ClockTimePicker_Hour11.X);Set(varHourY,btn_ClockTimePicker_Hour11.Y);Set(varShowHour, true),
+                varSelectedHour = "00", Set(varAMPM, "pm");Set(varSelectedHour, "23");Set(varHourX,btn_ClockTimePicker_Hour11.X);Set(varHourY,btn_ClockTimePicker_Hour11.Y);Set(varShowHour, true),
+                Set(varShowHour, false)),
+                
+                varAMPM = "pm",
+                If(
+                varSelectedHour = "13", Set(varSelectedHour, "12");Set(varHourX,btn_ClockTimePicker_Hour12.X);Set(varHourY,btn_ClockTimePicker_Hour12.Y);Set(varShowHour, true),
+                varSelectedHour = "14", Set(varSelectedHour, "13");Set(varHourX,btn_ClockTimePicker_Hour1.X);Set(varHourY,btn_ClockTimePicker_Hour1.Y);Set(varShowHour, true),
+                varSelectedHour = "15", Set(varSelectedHour, "14");Set(varHourX,btn_ClockTimePicker_Hour2.X);Set(varHourY,btn_ClockTimePicker_Hour2.Y);Set(varShowHour, true),
+                varSelectedHour = "16", Set(varSelectedHour, "15");Set(varHourX,btn_ClockTimePicker_Hour3.X);Set(varHourY,btn_ClockTimePicker_Hour3.Y);Set(varShowHour, true),
+                varSelectedHour = "17", Set(varSelectedHour, "16");Set(varHourX,btn_ClockTimePicker_Hour4.X);Set(varHourY,btn_ClockTimePicker_Hour4.Y);Set(varShowHour, true),
+                varSelectedHour = "18", Set(varSelectedHour, "17");Set(varHourX,btn_ClockTimePicker_Hour5.X);Set(varHourY,btn_ClockTimePicker_Hour5.Y);Set(varShowHour, true),
+                varSelectedHour = "19", Set(varSelectedHour, "18");Set(varHourX,btn_ClockTimePicker_Hour6.X);Set(varHourY,btn_ClockTimePicker_Hour6.Y);Set(varShowHour, true),
+                varSelectedHour = "20", Set(varSelectedHour, "19");Set(varHourX,btn_ClockTimePicker_Hour7.X);Set(varHourY,btn_ClockTimePicker_Hour7.Y);Set(varShowHour, true),
+                varSelectedHour = "21", Set(varSelectedHour, "20");Set(varHourX,btn_ClockTimePicker_Hour8.X);Set(varHourY,btn_ClockTimePicker_Hour8.Y);Set(varShowHour, true),
+                varSelectedHour = "22", Set(varSelectedHour, "21");Set(varHourX,btn_ClockTimePicker_Hour9.X);Set(varHourY,btn_ClockTimePicker_Hour9.Y);Set(varShowHour, true),
+                varSelectedHour = "23", Set(varSelectedHour, "22");Set(varHourX,btn_ClockTimePicker_Hour10.X);Set(varHourY,btn_ClockTimePicker_Hour10.Y);Set(varShowHour, true),
+                varSelectedHour = "12", Set(varAMPM, "am");Set(varSelectedHour, "11");Set(varHourX,btn_ClockTimePicker_Hour11.X);Set(varHourY,btn_ClockTimePicker_Hour11.Y);Set(varShowHour, true),
+                Set(varShowHour, false))
+                )
+            Width: =35
+            X: =86
+            Y: =42
+            ZIndex: =35
+
+        ico_ClockTimePicker_HourUp As icon.ChevronDown:
+            Color: =RGBA(0, 0, 0, 1)
+            DisplayMode: =If(varSelectedHour = "23", DisplayMode.Disabled, DisplayMode.Edit)
+            FocusedBorderThickness: =0
+            Height: =20
+            Icon: =Icon.ChevronUp
+            OnSelect: |-
+                =If(IsBlank(varSelectedHour), Set(varAMPM, "am");Set(varSelectedHour, "00");Set(varHourX,btn_ClockTimePicker_Hour12.X);Set(varHourY,btn_ClockTimePicker_Hour12.Y);Set(varShowHour, true),
+                If(varAMPM = "am",
+                
+                If(varSelectedHour = "00", Set(varSelectedHour, "01");Set(varHourX,btn_ClockTimePicker_Hour1.X);Set(varHourY,btn_ClockTimePicker_Hour1.Y);Set(varShowHour, true),
+                varSelectedHour = "01", Set(varSelectedHour, "02");Set(varHourX,btn_ClockTimePicker_Hour2.X);Set(varHourY,btn_ClockTimePicker_Hour2.Y);Set(varShowHour, true),
+                varSelectedHour = "02", Set(varSelectedHour, "03");Set(varHourX,btn_ClockTimePicker_Hour3.X);Set(varHourY,btn_ClockTimePicker_Hour3.Y);Set(varShowHour, true),
+                varSelectedHour = "03", Set(varSelectedHour, "04");Set(varHourX,btn_ClockTimePicker_Hour4.X);Set(varHourY,btn_ClockTimePicker_Hour4.Y);Set(varShowHour, true),
+                varSelectedHour = "04", Set(varSelectedHour, "05");Set(varHourX,btn_ClockTimePicker_Hour5.X);Set(varHourY,btn_ClockTimePicker_Hour5.Y);Set(varShowHour, true),
+                varSelectedHour = "05", Set(varSelectedHour, "06");Set(varHourX,btn_ClockTimePicker_Hour6.X);Set(varHourY,btn_ClockTimePicker_Hour6.Y);Set(varShowHour, true),
+                varSelectedHour = "06", Set(varSelectedHour, "07");Set(varHourX,btn_ClockTimePicker_Hour7.X);Set(varHourY,btn_ClockTimePicker_Hour7.Y);Set(varShowHour, true),
+                varSelectedHour = "07", Set(varSelectedHour, "08");Set(varHourX,btn_ClockTimePicker_Hour8.X);Set(varHourY,btn_ClockTimePicker_Hour8.Y);Set(varShowHour, true),
+                varSelectedHour = "08", Set(varSelectedHour, "09");Set(varHourX,btn_ClockTimePicker_Hour9.X);Set(varHourY,btn_ClockTimePicker_Hour9.Y);Set(varShowHour, true),
+                varSelectedHour = "09", Set(varSelectedHour, "10");Set(varHourX,btn_ClockTimePicker_Hour10.X);Set(varHourY,btn_ClockTimePicker_Hour10.Y);Set(varShowHour, true),
+                varSelectedHour = "10", Set(varSelectedHour, "11");Set(varHourX,btn_ClockTimePicker_Hour11.X);Set(varHourY,btn_ClockTimePicker_Hour11.Y);Set(varShowHour, true),
+                varSelectedHour = "11", Set(varAMPM, "pm");Set(varSelectedHour, "12");Set(varHourX,btn_ClockTimePicker_Hour12.X);Set(varHourY,btn_ClockTimePicker_Hour12.Y);Set(varShowHour, true),
+                Set(varShowHour, false)),
+                
+                varAMPM = "pm",
+                If(varSelectedHour = "12", Set(varSelectedHour, "13");Set(varHourX,btn_ClockTimePicker_Hour1.X);Set(varHourY,btn_ClockTimePicker_Hour1.Y);Set(varShowHour, true),
+                varSelectedHour = "13", Set(varSelectedHour, "14");Set(varHourX,btn_ClockTimePicker_Hour2.X);Set(varHourY,btn_ClockTimePicker_Hour2.Y);Set(varShowHour, true),
+                varSelectedHour = "14", Set(varSelectedHour, "15");Set(varHourX,btn_ClockTimePicker_Hour3.X);Set(varHourY,btn_ClockTimePicker_Hour3.Y);Set(varShowHour, true),
+                varSelectedHour = "15", Set(varSelectedHour, "16");Set(varHourX,btn_ClockTimePicker_Hour4.X);Set(varHourY,btn_ClockTimePicker_Hour4.Y);Set(varShowHour, true),
+                varSelectedHour = "16", Set(varSelectedHour, "17");Set(varHourX,btn_ClockTimePicker_Hour5.X);Set(varHourY,btn_ClockTimePicker_Hour5.Y);Set(varShowHour, true),
+                varSelectedHour = "17", Set(varSelectedHour, "18");Set(varHourX,btn_ClockTimePicker_Hour6.X);Set(varHourY,btn_ClockTimePicker_Hour6.Y);Set(varShowHour, true),
+                varSelectedHour = "18", Set(varSelectedHour, "19");Set(varHourX,btn_ClockTimePicker_Hour7.X);Set(varHourY,btn_ClockTimePicker_Hour7.Y);Set(varShowHour, true),
+                varSelectedHour = "19", Set(varSelectedHour, "20");Set(varHourX,btn_ClockTimePicker_Hour8.X);Set(varHourY,btn_ClockTimePicker_Hour8.Y);Set(varShowHour, true),
+                varSelectedHour = "20", Set(varSelectedHour, "21");Set(varHourX,btn_ClockTimePicker_Hour9.X);Set(varHourY,btn_ClockTimePicker_Hour9.Y);Set(varShowHour, true),
+                varSelectedHour = "21", Set(varSelectedHour, "22");Set(varHourX,btn_ClockTimePicker_Hour10.X);Set(varHourY,btn_ClockTimePicker_Hour10.Y);Set(varShowHour, true),
+                varSelectedHour = "22", Set(varSelectedHour, "23");Set(varHourX,btn_ClockTimePicker_Hour11.X);Set(varHourY,btn_ClockTimePicker_Hour11.Y);Set(varShowHour, true),
+                varSelectedHour = "23", Set(varAMPM, "am");Set(varSelectedHour, "00");Set(varHourX,btn_ClockTimePicker_Hour12.X);Set(varHourY,btn_ClockTimePicker_Hour12.Y);Set(varShowHour, true),
+                Set(varShowHour, false)))
+                )
+            Width: =35
+            X: =86
+            Y: =22
+            ZIndex: =36
+
+    grp_ClockTimePicker_ManualMinutes As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =39
+
+        ico_ClockTimePicker_MinuteDown As icon.ChevronDown:
+            Color: =RGBA(0, 0, 0, 1)
+            DisplayMode: =If(IsBlank(varSelectedMinute), DisplayMode.Disabled, DisplayMode.Edit)
+            FocusedBorderThickness: =0
+            Height: =20
+            Icon: =Icon.ChevronDown
+            OnSelect: |-
+                =If(
+                varSelectedMinute = "00", Set(varSelectedMinute, "59");Set(varShowMinute, false),
+                varSelectedMinute = "01", Set(varSelectedMinute, "00");Set(varMinuteX,btn_ClockTimePicker_Minute00.X);Set(varMinuteY,btn_ClockTimePicker_Minute00.Y); Set(varShowMinute, true),
+                varSelectedMinute = "02", Set(varSelectedMinute, "01");Set(varShowMinute, false),
+                varSelectedMinute = "03", Set(varSelectedMinute, "02");Set(varShowMinute, false),
+                varSelectedMinute = "04", Set(varSelectedMinute, "03");Set(varShowMinute, false),
+                varSelectedMinute = "05", Set(varSelectedMinute, "04");Set(varShowMinute, false),
+                varSelectedMinute = "06", Set(varSelectedMinute, "05");Set(varMinuteX,btn_ClockTimePicker_Minute5.X);Set(varMinuteY,btn_ClockTimePicker_Minute5.Y); Set(varShowMinute, true),
+                varSelectedMinute = "07", Set(varSelectedMinute, "06");Set(varShowMinute, false),
+                varSelectedMinute = "08", Set(varSelectedMinute, "07");Set(varShowMinute, false),
+                varSelectedMinute = "09", Set(varSelectedMinute, "08");Set(varShowMinute, false),
+                varSelectedMinute = "10", Set(varSelectedMinute, "09");Set(varShowMinute, false),
+                varSelectedMinute = "11", Set(varSelectedMinute, "10");Set(varMinuteX,btn_ClockTimePicker_Minute10.X);Set(varMinuteY,btn_ClockTimePicker_Minute10.Y); Set(varShowMinute, true),
+                varSelectedMinute = "12", Set(varSelectedMinute, "11");Set(varShowMinute, false),
+                varSelectedMinute = "13", Set(varSelectedMinute, "12");Set(varShowMinute, false),
+                varSelectedMinute = "14", Set(varSelectedMinute, "13");Set(varShowMinute, false),
+                varSelectedMinute = "15", Set(varSelectedMinute, "14");Set(varShowMinute, false),
+                varSelectedMinute = "16", Set(varSelectedMinute, "15");Set(varMinuteX,btn_ClockTimePicker_Minute15.X);Set(varMinuteY,btn_ClockTimePicker_Minute15.Y); Set(varShowMinute, true),
+                varSelectedMinute = "17", Set(varSelectedMinute, "16");Set(varShowMinute, false),
+                varSelectedMinute = "18", Set(varSelectedMinute, "17");Set(varShowMinute, false),
+                varSelectedMinute = "19", Set(varSelectedMinute, "18");Set(varShowMinute, false),
+                varSelectedMinute = "20", Set(varSelectedMinute, "19");Set(varShowMinute, false),
+                varSelectedMinute = "21", Set(varSelectedMinute, "20");Set(varMinuteX,btn_ClockTimePicker_Minute20.X);Set(varMinuteY,btn_ClockTimePicker_Minute20.Y); Set(varShowMinute, true),
+                varSelectedMinute = "22", Set(varSelectedMinute, "21");Set(varShowMinute, false),
+                varSelectedMinute = "23", Set(varSelectedMinute, "22");Set(varShowMinute, false),
+                varSelectedMinute = "24", Set(varSelectedMinute, "23");Set(varShowMinute, false),
+                varSelectedMinute = "25", Set(varSelectedMinute, "24");Set(varShowMinute, false),
+                varSelectedMinute = "26", Set(varSelectedMinute, "25");Set(varMinuteX,btn_ClockTimePicker_Minute25.X);Set(varMinuteY,btn_ClockTimePicker_Minute25.Y); Set(varShowMinute, true),
+                varSelectedMinute = "27", Set(varSelectedMinute, "26");Set(varShowMinute, false),
+                varSelectedMinute = "28", Set(varSelectedMinute, "27");Set(varShowMinute, false),
+                varSelectedMinute = "29", Set(varSelectedMinute, "28");Set(varShowMinute, false),
+                varSelectedMinute = "30", Set(varSelectedMinute, "29");Set(varShowMinute, false),
+                varSelectedMinute = "31", Set(varSelectedMinute, "30");Set(varMinuteX,btn_ClockTimePicker_Minute30.X);Set(varMinuteY,btn_ClockTimePicker_Minute30.Y); Set(varShowMinute, true),
+                varSelectedMinute = "32", Set(varSelectedMinute, "31");Set(varShowMinute, false),
+                varSelectedMinute = "33", Set(varSelectedMinute, "32");Set(varShowMinute, false),
+                varSelectedMinute = "34", Set(varSelectedMinute, "33");Set(varShowMinute, false),
+                varSelectedMinute = "35", Set(varSelectedMinute, "34");Set(varShowMinute, false),
+                varSelectedMinute = "36", Set(varSelectedMinute, "35");Set(varMinuteX,btn_ClockTimePicker_Minute35.X);Set(varMinuteY,btn_ClockTimePicker_Minute35.Y); Set(varShowMinute, true),
+                varSelectedMinute = "37", Set(varSelectedMinute, "36");Set(varShowMinute, false),
+                varSelectedMinute = "38", Set(varSelectedMinute, "37");Set(varShowMinute, false),
+                varSelectedMinute = "39", Set(varSelectedMinute, "38");Set(varShowMinute, false),
+                varSelectedMinute = "40", Set(varSelectedMinute, "39");Set(varShowMinute, false),
+                varSelectedMinute = "41", Set(varSelectedMinute, "40");Set(varMinuteX,btn_ClockTimePicker_Minute40.X);Set(varMinuteY,btn_ClockTimePicker_Minute40.Y); Set(varShowMinute, true),
+                varSelectedMinute = "42", Set(varSelectedMinute, "41");Set(varShowMinute, false),
+                varSelectedMinute = "43", Set(varSelectedMinute, "42");Set(varShowMinute, false),
+                varSelectedMinute = "44", Set(varSelectedMinute, "43");Set(varShowMinute, false),
+                varSelectedMinute = "45", Set(varSelectedMinute, "44");Set(varShowMinute, false),
+                varSelectedMinute = "46", Set(varSelectedMinute, "45");Set(varMinuteX,btn_ClockTimePicker_Minute45.X);Set(varMinuteY,btn_ClockTimePicker_Minute45.Y); Set(varShowMinute, true),
+                varSelectedMinute = "47", Set(varSelectedMinute, "46");Set(varShowMinute, false),
+                varSelectedMinute = "48", Set(varSelectedMinute, "47");Set(varShowMinute, false),
+                varSelectedMinute = "49", Set(varSelectedMinute, "48");Set(varShowMinute, false),
+                varSelectedMinute = "50", Set(varSelectedMinute, "49");Set(varShowMinute, false),
+                varSelectedMinute = "51", Set(varSelectedMinute, "50");Set(varMinuteX,btn_ClockTimePicker_Minute50.X);Set(varMinuteY,btn_ClockTimePicker_Minute50.Y); Set(varShowMinute, true),
+                varSelectedMinute = "52", Set(varSelectedMinute, "51");Set(varShowMinute, false),
+                varSelectedMinute = "53", Set(varSelectedMinute, "52");Set(varShowMinute, false),
+                varSelectedMinute = "54", Set(varSelectedMinute, "53");Set(varShowMinute, false),
+                varSelectedMinute = "55", Set(varSelectedMinute, "54");Set(varShowMinute, false),
+                varSelectedMinute = "56", Set(varSelectedMinute, "55");Set(varMinuteX,btn_ClockTimePicker_Minute55.X);Set(varMinuteY,btn_ClockTimePicker_Minute55.Y); Set(varShowMinute, true),
+                varSelectedMinute = "57", Set(varSelectedMinute, "56");Set(varShowMinute, false),
+                varSelectedMinute = "58", Set(varSelectedMinute, "57");Set(varShowMinute, false),
+                varSelectedMinute = "59", Set(varSelectedMinute, "58");Set(varShowMinute, false)
+                )
+            Width: =35
+            X: =210
+            Y: =42
+            ZIndex: =37
+
+        ico_ClockTimePicker_MinuteUp As icon.ChevronDown:
+            Color: =RGBA(0, 0, 0, 1)
+            DisplayMode: =Edit
+            FocusedBorderThickness: =0
+            Height: =20
+            Icon: =Icon.ChevronUp
+            OnSelect: |
+                =If(IsBlank(varSelectedMinute), Set(varSelectedMinute, "00");Set(varMinuteX,btn_ClockTimePicker_Minute00.X);Set(varMinuteY,btn_ClockTimePicker_Minute00.Y);Set(varShowMinute, true),
+                If(
+                varSelectedMinute = "00" , Set(varSelectedMinute, "01");Set(varShowMinute, false),
+                varSelectedMinute = "01" , Set(varSelectedMinute, "02");Set(varShowMinute, false),
+                varSelectedMinute = "02" , Set(varSelectedMinute, "03");Set(varShowMinute, false),
+                varSelectedMinute = "03" , Set(varSelectedMinute, "04");Set(varShowMinute, false),
+                varSelectedMinute="04",Set(varSelectedMinute, "05");Set(varMinuteX,btn_ClockTimePicker_Minute5.X);Set(varMinuteY,btn_ClockTimePicker_Minute5.Y); Set(varShowMinute, true),
+                varSelectedMinute = "05" , Set(varSelectedMinute, "06");Set(varShowMinute, false),
+                varSelectedMinute = "06" , Set(varSelectedMinute, "07");Set(varShowMinute, false),
+                varSelectedMinute = "07" , Set(varSelectedMinute, "08");Set(varShowMinute, false),
+                varSelectedMinute = "08" , Set(varSelectedMinute, "09");Set(varShowMinute, false),
+                varSelectedMinute="09",Set(varSelectedMinute, "10");Set(varMinuteX,btn_ClockTimePicker_Minute10.X);Set(varMinuteY,btn_ClockTimePicker_Minute10.Y); Set(varShowMinute, true),
+                varSelectedMinute = "10" , Set(varSelectedMinute, "11");Set(varShowMinute, false),
+                varSelectedMinute = "11" , Set(varSelectedMinute, "12");Set(varShowMinute, false),
+                varSelectedMinute = "12" , Set(varSelectedMinute, "13");Set(varShowMinute, false),
+                varSelectedMinute = "13" , Set(varSelectedMinute, "14");Set(varShowMinute, false),
+                varSelectedMinute="14",Set(varSelectedMinute, "15");Set(varMinuteX,btn_ClockTimePicker_Minute15.X);Set(varMinuteY,btn_ClockTimePicker_Minute15.Y); Set(varShowMinute, true),
+                varSelectedMinute = "15" , Set(varSelectedMinute, "16");Set(varShowMinute, false),
+                varSelectedMinute = "16" , Set(varSelectedMinute, "17");Set(varShowMinute, false),
+                varSelectedMinute = "17" , Set(varSelectedMinute, "18");Set(varShowMinute, false),
+                varSelectedMinute = "18" , Set(varSelectedMinute, "19");Set(varShowMinute, false),
+                varSelectedMinute="19",Set(varSelectedMinute, "20");Set(varMinuteX,btn_ClockTimePicker_Minute20.X);Set(varMinuteY,btn_ClockTimePicker_Minute20.Y); Set(varShowMinute, true),
+                varSelectedMinute = "20" , Set(varSelectedMinute, "21");Set(varShowMinute, false),
+                varSelectedMinute = "21" , Set(varSelectedMinute, "22");Set(varShowMinute, false),
+                varSelectedMinute = "22" , Set(varSelectedMinute, "23");Set(varShowMinute, false),
+                varSelectedMinute = "23" , Set(varSelectedMinute, "24");Set(varShowMinute, false),
+                varSelectedMinute="24",Set(varSelectedMinute, "25");Set(varMinuteX,btn_ClockTimePicker_Minute25.X);Set(varMinuteY,btn_ClockTimePicker_Minute25.Y); Set(varShowMinute, true),
+                varSelectedMinute = "25" , Set(varSelectedMinute, "26");Set(varShowMinute, false),
+                varSelectedMinute = "26" , Set(varSelectedMinute, "27");Set(varShowMinute, false),
+                varSelectedMinute = "27" , Set(varSelectedMinute, "28");Set(varShowMinute, false),
+                varSelectedMinute = "28" , Set(varSelectedMinute, "29");Set(varShowMinute, false),
+                varSelectedMinute="29",Set(varSelectedMinute, "30");Set(varMinuteX,btn_ClockTimePicker_Minute30.X);Set(varMinuteY,btn_ClockTimePicker_Minute30.Y); Set(varShowMinute, true),
+                varSelectedMinute = "30" , Set(varSelectedMinute, "31");Set(varShowMinute, false),
+                varSelectedMinute = "31" , Set(varSelectedMinute, "32");Set(varShowMinute, false),
+                varSelectedMinute = "32" , Set(varSelectedMinute, "33");Set(varShowMinute, false),
+                varSelectedMinute = "33" , Set(varSelectedMinute, "34");Set(varShowMinute, false),
+                varSelectedMinute="34",Set(varSelectedMinute, "35");Set(varMinuteX,btn_ClockTimePicker_Minute35.X);Set(varMinuteY,btn_ClockTimePicker_Minute35.Y); Set(varShowMinute, true),
+                varSelectedMinute = "35" , Set(varSelectedMinute, "36");Set(varShowMinute, false),
+                varSelectedMinute = "36" , Set(varSelectedMinute, "37");Set(varShowMinute, false),
+                varSelectedMinute = "37" , Set(varSelectedMinute, "38");Set(varShowMinute, false),
+                varSelectedMinute = "38" , Set(varSelectedMinute, "39");Set(varShowMinute, false),
+                varSelectedMinute="39",Set(varSelectedMinute, "40");Set(varMinuteX,btn_ClockTimePicker_Minute40.X);Set(varMinuteY,btn_ClockTimePicker_Minute40.Y); Set(varShowMinute, true),
+                varSelectedMinute = "40" , Set(varSelectedMinute, "41");Set(varShowMinute, false),
+                varSelectedMinute = "41" , Set(varSelectedMinute, "42");Set(varShowMinute, false),
+                varSelectedMinute = "42" , Set(varSelectedMinute, "43");Set(varShowMinute, false),
+                varSelectedMinute = "43" , Set(varSelectedMinute, "44");Set(varShowMinute, false),
+                varSelectedMinute="44",Set(varSelectedMinute, "45");Set(varMinuteX,btn_ClockTimePicker_Minute45.X);Set(varMinuteY,btn_ClockTimePicker_Minute45.Y); Set(varShowMinute, true),
+                varSelectedMinute = "45" , Set(varSelectedMinute, "46");Set(varShowMinute, false),
+                varSelectedMinute = "46" , Set(varSelectedMinute, "47");Set(varShowMinute, false),
+                varSelectedMinute = "47" , Set(varSelectedMinute, "48");Set(varShowMinute, false),
+                varSelectedMinute = "48" , Set(varSelectedMinute, "49");Set(varShowMinute, false),
+                varSelectedMinute="49",Set(varSelectedMinute, "50");Set(varMinuteX,btn_ClockTimePicker_Minute50.X);Set(varMinuteY,btn_ClockTimePicker_Minute50.Y); Set(varShowMinute, true),
+                varSelectedMinute = "50" , Set(varSelectedMinute, "51");Set(varShowMinute, false),
+                varSelectedMinute = "51" , Set(varSelectedMinute, "52");Set(varShowMinute, false),
+                varSelectedMinute = "52" , Set(varSelectedMinute, "53");Set(varShowMinute, false),
+                varSelectedMinute = "53" , Set(varSelectedMinute, "54");Set(varShowMinute, false),
+                varSelectedMinute="54",Set(varSelectedMinute, "55");Set(varMinuteX,btn_ClockTimePicker_Minute55.X);Set(varMinuteY,btn_ClockTimePicker_Minute55.Y); Set(varShowMinute, true),
+                varSelectedMinute = "55" , Set(varSelectedMinute, "56");Set(varShowMinute, false),
+                varSelectedMinute = "56" , Set(varSelectedMinute, "57");Set(varShowMinute, false),
+                varSelectedMinute = "57" , Set(varSelectedMinute, "58");Set(varShowMinute, false),
+                varSelectedMinute = "58" , Set(varSelectedMinute, "59");Set(varShowMinute, false),
+                varSelectedMinute="59",Set(varSelectedMinute, "00");Set(varMinuteX,btn_ClockTimePicker_Minute00.X);Set(varMinuteY,btn_ClockTimePicker_Minute00.Y); Set(varShowMinute, true)
+                )
+                )
+            Width: =35
+            X: =210
+            Y: =22
+            ZIndex: =38
+
+        drp_ClockTimePicker_Minutes As dropdown:
+            AccessibleLabel: ="Shift"
+            BorderColor: =RGBA(241, 244, 249, 1)
+            BorderThickness: =0
+            ChevronBackground: =RGBA(230, 230, 230, 1)
+            ChevronFill: =RGBA(0, 0, 0, 1)
+            ChevronHoverBackground: =RGBA(230, 230, 230, 1)
+            ChevronHoverFill: =RGBA(0, 0, 0, 1)
+            Default: |-
+                =If(IsBlank(varSelectedMinute),  "00",
+                varSelectedMinute)
+            DisplayMode: =
+            Fill: =RGBA(241, 244, 249, 1)
+            FocusedBorderThickness: =1
+            Font: =Font.Arial
+            HoverBorderColor: =drp_ClockTimePicker_Minutes.BorderColor
+            HoverFill: =RGBA(130, 141, 158, 1)
+            Items: |-
+                =Table(
+                {Minute:"00"},
+                {Minute:"01"},
+                {Minute:"02"},
+                {Minute:"03"},
+                {Minute:"04"},
+                {Minute:"05"},
+                {Minute:"06"},
+                {Minute:"07"},
+                {Minute:"08"},
+                {Minute:"09"},
+                {Minute:"10"},
+                {Minute:"11"},
+                {Minute:"12"},
+                {Minute:"13"},
+                {Minute:"14"},
+                {Minute:"15"},
+                {Minute:"16"},
+                {Minute:"17"},
+                {Minute:"18"},
+                {Minute:"19"},
+                {Minute:"20"},
+                {Minute:"21"},
+                {Minute:"22"},
+                {Minute:"23"},
+                {Minute:"24"},
+                {Minute:"25"},
+                {Minute:"26"},
+                {Minute:"27"},
+                {Minute:"28"},
+                {Minute:"29"},
+                {Minute:"30"},
+                {Minute:"31"},
+                {Minute:"32"},
+                {Minute:"33"},
+                {Minute:"34"},
+                {Minute:"35"},
+                {Minute:"36"},
+                {Minute:"37"},
+                {Minute:"38"},
+                {Minute:"39"},
+                {Minute:"40"},
+                {Minute:"41"},
+                {Minute:"42"},
+                {Minute:"43"},
+                {Minute:"44"},
+                {Minute:"45"},
+                {Minute:"46"},
+                {Minute:"47"},
+                {Minute:"48"},
+                {Minute:"49"},
+                {Minute:"50"},
+                {Minute:"51"},
+                {Minute:"52"},
+                {Minute:"53"},
+                {Minute:"54"},
+                {Minute:"55"},
+                {Minute:"56"},
+                {Minute:"57"},
+                {Minute:"58"},
+                {Minute:"59"}
+                )
+            OnChange: |+
+                =Set(varSelectedMinute, drp_ClockTimePicker_Minutes.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BMinute');
+                If(varSelectedMinute="00",Set(varMinuteX,btn_ClockTimePicker_Minute00.X);Set(varMinuteY,btn_ClockTimePicker_Minute00.Y); Set(varShowMinute, true),
+                varSelectedMinute="05",Set(varMinuteX,btn_ClockTimePicker_Minute5.X);Set(varMinuteY,btn_ClockTimePicker_Minute5.Y); Set(varShowMinute, true),
+                varSelectedMinute="10",Set(varMinuteX,btn_ClockTimePicker_Minute10.X);Set(varMinuteY,btn_ClockTimePicker_Minute10.Y); Set(varShowMinute, true),
+                varSelectedMinute="15",Set(varMinuteX,btn_ClockTimePicker_Minute15.X);Set(varMinuteY,btn_ClockTimePicker_Minute15.Y); Set(varShowMinute, true),
+                varSelectedMinute="20",Set(varMinuteX,btn_ClockTimePicker_Minute20.X);Set(varMinuteY,btn_ClockTimePicker_Minute20.Y); Set(varShowMinute, true),
+                varSelectedMinute="25",Set(varMinuteX,btn_ClockTimePicker_Minute25.X);Set(varMinuteY,btn_ClockTimePicker_Minute25.Y); Set(varShowMinute, true),
+                varSelectedMinute="30",Set(varMinuteX,btn_ClockTimePicker_Minute30.X);Set(varMinuteY,btn_ClockTimePicker_Minute30.Y); Set(varShowMinute, true),
+                varSelectedMinute="35",Set(varMinuteX,btn_ClockTimePicker_Minute35.X);Set(varMinuteY,btn_ClockTimePicker_Minute35.Y); Set(varShowMinute, true),
+                varSelectedMinute="40",Set(varMinuteX,btn_ClockTimePicker_Minute40.X);Set(varMinuteY,btn_ClockTimePicker_Minute40.Y); Set(varShowMinute, true),
+                varSelectedMinute="45",Set(varMinuteX,btn_ClockTimePicker_Minute45.X);Set(varMinuteY,btn_ClockTimePicker_Minute45.Y); Set(varShowMinute, true),
+                varSelectedMinute="50",Set(varMinuteX,btn_ClockTimePicker_Minute50.X);Set(varMinuteY,btn_ClockTimePicker_Minute50.Y); Set(varShowMinute, true),
+                varSelectedMinute="55",Set(varMinuteX,btn_ClockTimePicker_Minute55.X);Set(varMinuteY,btn_ClockTimePicker_Minute55.Y); Set(varShowMinute, true),
+                Set(varShowMinute, false))
+                
+                
+                
+            PressedBorderColor: =drp_ClockTimePicker_Minutes.HoverBorderColor
+            PressedColor: =RGBA(128, 128, 128, 1)
+            PressedFill: =RGBA(214, 223, 238, 1)
+            SelectionColor: =RGBA(0, 0, 0, 1)
+            SelectionFill: =RGBA(241, 244, 249, 1)
+            Width: =81
+            X: =129
+            Y: =22
+            ZIndex: =39
+
+    grp_ClockTimePicker_ComponentElemtns As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =44
+
+        shp_ClockTimePicker_ManualBack As rectangle:
+            Fill: =RGBA(136, 160, 209, 1)
+            Height: =67
+            Width: =250
+            ZIndex: =1
+
+        shp_ClockTimePicker_ClockBack As rectangle:
+            Fill: =RGBA(0, 94, 146, 1)
+            Height: =253
+            Width: =250
+            Y: =67
+            ZIndex: =2
+
+        shp_ClockTimePicker_HourBack As circle:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =1
+            DisplayMode: =DisplayMode.View
+            Fill: =RGBA(241, 244, 249, 1)
+            Height: =240
+            Width: =240
+            X: =5
+            Y: =74
+            ZIndex: =3
+
+        shp_ClockTimePicker_MinuteBack As circle:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Fill: =RGBA(230, 230, 230, 1)
+            Height: =150
+            Width: =150
+            X: =50
+            Y: =119
+            ZIndex: =4
+
+        lbl_ClockTimePicker_HourTitle As label:
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Bold
+            Height: =22
+            Text: ="Hour"
+            Width: =116
+            X: =5
+            ZIndex: =40
+
+        lbl_ClockTimePicker_MinuteTitle As label:
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Bold
+            Height: =22
+            Text: ="Minute"
+            Width: =116
+            X: =129
+            ZIndex: =41
+
+        ico_ClockClose As icon.Cancel:
+            Color: =RGBA(238, 204, 204, 1)
+            Height: =27
+            Icon: =Icon.CancelBadge
+            OnSelect: |-
+                ='Clock Time Picker'.CloseClock();
+                Set(
+                    varShowMinute,
+                    false
+                );
+                Set(
+                    varHourX,
+                    Blank()
+                );
+                Set(
+                    varHourY,
+                    Blank()
+                );
+                Set(
+                    varSelectedHour,
+                    Blank()
+                );
+                Set(
+                    varSelectedMinute,
+                    Blank()
+                ); 
+                Set(varAMPM, "am");
+                Reset(tgl_ClockTimePicker_AMPM);
+                Reset(drp_ClockTimePicker_Hours);
+                Reset(drp_ClockTimePicker_Minutes);
+            Width: =27
+            X: =190
+            Y: =291
+            ZIndex: =42
+
+        ico_ClockSave As icon.Cancel:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =27
+            Icon: =Icon.CheckBadge
+            OnSelect: |-
+                ='Clock Time Picker'.SaveTime();
+                Set(
+                    varShowMinute,
+                    false
+                );
+                Set(
+                    varHourX,
+                    Blank()
+                );
+                Set(
+                    varHourY,
+                    Blank()
+                );
+                Set(
+                    varSelectedHour,
+                    Blank()
+                );
+                Set(
+                    varSelectedMinute,
+                    Blank()
+                ); 
+                Set(varAMPM, "am");
+                Reset(tgl_ClockTimePicker_AMPM);
+                Reset(drp_ClockTimePicker_Hours);
+                Reset(drp_ClockTimePicker_Minutes);
+            Width: =27
+            X: =221
+            Y: =291
+            ZIndex: =43
+
