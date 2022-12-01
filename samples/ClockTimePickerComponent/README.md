@@ -22,7 +22,6 @@ ms.prod: power-apps
 A re-usable component that allows you to select times through a user friendly and convenient UI.
 
 ![Preview](./assets/preview.png)  
-![Preview](./assets/preview.mp4)  
 
 
 ## Applies to
