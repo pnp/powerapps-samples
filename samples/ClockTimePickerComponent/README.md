@@ -6,9 +6,9 @@ products:
 - powerapps
 - canvas
 name: Clock Time Picker Component
-description: A re-usable component that allows you to select times through a user friendly and detailed UI.
+description: A re-usable component that allows you to select times through a user friendly and convinient UI.
 urlFragment: ClockTimePickerComponent
-ms.date: 30/11/2022
+ms.date: 1/12/2022
 author: Nati Turtledove
 ms.author: pnp
 level: beginner
@@ -19,7 +19,7 @@ ms.prod: power-apps
 
 ## Summary
 
-A re-usable component that allows you to select times through a user friendly anddetailed UI.
+A re-usable component that allows you to select times through a user friendly and convinient UI.
 
 ![Preview](./assets/preview.png)  
 
@@ -46,7 +46,7 @@ Clock Time Picker Component | [Nati Turtledove](https://github.com/NatiTurts) ([
 
 Version|Date|Comments
 -------|----|--------
-1.0|Nov 11, 2022|Initial release
+1.0|Dec 1, 2022|Initial release
 
 
 ## Features
