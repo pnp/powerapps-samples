@@ -6,7 +6,7 @@ products:
 - powerapps
 - canvas
 name: Clock Time Picker Component
-description: A re-usable component that allows you to select times through a user friendly and convinient UI.
+description: A re-usable component that allows you to select times through a user friendly and convenient UI.
 urlFragment: ClockTimePickerComponent
 ms.date: 1/12/2022
 author: Nati Turtledove
@@ -19,7 +19,7 @@ ms.prod: power-apps
 
 ## Summary
 
-A re-usable component that allows you to select times through a user friendly and convinient UI.
+A re-usable component that allows you to select times through a user friendly and convenient UI.
 
 ![Preview](./assets/preview.png)  
 
