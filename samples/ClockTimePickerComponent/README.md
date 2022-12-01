@@ -54,8 +54,13 @@ Version|Date|Comments
 
 This sample illustrates the following concepts:
 
-* Creating a Power Apps component
-* Using a Power Apps component
+* The ability for users to interact with a clock to select a preferred time
+* Allowing for users to select a time by clicking on the clock numbers 
+* Allowing for users to select a time from the dropdowns
+* Allowing for users to select a time by increasing/deacreasing a selected hour and minute
+* Allowing for users to select am or pm times
+* Save the chosen time through an Output Property
+* Reset the times after saved or cleared
 
 ## Prerequisites
 
@@ -64,7 +69,7 @@ This sample illustrates the following concepts:
 To use the component in this sample, you'll need to pass the components Output Properties to a local or global variable within the Canvas App.
 
 The component consists of the following Output Properties that can pass through data:
-`Hour` - the selected hour whether in HH or hh format.
+`Hour` - the selected hour in HH format.
 `Minute` - the selected minute
 `FullTime` - the full time selected in HH:mm format
 `AMPM` - the selected Ante/Post Meridiem
