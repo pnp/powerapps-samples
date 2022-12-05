@@ -1,0 +1,81 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": true,
+  "ComponentManifest": {
+    "AllowAccessToGlobals": false,
+    "AllowCustomization": true,
+    "Description": "",
+    "Name": "Clock Time Picker",
+    "TemplateGuid": "b709fa9380c9497cbb59401cee1f7234"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [
+    {
+      "Category": 2,
+      "DisplayName": "Save Time",
+      "Hidden": false,
+      "Name": "SaveTime",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "Save Time",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 2,
+      "DisplayName": "Close Clock",
+      "Hidden": false,
+      "Name": "CloseClock",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "Close Clock",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Hour",
+      "Hidden": true,
+      "Name": "Hour",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "Hour",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Minute",
+      "Hidden": true,
+      "Name": "Minute",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "Minute",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "AM PM",
+      "Hidden": true,
+      "Name": "AMPM",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "AM PM",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Full Time",
+      "Hidden": true,
+      "Name": "FullTime",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "Full Time",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    }
+  ],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "638053302224707261",
+  "Name": "b709fa9380c9497cbb59401cee1f7234",
+  "OverridableProperties": {},
+  "Version": "638052626913583036"
+}
