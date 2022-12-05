@@ -80,7 +80,7 @@ Update for the datacard can look like this
 )
 ```
 
-To change the colours of any of the controls, |Navigate to the Screen_Style You can do this by connecting to a data source which provides a `Date`, a `Title` and a `Time` field, or you can manually create entries and pass them as a `Table`, as follows:
+To change the colours of any of the controls, Navigate to the Screen_Style.
 
 
 
