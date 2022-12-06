@@ -17,7 +17,7 @@ cmp_ProgressBar_hor As CanvasComponent:
     ZIndex: =11
 
     lbl_barTotal_1 As label:
-        Fill: =cmp_ProgressBar_hor.barMaxFill
+        Fill: =cmp_ProgressBar
         Font: =Font.'Segoe UI'
         Height: =cmp_ProgressBar_hor.barHeight
         Size: =12

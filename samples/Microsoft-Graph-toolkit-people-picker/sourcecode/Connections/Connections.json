@@ -1,0 +1,43 @@
+{
+  "460e6874-4f25-455b-83bd-e8074eea51c6": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Users",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1593/1.0.1593.2980/office365users/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365users",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Users"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "460e6874-4f25-455b-83bd-e8074eea51c6"
+  },
+  "e6f6532f-b634-433a-a69d-b598e0706525": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "ProductivityHub-Connector",
+      "iconUri": "https://prodapiicons.cdn.powerappscdn.net/20221026t000000z391f8d72bcf844949fe33287c45b4f8a/customconnectoricon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_productivityhub-2dconnector-5f9c1e2c6248d86aef--e85db4d132c38bfc",
+      "isCustomApiConnection": true,
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "ProductivityHub-Connector"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "e6f6532f-b634-433a-a69d-b598e0706525"
+  }
+}

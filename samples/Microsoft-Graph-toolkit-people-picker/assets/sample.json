@@ -1,0 +1,93 @@
+[
+    {
+        "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+        "name": "powerapps-graph-toolkit-peoplepicker",
+        "version": "1.0.0.0",
+        "source": "pnp",
+        "creationDateTime": "2022-12-06T00:00:00.000Z",
+        "updateDateTime": "2022-12-06T00:00:00.000Z",
+        "title": "Microsoft Graph toolkit People Picker",
+        "shortDescription": "Microsoft Graph toolkit components provide a design consistent way to work with Graph API - This component library aims to mimic them for Power Apps",
+        "longDescription": [
+            "Microsoft Graph toolkit components provide a design consistent way to work with Graph API - This component library aims to mimic them for Power Apps"
+        ],
+        "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/powerapps-graph-toolkit-peoplepicker",
+        "products": [
+            "Power Apps",
+            "Power Platform"
+        ],
+        "tags": [],
+        "categories": [
+            "POWERAPPS"
+        ],
+        "metadata": [
+            {
+                "key": "POWERAPPS-MANIFEST-VERSION",
+                "value": "0.20"
+            },
+            {
+                "key": "POWERAPPS-TYPE",
+                "value": "Canvas"
+            },
+            {
+                "key": "POWERAPPS-EXPERIMENTAL",
+                "value": "No"
+            },
+            {
+                "key": "POWERAPPS-PREMIUM",
+                "value": "Yes"
+            },
+            {
+                "key": "POWERAPPS-ONPREM",
+                "value": "No"
+            },
+            {
+                "key": "POWERAPPS-CUSTOMCONNECTOR",
+                "value": "Tes"
+            },
+            {
+                "key": "POWERAPPS-CONNECTORS",
+                "value": ""
+            }
+        ],
+        "thumbnails": [
+            {
+                "type": "image",
+                "order": 100,
+                "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/powerapps-graph-toolkit-peoplepicker/assets/pp-dark.png",
+                "alt": "People Picker in dark mode"
+            },
+            {
+                "type": "image",
+                "order": 101,
+                "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/powerapps-graph-toolkit-peoplepicker/assets/pp-explained.png",
+                "alt": "People Picker explained"
+            },
+            {
+                "type": "video",
+                "order": 102,
+                "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/powerapps-graph-toolkit-peoplepicker/assets/pp.gif",
+                "alt": "People Picker walkthrough"
+            }
+        ],
+        "authors": [
+            {
+                "gitHubAccount": "luisefreese",
+                "name": ":Luise Freese",
+                "pictureUrl": "https://github.com/luisefreese.png"
+            }
+        ],
+        "references": [
+            {
+                "name": "Overview of creating apps in Power Apps",
+                "description": "Power Apps is a high-productivity development platform for business apps.",
+                "url": "https://docs.microsoft.com/powerapps/maker/"
+            },
+            {
+                "name": "Power Apps canvas apps documentation",
+                "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+                "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+            }
+        ]
+    }
+]
