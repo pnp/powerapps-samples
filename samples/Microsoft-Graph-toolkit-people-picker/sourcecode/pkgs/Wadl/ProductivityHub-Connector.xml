@@ -1,0 +1,1263 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://europe-002.azure-apim.net/apim/productivityhub-2dconnector-5f9c1e2c6248d86aef--e85db4d132c38bfc" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="ProductivityHub-Connector" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="ProductivityHub-Connector"></doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://europe-002.azure-apim.net/apim/productivityhub-2dconnector-5f9c1e2c6248d86aef--e85db4d132c38bfc" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="GetFiles_responses_default_def__ux40_odata_context_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def__ux40_odata_type_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def_createdDateTime_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def_id_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def_lastModifiedDateTime_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def_name_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def_webUrl_def" />
+      <integer name="GetFiles_responses_default_def_value_def_items_def_size_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def_createdBy_def_user_def_email_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def_createdBy_def_user_def_displayName_def" />
+      <object name="GetFiles_responses_default_def_value_def_items_def_createdBy_def_user_def">
+        <property name="email" type="string" />
+        <property name="displayName" type="string" />
+      </object>
+      <object name="GetFiles_responses_default_def_value_def_items_def_createdBy_def">
+        <property name="user" typeRef="GetFiles_responses_default_def_value_def_items_def_createdBy_def_user_def" />
+      </object>
+      <string name="GetFiles_responses_default_def_value_def_items_def_lastModifiedBy_def_user_def_email_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def_lastModifiedBy_def_user_def_displayName_def" />
+      <object name="GetFiles_responses_default_def_value_def_items_def_lastModifiedBy_def_user_def">
+        <property name="email" type="string" />
+        <property name="displayName" type="string" />
+      </object>
+      <object name="GetFiles_responses_default_def_value_def_items_def_lastModifiedBy_def">
+        <property name="user" typeRef="GetFiles_responses_default_def_value_def_items_def_lastModifiedBy_def_user_def" />
+      </object>
+      <string name="GetFiles_responses_default_def_value_def_items_def_file_def_mimeType_def" />
+      <object name="GetFiles_responses_default_def_value_def_items_def_file_def">
+        <property name="mimeType" type="string" />
+      </object>
+      <string name="GetFiles_responses_default_def_value_def_items_def_fileSystemInfo_def_createdDateTime_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def_fileSystemInfo_def_lastModifiedDateTime_def" />
+      <object name="GetFiles_responses_default_def_value_def_items_def_fileSystemInfo_def">
+        <property name="createdDateTime" type="string" />
+        <property name="lastModifiedDateTime" type="string" />
+      </object>
+      <string name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_createdDateTime_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_id_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_lastModifiedDateTime_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_name_def" />
+      <integer name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_size_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_webDavUrl_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_webUrl_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_createdBy_def_user_def_email_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_createdBy_def_user_def_displayName_def" />
+      <object name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_createdBy_def_user_def">
+        <property name="email" type="string" />
+        <property name="displayName" type="string" />
+      </object>
+      <object name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_createdBy_def">
+        <property name="user" typeRef="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_createdBy_def_user_def" />
+      </object>
+      <string name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_file_def_mimeType_def" />
+      <object name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_file_def">
+        <property name="mimeType" type="string" />
+      </object>
+      <string name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_fileSystemInfo_def_createdDateTime_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_fileSystemInfo_def_lastModifiedDateTime_def" />
+      <object name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_fileSystemInfo_def">
+        <property name="createdDateTime" type="string" />
+        <property name="lastModifiedDateTime" type="string" />
+      </object>
+      <string name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_lastModifiedBy_def_user_def_email_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_lastModifiedBy_def_user_def_displayName_def" />
+      <object name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_lastModifiedBy_def_user_def">
+        <property name="email" type="string" />
+        <property name="displayName" type="string" />
+      </object>
+      <object name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_lastModifiedBy_def">
+        <property name="user" typeRef="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_lastModifiedBy_def_user_def" />
+      </object>
+      <string name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_parentReference_def_driveType_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_parentReference_def_driveId_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_parentReference_def_id_def" />
+      <object name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_parentReference_def">
+        <property name="driveType" type="string" />
+        <property name="driveId" type="string" />
+        <property name="id" type="string" />
+      </object>
+      <string name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_sharepointIds_def_listId_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_sharepointIds_def_listItemId_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_sharepointIds_def_listItemUniqueId_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_sharepointIds_def_siteId_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_sharepointIds_def_siteUrl_def" />
+      <string name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_sharepointIds_def_webId_def" />
+      <object name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_sharepointIds_def">
+        <property name="listId" type="string" />
+        <property name="listItemId" type="string" />
+        <property name="listItemUniqueId" type="string" />
+        <property name="siteId" type="string" />
+        <property name="siteUrl" type="string" />
+        <property name="webId" type="string" />
+      </object>
+      <string name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_shared_def_scope_def" />
+      <object name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_shared_def">
+        <property name="scope" type="string" />
+      </object>
+      <object name="GetFiles_responses_default_def_value_def_items_def_remoteItem_def">
+        <property name="createdDateTime" type="string" />
+        <property name="id" type="string" />
+        <property name="lastModifiedDateTime" type="string" />
+        <property name="name" type="string" />
+        <property name="size" type="integer" />
+        <property name="webDavUrl" type="string" />
+        <property name="webUrl" type="string" />
+        <property name="createdBy" typeRef="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_createdBy_def" />
+        <property name="file" typeRef="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_file_def" />
+        <property name="fileSystemInfo" typeRef="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_fileSystemInfo_def" />
+        <property name="lastModifiedBy" typeRef="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_lastModifiedBy_def" />
+        <property name="parentReference" typeRef="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_parentReference_def" />
+        <property name="sharepointIds" typeRef="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_sharepointIds_def" />
+        <property name="shared" typeRef="GetFiles_responses_default_def_value_def_items_def_remoteItem_def_shared_def" />
+      </object>
+      <object name="GetFiles_responses_default_def_value_def_items_def">
+        <property name="@odata.type" type="string" />
+        <property name="createdDateTime" type="string" />
+        <property name="id" type="string" />
+        <property name="lastModifiedDateTime" type="string" />
+        <property name="name" type="string" />
+        <property name="webUrl" type="string" />
+        <property name="size" type="integer" />
+        <property name="createdBy" typeRef="GetFiles_responses_default_def_value_def_items_def_createdBy_def" />
+        <property name="lastModifiedBy" typeRef="GetFiles_responses_default_def_value_def_items_def_lastModifiedBy_def" />
+        <property name="file" typeRef="GetFiles_responses_default_def_value_def_items_def_file_def" />
+        <property name="fileSystemInfo" typeRef="GetFiles_responses_default_def_value_def_items_def_fileSystemInfo_def" />
+        <property name="remoteItem" typeRef="GetFiles_responses_default_def_value_def_items_def_remoteItem_def" />
+      </object>
+      <array typeRef="GetFiles_responses_default_def_value_def_items_def" name="GetFiles_responses_default_def_value_def" />
+      <object name="GetFiles_responses_default_def">
+        <property name="@odata.context" type="string" />
+        <property name="value" typeRef="GetFiles_responses_default_def_value_def" />
+      </object>
+      <string name="GetTaskLists_responses_default_def__ux40_odata_context_def" />
+      <string name="GetTaskLists_responses_default_def_value_def_items_def__ux40_odata_etag_def" />
+      <string name="GetTaskLists_responses_default_def_value_def_items_def_displayName_def" />
+      <boolean name="GetTaskLists_responses_default_def_value_def_items_def_isOwner_def" />
+      <boolean name="GetTaskLists_responses_default_def_value_def_items_def_isShared_def" />
+      <string name="GetTaskLists_responses_default_def_value_def_items_def_wellknownListName_def" />
+      <string name="GetTaskLists_responses_default_def_value_def_items_def_id_def" />
+      <object name="GetTaskLists_responses_default_def_value_def_items_def">
+        <property name="@odata.etag" type="string" />
+        <property name="displayName" type="string" />
+        <property name="isOwner" type="boolean" />
+        <property name="isShared" type="boolean" />
+        <property name="wellknownListName" type="string" />
+        <property name="id" type="string" />
+      </object>
+      <array typeRef="GetTaskLists_responses_default_def_value_def_items_def" name="GetTaskLists_responses_default_def_value_def" />
+      <object name="GetTaskLists_responses_default_def">
+        <property name="@odata.context" type="string" />
+        <property name="value" typeRef="GetTaskLists_responses_default_def_value_def" />
+      </object>
+      <string name="GetTasks_responses_default_def__ux40_odata_context_def" />
+      <string name="GetTasks_responses_default_def_value_def_items_def__ux40_odata_etag_def" />
+      <string name="GetTasks_responses_default_def_value_def_items_def_importance_def" />
+      <boolean name="GetTasks_responses_default_def_value_def_items_def_isReminderOn_def" />
+      <string name="GetTasks_responses_default_def_value_def_items_def_status_def" />
+      <string name="GetTasks_responses_default_def_value_def_items_def_title_def" />
+      <string name="GetTasks_responses_default_def_value_def_items_def_createdDateTime_def" />
+      <string name="GetTasks_responses_default_def_value_def_items_def_lastModifiedDateTime_def" />
+      <boolean name="GetTasks_responses_default_def_value_def_items_def_hasAttachments_def" />
+      <string name="GetTasks_responses_default_def_value_def_items_def_id_def" />
+      <string name="GetTasks_responses_default_def_value_def_items_def_body_def_content_def" />
+      <string name="GetTasks_responses_default_def_value_def_items_def_body_def_contentType_def" />
+      <object name="GetTasks_responses_default_def_value_def_items_def_body_def">
+        <property name="content" type="string" />
+        <property name="contentType" type="string" />
+      </object>
+      <string name="GetTasks_responses_default_def_value_def_items_def_dueDateTime_def_dateTime_def" />
+      <string name="GetTasks_responses_default_def_value_def_items_def_dueDateTime_def_timeZone_def" />
+      <object name="GetTasks_responses_default_def_value_def_items_def_dueDateTime_def">
+        <property name="dateTime" type="string" />
+        <property name="timeZone" type="string" />
+      </object>
+      <object name="GetTasks_responses_default_def_value_def_items_def">
+        <property name="@odata.etag" type="string" />
+        <property name="importance" type="string" />
+        <property name="isReminderOn" type="boolean" />
+        <property name="status" type="string" />
+        <property name="title" type="string" />
+        <property name="createdDateTime" type="string" />
+        <property name="lastModifiedDateTime" type="string" />
+        <property name="hasAttachments" type="boolean" />
+        <property name="id" type="string" />
+        <property name="body" typeRef="GetTasks_responses_default_def_value_def_items_def_body_def" />
+        <property name="dueDateTime" typeRef="GetTasks_responses_default_def_value_def_items_def_dueDateTime_def" />
+      </object>
+      <array typeRef="GetTasks_responses_default_def_value_def_items_def" name="GetTasks_responses_default_def_value_def" />
+      <object name="GetTasks_responses_default_def">
+        <property name="@odata.context" type="string" />
+        <property name="value" typeRef="GetTasks_responses_default_def_value_def" />
+      </object>
+      <string name="GetAgenda_responses_default_def__ux40_odata_context_def" />
+      <string name="GetAgenda_responses_default_def__ux40_odata_nextLink_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def__ux40_odata_etag_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_id_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_createdDateTime_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_lastModifiedDateTime_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_changeKey_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_transactionId_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_originalStartTimeZone_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_originalEndTimeZone_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_iCalUId_def" />
+      <integer name="GetAgenda_responses_default_def_value_def_items_def_reminderMinutesBeforeStart_def" />
+      <boolean name="GetAgenda_responses_default_def_value_def_items_def_isReminderOn_def" />
+      <boolean name="GetAgenda_responses_default_def_value_def_items_def_hasAttachments_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_subject_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_bodyPreview_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_importance_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_sensitivity_def" />
+      <boolean name="GetAgenda_responses_default_def_value_def_items_def_isAllDay_def" />
+      <boolean name="GetAgenda_responses_default_def_value_def_items_def_isCancelled_def" />
+      <boolean name="GetAgenda_responses_default_def_value_def_items_def_isOrganizer_def" />
+      <boolean name="GetAgenda_responses_default_def_value_def_items_def_responseRequested_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_seriesMasterId_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_showAs_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_type_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_webLink_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_onlineMeetingUrl_def" />
+      <boolean name="GetAgenda_responses_default_def_value_def_items_def_isOnlineMeeting_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_onlineMeetingProvider_def" />
+      <boolean name="GetAgenda_responses_default_def_value_def_items_def_allowNewTimeProposals_def" />
+      <boolean name="GetAgenda_responses_default_def_value_def_items_def_isDraft_def" />
+      <boolean name="GetAgenda_responses_default_def_value_def_items_def_hideAttendees_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_recurrence_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_onlineMeeting_def_joinUrl_def" />
+      <object name="GetAgenda_responses_default_def_value_def_items_def_onlineMeeting_def">
+        <property name="joinUrl" type="string" />
+      </object>
+      <string name="GetAgenda_responses_default_def_value_def_items_def_responseStatus_def_response_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_responseStatus_def_time_def" />
+      <object name="GetAgenda_responses_default_def_value_def_items_def_responseStatus_def">
+        <property name="response" type="string" />
+        <property name="time" type="string" />
+      </object>
+      <string name="GetAgenda_responses_default_def_value_def_items_def_body_def_contentType_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_body_def_content_def" />
+      <object name="GetAgenda_responses_default_def_value_def_items_def_body_def">
+        <property name="contentType" type="string" />
+        <property name="content" type="string" />
+      </object>
+      <string name="GetAgenda_responses_default_def_value_def_items_def_start_def_dateTime_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_start_def_timeZone_def" />
+      <object name="GetAgenda_responses_default_def_value_def_items_def_start_def">
+        <property name="dateTime" type="string" />
+        <property name="timeZone" type="string" />
+      </object>
+      <string name="GetAgenda_responses_default_def_value_def_items_def_end_def_dateTime_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_end_def_timeZone_def" />
+      <object name="GetAgenda_responses_default_def_value_def_items_def_end_def">
+        <property name="dateTime" type="string" />
+        <property name="timeZone" type="string" />
+      </object>
+      <string name="GetAgenda_responses_default_def_value_def_items_def_location_def_displayName_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_location_def_locationType_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_location_def_uniqueIdType_def" />
+      <object name="GetAgenda_responses_default_def_value_def_items_def_location_def_address_def" />
+      <object name="GetAgenda_responses_default_def_value_def_items_def_location_def_coordinates_def" />
+      <object name="GetAgenda_responses_default_def_value_def_items_def_location_def">
+        <property name="displayName" type="string" />
+        <property name="locationType" type="string" />
+        <property name="uniqueIdType" type="string" />
+        <property name="address" typeRef="GetAgenda_responses_default_def_value_def_items_def_location_def_address_def" />
+        <property name="coordinates" typeRef="GetAgenda_responses_default_def_value_def_items_def_location_def_coordinates_def" />
+      </object>
+      <string name="GetAgenda_responses_default_def_value_def_items_def_attendees_def_items_def_type_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_attendees_def_items_def_status_def_response_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_attendees_def_items_def_status_def_time_def" />
+      <object name="GetAgenda_responses_default_def_value_def_items_def_attendees_def_items_def_status_def">
+        <property name="response" type="string" />
+        <property name="time" type="string" />
+      </object>
+      <string name="GetAgenda_responses_default_def_value_def_items_def_attendees_def_items_def_emailAddress_def_name_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_attendees_def_items_def_emailAddress_def_address_def" />
+      <object name="GetAgenda_responses_default_def_value_def_items_def_attendees_def_items_def_emailAddress_def">
+        <property name="name" type="string" />
+        <property name="address" type="string" />
+      </object>
+      <object name="GetAgenda_responses_default_def_value_def_items_def_attendees_def_items_def">
+        <property name="type" type="string" />
+        <property name="status" typeRef="GetAgenda_responses_default_def_value_def_items_def_attendees_def_items_def_status_def" />
+        <property name="emailAddress" typeRef="GetAgenda_responses_default_def_value_def_items_def_attendees_def_items_def_emailAddress_def" />
+      </object>
+      <array typeRef="GetAgenda_responses_default_def_value_def_items_def_attendees_def_items_def" name="GetAgenda_responses_default_def_value_def_items_def_attendees_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_organizer_def_emailAddress_def_name_def" />
+      <string name="GetAgenda_responses_default_def_value_def_items_def_organizer_def_emailAddress_def_address_def" />
+      <object name="GetAgenda_responses_default_def_value_def_items_def_organizer_def_emailAddress_def">
+        <property name="name" type="string" />
+        <property name="address" type="string" />
+      </object>
+      <object name="GetAgenda_responses_default_def_value_def_items_def_organizer_def">
+        <property name="emailAddress" typeRef="GetAgenda_responses_default_def_value_def_items_def_organizer_def_emailAddress_def" />
+      </object>
+      <object name="GetAgenda_responses_default_def_value_def_items_def">
+        <property name="@odata.etag" type="string" />
+        <property name="id" type="string" />
+        <property name="createdDateTime" type="string" />
+        <property name="lastModifiedDateTime" type="string" />
+        <property name="changeKey" type="string" />
+        <property name="transactionId" type="string" />
+        <property name="originalStartTimeZone" type="string" />
+        <property name="originalEndTimeZone" type="string" />
+        <property name="iCalUId" type="string" />
+        <property name="reminderMinutesBeforeStart" type="integer" />
+        <property name="isReminderOn" type="boolean" />
+        <property name="hasAttachments" type="boolean" />
+        <property name="subject" type="string" />
+        <property name="bodyPreview" type="string" />
+        <property name="importance" type="string" />
+        <property name="sensitivity" type="string" />
+        <property name="isAllDay" type="boolean" />
+        <property name="isCancelled" type="boolean" />
+        <property name="isOrganizer" type="boolean" />
+        <property name="responseRequested" type="boolean" />
+        <property name="seriesMasterId" type="string" />
+        <property name="showAs" type="string" />
+        <property name="type" type="string" />
+        <property name="webLink" type="string" />
+        <property name="onlineMeetingUrl" type="string" />
+        <property name="isOnlineMeeting" type="boolean" />
+        <property name="onlineMeetingProvider" type="string" />
+        <property name="allowNewTimeProposals" type="boolean" />
+        <property name="isDraft" type="boolean" />
+        <property name="hideAttendees" type="boolean" />
+        <property name="recurrence" type="string" />
+        <property name="onlineMeeting" typeRef="GetAgenda_responses_default_def_value_def_items_def_onlineMeeting_def" />
+        <property name="responseStatus" typeRef="GetAgenda_responses_default_def_value_def_items_def_responseStatus_def" />
+        <property name="body" typeRef="GetAgenda_responses_default_def_value_def_items_def_body_def" />
+        <property name="start" typeRef="GetAgenda_responses_default_def_value_def_items_def_start_def" />
+        <property name="end" typeRef="GetAgenda_responses_default_def_value_def_items_def_end_def" />
+        <property name="location" typeRef="GetAgenda_responses_default_def_value_def_items_def_location_def" />
+        <property name="attendees" typeRef="GetAgenda_responses_default_def_value_def_items_def_attendees_def" />
+        <property name="organizer" typeRef="GetAgenda_responses_default_def_value_def_items_def_organizer_def" />
+      </object>
+      <array typeRef="GetAgenda_responses_default_def_value_def_items_def" name="GetAgenda_responses_default_def_value_def" />
+      <object name="GetAgenda_responses_default_def">
+        <property name="@odata.context" type="string" />
+        <property name="@odata.nextLink" type="string" />
+        <property name="value" typeRef="GetAgenda_responses_default_def_value_def" />
+      </object>
+      <string name="PostMeeting_param_body_def_subject_def" />
+      <string name="PostMeeting_param_body_def_body_def_contentType_def" />
+      <string name="PostMeeting_param_body_def_body_def_content_def" />
+      <object name="PostMeeting_param_body_def_body_def">
+        <property name="contentType" type="string" />
+        <property name="content" type="string" />
+      </object>
+      <string name="PostMeeting_param_body_def_start_def_dateTime_def" />
+      <string name="PostMeeting_param_body_def_start_def_timeZone_def" />
+      <object name="PostMeeting_param_body_def_start_def">
+        <property name="dateTime" type="string" />
+        <property name="timeZone" type="string" />
+      </object>
+      <string name="PostMeeting_param_body_def_end_def_dateTime_def" />
+      <string name="PostMeeting_param_body_def_end_def_timeZone_def" />
+      <object name="PostMeeting_param_body_def_end_def">
+        <property name="dateTime" type="string" />
+        <property name="timeZone" type="string" />
+      </object>
+      <string name="PostMeeting_param_body_def_location_def_displayName_def" />
+      <object name="PostMeeting_param_body_def_location_def">
+        <property name="displayName" type="string" />
+      </object>
+      <string name="PostMeeting_param_body_def_attendees_def_items_def_emailAddress_def_address_def" />
+      <string name="PostMeeting_param_body_def_attendees_def_items_def_emailAddress_def_name_def" />
+      <object name="PostMeeting_param_body_def_attendees_def_items_def_emailAddress_def">
+        <property name="address" type="string" />
+        <property name="name" type="string" />
+      </object>
+      <string name="PostMeeting_param_body_def_attendees_def_items_def_type_def" />
+      <object name="PostMeeting_param_body_def_attendees_def_items_def">
+        <property name="emailAddress" typeRef="PostMeeting_param_body_def_attendees_def_items_def_emailAddress_def" />
+        <property name="type" type="string" />
+      </object>
+      <array typeRef="PostMeeting_param_body_def_attendees_def_items_def" name="PostMeeting_param_body_def_attendees_def" />
+      <boolean name="PostMeeting_param_body_def_allowNewTimeProposals_def" />
+      <boolean name="PostMeeting_param_body_def_isOnlineMeeting_def" />
+      <string name="PostMeeting_param_body_def_onlineMeetingProvider_def" />
+      <object name="PostMeeting_param_body_def">
+        <property name="subject" type="string" />
+        <property name="body" typeRef="PostMeeting_param_body_def_body_def" />
+        <property name="start" typeRef="PostMeeting_param_body_def_start_def" />
+        <property name="end" typeRef="PostMeeting_param_body_def_end_def" />
+        <property name="location" typeRef="PostMeeting_param_body_def_location_def" />
+        <property name="attendees" typeRef="PostMeeting_param_body_def_attendees_def" />
+        <property name="allowNewTimeProposals" type="boolean" />
+        <property name="isOnlineMeeting" type="boolean" />
+        <property name="onlineMeetingProvider" type="string" />
+      </object>
+      <string name="PostMeeting_responses_default_def__ux40_odata_context_def" />
+      <string name="PostMeeting_responses_default_def__ux40_odata_etag_def" />
+      <string name="PostMeeting_responses_default_def_id_def" />
+      <string name="PostMeeting_responses_default_def_createdDateTime_def" />
+      <string name="PostMeeting_responses_default_def_lastModifiedDateTime_def" />
+      <string name="PostMeeting_responses_default_def_changeKey_def" />
+      <string name="PostMeeting_responses_default_def_transactionId_def" />
+      <string name="PostMeeting_responses_default_def_originalStartTimeZone_def" />
+      <string name="PostMeeting_responses_default_def_originalEndTimeZone_def" />
+      <string name="PostMeeting_responses_default_def_iCalUId_def" />
+      <integer name="PostMeeting_responses_default_def_reminderMinutesBeforeStart_def" />
+      <boolean name="PostMeeting_responses_default_def_isReminderOn_def" />
+      <boolean name="PostMeeting_responses_default_def_hasAttachments_def" />
+      <string name="PostMeeting_responses_default_def_subject_def" />
+      <string name="PostMeeting_responses_default_def_bodyPreview_def" />
+      <string name="PostMeeting_responses_default_def_importance_def" />
+      <string name="PostMeeting_responses_default_def_sensitivity_def" />
+      <boolean name="PostMeeting_responses_default_def_isAllDay_def" />
+      <boolean name="PostMeeting_responses_default_def_isCancelled_def" />
+      <boolean name="PostMeeting_responses_default_def_isOrganizer_def" />
+      <boolean name="PostMeeting_responses_default_def_responseRequested_def" />
+      <string name="PostMeeting_responses_default_def_seriesMasterId_def" />
+      <string name="PostMeeting_responses_default_def_showAs_def" />
+      <string name="PostMeeting_responses_default_def_type_def" />
+      <string name="PostMeeting_responses_default_def_webLink_def" />
+      <string name="PostMeeting_responses_default_def_onlineMeetingUrl_def" />
+      <boolean name="PostMeeting_responses_default_def_isOnlineMeeting_def" />
+      <string name="PostMeeting_responses_default_def_onlineMeetingProvider_def" />
+      <boolean name="PostMeeting_responses_default_def_allowNewTimeProposals_def" />
+      <boolean name="PostMeeting_responses_default_def_isDraft_def" />
+      <boolean name="PostMeeting_responses_default_def_hideAttendees_def" />
+      <string name="PostMeeting_responses_default_def_recurrence_def" />
+      <string name="PostMeeting_responses_default_def_onlineMeeting_def" />
+      <string name="PostMeeting_responses_default_def_responseStatus_def_response_def" />
+      <string name="PostMeeting_responses_default_def_responseStatus_def_time_def" />
+      <object name="PostMeeting_responses_default_def_responseStatus_def">
+        <property name="response" type="string" />
+        <property name="time" type="string" />
+      </object>
+      <string name="PostMeeting_responses_default_def_body_def_contentType_def" />
+      <string name="PostMeeting_responses_default_def_body_def_content_def" />
+      <object name="PostMeeting_responses_default_def_body_def">
+        <property name="contentType" type="string" />
+        <property name="content" type="string" />
+      </object>
+      <string name="PostMeeting_responses_default_def_start_def_dateTime_def" />
+      <string name="PostMeeting_responses_default_def_start_def_timeZone_def" />
+      <object name="PostMeeting_responses_default_def_start_def">
+        <property name="dateTime" type="string" />
+        <property name="timeZone" type="string" />
+      </object>
+      <string name="PostMeeting_responses_default_def_end_def_dateTime_def" />
+      <string name="PostMeeting_responses_default_def_end_def_timeZone_def" />
+      <object name="PostMeeting_responses_default_def_end_def">
+        <property name="dateTime" type="string" />
+        <property name="timeZone" type="string" />
+      </object>
+      <string name="PostMeeting_responses_default_def_location_def_displayName_def" />
+      <string name="PostMeeting_responses_default_def_location_def_locationType_def" />
+      <string name="PostMeeting_responses_default_def_location_def_uniqueId_def" />
+      <string name="PostMeeting_responses_default_def_location_def_uniqueIdType_def" />
+      <object name="PostMeeting_responses_default_def_location_def">
+        <property name="displayName" type="string" />
+        <property name="locationType" type="string" />
+        <property name="uniqueId" type="string" />
+        <property name="uniqueIdType" type="string" />
+      </object>
+      <string name="PostMeeting_responses_default_def_locations_def_items_def_displayName_def" />
+      <string name="PostMeeting_responses_default_def_locations_def_items_def_locationType_def" />
+      <string name="PostMeeting_responses_default_def_locations_def_items_def_uniqueId_def" />
+      <string name="PostMeeting_responses_default_def_locations_def_items_def_uniqueIdType_def" />
+      <object name="PostMeeting_responses_default_def_locations_def_items_def">
+        <property name="displayName" type="string" />
+        <property name="locationType" type="string" />
+        <property name="uniqueId" type="string" />
+        <property name="uniqueIdType" type="string" />
+      </object>
+      <array typeRef="PostMeeting_responses_default_def_locations_def_items_def" name="PostMeeting_responses_default_def_locations_def" />
+      <string name="PostMeeting_responses_default_def_attendees_def_items_def_type_def" />
+      <string name="PostMeeting_responses_default_def_attendees_def_items_def_status_def_response_def" />
+      <string name="PostMeeting_responses_default_def_attendees_def_items_def_status_def_time_def" />
+      <object name="PostMeeting_responses_default_def_attendees_def_items_def_status_def">
+        <property name="response" type="string" />
+        <property name="time" type="string" />
+      </object>
+      <string name="PostMeeting_responses_default_def_attendees_def_items_def_emailAddress_def_name_def" />
+      <string name="PostMeeting_responses_default_def_attendees_def_items_def_emailAddress_def_address_def" />
+      <object name="PostMeeting_responses_default_def_attendees_def_items_def_emailAddress_def">
+        <property name="name" type="string" />
+        <property name="address" type="string" />
+      </object>
+      <object name="PostMeeting_responses_default_def_attendees_def_items_def">
+        <property name="type" type="string" />
+        <property name="status" typeRef="PostMeeting_responses_default_def_attendees_def_items_def_status_def" />
+        <property name="emailAddress" typeRef="PostMeeting_responses_default_def_attendees_def_items_def_emailAddress_def" />
+      </object>
+      <array typeRef="PostMeeting_responses_default_def_attendees_def_items_def" name="PostMeeting_responses_default_def_attendees_def" />
+      <string name="PostMeeting_responses_default_def_organizer_def_emailAddress_def_name_def" />
+      <string name="PostMeeting_responses_default_def_organizer_def_emailAddress_def_address_def" />
+      <object name="PostMeeting_responses_default_def_organizer_def_emailAddress_def">
+        <property name="name" type="string" />
+        <property name="address" type="string" />
+      </object>
+      <object name="PostMeeting_responses_default_def_organizer_def">
+        <property name="emailAddress" typeRef="PostMeeting_responses_default_def_organizer_def_emailAddress_def" />
+      </object>
+      <object name="PostMeeting_responses_default_def">
+        <property name="@odata.context" type="string" />
+        <property name="@odata.etag" type="string" />
+        <property name="id" type="string" />
+        <property name="createdDateTime" type="string" />
+        <property name="lastModifiedDateTime" type="string" />
+        <property name="changeKey" type="string" />
+        <property name="transactionId" type="string" />
+        <property name="originalStartTimeZone" type="string" />
+        <property name="originalEndTimeZone" type="string" />
+        <property name="iCalUId" type="string" />
+        <property name="reminderMinutesBeforeStart" type="integer" />
+        <property name="isReminderOn" type="boolean" />
+        <property name="hasAttachments" type="boolean" />
+        <property name="subject" type="string" />
+        <property name="bodyPreview" type="string" />
+        <property name="importance" type="string" />
+        <property name="sensitivity" type="string" />
+        <property name="isAllDay" type="boolean" />
+        <property name="isCancelled" type="boolean" />
+        <property name="isOrganizer" type="boolean" />
+        <property name="responseRequested" type="boolean" />
+        <property name="seriesMasterId" type="string" />
+        <property name="showAs" type="string" />
+        <property name="type" type="string" />
+        <property name="webLink" type="string" />
+        <property name="onlineMeetingUrl" type="string" />
+        <property name="isOnlineMeeting" type="boolean" />
+        <property name="onlineMeetingProvider" type="string" />
+        <property name="allowNewTimeProposals" type="boolean" />
+        <property name="isDraft" type="boolean" />
+        <property name="hideAttendees" type="boolean" />
+        <property name="recurrence" type="string" />
+        <property name="onlineMeeting" type="string" />
+        <property name="responseStatus" typeRef="PostMeeting_responses_default_def_responseStatus_def" />
+        <property name="body" typeRef="PostMeeting_responses_default_def_body_def" />
+        <property name="start" typeRef="PostMeeting_responses_default_def_start_def" />
+        <property name="end" typeRef="PostMeeting_responses_default_def_end_def" />
+        <property name="location" typeRef="PostMeeting_responses_default_def_location_def" />
+        <property name="locations" typeRef="PostMeeting_responses_default_def_locations_def" />
+        <property name="attendees" typeRef="PostMeeting_responses_default_def_attendees_def" />
+        <property name="organizer" typeRef="PostMeeting_responses_default_def_organizer_def" />
+      </object>
+      <string name="UpdateTask_param_body_def_status_def" />
+      <object name="UpdateTask_param_body_def">
+        <property name="status" type="string" />
+      </object>
+      <string name="CreateChat_param_body_def_chatType_def" />
+      <string name="CreateChat_param_body_def_members_def_items_def__ux40_odata_type_def" />
+      <string name="CreateChat_param_body_def_members_def_items_def_roles_def_items_def" />
+      <array type="string" name="CreateChat_param_body_def_members_def_items_def_roles_def" />
+      <string name="CreateChat_param_body_def_members_def_items_def_user_ux40_odata_bind_def" />
+      <object name="CreateChat_param_body_def_members_def_items_def">
+        <property name="@odata.type" type="string" />
+        <property name="roles" typeRef="CreateChat_param_body_def_members_def_items_def_roles_def" />
+        <property name="user@odata.bind" type="string" />
+      </object>
+      <array typeRef="CreateChat_param_body_def_members_def_items_def" name="CreateChat_param_body_def_members_def" />
+      <object name="CreateChat_param_body_def">
+        <property name="chatType" type="string" />
+        <property name="members" typeRef="CreateChat_param_body_def_members_def" />
+      </object>
+      <string name="CreateChat_responses_default_def__ux40_odata_context_def" />
+      <string name="CreateChat_responses_default_def_id_def" />
+      <string name="CreateChat_responses_default_def_topic_def" />
+      <string name="CreateChat_responses_default_def_createdDateTime_def" />
+      <string name="CreateChat_responses_default_def_lastUpdatedDateTime_def" />
+      <string name="CreateChat_responses_default_def_chatType_def" />
+      <string name="CreateChat_responses_default_def_webUrl_def" />
+      <string name="CreateChat_responses_default_def_tenantId_def" />
+      <string name="CreateChat_responses_default_def_viewpoint_def" />
+      <string name="CreateChat_responses_default_def_onlineMeetingInfo_def" />
+      <object name="CreateChat_responses_default_def">
+        <property name="@odata.context" type="string" />
+        <property name="id" type="string" />
+        <property name="topic" type="string" />
+        <property name="createdDateTime" type="string" />
+        <property name="lastUpdatedDateTime" type="string" />
+        <property name="chatType" type="string" />
+        <property name="webUrl" type="string" />
+        <property name="tenantId" type="string" />
+        <property name="viewpoint" type="string" />
+        <property name="onlineMeetingInfo" type="string" />
+      </object>
+      <string name="SendChat_param_body_def_body_def_content_def" />
+      <object name="SendChat_param_body_def_body_def">
+        <property name="content" type="string" />
+      </object>
+      <object name="SendChat_param_body_def">
+        <property name="body" typeRef="SendChat_param_body_def_body_def" />
+      </object>
+      <string name="SendChat_responses_default_def__ux40_odata_context_def" />
+      <string name="SendChat_responses_default_def_id_def" />
+      <string name="SendChat_responses_default_def_replyToId_def" />
+      <string name="SendChat_responses_default_def_etag_def" />
+      <string name="SendChat_responses_default_def_messageType_def" />
+      <string name="SendChat_responses_default_def_createdDateTime_def" />
+      <string name="SendChat_responses_default_def_lastModifiedDateTime_def" />
+      <string name="SendChat_responses_default_def_lastEditedDateTime_def" />
+      <string name="SendChat_responses_default_def_deletedDateTime_def" />
+      <string name="SendChat_responses_default_def_subject_def" />
+      <string name="SendChat_responses_default_def_summary_def" />
+      <string name="SendChat_responses_default_def_chatId_def" />
+      <string name="SendChat_responses_default_def_importance_def" />
+      <string name="SendChat_responses_default_def_locale_def" />
+      <string name="SendChat_responses_default_def_webUrl_def" />
+      <string name="SendChat_responses_default_def_channelIdentity_def" />
+      <string name="SendChat_responses_default_def_policyViolation_def" />
+      <string name="SendChat_responses_default_def_eventDetail_def" />
+      <string name="SendChat_responses_default_def_from_def_application_def" />
+      <string name="SendChat_responses_default_def_from_def_device_def" />
+      <string name="SendChat_responses_default_def_from_def_user_def_id_def" />
+      <string name="SendChat_responses_default_def_from_def_user_def_displayName_def" />
+      <string name="SendChat_responses_default_def_from_def_user_def_userIdentityType_def" />
+      <object name="SendChat_responses_default_def_from_def_user_def">
+        <property name="id" type="string" />
+        <property name="displayName" type="string" />
+        <property name="userIdentityType" type="string" />
+      </object>
+      <object name="SendChat_responses_default_def_from_def">
+        <property name="application" type="string" />
+        <property name="device" type="string" />
+        <property name="user" typeRef="SendChat_responses_default_def_from_def_user_def" />
+      </object>
+      <string name="SendChat_responses_default_def_body_def_contentType_def" />
+      <string name="SendChat_responses_default_def_body_def_content_def" />
+      <object name="SendChat_responses_default_def_body_def">
+        <property name="contentType" type="string" />
+        <property name="content" type="string" />
+      </object>
+      <object name="SendChat_responses_default_def">
+        <property name="@odata.context" type="string" />
+        <property name="id" type="string" />
+        <property name="replyToId" type="string" />
+        <property name="etag" type="string" />
+        <property name="messageType" type="string" />
+        <property name="createdDateTime" type="string" />
+        <property name="lastModifiedDateTime" type="string" />
+        <property name="lastEditedDateTime" type="string" />
+        <property name="deletedDateTime" type="string" />
+        <property name="subject" type="string" />
+        <property name="summary" type="string" />
+        <property name="chatId" type="string" />
+        <property name="importance" type="string" />
+        <property name="locale" type="string" />
+        <property name="webUrl" type="string" />
+        <property name="channelIdentity" type="string" />
+        <property name="policyViolation" type="string" />
+        <property name="eventDetail" type="string" />
+        <property name="from" typeRef="SendChat_responses_default_def_from_def" />
+        <property name="body" typeRef="SendChat_responses_default_def_body_def" />
+      </object>
+      <string name="GetMyPeople_responses_default_def__ux40_odata_context_def" />
+      <string name="GetMyPeople_responses_default_def_value_def_items_def_id_def" />
+      <string name="GetMyPeople_responses_default_def_value_def_items_def_displayName_def" />
+      <string name="GetMyPeople_responses_default_def_value_def_items_def_givenName_def" />
+      <string name="GetMyPeople_responses_default_def_value_def_items_def_surname_def" />
+      <string name="GetMyPeople_responses_default_def_value_def_items_def_birthday_def" />
+      <string name="GetMyPeople_responses_default_def_value_def_items_def_personNotes_def" />
+      <boolean name="GetMyPeople_responses_default_def_value_def_items_def_isFavorite_def" />
+      <string name="GetMyPeople_responses_default_def_value_def_items_def_jobTitle_def" />
+      <string name="GetMyPeople_responses_default_def_value_def_items_def_companyName_def" />
+      <string name="GetMyPeople_responses_default_def_value_def_items_def_yomiCompany_def" />
+      <string name="GetMyPeople_responses_default_def_value_def_items_def_department_def" />
+      <string name="GetMyPeople_responses_default_def_value_def_items_def_officeLocation_def" />
+      <string name="GetMyPeople_responses_default_def_value_def_items_def_profession_def" />
+      <string name="GetMyPeople_responses_default_def_value_def_items_def_userPrincipalName_def" />
+      <string name="GetMyPeople_responses_default_def_value_def_items_def_imAddress_def" />
+      <string name="GetMyPeople_responses_default_def_value_def_items_def_scoredEmailAddresses_def_items_def_address_def" />
+      <integer name="GetMyPeople_responses_default_def_value_def_items_def_scoredEmailAddresses_def_items_def_relevanceScore_def" />
+      <string name="GetMyPeople_responses_default_def_value_def_items_def_scoredEmailAddresses_def_items_def_selectionLikelihood_def" />
+      <object name="GetMyPeople_responses_default_def_value_def_items_def_scoredEmailAddresses_def_items_def">
+        <property name="address" type="string" />
+        <property name="relevanceScore" type="integer" />
+        <property name="selectionLikelihood" type="string" />
+      </object>
+      <array typeRef="GetMyPeople_responses_default_def_value_def_items_def_scoredEmailAddresses_def_items_def" name="GetMyPeople_responses_default_def_value_def_items_def_scoredEmailAddresses_def" />
+      <string name="GetMyPeople_responses_default_def_value_def_items_def_phones_def_items_def_type_def" />
+      <string name="GetMyPeople_responses_default_def_value_def_items_def_phones_def_items_def_number_def" />
+      <object name="GetMyPeople_responses_default_def_value_def_items_def_phones_def_items_def">
+        <property name="type" type="string" />
+        <property name="number" type="string" />
+      </object>
+      <array typeRef="GetMyPeople_responses_default_def_value_def_items_def_phones_def_items_def" name="GetMyPeople_responses_default_def_value_def_items_def_phones_def" />
+      <string name="GetMyPeople_responses_default_def_value_def_items_def_personType_def_class_def" />
+      <string name="GetMyPeople_responses_default_def_value_def_items_def_personType_def_subclass_def" />
+      <object name="GetMyPeople_responses_default_def_value_def_items_def_personType_def">
+        <property name="class" type="string" />
+        <property name="subclass" type="string" />
+      </object>
+      <object name="GetMyPeople_responses_default_def_value_def_items_def">
+        <property name="id" type="string" />
+        <property name="displayName" type="string" />
+        <property name="givenName" type="string" />
+        <property name="surname" type="string" />
+        <property name="birthday" type="string" />
+        <property name="personNotes" type="string" />
+        <property name="isFavorite" type="boolean" />
+        <property name="jobTitle" type="string" />
+        <property name="companyName" type="string" />
+        <property name="yomiCompany" type="string" />
+        <property name="department" type="string" />
+        <property name="officeLocation" type="string" />
+        <property name="profession" type="string" />
+        <property name="userPrincipalName" type="string" />
+        <property name="imAddress" type="string" />
+        <property name="scoredEmailAddresses" typeRef="GetMyPeople_responses_default_def_value_def_items_def_scoredEmailAddresses_def" />
+        <property name="phones" typeRef="GetMyPeople_responses_default_def_value_def_items_def_phones_def" />
+        <property name="personType" typeRef="GetMyPeople_responses_default_def_value_def_items_def_personType_def" />
+      </object>
+      <array typeRef="GetMyPeople_responses_default_def_value_def_items_def" name="GetMyPeople_responses_default_def_value_def" />
+      <object name="GetMyPeople_responses_default_def">
+        <property name="@odata.context" type="string" />
+        <property name="value" typeRef="GetMyPeople_responses_default_def_value_def" />
+      </object>
+      <string name="GetTrending_responses_default_def__ux40_odata_context_def" />
+      <string name="GetTrending_responses_default_def_value_def_items_def_id_def" />
+      <integer name="GetTrending_responses_default_def_value_def_items_def_weight_def" />
+      <string name="GetTrending_responses_default_def_value_def_items_def_resourceReference_def_id_def" />
+      <string name="GetTrending_responses_default_def_value_def_items_def_resourceReference_def_type_def" />
+      <string name="GetTrending_responses_default_def_value_def_items_def_resourceReference_def_webUrl_def" />
+      <object name="GetTrending_responses_default_def_value_def_items_def_resourceReference_def">
+        <property name="id" type="string" />
+        <property name="type" type="string" />
+        <property name="webUrl" type="string" />
+      </object>
+      <string name="GetTrending_responses_default_def_value_def_items_def_resourceVisualization_def_containerDisplayName_def" />
+      <string name="GetTrending_responses_default_def_value_def_items_def_resourceVisualization_def_containerType_def" />
+      <string name="GetTrending_responses_default_def_value_def_items_def_resourceVisualization_def_containerWebUrl_def" />
+      <string name="GetTrending_responses_default_def_value_def_items_def_resourceVisualization_def_mediaType_def" />
+      <string name="GetTrending_responses_default_def_value_def_items_def_resourceVisualization_def_previewImageUrl_def" />
+      <string name="GetTrending_responses_default_def_value_def_items_def_resourceVisualization_def_previewText_def" />
+      <string name="GetTrending_responses_default_def_value_def_items_def_resourceVisualization_def_title_def" />
+      <string name="GetTrending_responses_default_def_value_def_items_def_resourceVisualization_def_type_def" />
+      <object name="GetTrending_responses_default_def_value_def_items_def_resourceVisualization_def">
+        <property name="containerDisplayName" type="string" />
+        <property name="containerType" type="string" />
+        <property name="containerWebUrl" type="string" />
+        <property name="mediaType" type="string" />
+        <property name="previewImageUrl" type="string" />
+        <property name="previewText" type="string" />
+        <property name="title" type="string" />
+        <property name="type" type="string" />
+      </object>
+      <object name="GetTrending_responses_default_def_value_def_items_def">
+        <property name="id" type="string" />
+        <property name="weight" type="integer" />
+        <property name="resourceReference" typeRef="GetTrending_responses_default_def_value_def_items_def_resourceReference_def" />
+        <property name="resourceVisualization" typeRef="GetTrending_responses_default_def_value_def_items_def_resourceVisualization_def" />
+      </object>
+      <array typeRef="GetTrending_responses_default_def_value_def_items_def" name="GetTrending_responses_default_def_value_def" />
+      <object name="GetTrending_responses_default_def">
+        <property name="@odata.context" type="string" />
+        <property name="value" typeRef="GetTrending_responses_default_def_value_def" />
+      </object>
+      <string name="GetPreview_responses_default_def__ux40_odata_context_def" />
+      <string name="GetPreview_responses_default_def_getUrl_def" />
+      <string name="GetPreview_responses_default_def_postParameters_def" />
+      <string name="GetPreview_responses_default_def_postUrl_def" />
+      <object name="GetPreview_responses_default_def">
+        <property name="@odata.context" type="string" />
+        <property name="getUrl" type="string" />
+        <property name="postParameters" type="string" />
+        <property name="postUrl" type="string" />
+      </object>
+      <integer name="GetThumbnails_responses_default_def_width_def" />
+      <integer name="GetThumbnails_responses_default_def_height_def" />
+      <string name="GetThumbnails_responses_default_def_url_def" />
+      <object name="GetThumbnails_responses_default_def">
+        <property name="width" type="integer" />
+        <property name="height" type="integer" />
+        <property name="url" type="string" />
+      </object>
+      <string name="GetPlannerTasks_responses_default_def__ux40_odata_context_def" />
+      <integer name="GetPlannerTasks_responses_default_def__ux40_odata_count_def" />
+      <string name="GetPlannerTasks_responses_default_def_value_def_items_def__ux40_odata_etag_def" />
+      <string name="GetPlannerTasks_responses_default_def_value_def_items_def_planId_def" />
+      <string name="GetPlannerTasks_responses_default_def_value_def_items_def_bucketId_def" />
+      <string name="GetPlannerTasks_responses_default_def_value_def_items_def_title_def" />
+      <string name="GetPlannerTasks_responses_default_def_value_def_items_def_orderHint_def" />
+      <string name="GetPlannerTasks_responses_default_def_value_def_items_def_assigneePriority_def" />
+      <integer name="GetPlannerTasks_responses_default_def_value_def_items_def_percentComplete_def" />
+      <string name="GetPlannerTasks_responses_default_def_value_def_items_def_startDateTime_def" />
+      <string name="GetPlannerTasks_responses_default_def_value_def_items_def_createdDateTime_def" />
+      <string name="GetPlannerTasks_responses_default_def_value_def_items_def_dueDateTime_def" />
+      <boolean name="GetPlannerTasks_responses_default_def_value_def_items_def_hasDescription_def" />
+      <string name="GetPlannerTasks_responses_default_def_value_def_items_def_previewType_def" />
+      <string name="GetPlannerTasks_responses_default_def_value_def_items_def_completedDateTime_def" />
+      <string name="GetPlannerTasks_responses_default_def_value_def_items_def_completedBy_def" />
+      <integer name="GetPlannerTasks_responses_default_def_value_def_items_def_referenceCount_def" />
+      <integer name="GetPlannerTasks_responses_default_def_value_def_items_def_checklistItemCount_def" />
+      <integer name="GetPlannerTasks_responses_default_def_value_def_items_def_activeChecklistItemCount_def" />
+      <string name="GetPlannerTasks_responses_default_def_value_def_items_def_conversationThreadId_def" />
+      <integer name="GetPlannerTasks_responses_default_def_value_def_items_def_priority_def" />
+      <string name="GetPlannerTasks_responses_default_def_value_def_items_def_id_def" />
+      <string name="GetPlannerTasks_responses_default_def_value_def_items_def_createdBy_def_user_def_displayName_def" />
+      <string name="GetPlannerTasks_responses_default_def_value_def_items_def_createdBy_def_user_def_id_def" />
+      <object name="GetPlannerTasks_responses_default_def_value_def_items_def_createdBy_def_user_def">
+        <property name="displayName" type="string" />
+        <property name="id" type="string" />
+      </object>
+      <string name="GetPlannerTasks_responses_default_def_value_def_items_def_createdBy_def_application_def_displayName_def" />
+      <string name="GetPlannerTasks_responses_default_def_value_def_items_def_createdBy_def_application_def_id_def" />
+      <object name="GetPlannerTasks_responses_default_def_value_def_items_def_createdBy_def_application_def">
+        <property name="displayName" type="string" />
+        <property name="id" type="string" />
+      </object>
+      <object name="GetPlannerTasks_responses_default_def_value_def_items_def_createdBy_def">
+        <property name="user" typeRef="GetPlannerTasks_responses_default_def_value_def_items_def_createdBy_def_user_def" />
+        <property name="application" typeRef="GetPlannerTasks_responses_default_def_value_def_items_def_createdBy_def_application_def" />
+      </object>
+      <object name="GetPlannerTasks_responses_default_def_value_def_items_def_appliedCategories_def" />
+      <string name="GetPlannerTasks_responses_default_def_value_def_items_def_assignments_def_2607b77e-22c4-4081-b278-a9516da4accd_def__ux40_odata_type_def" />
+      <string name="GetPlannerTasks_responses_default_def_value_def_items_def_assignments_def_2607b77e-22c4-4081-b278-a9516da4accd_def_assignedDateTime_def" />
+      <string name="GetPlannerTasks_responses_default_def_value_def_items_def_assignments_def_2607b77e-22c4-4081-b278-a9516da4accd_def_orderHint_def" />
+      <string name="GetPlannerTasks_responses_default_def_value_def_items_def_assignments_def_2607b77e-22c4-4081-b278-a9516da4accd_def_assignedBy_def_user_def_displayName_def" />
+      <string name="GetPlannerTasks_responses_default_def_value_def_items_def_assignments_def_2607b77e-22c4-4081-b278-a9516da4accd_def_assignedBy_def_user_def_id_def" />
+      <object name="GetPlannerTasks_responses_default_def_value_def_items_def_assignments_def_2607b77e-22c4-4081-b278-a9516da4accd_def_assignedBy_def_user_def">
+        <property name="displayName" type="string" />
+        <property name="id" type="string" />
+      </object>
+      <object name="GetPlannerTasks_responses_default_def_value_def_items_def_assignments_def_2607b77e-22c4-4081-b278-a9516da4accd_def_assignedBy_def">
+        <property name="user" typeRef="GetPlannerTasks_responses_default_def_value_def_items_def_assignments_def_2607b77e-22c4-4081-b278-a9516da4accd_def_assignedBy_def_user_def" />
+      </object>
+      <object name="GetPlannerTasks_responses_default_def_value_def_items_def_assignments_def_2607b77e-22c4-4081-b278-a9516da4accd_def">
+        <property name="@odata.type" type="string" />
+        <property name="assignedDateTime" type="string" />
+        <property name="orderHint" type="string" />
+        <property name="assignedBy" typeRef="GetPlannerTasks_responses_default_def_value_def_items_def_assignments_def_2607b77e-22c4-4081-b278-a9516da4accd_def_assignedBy_def" />
+      </object>
+      <object name="GetPlannerTasks_responses_default_def_value_def_items_def_assignments_def">
+        <property name="2607b77e-22c4-4081-b278-a9516da4accd" typeRef="GetPlannerTasks_responses_default_def_value_def_items_def_assignments_def_2607b77e-22c4-4081-b278-a9516da4accd_def" />
+      </object>
+      <object name="GetPlannerTasks_responses_default_def_value_def_items_def">
+        <property name="@odata.etag" type="string" />
+        <property name="planId" type="string" />
+        <property name="bucketId" type="string" />
+        <property name="title" type="string" />
+        <property name="orderHint" type="string" />
+        <property name="assigneePriority" type="string" />
+        <property name="percentComplete" type="integer" />
+        <property name="startDateTime" type="string" />
+        <property name="createdDateTime" type="string" />
+        <property name="dueDateTime" type="string" />
+        <property name="hasDescription" type="boolean" />
+        <property name="previewType" type="string" />
+        <property name="completedDateTime" type="string" />
+        <property name="completedBy" type="string" />
+        <property name="referenceCount" type="integer" />
+        <property name="checklistItemCount" type="integer" />
+        <property name="activeChecklistItemCount" type="integer" />
+        <property name="conversationThreadId" type="string" />
+        <property name="priority" type="integer" />
+        <property name="id" type="string" />
+        <property name="createdBy" typeRef="GetPlannerTasks_responses_default_def_value_def_items_def_createdBy_def" />
+        <property name="appliedCategories" typeRef="GetPlannerTasks_responses_default_def_value_def_items_def_appliedCategories_def" />
+        <property name="assignments" typeRef="GetPlannerTasks_responses_default_def_value_def_items_def_assignments_def" />
+      </object>
+      <array typeRef="GetPlannerTasks_responses_default_def_value_def_items_def" name="GetPlannerTasks_responses_default_def_value_def" />
+      <object name="GetPlannerTasks_responses_default_def">
+        <property name="@odata.context" type="string" />
+        <property name="@odata.count" type="integer" />
+        <property name="value" typeRef="GetPlannerTasks_responses_default_def_value_def" />
+      </object>
+      <string name="GetDrive_responses_default_def__ux40_odata_context_def" />
+      <string name="GetDrive_responses_default_def_createdDateTime_def" />
+      <string name="GetDrive_responses_default_def_description_def" />
+      <string name="GetDrive_responses_default_def_id_def" />
+      <string name="GetDrive_responses_default_def_lastModifiedDateTime_def" />
+      <string name="GetDrive_responses_default_def_name_def" />
+      <string name="GetDrive_responses_default_def_webUrl_def" />
+      <string name="GetDrive_responses_default_def_driveType_def" />
+      <string name="GetDrive_responses_default_def_createdBy_def_user_def_displayName_def" />
+      <object name="GetDrive_responses_default_def_createdBy_def_user_def">
+        <property name="displayName" type="string" />
+      </object>
+      <object name="GetDrive_responses_default_def_createdBy_def">
+        <property name="user" typeRef="GetDrive_responses_default_def_createdBy_def_user_def" />
+      </object>
+      <string name="GetDrive_responses_default_def_lastModifiedBy_def_user_def_email_def" />
+      <string name="GetDrive_responses_default_def_lastModifiedBy_def_user_def_id_def" />
+      <string name="GetDrive_responses_default_def_lastModifiedBy_def_user_def_displayName_def" />
+      <object name="GetDrive_responses_default_def_lastModifiedBy_def_user_def">
+        <property name="email" type="string" />
+        <property name="id" type="string" />
+        <property name="displayName" type="string" />
+      </object>
+      <object name="GetDrive_responses_default_def_lastModifiedBy_def">
+        <property name="user" typeRef="GetDrive_responses_default_def_lastModifiedBy_def_user_def" />
+      </object>
+      <string name="GetDrive_responses_default_def_owner_def_user_def_email_def" />
+      <string name="GetDrive_responses_default_def_owner_def_user_def_id_def" />
+      <string name="GetDrive_responses_default_def_owner_def_user_def_displayName_def" />
+      <object name="GetDrive_responses_default_def_owner_def_user_def">
+        <property name="email" type="string" />
+        <property name="id" type="string" />
+        <property name="displayName" type="string" />
+      </object>
+      <object name="GetDrive_responses_default_def_owner_def">
+        <property name="user" typeRef="GetDrive_responses_default_def_owner_def_user_def" />
+      </object>
+      <integer name="GetDrive_responses_default_def_quota_def_deleted_def" />
+      <integer name="GetDrive_responses_default_def_quota_def_remaining_def" />
+      <string name="GetDrive_responses_default_def_quota_def_state_def" />
+      <integer name="GetDrive_responses_default_def_quota_def_total_def" />
+      <integer name="GetDrive_responses_default_def_quota_def_used_def" />
+      <object name="GetDrive_responses_default_def_quota_def">
+        <property name="deleted" type="integer" />
+        <property name="remaining" type="integer" />
+        <property name="state" type="string" />
+        <property name="total" type="integer" />
+        <property name="used" type="integer" />
+      </object>
+      <object name="GetDrive_responses_default_def">
+        <property name="@odata.context" type="string" />
+        <property name="createdDateTime" type="string" />
+        <property name="description" type="string" />
+        <property name="id" type="string" />
+        <property name="lastModifiedDateTime" type="string" />
+        <property name="name" type="string" />
+        <property name="webUrl" type="string" />
+        <property name="driveType" type="string" />
+        <property name="createdBy" typeRef="GetDrive_responses_default_def_createdBy_def" />
+        <property name="lastModifiedBy" typeRef="GetDrive_responses_default_def_lastModifiedBy_def" />
+        <property name="owner" typeRef="GetDrive_responses_default_def_owner_def" />
+        <property name="quota" typeRef="GetDrive_responses_default_def_quota_def" />
+      </object>
+      <string name="GetSite_responses_default_def__ux40_odata_context_def" />
+      <string name="GetSite_responses_default_def_createdDateTime_def" />
+      <string name="GetSite_responses_default_def_description_def" />
+      <string name="GetSite_responses_default_def_id_def" />
+      <string name="GetSite_responses_default_def_lastModifiedDateTime_def" />
+      <string name="GetSite_responses_default_def_name_def" />
+      <string name="GetSite_responses_default_def_webUrl_def" />
+      <string name="GetSite_responses_default_def_displayName_def" />
+      <object name="GetSite_responses_default_def_root_def" />
+      <string name="GetSite_responses_default_def_siteCollection_def_hostname_def" />
+      <object name="GetSite_responses_default_def_siteCollection_def">
+        <property name="hostname" type="string" />
+      </object>
+      <object name="GetSite_responses_default_def">
+        <property name="@odata.context" type="string" />
+        <property name="createdDateTime" type="string" />
+        <property name="description" type="string" />
+        <property name="id" type="string" />
+        <property name="lastModifiedDateTime" type="string" />
+        <property name="name" type="string" />
+        <property name="webUrl" type="string" />
+        <property name="displayName" type="string" />
+        <property name="root" typeRef="GetSite_responses_default_def_root_def" />
+        <property name="siteCollection" typeRef="GetSite_responses_default_def_siteCollection_def" />
+      </object>
+      <string name="GetMeetingTimes_param_body_def_attendees_def_items_def_type_def" />
+      <string name="GetMeetingTimes_param_body_def_attendees_def_items_def_emailAddress_def_name_def" />
+      <string name="GetMeetingTimes_param_body_def_attendees_def_items_def_emailAddress_def_address_def" />
+      <object name="GetMeetingTimes_param_body_def_attendees_def_items_def_emailAddress_def">
+        <property name="name" type="string" />
+        <property name="address" type="string" />
+      </object>
+      <object name="GetMeetingTimes_param_body_def_attendees_def_items_def">
+        <property name="type" type="string" />
+        <property name="emailAddress" typeRef="GetMeetingTimes_param_body_def_attendees_def_items_def_emailAddress_def" />
+      </object>
+      <array typeRef="GetMeetingTimes_param_body_def_attendees_def_items_def" name="GetMeetingTimes_param_body_def_attendees_def" />
+      <string name="GetMeetingTimes_param_body_def_timeConstraint_def_activityDomain_def" />
+      <string name="GetMeetingTimes_param_body_def_timeConstraint_def_timeSlots_def_items_def_start_def_dateTime_def" />
+      <string name="GetMeetingTimes_param_body_def_timeConstraint_def_timeSlots_def_items_def_start_def_timeZone_def" />
+      <object name="GetMeetingTimes_param_body_def_timeConstraint_def_timeSlots_def_items_def_start_def">
+        <property name="dateTime" type="string" />
+        <property name="timeZone" type="string" />
+      </object>
+      <string name="GetMeetingTimes_param_body_def_timeConstraint_def_timeSlots_def_items_def_end_def_dateTime_def" />
+      <string name="GetMeetingTimes_param_body_def_timeConstraint_def_timeSlots_def_items_def_end_def_timeZone_def" />
+      <object name="GetMeetingTimes_param_body_def_timeConstraint_def_timeSlots_def_items_def_end_def">
+        <property name="dateTime" type="string" />
+        <property name="timeZone" type="string" />
+      </object>
+      <object name="GetMeetingTimes_param_body_def_timeConstraint_def_timeSlots_def_items_def">
+        <property name="start" typeRef="GetMeetingTimes_param_body_def_timeConstraint_def_timeSlots_def_items_def_start_def" />
+        <property name="end" typeRef="GetMeetingTimes_param_body_def_timeConstraint_def_timeSlots_def_items_def_end_def" />
+      </object>
+      <array typeRef="GetMeetingTimes_param_body_def_timeConstraint_def_timeSlots_def_items_def" name="GetMeetingTimes_param_body_def_timeConstraint_def_timeSlots_def" />
+      <object name="GetMeetingTimes_param_body_def_timeConstraint_def">
+        <property name="activityDomain" type="string" />
+        <property name="timeSlots" typeRef="GetMeetingTimes_param_body_def_timeConstraint_def_timeSlots_def" />
+      </object>
+      <string name="GetMeetingTimes_param_body_def_isOrganizerOptional_def" />
+      <string name="GetMeetingTimes_param_body_def_meetingDuration_def" />
+      <string name="GetMeetingTimes_param_body_def_returnSuggestionReasons_def" />
+      <string name="GetMeetingTimes_param_body_def_minimumAttendeePercentage_def" />
+      <object name="GetMeetingTimes_param_body_def">
+        <property name="attendees" typeRef="GetMeetingTimes_param_body_def_attendees_def" />
+        <property name="timeConstraint" typeRef="GetMeetingTimes_param_body_def_timeConstraint_def" />
+        <property name="isOrganizerOptional" type="string" />
+        <property name="meetingDuration" type="string" />
+        <property name="returnSuggestionReasons" type="string" />
+        <property name="minimumAttendeePercentage" type="string" />
+      </object>
+      <string name="GetMeetingTimes_responses_default_def__ux40_odata_context_def" />
+      <string name="GetMeetingTimes_responses_default_def_emptySuggestionsReason_def" />
+      <integer name="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_confidence_def" />
+      <string name="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_organizerAvailability_def" />
+      <string name="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_suggestionReason_def" />
+      <string name="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_attendeeAvailability_def_items_def_availability_def" />
+      <string name="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_attendeeAvailability_def_items_def_attendee_def_emailAddress_def_address_def" />
+      <object name="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_attendeeAvailability_def_items_def_attendee_def_emailAddress_def">
+        <property name="address" type="string" />
+      </object>
+      <object name="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_attendeeAvailability_def_items_def_attendee_def">
+        <property name="emailAddress" typeRef="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_attendeeAvailability_def_items_def_attendee_def_emailAddress_def" />
+      </object>
+      <object name="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_attendeeAvailability_def_items_def">
+        <property name="availability" type="string" />
+        <property name="attendee" typeRef="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_attendeeAvailability_def_items_def_attendee_def" />
+      </object>
+      <array typeRef="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_attendeeAvailability_def_items_def" name="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_attendeeAvailability_def" />
+      <string name="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_locations_def_items_def_displayName_def" />
+      <object name="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_locations_def_items_def">
+        <property name="displayName" type="string" />
+      </object>
+      <array typeRef="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_locations_def_items_def" name="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_locations_def" />
+      <string name="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_meetingTimeSlot_def_start_def_dateTime_def" />
+      <string name="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_meetingTimeSlot_def_start_def_timeZone_def" />
+      <object name="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_meetingTimeSlot_def_start_def">
+        <property name="dateTime" type="string" />
+        <property name="timeZone" type="string" />
+      </object>
+      <string name="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_meetingTimeSlot_def_end_def_dateTime_def" />
+      <string name="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_meetingTimeSlot_def_end_def_timeZone_def" />
+      <object name="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_meetingTimeSlot_def_end_def">
+        <property name="dateTime" type="string" />
+        <property name="timeZone" type="string" />
+      </object>
+      <object name="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_meetingTimeSlot_def">
+        <property name="start" typeRef="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_meetingTimeSlot_def_start_def" />
+        <property name="end" typeRef="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_meetingTimeSlot_def_end_def" />
+      </object>
+      <object name="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def">
+        <property name="confidence" type="integer" />
+        <property name="organizerAvailability" type="string" />
+        <property name="suggestionReason" type="string" />
+        <property name="attendeeAvailability" typeRef="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_attendeeAvailability_def" />
+        <property name="locations" typeRef="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_locations_def" />
+        <property name="meetingTimeSlot" typeRef="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def_meetingTimeSlot_def" />
+      </object>
+      <array typeRef="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def_items_def" name="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def" />
+      <object name="GetMeetingTimes_responses_default_def">
+        <property name="@odata.context" type="string" />
+        <property name="emptySuggestionsReason" type="string" />
+        <property name="meetingTimeSuggestions" typeRef="GetMeetingTimes_responses_default_def_meetingTimeSuggestions_def" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://europe-002.azure-apim.net/apim/productivityhub-2dconnector-5f9c1e2c6248d86aef--e85db4d132c38bfc">
+    <resource path="/{connectionId}/v1.0/me/drive/recent">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetFiles" actionName="GetFiles" siena:isDeprecated="false">
+        <doc title="GetFiles&#xA;GetFiles" />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:GetFiles_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/v1.0/me/todo/lists">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetTaskLists" actionName="GetTaskLists" siena:isDeprecated="false">
+        <doc title="GetTaskLists&#xA;GetTaskLists" />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:GetTaskLists_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/v1.0/me/todo/lists/{todoTaskListId}/tasks">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="todoTaskListId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetTasks" actionName="GetTasks" siena:isDeprecated="false">
+        <doc title="GetTasks&#xA;GetTasks" />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:GetTasks_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/v1.0/me/events">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetAgenda" actionName="GetAgenda" siena:isDeprecated="false">
+        <doc title="GetAgenda&#xA;GetAgenda" />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:GetAgenda_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/v1.0/me/events">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="PostMeeting" actionName="PostMeeting" siena:isDeprecated="false">
+        <doc title="PostMeeting&#xA;PostMeeting" />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="subject" path="/subject" type="xs:string" />
+            <param style="plain" name="body" path="/body" type="service:PostMeeting_param_body_def_body_def" />
+            <param style="plain" name="start" path="/start" type="service:PostMeeting_param_body_def_start_def" />
+            <param style="plain" name="end" path="/end" type="service:PostMeeting_param_body_def_end_def" />
+            <param style="plain" name="location" path="/location" type="service:PostMeeting_param_body_def_location_def" />
+            <param style="plain" name="attendees" path="/attendees" type="service:PostMeeting_param_body_def_attendees_def" />
+            <param style="plain" name="allowNewTimeProposals" path="/allowNewTimeProposals" type="xs:boolean" />
+            <param style="plain" name="isOnlineMeeting" path="/isOnlineMeeting" type="xs:boolean" />
+            <param style="plain" name="onlineMeetingProvider" path="/onlineMeetingProvider" type="xs:string" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:PostMeeting_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/v1.0/me/todo/lists/{todoTaskListId}/tasks/{taskId}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="todoTaskListId" type="xs:string" required="true" />
+      <param style="template" name="taskId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="PATCH" id="UpdateTask" actionName="UpdateTask" siena:isDeprecated="false">
+        <doc title="UpdateTask&#xA;UpdateTask" />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="status" path="/status" type="xs:string" />
+          </representation>
+        </request>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/v1.0/chats">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="CreateChat" actionName="CreateChat" siena:isDeprecated="false">
+        <doc title="CreateChat&#xA;CreateChat" />
+        <request>
+          <param style="header" name="Content-Type" type="xs:string" />
+          <representation mediaType="application/json">
+            <param style="plain" name="chatType" path="/chatType" type="xs:string" />
+            <param style="plain" name="members" path="/members" type="service:CreateChat_param_body_def_members_def" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:CreateChat_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/v1.0/chats/{chatid}/messages">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="chatid" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="SendChat" actionName="SendChat" siena:isDeprecated="false">
+        <doc title="SendChat&#xA;SendChat" />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="body" path="/body" type="service:SendChat_param_body_def_body_def" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:SendChat_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/v1.0/me/people">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetMyPeople" actionName="GetMyPeople" siena:isDeprecated="false">
+        <doc title="GetMyPeople&#xA;GetMyPeople" />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:GetMyPeople_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/beta/me/insights/trending">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetTrending" actionName="GetTrending" siena:isDeprecated="false">
+        <doc title="GetTrending&#xA;GetTrending" />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:GetTrending_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/v1.0/me/drives/{driveId}/items/{driveItem}/preview">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="driveId" type="xs:string" required="true" />
+      <param style="template" name="driveItem" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="GetPreview" actionName="GetPreview" siena:isDeprecated="false">
+        <doc title="GetPreview&#xA;GetPreview" />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:GetPreview_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/v1.0/me/drive/items/{item-id}/thumbnails/0/medium">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="item-id" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetThumbnails" actionName="GetThumbnails" siena:isDeprecated="false">
+        <doc title="GetThumbnails&#xA;GetThumbnails" />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:GetThumbnails_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/v1.0/me/planner/tasks">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetPlannerTasks" actionName="GetPlannerTasks" siena:isDeprecated="false">
+        <doc title="GetPlannerTasks&#xA;GetPlannerTasks" />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:GetPlannerTasks_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/v1.0/me/drive">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetDrive" actionName="GetDrive" siena:isDeprecated="false">
+        <doc title="GetDrive&#xA;GetDrive" />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:GetDrive_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/v1.0/sites/hscluise.sharepoint.com:/sites/{siteName}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="siteName" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetSite" actionName="GetSite" siena:isDeprecated="false">
+        <doc title="GetSite&#xA;GetSite" />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:GetSite_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/v1.0/me/findMeetingTimes">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="GetMeetingTimes" actionName="GetMeetingTimes" siena:isDeprecated="false">
+        <doc title="GetMeetingTimes&#xA;GetMeetingTimes" />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="attendees" path="/attendees" type="service:GetMeetingTimes_param_body_def_attendees_def" />
+            <param style="plain" name="timeConstraint" path="/timeConstraint" type="service:GetMeetingTimes_param_body_def_timeConstraint_def" />
+            <param style="plain" name="isOrganizerOptional" path="/isOrganizerOptional" type="xs:string" />
+            <param style="plain" name="meetingDuration" path="/meetingDuration" type="xs:string" />
+            <param style="plain" name="returnSuggestionReasons" path="/returnSuggestionReasons" type="xs:string" />
+            <param style="plain" name="minimumAttendeePercentage" path="/minimumAttendeePercentage" type="xs:string" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:GetMeetingTimes_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_productivityhub-2dconnector-5f9c1e2c6248d86aef--e85db4d132c38bfc" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>

@@ -1,0 +1,340 @@
+"'cmp_MGT-pp' As CanvasComponent":
+    Fill: =Transparent
+    Height: =460
+    Width: =520
+    X: =0
+    Y: =0
+    ZIndex: =3
+
+    Container1 As groupContainer:
+        Fill: =gblAppStyles.TextInput.Fill
+        Height: =If(isGallery, 460, gal_attendees.Height + txt_input.Height)
+        Width: =Parent.Width
+        ZIndex: =12
+
+        "gal_people As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+            AccessibleLabel: ="list with coworkers"
+            BorderColor: =gblAppStyles.TextInput.BorderColor
+            Fill: =gblAppStyles.TextInput.Fill
+            Height: =CountRows(colPeople)*(Self.TemplateHeight+ Self.TemplatePadding)
+            Items: |-
+                =
+                Sort(Filter(colPeople,StartsWith(displayName, txt_input.Text )),displayName, Ascending)
+            Layout: =Layout.Vertical
+            ShowScrollbar: =false
+            TemplatePadding: =0
+            TemplateSize: =39
+            Visible: =isGallery
+            Width: =txt_input.Width-txt_input.X
+            X: =5
+            Y: |
+                =
+                gal_attendees.Y + gal_attendees.Height
+            ZIndex: =1
+
+            lbl_displayName2 As label:
+                Color: =gblAppStyles.Label.Color
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Normal
+                Height: =Parent.TemplateHeight
+                HoverFill: =gblAppStyles.TextInput.HoverFill
+                OnSelect: |-
+                    =Collect(
+                        colAttendees,
+                        {
+                            type: "required",
+                            emailAddress: {
+                                name: gal_people.Selected.displayName,
+                                address: gal_people.Selected.userPrincipalName
+                            }
+                        }
+                    );Remove(
+                    colPeople, ThisItem); Reset(txt_input)
+                PaddingBottom: =0
+                PaddingLeft: =img_profilePicture2.X + img_profilePicture2.Width+5
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: =ThisItem.displayName
+                Width: =Parent.TemplateWidth
+                Y: =(Parent.TemplateHeight-Self.Height)/2
+                ZIndex: =1
+
+            img_profilePicture2 As image:
+                BorderColor: =gblAppStyles.TextInput.BorderColor
+                Height: =32
+                Image: |-
+                    =If(
+                        !IsBlank(ThisItem.userPrincipalName),
+                        Office365Users.UserPhoto(ThisItem.userPrincipalName),
+                        SampleImage
+                    )
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =1000
+                RadiusBottomRight: =1000
+                RadiusTopLeft: =1000
+                RadiusTopRight: =1000
+                Width: =32
+                X: =10
+                Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                ZIndex: =2
+
+        "gal_attendees As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver4.0'":
+            AccessibleLabel: ="attendees"
+            BorderColor: =gblAppStyles.TextInput.BorderColor
+            Fill: =gblAppStyles.TextInput.Fill
+            Height: |-
+                =//If(isGallery,If(CountRows(colAttendees)<3,txt_input_4.Height,If(CountRows(colAttendees)<5,txt_input_4.Height*2,If(CountRows(colAttendees)<7,txt_input_4.Height*3),120)),40)
+                If(
+                    isGallery,
+                    If(
+                        CountRows(colAttendees) < 4,
+                        txt_input.Height * 1,
+                        If(
+                            CountRows(colAttendees) < 6,
+                            txt_input.Height * 2
+                        ),
+                    txt_input.Height*2
+                    ), 40
+                )
+            Items: |-
+                =
+                If(
+                    isGallery,
+                    FirstN(
+                        colAttendees,
+                        6
+                    ),
+                    FirstN(
+                        colAttendees,
+                        3
+                    )
+                )
+                //colAttendees
+            ShowScrollbar: =false
+            TemplatePadding: =0
+            TemplateSize: =If(Self.Width<900, 155, 180)
+            Width: =txt_input.Width- img_chevronDown.Width-5
+            WrapCount: |-
+                =
+                If(
+                    isGallery,
+                    If(
+                        CountRows(colAttendees) < 4,
+                        1,
+                        2
+                    ),
+                    1
+                )
+            X: =5
+            Y: =txt_input.Y+ txt_input.Height
+            ZIndex: =2
+
+            btn_pill As button:
+                BorderColor: =gblAppStyles.ButtonPrimary.BorderColor
+                Color: =gblAppStyles.ButtonPrimary.Color
+                DisabledColor: =gblAppStyles.ButtonPrimary.DisabledColor
+                DisabledFill: =gblAppStyles.ButtonPrimary.DisabledFill
+                DisplayMode: =DisplayMode.View
+                Fill: =gblAppStyles.TextInput.HoverFill
+                Font: =Font.'Segoe UI'
+                Height: =32  
+                HoverBorderColor: =gblAppStyles.ButtonPrimary.HoverBorderColor
+                HoverColor: =gblAppStyles.ButtonPrimary.HoverColor
+                HoverFill: =gblAppStyles.ButtonPrimary.HoverFill
+                OnSelect: =Select(Parent)
+                PressedBorderColor: =gblAppStyles.ButtonPrimary.PressedBorderColor
+                PressedColor: =gblAppStyles.ButtonPrimary.PressedColor
+                PressedFill: =gblAppStyles.ButtonPrimary.PressedFill
+                RadiusBottomLeft: =1000
+                RadiusBottomRight: =1000
+                RadiusTopLeft: =1000
+                RadiusTopRight: =1000
+                Size: =14
+                Text: =""
+                Visible: =CountRows(colAttendees) >0
+                Width: =If(Parent.Width <900, 150, 170)
+                X: =5
+                Y: =(Parent.TemplateHeight-Self.Height)/2
+                ZIndex: =1
+
+            img_profilePicture As image:
+                BorderColor: =gblAppStyles.TextInput.BorderColor
+                Height: =20
+                Image: |-
+                    =
+                    
+                    If(!IsBlank(ThisItem.emailAddress.address),Office365Users.UserPhotoV2(ThisItem.emailAddress.address),SampleImage)
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =1000
+                RadiusBottomRight: =1000
+                RadiusTopLeft: =1000
+                RadiusTopRight: =1000
+                Visible: =CountRows(colAttendees) >0
+                Width: =20
+                X: =btn_pill.X + 5
+                Y: =btn_pill.Y + (btn_pill.Height - Self.Height)/2
+                ZIndex: =2
+
+            lbl_displayName As label:
+                Color: =gblAppStyles.Label.Color
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Normal
+                Height: =20
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =If(Parent.Width < 900, 10 , 12)
+                Text: =ThisItem.emailAddress.name
+                Visible: =CountRows(colAttendees) >0
+                Width: =btn_pill.Width - img_profilePicture.Width - icn_close.Width-10-7-2.5    
+                X: =img_profilePicture.X + img_profilePicture.Width+2.5
+                Y: =btn_pill.Y + (btn_pill.Height - Self.Height)/2
+                ZIndex: =3
+
+            icn_close As icon.Cancel:
+                AccessibleLabel: ="Remove this attendee"
+                BorderColor: =gblAppStyles.Label.DisabledBorderColor
+                Color: =gblAppStyles.Label.Color
+                DisabledBorderColor: =gblAppStyles.Label.DisabledBorderColor
+                DisabledColor: =gblAppStyles.Label.DisabledBorderColor
+                DisabledFill: =gblAppStyles.Label.DisabledFill
+                Fill: =Transparent
+                Height: =12
+                HoverBorderColor: =gblAppStyles.Background.Fill
+                HoverColor: =gblAppStyles.Label.Color
+                HoverFill: =gblAppStyles.Label.HoverFill
+                Icon: =Icon.Cancel
+                OnSelect: ="remove this attendee"
+                PressedBorderColor: =gblAppStyles.Background.Fill
+                PressedFill: =gblAppStyles.Label.PressedFill
+                Visible: =CountRows(colAttendees) >0
+                Width: =12
+                X: =btn_pill.X + btn_pill.Width-Self.Width-10   
+                Y: =btn_pill.Y + (btn_pill.Height - Self.Height)/2
+                ZIndex: =4
+
+        txt_input As text:
+            AccessibleLabel: ="search for user"
+            BorderColor: =gblAppStyles.TextInput.BorderColor
+            Color: =gblAppStyles.Label.Color
+            Default: =""
+            Fill: =gblAppStyles.TextInput.Fill
+            Font: =Font.'Segoe UI'
+            HintText: ="Start typing a name"
+            HoverBorderColor: =gblAppStyles.TextInput.BorderColor
+            HoverColor: =gblAppStyles.Label.Color
+            HoverFill: |-
+                =//gblAppStyles.TextInput.HoverFill
+                Self.Fill
+            OnChange: =If(IsEmpty(Self.Text), Set(isGallery, false), Set(isGallery, true))
+            OnSelect: =If(IsEmpty(Self.Text), Set(isGallery, false), Set(isGallery, true))
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            Size: =12
+            Width: =Parent.Width
+            ZIndex: =4
+
+        "'icn_delete-attendees' As icon.Cancel":
+            AccessibleLabel: ="remove user"
+            BorderColor: =gblAppStyles.Label.DisabledBorderColor
+            Color: =gblAppStyles.Label.Color
+            DisabledBorderColor: =gblAppStyles.Label.DisabledBorderColor
+            DisabledColor: =gblAppStyles.Label.DisabledBorderColor
+            DisabledFill: =gblAppStyles.Label.DisabledFill
+            Fill: =Transparent
+            Height: =16
+            HoverBorderColor: =gblAppStyles.Background.Fill
+            HoverColor: =gblAppStyles.Label.Color
+            HoverFill: =gblAppStyles.Label.HoverFill
+            Icon: =Icon.Cancel
+            OnSelect: |
+                =Clear(colAttendees);
+                ClearCollect(
+                    colPeople,
+                    Filter(
+                        'ProductivityHub-Connector'.GetMyPeople().value,
+                        personType.subclass = "OrganizationUser"
+                    )
+                );
+            PressedBorderColor: =gblAppStyles.Background.Fill
+            PressedFill: =gblAppStyles.Label.PressedFill
+            Width: =16
+            X: =gal_attendees.X +gal_attendees.Width-20
+            Y: =txt_input.Y+ (txt_input.Height - Self.Height)/2
+            ZIndex: =5
+
+        rec_underline_input_1 As rectangle:
+            BorderColor: =gblAppStyles.TextInput.BorderColor
+            Fill: =gblAppStyles.ButtonPrimary.BorderColor
+            Height: =2
+            Width: =txt_input.Width
+            Y: =txt_input.Y+ txt_input.Height
+            ZIndex: =9
+
+        img_chevronDown As image:
+            AccessibleLabel: ="expand list"
+            BorderColor: =gblAppStyles.TextInput.BorderColor
+            Height: =16
+            Image: |-
+                ="data:image/svg+xml;utf8, "&EncodeUrl(" 
+                <svg width='48' height='48' viewBox='0 0 48 48' fill='"&If(gblThemeHiCo,  "#ffffff", gblThemeDark, "#ffffff","#252423") &"' xmlns='http://www.w3.org/2000/svg'>
+                <path d='M8.36612 16.1161C7.87796 16.6043 7.87796 17.3957 8.36612 17.8839L23.1161 32.6339C23.6043 33.122 24.3957 33.122 24.8839 32.6339L39.6339 17.8839C40.122 17.3957 40.122 16.6043 39.6339 16.1161C39.1457 15.628 38.3543 15.628 37.8661 16.1161L24 29.9822L10.1339 16.1161C9.64573 15.628 8.85427 15.628 8.36612 16.1161Z' />
+                </svg>
+                 ")
+            OnSelect: |
+                =Set(
+                    isGallery,
+                    !isGallery
+                );
+                If(
+                    CountRows(colPeople) = 0,
+                    ClearCollect(
+                        colPeople,
+                        Filter(
+                            'ProductivityHub-Connector'.GetMyPeople().value,
+                            personType.subclass = "OrganizationUser"
+                        )
+                    )
+                );
+            Width: =16
+            X: =gal_attendees.X +gal_attendees.Width-20
+            Y: =gal_attendees.Y + gal_attendees.Height/2 + (gal_attendees.Height/2 - Self.Height)/2
+            ZIndex: =11
+
+        btn_plus As button:
+            BorderColor: =Transparent
+            Color: =gblAppStyles.Label.Color
+            DisabledColor: =gblAppStyles.ButtonPrimary.DisabledColor
+            DisabledFill: =gblAppStyles.ButtonPrimary.DisabledFill
+            Fill: =gblAppStyles.TextInput.HoverFill
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Normal
+            Height: =30
+            HoverBorderColor: =gblAppStyles.ButtonPrimary.HoverBorderColor
+            HoverColor: =Self.Color
+            HoverFill: =gblAppStyles.TextInput.HoverFill
+            OnSelect: =Set(isMoreAttendees, !isMoreAttendees)
+            PressedBorderColor: =gblAppStyles.ButtonPrimary.PressedBorderColor
+            PressedColor: =gblAppStyles.ButtonPrimary.PressedColor
+            PressedFill: =gblAppStyles.ButtonPrimary.PressedFill
+            RadiusBottomLeft: =1000
+            RadiusBottomRight: =1000
+            RadiusTopLeft: =1000
+            RadiusTopRight: =1000
+            Size: =10
+            Text: ="+" &If(isGallery, CountRows(colAttendees)-6, CountRows(colAttendees)-3)
+            Visible: |-
+                =If(
+                    isGallery,
+                    CountRows(colAttendees) > 6,
+                    CountRows(colAttendees) > 3
+                )
+            Width: =40
+            X: =3* gal_attendees.TemplateWidth+10
+            Y: =gal_attendees.Y + (gal_attendees.TemplateHeight-Self.Height)/2
+            ZIndex: =12
+
