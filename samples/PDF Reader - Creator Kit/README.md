@@ -1,18 +1,23 @@
-# Tic Tac Toe
+# PDF Reader - Creator Kit
 
 ## Summary
 
-This is a Tic Tac Toe game built with Power Apps. Is two player game (Player 0 and Player 1), basically the player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner. 
+This is a an App like "PDF Reader" app's sample by Microsoft (you can create it by "Start from template" section when you creating new Power App) but this one using Creator Kit controls.
+If you don't kwow what Creator Kit is, you can start here [Creators Kit - Introduction](https://angelogulisano.com/creator-kit-introduction/)
 
-![Preview](assets/TicTacToeGame.gif)
+![Preview](assets/PDF-Reader-creator-kit)
 
 ## Features
 
 This sample illustrates the following concepts:
 
-* Use gallery
-* Use collections
-* Use Concurrent formula
+* Containers: All control are inside containers.
+* Filter: Formula is used inside "Items" property of Fluent Detail List control.
+* Controls from **Creator Kit**:
+  - Auto Width Label - used to show Title
+  - Fluent Details List - used to show list of PDF files
+  - Fluent SearchBox - used to show texbox to filter PDF Files
+  - Fluent Icon - used to show credits in botton of app and link my blog :-)
 * Use ForAll
 
 ## Applies to
@@ -31,7 +36,7 @@ This sample illustrates the following concepts:
 
 Solution|Author(s)
 --------|---------
-Tic Tac Toe | [Angelo Gulisano](https://github.com/angelogulisano) ([@angelog1908](https://twitter.com/angelog1908))
+PDF Reader - Creator Kit [Angelo Gulisano](https://github.com/angelogulisano) ([@angelog1908](https://twitter.com/angelog1908))
 
 ## Version history
 
@@ -40,18 +45,21 @@ Version|Date|Comments
 1.0|September 05, 2022|Initial release
 
 ## Prerequisites
-None
+
+* **Creator Kit**: Official Microsoft reference [Creator Kit](https://learn.microsoft.com/en-us/power-platform/guidance/creator-kit/overview) 
+* **Introduction to Creator Kit** from my blog [Creators Kit - Introduction](https://angelogulisano.com/creator-kit-introduction/)
+
 ### Using the sample
 
-No configuration is needed to use this sample.  All data is stored locally in the app.  The only connector is the Twitter connector which is used to tweet out your score if you choose to share it.
+No configuration is needed to use this sample.  All data is stored locally in the app.
 
 ## Data Sources
 
-No datasources needs.
+No datasources needs. List of PDF Files are stored in Table created on OnStart Event of the App. All pdf link are got from original PDF Reader - Office Example App. 
 
 ## Minimal Path to Awesome
 
-* [Download](./solution/Tic Tac Toe.msapp) the `.msapp` from the `solution` folder
+* [Download](./solution/PDF Reader - Creator Kit.msapp) the `.msapp` from the `solution` folder
 * Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just downloaded.
 * Save and Publish
 
@@ -73,7 +81,6 @@ You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/devel
 
 ## Help
 
-
 We do not support samples, but we this community is always willing to help, and we want to improve these samples. We use GitHub to track issues, which makes it easy for  community members to volunteer their time and help resolve issues.
 
 If you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
@@ -86,4 +93,6 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 
 - [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
 - [Power Apps canvas apps documentation](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/)
-- [Read my blog](https://angelogulisano.com/)
+- [Creator Kit](https://learn.microsoft.com/en-us/power-platform/guidance/creator-kit/overview) 
+- [Read my blog - https://angelogulisano.com](https://angelogulisano.com/)
+
