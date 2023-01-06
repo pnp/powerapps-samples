@@ -5,7 +5,7 @@
 This is a an App like "PDF Reader" app's sample by Microsoft (you can create it by "Start from template" section when you creating new Power App) but this one using Creator Kit controls.
 If you don't kwow what Creator Kit is, you can start here [Creators Kit - Introduction](https://angelogulisano.com/creator-kit-introduction/)
 
-![Preview](assets/PDF-Reader-creator-kit)
+![Preview](assets/PDF-Reader-creator-kit.gif)
 
 ## Features
 
