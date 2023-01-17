@@ -55,7 +55,7 @@ No configuration is needed to use this sample.  All data is stored locally in th
 
 ## Data Sources
 
-No datasources needs. List of PDF Files are stored in Table created on OnStart Event of the App. All pdf link are got from original PDF Reader - Office Example App.
+No datasources needed. List of PDF Files are stored in Table created on OnStart Event of the App. All PDF links are from original PDF Reader - Office Example App.
 
 ## Minimal Path to Awesome
 
@@ -86,11 +86,11 @@ Making sure to replace `pathtosourcefolder` to point to the path to this sample'
 
 We do not support samples, but we this community is always willing to help, and we want to improve these samples. We use GitHub to track issues, which makes it easy for  community members to volunteer their time and help resolve issues.
 
-If you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+If you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=PDF Reader - Creator Kit&authors=@angelogulisano&title=PDF Reader - Creator Kit%20-%20).
 
-For questions regarding this sample, [create a new question](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+For questions regarding this sample, [create a new question](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=PDF Reader - Creator Kit&authors=@angelogulisano&title=PDF Reader - Creator Kit%20-%20).
 
-Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=PDF Reader - Creator Kit&authors=@angelogulisano&title=PDF Reader - Creator Kit%20-%20).
 
 ## For more information
 
