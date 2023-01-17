@@ -36,7 +36,7 @@ This sample illustrates the following concepts:
 
 Solution|Author(s)
 --------|---------
-PDF Reader - Creator Kit [Angelo Gulisano](https://github.com/angelogulisano) ([@angelog1908](https://twitter.com/angelog1908))
+PDF Reader - Creator Kit | [Angelo Gulisano](https://github.com/angelogulisano) ([@angelog1908](https://twitter.com/angelog1908))
 
 ## Version history
 
