@@ -29,9 +29,6 @@ This sample illustrates the following concepts:
 
 ## Authors
 
-> One author per line, please
-> DELETE THIS PARAGRAPH BEFORE SUBMITTING
-
 Solution|Author(s)
 --------|---------
 Tic Tac Toe | [Angelo Gulisano](https://github.com/angelogulisano) ([@angelog1908](https://twitter.com/angelog1908))
@@ -90,6 +87,3 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 - [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
 - [Power Apps canvas apps documentation](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/)
 - [Read my blog](https://angelogulisano.com/)
-
-
-<img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/readme-template" />
