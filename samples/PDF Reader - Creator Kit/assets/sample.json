@@ -1,0 +1,79 @@
+[
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-PDF%20Reader%20-%20Creator%20Kit",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2023-01-06T00:00:00.000Z",
+    "updateDateTime": "2023-01-06T00:00:00.000Z",
+    "title": "PDF Reader - Creator Kit",
+    "shortDescription": "This is a an app like the 'PDF Reader' app sample by Microsoft (you can create it by 'Start from template' section when you creating new Power App) but this one using Creator Kit controls.",
+    "longDescription": [
+      "This is a an app like the 'PDF Reader' app sample by Microsoft (you can create it by 'Start from template' section when you creating new Power App) but this one using Creator Kit controls."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/PDF%20Reader%20-%20Creator%20Kit",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "PDF READER", "CREATOR KIT"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/PDF%20Reader%20-%20Creator%20Kit/assets/PDF-Reader-creator-kit.gif?raw=true",
+        "alt": "Home"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "angelogulisano",
+        "name": "Angelo Gulisano",
+        "pictureUrl": "https://avatars.githubusercontent.com/u/25862526?v=4"
+      }
+    ],
+    "references": [
+      {
+        "name": "Creator Kit",
+        "description": "Official Microsoft reference for the Creator Kit.",
+        "url": "https://learn.microsoft.com/power-platform/guidance/creator-kit/overview"
+      },
+      {
+        "name": "Creator Kit - Introduction",
+        "description": "Creator Kit - Introduction, from Angelo's blog.",
+        "url": "https://angelogulisano.com/creator-kit-introduction/"
+      }
+    ]
+  }
+]
