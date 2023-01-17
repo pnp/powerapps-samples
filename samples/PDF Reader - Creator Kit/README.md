@@ -46,7 +46,7 @@ Version|Date|Comments
 
 ## Prerequisites
 
-* **Creator Kit**: Official Microsoft reference [Creator Kit](https://learn.microsoft.com/en-us/power-platform/guidance/creator-kit/overview) 
+* **Creator Kit**: Official Microsoft reference [Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview)
 * **Introduction to Creator Kit** from my blog [Creators Kit - Introduction](https://angelogulisano.com/creator-kit-introduction/)
 
 ### Using the sample
@@ -55,7 +55,7 @@ No configuration is needed to use this sample.  All data is stored locally in th
 
 ## Data Sources
 
-No datasources needs. List of PDF Files are stored in Table created on OnStart Event of the App. All pdf link are got from original PDF Reader - Office Example App. 
+No datasources needs. List of PDF Files are stored in Table created on OnStart Event of the App. All pdf link are got from original PDF Reader - Office Example App.
 
 ## Minimal Path to Awesome
 
@@ -69,10 +69,13 @@ You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/devel
 
 * Clone the repository to a local drive
 * Pack the source files back into `.msapp` file:
-  ```bash
-  pac canvas pack --sources pathtosourcefolder --msapp pathtomsapp
-  ```
-  Making sure to replace `pathtosourcefolder` to point to the path to this sample's `sourcecode` folder, and `pathtomsapp` to point to the path of this solution's `.msapp` file (located under the `solution` folder)
+  
+```bash
+pac canvas pack --sources pathtosourcefolder --msapp pathtomsapp
+```
+
+Making sure to replace `pathtosourcefolder` to point to the path to this sample's `sourcecode` folder, and `pathtomsapp` to point to the path of this solution's `.msapp` file (located under the `solution` folder)
+
 * Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just packed.
 
 ## Disclaimer
@@ -91,8 +94,7 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 
 ## For more information
 
-- [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
-- [Power Apps canvas apps documentation](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/)
-- [Creator Kit](https://learn.microsoft.com/en-us/power-platform/guidance/creator-kit/overview) 
-- [Read my blog - https://angelogulisano.com](https://angelogulisano.com/)
-
+* [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
+* [Power Apps canvas apps documentation](https://docs.microsoft.com/powerapps/maker/canvas-apps/)
+* [Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview)
+* [Read my blog - https://angelogulisano.com](https://angelogulisano.com/)
