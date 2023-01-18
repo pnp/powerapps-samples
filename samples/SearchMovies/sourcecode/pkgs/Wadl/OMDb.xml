@@ -1,0 +1,66 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://unitedstates-002.azure-apim.net/apim/omdb-5f15604e617fbb29a6-5f46e134578db90099" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="OMDb" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="OMDb">The OMDb API is a RESTful web service to obtain movie information, all content and images on the site are contributed and maintained by our users.
+This API requires authorization, you can get a free key here: [http://omdbapi.com/apikey.aspx](http://omdbapi.com/apikey.aspx)</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://unitedstates-002.azure-apim.net/apim/omdb-5f15604e617fbb29a6-5f46e134578db90099" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="GetSearchResults_responses_200_def_Search_def_items_def_Title_def" />
+      <string name="GetSearchResults_responses_200_def_Search_def_items_def_Year_def" />
+      <string name="GetSearchResults_responses_200_def_Search_def_items_def_imdbID_def" />
+      <string name="GetSearchResults_responses_200_def_Search_def_items_def_Type_def" />
+      <string name="GetSearchResults_responses_200_def_Search_def_items_def_Poster_def" />
+      <object name="GetSearchResults_responses_200_def_Search_def_items_def">
+        <property name="Title" type="string" />
+        <property name="Year" type="string" />
+        <property name="imdbID" type="string" />
+        <property name="Type" type="string" />
+        <property name="Poster" type="string" />
+      </object>
+      <array typeRef="GetSearchResults_responses_200_def_Search_def_items_def" name="GetSearchResults_responses_200_def_Search_def" />
+      <object name="GetSearchResults_responses_200_def">
+        <property name="Search" typeRef="GetSearchResults_responses_200_def_Search_def" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://unitedstates-002.azure-apim.net/apim/omdb-5f15604e617fbb29a6-5f46e134578db90099">
+    <resource path="/{connectionId}/">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetSearchResults" actionName="GetSearchResults" visibility="important" siena:isDeprecated="false">
+        <doc title="Returns an array of results for a given title or ID or Keyword&#xA;Based on the title/ID/Keyword provided searches the database for matching results and shows all the available results. Further query parameters may be used to refine the result like Year of release, Movie or Series, the response type to return and Page number" />
+        <request>
+          <param style="query" name="apikey" type="xs:string" required="true">
+            <doc title="API Access Key" />
+          </param>
+          <param style="query" name="s" type="xs:string">
+            <doc title="Title of movie or series" />
+          </param>
+          <param style="query" name="i" type="xs:string">
+            <doc title="A valid IMDb ID (e.g. tt1285016)" />
+          </param>
+          <param style="query" name="y" type="xs:int">
+            <doc title="Year of release" />
+          </param>
+          <param style="query" name="type" type="xs:string">
+            <doc title="Return movie or series or episode" />
+            <option value="movie" />
+            <option value="series" />
+            <option value="episode" />
+          </param>
+          <param style="query" name="page" type="xs:int" default="1">
+            <doc title="Page number to return" />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:GetSearchResults_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_omdb-5f15604e617fbb29a6-5f46e134578db90099" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>
