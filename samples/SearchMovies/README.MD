@@ -5,7 +5,7 @@
 This sample allows users to search for movies using any keyword and/or the year of release.
 |Starting Screen|Only Keyword |Keyword + Year|
 :-------------------------:|:-------------------------:|:-------------------------:
-![starting page](assets\startPage.jpg) | ![searching with keyword](assets\searchingWithKeyword.jpg) | ![searching with keyword and year of release](assets\searchingWithYear+Keyword.jpg)
+![starting page](assets/startPage.jpg) | ![searching with keyword](assets/searchingWithKeyword.jpg) | ![searching with keyword and year of release](assets/searchingWithYear+Keyword.jpg)
 
 ## Applies to
 
