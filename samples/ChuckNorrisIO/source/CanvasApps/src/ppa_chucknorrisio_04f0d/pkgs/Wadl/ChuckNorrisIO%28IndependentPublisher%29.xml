@@ -1,0 +1,75 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://unitedstates-002.azure-apim.net/apim/chucknorrisioip" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="ChuckNorrisIO(IndependentPublisher)" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="Chuck Norris IO (Independent Publisher)">This connector is an API provided by ChuckNorris.IO and will provide you with a Chuck Norris fact when you ask for it.</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://unitedstates-002.azure-apim.net/apim/chucknorrisioip" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="GetRandomChuckNorrisFact_responses_200_def_icon_url_def" />
+      <string name="GetRandomChuckNorrisFact_responses_200_def_id_def" />
+      <string name="GetRandomChuckNorrisFact_responses_200_def_url_def" />
+      <string name="GetRandomChuckNorrisFact_responses_200_def_value_def" />
+      <object name="GetRandomChuckNorrisFact_responses_200_def">
+        <property name="icon_url" type="string" />
+        <property name="id" type="string" />
+        <property name="url" type="string" />
+        <property name="value" type="string" />
+      </object>
+      <integer name="SearchChuckNorrisFacts_responses_200_def_total_def" />
+      <string name="SearchChuckNorrisFacts_responses_200_def_result_def_items_def_created_at_def" />
+      <string name="SearchChuckNorrisFacts_responses_200_def_result_def_items_def_icon_url_def" />
+      <string name="SearchChuckNorrisFacts_responses_200_def_result_def_items_def_id_def" />
+      <string name="SearchChuckNorrisFacts_responses_200_def_result_def_items_def_updated_at_def" />
+      <string name="SearchChuckNorrisFacts_responses_200_def_result_def_items_def_url_def" />
+      <string name="SearchChuckNorrisFacts_responses_200_def_result_def_items_def_value_def" />
+      <object name="SearchChuckNorrisFacts_responses_200_def_result_def_items_def">
+        <property name="created_at" type="string" />
+        <property name="icon_url" type="string" />
+        <property name="id" type="string" />
+        <property name="updated_at" type="string" />
+        <property name="url" type="string" />
+        <property name="value" type="string" />
+      </object>
+      <array typeRef="SearchChuckNorrisFacts_responses_200_def_result_def_items_def" name="SearchChuckNorrisFacts_responses_200_def_result_def" />
+      <object name="SearchChuckNorrisFacts_responses_200_def">
+        <property name="total" type="integer" />
+        <property name="result" typeRef="SearchChuckNorrisFacts_responses_200_def_result_def" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://unitedstates-002.azure-apim.net/apim/chucknorrisioip">
+    <resource path="/{connectionId}/random">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetRandomChuckNorrisFact" actionName="GetRandomChuckNorrisFact" siena:isDeprecated="false">
+        <doc title="Get random Chuck Norris fact&#xA;This action will give you a random Chuck Norris fact" />
+        <request>
+          <param style="query" name="category" type="xs:string">
+            <doc title="Select a category" />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:GetRandomChuckNorrisFact_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/search">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="SearchChuckNorrisFacts" actionName="SearchChuckNorrisFacts" siena:isDeprecated="false">
+        <doc title="Search for Chuck Norris facts&#xA;This action will let you search for Chuck Norris facts by a keyword" />
+        <request>
+          <param style="query" name="query" type="xs:string" required="true">
+            <doc title="Enter your query here" />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:SearchChuckNorrisFacts_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_chucknorrisioip" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>
