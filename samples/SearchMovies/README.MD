@@ -7,7 +7,6 @@ This sample allows users to search for movies using any keyword and/or the year 
 :-------------------------:|:-------------------------:|:-------------------------:
 ![starting page](assets\startPage.jpg) | ![searching with keyword](assets\searchingWithKeyword.jpg) | ![searching with keyword and year of release](assets\searchingWithYear+Keyword.jpg)
 
-
 ## Applies to
 
 * [Microsoft Power Apps](https://docs.microsoft.com/powerapps/)
@@ -34,7 +33,7 @@ Version|Date|Comments
 
 ## Features
 
-This sample allows the user to: 
+This sample allows the user to:
 
 * Search for movies using any keyword.
 * Search for movies using any keyword and the year of release.
@@ -67,9 +66,11 @@ You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/devel
 
 * Clone the repository to a local drive
 * Pack the source files back into `.msapp` file:
+
   ```bash
   pac canvas pack --sources pathtosourcefolder --msapp pathtomsapp
   ```
+
   Making sure to replace `pathtosourcefolder` to point to the path to this sample's `sourcecode` folder, and `pathtomsapp` to point to the path of this solution's `.msapp` file (located under the `solution` folder)
 * Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just packed.
 
@@ -89,9 +90,8 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 
 ## For more information
 
-- [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
-- [Power Apps canvas apps documentation](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/)
-
+* [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
+* [Power Apps canvas apps documentation](https://docs.microsoft.com/powerapps/maker/canvas-apps/)
 
 <img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/SearchMovies" />
 
