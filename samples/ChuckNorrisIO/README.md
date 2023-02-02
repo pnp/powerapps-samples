@@ -4,7 +4,7 @@
 
 This sample illustrates how to get a Chuck Norris joke via the **Chuck Norris IO (IndependentPublisher)** connector.
 
-![picture of the sample](assets/chucknorris.png)
+![picture of the sample](assets/ChuckNorris.png)
 
 ## Applies to
 
