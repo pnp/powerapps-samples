@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>ppa_chucknorrisio_04f0d</Name>
+  <AppVersion>2023-02-02T12:26:42Z</AppVersion>
+  <Status>Ready</Status>
+  <CreatedByClientVersion>3.23013.17.0</CreatedByClientVersion>
+  <MinClientVersion>3.23013.17.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"3839","primaryDeviceHeight":"1747","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Phone","publisherVersion":"3.23013.17","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false","sienaVersion":"20230202T121106Z-3.23013.17.0"}</Tags>
+  <IsCdsUpgraded>0</IsCdsUpgraded>
+  <GalleryItemId xsi:nil="true"></GalleryItemId>
+  <BackgroundColor>rgba(255, 255, 255, 1)</BackgroundColor>
+  <DisplayName>Chuck Norris IO</DisplayName>
+  <Description>This app generates a Chuck Norris joke everytime you hit the refresh button (powered by ChuckNorris.io)</Description>
+  <CommitMessage xsi:nil="true"></CommitMessage>
+  <Publisher xsi:nil="true"></Publisher>
+  <AuthorizationReferences>[]</AuthorizationReferences>
+  <ConnectionReferences>{"07d31e23-cb2d-4dff-ba28-9f1d76b6f780":{"id":"/providers/microsoft.powerapps/apis/shared_chucknorrisioip","displayName":"Chuck Norris IO (Independent Publisher)","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1608/1.0.1608.3079/chucknorrisioip/icon.png","dataSources":["ChuckNorrisIO(IndependentPublisher)"],"dependencies":[],"dependents":[],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Premium","actions":["GetRandomChuckNorrisFact"]}}</ConnectionReferences>
+  <DatabaseReferences>{}</DatabaseReferences>
+  <AppComponents>[]</AppComponents>
+  <AppComponentDependencies>[]</AppComponentDependencies>
+  <CanConsumeAppPass>1</CanConsumeAppPass>
+  <CanvasAppType>0</CanvasAppType>
+  <BypassConsent>0</BypassConsent>
+  <AdminControlBypassConsent>0</AdminControlBypassConsent>
+  <EmbeddedApp xsi:nil="true"></EmbeddedApp>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CdsDependencies>{"cdsdependencies":[]}</CdsDependencies>
+  <IsCustomizable>1</IsCustomizable>
+  <BackgroundImageUri>/CanvasApps/ppa_chucknorrisio_04f0d_BackgroundImageUri</BackgroundImageUri>
+  <DocumentUri>/CanvasApps/ppa_chucknorrisio_04f0d_DocumentUri.msapp</DocumentUri>
+</CanvasApp>
