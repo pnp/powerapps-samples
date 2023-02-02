@@ -3,7 +3,7 @@
 ## Summary
 
 This sample allows a user to enter their credentials, a username and password, in order to authenticate themselves and gain access to a homepage. It shows the 
-basic authentication flow. There is also an error page that opens when a wrong password is enterd.
+basic authentication flow. There is also an error page that opens when a wrong password is entered.
 
 Default Credentials:
 
@@ -53,9 +53,9 @@ None
 
 ## Data Sources
 
-Data is obtained from Sharepoint
+Data is obtained from SharePoint
 
-### Sharepoint List
+### SharePoint List
 
 This SharePoint list has two columns: Title for `Username` and the Password column. Set the list up as follows:
 
@@ -66,14 +66,13 @@ This SharePoint list has two columns: Title for `Username` and the Password colu
 
 ## Minimal Path to Awesome
 
-* [Download](./solution/YOURSAMPLENAME.msapp) the `.msapp` from the `solution` folder
+* [Download](./solution/app-login-sample.msapp) the `.msapp` from the `solution` folder
 * Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just downloaded.
 * Create a Sharepoint list as shown above and add some data to it.
 * Select the **Data** tab.
 * Select Add data.
 * Search for Sharepoint
-* Select your list 
-
+* Select your list
 
 ## Using the Source Code
 
@@ -103,8 +102,7 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 
 ## For more information
 
-- [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
-- [Power Apps canvas apps documentation](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/)
-
+* [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
+* [Power Apps canvas apps documentation](https://docs.microsoft.com/powerapps/maker/canvas-apps/)
 
 <img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/app-login" />
