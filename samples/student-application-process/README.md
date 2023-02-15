@@ -1,7 +1,9 @@
 ﻿
 # Student Application Process
+
 ## Summary
-This application is built for prospective students at a university/college. It allows them to register and apply for a program at the college/university by submitting relevant details and documents. 
+
+This application is built for prospective students at a university/college. It allows them to register and apply for a program at the college/university by submitting relevant details and documents.
 
 By integrating Power Automate it becomes an end to end application where a student can submit an application and receive automatic emails regarding the status of their application. An admin approves the application and enters in test and interview scores. The student then receives the final email where they are either accepted or rejected into the university/college. You can find the entire application with the flows [here](https://drive.google.com/file/d/1DhIm47FtgJc2DvWGObuRVVE5kOLmsWuC/view?usp=sharing).
 
@@ -17,15 +19,13 @@ Register:
 Dashboard:
 ![picture of the sample](assets/dashboard.png)
 
-
 ## Applies to
 
 * [Microsoft Power Apps](https://docs.microsoft.com/powerapps/)
-* [Microsoft Power Automate](https://learn.microsoft.com/en-us/power-automate/)
-* [Microsoft SharePoint]( https://learn.microsoft.com/en-us/sharepoint/dev/)
+* [Microsoft Power Automate](https://learn.microsoft.com/power-automate/)
+* [Microsoft SharePoint]( https://learn.microsoft.com/sharepoint/dev/)
 
 ## Compatibility
-
 
 ![Power Apps Source File Pack and Unpack Utility 0.20](https://img.shields.io/badge/Packing%20Tool-0.20-green.svg)
 ![Premium License](https://img.shields.io/badge/Premium%20License-Not%20Required-green.svg "Premium Power Apps license not required")
@@ -46,6 +46,7 @@ Version|Date|Comments
 1.0|December 4, 2022|Initial release
 
 ## Features
+
 This sample illustrates the following concepts:
 
 * A prospective student can register.
@@ -57,6 +58,7 @@ This sample illustrates the following concepts:
 * Users can log out.
 
 (If you're using the application with Power Automate flows):
+
 * A user receives the following automatic emails: after successfully registering, reject/accept email after successfully completing the application and if accepted the email also contains the fee voucher for the examination test, reject/accept email regarding their test marks and if they are accepted the email contains interview date and time, reject/accept email regarding their interview marks and if they have secured admission the email contains credentials to login to the university's student portal.
 * An admin can approve an application, enter test and interview marks through approval emails and cross check application with the student's documents.
 
@@ -65,6 +67,7 @@ This sample illustrates the following concepts:
 You need to first register a user then only can you login.
 
 ## Data Sources
+
 SharePoint List Used.
 
 ### UserList
@@ -99,7 +102,7 @@ Enable the `ID` column in your SharePoint list by going to **+ Add Column** > Sh
 |Date and Time|Date of Birth|No|
 |Multiple lines of text|Essay 1|No|
 |Multiple lines of text|Essay 2|No|
-|Thumbnail|Student Picture|No|
+|Image|Student Picture|No|
 |Choice|Preferred Major 1st Choice|No|
 |Choice|Preferred Major 2nd Choice|No|
 |Choice|High School Education|No|
@@ -113,7 +116,8 @@ Enable the `ID` column in your SharePoint list by going to **+ Add Column** > Sh
 |Number|Interview Result|No|
 
 Choice values:
-* Status: 
+
+* Status:
 Incomplete
 Test Result Pending
 Interview Result Pending
@@ -147,7 +151,6 @@ Pending
 Paid
 Done
 
-
 ## Minimal Path to Awesome
 
 * [Download](./solution/studentApplicationProcess.msapp) the `.msapp` from the `solution` folder
@@ -161,9 +164,11 @@ You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/devel
 
 * Clone the repository to a local drive
 * Pack the source files back into `.msapp` file:
+
   ```bash
   pac canvas pack --sources pathtosourcefolder --msapp pathtomsapp
   ```
+
   Making sure to replace `pathtosourcefolder` to point to the path to this sample's `sourcecode` folder, and `pathtomsapp` to point to the path of this solution's `.msapp` file (located under the `solution` folder)
 * Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just packed.
 
@@ -175,18 +180,15 @@ You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/devel
 
 We do not support samples, but we this community is always willing to help, and we want to improve these samples. We use GitHub to track issues, which makes it easy for  community members to volunteer their time and help resolve issues.
 
-If you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+If you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=student-application-process&authors=@sam-404&title=student-application-process%20-%20).
 
-For questions regarding this sample, [create a new question](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+For questions regarding this sample, [create a new question](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=student-application-process&authors=@sam-404&title=student-application-process%20-%20).
 
-Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=student-application-process&authors=@sam-404&title=student-application-process%20-%20).
 
 ## For more information
 
-- [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
-- [Power Apps canvas apps documentation](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/)
-
+* [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
+* [Power Apps canvas apps documentation](https://docs.microsoft.com/powerapps/maker/canvas-apps/)
 
 <img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/student-application-process" />
-
-
