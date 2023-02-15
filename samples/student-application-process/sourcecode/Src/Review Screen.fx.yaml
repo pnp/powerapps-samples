@@ -1,0 +1,395 @@
+"'Review Screen' As screen":
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    OnVisible: |-
+        =UpdateContext({TextBoxVisible:false})
+
+    Label5 As label:
+        BorderColor: =RGBA(153, 153, 153, 1)
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =441
+        Size: =13
+        Text: =""
+        Width: =1149
+        X: =108
+        Y: =234
+        ZIndex: =1
+
+    Button2_26 As button:
+        BorderColor: =RGBA(179, 179, 179, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =72
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =Self.Fill
+        PressedBorderColor: =Self.BorderColor
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =Self.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Text: ="Personal Information"
+        Width: =230
+        X: =108
+        Y: =162
+        ZIndex: =2
+
+    Button2_28 As button:
+        BorderColor: =RGBA(153, 153, 153, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(230, 230, 230, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =72
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: |-
+            =ColorFade(ColorValue("#700F1A"), -10%)
+        OnSelect: =Navigate('Academic Details Screen');
+        PressedBorderColor: |-
+            =ColorValue("#700F1A")
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: |-
+            =ColorFade(ColorValue("#700F1A"), -30%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Text: ="Academic Details"
+        Width: =230
+        X: =338
+        Y: =162
+        ZIndex: =3
+
+    Button2_30 As button:
+        BorderColor: =RGBA(153, 153, 153, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(230, 230, 230, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =72
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: |-
+            =ColorFade(ColorValue("#700F1A"), -10%)
+        OnSelect: =Navigate('Essays Screen')
+        PressedBorderColor: |-
+            =ColorFade(ColorValue("#700F1A"), -30%)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: |-
+            =ColorFade(ColorValue("#700F1A"), -30%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Text: ="Essays"
+        Width: =230
+        X: =568
+        Y: =162
+        ZIndex: =4
+
+    Button2_31 As button:
+        BorderColor: =RGBA(153, 153, 153, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(230, 230, 230, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =72
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: |-
+            =ColorFade(ColorValue("#700F1A"), -10%)
+        OnSelect: =Navigate('Documents Upload Screen');
+        PressedBorderColor: |-
+            =ColorFade(ColorValue("#700F1A"), -30%)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: |-
+            =ColorFade(ColorValue("#700F1A"), -30%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Text: ="Documents Upload"
+        Width: =230
+        X: =798
+        Y: =162
+        ZIndex: =5
+
+    Button2_32 As button:
+        BorderColor: =RGBA(153, 153, 153, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(230, 230, 230, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =72
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: |-
+            =ColorFade(ColorValue("#700F1A"), -10%)
+        PressedBorderColor: |-
+            =ColorFade(ColorValue("#700F1A"), -30%)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: |-
+            =ColorFade(ColorValue("#700F1A"), -30%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Text: ="Review"
+        Width: =230
+        X: =1028
+        Y: =162
+        ZIndex: =6
+
+    SubmitButton As button:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =0
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(112, 15, 26, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        HoverBorderColor: =RGBA(112, 15, 26, 1)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: |-
+            =ColorValue("#700F1A")
+        OnSelect: |-
+            =Patch(
+                UserList,
+                LookUp(UserList, CNIC=username),
+                {
+                    Status: {Value: "Application Submitted"}
+                }
+            );
+            
+            Navigate('Main Screen');
+        PaddingBottom: =7
+        PaddingLeft: =32
+        PaddingRight: =32
+        PaddingTop: =6
+        PressedBorderColor: |-
+            =ColorValue( "#700F1A" )
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: |
+            =ColorValue("#700F1A")
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Text: ="Submit"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =150
+        X: =148
+        Y: =331
+        ZIndex: =7
+
+    Button2_27 As button:
+        BorderColor: =RGBA(153, 153, 153, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(230, 230, 230, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =72
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: |-
+            =ColorFade(ColorValue("#700F1A"), -10%)
+        OnSelect: =Navigate('Personal Details Screen')
+        PressedBorderColor: |-
+            =ColorFade(ColorValue("#700F1A"), -30%)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: |-
+            =ColorFade(ColorValue("#700F1A"), -30%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Text: ="Personal Information"
+        Width: =230
+        X: =108
+        Y: =162
+        ZIndex: =8
+
+    Button2_34 As button:
+        BorderColor: =RGBA(179, 179, 179, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =72
+        HoverBorderColor: =RGBA(179, 179, 179, 1)
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =Self.Fill
+        PressedBorderColor: =Self.BorderColor
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =Self.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Text: ="Review"
+        Width: =230
+        X: =1028
+        Y: =162
+        ZIndex: =9
+
+    Button3164_27 As button:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =0
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(112, 15, 26, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Height: =54
+        HoverBorderColor: =RGBA(112, 15, 26, 1)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: |-
+            =ColorValue("#700F1A")
+        OnSelect: =Navigate('Main Screen');
+        PaddingBottom: =7
+        PaddingLeft: =32
+        PaddingRight: =32
+        PaddingTop: =6
+        PressedBorderColor: |-
+            =ColorValue( "#700F1A" )
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: |
+            =ColorValue("#700F1A")
+        RadiusBottomLeft: =15
+        RadiusBottomRight: =15
+        RadiusTopLeft: =15
+        RadiusTopRight: =15
+        Size: =14
+        Text: ="Dashboard"
+        Width: =167
+        X: =1017
+        Y: =56
+        ZIndex: =10
+
+    Button3164_28 As button:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =0
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(112, 15, 26, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Height: =54
+        HoverBorderColor: =RGBA(112, 15, 26, 1)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: |-
+            =ColorValue("#700F1A")
+        OnSelect: |-
+            =Navigate(Login);
+            Set(username, Blank());
+        PaddingBottom: =7
+        PaddingLeft: =32
+        PaddingRight: =32
+        PaddingTop: =6
+        PressedBorderColor: |-
+            =ColorValue( "#700F1A" )
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: |
+            =ColorValue("#700F1A")
+        RadiusBottomLeft: =15
+        RadiusBottomRight: =15
+        RadiusTopLeft: =15
+        RadiusTopRight: =15
+        Size: =14
+        Text: ="Logout"
+        Width: =130
+        X: =1196
+        Y: =56
+        ZIndex: =11
+
+    Label35_9 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        Color: =RGBA(112, 15, 26, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        FontWeight: =FontWeight.Semibold
+        Height: =61
+        LineHeight: =1.171875
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Size: =37.5
+        Text: ="ONLINE ADMISSIONS PORTAL"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =800
+        X: =255
+        Y: =49
+        ZIndex: =13
+
+    Label6 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =77
+        Size: =15
+        Text: |-
+            ="Carefully review your application before submitting. Once submitted you cannot edit your application.
+            
+            "
+        VerticalAlign: =VerticalAlign.Top
+        Width: =994
+        X: =145
+        Y: =270
+        ZIndex: =14
+
