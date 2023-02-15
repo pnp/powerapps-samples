@@ -6,10 +6,10 @@ We live in an incredibly diverse society, but one of the challenges that can com
 
 One possible extension of this solution is having your users also share their pronouns as a part of their recording.  Our organization's example prompt for recordings is "My name is Jane Doe, and my pronouns are they/them".  Feel free to adapt to your organization's needs, but we felt this was more inclusive.
 
-![Screenshot of the Power App before a user records anything](Assets/Screenshot1.PNG)
-![Screenshot of the Power App after a user has recorded their name but before they've uploaded it.  They can preview, erase, and re-record in this state.](Assets/Screenshot2.PNG)
-![Screenshot of the Power App after the user has uploaded their name pronunciation.](Assets/Screenshot3.PNG)
-![Screenshot of a SharePoint page with the Power App embedded on the left and a document library with the recordings embedded on the right.](Assets/Screenshot4.png)
+![Screenshot of the Power App before a user records anything](assets/Screenshot1.PNG)
+![Screenshot of the Power App after a user has recorded their name but before they've uploaded it.  They can preview, erase, and re-record in this state.](assets/Screenshot2.PNG)
+![Screenshot of the Power App after the user has uploaded their name pronunciation.](assets/Screenshot3.PNG)
+![Screenshot of a SharePoint page with the Power App embedded on the left and a document library with the recordings embedded on the right.](assets/Screenshot4.png)
 
 You can go to this blog post for more details about the implementations of this solution https://lindsaytshelton.com/2022/09/30/how-to-create-a-name-pronunciation-database-using-the-power-platform/
 
@@ -53,7 +53,7 @@ This sample illustrates the following concepts:
 
 ## Prerequisites
 
-It is important, unless you want to create one from scratch, to ALSO download the Power Automate sample "Send Name Pronunciation Recording to Library" and IMPORT THAT FILE FIRST.  Errors may occur if you try to import the .msapp file without the Power Automate flow already in place.
+It is important, unless you want to create one from scratch, to ALSO download the Power Automate sample **Send Name Pronunciation Recording to Library** and IMPORT THAT FILE FIRST.  Errors may occur if you try to import the `.msapp` file without the Power Automate flow already in place.
 
 ## Data Sources
 
@@ -81,9 +81,11 @@ You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/devel
 
 * Clone the repository to a local drive
 * Pack the source files back into `.msapp` file:
+
   ```bash
   pac canvas pack --sources pathtosourcefolder --msapp pathtomsapp
   ```
+
   Making sure to replace `pathtosourcefolder` to point to the path to this sample's `sourcecode` folder, and `pathtomsapp` to point to the path of this solution's `.msapp` file (located under the `solution` folder)
 * Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just packed.
 
@@ -97,11 +99,11 @@ You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/devel
 
 We do not support samples, but we this community is always willing to help, and we want to improve these samples. We use GitHub to track issues, which makes it easy for  community members to volunteer their time and help resolve issues.
 
-If you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+If you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=name-pronunciation-recorder&authors=@lsheltonSTO&title=name-pronunciation-recorder%20-%20).
 
-For questions regarding this sample, [create a new question](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+For questions regarding this sample, [create a new question](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=name-pronunciation-recorder&authors=@lsheltonSTO&title=name-pronunciation-recorder%20-%20).
 
-Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=name-pronunciation-recorder&authors=@lsheltonSTO&title=name-pronunciation-recorder%20-%20).
 
 ## For more information
 
