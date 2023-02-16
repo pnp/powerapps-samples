@@ -25,11 +25,11 @@
                 Height: =Parent.Height
                 IconName: ="News"
                 IconSize: =30
-                IconType: ='''PowerCAT.Icon.IconType'''.ActionButton
+                IconType: ='PowerCAT.Icon.IconType'.ActionButton
                 LayoutMinHeight: =200
                 LayoutMinWidth: =200
                 Text: ="Company Pulse"
-                TextAlignment: ='''PowerCAT.Icon.TextAlignment'''.Center
+                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                 Theme: =AppThemeJson
                 Width: =200
                 X: =0
@@ -40,7 +40,7 @@
                 AlignInContainer: =AlignInContainer.Center
                 DisplayMode: =DisplayMode.Edit
                 FontSize: =22
-                FontSizeUnits: ='''PowerCAT.AutoWidthLabel.FontSizeUnits'''.Pt
+                FontSizeUnits: ='PowerCAT.AutoWidthLabel.FontSizeUnits'.Pt
                 FontWeight: ="700"
                 Height: =Parent.Height
                 LayoutMinHeight: =200
@@ -126,10 +126,10 @@
                         ZIndex: =3
 
                         "Elevation As 'Fluent Elevation (1.0.19)'":
-                            Depth: ='''PowerCAT.Elevation.Depth'''.Depth8
+                            Depth: ='PowerCAT.Elevation.Depth'.Depth8
                             DisplayMode: =DisplayMode.Edit
                             Height: =GalleryPosts.TemplateHeight
-                            HoverDepth: ='''PowerCAT.Elevation.HoverDepth'''.Depth8
+                            HoverDepth: ='PowerCAT.Elevation.HoverDepth'.Depth8
                             Width: =GalleryPosts.TemplateWidth
                             X: =0
                             Y: =0
@@ -154,10 +154,10 @@
                             Height: =31
                             IconName: ="Link"
                             IconSize: =20
-                            IconType: ='''PowerCAT.Icon.IconType'''.ActionButton
+                            IconType: ='PowerCAT.Icon.IconType'.ActionButton
                             OnChange: =Launch(ThisItem.primaryLink)
                             Text: ="Visit Post"
-                            TextAlignment: ='''PowerCAT.Icon.TextAlignment'''.Center
+                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                             Theme: =AppThemeJson
                             Width: =609
                             X: =12
@@ -185,7 +185,7 @@
                             Items: =FirstN(ThisItem.categories,6)
                             ItemTextColor: =""
                             OnSelect: =Select(Parent)
-                            TextAlignment: ='''PowerCAT.TagList.TextAlignment'''.Left
+                            TextAlignment: ='PowerCAT.TagList.TextAlignment'.Left
                             Theme: =AppThemeJson
                             Width: =621
                             X: =6
@@ -209,14 +209,14 @@
                         IconColor: =AppTheme.palette.black
                         IconName: ="Website"
                         IconSize: =18
-                        IconType: ='''PowerCAT.Icon.IconType'''.ActionButton
+                        IconType: ='PowerCAT.Icon.IconType'.ActionButton
                         LayoutMinHeight: =200
                         LayoutMinWidth: =200
                         OnChange: |-
                             =Launch("https://angelogulisano.com")
                         Text: |-
                             ="Company Pulse with Creator Kit By Angelo Gulisano. Click me to visit https://angelogulisano.com"
-                        TextAlignment: ='''PowerCAT.Icon.TextAlignment'''.Center
+                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                         Theme: =AppThemeJson
                         Width: =Parent.Width
                         X: =0
