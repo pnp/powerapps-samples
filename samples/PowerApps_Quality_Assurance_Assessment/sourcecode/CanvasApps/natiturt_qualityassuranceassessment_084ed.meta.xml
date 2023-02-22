@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>natiturt_qualityassuranceassessment_084ed</Name>
+  <AppVersion>2023-02-22T13:30:01Z</AppVersion>
+  <Status>Ready</Status>
+  <CreatedByClientVersion>3.23021.21.0</CreatedByClientVersion>
+  <MinClientVersion>3.23021.21.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"1366","primaryDeviceHeight":"768","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","publisherVersion":"3.23021.21","minimumRequiredApiVersion":"2.2.0","hasComponent":"true","hasUnlockedComponent":"true","isUnifiedRootApp":"false","sienaVersion":"20230222T132047Z-3.23021.21.0"}</Tags>
+  <IsCdsUpgraded>0</IsCdsUpgraded>
+  <GalleryItemId xsi:nil="true"></GalleryItemId>
+  <BackgroundColor>rgba(255, 255, 255, 1)</BackgroundColor>
+  <DisplayName>Quality Assurance Assessment</DisplayName>
+  <Description xsi:nil="true"></Description>
+  <CommitMessage xsi:nil="true"></CommitMessage>
+  <Publisher></Publisher>
+  <AuthorizationReferences>[]</AuthorizationReferences>
+  <ConnectionReferences>{"306f5dba-6db2-43dc-843b-43d7c18d9897":{"id":"/providers/microsoft.powerapps/apis/shared_powerappsforappmakers","displayName":"Power Apps for Makers","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1551/1.0.1551.2693/powerappsforappmakers/icon.png","dataSources":["PowerAppsforMakers"],"dependencies":[],"dependents":[],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard"},"4f47f5bc-1a1e-491e-a075-a6561231ac06":{"id":"/providers/microsoft.powerapps/apis/shared_office365users","displayName":"Office 365 Users","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1618/1.0.1618.3179/office365users/icon.png","dataSources":["Office365Users"],"dependencies":[],"dependents":[],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard","actions":["SearchUserV2","UserPhotoMetadata","UserPhoto_V2"]}}</ConnectionReferences>
+  <DatabaseReferences>{"default.cds":{"databaseDetails":{"referenceType":"Environmental","environmentName":"default.cds","overrideValues":{"status":"NotSpecified"}},"dataSources":{"QA Assessment Choices":{"entitySetName":"natiturt_qaassessmentchoiceses","logicalName":"natiturt_qaassessmentchoices"},"QA Assessment Items":{"entitySetName":"natiturt_qaassessmentitemses","logicalName":"natiturt_qaassessmentitems"},"QA Assessments":{"entitySetName":"natiturt_qaassessmentses","logicalName":"natiturt_qaassessments"},"QA Assessment Details":{"entitySetName":"natiturt_qaassessmentdetailses","logicalName":"natiturt_qaassessmentdetails"},"Deployment Artifacts":{"entitySetName":"deploymentartifacts","logicalName":"deploymentartifact"},"Deployment Environments":{"entitySetName":"deploymentenvironments","logicalName":"deploymentenvironment"},"Deployment Stage Runs":{"entitySetName":"deploymentstageruns","logicalName":"deploymentstagerun"},"Users":{"entitySetName":"systemusers","logicalName":"systemuser"},"Environment Variable Definitions":{"entitySetName":"environmentvariabledefinitions","logicalName":"environmentvariabledefinition"},"Environment Variable Values":{"entitySetName":"environmentvariablevalues","logicalName":"environmentvariablevalue"}}}}</DatabaseReferences>
+  <AppComponents>[]</AppComponents>
+  <AppComponentDependencies>[]</AppComponentDependencies>
+  <CanConsumeAppPass>1</CanConsumeAppPass>
+  <CanvasAppType>0</CanvasAppType>
+  <BypassConsent>0</BypassConsent>
+  <AdminControlBypassConsent>0</AdminControlBypassConsent>
+  <EmbeddedApp xsi:nil="true"></EmbeddedApp>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CdsDependencies>{"cdsdependencies":[{"logicalname":"natiturt_qaassessmentchoices","componenttype":1},{"logicalname":"natiturt_qaassessmentitems","componenttype":1},{"logicalname":"natiturt_qaassessments","componenttype":1},{"logicalname":"natiturt_qaassessmentdetails","componenttype":1},{"logicalname":"deploymentartifact","componenttype":1},{"logicalname":"deploymentenvironment","componenttype":1},{"logicalname":"deploymentstagerun","componenttype":1},{"logicalname":"systemuser","componenttype":1},{"logicalname":"environmentvariabledefinition","componenttype":1},{"logicalname":"environmentvariablevalue","componenttype":1}]}</CdsDependencies>
+  <IsCustomizable>1</IsCustomizable>
+  <BackgroundImageUri>/CanvasApps/natiturt_qualityassuranceassessment_084ed_BackgroundImageUri</BackgroundImageUri>
+  <DocumentUri>/CanvasApps/natiturt_qualityassuranceassessment_084ed_DocumentUri.msapp</DocumentUri>
+</CanvasApp>
