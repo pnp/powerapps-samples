@@ -7,9 +7,9 @@ products:
 - canvas
 - dataverse
 - powerautomate
-name: PowerApps Quality Assurance Assessment Solution
+name: Power Apps Quality Assurance Assessment Solution
 description: A Quality Assurance tool integrating with Power Platform Pipelines.
-urlFragment: PowerApps_Quality_Assurance_Assessment
+urlFragment: power-apps-quality-assurance-assessment
 ms.date: 23/02/2023
 author: Nati Turtledove
 ms.author: pnp
@@ -42,7 +42,7 @@ Inspired by the ALM Accelerator by PowerCAT, This solution is built alongside Po
 
 Solution|Author(s)
 --------|---------
-PowerApps Quality Assurance Assessment Solution | [Nati Turtledove](https://github.com/NatiTurts) ([@NatiTurts](https://www.twitter.com/NatiTurts) )
+Power Apps Quality Assurance Assessment Solution | [Nati Turtledove](https://github.com/NatiTurts) ([@NatiTurts](https://www.twitter.com/NatiTurts) )
 
 ## Version history
 
@@ -171,11 +171,11 @@ You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/devel
 
 ## Support
 
-While we don't support samples, if you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerapps-samples/issues/new?assignees=NatiTurts&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=PowerApps_Quality_Assurance_Assessment&authors=@NatiTurts&title=PowerApps_Quality_Assurance_Assessment%20-%20).
+While we don't support samples, if you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerapps-samples/issues/new?assignees=NatiTurts&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=power-apps-quality-assurance-assessment&authors=@NatiTurts&title=Power%20Apps%20Quality%20Assurance%20Assessment%20-%20).
 
-For questions regarding this sample, [create a new question](https://github.com/pnp/powerapps-samples/issues/new?assignees=NatiTurts&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=PowerApps_Quality_Assurance_Assessment&authors=@NatiTurts&title=PowerApps_Quality_Assurance_Assessment%20-%20).
+For questions regarding this sample, [create a new question](https://github.com/pnp/powerapps-samples/issues/new?assignees=NatiTurts&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=power-apps-quality-assurance-assessment&authors=@NatiTurts&title=Power%20Apps%20Quality%20Assurance%20Assessment%20-%20).
 
-Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerapps-samples/issues/new?assignees=NatiTurts&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=PowerApps_Quality_Assurance_Assessment&authors=@NatiTurts&title=PowerApps_Quality_Assurance_Assessment%20-%20).
+Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerapps-samples/issues/new?assignees=NatiTurts&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=power-apps-quality-assurance-assessment&authors=@NatiTurts&title=Power%20Apps%20Quality%20Assurance%20Assessment%20-%20).
 
 ## For more information
 
@@ -183,4 +183,4 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 - [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
 - [Power Apps canvas apps documentation](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/)
 
-<img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/PowerApps_Quality_Assurance_Assessment" />
+<img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/power-apps-quality-assurance-assessment" />
