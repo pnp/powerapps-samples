@@ -1,0 +1,96 @@
+Success As screen:
+    Fill: =
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+
+    Label35_4 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        Color: =RGBA(112, 15, 26, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        FontWeight: =FontWeight.Semibold
+        Height: =61
+        LineHeight: =1.171875
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Size: =37.5
+        Text: ="ONLINE ADMISSIONS PORTAL"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =800
+        X: =360
+        Y: =66
+        ZIndex: =3
+
+    LblSuccessMsg1_1 As label:
+        Align: =Align.Center
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Height: =172
+        Size: =20
+        Text: ="You have been succesfully registered. Please check your email for          details."
+        Width: =463
+        X: =475
+        Y: =372
+        ZIndex: =4
+
+    Icon1 As icon.CheckBadge:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        Color: =RGBA(112, 15, 26, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(220, 220, 220, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =76
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: |-
+            =ColorValue("#700F1A")
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Icon: =Icon.CheckBadge
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =76
+        X: =669
+        Y: =314
+        ZIndex: =6
+
+    HtmlText1_3 As htmlViewer:
+        Height: =524
+        HtmlText: |
+            ="<div style='margin:10px;width:859px;height:483px;background-color:#;box-shadow:0 3px 6px 1px  #ccc; border-radius:5px'></div>"
+        Width: =889
+        X: =271
+        Y: =182
+        ZIndex: =7
+
+    Button3 As button:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(0, 108, 191, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Height: =38
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(39, 113, 194, 1)
+        HoverFill: =Self.BorderColor
+        OnSelect: =Navigate(Login);
+        PressedBorderColor: =Self.BorderColor
+        PressedColor: =RGBA(39, 113, 194, 1)
+        PressedFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =20
+        Text: ="login"
+        Underline: =true
+        Width: =73
+        X: =645
+        Y: =470
+        ZIndex: =8
+

@@ -108,7 +108,7 @@ Verify that the app is imported, but leave it for now; do not start or edit the 
 
 ### Step 4 - Update the flow
 
-Head over to [the Power Automate portal](https://flow.microsoft.com), and you should see the imported flow in a disabled state. Click **edit**.
+Head over to [the Power Automate portal](https://make.powerautomate.com), and you should see the imported flow in a disabled state. Click **edit**.
 
 ![Power Automate - Overview](assets/1641714688.png)
 
