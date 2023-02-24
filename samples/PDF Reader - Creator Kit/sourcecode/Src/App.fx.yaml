@@ -1,0 +1,39 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =Set(
+            PDFData,
+            Table(
+                {
+                    PDFName: "Conditional formatting in PowerApps",
+                    PDFAuthor: "Audrey Brown",
+                    PDFSource: "https://az787822.vo.msecnd.net/sampleapps/pdfreader/Conditional%20formatting%20in%20PowerApps.pdf"
+                },
+                {
+                    PDFName: "Create a barcode scanning app in minutes",
+                    PDFAuthor: "Archana Naik",
+                    PDFSource: "https://az787822.vo.msecnd.net/sampleapps/pdfreader/Create%20a%20barcode%20scanning%20app%20in%20minutes.pdf"
+                },
+                {
+                    PDFName: "Create an app from PowerApps templates",
+                    PDFAuthor: "Linh Tran",
+                    PDFSource: "https://az787822.vo.msecnd.net/sampleapps/pdfreader/Create%20an%20app%20from%20PowerApps%20templates.pdf"
+                },
+                 {
+                    PDFName: "Introduction To PowerApps",
+                    PDFAuthor: "Ashley Burrows",
+                    PDFSource: "https://az787822.vo.msecnd.net/sampleapps/pdfreader/Introduction%20To%20PowerApps.pdf"
+                },
+                {
+                    PDFName: "Push notifications and Android N support",
+                    PDFAuthor: "Rose John",
+                    PDFSource: "https://az787822.vo.msecnd.net/sampleapps/pdfreader/Push%20notifications%20and%20Android%20N%20support.pdf"
+                },
+                 {
+                    PDFName: "Register and use Custom APIs in PowerApps",
+                    PDFAuthor: "David Dune",
+                    PDFSource: "https://az787822.vo.msecnd.net/sampleapps/pdfreader/Register%20and%20use%20Custom%20APIs%20in%20PowerApps.pdf"
+                }
+            )
+        )
+

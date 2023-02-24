@@ -1,0 +1,173 @@
+"scrMain As screen.'tabletAutoLayout_SplitScreen_ver1.0'":
+
+    mainContainer As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        ScreenContainer As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Width: =Parent.Width
+            ZIndex: =1
+
+            LeftSideContainer As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                FillPortions: =0
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =20
+                LayoutMinHeight: =100
+                LayoutMinWidth: =100
+                LayoutMode: =LayoutMode.Auto
+                PaddingBottom: =10
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: =10
+                Width: =300
+                ZIndex: =2
+
+                headerContainer As groupContainer.manualLayoutContainer:
+                    Fill: |-
+                        =ColorValue("#0078d4")
+                    FillPortions: =0
+                    Height: =50
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    Width: =Parent.Width
+                    ZIndex: =2
+
+                    "AutoWidthLabel1_2 As 'Auto Width Label (1.0.19)'":
+                        DisplayMode: =DisplayMode.Edit
+                        FillColor: =""
+                        FontColor: |-
+                            ="#ffffff"
+                        FontSize: =26
+                        FontSizeUnits: ='''PowerCAT.AutoWidthLabel.FontSizeUnits'''.Px
+                        FontWeight: ="600"
+                        Height: =30
+                        Text: ="PDF Reader Creator Kit"
+                        Width: =Parent.Width -20
+                        X: =5
+                        Y: =5
+                        ZIndex: =1
+
+                "SearchText As 'Fluent SearchBox (1.0.19) Preview'":
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =32
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
+                    Width: =Parent.Width-20
+                    X: =5
+                    Y: =115
+                    ZIndex: =3
+
+                "FluentDetailsList As 'Fluent Details List (1.0.19)'.pcfdataset":
+                    AlternateRowColor: |-
+                        ="#f3f2f1"
+                    columns_Items: |-
+                        =Table(
+                            {
+                                ColName: "PDFName",
+                                ColDisplayName: "PDF",
+                                 ColWidth: Self.Width-70
+                            },
+                            {
+                                ColName: "PDFAuthor",
+                                ColDisplayName: "PDFAuthor",
+                                ColShowAsSubTextOf: "PDFName",
+                                ColLabelAbove: false,
+                                ColIsBold: true
+                            }
+                        )
+                    Compact: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FillPortions: =1
+                    HeaderVisible: =false
+                    Height: =484
+                    Items: =If(SearchText.SearchText="", PDFData, Filter(PDFData,SearchText.SearchText in PDFAuthor|| SearchText.SearchText in PDFName))
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
+                    PageSize: =10
+                    SelectionAlwaysVisible: =true
+                    SelectionType: ='''PowerCAT.FluentDetailsList.SelectionType'''.Single
+                    SelectRowsOnFocus: =true
+                    Width: =Parent.Width - 20
+                    X: =5
+                    Y: =50
+                    ZIndex: =4
+
+                    PDFAuthor1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="PDFAuthor"
+                        FieldName: ="PDFAuthor"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =1
+                        ZIndex: =1
+
+                    PDFName1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="PDFName"
+                        FieldName: ="PDFName"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =2
+                        ZIndex: =2
+
+                    PDFSource1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="PDFSource"
+                        FieldName: ="PDFSource"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =3
+                        ZIndex: =3
+
+            RightSideContainer As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =3
+
+        Container3 As groupContainer.manualLayoutContainer:
+            FillPortions: =0
+            Height: =30
+            LayoutMinHeight: =100
+            LayoutMinWidth: =50
+            ZIndex: =2
+
+            "Icon1 As 'Fluent Icon (1.0.19)'":
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =16
+                Height: =Parent.Height
+                IconName: ="Website"
+                IconSize: =18
+                IconType: ='''PowerCAT.Icon.IconType'''.ActionButton
+                OnChange: |-
+                    =Launch("https://angelogulisano.com")
+                Text: |-
+                    ="PDF Reader with Creator Kit By Angelo Gulisano. Click me to visit https://angelogulisano.com"
+                TextAlignment: ='''PowerCAT.Icon.TextAlignment'''.Center
+                Width: =Parent.Width
+                X: =0
+                Y: =0
+                ZIndex: =2
+
+    PdfViewer As pdfViewer:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Document: =FluentDetailsList.Selected.PDFSource
+        Fill: =RGBA(0, 0, 0, 0.5)
+        Height: =RightSideContainer.Height
+        PaddingBottom: =10
+        ShowControls: =true
+        Width: =RightSideContainer.Width
+        X: =RightSideContainer.X
+        Y: =RightSideContainer.Y
+        ZIndex: =2
+

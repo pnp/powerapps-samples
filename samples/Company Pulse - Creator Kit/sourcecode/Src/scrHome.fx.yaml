@@ -1,0 +1,225 @@
+"scrHome As screen.'tabletAutoLayout_HeaderMainFooter_ver1.0'":
+
+    ScreenContainer As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        HeaderContainer As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            FillPortions: =0
+            Height: =75
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            "iconLogo As 'Fluent Icon (1.0.19)'":
+                AlignInContainer: =AlignInContainer.Center
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =""
+                FontSize: =30
+                Height: =Parent.Height
+                IconName: ="News"
+                IconSize: =30
+                IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                LayoutMinHeight: =200
+                LayoutMinWidth: =200
+                Text: ="Company Pulse"
+                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                Theme: =AppThemeJson
+                Width: =200
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+            "lblInfo As 'Auto Width Label (1.0.19)'":
+                AlignInContainer: =AlignInContainer.Center
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =22
+                FontSizeUnits: ='PowerCAT.AutoWidthLabel.FontSizeUnits'.Pt
+                FontWeight: ="700"
+                Height: =Parent.Height
+                LayoutMinHeight: =200
+                LayoutMinWidth: =200
+                PaddingLeft: =Self.Width * 0.3
+                PaddingTop: =Self.Height *0.2
+                Text: =If(Hour(Now()) < 4 || Hour(Now()) >= 17, "Good evening, ", Hour(Now()) < 12, "Good morning, ", "Good afternoon, ") & User().FullName & "!"
+                Width: =Parent.Width -iconLogo.Width
+                X: =220
+                Y: =404
+                ZIndex: =2
+
+        MainSectionContainer As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            FillPortions: =2
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            NewsfeedHeadSeperator As rectangle:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =RGBA(101, 128, 187, 1)
+                DisabledFill: =NewsfeedHeadSeperator.Fill
+                DisplayMode: =DisplayMode.View
+                Fill: =RGBA(0, 0, 0, 1)
+                FocusedBorderColor: =NewsfeedHeadSeperator.BorderColor
+                FocusedBorderThickness: =0
+                Height: =5
+                HoverFill: =NewsfeedHeadSeperator.Fill
+                PressedFill: =NewsfeedHeadSeperator.Fill
+                Width: =Parent.Width
+                X: =30
+                Y: =70
+                ZIndex: =1
+
+            ScreenContainer1_1 As groupContainer.horizontalAutoLayoutContainer:
+                Height: =Parent.Height
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: =10
+                Width: =Parent.Width
+                ZIndex: =3
+
+                RightSideContainer As groupContainer.verticalAutoLayoutContainer:
+                    FillPortions: =2
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =100
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =3
+
+                    "txtSearch As 'Fluent SearchBox (1.0.19) Preview'":
+                        AlignInContainer: =AlignInContainer.Center
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =32
+                        LayoutMinHeight: =200
+                        LayoutMinWidth: =200
+                        Theme: =AppThemeJson
+                        Width: =Parent.Width -50
+                        X: =5
+                        Y: =115
+                        ZIndex: =2
+
+                    "GalleryPosts As gallery.'BrowseLayout_Vertical_TwoTextOneImageTwoColumnOverlayVariant_ver4.0'":
+                        AlignInContainer: =AlignInContainer.Start
+                        Height: =Parent.Height - txtSearch.Height
+                        Items: |-
+                            =Search(RSS.ListFeedItems("https://angelogulisano.com/feed/"),txtSearch.SearchText,"title","summary")
+                        Layout: =Layout.Vertical
+                        LayoutMinHeight: =287
+                        LayoutMinWidth: =320
+                        OnSelect: =
+                        TemplatePadding: =25
+                        TemplateSize: =Min(200, Self.Height - 60)
+                        Width: =Parent.Width
+                        WrapCount: =2
+                        ZIndex: =3
+
+                        "Elevation As 'Fluent Elevation (1.0.19)'":
+                            Depth: ='PowerCAT.Elevation.Depth'.Depth8
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =GalleryPosts.TemplateHeight
+                            HoverDepth: ='PowerCAT.Elevation.HoverDepth'.Depth8
+                            Width: =GalleryPosts.TemplateWidth
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                        "lblPostTitle As 'Auto Width Label (1.0.19)'":
+                            DisplayMode: =DisplayMode.Edit
+                            FontWeight: ="900"
+                            Height: =45
+                            PaddingLeft: =10
+                            PaddingRight: =10
+                            PaddingTop: =10
+                            Text: =Concatenate(Left(ThisItem.title,200),"...")
+                            Width: =635
+                            X: =0
+                            Y: =0
+                            ZIndex: =2
+
+                        "IconLink As 'Fluent Icon (1.0.19)'":
+                            DisplayMode: =DisplayMode.Edit
+                            FontSize: =20
+                            Height: =31
+                            IconName: ="Link"
+                            IconSize: =20
+                            IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                            OnChange: =Launch(ThisItem.primaryLink)
+                            Text: ="Visit Post"
+                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                            Theme: =AppThemeJson
+                            Width: =609
+                            X: =12
+                            Y: =156
+                            ZIndex: =5
+
+                        Label1 As label:
+                            DisplayMode: =DisplayMode.View
+                            Font: =Font.'Segoe UI'
+                            Height: =57
+                            OnSelect: =Select(Parent)
+                            Size: =12
+                            Text: =Concatenate(Left(ThisItem.summary,400),"...")
+                            VerticalAlign: =VerticalAlign.Top
+                            Width: =609
+                            X: =12
+                            Y: =45
+                            ZIndex: =6
+
+                        "TagList2 As 'Fluent Tag List (1.0.19)'.pcfdataset":
+                            BorderRadius: =100
+                            DisplayMode: =DisplayMode.View
+                            Height: =43
+                            ItemDisplayName: ="Value"
+                            Items: =FirstN(ThisItem.categories,6)
+                            ItemTextColor: =""
+                            OnSelect: =Select(Parent)
+                            TextAlignment: ='PowerCAT.TagList.TextAlignment'.Left
+                            Theme: =AppThemeJson
+                            Width: =621
+                            X: =6
+                            Y: =112
+                            ZIndex: =7
+
+                            Value1 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="Value"
+                                FieldName: ="Value"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =1
+                                ZIndex: =8
+
+                    "Icon1 As 'Fluent Icon (1.0.19)'":
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =AppTheme.palette.neutralDark
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =16
+                        Height: =40
+                        IconColor: =AppTheme.palette.black
+                        IconName: ="Website"
+                        IconSize: =18
+                        IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                        LayoutMinHeight: =200
+                        LayoutMinWidth: =200
+                        OnChange: |-
+                            =Launch("https://angelogulisano.com")
+                        Text: |-
+                            ="Company Pulse with Creator Kit By Angelo Gulisano. Click me to visit https://angelogulisano.com"
+                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                        Theme: =AppThemeJson
+                        Width: =Parent.Width
+                        X: =0
+                        Y: =0
+                        ZIndex: =4
+
