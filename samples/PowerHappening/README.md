@@ -17,7 +17,7 @@ After you add Rooms to your Venue and Slots on Event Days you can use our Custom
 * [Model-Driven Power Apps](https://learn.microsoft.com/en-us/power-apps/maker/model-driven-apps/)
 * [Custom Pages](https://learn.microsoft.com/en-us/power-apps/maker/model-driven-apps/model-app-page-overview)
 * [Creator Kit](https://learn.microsoft.com/en-us/power-platform/guidance/creator-kit/overview)
-* [Power Drag and Drop](https://docs.microsoft.com/powerapps/)
+* [Power Drag and Drop](https://github.com/scottdurow/power-drag-drop)
 
 
 ## Compatibility
@@ -25,9 +25,9 @@ After you add Rooms to your Venue and Slots on Event Days you can use our Custom
 > Don't worry about this section, we'll take care of it. Unless you really want to...
 
 ![Power Apps Source File Pack and Unpack Utility 0.20](https://img.shields.io/badge/Packing%20Tool-0.20-green.svg)
-![Premium License](https://img.shields.io/badge/Premium%20License-Not%20Required-green.svg "Premium Power Apps license not required")
+![Premium License](https://img.shields.io/badge/Premium%20License-Required-red.svg "Premium Power Apps license required")
 ![Experimental Features](https://img.shields.io/badge/Experimental%20Features-No-green.svg "Does not rely on experimental features")
-![On-Premises Connectors](https://img.shields.io/badge/On--Premises%20Connectors-No-green.svg "Does not use on-premise connectors")
+![On-Premises Connectors](https://img.shields.io/badge/On--Premises%20Connectors-No-green.svg "Does not use on-premises connectors")
 ![Custom Connectors](https://img.shields.io/badge/Custom%20Connectors-Not%20Required-green.svg "Does not use custom connectors")
 
 ## Authors
@@ -87,7 +87,7 @@ This solutions uses the following Dataverse tables:
 
 * [Install the Creator Kit](https://learn.microsoft.com/en-us/power-platform/guidance/creator-kit/overview)
 * [Install Power Drag and Drop](https://github.com/scottdurow/power-drag-drop)
-* [Download Power Happening](./solution/PowerHappingBase.zip)
+* [Download Power Happening](./solution/PowerHappeningBase.zip)
 * Import the solution to your dataverse enabled environment
 
 For more info visit the [installation guide on the project wiki](https://github.com/BendenBlanken/PowerHappening/wiki/1.-Installation-Manual)
@@ -102,11 +102,11 @@ For more info visit the [installation guide on the project wiki](https://github.
 
 We do not support samples, but we this community is always willing to help, and we want to improve these samples. We use GitHub to track issues, which makes it easy for  community members to volunteer their time and help resolve issues.
 
-If you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+If you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=PowerHappening&authors=@walcivar%20@BendenBlanken&title=PowerHappening%20-%20).
 
-For questions regarding this sample, [create a new question](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+For questions regarding this sample, [create a new question](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=PowerHappening&authors=@walcivar%20@BendenBlanken&title=PowerHappening%20-%20).
 
-Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=PowerHappening&authors=@walcivar%20@BendenBlanken&title=PowerHappening%20-%20).
 
 ## For more information
 
