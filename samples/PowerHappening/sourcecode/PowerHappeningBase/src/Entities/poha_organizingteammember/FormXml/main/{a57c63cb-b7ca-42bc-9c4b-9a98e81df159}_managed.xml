@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{a57c63cb-b7ca-42bc-9c4b-9a98e81df159}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{3d5a68d0-5e33-4bf2-afd5-ebda575b4a73}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{df3b0252-c5e0-432e-a61b-586cf5100b20}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{a957bd97-8946-49c6-a828-d048fe71503c}" visible="false">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="poha_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="poha_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{eb60a4d2-e7b0-4053-9bf2-6a9a9f50a261}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Event" languagecode="1033" />
+                        </labels>
+                        <control id="poha_event" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="poha_event" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{be8952ce-44b5-4217-91ce-575f801d58f2}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Teammember" languagecode="1033" />
+                        </labels>
+                        <control id="poha_teammember" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="poha_teammember" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ec566cd5-302d-4e94-811c-d8221ae006a7}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Role" languagecode="1033" />
+                        </labels>
+                        <control id="poha_role" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="poha_role" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{df08c403-33f0-4d7f-b748-9d957f0dcd14}" showlabel="true" visible="false">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{762eddeb-1535-47a4-ada0-d6bc80f841fb}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{0dce3f73-97e1-4639-a718-e70b87f74f30}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{6ac9245d-f536-45e6-a315-b0cc460a9737}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{1ed1637e-6bc6-43ee-b894-ce2f2bc13fb0}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{347acc1c-ee2e-44c7-aa92-6adcd5ff640b}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{430b9958-1d5d-48f7-aa5e-f14c799d1f1f}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{c2d5d4b0-e003-4580-bbeb-fd4ad46b0e9e}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{d89a0530-b99a-4f22-913b-ea0b3e257dc7}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

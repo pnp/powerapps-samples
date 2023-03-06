@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{d572b011-d9d6-4c61-8f75-f74fbcdff0eb}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="poha_name" select="1" icon="1" preview="1">
+        <row name="result" id="poha_organizingteammemberid">
+          <cell name="poha_teammember" width="197" />
+          <cell name="poha_role" width="263" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="poha_organizingteammember">
+          <attribute name="poha_organizingteammemberid" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="poha_teammember" />
+          <attribute name="poha_role" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Organizing Teammembers" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

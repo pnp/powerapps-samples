@@ -1,0 +1,248 @@
+{
+  "appinfo": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/appinfo",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "appinfo",
+    "OverridableProperties": {},
+    "Version": "1.0"
+  },
+  "Button": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/powercontrol/Microsoft_CoreControls_Button",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "Microsoft_CoreControls_Button",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Button",
+    "Version": "1.5.2"
+  },
+  "Combo box": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/powercontrol/Microsoft_CoreControls_ComboBox",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "Microsoft_CoreControls_ComboBox",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Combo box",
+    "Version": "1.5.0"
+  },
+  "Fluent Spinner (1.0.19) Preview": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": false,
+    "Id": "http://microsoft.com/appmagic/powercontrol/cat_PowerCAT.Spinner",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "cat_PowerCAT.Spinner",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Fluent Spinner (1.0.19) Preview",
+    "Version": "1.0.19"
+  },
+  "gallery": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/gallery",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": true,
+    "LastModifiedTimestamp": "0",
+    "Name": "gallery",
+    "OverridableProperties": {},
+    "Version": "2.13.2"
+  },
+  "galleryTemplate": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/galleryTemplate",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "galleryTemplate",
+    "OverridableProperties": {},
+    "Version": "1.0"
+  },
+  "groupContainer": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/groupContainer",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": true,
+    "LastModifiedTimestamp": "0",
+    "Name": "groupContainer",
+    "OverridableProperties": {},
+    "Version": "1.1.0"
+  },
+  "icon": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/icon",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": true,
+    "LastModifiedTimestamp": "0",
+    "Name": "icon",
+    "OverridableProperties": {},
+    "Version": "2.5.0"
+  },
+  "Label": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/powercontrol/Microsoft_CoreControls_Label",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "Microsoft_CoreControls_Label",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Label",
+    "Version": "1.6.0"
+  },
+  "pcfDataField": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/pcfDataField",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": true,
+    "LastModifiedTimestamp": "0",
+    "Name": "pcfDataField",
+    "OverridableProperties": {},
+    "Version": "1.4.0"
+  },
+  "Power Drag Drop (1.0.24)": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": false,
+    "Id": "http://microsoft.com/appmagic/powercontrol/pdd_CustomControl.PowerDragDrop",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "pdd_CustomControl.PowerDragDrop",
+    "OverridableProperties": {
+      "CurrentItems": {
+        "Type": {
+          "EnumString": "",
+          "Kind": "Table",
+          "Name": "Root",
+          "Type": [
+            {
+              "EnumString": "",
+              "Kind": "String",
+              "Name": "DropZoneId",
+              "Type": []
+            },
+            {
+              "EnumString": "",
+              "Kind": "_MinPrimitive",
+              "Name": "HasMovedPosition",
+              "Type": []
+            },
+            {
+              "EnumString": "",
+              "Kind": "_MinPrimitive",
+              "Name": "HasMovedZone",
+              "Type": []
+            },
+            {
+              "EnumString": "",
+              "Kind": "String",
+              "Name": "ItemId",
+              "Type": []
+            },
+            {
+              "EnumString": "",
+              "Kind": "String",
+              "Name": "OriginalDropZoneId",
+              "Type": []
+            },
+            {
+              "EnumString": "",
+              "Kind": "Number",
+              "Name": "OriginalPosition",
+              "Type": []
+            },
+            {
+              "EnumString": "",
+              "Kind": "Number",
+              "Name": "Position",
+              "Type": []
+            }
+          ]
+        },
+        "Version": "1.327"
+      }
+    },
+    "PCFDynamicSchemaForIRRetrieval": {
+      "CurrentItems": {
+        "DynamicSchema": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"ItemId\":{\"type\":\"string\"},\"DropZoneId\":{\"type\":\"string\"},\"OriginalDropZoneId\":{\"type\":\"string\"},\"Position\":{\"type\":\"number\"},\"OriginalPosition\":{\"type\":\"number\"},\"HasMovedZone\":{\"type\":\"boolean\"},\"HasMovedPosition\":{\"type\":\"boolean\"}}}}",
+        "PCFSkipValidation": false
+      }
+    },
+    "TemplateDisplayName": "Power Drag Drop (1.0.24)",
+    "Version": "1.0.24"
+  },
+  "screen": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/screen",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "screen",
+    "OverridableProperties": {},
+    "Version": "1.0"
+  },
+  "timer": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/timer",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": true,
+    "LastModifiedTimestamp": "0",
+    "Name": "timer",
+    "OverridableProperties": {},
+    "Version": "2.1.0"
+  }
+}

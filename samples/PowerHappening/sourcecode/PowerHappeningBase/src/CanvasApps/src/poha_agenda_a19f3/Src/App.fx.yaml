@@ -1,0 +1,12 @@
+App As appinfo:
+    BackEnabled: =false
+    Formulas: |-
+        =U=4;
+        MinCellWith=100;
+        CellHeight=70;
+        RoomGridWidth=200;
+        SessionGridWidth=200;
+        GutterHeight=100;
+        SlotsInRange=10;//CountRows(FirstN(colRoomSlots,10));
+    OnStart: =
+

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>poha_agenda_a19f3</Name>
+  <AppVersion>2023-02-24T10:22:48Z</AppVersion>
+  <Status>Ready</Status>
+  <CreatedByClientVersion>3.23021.21.0</CreatedByClientVersion>
+  <MinClientVersion>3.23021.21.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"1366","primaryDeviceHeight":"768","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","publisherVersion":"3.23021.21","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false","sienaVersion":"20230224T101815Z-3.23021.21.0"}</Tags>
+  <IsCdsUpgraded>0</IsCdsUpgraded>
+  <GalleryItemId xsi:nil="true"></GalleryItemId>
+  <BackgroundColor>RGBA(0,176,240,1)</BackgroundColor>
+  <DisplayName>Agenda</DisplayName>
+  <Description xsi:nil="true"></Description>
+  <CommitMessage xsi:nil="true"></CommitMessage>
+  <Publisher xsi:nil="true"></Publisher>
+  <AuthorizationReferences>[]</AuthorizationReferences>
+  <ConnectionReferences>{}</ConnectionReferences>
+  <DatabaseReferences>{"default.cds":{"databaseDetails":{"referenceType":"Environmental","environmentName":"default.cds","overrideValues":{"status":"NotSpecified"}},"dataSources":{"Sessions":{"entitySetName":"poha_sessions","logicalName":"poha_session"},"Slots":{"entitySetName":"poha_slotses","logicalName":"poha_slots"},"Contacts":{"entitySetName":"contacts","logicalName":"contact"},"Rooms":{"entitySetName":"poha_rooms","logicalName":"poha_room"},"Event Schedules":{"entitySetName":"poha_eventschedules","logicalName":"poha_eventschedule"},"Accounts":{"entitySetName":"accounts","logicalName":"account"},"Events":{"entitySetName":"poha_events","logicalName":"poha_event"}},"components":[{"componentName":"CustomControl","identifier":"cat_PowerCAT.Spinner","identifierType":"LogicalName","capabilities":{"pcfExternalServiceUsageAllowed":false}},{"componentName":"CustomControl","identifier":"pdd_CustomControl.PowerDragDrop","identifierType":"LogicalName","capabilities":{"pcfExternalServiceUsageAllowed":false}},{"componentName":"CustomControl","identifier":"pdd_CustomControl.PowerDragDrop","identifierType":"LogicalName","capabilities":{"pcfExternalServiceUsageAllowed":false}},{"componentName":"CustomControl","identifier":"pdd_CustomControl.PowerDragDrop","identifierType":"LogicalName","capabilities":{"pcfExternalServiceUsageAllowed":false}}]}}</DatabaseReferences>
+  <AppComponents>[]</AppComponents>
+  <AppComponentDependencies>[]</AppComponentDependencies>
+  <CanConsumeAppPass>1</CanConsumeAppPass>
+  <CanvasAppType>2</CanvasAppType>
+  <BypassConsent>0</BypassConsent>
+  <AdminControlBypassConsent>0</AdminControlBypassConsent>
+  <EmbeddedApp xsi:nil="true"></EmbeddedApp>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CdsDependencies>{"cdsdependencies":[{"logicalname":"poha_session","componenttype":1},{"logicalname":"poha_slots","componenttype":1},{"logicalname":"contact","componenttype":1},{"logicalname":"poha_room","componenttype":1},{"logicalname":"poha_eventschedule","componenttype":1},{"logicalname":"account","componenttype":1},{"logicalname":"poha_event","componenttype":1},{"dependencyid":"","logicalname":"cat_PowerCAT.Spinner","componenttype":66,"componenttypeplatformname":"CustomControl"},{"dependencyid":"","logicalname":"pdd_CustomControl.PowerDragDrop","componenttype":66,"componenttypeplatformname":"CustomControl"},{"dependencyid":"","logicalname":"pdd_CustomControl.PowerDragDrop","componenttype":66,"componenttypeplatformname":"CustomControl"},{"dependencyid":"","logicalname":"pdd_CustomControl.PowerDragDrop","componenttype":66,"componenttypeplatformname":"CustomControl"}]}</CdsDependencies>
+  <IsCustomizable>1</IsCustomizable>
+  <BackgroundImageUri>/CanvasApps/poha_agenda_a19f3_BackgroundImageUri</BackgroundImageUri>
+  <DocumentUri>/CanvasApps/poha_agenda_a19f3_DocumentUri.msapp</DocumentUri>
+</CanvasApp>
