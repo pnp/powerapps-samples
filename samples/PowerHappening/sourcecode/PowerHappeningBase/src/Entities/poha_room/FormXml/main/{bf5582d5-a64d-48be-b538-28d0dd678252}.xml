@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{bf5582d5-a64d-48be-b538-28d0dd678252}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{d767f254-1ab5-4807-9a7d-9fcdf4fba5c5}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{50affaef-7daa-4767-aad3-0809dbf31ab2}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{5686b730-36f6-4742-bf77-6d7bc1f2cbcb}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="poha_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="poha_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b6e328e1-436c-438d-9784-9e884491d48e}" showlabel="true" visible="false">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0baf0c6a-af57-4835-b94a-a3ad54f10668}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Venue" languagecode="1033" />
+                        </labels>
+                        <control id="poha_venue" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="poha_venue" disabled="false">
+                          <parameters>
+                            <DefaultViewId>{DD1707F4-C595-ED11-AAD1-000D3A4BBC4C}</DefaultViewId>
+                            <AvailableViewIds>{A9AF0AB8-861D-4CFA-92A5-C6281FED7FAB},{C66A9A5B-B292-ED11-AAD1-000D3A4BBC4C},{15C63745-0A6E-4322-8416-A62C84D90279},{CFBCD7AF-AEE5-4E45-8ECC-C040D4020581},{49FB9771-09E1-4E70-B193-198752493577},{00000000-0000-0000-00AA-000010001002},{65FFAF9A-E8C5-432D-860B-32F841B00D87},{00000000-0000-0000-00AA-000010001031},{00000000-0000-0000-00AA-000010001001},{D234426E-1F37-4944-9255-50E19B541C4C},{D8B2AADF-C595-ED11-AAD1-000D3A4BBC4C},{DD1707F4-C595-ED11-AAD1-000D3A4BBC4C}</AvailableViewIds>
+                            <DisableViewPicker>true</DisableViewPicker>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{bf6e280a-5743-4bde-8071-ffe16a2e127f}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Capacity" languagecode="1033" />
+                        </labels>
+                        <control id="poha_capacity" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="poha_capacity" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{2143b877-4d37-4503-bd59-350ef41e245f}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{9ae263c2-eccd-4a42-98c3-9a2c28aaa1af}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{6247a9c3-62f6-46c1-93e9-43a035bbc286}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{21dc6af5-dc1b-48eb-a10d-58b69ba60c55}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{6273123f-e43b-4349-b406-4d37a1b33d49}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{bf1c2315-a1fc-4668-95f3-ddaa0cb8bce0}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{5ea9ca1f-e35a-487f-ab6f-7918892927ee}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{2fd8fa49-0c84-4834-a31a-0db4180e180e}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

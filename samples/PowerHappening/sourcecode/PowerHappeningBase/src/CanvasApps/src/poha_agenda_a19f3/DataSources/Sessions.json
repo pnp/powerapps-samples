@@ -1,0 +1,129 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "poha_sessions",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "poha_session",
+    "MaxGetRowsCount": 500,
+    "Name": "Sessions",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "poha_assignedzone": "Assigned zone",
+      "poha_CoSpeaker1": "Co-Speaker 1",
+      "poha_CoSpeaker2": "Co-Speaker 2",
+      "poha_description": "Description",
+      "poha_event": "Event",
+      "poha_name": "Name",
+      "poha_note": "Note",
+      "poha_room": "Room",
+      "poha_session_AsyncOperations": "System Jobs",
+      "poha_session_BulkDeleteFailures": "Bulk Delete Failures",
+      "poha_session_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "poha_session_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "poha_session_ProcessSession": "Process Sessions",
+      "poha_session_SyncErrors": "Sync Errors",
+      "poha_sessionid": "Session",
+      "poha_slot": "Slot",
+      "poha_speaker": "Speaker",
+      "poha_type": "Type",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Sessions",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Sessions (Views)",
+    "Name": "_poha_session_views",
+    "RelatedEntityName": "Sessions",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "111add2b-8efc-4f52-8fa9-98a6d319566e": "Inactive Sessions",
+      "7b527348-e67b-4d72-aeb5-b83950a7ae71": "Active Sessions",
+      "844af390-4224-4256-a3cf-f360bcd59903": "Session Lookup View",
+      "85edd76b-d590-40be-aec9-c69d30bb11ea": "Session Advanced Find View",
+      "ffe75e3a-9b89-48a4-9af5-92e38833f958": "Session Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (Sessions)",
+    "Name": "poha_session_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Sessions"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Sessions",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Sessions)",
+    "Name": "poha_session_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Submitted",
+      "100000001": "In Evaluation",
+      "100000002": "Accepted",
+      "100000003": "On Reserve",
+      "100000004": "Declined",
+      "2": "Withdrawn"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Sessions"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Sessions",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Session Type",
+    "Name": "poha_sessiontype",
+    "OptionSetInfoNameMapping": {
+      "100000000": "Keynote",
+      "100000001": "Session",
+      "100000002": "Tutorial",
+      "100000003": "Case Study",
+      "100000004": "Lightning"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "poha_type",
+        "OptionSetReferenceEntityName": "Sessions"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "poha_type",
+    "RelatedEntityName": "Sessions",
+    "Type": "OptionSetInfo"
+  }
+]

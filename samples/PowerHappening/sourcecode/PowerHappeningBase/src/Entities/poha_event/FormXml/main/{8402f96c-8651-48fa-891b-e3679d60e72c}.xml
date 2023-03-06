@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{8402f96c-8651-48fa-891b-e3679d60e72c}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{52c927a1-1cbf-4caa-88d4-afff72ad0693}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="50%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{3b928afc-5c70-42a5-b39d-b09c7e365ee7}" columns="1">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{c17eabff-750f-4782-b1bf-2b49cf1e7a39}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="poha_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="poha_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5d1e59cf-c851-45a9-b336-cbd64adb19e6}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Description" languagecode="1033" />
+                        </labels>
+                        <control id="poha_description" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="poha_description" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{430183de-8c29-406f-9c89-927911eabe2b}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Event Date" languagecode="1033" />
+                        </labels>
+                        <control id="poha_eventdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="poha_eventdate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3c88ab58-e625-48a5-a447-13b98f532d71}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Venue" languagecode="1033" />
+                        </labels>
+                        <control id="poha_venue" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="poha_venue" disabled="false">
+                          <parameters>
+                            <DefaultViewId>{DD1707F4-C595-ED11-AAD1-000D3A4BBC4C}</DefaultViewId>
+                            <AvailableViewIds>{A9AF0AB8-861D-4CFA-92A5-C6281FED7FAB},{C66A9A5B-B292-ED11-AAD1-000D3A4BBC4C},{15C63745-0A6E-4322-8416-A62C84D90279},{CFBCD7AF-AEE5-4E45-8ECC-C040D4020581},{49FB9771-09E1-4E70-B193-198752493577},{00000000-0000-0000-00AA-000010001002},{65FFAF9A-E8C5-432D-860B-32F841B00D87},{00000000-0000-0000-00AA-000010001031},{00000000-0000-0000-00AA-000010001001},{D234426E-1F37-4944-9255-50E19B541C4C},{D8B2AADF-C595-ED11-AAD1-000D3A4BBC4C},{DD1707F4-C595-ED11-AAD1-000D3A4BBC4C}</AvailableViewIds>
+                            <DisableViewPicker>true</DisableViewPicker>
+                            <DisableMru>true</DisableMru>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{731b0128-677d-490d-aa09-0d2a3346bdba}" userspacer="true" showlabel="false" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0a34c044-1dd3-4918-9760-c351b96d1f54}" visible="false">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="null_section_5" id="2c3a795c-c061-4fa0-9293-9d927208abe7" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{ca49a2b2-568b-4125-9f1b-767c451a22f4}" rowspan="4" colspan="1" auto="false">
+                        <labels>
+                          <label description="Organizing Teammembers" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_new_3" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <TargetEntityType>poha_organizingteammember</TargetEntityType>
+                            <ViewId>{D572B011-D9D6-4C61-8F75-F74FBCDFF0EB}</ViewId>
+                            <ViewIds>{D572B011-D9D6-4C61-8F75-F74FBCDFF0EB}</ViewIds>
+                            <RelationshipName>poha_poha_organizingteammember_Event_poha_even</RelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+                <section name="null_section_3" id="c817cc5b-32a6-40f0-a766-e49ecdfee220" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="50%">
+              <sections>
+                <section name="null_section_7" id="3f4a6c80-532b-4727-ae3e-b1b553992d07" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{73d00639-6c7a-4a59-9193-482f930ff2c4}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Attendee Capacity" languagecode="1033" />
+                        </labels>
+                        <control id="poha_attendeecapacity" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="poha_attendeecapacity" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2aab3ab5-4de7-429c-bca7-c8ef7fb9e55d}" locklevel="0" colspan="1" rowspan="1" showlabel="true">
+                        <labels>
+                          <label description="Accepted Attendees" languagecode="1033" />
+                        </labels>
+                        <control id="poha_acceptedattendees" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="poha_acceptedattendees" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2fe7e07a-2f49-4f08-9350-d9e0f3942821}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Registered Attendees" languagecode="1033" />
+                        </labels>
+                        <control id="poha_registeredattendees" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="poha_registeredattendees" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="null_section_4" id="00ef9c63-480a-4f19-9cb5-b462b8e73087" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{76de15a3-5c65-4fe9-ab0b-26bacb2db1b4}" rowspan="4" colspan="1" auto="false">
+                        <labels>
+                          <label description="Event Sponsors" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_new_2" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <TargetEntityType>poha_eventsponsors</TargetEntityType>
+                            <ViewId>{4C121A03-3BA5-4718-8A81-85EF798F79BF}</ViewId>
+                            <ViewIds>{4C121A03-3BA5-4718-8A81-85EF798F79BF}</ViewIds>
+                            <RelationshipName>poha_poha_eventsponsors_Event_poha_event</RelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_eventregistrations" id="3be667b1-2686-4c4d-b7cb-448146c2b9d8" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Event Registrations" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_eventregistrations_section_eventregistrations" id="853b2067-85ce-4124-9ed9-cfc3207772d4" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{a4a80925-1d04-4e7b-89bf-a74cd12a5a3d}" rowspan="4" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="New SG control 1670592045595" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_eventregistrations" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <TargetEntityType>poha_eventregistration</TargetEntityType>
+                            <ViewId>{D2619865-FA7B-4672-88BF-332F1D8FCB82}</ViewId>
+                            <ViewIds>{D2619865-FA7B-4672-88BF-332F1D8FCB82}</ViewIds>
+                            <RelationshipName>poha_poha_eventregistration_event_poha_event</RelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_sessions" id="75a02d88-3391-4b50-99c0-237d9ad4699b" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Session Submissions" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_sessions_section_sessions" id="c7b2af70-01a5-45b4-9a43-1675377ac839" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{8d3f1732-5e75-4202-a531-4dd8b4077120}" rowspan="4" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="New SG control 1670592139290" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_sessions" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <TargetEntityType>poha_session</TargetEntityType>
+                            <ViewId>{7B527348-E67B-4D72-AEB5-B83950A7AE71}</ViewId>
+                            <ViewIds>{7B527348-E67B-4D72-AEB5-B83950A7AE71}</ViewIds>
+                            <RelationshipName>poha_poha_session_event_poha_event</RelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{43565b66-7f40-49ad-8cdd-4a69e374df95}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{e8574fcb-3e66-49c7-84dc-c8d756157969}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{25041cd6-555f-4e73-b615-d061f835f391}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{27464ba2-c77d-4afd-97ce-77f09ef30f69}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{28974228-36d6-4c6f-83e9-bd728943a9ac}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{6da8a540-6d98-4255-83ec-bdcf46f0ac65}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{6741db8f-a2ab-499a-b4c2-d7513d34de24}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{7c064d7c-c495-4b0d-810c-2111ec917cd7}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+      <Navigation>
+        <NavBar />
+      </Navigation>
+      <controlDescriptions />
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

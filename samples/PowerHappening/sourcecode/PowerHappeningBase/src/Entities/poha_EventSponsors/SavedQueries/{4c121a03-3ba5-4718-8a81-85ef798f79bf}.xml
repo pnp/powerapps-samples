@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{4c121a03-3ba5-4718-8a81-85ef798f79bf}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="poha_name" select="1" icon="1" preview="1">
+        <row name="result" id="poha_eventsponsorsid">
+          <cell name="poha_sponsor" width="233" />
+          <cell name="poha_type" width="178" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="poha_eventsponsors">
+          <attribute name="poha_eventsponsorsid" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="poha_sponsor" />
+          <attribute name="poha_type" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Event Sponsors" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

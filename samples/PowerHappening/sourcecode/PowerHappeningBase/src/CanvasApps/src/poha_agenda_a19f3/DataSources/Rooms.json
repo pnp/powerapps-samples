@@ -1,0 +1,100 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "poha_rooms",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "poha_room",
+    "MaxGetRowsCount": 500,
+    "Name": "Rooms",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "poha_capacity": "Capacity",
+      "poha_image": "Image",
+      "poha_imageid": "poha_imageId",
+      "poha_name": "Name",
+      "poha_poha_session_room_poha_room": "Sessions",
+      "poha_room_AsyncOperations": "System Jobs",
+      "poha_room_BulkDeleteFailures": "Bulk Delete Failures",
+      "poha_room_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "poha_room_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "poha_room_ProcessSession": "Process Sessions",
+      "poha_room_SyncErrors": "Sync Errors",
+      "poha_roomid": "Room",
+      "poha_venue": "Venue",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Rooms",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Rooms (Views)",
+    "Name": "_poha_room_views",
+    "RelatedEntityName": "Rooms",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "020d29e9-dbb1-4e2e-86dd-bd26e36350e0": "Active Rooms",
+      "3bb1d0c7-5efe-4eef-8b84-a8aeab2c518e": "Inactive Rooms",
+      "5721a8be-a4ef-4cbd-ab49-08a7b6e966ca": "Room Advanced Find View",
+      "623fe8cd-1534-4ae3-a65d-e532e84f71aa": "Room Associated View",
+      "9b5c0d17-0cca-4e81-9907-23d6cc32c8cf": "Room Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Status (Rooms)",
+    "Name": "poha_room_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Rooms"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Rooms",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Rooms)",
+    "Name": "poha_room_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Rooms"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Rooms",
+    "Type": "OptionSetInfo"
+  }
+]

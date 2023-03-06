@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root"
+    xmlns=""
+    xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+    xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="https://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <data name="PowerDragDrop" xml:space="preserve">
+    <value>Power Drag Drop (1.0.24)</value>
+  </data>
+  <data name="PowerDragDrop_Desc" xml:space="preserve">
+    <value>Drag And Drop Zone</value>
+  </data>
+  <data name="DropZoneID_Desc" xml:space="preserve">
+    <value>Set to a unique name for this drop zone (without spaces)</value>
+  </data>
+  <data name="DropZoneID" xml:space="preserve">
+    <value>Drop Zone Id</value>
+  </data>
+  <data name="OtherDropZoneIDs_Desc" xml:space="preserve">
+    <value>(Optional) Comma separated list of other drop zone IDs to link to this drop zone if it is designated as a master drop zone</value>
+  </data>
+  <data name="OtherDropZoneIDs" xml:space="preserve">
+    <value>Other Drop Zone Ids</value>
+  </data>
+  <data name="IsMasterZone_Desc" xml:space="preserve">
+    <value>Set to true to link this zone to the other drop zones. All events will be raised on this control.</value>
+  </data>
+  <data name="IsMasterZone" xml:space="preserve">
+    <value>Master Zone</value>
+  </data>
+  <data name="MaximumItems_Desc" xml:space="preserve">
+    <value>(Optional) A comma separated list of maximum number of items for each zone. Set to -1 for no limit.</value>
+  </data>
+  <data name="MaximumItems" xml:space="preserve">
+    <value>Maximum Items In Zones</value>
+  </data>
+  <data name="InputEvent_Desc" xml:space="preserve">
+    <value>Set to unique event name to trigger Reset and ClearClanges</value>
+  </data>
+  <data name="InputEvent" xml:space="preserve">
+    <value>Input Event</value>
+  </data>
+  <data name="BackgroundColor_Desc" xml:space="preserve">
+    <value>The background color of the drop zone</value>
+  </data>
+  <data name="BackgroundColor" xml:space="preserve">
+    <value>Background Color</value>
+  </data>
+  <data name="BorderColor_Desc" xml:space="preserve">
+    <value>The border color of the drop zone</value>
+  </data>
+  <data name="BorderColor" xml:space="preserve">
+    <value>Border Color</value>
+  </data>
+  <data name="BorderWidth_Desc" xml:space="preserve">
+    <value>Border width of the drop zone area (px)</value>
+  </data>
+  <data name="BorderWidth" xml:space="preserve">
+    <value>Border Width (px)</value>
+  </data>
+  <data name="BorderRadius_Desc" xml:space="preserve">
+    <value>Border radius of the drop zone area  (px)</value>
+  </data>
+  <data name="BorderRadius" xml:space="preserve">
+    <value>Border Radius (px)</value>
+  </data>
+  <data name="ItemBackgroundColor_Desc" xml:space="preserve">
+    <value>Background color for each item</value>
+  </data>
+  <data name="ItemBackgroundColor" xml:space="preserve">
+    <value>Item Background Color</value>
+  </data>
+  <data name="ItemFont_Desc" xml:space="preserve">
+    <value>Font for each item (can be overriden by templates)</value>
+  </data>
+  <data name="ItemFont" xml:space="preserve">
+    <value>Item Font</value>
+  </data>
+  <data name="ItemFontSize_Desc" xml:space="preserve">
+    <value>Font size for each item  (can be overriden by templates)</value>
+  </data>
+  <data name="ItemFontSize" xml:space="preserve">
+    <value>Item Font Size (px)</value>
+  </data>
+  <data name="ItemFontColor_Desc" xml:space="preserve">
+    <value>Font color for each item (can be overriden by templates)</value>
+  </data>
+  <data name="ItemFontColor" xml:space="preserve">
+    <value>Item Font Color</value>
+  </data>
+  <data name="ItemBorderRadius_Desc" xml:space="preserve">
+    <value>Border radius of each item (px)</value>
+  </data>
+  <data name="ItemBorderRadius" xml:space="preserve">
+    <value>Item Border Radius (px)</value>
+  </data>
+  <data name="ItemBorderWidth_Desc" xml:space="preserve">
+    <value>Border width of each item (px)</value>
+  </data>
+  <data name="ItemBorderWidth" xml:space="preserve">
+    <value>Item Border Width (px)</value>
+  </data>
+  <data name="ItemBorderColor_Desc" xml:space="preserve">
+    <value>Color of the item border</value>
+  </data>
+  <data name="ItemBorderColor" xml:space="preserve">
+    <value>Item Border Color</value>
+  </data>
+  <data name="ItemGap_Desc" xml:space="preserve">
+    <value>Gap between each item (px)</value>
+  </data>
+  <data name="ItemGap" xml:space="preserve">
+    <value>Item Gap (px)</value>
+  </data>
+  <data name="ItemTemplate_Desc" xml:space="preserve">
+    <value>Custom HTML template for each item</value>
+  </data>
+  <data name="ItemTemplate" xml:space="preserve">
+    <value>Item Template</value>
+  </data>
+  <data name="PreserveSort_Desc" xml:space="preserve">
+    <value>Preserve the sort order of the items based on the input dataset</value>
+  </data>
+  <data name="PreserveSort" xml:space="preserve">
+    <value>Preserve Sort</value>
+  </data>
+  <data name="Scroll_Desc" xml:space="preserve">
+    <value>Allow automatic scrolling inside the drop zone</value>
+  </data>
+
+  <data name="PaddingLeft" xml:space="preserve">
+    <value>Padding Left</value>
+  </data>
+  <data name="PaddingLeft_Desc" xml:space="preserve">
+    <value>Padding Left</value>
+  </data>
+  <data name="PaddingRight" xml:space="preserve">
+    <value>Padding Right</value>
+  </data>
+  <data name="PaddingRightt_Desc" xml:space="preserve">
+    <value>Padding Right</value>
+  </data>
+  <data name="PaddingTop" xml:space="preserve">
+    <value>Padding Top</value>
+  </data>
+  <data name="PaddingTop_Desc" xml:space="preserve">
+    <value>Padding Top</value>
+  </data>
+  <data name="PaddingBottom" xml:space="preserve">
+    <value>Padding Bottom</value>
+  </data>
+  <data name="PaddingBottom_Desc" xml:space="preserve">
+    <value>Padding Bottom</value>
+  </data>
+  <data name="RotateOnDrag" xml:space="preserve">
+    <value>Rotate on drag</value>
+  </data>
+  <data name="RotateOnDrag_Desc" xml:space="preserve">
+    <value>Rotate the item as it is dragged to create a 'hanging' effect</value>
+  </data>
+  <data name="Scroll" xml:space="preserve">
+    <value>Auto Scroll</value>
+  </data>
+  <data name="Trace_Desc" xml:space="preserve">
+    <value>Output debug trace</value>
+  </data>
+  <data name="Trace" xml:space="preserve">
+    <value>Trace</value>
+  </data>
+  <data name="OnDrop_Desc" xml:space="preserve">
+    <value>Event raised when an item is dropped</value>
+  </data>
+  <data name="OnDrop" xml:space="preserve">
+    <value>On Drop</value>
+  </data>
+  <data name="DroppedPosition_Desc" xml:space="preserve">
+    <value>Position of the dropped item relative to the other times in the zone (if sort is allowed) or relative to the whole input (if sort is prevented)</value>
+  </data>
+  <data name="DroppedPosition" xml:space="preserve">
+    <value>Dropped Position</value>
+  </data>
+  <data name="DroppedSource_Desc" xml:space="preserve">
+    <value>Zone Id of the source zone</value>
+  </data>
+  <data name="DroppedSource" xml:space="preserve">
+    <value>Dropped Source</value>
+  </data>
+  <data name="DroppedTarget_Desc" xml:space="preserve">
+    <value>Zone Id of the target zone</value>
+  </data>
+  <data name="DroppedTarget" xml:space="preserve">
+    <value>Dropped Target</value>
+  </data>
+  <data name="DroppedId_Desc" xml:space="preserve">
+    <value>The Id of the item dropped</value>
+  </data>
+  <data name="DroppedId" xml:space="preserve">
+    <value>Dropped Item Id</value>
+  </data>
+  <data name="CurrentItems_Desc" xml:space="preserve">
+    <value>The current items with information describing their position and zone</value>
+  </data>
+  <data name="CurrentItems" xml:space="preserve">
+    <value>Current Items</value>
+  </data>
+  <data name="OnAction_Desc" xml:space="preserve">
+    <value>Event raised when a template action is invoked</value>
+  </data>
+  <data name="OnAction" xml:space="preserve">
+    <value>On Action</value>
+  </data>
+  <data name="ActionName_Desc" xml:space="preserve">
+    <value>Action name of the event</value>
+  </data>
+  <data name="ActionName" xml:space="preserve">
+    <value>Action Name</value>
+  </data>
+  <data name="ActionItemId_Desc" xml:space="preserve">
+    <value>Item Id of the item that the event action was invoked on</value>
+  </data>
+  <data name="ActionItemId" xml:space="preserve">
+    <value>Action Item Id</value>
+  </data>
+  <data name="items_Desc" xml:space="preserve">
+    <value>The items to link to the drop zone - zone filtering happens internally.</value>
+  </data>
+  <data name="items" xml:space="preserve">
+    <value>Items</value>
+  </data>
+  <data name="DelaySelect_Desc" xml:space="preserve">
+    <value>Delay the selection of items to prevent accidental dragging</value>
+  </data>
+  <data name="DelaySelect" xml:space="preserve">
+    <value>Delay Select</value>
+  </data>
+  <data name="Direction" xml:space="preserve">
+    <value>Direction</value>
+  </data>
+  <data name="Direction_Desc" xml:space="preserve">
+    <value>The direction to render the items in the list</value>
+  </data>
+  <data name="Wrap" xml:space="preserve">
+    <value>Wrap</value>
+  </data>
+  <data name="Wrap_Desc" xml:space="preserve">
+    <value>Control wrapping of the items in the list</value>
+  </data>
+</root>

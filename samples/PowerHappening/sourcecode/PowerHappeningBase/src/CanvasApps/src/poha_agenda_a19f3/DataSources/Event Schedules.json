@@ -1,0 +1,123 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "poha_eventschedules",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "poha_eventschedule",
+    "MaxGetRowsCount": 500,
+    "Name": "Event Schedules",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "poha_date": "Date",
+      "poha_Event": "Event",
+      "poha_eventschedule_AsyncOperations": "System Jobs",
+      "poha_eventschedule_BulkDeleteFailures": "Bulk Delete Failures",
+      "poha_eventschedule_DuplicateBaseRecord": "Duplicate Records (poha_eventschedule_DuplicateBaseRecord)",
+      "poha_eventschedule_DuplicateMatchingRecord": "Duplicate Records (poha_eventschedule_DuplicateMatchingRecord)",
+      "poha_eventschedule_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "poha_eventschedule_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "poha_eventschedule_ProcessSession": "Process Sessions",
+      "poha_eventschedule_SyncErrors": "Sync Errors",
+      "poha_eventscheduleid": "Event Schedule",
+      "poha_name": "Name",
+      "poha_poha_slots_EventSchedule_poha_eventschedu": "Slots",
+      "poha_type": "Type",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Event Schedules",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Event Schedules (Views)",
+    "Name": "_poha_eventschedule_views",
+    "RelatedEntityName": "Event Schedules",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "13d9f53c-56e3-45fb-9b31-e09c27a40503": "Event Schedule Lookup View",
+      "1ac27092-1b80-4ebb-bc7e-f3e4762df5b6": "Event Schedule Advanced Find View",
+      "656471ab-157f-42e7-b4c3-bcd6a5af31d1": "Active Event Schedules",
+      "656944ff-0364-4e8b-8a8b-34a095db9186": "Inactive Event Schedules",
+      "ee07ea65-8ac6-428d-a439-fc18c664cf29": "Event Schedule Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (Event Schedules)",
+    "Name": "poha_eventschedule_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Event Schedules"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Event Schedules",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Event Schedules)",
+    "Name": "poha_eventschedule_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Event Schedules"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Event Schedules",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Event Schedule Type",
+    "Name": "poha_eventscheduletype",
+    "OptionSetInfoNameMapping": {
+      "100000000": "Conference",
+      "100000001": "Workshop",
+      "100000002": "Deepdive",
+      "100000003": "Networking"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "poha_type",
+        "OptionSetReferenceEntityName": "Event Schedules"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "poha_type",
+    "RelatedEntityName": "Event Schedules",
+    "Type": "OptionSetInfo"
+  }
+]
