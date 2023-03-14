@@ -1,0 +1,352 @@
+read_meetings As screen:
+
+    Rectangle2 As rectangle:
+        Fill: =RGBA(202, 202, 202, 1)
+        Height: =116
+        Width: =216
+        ZIndex: =1
+
+    Rectangle1 As rectangle:
+        Fill: =RGBA(0, 94, 184, 1)
+        Height: =116
+        Width: =1148
+        X: =216
+        ZIndex: =2
+
+    Label1 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Bold
+        Height: =49
+        Size: =30
+        Text: ="NHS Online Appintment System"
+        Width: =857
+        X: =258
+        Y: =33
+        ZIndex: =3
+
+    Label2 As label:
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Bold
+        Height: =57
+        Size: =32
+        Text: ="Create An Appointment and Send WhatsApp"
+        Width: =998
+        X: =40
+        Y: =160
+        ZIndex: =4
+
+    Image2 As image:
+        Height: =82
+        Image: ='National_Health_Service_(England)_logo.svg'
+        Width: =158
+        X: =30
+        Y: =17
+        ZIndex: =8
+
+    Apt_Name As text:
+        Default: =""
+        Height: =56
+        HintText: ="e.g. Elon Musk's Appointment"
+        Width: =466
+        X: =56
+        Y: =289
+        ZIndex: =9
+
+    Label3 As label:
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Semibold
+        Size: =24
+        Text: ="Appointment Name"
+        Width: =329
+        X: =56
+        Y: =244
+        ZIndex: =10
+
+    phone_num As text:
+        Default: =""
+        Height: =53
+        HintText: ="e.g. 447123456789"
+        Width: =466
+        X: =56
+        Y: =437
+        ZIndex: =11
+
+    Label3_1 As label:
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Semibold
+        Size: =24
+        Text: ="Phone Number"
+        Width: =324
+        X: =56
+        Y: =389
+        ZIndex: =12
+
+    Label3_2 As label:
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Semibold
+        Size: =24
+        Text: ="Appointment Start Date and Time"
+        Width: =532
+        X: =736
+        Y: =243
+        ZIndex: =14
+
+    Label3_3 As label:
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Semibold
+        Size: =24
+        Text: ="Appointment End Date and Time"
+        Width: =543
+        X: =736
+        Y: =387
+        ZIndex: =16
+
+    Button1 As button:
+        Font: =Font.Arial
+        Height: =60
+        OnSelect: |-
+            =If(
+                Webex_Create_and_Send_Meeting.Run(Apt_Name.Text, Text(Year(start_date.SelectedDate))&"-"&Text(Month(start_date.SelectedDate))&"-"&Text(Day(start_date.SelectedDate))&"T"&(start_hour.Selected.Value)&":"&(start_minute.Selected.Value)&":"&"00", Text(Year(end_date.SelectedDate))&"-"&Text(Month(end_date.SelectedDate))&"-"&Text(Day(end_date.SelectedDate))&"T"&(end_hour.Selected.Value)&":"&(end_minute.Selected.Value)&":"&"00", phone_num.Text).success = "True",
+                Notify(
+                    "Flow has run successfully.",
+                    NotificationType.Success,
+                    2000
+                ),
+                Notify(
+                    "Flow run has failed.",
+                    NotificationType.Error,
+                    5000
+                )
+            );
+        Size: =25
+        Text: ="Confirm"
+        Width: =209
+        X: =1059
+        Y: =566
+        ZIndex: =17
+
+    start_date As datepicker:
+        Width: =217
+        X: =736
+        Y: =297
+        ZIndex: =18
+
+    start_hour As dropdown:
+        Default: ="00"
+        Height: =39
+        Items: |-
+            =[
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "09",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23"
+            ]
+        Width: =67
+        X: =1084
+        Y: =297
+        ZIndex: =19
+
+    start_minute As dropdown:
+        Default: ="00"
+        Height: =39
+        Items: |-
+            =[
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "09",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "25",
+                "26",
+                "27",
+                "28",
+                "29",
+                "30",
+                "31",
+                "32",
+                "33",
+                "34",
+                "35",
+                "36",
+                "37",
+                "38",
+                "39",
+                "40",
+                "41",
+                "42",
+                "43",
+                "44",
+                "45",
+                "46",
+                "47",
+                "48",
+                "49",
+                "50",
+                "51",
+                "52",
+                "53",
+                "54",
+                "55",
+                "56",
+                "57",
+                "58",
+                "59"
+            ]
+        Width: =67
+        X: =1172
+        Y: =297
+        ZIndex: =20
+
+    end_date As datepicker:
+        Width: =217
+        X: =736
+        Y: =443
+        ZIndex: =21
+
+    end_hour As dropdown:
+        Default: ="00"
+        Height: =39
+        Items: |-
+            =[
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "09",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23"
+            ]
+        Width: =67
+        X: =1084
+        Y: =443
+        ZIndex: =22
+
+    end_minute As dropdown:
+        Default: ="00"
+        Height: =39
+        Items: |-
+            =[
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "09",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "25",
+                "26",
+                "27",
+                "28",
+                "29",
+                "30",
+                "31",
+                "32",
+                "33",
+                "34",
+                "35",
+                "36",
+                "37",
+                "38",
+                "39",
+                "40",
+                "41",
+                "42",
+                "43",
+                "44",
+                "45",
+                "46",
+                "47",
+                "48",
+                "49",
+                "50",
+                "51",
+                "52",
+                "53",
+                "54",
+                "55",
+                "56",
+                "57",
+                "58",
+                "59"
+            ]
+        Width: =67
+        X: =1172
+        Y: =443
+        ZIndex: =23
+

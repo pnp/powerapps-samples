@@ -1,0 +1,283 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://europe-002.azure-apim.net/apim/webex-20-2d-201-5f3ab14b72cb0d80ba-5fbfbc82612a6ca3e0" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="WebexMeetingsRESTAPIExamples" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="Webex Meetings REST API Examples">WebEx API for Power Platform
+
+- Setup meeting from Power Platform</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://europe-002.azure-apim.net/apim/webex-20-2d-201-5f3ab14b72cb0d80ba-5fbfbc82612a6ca3e0" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="CreateAMeeting_param_body_def_title_def" />
+      <string name="CreateAMeeting_param_body_def_agenda_def" />
+      <string name="CreateAMeeting_param_body_def_password_def" />
+      <string name="CreateAMeeting_param_body_def_start_def" />
+      <string name="CreateAMeeting_param_body_def_end_def" />
+      <string name="CreateAMeeting_param_body_def_timezone_def" />
+      <boolean name="CreateAMeeting_param_body_def_enabledAutoRecordMeeting_def" />
+      <boolean name="CreateAMeeting_param_body_def_allowAnyUserToBeCoHost_def" />
+      <object name="CreateAMeeting_param_body_def">
+        <property name="title" type="string" />
+        <property name="agenda" type="string" />
+        <property name="password" type="string" />
+        <property name="start" type="string" />
+        <property name="end" type="string" />
+        <property name="timezone" type="string" />
+        <property name="enabledAutoRecordMeeting" type="boolean" />
+        <property name="allowAnyUserToBeCoHost" type="boolean" />
+      </object>
+      <string name="CreateAInvitee_param_body_def_meetingId_def" />
+      <string name="CreateAInvitee_param_body_def_email_def" />
+      <string name="CreateAInvitee_param_body_def_displayName_def" />
+      <string name="CreateAInvitee_param_body_def_coHost_def" />
+      <string name="CreateAInvitee_param_body_def_hostEmail_def" />
+      <string name="CreateAInvitee_param_body_def_sendEmail_def" />
+      <string name="CreateAInvitee_param_body_def_panelist_def" />
+      <object name="CreateAInvitee_param_body_def">
+        <property name="meetingId" type="string" />
+        <property name="email" type="string" />
+        <property name="displayName" type="string" />
+        <property name="coHost" type="string" />
+        <property name="hostEmail" type="string" />
+        <property name="sendEmail" type="string" />
+        <property name="panelist" type="string" />
+      </object>
+      <string name="UpdateAMeeting_param_body_def_title_def" />
+      <string name="UpdateAMeeting_param_body_def_agenda_def" />
+      <string name="UpdateAMeeting_param_body_def_password_def" />
+      <string name="UpdateAMeeting_param_body_def_timezone_def" />
+      <string name="UpdateAMeeting_param_body_def_start_def" />
+      <string name="UpdateAMeeting_param_body_def_end_def" />
+      <boolean name="UpdateAMeeting_param_body_def_enabledAutoRecordMeeting_def" />
+      <boolean name="UpdateAMeeting_param_body_def_allowAnyUserToBeCoHost_def" />
+      <boolean name="UpdateAMeeting_param_body_def_enabledJoinBeforeHost_def" />
+      <boolean name="UpdateAMeeting_param_body_def_enableConnectAudioBeforeHost_def" />
+      <integer name="UpdateAMeeting_param_body_def_joinBeforeHostMinutes_def" />
+      <boolean name="UpdateAMeeting_param_body_def_excludePassword_def" />
+      <boolean name="UpdateAMeeting_param_body_def_publicMeeting_def" />
+      <integer name="UpdateAMeeting_param_body_def_reminderTime_def" />
+      <string name="UpdateAMeeting_param_body_def_unlockedMeetingJoinSecurity_def" />
+      <boolean name="UpdateAMeeting_param_body_def_enableAutomaticLock_def" />
+      <integer name="UpdateAMeeting_param_body_def_automaticLockMinutes_def" />
+      <boolean name="UpdateAMeeting_param_body_def_allowFirstUserToBeCoHost_def" />
+      <boolean name="UpdateAMeeting_param_body_def_allowAuthenticatedDevices_def" />
+      <boolean name="UpdateAMeeting_param_body_def_sendEmail_def" />
+      <string name="UpdateAMeeting_param_body_def_hostEmail_def" />
+      <string name="UpdateAMeeting_param_body_def_siteUrl_def" />
+      <boolean name="UpdateAMeeting_param_body_def_meetingOptions_def_enabledChat_def" />
+      <boolean name="UpdateAMeeting_param_body_def_meetingOptions_def_enabledVideo_def" />
+      <boolean name="UpdateAMeeting_param_body_def_meetingOptions_def_enabledPolling_def" />
+      <boolean name="UpdateAMeeting_param_body_def_meetingOptions_def_enabledNote_def" />
+      <string name="UpdateAMeeting_param_body_def_meetingOptions_def_noteType_def" />
+      <boolean name="UpdateAMeeting_param_body_def_meetingOptions_def_enabledClosedCaptions_def" />
+      <boolean name="UpdateAMeeting_param_body_def_meetingOptions_def_enabledFileTransfer_def" />
+      <boolean name="UpdateAMeeting_param_body_def_meetingOptions_def_enabledUCFRichMedia_def" />
+      <object name="UpdateAMeeting_param_body_def_meetingOptions_def">
+        <property name="enabledChat" type="boolean" />
+        <property name="enabledVideo" type="boolean" />
+        <property name="enabledPolling" type="boolean" />
+        <property name="enabledNote" type="boolean" />
+        <property name="noteType" type="string" />
+        <property name="enabledClosedCaptions" type="boolean" />
+        <property name="enabledFileTransfer" type="boolean" />
+        <property name="enabledUCFRichMedia" type="boolean" />
+      </object>
+      <boolean name="UpdateAMeeting_param_body_def_attendeePrivileges_def_enabledShareContent_def" />
+      <boolean name="UpdateAMeeting_param_body_def_attendeePrivileges_def_enabledSaveDocument_def" />
+      <boolean name="UpdateAMeeting_param_body_def_attendeePrivileges_def_enabledPrintDocument_def" />
+      <boolean name="UpdateAMeeting_param_body_def_attendeePrivileges_def_enabledAnnotate_def" />
+      <boolean name="UpdateAMeeting_param_body_def_attendeePrivileges_def_enabledViewParticipantList_def" />
+      <boolean name="UpdateAMeeting_param_body_def_attendeePrivileges_def_enabledViewThumbnails_def" />
+      <boolean name="UpdateAMeeting_param_body_def_attendeePrivileges_def_enabledRemoteControl_def" />
+      <boolean name="UpdateAMeeting_param_body_def_attendeePrivileges_def_enabledViewAnyDocument_def" />
+      <boolean name="UpdateAMeeting_param_body_def_attendeePrivileges_def_enabledViewAnyPage_def" />
+      <boolean name="UpdateAMeeting_param_body_def_attendeePrivileges_def_enabledContactOperatorPrivately_def" />
+      <boolean name="UpdateAMeeting_param_body_def_attendeePrivileges_def_enabledChatHost_def" />
+      <boolean name="UpdateAMeeting_param_body_def_attendeePrivileges_def_enabledChatPresenter_def" />
+      <boolean name="UpdateAMeeting_param_body_def_attendeePrivileges_def_enabledChatOtherParticipants_def" />
+      <object name="UpdateAMeeting_param_body_def_attendeePrivileges_def">
+        <property name="enabledShareContent" type="boolean" />
+        <property name="enabledSaveDocument" type="boolean" />
+        <property name="enabledPrintDocument" type="boolean" />
+        <property name="enabledAnnotate" type="boolean" />
+        <property name="enabledViewParticipantList" type="boolean" />
+        <property name="enabledViewThumbnails" type="boolean" />
+        <property name="enabledRemoteControl" type="boolean" />
+        <property name="enabledViewAnyDocument" type="boolean" />
+        <property name="enabledViewAnyPage" type="boolean" />
+        <property name="enabledContactOperatorPrivately" type="boolean" />
+        <property name="enabledChatHost" type="boolean" />
+        <property name="enabledChatPresenter" type="boolean" />
+        <property name="enabledChatOtherParticipants" type="boolean" />
+      </object>
+      <string name="UpdateAMeeting_param_body_def_integrationTags_def_items_def" />
+      <array type="string" name="UpdateAMeeting_param_body_def_integrationTags_def" />
+      <boolean name="UpdateAMeeting_param_body_def_enabledBreakoutSessions_def" />
+      <string name="UpdateAMeeting_param_body_def_trackingCodes_def_items_def_name_def" />
+      <string name="UpdateAMeeting_param_body_def_trackingCodes_def_items_def_value_def" />
+      <object name="UpdateAMeeting_param_body_def_trackingCodes_def_items_def">
+        <property name="name" type="string" />
+        <property name="value" type="string" />
+      </object>
+      <array typeRef="UpdateAMeeting_param_body_def_trackingCodes_def_items_def" name="UpdateAMeeting_param_body_def_trackingCodes_def" />
+      <string name="UpdateAMeeting_param_body_def_audioConnectionOptions_def_audioConnectionType_def" />
+      <boolean name="UpdateAMeeting_param_body_def_audioConnectionOptions_def_enabledTollFreeCallIn_def" />
+      <boolean name="UpdateAMeeting_param_body_def_audioConnectionOptions_def_enabledGlobalCallIn_def" />
+      <boolean name="UpdateAMeeting_param_body_def_audioConnectionOptions_def_enabledAudienceCallBack_def" />
+      <string name="UpdateAMeeting_param_body_def_audioConnectionOptions_def_entryAndExitTone_def" />
+      <boolean name="UpdateAMeeting_param_body_def_audioConnectionOptions_def_allowHostToUnmuteParticipants_def" />
+      <boolean name="UpdateAMeeting_param_body_def_audioConnectionOptions_def_allowAttendeeToUnmuteSelf_def" />
+      <boolean name="UpdateAMeeting_param_body_def_audioConnectionOptions_def_muteAttendeeUponEntry_def" />
+      <object name="UpdateAMeeting_param_body_def_audioConnectionOptions_def">
+        <property name="audioConnectionType" type="string" />
+        <property name="enabledTollFreeCallIn" type="boolean" />
+        <property name="enabledGlobalCallIn" type="boolean" />
+        <property name="enabledAudienceCallBack" type="boolean" />
+        <property name="entryAndExitTone" type="string" />
+        <property name="allowHostToUnmuteParticipants" type="boolean" />
+        <property name="allowAttendeeToUnmuteSelf" type="boolean" />
+        <property name="muteAttendeeUponEntry" type="boolean" />
+      </object>
+      <object name="UpdateAMeeting_param_body_def">
+        <property name="title" type="string" />
+        <property name="agenda" type="string" />
+        <property name="password" type="string" />
+        <property name="timezone" type="string" />
+        <property name="start" type="string" />
+        <property name="end" type="string" />
+        <property name="enabledAutoRecordMeeting" type="boolean" />
+        <property name="allowAnyUserToBeCoHost" type="boolean" />
+        <property name="enabledJoinBeforeHost" type="boolean" />
+        <property name="enableConnectAudioBeforeHost" type="boolean" />
+        <property name="joinBeforeHostMinutes" type="integer" />
+        <property name="excludePassword" type="boolean" />
+        <property name="publicMeeting" type="boolean" />
+        <property name="reminderTime" type="integer" />
+        <property name="unlockedMeetingJoinSecurity" type="string" />
+        <property name="enableAutomaticLock" type="boolean" />
+        <property name="automaticLockMinutes" type="integer" />
+        <property name="allowFirstUserToBeCoHost" type="boolean" />
+        <property name="allowAuthenticatedDevices" type="boolean" />
+        <property name="sendEmail" type="boolean" />
+        <property name="hostEmail" type="string" />
+        <property name="siteUrl" type="string" />
+        <property name="meetingOptions" typeRef="UpdateAMeeting_param_body_def_meetingOptions_def" />
+        <property name="attendeePrivileges" typeRef="UpdateAMeeting_param_body_def_attendeePrivileges_def" />
+        <property name="integrationTags" typeRef="UpdateAMeeting_param_body_def_integrationTags_def" />
+        <property name="enabledBreakoutSessions" type="boolean" />
+        <property name="trackingCodes" typeRef="UpdateAMeeting_param_body_def_trackingCodes_def" />
+        <property name="audioConnectionOptions" typeRef="UpdateAMeeting_param_body_def_audioConnectionOptions_def" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://europe-002.azure-apim.net/apim/webex-20-2d-201-5f3ab14b72cb0d80ba-5fbfbc82612a6ca3e0">
+    <resource path="/{connectionId}/meetings">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="ReadMeetings" actionName="ReadMeetings" siena:isDeprecated="false">
+        <doc title="Read Meetings&#xA;This Action would read meetings on webex." />
+        <request>
+          <param style="header" name="Content-Type" type="xs:string" default="application/json" />
+          <param style="header" name="password" type="xs:string" />
+          <param style="header" name="timezone" type="xs:string" />
+        </request>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/meetings">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="CreateAMeeting" actionName="CreateAMeeting" siena:isDeprecated="false">
+        <doc title="Create a meeting&#xA;This Action would create a meeting on webex." />
+        <request>
+          <param style="header" name="Content-Type" type="xs:string" required="true" default="application/json">
+            <doc title="Content-Type" />
+          </param>
+          <representation mediaType="application/json">
+            <param style="plain" name="title" path="/title" type="xs:string" required="true" />
+            <param style="plain" name="agenda" path="/agenda" type="xs:string" />
+            <param style="plain" name="password" path="/password" type="xs:string" />
+            <param style="plain" name="start" path="/start" type="xs:string" required="true" />
+            <param style="plain" name="end" path="/end" type="xs:string" required="true" />
+            <param style="plain" name="timezone" path="/timezone" type="xs:string" default="Europe/London" />
+            <param style="plain" name="enabledAutoRecordMeeting" path="/enabledAutoRecordMeeting" type="xs:boolean" default="false">
+              <option value="true" />
+              <option value="false" />
+            </param>
+            <param style="plain" name="allowAnyUserToBeCoHost" path="/allowAnyUserToBeCoHost" type="xs:boolean" default="false">
+              <option value="true" />
+              <option value="false" />
+            </param>
+          </representation>
+        </request>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/meetingInvitees">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="CreateAInvitee" actionName="CreateAInvitee" siena:isDeprecated="false">
+        <doc title="Create A Invitee&#xA;This Action invites a participant to the meeting via email" />
+        <request>
+          <param style="header" name="Content-Type" type="xs:string" default="application/json" />
+          <representation mediaType="application/json">
+            <param style="plain" name="meetingId" path="/meetingId" type="xs:string" required="true" />
+            <param style="plain" name="email" path="/email" type="xs:string" required="true" />
+            <param style="plain" name="displayName" path="/displayName" type="xs:string" />
+            <param style="plain" name="coHost" path="/coHost" type="xs:string" />
+            <param style="plain" name="hostEmail" path="/hostEmail" type="xs:string" />
+            <param style="plain" name="sendEmail" path="/sendEmail" type="xs:string" />
+            <param style="plain" name="panelist" path="/panelist" type="xs:string" />
+          </representation>
+        </request>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/meetings/{meetingId}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="meetingId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="DELETE" id="DeleteAMeeting" actionName="DeleteAMeeting" siena:isDeprecated="false">
+        <doc title="Delete A Meeting&#xA;This Action would delete meetings on webex." />
+        <request />
+      </method>
+    </resource>
+    <resource path="/{connectionId}/meetings/{meetingId}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="meetingId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="PUT" id="UpdateAMeeting" actionName="UpdateAMeeting" siena:isDeprecated="false">
+        <doc title="Update A Meeting&#xA;This action updates a meeting" />
+        <request>
+          <param style="header" name="Content-Type" type="xs:string" default="application/json" />
+          <representation mediaType="application/json">
+            <param style="plain" name="title" path="/title" type="xs:string" />
+            <param style="plain" name="agenda" path="/agenda" type="xs:string" />
+            <param style="plain" name="password" path="/password" type="xs:string" />
+            <param style="plain" name="timezone" path="/timezone" type="xs:string" />
+            <param style="plain" name="start" path="/start" type="xs:string" />
+            <param style="plain" name="end" path="/end" type="xs:string" />
+            <param style="plain" name="enabledAutoRecordMeeting" path="/enabledAutoRecordMeeting" type="xs:boolean" />
+            <param style="plain" name="allowAnyUserToBeCoHost" path="/allowAnyUserToBeCoHost" type="xs:boolean" />
+            <param style="plain" name="enabledJoinBeforeHost" path="/enabledJoinBeforeHost" type="xs:boolean" />
+            <param style="plain" name="enableConnectAudioBeforeHost" path="/enableConnectAudioBeforeHost" type="xs:boolean" />
+            <param style="plain" name="joinBeforeHostMinutes" path="/joinBeforeHostMinutes" type="xs:int" />
+            <param style="plain" name="excludePassword" path="/excludePassword" type="xs:boolean" />
+            <param style="plain" name="publicMeeting" path="/publicMeeting" type="xs:boolean" />
+            <param style="plain" name="reminderTime" path="/reminderTime" type="xs:int" />
+            <param style="plain" name="unlockedMeetingJoinSecurity" path="/unlockedMeetingJoinSecurity" type="xs:string" />
+            <param style="plain" name="enableAutomaticLock" path="/enableAutomaticLock" type="xs:boolean" />
+            <param style="plain" name="automaticLockMinutes" path="/automaticLockMinutes" type="xs:int" />
+            <param style="plain" name="allowFirstUserToBeCoHost" path="/allowFirstUserToBeCoHost" type="xs:boolean" />
+            <param style="plain" name="allowAuthenticatedDevices" path="/allowAuthenticatedDevices" type="xs:boolean" />
+            <param style="plain" name="sendEmail" path="/sendEmail" type="xs:boolean" />
+            <param style="plain" name="hostEmail" path="/hostEmail" type="xs:string" />
+            <param style="plain" name="siteUrl" path="/siteUrl" type="xs:string" />
+            <param style="plain" name="meetingOptions" path="/meetingOptions" type="service:UpdateAMeeting_param_body_def_meetingOptions_def" />
+            <param style="plain" name="attendeePrivileges" path="/attendeePrivileges" type="service:UpdateAMeeting_param_body_def_attendeePrivileges_def" />
+            <param style="plain" name="integrationTags" path="/integrationTags" type="service:UpdateAMeeting_param_body_def_integrationTags_def" />
+            <param style="plain" name="enabledBreakoutSessions" path="/enabledBreakoutSessions" type="xs:boolean" />
+            <param style="plain" name="trackingCodes" path="/trackingCodes" type="service:UpdateAMeeting_param_body_def_trackingCodes_def" />
+            <param style="plain" name="audioConnectionOptions" path="/audioConnectionOptions" type="service:UpdateAMeeting_param_body_def_audioConnectionOptions_def" />
+          </representation>
+        </request>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_webex-20-2d-201-5f3ab14b72cb0d80ba-5fbfbc82612a6ca3e0" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>

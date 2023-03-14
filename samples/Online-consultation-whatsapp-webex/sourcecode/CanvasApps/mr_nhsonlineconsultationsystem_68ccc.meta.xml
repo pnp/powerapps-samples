@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>mr_nhsonlineconsultationsystem_68ccc</Name>
+  <AppVersion>2023-03-12T11:06:41Z</AppVersion>
+  <Status>Ready</Status>
+  <CreatedByClientVersion>3.23024.21.0</CreatedByClientVersion>
+  <MinClientVersion>3.23024.21.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"1366","primaryDeviceHeight":"768","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","publisherVersion":"3.23024.21","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false","sienaVersion":"20230312T110641Z-3.23024.21.0"}</Tags>
+  <IsCdsUpgraded>0</IsCdsUpgraded>
+  <GalleryItemId xsi:nil="true"></GalleryItemId>
+  <BackgroundColor>RGBA(0,176,240,1)</BackgroundColor>
+  <DisplayName>NHS Online Consultation System</DisplayName>
+  <Description xsi:nil="true"></Description>
+  <CommitMessage xsi:nil="true"></CommitMessage>
+  <Publisher xsi:nil="true"></Publisher>
+  <AuthorizationReferences>[]</AuthorizationReferences>
+  <ConnectionReferences>{"a38bb70e-d59f-47a0-b8a5-16f9569d6cf7":{"id":"/providers/microsoft.powerapps/apis/shared_webex-20-2d-201-5f3ab14b72cb0d80ba-5fbfbc82612a6ca3e0","displayName":"WebEx - 1","iconUri":"https://prodapiicons.cdn.powerappscdn.net/20230201t000000zd6e36f5370b54a39abbef2d1078c63a7/customconnectoricon.png","dataSources":["WebexMeetingsRESTAPIExamples"],"dependencies":[],"dependents":["9d828f62-7e9e-435b-ab65-67e8d3188712"],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard","isCustomApiSolutionAware":false},"517d7293-8d11-4f94-9caf-b69d347b64c0":{"id":"/providers/microsoft.powerapps/apis/shared_whatsapp2-5f3ab14b72cb0d80ba-5fbc5da5eeacd2e798","displayName":"WhatsApp2","iconUri":"https://az787822.vo.msecnd.net/defaulticons/api-dedicated.png","dataSources":["WhatsAppV2"],"dependencies":[],"dependents":["9d828f62-7e9e-435b-ab65-67e8d3188712"],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard","isCustomApiSolutionAware":false},"9d828f62-7e9e-435b-ab65-67e8d3188712":{"id":"/providers/microsoft.powerapps/apis/shared_logicflows","displayName":"Logic flows","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1615/1.0.1615.3163/logicflows/icon.png","dataSources":["Webex_Create_and_Send_Meeting"],"dependencies":["a38bb70e-d59f-47a0-b8a5-16f9569d6cf7","517d7293-8d11-4f94-9caf-b69d347b64c0"],"dependents":[],"parameterHints":{"workflowName":{"value":"ce5fdedc-07c7-46c5-8803-4432632e2732"},"workflowEntityId":{},"a38bb70e-d59f-47a0-b8a5-16f9569d6cf7":{"value":"shared_webex-20-2d-201-5f3ab14b72cb0d80ba-5fbfbc82612a6ca3e0"},"517d7293-8d11-4f94-9caf-b69d347b64c0":{"value":"shared_whatsapp2-5f3ab14b72cb0d80ba-5fbc5da5eeacd2e798"}},"parameterHintsV2":{"workflowName":{"value":"ce5fdedc-07c7-46c5-8803-4432632e2732"},"workflowEntityId":{},"shared_webex-20-2d-201-5f3ab14b72cb0d80ba-5fbfbc82612a6ca3e0":{"value":"a38bb70e-d59f-47a0-b8a5-16f9569d6cf7"},"shared_whatsapp2-5f3ab14b72cb0d80ba-5fbc5da5eeacd2e798":{"value":"517d7293-8d11-4f94-9caf-b69d347b64c0"}},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard","actions":["Run"],"isCustomApiSolutionAware":false}}</ConnectionReferences>
+  <DatabaseReferences>{}</DatabaseReferences>
+  <AppComponents>[]</AppComponents>
+  <AppComponentDependencies>[]</AppComponentDependencies>
+  <CanConsumeAppPass>1</CanConsumeAppPass>
+  <CanvasAppType>0</CanvasAppType>
+  <BypassConsent>0</BypassConsent>
+  <AdminControlBypassConsent>0</AdminControlBypassConsent>
+  <EmbeddedApp xsi:nil="true"></EmbeddedApp>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CdsDependencies>{"cdsdependencies":[]}</CdsDependencies>
+  <IsCustomizable>1</IsCustomizable>
+  <BackgroundImageUri>/CanvasApps/mr_nhsonlineconsultationsystem_68ccc_BackgroundImageUri</BackgroundImageUri>
+  <DocumentUri>/CanvasApps/mr_nhsonlineconsultationsystem_68ccc_DocumentUri.msapp</DocumentUri>
+</CanvasApp>

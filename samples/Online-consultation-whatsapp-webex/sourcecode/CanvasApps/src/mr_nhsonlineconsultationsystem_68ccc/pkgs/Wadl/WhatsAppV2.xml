@@ -1,0 +1,74 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://europe-002.azure-apim.net/apim/whatsapp2-5f3ab14b72cb0d80ba-5fbc5da5eeacd2e798" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="WhatsAppV2" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="WhatsAppV2">This WhatsApp connector will allow you to send some message templates from the test WhatsApp business account to a phone number registered on this Meta Developer App.</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://europe-002.azure-apim.net/apim/whatsapp2-5f3ab14b72cb0d80ba-5fbc5da5eeacd2e798" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="SendMessage_param_body_def_messaging_product_def" />
+      <string name="SendMessage_param_body_def_to_def" />
+      <string name="SendMessage_param_body_def_type_def" />
+      <string name="SendMessage_param_body_def_template_def_name_def" />
+      <string name="SendMessage_param_body_def_template_def_language_def_code_def" />
+      <object name="SendMessage_param_body_def_template_def_language_def">
+        <property name="code" type="string" />
+      </object>
+      <string name="SendMessage_param_body_def_template_def_components_def_items_def_type_def" />
+      <string name="SendMessage_param_body_def_template_def_components_def_items_def_parameters_def_items_def_type_def" />
+      <string name="SendMessage_param_body_def_template_def_components_def_items_def_parameters_def_items_def_image_def_link_def" />
+      <object name="SendMessage_param_body_def_template_def_components_def_items_def_parameters_def_items_def_image_def">
+        <property name="link" type="string" />
+      </object>
+      <string name="SendMessage_param_body_def_template_def_components_def_items_def_parameters_def_items_def_text_def" />
+      <object name="SendMessage_param_body_def_template_def_components_def_items_def_parameters_def_items_def">
+        <property name="type" type="string" />
+        <property name="image" typeRef="SendMessage_param_body_def_template_def_components_def_items_def_parameters_def_items_def_image_def" />
+        <property name="text" type="string" />
+      </object>
+      <array typeRef="SendMessage_param_body_def_template_def_components_def_items_def_parameters_def_items_def" name="SendMessage_param_body_def_template_def_components_def_items_def_parameters_def" />
+      <object name="SendMessage_param_body_def_template_def_components_def_items_def">
+        <property name="type" type="string" />
+        <property name="parameters" typeRef="SendMessage_param_body_def_template_def_components_def_items_def_parameters_def" />
+      </object>
+      <array typeRef="SendMessage_param_body_def_template_def_components_def_items_def" name="SendMessage_param_body_def_template_def_components_def" />
+      <object name="SendMessage_param_body_def_template_def">
+        <property name="name" type="string" />
+        <property name="language" typeRef="SendMessage_param_body_def_template_def_language_def" />
+        <property name="components" typeRef="SendMessage_param_body_def_template_def_components_def" />
+      </object>
+      <object name="SendMessage_param_body_def">
+        <property name="messaging_product" type="string" />
+        <property name="to" type="string" />
+        <property name="type" type="string" />
+        <property name="template" typeRef="SendMessage_param_body_def_template_def" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://europe-002.azure-apim.net/apim/whatsapp2-5f3ab14b72cb0d80ba-5fbc5da5eeacd2e798">
+    <resource path="/{connectionId}/{Version}/{Phone-Number-ID}/messages">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="Version" type="xs:string" required="true" default="v15.0">
+        <doc title="Version of API" />
+      </param>
+      <param style="template" name="Phone-Number-ID" type="xs:long" required="true" default="104545025835246">
+        <doc title="Phone Number ID of Business" />
+      </param>
+      <method siena:requiresAuthentication="true" name="POST" id="SendMessage" actionName="SendMessage" siena:isDeprecated="false">
+        <doc title="Send a Message&#xA;Send a message of a specific template to a registered user phone number." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="messaging_product" path="/messaging_product" type="xs:string" />
+            <param style="plain" name="to" path="/to" type="xs:string" />
+            <param style="plain" name="type" path="/type" type="xs:string" />
+            <param style="plain" name="template" path="/template" type="service:SendMessage_param_body_def_template_def" />
+          </representation>
+        </request>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_whatsapp2-5f3ab14b72cb0d80ba-5fbc5da5eeacd2e798" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>

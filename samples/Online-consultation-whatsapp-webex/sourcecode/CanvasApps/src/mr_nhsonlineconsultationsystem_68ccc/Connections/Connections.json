@@ -1,0 +1,97 @@
+{
+  "517d7293-8d11-4f94-9caf-b69d347b64c0": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "WhatsApp2",
+      "iconUri": "https://az787822.vo.msecnd.net/defaulticons/api-dedicated.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_whatsapp2-5f3ab14b72cb0d80ba-5fbc5da5eeacd2e798",
+      "isCustomApiConnection": true,
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "WhatsAppV2"
+    ],
+    "dependencies": {},
+    "dependents": [
+      "9d828f62-7e9e-435b-ab65-67e8d3188712"
+    ],
+    "id": "517d7293-8d11-4f94-9caf-b69d347b64c0"
+  },
+  "9d828f62-7e9e-435b-ab65-67e8d3188712": {
+    "connectionParameters": {
+      "logicAppHostType": "ARM",
+      "workFlowCallbackUri": "https://prod-246.westeurope.logic.azure.com:443/workflows/9f9562b4e192439eace7a9c489d10d3f/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xDAz8cVPRBjHP83HkKsBfitn7r8edJ6AEet1AX1W5YA",
+      "workflowEndpoint": "/subscriptions/c6c6344b-0825-4478-a78d-c56f2e99ebe1/resourceGroups/8e17a4fc482b471e966df0dec004d318-bfe58d7d281d4270b43c4b916834e703/providers/Microsoft.Logic/workflows/ea2f5bfd-0148-4dc5-9e49-143fe3f8b6bd",
+      "workflowName": "ea2f5bfd-0148-4dc5-9e49-143fe3f8b6bd",
+      "workflowPath": "/subscriptions/c6c6344b-0825-4478-a78d-c56f2e99ebe1/resourceGroups/8e17a4fc482b471e966df0dec004d318-bfe58d7d281d4270b43c4b916834e703/providers/Microsoft.Logic/workflows/ea2f5bfd-0148-4dc5-9e49-143fe3f8b6bd"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1615/1.0.1615.3163/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "517d7293-8d11-4f94-9caf-b69d347b64c0": {
+          "value": "shared_whatsapp2-5f3ab14b72cb0d80ba-5fbc5da5eeacd2e798"
+        },
+        "a38bb70e-d59f-47a0-b8a5-16f9569d6cf7": {
+          "value": "shared_webex-20-2d-201-5f3ab14b72cb0d80ba-5fbfbc82612a6ca3e0"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "ea2f5bfd-0148-4dc5-9e49-143fe3f8b6bd"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_webex-20-2d-201-5f3ab14b72cb0d80ba-5fbfbc82612a6ca3e0": {
+          "value": "a38bb70e-d59f-47a0-b8a5-16f9569d6cf7"
+        },
+        "shared_whatsapp2-5f3ab14b72cb0d80ba-5fbc5da5eeacd2e798": {
+          "value": "517d7293-8d11-4f94-9caf-b69d347b64c0"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "ea2f5bfd-0148-4dc5-9e49-143fe3f8b6bd"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "Webex_Create_and_Send_Meeting"
+    ],
+    "dependencies": {
+      "shared_webex-20-2d-201-5f3ab14b72cb0d80ba-5fbfbc82612a6ca3e0": "a38bb70e-d59f-47a0-b8a5-16f9569d6cf7",
+      "shared_whatsapp2-5f3ab14b72cb0d80ba-5fbc5da5eeacd2e798": "517d7293-8d11-4f94-9caf-b69d347b64c0"
+    },
+    "dependents": [],
+    "id": "9d828f62-7e9e-435b-ab65-67e8d3188712"
+  },
+  "a38bb70e-d59f-47a0-b8a5-16f9569d6cf7": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "WebEx - 1",
+      "iconUri": "https://prodapiicons.cdn.powerappscdn.net/20230201t000000zd6e36f5370b54a39abbef2d1078c63a7/customconnectoricon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_webex-20-2d-201-5f3ab14b72cb0d80ba-5fbfbc82612a6ca3e0",
+      "isCustomApiConnection": true,
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "WebexMeetingsRESTAPIExamples"
+    ],
+    "dependencies": {},
+    "dependents": [
+      "9d828f62-7e9e-435b-ab65-67e8d3188712"
+    ],
+    "id": "a38bb70e-d59f-47a0-b8a5-16f9569d6cf7"
+  }
+}
