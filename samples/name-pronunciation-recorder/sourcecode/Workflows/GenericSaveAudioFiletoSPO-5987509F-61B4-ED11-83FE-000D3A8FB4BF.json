@@ -1,0 +1,192 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_sharepointonline_1": {
+        "runtimeSource": "invoker",
+        "connection": {},
+        "api": {
+          "name": "shared_sharepointonline"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "9cf27fd8-078d-4add-a6b6-0b33a1884acb"
+          },
+          "type": "Request",
+          "kind": "PowerApp",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "InitializevariableBase64ToAudio_Value": {
+                  "type": "string",
+                  "description": "Enter initial value",
+                  "x-ms-powerflows-param-ispartial": false
+                },
+                "Createfile_FileName": {
+                  "type": "string",
+                  "description": "Name of the file.. This parameter is used as part of \"DB7B263C-66B0-4889-BBC2-431E3035DCCE\"",
+                  "x-ms-powerflows-param-ispartial": true
+                },
+                "Updatefileproperties_Item": {
+                  "type": "any",
+                  "description": "Item with changed properties. This parameter is used as part of \"FB53EE02-E04E-4F1B-9F6B-65D6215B12EF\"",
+                  "x-ms-powerflows-param-ispartial": true
+                }
+              },
+              "required": [
+                "InitializevariableBase64ToAudio_Value",
+                "Createfile_FileName",
+                "Updatefileproperties_Item"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Initialize_variable_Base64ToAudio": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "b954b419-c668-419f-a53b-e5dcb5470f64"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Base64ToAudio",
+                "type": "string",
+                "value": "@{triggerBody()['InitializevariableBase64ToAudio_Value']}"
+              }
+            ]
+          },
+          "description": "Per a tutorial, this helps translate the audio recording into a format that can be uploaded to SharePoint"
+        },
+        "Create_file": {
+          "runAfter": {
+            "Initialize_variable_libraryName_-_update_this!": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "2275e165-78fb-4cb2-80a7-dc5f0fc63c90"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_sharepointonline_1",
+              "operationId": "CreateFile",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+            },
+            "parameters": {
+              "dataset": "@variables('siteName')",
+              "folderPath": "/NamePronunciationAudioFiles",
+              "name": "@{triggerBody()['Createfile_FileName']}.mp3",
+              "body": "@base64ToBinary(variables('Base64ToAudio'))"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          },
+          "description": "The file name comes from Power Apps.  The file content is translated using PowerFX: base64ToBinary(variables('Base64ToAudio')",
+          "runtimeConfiguration": {
+            "contentTransfer": {
+              "transferMode": "Chunked"
+            }
+          }
+        },
+        "Update_file_properties": {
+          "runAfter": {
+            "Create_file": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7394fb86-8151-486d-99e5-3d22730a34c4"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_sharepointonline_1",
+              "operationId": "PatchFileItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+            },
+            "parameters": {
+              "dataset": "@variables('siteName')",
+              "table": "@variables('libraryName')",
+              "id": "@outputs('Create_file')?['body/ItemId']",
+              "item": {
+                "Duration": "@{triggerBody()['Updatefileproperties_Item']}"
+              }
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          },
+          "description": "Adds the duration to the document library."
+        },
+        "Initialize_variable_siteName_-_update_this!": {
+          "runAfter": {
+            "Initialize_variable_Base64ToAudio": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3b7c8326-61ce-4178-8ae8-2d05c85c294e"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "siteName",
+                "type": "string",
+                "value": "https://lindsaytshelton.sharepoint.com/sites/InstituteDocuments"
+              }
+            ]
+          },
+          "description": "Rename this value with your site URL and doc library name"
+        },
+        "Initialize_variable_libraryName_-_update_this!": {
+          "runAfter": {
+            "Initialize_variable_siteName_-_update_this!": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7d6cef65-51e7-4460-83de-0bea7a08e8a8"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "libraryName",
+                "type": "string",
+                "value": "Name Pronunciation Audio Files"
+              }
+            ]
+          },
+          "description": "Rename this value with your library name"
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

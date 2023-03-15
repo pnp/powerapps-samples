@@ -1,0 +1,279 @@
+Screen1 As screen:
+    Fill: =RGBA(237,237,237,1) 
+    OnVisible: |-
+        =UpdateContext({pressedbutton:false})
+
+    "Gallery1 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+        AccessibleLabel: ="Gallery of recorded files"
+        BorderColor: =RGBA(0, 120, 212, 1)
+        Height: =166
+        Items: =Last(FirstN(TempSpeechRecCol,1))
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =Min(168, Self.Height - 60)
+        Width: =603
+        X: =30
+        Y: =554
+        ZIndex: =1
+
+        RecordingNameGal As label:
+            Height: =34
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.RecordingName
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =39
+            Y: =32
+            ZIndex: =3
+
+        NextArrow2 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Color: =RGBA(0, 120, 212, 1)
+            Height: =60
+            Icon: =Icon.Trash
+            OnSelect: =Remove(TempSpeechRecCol,ThisItem);
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="Delete your previous recording in order to make a new one."
+            Width: =60
+            X: =524
+            Y: =88
+            ZIndex: =4
+
+        Audio3 As audioPlayback:
+            AccessibleLabel: ="Playback of recorded name"
+            BorderColor: =RGBA(0, 120, 212, 1)
+            Fill: =RGBA(0, 120, 212, 1)
+            Media: =ThisItem.Audio
+            X: =39
+            Y: =83
+            ZIndex: =6
+
+        DurationGal As label:
+            Height: =31
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Duration
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =39
+            Y: =52
+            ZIndex: =7
+
+    Microphone1 As microphone:
+        AccessibleLabel: ="Microphone button.  Click here to record."
+        BorderColor: =RGBA(0, 120, 212, 1)
+        Fill: =RGBA(0, 120, 212, 1)
+        Height: =240
+        HoverFill: =ColorFade(RGBA(0, 120, 212, 1), -20%)
+        OnStop: |-
+            =Set(NowVar, Now());
+            Set(TempRecordingVar,Microphone1.Audio);
+            Set(ShowRecordingGifVar,false);
+            Set(tempJSON,JSON(Microphone1.Audio,IncludeBinaryData));
+            Set(StringB64Var, Mid(tempJSON, 25,Len(tempJSON)-25));
+            Set(HideTempAudioVar,true)
+        Tooltip: ="Click here to start and stop your recording.  Keep it short with minimal background noise."
+        Width: =287
+        X: =177
+        Y: =169
+        ZIndex: =2
+
+    Audio1 As audioPlayback:
+        AccessibleLabel: ="Hidden field"
+        Media: =TempRecordingVar
+        Visible: =false
+        X: =73
+        Y: =563
+        ZIndex: =3
+
+    TextInput1 As text:
+        AccessibleLabel: ="Hidden field"
+        Default: =User().FullName & "-NamePronunciationAudio"
+        DisplayMode: =DisplayMode.View
+        Height: =70
+        Size: =21
+        Visible: =false
+        Width: =560
+        X: =40
+        Y: =132
+        ZIndex: =4
+
+    Button1 As button:
+        Fill: =RGBA(0, 120, 212, 1)
+        Height: =82
+        HoverFill: =
+        OnSelect: |-
+            =Collect(TempSpeechRecCol,{
+                Audio: TempRecordingVar,
+                Duration: Audio1.Duration,
+                RecordingName: TextInput1.Text,
+                Recording: StringB64Var
+            });
+            Reset(TextInput1);
+        PressedFill: =
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Size: =24
+        Text: ="Preview Audio"
+        Tooltip: ="Once you have recorded your name pronunciation, click this button to load your clip and listen to it before uploading it"
+        Width: =284
+        X: =177
+        Y: =475
+        ZIndex: =5
+
+    Icon2 As icon.Help:
+        AccessibleLabel: ="Click this icon for help"
+        BorderColor: =RGBA(0, 120, 212, 1)
+        Color: =RGBA(0, 120, 212, 1)
+        Icon: =Icon.Help
+        OnSelect: |-
+            =UpdateContext({PopUp: true})
+        Tooltip: ="Once you have recorded your name pronunciation, click Preview Audio to load your clip and listen to it before uploading it"
+        Width: =48
+        X: =481
+        Y: =484
+        ZIndex: =6
+
+    Label1 As label:
+        Align: =Align.Center
+        Height: =120
+        Size: =30
+        Text: ="1. Click the button below to start recording."
+        Width: =560
+        X: =43
+        Y: =32
+        ZIndex: =7
+
+    Label3 As label:
+        Height: =88
+        Size: =30
+        Text: ="3.  Upload Audio File"
+        Width: =446
+        X: =62
+        Y: =739
+        ZIndex: =11
+
+    Label5 As label:
+        Height: =72
+        Size: =30
+        Text: ="2."
+        Width: =88
+        X: =62
+        Y: =476
+        ZIndex: =14
+
+    Group1 As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =15
+
+        Rectangle1 As rectangle:
+            Fill: =RGBA(169,169,169,.75)
+            Height: =1136
+            Visible: =PopUp
+            Width: =640
+            ZIndex: =8
+
+        Label2 As label:
+            Fill: =White
+            Height: =448
+            Size: =21
+            Text: =Icon2.Tooltip
+            Visible: =PopUp
+            Width: =638
+            X: =2
+            Y: =288
+            ZIndex: =9
+
+        Icon1 As icon.Cancel:
+            AccessibleLabel: ="Click to close pop-up window.  Only visible when pop-up window is open."
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({PopUp: false})
+            Visible: =PopUp
+            X: =519
+            Y: =363
+            ZIndex: =10
+
+    Image4 As image:
+        Height: =164
+        Image: =Parker
+        Width: =146
+        X: =238
+        Y: =958
+        ZIndex: =16
+
+    Group3 As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =17
+
+        HtmlText1 As htmlViewer:
+            Height: =174
+            HtmlText: |-
+                ="<div style='margin:30px;width:100px;height:100px;
+                
+                "& If(pressedbutton = false," box-shadow: -6px -6px 14px rgba(255, 255, 255, .7),
+                              -6px -6px 10px rgba(255, 255, 255, .5),
+                              6px 6px 8px rgba(255, 255, 255, .075),
+                              6px 6px 10px rgba(0, 0, 0, .15)",  "box-shadow: inset -2px -2px 6px rgba(255, 255, 255, .7),
+                              inset -2px -2px 4px rgba(255, 255, 255, .5),
+                              inset 2px 2px 2px rgba(255, 255, 255, .075),
+                              inset 2px 2px 4px rgba(0, 0, 0, .15)" ) &"    ;
+                     border-radius:25px'></div>"
+            Width: =182
+            X: =225
+            Y: =807
+            ZIndex: =12
+
+        Image1 As image:
+            Image: |-
+                ="data:image/svg+xml;utf8, "&EncodeUrl(" 
+                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill= ' "& If(pressedbutton = false, "rgb(96,96,96,1)", "#0078D4") &" ' class='bi bi-upload' viewBox='0 0 16 16'>
+                  <path d='M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z'/>
+                  <path d='M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z'/>
+                </svg>
+                ")
+            Tooltip: ="Click this icon to upload your audio file."
+            Width: =82
+            X: =270
+            Y: =844
+            ZIndex: =13
+
+        Button2 As button:
+            AutoDisableOnSelect: =false
+            Fill: =Transparent
+            Height: =100
+            HoverFill: =RGBA(196,196,196,0.2)
+            OnSelect: |-
+                =UpdateContext({pressedbutton: !pressedbutton});
+                ForAll(TempSpeechRecCol,GenericSaveAudioFiletoSPO.Run(Recording, RecordingNameGal.Text, DurationGal.Text));
+            PressedFill: =RGBA(196,196,196,0.5)
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Size: =24
+            Text: =""
+            Width: =100
+            X: =261
+            Y: =844
+            ZIndex: =15
+
