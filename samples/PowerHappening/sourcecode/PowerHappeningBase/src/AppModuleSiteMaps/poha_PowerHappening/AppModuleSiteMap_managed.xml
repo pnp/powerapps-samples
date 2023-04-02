@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppModuleSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SiteMapUniqueName>poha_PowerHappening</SiteMapUniqueName>
+  <EnableCollapsibleGroups>False</EnableCollapsibleGroups>
+  <ShowHome>True</ShowHome>
+  <ShowPinned>True</ShowPinned>
+  <ShowRecents>True</ShowRecents>
+  <SiteMap IntroducedVersion="7.0.0.0">
+    <Area Id="area_02056387" ResourceId="SitemapDesigner.NewTitle" DescriptionResourceId="SitemapDesigner.NewTitle" ShowGroups="true" IntroducedVersion="7.0.0.0">
+      <Titles>
+        <Title LCID="1033" Title="Area1" />
+      </Titles>
+      <Group Id="group_184c016c" ResourceId="SitemapDesigner.NewGroup" DescriptionResourceId="SitemapDesigner.NewGroup" IntroducedVersion="7.0.0.0" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
+        <Titles>
+          <Title LCID="1033" Title="Events" />
+        </Titles>
+        <SubArea Id="subarea_1755929b" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="poha_event" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_4c5efcc0" ResourceId="SitemapDesigner.NewSubArea" VectorIcon="/WebResources/poha_calendar.svg" Icon="/WebResources/poha_calendar.svg" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" Page="poha_agenda_a19f3">
+          <Titles>
+            <Title LCID="1033" Title="Event Agenda" />
+          </Titles>
+        </SubArea>
+      </Group>
+      <Group Id="group_59d3ddf5" ResourceId="SitemapDesigner.NewGroup" DescriptionResourceId="SitemapDesigner.NewGroup" IntroducedVersion="7.0.0.0" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
+        <Titles>
+          <Title LCID="1033" Title="Organization" />
+        </Titles>
+        <SubArea Id="subarea_f39ed87d" ResourceId="SitemapDesigner.NewSubArea" VectorIcon="/WebResources/poha_donation.svg" Icon="/WebResources/poha_donation.svg" Url="/main.aspx?appid=d415cc35-a545-ed11-bba2-000d3a4bbc4c&amp;pagetype=entitylist&amp;etn=account&amp;viewid=d8b2aadf-c595-ed11-aad1-000d3a4bbc4c&amp;viewType=1039" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
+          <Titles>
+            <Title LCID="1033" Title="Sponsors" />
+          </Titles>
+        </SubArea>
+        <SubArea Id="subarea_b107d2a7" ResourceId="SitemapDesigner.NewSubArea" VectorIcon="/WebResources/poha_Venue.svg" Icon="/WebResources/poha_Venue.svg" Url="/main.aspx?appid=d415cc35-a545-ed11-bba2-000d3a4bbc4c&amp;pagetype=entitylist&amp;etn=account&amp;viewid=dd1707f4-c595-ed11-aad1-000d3a4bbc4c&amp;viewType=1039" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
+          <Titles>
+            <Title LCID="1033" Title="Venues" />
+          </Titles>
+        </SubArea>
+        <SubArea Id="subarea_efe6f8d1" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="poha_eventregistration" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+      </Group>
+      <Group Id="group_040c91ed" ResourceId="SitemapDesigner.NewGroup" DescriptionResourceId="SitemapDesigner.NewGroup" IntroducedVersion="7.0.0.0" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
+        <Titles>
+          <Title LCID="1033" Title="Content" />
+        </Titles>
+        <SubArea Id="subarea_1640be65" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="poha_session" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_555616ce" ResourceId="SitemapDesigner.NewSubArea" VectorIcon="/WebResources/poha_speaker.svg" Icon="/WebResources/poha_speaker.svg" Url="/main.aspx?appid=d415cc35-a545-ed11-bba2-000d3a4bbc4c&amp;pagetype=entitylist&amp;etn=contact&amp;viewid=24a986de-2696-ed11-aad1-000d3a4bbc4c&amp;viewType=1039" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
+          <Titles>
+            <Title LCID="1033" Title="Speakers" />
+          </Titles>
+        </SubArea>
+      </Group>
+      <Group Id="group_6e1c322a" ResourceId="SitemapDesigner.NewGroup" DescriptionResourceId="SitemapDesigner.NewGroup" IntroducedVersion="7.0.0.0" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
+        <Titles>
+          <Title LCID="1033" Title="Main" />
+        </Titles>
+        <SubArea Id="subarea_fa6b10cf" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="account" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_7813e029" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="contact" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+      </Group>
+      <Group Id="group_8643c7d4" ResourceId="SitemapDesigner.NewGroup" DescriptionResourceId="SitemapDesigner.NewGroup" IntroducedVersion="7.0.0.0" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
+        <Titles>
+          <Title LCID="1033" Title="Settings" />
+        </Titles>
+        <SubArea Id="subarea_19cf7c64" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="poha_eventschedule" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_a1b1fbac" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="poha_slots" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+      </Group>
+    </Area>
+  </SiteMap>
+  <LocalizedNames>
+    <LocalizedName description="Power Happening" languagecode="1033" />
+  </LocalizedNames>
+</AppModuleSiteMap>

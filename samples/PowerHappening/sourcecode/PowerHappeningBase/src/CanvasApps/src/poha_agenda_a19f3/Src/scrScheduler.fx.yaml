@@ -1,0 +1,733 @@
+scrScheduler As screen:
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    OnVisible: |-
+        =If(!varLoaded,
+            UpdateContext({
+                ctxLoadRooms:true,
+                ctxLoadRoomSlots:true,
+                ctxLoadSessions:true,
+                ctxSessionEvent:"",
+                ctxRoomEvent:""
+            });
+            Set(varLoaded,true);
+        );
+        Select(fnLoadSessions);
+        Set(SpinnerStart,false);
+        Set(varSpinner,false);
+        Set(DefaultDay,Blank())
+
+    conRoot As groupContainer.verticalAutoLayoutContainer:
+        Height: =App.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        LayoutOverflowX: =LayoutOverflow.Scroll
+        LayoutOverflowY: =LayoutOverflow.Scroll
+        PaddingBottom: =20
+        PaddingLeft: =20
+        PaddingRight: =20
+        PaddingTop: =20
+        Width: =App.Width
+        ZIndex: =1
+
+        "Spinner As 'Fluent Spinner (1.0.19) Preview'":
+            BackgroundColor: =""
+            ContentLanguage: =""
+            DisplayMode: =DisplayMode.Edit
+            Height: =Parent.Height
+            Label: ="Please wait"
+            LayoutMinHeight: =200
+            LayoutMinWidth: =200
+            SpinnerSize: ='PowerCAT.Spinner.SpinnerSize'.Large
+            Visible: =varSpinner
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+        conTop As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =Parent.Height/20
+            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Width: =Parent.Width
+            ZIndex: =2
+
+            lblEvent As Label:
+                DisplayMode: =DisplayMode.Edit
+                Height: =32
+                LayoutMinHeight: =32
+                LayoutMinWidth: =320
+                Text: ="Event"
+                Width: =Parent.Width/10
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+            "cmbEvent As 'Combo box'.pcfdataset":
+                AllowSearching: =true
+                DisplayMode: =DisplayMode.Edit
+                Height: =32
+                Items: =Events
+                LayoutMinHeight: =32
+                LayoutMinWidth: =320
+                OnChange: |-
+                    =Set(SpinnerStart,true);
+                    Select(fnRefresh);
+                    UpdateContext({DefaultDay:First(Filter('Event Schedules', Event.Event = cmbEvent.Selected.Event))})
+                Width: =320
+                X: =0
+                Y: =0
+                ZIndex: =2
+
+                Name1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="Name"
+                    FieldName: ="poha_name"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =1
+                    ZIndex: =8
+
+                Venue1 As pcfDataField:
+                    FieldDisplayName: ="Venue"
+                    FieldName: ="poha_Venue"
+                    FieldType: ="E"
+                    FieldVariantName: ="complexTypeColumn"
+                    Order: =2
+                    ZIndex: =11
+
+            lblDate As Label:
+                DisplayMode: =DisplayMode.Edit
+                Height: =32
+                LayoutMinHeight: =32
+                LayoutMinWidth: =320
+                Text: ="Date"
+                Width: =Parent.Width/10
+                X: =0
+                Y: =0
+                ZIndex: =4
+
+            "cmbDays As 'Combo box'.pcfdataset":
+                AllowSearching: =true
+                DefaultSelectedItems: =DefaultDay
+                DisplayMode: =DisplayMode.Edit
+                Height: =32
+                Items: =Filter('Event Schedules', Event.Event = cmbEvent.Selected.Event)
+                LayoutMinHeight: =32
+                LayoutMinWidth: =320
+                OnChange: =Select(fnRefresh)
+                Width: =320
+                X: =0
+                Y: =0
+                ZIndex: =5
+
+                Date1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="Date"
+                    FieldName: ="poha_date"
+                    FieldType: ="D"
+                    FieldVariantName: ="textualColumn"
+                    Order: =2
+                    ZIndex: =10
+
+            icoSave As icon.Save:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Color: =RGBA(0, 120, 212, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                Height: =32
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.Save
+                OnSelect: |
+                    =Set(SpinnerStart,true);
+                    Select(fnSaveSessions);
+                PaddingBottom: =3
+                PaddingLeft: =3
+                PaddingRight: =3
+                PaddingTop: =3
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =32
+                ZIndex: =7
+
+            icoRefresh As icon.Reload:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Color: =RGBA(0, 120, 212, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                Height: =32
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.Reload
+                OnSelect: |-
+                    =Set(SpinnerStart,true);
+                    Select(fnRefresh)
+                PaddingBottom: =3
+                PaddingLeft: =3
+                PaddingRight: =3
+                PaddingTop: =3
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =32
+                ZIndex: =8
+
+        conHeaders As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =Parent.Height/20
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Width: =Parent.Width
+            ZIndex: =3
+
+            lblRoomsHeader As Label:
+                DisplayMode: =DisplayMode.Edit
+                Height: =Parent.Height
+                LayoutMinHeight: =32
+                LayoutMinWidth: =320
+                Text: ="Rooms"
+                Width: =RoomGridWidth
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+            galSlotsHeader As gallery.galleryHorizontal:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                FocusedBorderThickness: =2
+                Height: =Parent.Height
+                Items: =colSlots
+                LayoutMinWidth: =320
+                TemplatePadding: =U
+                TemplateSize: |-
+                    =//(Self.Width-U*2)/SlotsInRange-2*U
+                    (Self.Width-U*2)/CountRows(colSlots)-2*U
+                ZIndex: =2
+
+                lblSlotsHeader As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =Parent.Height
+                    OnSelect: =Select(Parent)
+                    Text: |
+                        =ThisItem.Name
+                    Width: =Parent.TemplateWidth
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+            lblSessionsHeader As Label:
+                DisplayMode: =DisplayMode.Edit
+                Height: =Parent.Height
+                LayoutMinHeight: =32
+                LayoutMinWidth: =320
+                Text: ="Sessions"
+                Width: =SessionGridWidth
+                X: =0
+                Y: =0
+                ZIndex: =3
+
+        ConGrids As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(237, 237, 237, 1)
+            Height: =Parent.Height
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Width: =Parent.Width/12
+            ZIndex: =4
+
+            ConCalendar As groupContainer.horizontalAutoLayoutContainer:
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowX: =LayoutOverflow.Scroll
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                ZIndex: =2
+
+                "PowerDragDropRooms As 'Power Drag Drop (1.0.24)'.pcfdataset":
+                    BackgroundColor: ="transparent"
+                    BorderColor: ="black"
+                    BorderRadius: =0
+                    BorderWidth: =0
+                    DisplayMode: =DisplayMode.Edit
+                    DropZoneID: ="room"
+                    Height: =CountRows(colRooms)*CellHeight+GutterHeight
+                    IdColumn: ="poha_roomid"
+                    InputEvent: =ctxDragDropEvent
+                    IsMasterZone: =true
+                    ItemBackgroundColor: |-
+                        ="#FFFFFF"
+                    ItemBorderWidth: =0
+                    ItemGap: =U
+                    Items: =colRooms
+                    ItemTemplate: |-
+                        ="<div
+                            style=""
+                                min-height: " & CellHeight-U & "px;
+                                width:100%;
+                                display:flex;
+                                align-items: center;
+                            ""
+                        >
+                        <div
+                            style=""
+                                border-radius:50%;
+                                min-width:32px;
+                                min-height:32px;
+                                background-size:contain;
+                                background-image: url('{{RoomImage}}');
+                                display:flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-size: 11px;
+                                font-weight: 600;
+                                color: #FFFFFF;
+                                background-color:cornflowerblue;        
+                            ""
+                        >{{#unless RoomImage}}{{Initials}}{{/unless}}</div>
+                        <div>{{poha_name}}</div>
+                        </div>"
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
+                    OnDrop: =Select(fnRoomOnDrop)
+                    OtherDropZoneIDs: ="assigned"
+                    PaddingLeft: =2*U
+                    PaddingTop: =U
+                    Width: =RoomGridWidth
+                    X: =123
+                    Y: =192
+                    ZIndex: =1
+                    ZoneColumn: ="Zone"
+
+                    Initials1_1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="Initials"
+                        FieldName: ="Initials"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =1
+                        ZIndex: =4
+
+                    poha_name3_1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="poha_name"
+                        FieldName: ="poha_name"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =2
+                        ZIndex: =5
+
+                    RoomImage1_1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="RoomImage"
+                        FieldName: ="RoomImage"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =3
+                        ZIndex: =6
+
+                galRooms As gallery.galleryVertical:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                    FocusedBorderThickness: =2
+                    Height: =PowerDragDropRooms.Height
+                    Items: =colRoomSlots
+                    Layout: =Layout.Vertical
+                    LayoutMinHeight: =PowerDragDropRooms.Height
+                    LayoutMinWidth: =320
+                    ShowScrollbar: =false
+                    TemplatePadding: =0
+                    TemplateSize: =CellHeight
+                    ZIndex: =2
+
+                    galRoomsSlots As gallery.galleryHorizontal:
+                        BorderColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                        FocusedBorderThickness: =2
+                        Height: =Parent.Height
+                        Items: =ThisItem.Slots
+                        ShowScrollbar: =false
+                        TemplatePadding: =U
+                        TemplateSize: =galSlotsHeader.TemplateWidth
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                        "PowerDragDropSlots As 'Power Drag Drop (1.0.24)'.pcfdataset":
+                            BackgroundColor: ="rgba(255, 255, 255, 0.4)"
+                            BorderRadius: =4
+                            BorderWidth: =0
+                            DisplayMode: =DisplayMode.Edit
+                            DropZoneID: =ThisItem.Zone
+                            Height: =CellHeight-U
+                            IdColumn: ="poha_sessionid"
+                            InputEvent: =ctxSessionEvent
+                            ItemBorderWidth: =0
+                            ItemGap: =U
+                            Items: =colSessions
+                            ItemTemplate: |-
+                                ="<div style='
+                                    background-color:#FFFFFF;
+                                    border-left:3px solid #0078D7;
+                                    color:#0078D7;
+                                    border-radius:2px;
+                                    padding:8px;
+                                    display:flex;
+                                    justify-content: space-between;
+                                '>
+                                <div>{{poha_name}}</div>
+                                {{#if Edited}}<div>*</div>{{/if}}
+                                </div>"
+                            OnSelect: =Select(Parent)
+                            PaddingLeft: =0
+                            PaddingTop: =0
+                            Width: =Parent.TemplateWidth
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+                            ZoneColumn: ="Zone"
+
+                            poha_name4 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="poha_name"
+                                FieldName: ="poha_name"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =1
+                                ZIndex: =9
+
+            "PowerDragDropSessions As 'Power Drag Drop (1.0.24)'.pcfdataset":
+                AlignInContainer: =AlignInContainer.Stretch
+                BackgroundColor: ="white"
+                DisplayMode: =DisplayMode.Edit
+                DropZoneID: ="unassigned"
+                Height: =200
+                IdColumn: ="poha_sessionid"
+                InputEvent: =ctxSessionEvent
+                IsMasterZone: =true
+                Items: =colSessions
+                ItemTemplate: |-
+                    ="<div style='
+                        background-color:#CCE4F7;
+                        border-left:3px solid #0078D7;
+                        color:#0078D7;
+                        border-radious:2px;
+                        padding:8px;
+                        display:flex;
+                        justify-content:space-between;
+                    '>
+                    <div>{{poha_name}}</div>
+                    {{#if Edited}}<div>*</div>{{/if}}
+                    </div>"
+                LayoutMinHeight: =200
+                LayoutMinWidth: =200
+                MaximumItems: ="-1" & Concat(Ungroup(colRoomSlots,"Slots"),"1",",")
+                OnDrop: =Select(fnSessionOnDrop)
+                OtherDropZoneIDs: =Concat(Ungroup(colRoomSlots,"Slots"),Zone,",")
+                RotateOnDrag: ='CustomControl.PowerDragDrop.RotateOnDrag'.ClockwiseLarge
+                Width: =200
+                X: =0
+                Y: =0
+                ZIndex: =3
+                ZoneColumn: ="Zone"
+
+                poha_name1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="poha_name"
+                    FieldName: ="poha_name"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =1
+                    ZIndex: =7
+
+    conFunctions As groupContainer.manualLayoutContainer:
+        Height: =144
+        Visible: =false
+        Width: =248
+        X: =1115
+        Y: =620
+        ZIndex: =2
+
+        fnLoadRooms As Button:
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            OnSelect: |-
+                =ClearCollect(colRooms,
+                    AddColumns(
+                        Sort(Rooms,Name) As Room,
+                        "Zone",
+                        "room",
+                        "RoomImage",
+                        If(!IsBlank(Room.Image),Substitute(JSON(Room.Image.Value, IncludeBinaryData),"""","")),
+                        "Initials",
+                        Mid(Room.Name,1,1)
+                    )
+                );
+                
+                UpdateContext({ctxDragDropEvent: "Reset" & Rand()});
+            Text: ="Load rooms"
+            Width: =96
+            X: =12
+            Y: =24
+            ZIndex: =1
+
+        fnLoadSessions As Button:
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            OnSelect: |
+                =If(
+                    ctxLoadRooms,
+                    ClearCollect(
+                        colRooms,
+                        AddColumns(
+                            Sort(
+                                Filter(Rooms, Venue.Account = cmbEvent.Selected.Venue.Account),
+                                //Rooms,
+                                Name
+                            ) As Room,
+                            "Zone",
+                            "room",
+                            "RoomImage",
+                            If(
+                                !IsBlank(Room.Image),
+                                Substitute(
+                                    JSON(
+                                        Room.Image.Value,
+                                        IncludeBinaryData
+                                    ),
+                                    """",
+                                    ""
+                                )
+                            ),
+                            "Initials",
+                            Mid(
+                                Room.Name,
+                                1,
+                                1
+                            )
+                        )
+                    );
+                    UpdateContext({ctxLoadRooms: false});
+                    
+                );
+                If(
+                    ctxLoadRoomSlots,
+                    ClearCollect(
+                        colRoomSlots,
+                        ForAll(
+                            colRooms As Room,
+                            {
+                                Room: Room,
+                                //Slots: ForAll(Sequence(SlotsInRange) As Slot,
+                                Slots: ForAll(
+                                    FirstN(
+                                        Sort(
+                                            Filter(
+                                                Slots,
+                                                'Event Schedule'.'Event Schedule' = cmbDays.Selected.'Event Schedule'
+                                            ),
+                                            Id
+                                        ),
+                                        SlotsInRange
+                                    ) As Slot,
+                                    {
+                                        RoomId: Room.Room,
+                                        Slot: Slot.Id,
+                                        Zone: $"{Slot.Id}|{Room.Room}"
+                                    }
+                                )
+                            }
+                        )
+                    );
+                    UpdateContext({ctxLoadRoomSlots: false});
+                    
+                );
+                If(
+                    ctxLoadRoomSlotsInOrder,
+                    //Create Room Slots after re-ordering
+                    ClearCollect(
+                        colRoomSlots,
+                        ForAll(
+                            PowerDragDropRooms.CurrentItems As DragDropItem,
+                            {
+                                Room: LookUp(
+                                    colRooms,
+                                    Text(Room) = DragDropItem.ItemId
+                                ),
+                                Slots: ForAll(
+                                    Sort(
+                                        Slots,
+                                        Id
+                                    ) As Slot,
+                                    {
+                                        RoomId: DragDropItem.ItemId,
+                                        Slot: Slot.Id,
+                                        Zone: $"{Slot.Id}|{DragDropItem.ItemId}"
+                                    }
+                                )
+                            }
+                        )
+                    );
+                    UpdateContext({ctxLoadRoomSlotsInOrder: false});
+                    
+                );
+                If(
+                    ctxLoadSessions,
+                    ClearCollect(
+                        colSessions,
+                        AddColumns(
+                            Filter(
+                                Sessions,
+                                Event.Event = cmbEvent.Selected.Event
+                            ),
+                            "SessionName",
+                            Name,
+                            "Zone",
+                            If(
+                                IsBlank(Slot),
+                                "unassigned",
+                                'Assigned zone'
+                            ),
+                            "Edited",
+                            false
+                        )
+                    );
+                    UpdateContext({ctxLoadSessions: false});
+                    
+                );
+                
+                ClearCollect(colSlots,FirstN(Sort(Filter(
+                                                Slots,
+                                                'Event Schedule'.'Event Schedule' = cmbDays.Selected.'Event Schedule'
+                                            ),Id),SlotsInRange));
+                
+                //UpdateContext({SlotsInRange:CountRows(colSlots)})
+            Text: ="Load sessions"
+            Width: =96
+            X: =12
+            Y: =68
+            ZIndex: =2
+
+        fnRefresh As Button:
+            ButtonType: ="Primary"
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            OnSelect: |-
+                =UpdateContext({
+                    ctxLoadRoomSlots:true,
+                    ctxLoadSessions:true,
+                    ctxLoadRooms: true
+                });
+                
+                Select(fnLoadSessions)
+            Text: ="Refresh"
+            Width: =96
+            X: =136
+            Y: =24
+            ZIndex: =3
+
+        fnSessionOnDrop As Button:
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            OnSelect: |-
+                =ForAll(
+                    Filter(PowerDragDropSessions.CurrentItems, HasMovedZone=true) As SessionAssignment,
+                    //update local collection with new session/slot
+                    Patch(colSessions,
+                        LookUp(colSessions, Text(Session) = SessionAssignment.ItemId),
+                        With(
+                            {
+                                StartDate: cmbDays.Selected.Date,
+                                ZoneData: Split(SessionAssignment.DropZoneId,"|"),
+                                Unnasigned: SessionAssignment.DropZoneId="unassigned"
+                            },
+                            {
+                                Zone: SessionAssignment.DropZoneId,
+                                //Get Slot
+                                Room:
+                                    If(Unnasigned,
+                                        Blank(), 
+                                        LookUp(colRooms, Room = GUID(Last(ZoneData).Result))
+                                    ),
+                                Slot:
+                                    If(Unnasigned,
+                                        Blank(), 
+                                        LookUp(colSlots, Text(Id) = First(ZoneData).Result)
+                                    ),
+                                'Assigned zone':SessionAssignment.DropZoneId,
+                                Edited:true
+                            }
+                        )
+                    )
+                )
+            Text: ="Session On Drop"
+            Width: =96
+            X: =136
+            Y: =68
+            ZIndex: =4
+
+        fnSaveSessions As Button:
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            OnSelect: |-
+                =Patch(Sessions,
+                    ShowColumns(Filter(colSessions, Edited),
+                        "poha_sessionid",
+                        "poha_room",
+                        "poha_slot",
+                        "poha_assignedzone"
+                    )
+                );
+                
+                UpdateIf(colSessions,
+                    Edited,
+                    {Edited:false}
+                )
+            Text: ="Save sessions"
+            Width: =96
+            X: =12
+            Y: =112
+            ZIndex: =5
+
+        fnRoomOnDrop As Button:
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            OnSelect: |-
+                =UpdateContext({ctxLoadRoomSlotsInOrder:true});
+                Select(fnLoadSessions);
+            Text: ="Room On Drop"
+            Width: =96
+            X: =136
+            Y: =112
+            ZIndex: =6
+
+        SpinnerWait As timer:
+            BorderColor: =RGBA(0, 120, 212, 1)
+            BorderStyle: =BorderStyle.None
+            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Duration: =3000
+            Fill: =RGBA(0, 120, 212, 1)
+            FocusedBorderThickness: =2
+            Font: =Font.'Segoe UI'
+            HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -10%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(0, 120, 212, 1), -10%)
+            OnTimerEnd: |-
+                =Set(varSpinner,false);
+                Set(SpinnerStart,false);
+            OnTimerStart: =Set(varSpinner,true);
+            PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            Reset: =true
+            Size: =10.5
+            Start: =SpinnerStart
+            X: =40
+            Y: =40
+            ZIndex: =7
+

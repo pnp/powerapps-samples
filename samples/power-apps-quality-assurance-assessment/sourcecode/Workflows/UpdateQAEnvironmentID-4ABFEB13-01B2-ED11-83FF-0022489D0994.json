@@ -1,0 +1,235 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "natiturt_sharedcommondataserviceforapps_40972"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "c7ff016b-28a4-40af-a628-bd3f9e6010ba"
+          },
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "title": "New QA Environment ID",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                }
+              },
+              "required": [
+                "text"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Scope_-_Try_retrieve_environment_variable": {
+          "actions": {
+            "List_rows_-_Get_QA_Solution_Environment_Variable": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "0e0712d1-33de-42f0-a9bd-6b40e535dab1"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "environmentvariabledefinitions",
+                  "$filter": "displayname eq 'Quality Assurance Environment ID'"
+                },
+                "authentication": {
+                  "type": "Raw",
+                  "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                }
+              }
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "353223d3-418f-48c8-801a-843bd576e196"
+          },
+          "type": "Scope"
+        },
+        "Scope_-_Environment_variable_does_not_exist": {
+          "actions": {
+            "Terminate_-_Failed_to_find_variable": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "49dfcedb-5fdb-41bb-aa81-69a81fc0448a"
+              },
+              "type": "Terminate",
+              "inputs": {
+                "runStatus": "Succeeded"
+              }
+            }
+          },
+          "runAfter": {
+            "Scope_-_Try_retrieve_environment_variable": [
+              "Failed"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0336f409-bacc-4fb3-9a40-b07d0608778c"
+          },
+          "type": "Scope"
+        },
+        "Scope_-_If_variable_is_found,_validate_it": {
+          "actions": {
+            "Get_a_row_by_ID_-_Validate_variable_Exists": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "d7d970b6-191a-4287-81b6-5fb221b56bb0"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "GetItem",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "environmentvariabledefinitions",
+                  "recordId": "@first(body('List_rows_-_Get_QA_Solution_Environment_Variable')?['value'])?['environmentvariabledefinitionid']"
+                },
+                "authentication": {
+                  "type": "Raw",
+                  "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "Scope_-_Try_retrieve_environment_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a42b6f22-5023-4c33-a21e-954a8f16ae1b"
+          },
+          "type": "Scope"
+        },
+        "Scope_-_error_validating_variable": {
+          "actions": {
+            "Terminate_-_Failed_to_validate_variable": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "aa393c51-775a-4064-84d1-d55ae90d9196"
+              },
+              "type": "Terminate",
+              "inputs": {
+                "runStatus": "Succeeded"
+              }
+            }
+          },
+          "runAfter": {
+            "Scope_-_If_variable_is_found,_validate_it": [
+              "Failed"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "db503498-c1dd-4266-9b67-8edef287981d"
+          },
+          "type": "Scope"
+        },
+        "Scope_-_Update_environment_variable": {
+          "actions": {
+            "Update_a_row_-_Update_QA_Environment_ID": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "c0b25bee-7fe8-432e-bbab-13f82e3b2761"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "UpdateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "environmentvariabledefinitions",
+                  "recordId": "@outputs('Get_a_row_by_ID_-_Validate_variable_Exists')?['body/environmentvariabledefinitionid']",
+                  "item/defaultvalue": "@triggerBody()['text']"
+                },
+                "authentication": {
+                  "type": "Raw",
+                  "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "Scope_-_If_variable_is_found,_validate_it": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1be6801b-40c4-4335-bf84-336f62109eea"
+          },
+          "type": "Scope"
+        },
+        "Terminate_-_failed_to_update_variable": {
+          "runAfter": {
+            "Scope_-_Update_environment_variable": [
+              "Failed"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7f8dd9ae-a599-4332-b08d-a191f2744d75"
+          },
+          "type": "Terminate",
+          "inputs": {
+            "runStatus": "Succeeded"
+          }
+        },
+        "Terminate_-_Variable_updated_successfully": {
+          "runAfter": {
+            "Scope_-_Update_environment_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "9b3ed87d-6f80-4492-9a77-fc7df7bec954"
+          },
+          "type": "Terminate",
+          "inputs": {
+            "runStatus": "Succeeded"
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImportExportXml version="9.2.23014.178" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SolutionManifest>
+    <UniqueName>QualityAssuranceAssessment</UniqueName>
+    <LocalizedNames>
+      <LocalizedName description="Quality Assurance Assessment" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions />
+    <Version>1.0.0.3</Version>
+    <Managed>1</Managed>
+    <Publisher>
+      <UniqueName>Nati_Turtledove</UniqueName>
+      <LocalizedNames>
+        <LocalizedName description="Nati Turtledove" languagecode="1033" />
+      </LocalizedNames>
+      <Descriptions />
+      <EMailAddress>nati@tdda.co.za</EMailAddress>
+      <SupportingWebsiteUrl>www.nati-turtledove.com</SupportingWebsiteUrl>
+      <CustomizationPrefix>natiturt</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>67749</CustomizationOptionValuePrefix>
+      <Addresses>
+        <Address>
+          <AddressNumber>1</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City>Cape Town</City>
+          <County xsi:nil="true"></County>
+          <Country>South Africa</Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1>Unit L , 4 Willow Road</Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode>7441</PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince>Western Cape</StateOrProvince>
+          <Telephone1>0818246507</Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+        <Address>
+          <AddressNumber>2</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+      </Addresses>
+    </Publisher>
+    <RootComponents>
+      <RootComponent type="1" schemaName="deploymentartifact" behavior="2" />
+      <RootComponent type="1" schemaName="deploymentenvironment" behavior="2" />
+      <RootComponent type="1" schemaName="deploymentstagerun" behavior="2" />
+      <RootComponent type="1" schemaName="environmentvariabledefinition" behavior="2" />
+      <RootComponent type="1" schemaName="natiturt_qaassessmentchoices" behavior="0" />
+      <RootComponent type="1" schemaName="natiturt_qaassessmentdetails" behavior="0" />
+      <RootComponent type="1" schemaName="natiturt_qaassessmentitems" behavior="0" />
+      <RootComponent type="1" schemaName="natiturt_qaassessments" behavior="0" />
+      <RootComponent type="1" schemaName="systemuser" behavior="2" />
+      <RootComponent type="29" id="{4abfeb13-01b2-ed11-83ff-0022489d0994}" behavior="0" />
+      <RootComponent type="300" schemaName="natiturt_qualityassuranceassessment_084ed" behavior="0" />
+    </RootComponents>
+    <MissingDependencies>
+      <MissingDependency>
+        <Required type="1" schemaName="deploymentartifact" displayName="Deployment Artifact" solution="msdyn_AppDeploymentMetadata (9.1.0.70)">
+          <package>msdyn_AppDeploymentAnchor (9.1.0.37)</package>
+        </Required>
+        <Dependent type="1" schemaName="deploymentartifact" displayName="Deployment Artifact" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="deploymentartifact" displayName="Deployment Artifact" solution="msdyn_AppDeploymentMetadata (9.1.0.70)">
+          <package>msdyn_AppDeploymentAnchor (9.1.0.37)</package>
+        </Required>
+        <Dependent type="300" schemaName="natiturt_qualityassuranceassessment_084ed" displayName="Quality Assurance Assessment" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="deploymentenvironment" displayName="Deployment Environment" solution="msdyn_AppDeploymentMetadata (9.1.0.70)">
+          <package>msdyn_AppDeploymentAnchor (9.1.0.37)</package>
+        </Required>
+        <Dependent type="1" schemaName="deploymentenvironment" displayName="Deployment Environment" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="deploymentenvironment" displayName="Deployment Environment" solution="msdyn_AppDeploymentMetadata (9.1.0.70)">
+          <package>msdyn_AppDeploymentAnchor (9.1.0.37)</package>
+        </Required>
+        <Dependent type="300" schemaName="natiturt_qualityassuranceassessment_084ed" displayName="Quality Assurance Assessment" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="deploymentstagerun" displayName="Deployment Stage Run" solution="msdyn_AppDeploymentMetadata (9.1.0.70)">
+          <package>msdyn_AppDeploymentAnchor (9.1.0.37)</package>
+        </Required>
+        <Dependent type="1" schemaName="deploymentstagerun" displayName="Deployment Stage Run" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="deploymentstagerun" displayName="Deployment Stage Run" solution="msdyn_AppDeploymentMetadata (9.1.0.70)">
+          <package>msdyn_AppDeploymentAnchor (9.1.0.37)</package>
+        </Required>
+        <Dependent type="300" schemaName="natiturt_qualityassuranceassessment_084ed" displayName="Quality Assurance Assessment" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="environmentvariabledefinition" displayName="Environment Variable Definition" solution="EnvironmentVariables (1.0.2.141)" />
+        <Dependent type="1" schemaName="environmentvariabledefinition" displayName="Environment Variable Definition" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="environmentvariabledefinition" displayName="Environment Variable Definition" solution="EnvironmentVariables (1.0.2.141)" />
+        <Dependent type="29" displayName="Update QA Environment ID" id="{4abfeb13-01b2-ed11-83ff-0022489d0994}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="environmentvariabledefinition" displayName="Environment Variable Definition" solution="EnvironmentVariables (1.0.2.141)" />
+        <Dependent type="300" schemaName="natiturt_qualityassuranceassessment_084ed" displayName="Quality Assurance Assessment" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="environmentvariablevalue" displayName="Environment Variable Value" solution="EnvironmentVariables (1.0.2.141)" />
+        <Dependent type="300" schemaName="natiturt_qualityassuranceassessment_084ed" displayName="Quality Assurance Assessment" />
+      </MissingDependency>
+    </MissingDependencies>
+  </SolutionManifest>
+</ImportExportXml>

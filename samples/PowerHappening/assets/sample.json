@@ -1,0 +1,89 @@
+[
+    {
+      "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+      "name": "PowerHappening",
+      "version": "1.0.0.0",
+      "source": "pnp",
+      "creationDateTime": "2023-03-06T00:00:00.000Z",
+      "updateDateTime": "2023-03-06T00:00:00.000Z",
+      "title": "Power Happening",
+      "shortDescription": "This is a community sample to inspire you how you can use Model-Driven Power Apps and Custom Pages for your business processes",
+      "longDescription": [
+        "This is a community sample to inspire you how you can use Model-Driven Power Apps and Custom Pages for your business processes"
+      ],
+      "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/PowerHappening",
+      "products": [
+        "Power Apps",
+        "Power Platform"
+      ],
+      "tags": [
+        "Power Apps"
+      ],
+      "categories": [
+        "POWERAPPS"
+      ],
+      "metadata": [
+        {
+          "key": "POWERAPPS-MANIFEST-VERSION",
+          "value": "0.20"
+        },
+        {
+          "key": "POWERAPPS-TYPE",
+          "value": "Model-driven"
+        },
+        {
+          "key": "POWERAPPS-EXPERIMENTAL",
+          "value": "No"
+        },
+        {
+          "key": "POWERAPPS-PREMIUM",
+          "value": "Yes"
+        },
+        {
+          "key": "POWERAPPS-ONPREM",
+          "value": "No"
+        },
+        {
+          "key": "POWERAPPS-CUSTOMCONNECTOR",
+          "value": "No"
+        }
+      ],
+      "thumbnails": [
+        {
+          "type": "image",
+          "order": 100,
+          "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/PowerHappening/assets/AgendaSchedulerDemo.gif",
+          "alt": "Preview"
+        }
+      ],
+      "authors": [
+        {
+          "gitHubAccount": "walcivar",
+          "name": "Wilmer Alcivar",
+          "pictureUrl": "https://github.com/walcivar.png"
+        },
+        {
+            "gitHubAccount": "bendenblanken",
+            "name": "Ben den Blanken",
+            "pictureUrl": "https://github.com/bendenblanken.png"
+          }
+      ],
+      "references": [
+        {
+          "name": "User Manual",
+          "description": "User manual for Power Happening.",
+          "url": "https://github.com/BendenBlanken/PowerHappening/wiki/2.-User-manual"
+        },
+        {
+          "name": "Power Drag and Drop",
+          "description": "Power Drag and Drop is a PCF component that helps you enable drag and drop functionality in Power Apps.",
+          "url": "https://github.com/scottdurow/power-drag-drop"
+        },
+        {
+            "name": "Creator Kit",
+            "description": "The Creator Kit helps create Power Apps experiences on the web and mobile platforms with convenient components that are ubiquitous in modern software.",
+            "url": "https://learn.microsoft.com/en-us/power-platform/guidance/creator-kit/overview"
+        }
+      ]
+    }
+  ]

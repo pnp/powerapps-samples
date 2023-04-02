@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{591925db-804e-4654-b6b0-41450e0aa6ff}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="poha_name" select="1" icon="1" preview="1">
+        <row name="result" id="poha_eventid">
+          <cell name="poha_name" width="300" />
+          <cell name="poha_eventdate" width="100" />
+          <cell name="poha_attendeecapacity" width="100" />
+          <cell name="poha_acceptedattendees" width="100" />
+          <cell name="poha_registeredattendees" width="100" />
+          <cell name="statuscode" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="poha_event">
+          <attribute name="poha_eventid" />
+          <attribute name="poha_name" />
+          <order attribute="poha_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="poha_eventdate" />
+          <attribute name="poha_attendeecapacity" />
+          <attribute name="statuscode" />
+          <attribute name="poha_registeredattendees" />
+          <attribute name="poha_acceptedattendees" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Events" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

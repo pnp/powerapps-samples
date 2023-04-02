@@ -1,0 +1,114 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "poha_events",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "poha_event",
+    "MaxGetRowsCount": 500,
+    "Name": "Events",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "poha_acceptedattendees": "Accepted Attendees",
+      "poha_acceptedattendees_date": "Accepted Attendees (Last Updated On)",
+      "poha_acceptedattendees_state": "Accepted Attendees (State)",
+      "poha_attendeecapacity": "Attendee Capacity",
+      "poha_description": "Description",
+      "poha_event_AsyncOperations": "System Jobs",
+      "poha_event_BulkDeleteFailures": "Bulk Delete Failures",
+      "poha_event_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "poha_event_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "poha_event_ProcessSession": "Process Sessions",
+      "poha_event_SyncErrors": "Sync Errors",
+      "poha_eventdate": "Event Date",
+      "poha_eventid": "Event",
+      "poha_name": "Name",
+      "poha_poha_eventregistration_event_poha_event": "Event Registrations",
+      "poha_poha_eventschedule_Event_poha_event": "Event Schedules",
+      "poha_poha_eventsponsors_Event_poha_event": "Event Sponsors",
+      "poha_poha_organizingteammember_Event_poha_even": "Organizing Teammembers",
+      "poha_poha_session_event_poha_event": "Sessions",
+      "poha_poha_slots_Event_poha_event": "Slots",
+      "poha_registeredattendees": "Registered Attendees",
+      "poha_registeredattendees_date": "Registered Attendees (Last Updated On)",
+      "poha_registeredattendees_state": "Registered Attendees (State)",
+      "poha_Venue": "Venue",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Events",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Events (Views)",
+    "Name": "_poha_event_views",
+    "RelatedEntityName": "Events",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "591925db-804e-4654-b6b0-41450e0aa6ff": "Active Events",
+      "67408322-245e-4243-8c77-04533a8dd858": "Event Advanced Find View",
+      "a7c9ca1e-5363-4bdc-8c8a-f8fe7695ca4e": "Inactive Events",
+      "de35044a-7226-4db0-94a0-aca7f0d88db2": "Event Associated View",
+      "f43118cf-f55c-4ddc-b8ea-fa4f8d034198": "Event Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Status (Events)",
+    "Name": "poha_event_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Events"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Events",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Events)",
+    "Name": "poha_event_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Announced",
+      "100000001": "Planned",
+      "100000002": "Finished (100000002)",
+      "100000003": "Cancelled",
+      "2": "Finished (2)"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Events"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Events",
+    "Type": "OptionSetInfo"
+  }
+]

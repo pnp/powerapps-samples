@@ -1,0 +1,97 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "poha_slotses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "poha_slots",
+    "MaxGetRowsCount": 500,
+    "Name": "Slots",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "poha_agenda": "Agenda",
+      "poha_Event": "Event",
+      "poha_EventSchedule": "Event Schedule",
+      "poha_id": "Id",
+      "poha_name": "Name",
+      "poha_poha_session_slot_poha_slots": "Sessions",
+      "poha_slots_AsyncOperations": "System Jobs",
+      "poha_slots_BulkDeleteFailures": "Bulk Delete Failures",
+      "poha_slots_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "poha_slots_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "poha_slots_ProcessSession": "Process Sessions",
+      "poha_slots_SyncErrors": "Sync Errors",
+      "poha_slotsid": "Slots",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Slots",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Slots (Views)",
+    "Name": "_poha_slots_views",
+    "RelatedEntityName": "Slots",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "63abbf59-2596-4df9-b5b0-e280ddd5a8fe": "Active Slots",
+      "6ffe3886-f908-475a-837a-0972af1eb188": "Inactive Slots",
+      "7a2a6712-b1aa-4ae6-b6f2-811c9cdc105f": "Slots Associated View",
+      "b7d97769-78df-4f9e-b386-05735256ec10": "Slots Advanced Find View",
+      "cba9b40a-3979-4ad1-937a-f54003d754a5": "Slots Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Status (Slots)",
+    "Name": "poha_slots_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Slots"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Slots",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Slots)",
+    "Name": "poha_slots_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Slots"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Slots",
+    "Type": "OptionSetInfo"
+  }
+]

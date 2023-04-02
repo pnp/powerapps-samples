@@ -65,8 +65,20 @@ This sample illustrates the following concepts:
 
 ## Prerequisites
 
-> Any special pre-requisites? Include anything that needs to be done for this sample to work (anything in addition to importing the `.msapp` and data sources).
+> Any special pre-requisites? Include anything that needs to be done for this sample to work (anything in addition to importing the solution `.zip` and data sources).
 > DELETE THIS PARAGRAPH BEFORE SUBMITTING
+
+## Solution Components
+
+> Please list the solution components you use in this sample. See example below.
+> DELETE THIS PARAGRAPH BEFORE SUBMITTING
+
+The following solution components are used in this sample:
+
+* Canvas app name (Canvas app)
+* Cloud flow name (Cloud flow)
+* Environment variable name (Environment variable)
+* Connection reference name (Connection reference)
 
 ## Data Sources
 
@@ -83,22 +95,24 @@ This SharePoint list contains blah blah blah.  Set the list up as follows:
 
 ## Minimal Path to Awesome
 
-* [Download](./solution/YOURSAMPLENAME.msapp) the `.msapp` from the `solution` folder
-* Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just downloaded.
-* Select the **Data** tab
+* [Download](./solution/YOURSAMPLENAME.zip) the solution `.zip` from the `solution` folder
+* Within **https://make.powerapps.com**, import the `.zip` file via **Solutions** > **Import solution** > **Browse** and select the `.zip` file you just downloaded.
+* Click next.
 * ...
 
 ## Using the Source Code
 
-You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/developer/data-platform/powerapps-cli) to pack the source code by following these steps::
+You can also use the [Power Apps CLI](https://aka.ms/pac/docs) to pack the source code by following these steps::
 
 * Clone the repository to a local drive
-* Pack the source files back into `.msapp` file:
+* Pack the source files back into `.zip` file:
   ```bash
-  pac canvas pack --sources pathtosourcefolder --msapp pathtomsapp
+  pac solution pack --folder pathtosourcefolder --zipfile pathtosolution  --processCanvasApps
   ```
-  Making sure to replace `pathtosourcefolder` to point to the path to this sample's `sourcecode` folder, and `pathtomsapp` to point to the path of this solution's `.msapp` file (located under the `solution` folder)
-* Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just packed.
+  Making sure to replace `pathtosourcefolder` to point to the path to this sample's `sourcecode` folder, and `pathtosolution` to point to the path of this solution's `.zip` file (located under the `solution` folder)
+* Within **https://make.powerapps.com**, import the `.zip` file via **Solutions** > **Import solution** > **Browse** and select the `.zip` file you just downloaded.
+* Click next.
+* ...
 
 ## Disclaimer
 

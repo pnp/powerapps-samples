@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{d8b2aadf-c595-ed11-aad1-000d3a4bbc4c}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="name" select="1" icon="1" preview="1">
+        <row name="result" id="accountid">
+          <cell name="name" width="200" />
+          <cell name="primarycontactid" width="100" />
+          <cell name="poha_type" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+        <entity name="account">
+          <attribute name="name" />
+          <attribute name="accountid" />
+          <attribute name="poha_type" />
+          <attribute name="primarycontactid" />
+          <filter type="and">
+            <condition attribute="poha_type" operator="eq" value="100000001" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Sponsors" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

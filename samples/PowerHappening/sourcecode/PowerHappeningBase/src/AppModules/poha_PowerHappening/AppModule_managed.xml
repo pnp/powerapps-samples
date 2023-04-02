@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppModule>
+  <UniqueName>poha_PowerHappening</UniqueName>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <WebResourceId>93c931ea-8a99-ed11-aad1-000d3a4bbc4c</WebResourceId>
+  <OptimizedFor></OptimizedFor>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <FormFactor>1</FormFactor>
+  <ClientType>4</ClientType>
+  <NavigationType>0</NavigationType>
+  <AppModuleComponents>
+    <AppModuleComponent type="1" schemaName="account" />
+    <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000000666000}" />
+    <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000010001200}" />
+    <AppModuleComponent type="26" id="{2d1187c4-23fe-4bb5-9647-43bb1c6ddbd1}" />
+    <AppModuleComponent type="26" id="{a9af0ab8-861d-4cfa-92a5-c6281fed7fab}" />
+    <AppModuleComponent type="26" id="{d8b2aadf-c595-ed11-aad1-000d3a4bbc4c}" />
+    <AppModuleComponent type="26" id="{dd1707f4-c595-ed11-aad1-000d3a4bbc4c}" />
+    <AppModuleComponent type="60" id="{9f73850e-c077-ed11-81ab-000d3a4bbc4c}" />
+    <AppModuleComponent type="1" schemaName="contact" />
+    <AppModuleComponent type="26" id="{0640c0d2-b292-ed11-aad1-000d3a4bbc4c}" />
+    <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000000666400}" />
+    <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000010001210}" />
+    <AppModuleComponent type="26" id="{8df19b44-a073-40c3-9d6d-ee1355d8c4ba}" />
+    <AppModuleComponent type="26" id="{a2d479c5-53e3-4c69-addd-802327e67a0d}" />
+    <AppModuleComponent type="26" id="{24a986de-2696-ed11-aad1-000d3a4bbc4c}" />
+    <AppModuleComponent type="60" id="{97b4f805-c177-ed11-81ab-000d3a4bbc4c}" />
+    <AppModuleComponent type="1" schemaName="poha_event" />
+    <AppModuleComponent type="1" schemaName="poha_session" />
+    <AppModuleComponent type="1" schemaName="poha_eventregistration" />
+    <AppModuleComponent type="1" schemaName="poha_slots" />
+    <AppModuleComponent type="1" schemaName="poha_eventschedule" />
+    <AppModuleComponent type="62" schemaName="poha_PowerHappening" />
+  </AppModuleComponents>
+  <AppModuleRoleMaps>
+    <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
+    <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+  </AppModuleRoleMaps>
+  <LocalizedNames>
+    <LocalizedName description="Power Happening" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Power Happening is an event organizer app" languagecode="1033" />
+  </Descriptions>
+  <appelements>
+    <appelement uniquename="poha_poha_PowerHappening_canvasappid_poha_agenda_a19f3">
+      <canvasappid>
+        <name>poha_agenda_a19f3</name>
+      </canvasappid>
+      <iscustomizable>1</iscustomizable>
+      <name>poha_poha_PowerHappening_canvasappid_poha_agenda_a19f3</name>
+    </appelement>
+  </appelements>
+</AppModule>

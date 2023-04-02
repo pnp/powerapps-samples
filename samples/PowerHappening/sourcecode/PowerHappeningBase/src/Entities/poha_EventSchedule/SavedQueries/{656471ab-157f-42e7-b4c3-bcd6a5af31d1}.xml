@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{656471ab-157f-42e7-b4c3-bcd6a5af31d1}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="poha_name" select="1" icon="1" preview="1">
+        <row name="result" id="poha_eventscheduleid">
+          <cell name="poha_name" width="155" />
+          <cell name="poha_date" width="152" />
+          <cell name="poha_type" width="167" />
+          <cell name="poha_event" width="158" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="poha_eventschedule">
+          <attribute name="poha_eventscheduleid" />
+          <attribute name="poha_name" />
+          <order attribute="poha_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="poha_date" />
+          <attribute name="poha_event" />
+          <attribute name="poha_type" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Event Schedules" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

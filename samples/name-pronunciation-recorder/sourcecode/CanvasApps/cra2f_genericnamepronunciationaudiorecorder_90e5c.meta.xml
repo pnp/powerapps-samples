@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>cra2f_genericnamepronunciationaudiorecorder_90e5c</Name>
+  <AppVersion>2022-10-07T19:17:54Z</AppVersion>
+  <Status>Ready</Status>
+  <CreatedByClientVersion>3.22091.27.0</CreatedByClientVersion>
+  <MinClientVersion>3.22091.27.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"640","primaryDeviceHeight":"1136","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Phone","publisherVersion":"3.22091.27","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false","sienaVersion":"20221007T191754Z-3.22091.27.0"}</Tags>
+  <IsCdsUpgraded>0</IsCdsUpgraded>
+  <GalleryItemId xsi:nil="true"></GalleryItemId>
+  <BackgroundColor>RGBA(0,176,240,1)</BackgroundColor>
+  <DisplayName>GenericNamePronunciationAudioRecorder</DisplayName>
+  <Description xsi:nil="true"></Description>
+  <CommitMessage xsi:nil="true"></CommitMessage>
+  <Publisher xsi:nil="true"></Publisher>
+  <AuthorizationReferences>[]</AuthorizationReferences>
+  <ConnectionReferences>{"38f6d6d7-ad44-44b5-aca7-ab64cdf9c5db":{"id":"/providers/microsoft.powerapps/apis/shared_logicflows","displayName":"Logic flows","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1534/1.0.1534.2605/logicflows/icon.png","dataSources":["GenericSaveAudioFiletoSPO"],"dependencies":["85d7b71e-84de-4ba2-928a-c61809b1cd5f"],"dependents":[],"parameterHints":{"workflowName":{"value":"af7c0830-601f-490a-bc16-f401a0b4285e"},"workflowEntityId":{},"85d7b71e-84de-4ba2-928a-c61809b1cd5f":{"value":"shared_sharepointonline_1"}},"parameterHintsV2":{"workflowName":{"value":"af7c0830-601f-490a-bc16-f401a0b4285e"},"workflowEntityId":{},"shared_sharepointonline_1":{"value":"85d7b71e-84de-4ba2-928a-c61809b1cd5f"}},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard","actions":["Run"]},"85d7b71e-84de-4ba2-928a-c61809b1cd5f":{"id":"/providers/microsoft.powerapps/apis/shared_sharepointonline","displayName":"SharePoint","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1591/1.0.1591.2961/sharepointonline/icon.png","dataSources":[],"dependencies":[],"dependents":["38f6d6d7-ad44-44b5-aca7-ab64cdf9c5db"],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard"}}</ConnectionReferences>
+  <DatabaseReferences>{}</DatabaseReferences>
+  <AppComponents>[]</AppComponents>
+  <AppComponentDependencies>[]</AppComponentDependencies>
+  <CanConsumeAppPass>1</CanConsumeAppPass>
+  <CanvasAppType>0</CanvasAppType>
+  <BypassConsent>0</BypassConsent>
+  <AdminControlBypassConsent>0</AdminControlBypassConsent>
+  <EmbeddedApp xsi:nil="true"></EmbeddedApp>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CdsDependencies>{"cdsdependencies":[]}</CdsDependencies>
+  <IsCustomizable>1</IsCustomizable>
+  <BackgroundImageUri>/CanvasApps/cra2f_genericnamepronunciationaudiorecorder_90e5c_BackgroundImageUri</BackgroundImageUri>
+  <DocumentUri>/CanvasApps/cra2f_genericnamepronunciationaudiorecorder_90e5c_DocumentUri.msapp</DocumentUri>
+</CanvasApp>

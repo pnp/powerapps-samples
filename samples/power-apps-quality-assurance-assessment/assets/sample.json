@@ -1,0 +1,91 @@
+[
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-power-apps-quality-assurance-assessment",
+    "version": "1.0.0.3",
+    "source": "pnp",
+    "creationDateTime": "2023-02-23T00:00:00.000Z",
+    "updateDateTime": "2023-02-23T00:00:00.000Z",
+    "title": "PowerApps Quality Assurance Assessment",
+    "shortDescription": "A Quality Assurance tool integrating with Power Platform Pipelines allowing users to conduct QA Assessments on solutions deployed to a QA Environment.",
+    "longDescription": [
+      "Inspired by the ALM Accelerator by PowerCAT, This solution is built alongside Power Platform Pipelines accessing all deployed solutions within your designated QA Environment. When a solution is in QA, the user can create a QA Assessment for the project, assign it to other users, manage checklist items, and submit a final QA grade for the solution."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/power-apps-quality-assurance-assessment",
+    "products": [
+      "Power Apps",
+      "Power Platform",
+      "Dataverse"
+    ],
+    "tags": [
+      "ALM", "SOLUTION", "QUALITY ASSURANCE"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "Yes"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/power-apps-quality-assurance-assessment/assets/LandingPage.png",
+        "alt": "Preview PNG"
+      },
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/power-apps-quality-assurance-assessment/assets/preview.gif",
+        "alt": "Preview GIF"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "NatiTurts",
+        "name": "Nati Turtledove",
+        "pictureUrl": "https://github.com/NatiTurts.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Create a component for canvas apps",
+        "description": "Components are reusable building blocks for canvas apps so that app makers can create custom controls to use inside an app, or across apps using a component library",
+        "url": "https://docs.microsoft.com/powerapps/maker/canvas-apps/"
+      },
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  }
+]
