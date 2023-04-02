@@ -1,0 +1,126 @@
+scrQ4 As screen:
+    OnVisible: |-
+        = UpdateContext({showError: false})
+
+    Container1_5 As groupContainer.verticalAutoLayoutContainer:
+        Height: =App.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =10
+        LayoutMode: =LayoutMode.Auto
+        PaddingBottom: =10
+        Width: =App.Width
+        ZIndex: =2
+
+        headerQuestion_4 As headerQuestion:
+            LayoutMinHeight: =640
+            TextToShow: ="Question 4/5"
+
+        "Progress1_3 As 'Progress Bar'":
+            AlignInContainer: =AlignInContainer.Stretch
+            DisplayMode: =DisplayMode.Edit
+            Height: |
+                =100
+            LayoutMinHeight: =45
+            LayoutMinWidth: =450
+            Max: =5
+            Shape: ='PowerApps.CoreControls.Progress.Shape'.Rounded
+            Thickness: ='PowerApps.CoreControls.Progress.Thickness'.Large
+            Value: =4
+            Width: =450
+            X: =0
+            Y: =0
+            ZIndex: =2
+
+        TextCanvas1_11 As Text:
+            AlignInContainer: =AlignInContainer.Center
+            Alignment: ='PowerApps.CoreControls.TextCanvas.Alignment'.Center
+            DisplayMode: =DisplayMode.Edit
+            Height: =100
+            LayoutMinHeight: =32
+            LayoutMinWidth: =96
+            Size: ='PowerApps.CoreControls.TextCanvas.Size'.TextSize900
+            Text: ="Do you see yourself working here in one year?"
+            Weight: ='PowerApps.CoreControls.TextCanvas.Weight'.Semibold
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =3
+
+        lblError_3 As Text:
+            AlignInContainer: =AlignInContainer.Center
+            Alignment: ='PowerApps.CoreControls.TextCanvas.Alignment'.Center
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            LayoutMinHeight: =32
+            LayoutMinWidth: =96
+            Size: ='PowerApps.CoreControls.TextCanvas.Size'.TextSize500
+            Text: ="Please select atleast one option"
+            Visible: =showError
+            Weight: ='PowerApps.CoreControls.TextCanvas.Weight'.Bold
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =4
+
+        Radio1 As radio:
+            AlignInContainer: =AlignInContainer.Stretch
+            Font: =Font.'Segoe UI'
+            Height: =164
+            Items: =["Yes","No"]
+            LayoutMinHeight: =164
+            LayoutMinWidth: =300
+            RadioSize: =50
+            Size: =16
+            Width: =300
+            ZIndex: =5
+
+        ContainerEstimatedTime_7 As groupContainer.verticalAutoLayoutContainer:
+            Height: =150
+            LayoutAlignItems: =LayoutAlignItems.End
+            LayoutGap: =20
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =10
+            PaddingRight: =10
+            ZIndex: =6
+
+            btnBack_4 As Button:
+                Appearance: ='PowerApps.CoreControls.ButtonCanvas.Appearance'.Primary
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =1
+                Height: =80
+                LayoutMinHeight: =32
+                LayoutMinWidth: =96
+                OnSelect: =Back(ScreenTransition.Fade)
+                Text: ="BACK"
+                Width: |
+                    =350
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+            bntNext_4 As Button:
+                Appearance: ='PowerApps.CoreControls.ButtonCanvas.Appearance'.Primary
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =1
+                Height: =80
+                LayoutMinHeight: =32
+                LayoutMinWidth: =96
+                OnSelect: |-
+                    =If(
+                        !IsBlankOrError(Radio1.Selected),
+                        Navigate(
+                            scrQ5,
+                            ScreenTransition.Fade
+                        ),
+                        UpdateContext({showError: true})
+                    )
+                Text: ="NEXT"
+                Width: |
+                    =350
+                X: =0
+                Y: =0
+                ZIndex: =2
+

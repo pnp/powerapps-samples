@@ -1,0 +1,152 @@
+scrQ2 As screen:
+    OnVisible: |
+        =UpdateContext({showError: false});
+
+    Container1_3 As groupContainer.verticalAutoLayoutContainer:
+        Height: =App.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =10
+        LayoutMode: =LayoutMode.Auto
+        PaddingBottom: =10
+        Width: =App.Width
+        ZIndex: =2
+
+        headerQuestion_2 As headerQuestion:
+            LayoutMinHeight: =640
+            TextToShow: ="Question 2/5"
+            Width: =Parent.Width
+
+        "Progress1_1 As 'Progress Bar'":
+            AlignInContainer: =AlignInContainer.Stretch
+            DisplayMode: =DisplayMode.Edit
+            Height: |
+                =100
+            LayoutMinHeight: =45
+            LayoutMinWidth: =450
+            Max: =5
+            Shape: ='PowerApps.CoreControls.Progress.Shape'.Rounded
+            Thickness: ='PowerApps.CoreControls.Progress.Thickness'.Large
+            Value: =2
+            Width: =450
+            X: =0
+            Y: =0
+            ZIndex: =2
+
+        TextCanvas1_9 As Text:
+            AlignInContainer: =AlignInContainer.Center
+            Alignment: ='PowerApps.CoreControls.TextCanvas.Alignment'.Center
+            DisplayMode: =DisplayMode.Edit
+            Height: =100
+            LayoutMinHeight: =32
+            LayoutMinWidth: =96
+            Size: ='PowerApps.CoreControls.TextCanvas.Size'.TextSize900
+            Text: |-
+                ="What departments do
+                you work with?"
+            Weight: ='PowerApps.CoreControls.TextCanvas.Weight'.Semibold
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =3
+
+        lblError_1 As Text:
+            AlignInContainer: =AlignInContainer.Center
+            Alignment: ='PowerApps.CoreControls.TextCanvas.Alignment'.Center
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            LayoutMinHeight: =32
+            LayoutMinWidth: =96
+            Size: ='PowerApps.CoreControls.TextCanvas.Size'.TextSize500
+            Text: ="Please select atleast one option"
+            Visible: =showError
+            Weight: ='PowerApps.CoreControls.TextCanvas.Weight'.Bold
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =4
+
+        Gallery1 As gallery.galleryVertical:
+            DelayItemLoading: =true
+            Height: |
+                =32
+            Items: =Filter(Questions,q=2)
+            Layout: =Layout.Vertical
+            LayoutMinWidth: =320
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplateSize: |-
+                =45
+                //If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
+            ZIndex: =5
+
+            chkQuestions As Checkbox:
+                DisplayMode: =DisplayMode.Edit
+                Height: =32
+                Label: =ThisItem.value
+                OnChange: =
+                Width: =Parent.Width
+                X: =0
+                Y: =3
+                ZIndex: =1
+
+        ContainerEstimatedTime_5 As groupContainer.verticalAutoLayoutContainer:
+            Height: =150
+            LayoutAlignItems: =LayoutAlignItems.End
+            LayoutGap: =20
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =10
+            PaddingRight: =10
+            ZIndex: =6
+
+            btnBack_2 As Button:
+                Appearance: ='PowerApps.CoreControls.ButtonCanvas.Appearance'.Primary
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =1
+                Height: =80
+                LayoutMinHeight: =32
+                LayoutMinWidth: =96
+                OnSelect: =Back(ScreenTransition.Fade)
+                Text: ="BACK"
+                Width: |
+                    =350
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+            bntNext_2 As Button:
+                Appearance: ='PowerApps.CoreControls.ButtonCanvas.Appearance'.Primary
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =1
+                Height: =80
+                LayoutMinHeight: =32
+                LayoutMinWidth: =96
+                OnSelect: |-
+                    =//Count checked rows
+                    Clear(SelectedRows);
+                    ForAll(
+                        Gallery1.AllItems,
+                        If(
+                            ThisRecord.chkQuestions.Checked,
+                            Collect(
+                                SelectedRows,
+                                ThisRecord
+                            )
+                        )
+                    );
+                    If(
+                        CountRows(SelectedRows) = 0,
+                        UpdateContext({showError: true}),
+                        Navigate(
+                            scrQ3,
+                            ScreenTransition.Fade
+                        )
+                    )
+                Text: ="NEXT"
+                Width: |
+                    =350
+                X: =0
+                Y: =0
+                ZIndex: =2
+

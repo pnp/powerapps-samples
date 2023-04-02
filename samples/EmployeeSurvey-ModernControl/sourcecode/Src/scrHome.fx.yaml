@@ -1,0 +1,181 @@
+scrHome As screen:
+    Fill: =RGBA(241, 244, 249, 1)
+
+    Container1 As groupContainer.verticalAutoLayoutContainer:
+        Height: =App.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =150
+        LayoutMode: =LayoutMode.Auto
+        PaddingBottom: =50
+        PaddingLeft: =10
+        PaddingRight: =10
+        PaddingTop: =50
+        Width: =App.Width
+        ZIndex: =1
+
+        TextCanvas1 As Text:
+            AlignInContainer: =AlignInContainer.Stretch
+            Alignment: ='PowerApps.CoreControls.TextCanvas.Alignment'.Center
+            DisplayMode: =DisplayMode.Edit
+            Height: =50
+            LayoutMinHeight: =32
+            LayoutMinWidth: =96
+            Size: ='PowerApps.CoreControls.TextCanvas.Size'.TextSize700
+            Text: ="Example App with Modern Control"
+            Weight: ='PowerApps.CoreControls.TextCanvas.Weight'.Semibold
+            Width: =96
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+        TextCanvas1_1 As Text:
+            AlignInContainer: =AlignInContainer.Center
+            Alignment: ='PowerApps.CoreControls.TextCanvas.Alignment'.Center
+            DisplayMode: =DisplayMode.Edit
+            Height: =100
+            LayoutMinHeight: =32
+            LayoutMinWidth: =96
+            Size: ='PowerApps.CoreControls.TextCanvas.Size'.TextSize900
+            Text: ="Employee Engagement Survey - Modern Control"
+            Weight: ='PowerApps.CoreControls.TextCanvas.Weight'.Semibold
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =2
+
+        ContainerEstimatedTime As groupContainer.verticalAutoLayoutContainer:
+            Fill: =RGBA(153, 160, 196, 1)
+            FillPortions: =0
+            Height: =225
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            TextCanvas1_2 As Text:
+                AlignInContainer: =AlignInContainer.Stretch
+                Alignment: ='PowerApps.CoreControls.TextCanvas.Alignment'.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =50
+                LayoutMinHeight: =32
+                LayoutMinWidth: =96
+                Size: ='PowerApps.CoreControls.TextCanvas.Size'.TextSize700
+                Text: ="ESTIMATED TIME"
+                Weight: ='PowerApps.CoreControls.TextCanvas.Weight'.Semibold
+                Width: =96
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+            TextCanvas1_3 As Text:
+                AlignInContainer: =AlignInContainer.Stretch
+                Alignment: ='PowerApps.CoreControls.TextCanvas.Alignment'.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =50
+                LayoutMinHeight: =32
+                LayoutMinWidth: =96
+                Size: ='PowerApps.CoreControls.TextCanvas.Size'.TextSize700
+                Text: ="5 mins"
+                Weight: ='PowerApps.CoreControls.TextCanvas.Weight'.Semibold
+                Width: =96
+                X: =0
+                Y: =0
+                ZIndex: =2
+
+        ContainerEstimatedTime_1 As groupContainer.verticalAutoLayoutContainer:
+            Height: =150
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =20
+            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =4
+
+            ButtonCanvas2 As Button:
+                Appearance: ='PowerApps.CoreControls.ButtonCanvas.Appearance'.Primary
+                DisplayMode: =DisplayMode.Edit
+                Height: =80
+                LayoutMinHeight: =32
+                LayoutMinWidth: =96
+                OnSelect: |-
+                    =ClearCollect(
+                        Questions,
+                        {
+                            q: 1,
+                            value: "Individual contributor"
+                        },
+                        {
+                            q: 1,
+                            value: "Team lead"
+                        },
+                        {
+                            q: 1,
+                            value: "Manager"
+                        },
+                        {
+                            q: 1,
+                            value: "Senior manager"
+                        },
+                        {
+                            q: 1,
+                            value: "Vice president"
+                        },
+                        {
+                            q: 2,
+                            value: "Accounting"
+                        },
+                        {
+                            q: 2,
+                            value: "Administrative"
+                        },
+                        {
+                            q: 2,
+                            value: "Customer service"
+                        }
+                        ,{
+                            q: 2,
+                            value: "Marketing"
+                        },
+                        {
+                            q: 2,
+                            value: "Operations"
+                        },
+                        {
+                            q: 2,
+                            value: "Human resources"
+                        },
+                         {
+                            q: 2,
+                            value: "Sales"
+                        }
+                    );
+                    Navigate(
+                        scrLanding,
+                        ScreenTransition.Fade
+                    )
+                Text: ="Start"
+                Width: |
+                    =350
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+            LinkCanvas2 As Link:
+                AlignInContainer: =AlignInContainer.Stretch
+                DisplayMode: =DisplayMode.Edit
+                Height: =32
+                LayoutMinHeight: =32
+                LayoutMinWidth: =320
+                Text: |-
+                    ="Example created by Angelo Gulisano. Visit: https://angelogulisano.com/"
+                URL: |-
+                    ="https://angelogulisano.com/"
+                Width: =320
+                X: =0
+                Y: =0
+                ZIndex: =2
+
