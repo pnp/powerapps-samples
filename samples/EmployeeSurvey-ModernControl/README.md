@@ -8,18 +8,6 @@ If you don't kwow what modern controls are, you can start here [Canvas App - Mod
 
 ![Preview](assets/employee-survey-modern-controls.gif)
 
-## Features
-
-This sample illustrates the following concepts:
-
-* Containers: All control are inside containers.
-* Controls from **Modern Controls**:
-  - Button
-  - Checkbox
-  - Link (used to show credits in botton of app and link my blog :-) )
-  - Text
-  - Text Input
-
 ## Applies to
 
 * [Microsoft Power Apps](https://docs.microsoft.com/powerapps/)
@@ -44,39 +32,57 @@ Version|Date|Comments
 -------|----|--------
 1.0|April 02, 2023|Initial release
 
+## Features
+
+This sample illustrates the following concepts:
+
+* Containers: All control are inside containers.
+* Controls from **Modern Controls**:
+  - Button
+  - Checkbox
+  - Link (used to show credits in botton of app and link my blog :-) )
+  - Text
+  - Text Input
+
 ## Prerequisites
 
 * **Modern Control Experimental Feature**: Official reference [Modern Control](https://powerapps.microsoft.com/en-us/blog/modern-controls-coming-to-canvas-apps/)
 * **Modern Control** from my blog [Modern Control] (https://angelogulisano.com/power-apps-modern-controls/)
 
+## Solution Components
+
+The following solution components are used in this sample:
+
+* Employee Survey - Modern Control (Canvas app)
+
+## Data Sources
+
+No datasources needed.
+
 ### Using the sample
 
 No configuration is needed to use this sample.  All data is stored locally in the app.
 
-## Data Sources
-
-No datasources needed. List of PDF Files are stored in Table created on OnStart Event of the App. All PDF links are from original PDF Reader - Office Example App.
-
 ## Minimal Path to Awesome
 
-* [Download](./solution/PDF Reader - Creator Kit.msapp) the `.msapp` from the `solution` folder
-* Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just downloaded.
-* Save and Publish
+* [Download](./solution/EmployeeSurveyModernControls.zip) the solution `.zip` from the `solution` folder
+* Within **https://make.powerapps.com**, import the `.zip` file via **Solutions** > **Import solution** > **Browse** and select the `.zip` file you just downloaded.
+* Click next.
+* ...
 
 ## Using the Source Code
 
-You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/developer/data-platform/powerapps-cli) to pack the source code by following these steps::
+You can also use the [Power Apps CLI](https://aka.ms/pac/docs) to pack the source code by following these steps::
 
 * Clone the repository to a local drive
-* Pack the source files back into `.msapp` file:
-  
-```bash
-pac canvas pack --sources pathtosourcefolder --msapp pathtomsapp
-```
-
-Making sure to replace `pathtosourcefolder` to point to the path to this sample's `sourcecode` folder, and `pathtomsapp` to point to the path of this solution's `.msapp` file (located under the `solution` folder)
-
-* Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just packed.
+* Pack the source files back into `.zip` file:
+  ```bash
+  pac solution pack --folder pathtosourcefolder --zipfile pathtosolution  --processCanvasApps
+  ```
+  Making sure to replace `pathtosourcefolder` to point to the path to this sample's `sourcecode` folder, and `pathtosolution` to point to the path of this solution's `.zip` file (located under the `solution` folder)
+* Within **https://make.powerapps.com**, import the `.zip` file via **Solutions** > **Import solution** > **Browse** and select the `.zip` file you just downloaded.
+* Click next.
+* ...
 
 ## Disclaimer
 
@@ -94,4 +100,6 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 
 ## For more information
 
-* [Read my blog - https://angelogulisano.com](https://angelogulisano.com/)
+- [Read my blog - https://angelogulisano.com](https://angelogulisano.com/)
+- [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
+- [Power Apps canvas apps documentation](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/)
