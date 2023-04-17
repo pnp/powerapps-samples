@@ -1,0 +1,444 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_teams": {
+        "runtimeSource": "embedded",
+        "connection": {},
+        "api": {
+          "name": "shared_teams"
+        }
+      },
+      "shared_office365": {
+        "runtimeSource": "embedded",
+        "connection": {},
+        "api": {
+          "name": "shared_office365"
+        }
+      },
+      "shared_sharepointonline": {
+        "runtimeSource": "embedded",
+        "connection": {},
+        "api": {
+          "name": "shared_sharepointonline"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_an_item_is_created": {
+          "recurrence": {
+            "frequency": "Minute",
+            "interval": 5
+          },
+          "splitOn": "@triggerOutputs()?['body/value']",
+          "metadata": {
+            "operationMetadataId": "06dae44f-e556-4b7f-aee9-c0b36c7f1f2a"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+              "connectionName": "shared_sharepointonline",
+              "operationId": "GetOnNewItems"
+            },
+            "parameters": {
+              "dataset": "https://awaraton.sharepoint.com/sites/DEV",
+              "table": "701d879a-212b-482d-88ea-04ee55baa44c"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Create_a_team": {
+          "runAfter": {
+            "Initialize_varParticipants": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "22bb6549-e519-4654-98cf-8fa911b8466b"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams",
+              "connectionName": "shared_teams",
+              "operationId": "CreateATeam"
+            },
+            "parameters": {
+              "body/displayName": "@triggerOutputs()?['body/Title']",
+              "body/description": "@triggerOutputs()?['body/Description']",
+              "body/visibility": "@triggerOutputs()?['body/Kind']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Apply_to_each": {
+          "foreach": "@triggerOutputs()?['body/Participants']",
+          "actions": {
+            "Add_a_member_to_a_team": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "93e3148f-5628-4aa1-95eb-b1db76f9fe0b"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams",
+                  "connectionName": "shared_teams",
+                  "operationId": "AddMemberToTeam"
+                },
+                "parameters": {
+                  "teamId": "@outputs('Create_a_team')?['body/newTeamId']",
+                  "body/userId": "@items('Apply_to_each')?['Email']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "Create_a_team": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7107d657-0e51-4401-9600-e3b397c5640a"
+          },
+          "type": "Foreach"
+        },
+        "Send_an_email_(V2)": {
+          "runAfter": {
+            "Prepare_Participants_list_for_the_Email": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "6c46c1ef-9be7-4351-acc0-e23eb7ad5080"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365",
+              "connectionName": "shared_office365",
+              "operationId": "SendEmailV2"
+            },
+            "parameters": {
+              "emailMessage/To": "@triggerOutputs()?['body/Requestor/Email']",
+              "emailMessage/Subject": "The team @{triggerOutputs()?['body/Title']} was successfully created",
+              "emailMessage/Body": "<p>Hello!<br>\n<br>\nPlease be informed that the team <strong>@{triggerOutputs()?['body/Title']}</strong> has been successfully created.<br>\nYou granted the <strong>Owner</strong> permissions for the team.<br>\n<br>\nGo to your <a href=\"@{outputs('Get_a_team')?['body/webUrl']}\">team</a><br>\n<br>\nThe following members was added to the team:<br>\n@{variables('varParticipants')}</p>",
+              "emailMessage/Importance": "Normal"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Add_a_Requestor_as_a_member_to_a_team": {
+          "runAfter": {
+            "Apply_to_each": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "5763a169-ea95-421b-a5cd-3e28a78b4f01"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams",
+              "connectionName": "shared_teams",
+              "operationId": "AddMemberToTeam"
+            },
+            "parameters": {
+              "teamId": "@outputs('Create_a_team')?['body/newTeamId']",
+              "body/userId": "@triggerOutputs()?['body/Requestor/Email']",
+              "body/owner": true
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_a_team": {
+          "runAfter": {
+            "Add_a_Requestor_as_a_member_to_a_team": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "064acf54-5167-48e6-857a-0e29f133013d"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams",
+              "connectionName": "shared_teams",
+              "operationId": "GetTeam"
+            },
+            "parameters": {
+              "teamId": "@outputs('Create_a_team')?['body/newTeamId']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Prepare_Participants_list_for_the_Email": {
+          "foreach": "@triggerOutputs()?['body/Participants']",
+          "actions": {
+            "Compose": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "955e354e-b258-4498-83f2-d3d4121912d9"
+              },
+              "type": "Compose",
+              "inputs": "@concat(items('Prepare_Participants_list_for_the_Email')?['DisplayName'],'<br />',variables('varParticipants'))"
+            },
+            "Set_variable": {
+              "runAfter": {
+                "Compose": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "12bf285b-4527-4957-bfd5-31176c076ce6"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "varParticipants",
+                "value": "@{outputs('Compose')}"
+              }
+            }
+          },
+          "runAfter": {
+            "Apply_to_each_2": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0955c780-46b5-49c0-b2af-bc60fed29936"
+          },
+          "type": "Foreach"
+        },
+        "Initialize_varParticipants": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "90fc2734-f55b-4789-a458-1c2cf8596469"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "varParticipants",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Condition": {
+          "actions": {
+            "Create_a_channel": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "5666c8af-952c-4b08-a959-c2be3a3ab44f"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams",
+                  "connectionName": "shared_teams",
+                  "operationId": "CreateChannel"
+                },
+                "parameters": {
+                  "groupId": "@outputs('Create_a_team')?['body/newTeamId']",
+                  "body/displayName": "@triggerOutputs()?['body/Channel1']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "Get_a_team": [
+              "Succeeded"
+            ]
+          },
+          "expression": {
+            "not": {
+              "equals": [
+                "@triggerOutputs()?['body/Channel1']",
+                "N/A"
+              ]
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "93a7eef7-3e1d-491b-ab6c-ddbb004d34c2"
+          },
+          "type": "If"
+        },
+        "Condition_2": {
+          "actions": {
+            "Create_a_channel_2": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "b2ebeffa-9145-4b1e-b5b6-3f38c443e7b5"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams",
+                  "connectionName": "shared_teams",
+                  "operationId": "CreateChannel"
+                },
+                "parameters": {
+                  "groupId": "@outputs('Create_a_team')?['body/newTeamId']",
+                  "body/displayName": "@triggerOutputs()?['body/Channel2']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "Condition": [
+              "Succeeded"
+            ]
+          },
+          "expression": {
+            "not": {
+              "equals": [
+                "@triggerOutputs()?['body/Channel2']",
+                "N/A"
+              ]
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "c33bc658-5e2e-4421-9f27-972ffa930167"
+          },
+          "type": "If"
+        },
+        "Condition_3": {
+          "actions": {
+            "Create_a_channel_3": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "93faf2b4-33a7-4afd-a52b-6100f68ebc37"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams",
+                  "connectionName": "shared_teams",
+                  "operationId": "CreateChannel"
+                },
+                "parameters": {
+                  "groupId": "@outputs('Create_a_team')?['body/newTeamId']",
+                  "body/displayName": "@triggerOutputs()?['body/Channel3']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "Condition_2": [
+              "Succeeded"
+            ]
+          },
+          "expression": {
+            "not": {
+              "equals": [
+                "@triggerOutputs()?['body/Channel3']",
+                "N/A"
+              ]
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "902b12c0-27f0-4621-84a1-a51d1cdab29e"
+          },
+          "type": "If"
+        },
+        "List_channels": {
+          "runAfter": {
+            "Condition_3": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ad455627-40b3-461f-ad7e-77d31274c4f1"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams",
+              "connectionName": "shared_teams",
+              "operationId": "GetChannelsForGroup"
+            },
+            "parameters": {
+              "groupId": "@outputs('Create_a_team')?['body/newTeamId']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Apply_to_each_2": {
+          "foreach": "@outputs('List_channels')?['body/value']",
+          "actions": {
+            "Condition_4": {
+              "actions": {
+                "Post_message_in_a_chat_or_channel": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "781a2eca-9985-471d-b490-a28e550bfced"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams",
+                      "connectionName": "shared_teams",
+                      "operationId": "PostMessageToConversation"
+                    },
+                    "parameters": {
+                      "poster": "User",
+                      "location": "Channel",
+                      "body/recipient/groupId": "@outputs('Create_a_team')?['body/newTeamId']",
+                      "body/recipient/channelId": "@items('Apply_to_each_2')?['id']",
+                      "body/messageBody": "<p>@{triggerOutputs()?['body/WelcomeMessage']}</p>"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {},
+              "expression": {
+                "equals": [
+                  "@items('Apply_to_each_2')?['displayName']",
+                  "General"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "620c36f0-d171-4405-bff4-63dc7983da22"
+              },
+              "type": "If"
+            }
+          },
+          "runAfter": {
+            "List_channels": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "5a98270d-edf3-45a3-8593-e64406d5df63"
+          },
+          "type": "Foreach"
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

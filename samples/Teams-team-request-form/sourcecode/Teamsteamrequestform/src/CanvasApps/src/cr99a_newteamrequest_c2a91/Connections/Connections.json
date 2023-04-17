@@ -1,0 +1,44 @@
+{
+  "99fac99c-1f47-41d3-babf-7c2f7791d535": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1627/1.0.1627.3238/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://awaraton.sharepoint.com/sites/DEV": {
+        "dataSources": {
+          "TeamsRequest": {
+            "tableName": "701d879a-212b-482d-88ea-04ee55baa44c"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "TeamsRequest"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "99fac99c-1f47-41d3-babf-7c2f7791d535"
+  },
+  "f76bf883-e066-43f9-9ef0-afd5748b2c4c": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Users",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1626/1.0.1626.3238/office365users/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365users",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Users"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "f76bf883-e066-43f9-9ef0-afd5748b2c4c"
+  }
+}
