@@ -7,7 +7,7 @@ products:
 - powerapps
 - canvas
 name: Instagram Basic Display
-description: This uses the Instagram Basic Display custom connector to the Instagram Basic Display to display instagram a combination of media images and videos in a gallery.
+description: This uses the Instagram Basic Display (IndependentPublisher) to display instagram posts in a gallery.
 urlFragment: powerapps-instagrambasicdisplay
 ms.date: 18/04/2023
 author: reshmee auckloo
@@ -23,7 +23,7 @@ ms.prod: power-apps
 
 This uses the **Instagram Basic Display (IndependentPublisher)** connector to retrieve media images and videos in a gallery.
 
-![InstagramBasicDisplay](./assets/preview.png)  
+![InstagramBasicDisplay](assets/Preview.png)  
 
 ## Applies to
 
@@ -53,7 +53,7 @@ Version|Date|Comments
 
 This uses **Instagram Basic Display (IndependentPublisher)** connector to display a combination of media images and videos in a gallery from Instagram.
 
-The UI consists of a gallery with swiping effect achieved using the slider trick mentioned in [How to build a curved gallery in Power Apps](https://www.m365princess.com/blogs/build-curved-gallery-power-apps/) by [Luise Freese]. 
+The UI consists of a gallery with swiping effect achieved using the slider trick mentioned in [How to build a curved gallery in Power Apps](https://www.m365princess.com/blogs/build-curved-gallery-power-apps/) by Luise Freese. 
 
 ## Prerequisites
 
