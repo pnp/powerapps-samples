@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.23032.180" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.23034.208" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
-    <UniqueName>InstagramFeed</UniqueName>
+    <UniqueName>InstagramBasicDisplay</UniqueName>
     <LocalizedNames>
-      <LocalizedName description="Instagram Feed" languagecode="1033" />
+      <LocalizedName description="InstagramBasicDisplay" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.0.1</Version>
-    <Managed>0</Managed>
+    <Version>1.0.0.2</Version>
+    <Managed>2</Managed>
     <Publisher>
       <UniqueName>Cr3cb97</UniqueName>
       <LocalizedNames>
@@ -79,8 +79,12 @@
     </Publisher>
     <RootComponents>
       <RootComponent type="300" schemaName="cr715_instagramposts_bc759" behavior="0" />
-      <RootComponent type="372" id="{df73ff22-8f1c-4581-97d0-aa07d5d031f0}" schemaName="cr715_5Finstagrampost" behavior="0" />
     </RootComponents>
-    <MissingDependencies />
+    <MissingDependencies>
+      <MissingDependency>
+        <Required type="372" schemaName="cr715_5Finstagrampost" displayName="InstagramPost" solution="Active" id="{df73ff22-8f1c-4581-97d0-aa07d5d031f0}" />
+        <Dependent type="300" schemaName="cr715_instagramposts_bc759" displayName="InstagramPosts" />
+      </MissingDependency>
+    </MissingDependencies>
   </SolutionManifest>
 </ImportExportXml>

@@ -1,15 +1,15 @@
 ---
 page_type: sample
 languages:
-- powerapps-comma
+- powerapps
 products:
 - power-apps
 - powerapps
 - canvas
 name: Instagram Basic Display
-description: This uses a custom connector to the Instagram Basic Display to display instagram a combination of media images and videos in a gallery.
+description: This uses the Instagram Basic Display custom connector to the Instagram Basic Display to display instagram a combination of media images and videos in a gallery.
 urlFragment: powerapps-instagrambasicdisplay
-ms.date: 06/04/2023
+ms.date: 18/04/2023
 author: reshmee auckloo
 ms.author: pnp
 level: beginner
@@ -18,11 +18,12 @@ ms.prod: power-apps
 
 
 # Instagram Basic Display canvas app
+
 ## Summary
 
-This uses a custom connector to the Instagram Basic Display to display instagram a combination of media images and videos in a gallery.
+This uses the **Instagram Basic Display (IndependentPublisher)** connector to retrieve media images and videos in a gallery.
 
-![InstagramBasicDisplay](./assets/preview.gif)  
+![InstagramBasicDisplay](./assets/preview.png)  
 
 ## Applies to
 
@@ -34,6 +35,7 @@ This uses a custom connector to the Instagram Basic Display to display instagram
 ![Premium License](https://img.shields.io/badge/Premium%20License-Not%20Required-green.svg "Premium Power Apps license not required")
 ![Experimental Features](https://img.shields.io/badge/Experimental%20Features-No-green.svg "Does not rely on experimental features")
 ![On-Premises Connectors](https://img.shields.io/badge/On--Premises%20Connectors-No-green.svg "Does not use on-premise connectors")
+![Custom Connectors](https://img.shields.io/badge/Custom%20Connectors-Not%20Required-green.svg "Does not use custom connectors")
 
 ## Authors
 
@@ -45,10 +47,13 @@ Instagram Basic Display | [Reshmee Auckloo](https://github.com/reshmee011)
 
 Version|Date|Comments
 -------|----|--------
-1.0|April 06, 2023|Initial release
+1.0|April 18, 2023|Initial release
 
 ## Features
-This uses a custom connector to the Instagram Basic Display to display a combination of media images and videos in a gallery from Instagram.
+
+This uses **Instagram Basic Display (IndependentPublisher)** connector to display a combination of media images and videos in a gallery from Instagram.
+
+The UI consists of a gallery with swiping effect achieved using the slider trick mentioned in [How to build a curved gallery in Power Apps](https://www.m365princess.com/blogs/build-curved-gallery-power-apps/) by [Luise Freese]. 
 
 ## Prerequisites
 
@@ -102,34 +107,26 @@ Click on "Allow" from the pop up to authorise the app to retrieve profile and me
 
 ### Step 13
 
-Copy the user token to be used on the webpart.
+Copy the user token to be used on the connection reference.
 
 You must then enter this access token in the connector to get the instagram feeds from the authenticated user.
+
+![Access Token](assets/AccessToken.png)
 
 ## Known Limitations
 Instagram Basic API only allows access to basic data such as user profiles and photos. It does not provide access to more advanced features such as direct messaging, insights, and analytics.
 There is also a limit on the number of calls done daily.
 
-## Supported Operations
-
-### Get My Details
-Retrieves information about the authenticated user. By default it retrieves the Id and other details like username,media_count and account_type can be returned by requesting them via the fields parameter.
-
-### Get My Media
-Retrieves a list of media items posted by the authenticated user and additional fields like media_type, media_url, caption, permalink and timestamp of each item can be specified to be retrieved.
-
-### Get Media Details
-Retrieves details of a media item posted by the authenticated user and additional fields like media_type, media_url, caption, permalink and timestamp can be specified to be retrieved.
 
 ## Data Sources
 
-* ** InstagramPost connector within the solution**
+* **Instagram Basic Display (IndependentPublisher)**
 
 ## Minimal Path to Awesome
 
-* [Download](./solution/InstagramBasicDisplay.zip) the `.zip` from the `solution` folder
+* [Download](./solution/InstagramBasicDisplay_1_0_0_2.zip) the `.zip` from the `solution` folder
 * Within **Power Apps Studio**, import the solution `.zip` file using **Solutions** > **Import Solution** and select the `.zip` file you just packed.
-* Open the app in edit mode and make sure the data source **InstagramPost** is connected correctly.
+* Open the app in edit mode and make sure the data source **InstagramBasicDisplay** is connected correctly.
 
 ## Using the Source Code
 
