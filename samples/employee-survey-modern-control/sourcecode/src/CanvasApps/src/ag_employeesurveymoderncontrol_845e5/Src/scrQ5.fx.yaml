@@ -1,0 +1,124 @@
+scrQ5 As screen:
+    OnVisible: |-
+        = UpdateContext({showError: false})
+
+    Container1_6 As groupContainer.verticalAutoLayoutContainer:
+        Height: =App.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =10
+        LayoutMode: =LayoutMode.Auto
+        PaddingBottom: =10
+        Width: =App.Width
+        ZIndex: =2
+
+        headerQuestion_5 As headerQuestion:
+            LayoutMinHeight: =640
+            TextToShow: ="Question 5/5"
+            Width: =Parent.Width
+
+        "Progress1_4 As 'Progress Bar'":
+            AlignInContainer: =AlignInContainer.Stretch
+            DisplayMode: =DisplayMode.Edit
+            Height: |
+                =100
+            LayoutMinHeight: =45
+            LayoutMinWidth: =450
+            Max: =5
+            Shape: ='PowerApps.CoreControls.Progress.Shape'.Rounded
+            Thickness: ='PowerApps.CoreControls.Progress.Thickness'.Large
+            Value: =5
+            Width: =450
+            X: =0
+            Y: =0
+            ZIndex: =2
+
+        TextCanvas1_12 As Text:
+            AlignInContainer: =AlignInContainer.Center
+            Alignment: ='PowerApps.CoreControls.TextCanvas.Alignment'.Center
+            DisplayMode: =DisplayMode.Edit
+            Height: =100
+            LayoutMinHeight: =32
+            LayoutMinWidth: =96
+            Size: =14
+            Text: ="Other comments?"
+            Weight: ='PowerApps.CoreControls.TextCanvas.Weight'.Semibold
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =3
+
+        lblError_4 As Text:
+            AlignInContainer: =AlignInContainer.Center
+            Alignment: ='PowerApps.CoreControls.TextCanvas.Alignment'.Center
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            LayoutMinHeight: =32
+            LayoutMinWidth: =96
+            Size: =14
+            Text: ="Please select atleast one option"
+            Visible: =showError
+            Weight: ='PowerApps.CoreControls.TextCanvas.Weight'.Bold
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =4
+
+        "TextInputCanvas2 As 'Text input'":
+            AlignInContainer: =AlignInContainer.Stretch
+            DisplayMode: =DisplayMode.Edit
+            FillPortions: =1
+            Height: =300
+            LayoutMinHeight: =32
+            LayoutMinWidth: =320
+            Mode: ='PowerApps.CoreControls.TextInputCanvas.Mode'.Multiline
+            Width: =320
+            X: =0
+            Y: =0
+            ZIndex: =5
+
+        ContainerEstimatedTime_8 As groupContainer.verticalAutoLayoutContainer:
+            Height: =150
+            LayoutAlignItems: =LayoutAlignItems.End
+            LayoutGap: =20
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =10
+            PaddingRight: =10
+            ZIndex: =6
+
+            btnBack_5 As Button:
+                Appearance: ='PowerApps.CoreControls.ButtonCanvas.Appearance'.Primary
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =1
+                Height: =80
+                LayoutMinHeight: =32
+                LayoutMinWidth: =96
+                OnSelect: =Back(ScreenTransition.Fade)
+                Text: ="BACK"
+                Width: |
+                    =350
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+            bntNext_5 As Button:
+                Appearance: ='PowerApps.CoreControls.ButtonCanvas.Appearance'.Primary
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =1
+                Height: =80
+                LayoutMinHeight: =32
+                LayoutMinWidth: =96
+                OnSelect: |-
+                    =Navigate(
+                            scrFinish,
+                            ScreenTransition.Fade
+                        )
+                Text: ="NEXT"
+                Width: |
+                    =350
+                X: =0
+                Y: =0
+                ZIndex: =2
+
