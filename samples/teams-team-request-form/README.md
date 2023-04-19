@@ -105,7 +105,7 @@ On the new page click `Create` and pick an account you want to use for this new 
 Go back to Teams and click `Refresh` to see your new connection in the configuration tab.
 ![Step6](assets/Step6.png)
 Repeat this steps to set up all connections.
-*Please note that for creating SharePoint connection you have to choose `Connect directly (cloud-service) if you are using SharePoint in cloud*
+Please note that for creating SharePoint connection you have to choose `Connect directly (cloud-service) if you are using SharePoint in cloud
 ![Step7](assets/Step7.png)
 Once all connections will be configured click `Next` button
 ![Step8](assets/Step8.png)
