@@ -311,8 +311,8 @@
                     HoverTextColor: =RGBA(230, 230, 230, 1)
                     OnSelect: |-
                         =Patch(
-                            TeamsRequest,
-                            Defaults(TeamsRequest),
+                            SharePointList,
+                            Defaults(SharePointList),
                             {
                                 Title:
                                     First(

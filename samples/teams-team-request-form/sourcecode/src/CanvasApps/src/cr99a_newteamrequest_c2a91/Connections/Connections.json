@@ -1,28 +1,31 @@
 {
-  "99fac99c-1f47-41d3-babf-7c2f7791d535": {
+  "2f30ff03-96d7-4d40-aaa1-be62a8f252c4": {
     "connectionRef": {
-      "apiTier": "Standard",
       "displayName": "SharePoint",
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1627/1.0.1627.3238/sharepointonline/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
-      "parameterHints": {},
-      "parameterHintsV2": {}
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
     },
     "datasets": {
-      "https://awaraton.sharepoint.com/sites/DEV": {
+      "https://microsoftcda.sharepoint.com/sites/UATforfinancedep2_cr3f4_SharePointSite": {
+        "datasetOverride": {
+          "environmentVariableName": "cr3f4_SharePointSite"
+        },
         "dataSources": {
-          "TeamsRequest": {
-            "tableName": "701d879a-212b-482d-88ea-04ee55baa44c"
+          "SharePointList": {
+            "tableName": "68d11425-6da0-4311-9d2b-68e8ea4f936f",
+            "tableNameOverride": {
+              "environmentVariableName": "cr3f4_SharePointList"
+            }
           }
         }
       }
     },
     "dataSources": [
-      "TeamsRequest"
+      "SharePointList"
     ],
     "dependencies": {},
     "dependents": [],
-    "id": "99fac99c-1f47-41d3-babf-7c2f7791d535"
+    "id": "2f30ff03-96d7-4d40-aaa1-be62a8f252c4"
   },
   "f76bf883-e066-43f9-9ef0-afd5748b2c4c": {
     "connectionRef": {

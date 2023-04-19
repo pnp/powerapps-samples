@@ -55,6 +55,13 @@ The following solution components are used in this sample:
 
 * New Team Request (Canvas app)
 * Create a new Team per request (Cloud flow)
+* SharePointSite (Environment Variable)
+* SharePointList (Environment Variable)
+* Microsoft Teams Connection (Connection Reference)
+* Office 365 Connection (Connection Reference)
+* SharePoint Connection (Connection Reference)
+![Solution Overview](assets/SolutionOverview.png)
+
 
 ### MySample List
 
@@ -90,26 +97,32 @@ Set the list up as follows:
 ![Step2](assets/Step2.png)
 * On the next screen click `Import`
 ![Step3](assets/Step3.png)
-* Once the import will be completed go to `Cloud flows` tab, click on three dots near to the `Create a new Team per request` flow and select `Edit`
+* Configure connections for the solution's flow. If you don't have connections for Teams, SharePoint and/or Outlook in this environment, you need to create them.
+Click on `Select a connection` near to `Microsoft Teams Connection` and click `New connection` in the drop down list.
 ![Step4](assets/Step4.png)
-*Please note that after import you can see a warning message about missing connections. We will resolve this in the next steps.*
-![Step4_error](assets/Step4_error.png)
-* Expand the first step (SharePoint trigger) and click `New connection reference`. Provide your credentials for the connection if needed
+On the new page click `Create` and pick an account you want to use for this new connection.
 ![Step5](assets/Step5.png)
-* Once the connection will be created change the Site Address and the List Name
+Go back to Teams and click `Refresh` to see your new connection in the configuration tab.
 ![Step6](assets/Step6.png)
-* Repeat configuration connection step for the all actions in the flow which are marked with the yellow triangle
-* On the last step `Send an email (V2)` switch to the `Code view` and check that the link has the same code as shown on the image below. Edit if needed. Once everything is ok - click `Save`
+Repeat this steps to set up all connections.
+*Please note that for creating SharePoint connection you have to choose `Connect directly (cloud-service) if you are using SharePoint in cloud*
 ![Step7](assets/Step7.png)
-* Click on three dots near to the `New Team Request` Canvas App and select `Edit`
+Once all connections will be configured click `Next` button
 ![Step8](assets/Step8.png)
-* On the next screen click `Allow`
+* On the next screen configure Environment Variables values.
+Click `Select SharePoint site` and choose the name of the SharePoint site where you created the list `TeamsRequest`
 ![Step9](assets/Step9.png)
-* Replace the SharePoint datasource: remove existing and add yours, select your SharePint site and list
+After click `Select SharePoint list` and choose `TeamsRequest`.
+Once both values will be configured click `Import`
 ![Step10](assets/Step10.png)
-* Save, publish and pin the app in your team
-* Go back to your solution, select the cloud flow `Create a new Team per request` and click on `Turn on`
+* Once the import will be completed successfully go to `Cloud flows` tab, click on three dots near to the `Create a new Team per request` flow and select `Edit`
 ![Step11](assets/Step11.png)
+* On the last step `Send an email (V2)` switch to the `Code view` and check that the link has the same code as shown on the image below. Edit if needed. Once everything is ok - click `Save`
+![Step12](assets/Step12.png)
+* If you want to pin the app in any Teams channel of the team where the solution were installed, go back to the solution's component list, click on three dots near to the `New Team Request` Canvas App and select `Edit`. On the pop up window click `Allow` to allow connections.
+![Step13](assets/Step13.png)
+* Pin the app in the selected channel of your team
+![Step14](assets/Step14.png)
 
 Once all steps will be completed users will be able to use this app to submit requests for team creation in Microsoft Teams, even if they don't have permissions to create a team manually in Microsoft Teams.
 

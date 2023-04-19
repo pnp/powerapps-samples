@@ -1,23 +1,29 @@
 {
   "properties": {
     "connectionReferences": {
-      "shared_teams": {
+      "shared_teams_1": {
         "runtimeSource": "embedded",
-        "connection": {},
+        "connection": {
+          "connectionReferenceLogicalName": "cr1fa_sharedteams_94ff0"
+        },
         "api": {
           "name": "shared_teams"
         }
       },
-      "shared_office365": {
+      "shared_office365_1": {
         "runtimeSource": "embedded",
-        "connection": {},
+        "connection": {
+          "connectionReferenceLogicalName": "cr1fa_sharedoffice365_5b194"
+        },
         "api": {
           "name": "shared_office365"
         }
       },
-      "shared_sharepointonline": {
+      "shared_sharepointonline_1": {
         "runtimeSource": "embedded",
-        "connection": {},
+        "connection": {
+          "connectionReferenceLogicalName": "cr1fa_sharedsharepointonline_452d5"
+        },
         "api": {
           "name": "shared_sharepointonline"
         }
@@ -34,13 +40,27 @@
         "$authentication": {
           "defaultValue": {},
           "type": "SecureObject"
+        },
+        "SharePointSite (cr3f4_SharePointSite)": {
+          "defaultValue": "https://microsoftcda.sharepoint.com/sites/UATforfinancedep2",
+          "type": "String",
+          "metadata": {
+            "schemaName": "cr3f4_SharePointSite"
+          }
+        },
+        "SharePointList (cr3f4_SharePointList)": {
+          "defaultValue": "68d11425-6da0-4311-9d2b-68e8ea4f936f",
+          "type": "String",
+          "metadata": {
+            "schemaName": "cr3f4_SharePointList"
+          }
         }
       },
       "triggers": {
         "When_an_item_is_created": {
           "recurrence": {
-            "frequency": "Minute",
-            "interval": 5
+            "interval": 1,
+            "frequency": "Minute"
           },
           "splitOn": "@triggerOutputs()?['body/value']",
           "metadata": {
@@ -49,13 +69,13 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
-              "connectionName": "shared_sharepointonline",
-              "operationId": "GetOnNewItems"
+              "connectionName": "shared_sharepointonline_1",
+              "operationId": "GetOnNewItems",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
             },
             "parameters": {
-              "dataset": "https://awaraton.sharepoint.com/sites/DEV",
-              "table": "701d879a-212b-482d-88ea-04ee55baa44c"
+              "dataset": "@parameters('SharePointSite (cr3f4_SharePointSite)')",
+              "table": "@parameters('SharePointList (cr3f4_SharePointList)')"
             },
             "authentication": "@parameters('$authentication')"
           }
@@ -74,9 +94,9 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams",
-              "connectionName": "shared_teams",
-              "operationId": "CreateATeam"
+              "connectionName": "shared_teams_1",
+              "operationId": "CreateATeam",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams"
             },
             "parameters": {
               "body/displayName": "@triggerOutputs()?['body/Title']",
@@ -97,9 +117,9 @@
               "type": "OpenApiConnection",
               "inputs": {
                 "host": {
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams",
-                  "connectionName": "shared_teams",
-                  "operationId": "AddMemberToTeam"
+                  "connectionName": "shared_teams_1",
+                  "operationId": "AddMemberToTeam",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams"
                 },
                 "parameters": {
                   "teamId": "@outputs('Create_a_team')?['body/newTeamId']",
@@ -131,14 +151,14 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365",
-              "connectionName": "shared_office365",
-              "operationId": "SendEmailV2"
+              "connectionName": "shared_office365_1",
+              "operationId": "SendEmailV2",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
             },
             "parameters": {
               "emailMessage/To": "@triggerOutputs()?['body/Requestor/Email']",
               "emailMessage/Subject": "The team @{triggerOutputs()?['body/Title']} was successfully created",
-              "emailMessage/Body": "<p>Hello!<br>\n<br>\nPlease be informed that the team <strong>@{triggerOutputs()?['body/Title']}</strong> has been successfully created.<br>\nYou granted the <strong>Owner</strong> permissions for the team.<br>\n<br>\nGo to your <a href=\"@{outputs('Get_a_team')?['body/webUrl']}\">team</a><br>\n<br>\nThe following members was added to the team:<br>\n@{variables('varParticipants')}</p>",
+              "emailMessage/Body": "<p>Hello!<br>\n<br>\nPlease be informed that the team <strong></strong><strong>@{triggerOutputs()?['body/Title']}</strong><strong></strong> has been successfully created.<br>\nYou granted the <strong>Owner</strong> permissions for the team.<br>\n<br>\nGo to your <a href=\"@{outputs('Get_a_team')?['body/webUrl']}\">team</a><br>\n<br>\nThe following members was added to the team:<br>\n@{variables('varParticipants')}</p>",
               "emailMessage/Importance": "Normal"
             },
             "authentication": "@parameters('$authentication')"
@@ -156,9 +176,9 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams",
-              "connectionName": "shared_teams",
-              "operationId": "AddMemberToTeam"
+              "connectionName": "shared_teams_1",
+              "operationId": "AddMemberToTeam",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams"
             },
             "parameters": {
               "teamId": "@outputs('Create_a_team')?['body/newTeamId']",
@@ -180,9 +200,9 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams",
-              "connectionName": "shared_teams",
-              "operationId": "GetTeam"
+              "connectionName": "shared_teams_1",
+              "operationId": "GetTeam",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams"
             },
             "parameters": {
               "teamId": "@outputs('Create_a_team')?['body/newTeamId']"
@@ -252,9 +272,9 @@
               "type": "OpenApiConnection",
               "inputs": {
                 "host": {
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams",
-                  "connectionName": "shared_teams",
-                  "operationId": "CreateChannel"
+                  "connectionName": "shared_teams_1",
+                  "operationId": "CreateChannel",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams"
                 },
                 "parameters": {
                   "groupId": "@outputs('Create_a_team')?['body/newTeamId']",
@@ -292,9 +312,9 @@
               "type": "OpenApiConnection",
               "inputs": {
                 "host": {
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams",
-                  "connectionName": "shared_teams",
-                  "operationId": "CreateChannel"
+                  "connectionName": "shared_teams_1",
+                  "operationId": "CreateChannel",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams"
                 },
                 "parameters": {
                   "groupId": "@outputs('Create_a_team')?['body/newTeamId']",
@@ -332,9 +352,9 @@
               "type": "OpenApiConnection",
               "inputs": {
                 "host": {
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams",
-                  "connectionName": "shared_teams",
-                  "operationId": "CreateChannel"
+                  "connectionName": "shared_teams_1",
+                  "operationId": "CreateChannel",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams"
                 },
                 "parameters": {
                   "groupId": "@outputs('Create_a_team')?['body/newTeamId']",
@@ -374,9 +394,9 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams",
-              "connectionName": "shared_teams",
-              "operationId": "GetChannelsForGroup"
+              "connectionName": "shared_teams_1",
+              "operationId": "GetChannelsForGroup",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams"
             },
             "parameters": {
               "groupId": "@outputs('Create_a_team')?['body/newTeamId']"
@@ -397,9 +417,9 @@
                   "type": "OpenApiConnection",
                   "inputs": {
                     "host": {
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams",
-                      "connectionName": "shared_teams",
-                      "operationId": "PostMessageToConversation"
+                      "connectionName": "shared_teams_1",
+                      "operationId": "PostMessageToConversation",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams"
                     },
                     "parameters": {
                       "poster": "User",
@@ -438,7 +458,7 @@
       },
       "outputs": {}
     },
-    "templateName": null
+    "templateName": ""
   },
   "schemaVersion": "1.0.0.0"
 }
