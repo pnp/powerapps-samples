@@ -6,18 +6,18 @@
       <LocalizedName description="InstagramBasicDisplay" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.0.2</Version>
+    <Version>1.0.0.0</Version>
     <Managed>2</Managed>
     <Publisher>
-      <UniqueName>Cr3cb97</UniqueName>
+      <UniqueName>Cr1b06f</UniqueName>
       <LocalizedNames>
         <LocalizedName description="CDS Default Publisher" languagecode="1033" />
       </LocalizedNames>
       <Descriptions />
       <EMailAddress xsi:nil="true"></EMailAddress>
       <SupportingWebsiteUrl xsi:nil="true"></SupportingWebsiteUrl>
-      <CustomizationPrefix>cr715</CustomizationPrefix>
-      <CustomizationOptionValuePrefix>69596</CustomizationOptionValuePrefix>
+      <CustomizationPrefix>cr214</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>91705</CustomizationOptionValuePrefix>
       <Addresses>
         <Address>
           <AddressNumber>1</AddressNumber>
@@ -78,13 +78,8 @@
       </Addresses>
     </Publisher>
     <RootComponents>
-      <RootComponent type="300" schemaName="cr715_instagramposts_bc759" behavior="0" />
+      <RootComponent type="300" schemaName="cr214_instagram_e6f09" behavior="0" />
     </RootComponents>
-    <MissingDependencies>
-      <MissingDependency>
-        <Required type="372" schemaName="cr715_5Finstagrampost" displayName="InstagramPost" solution="Active" id="{df73ff22-8f1c-4581-97d0-aa07d5d031f0}" />
-        <Dependent type="300" schemaName="cr715_instagramposts_bc759" displayName="InstagramPosts" />
-      </MissingDependency>
-    </MissingDependencies>
+    <MissingDependencies />
   </SolutionManifest>
 </ImportExportXml>
