@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2022/09/ProvisioningSchema">
+  <pnp:Preferences Generator="PnP.Framework, Version=1.11.2.0, Culture=neutral, PublicKeyToken=0d501f89f11b748c" />
+  <pnp:Templates ID="CONTAINER-TEMPLATE-CDE7BF931C524DCFB84D7B68C62636E5">
+    <pnp:ProvisioningTemplate ID="TEMPLATE-CDE7BF931C524DCFB84D7B68C62636E5" Version="1" BaseSiteTemplate="SITEPAGEPUBLISHING#0" Scope="RootSite">
+      <pnp:Lists>
+        <pnp:ListInstance Title="Incident Categories" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/IncidentCategories" EnableVersioning="true" MinorVersionLimit="0" MaxVersionLimit="50" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/IncidentCategories/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/IncidentCategories/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/IncidentCategories/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{ED132411-9B6A-4079-A5E7-F5A8C82E853E}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/IncidentCategories/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query />
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="Description" />
+                <FieldRef Name="Image" />
+                <FieldRef Name="ResolutionAuthority" />
+                <FieldRef Name="GroupID" />
+                <FieldRef Name="ChannelID" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+              <CustomFormatter />
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field AppendOnly="FALSE" DisplayName="Description" Format="Dropdown" IsModern="TRUE" IsolateStyles="FALSE" Name="Description" RichText="FALSE" RichTextMode="Compatible" Title="Description" Type="Note" ID="{21c4126d-4a1c-438e-bfbf-bc3823dd1d60}" SourceID="{{listid:Incident Categories}}" StaticName="Description" ColName="ntext2" RowOrdinal="0" />
+            <Field DisplayName="Image" Format="Thumbnail" IsModern="TRUE" Name="Image" Title="Image" Type="Thumbnail" ID="{23832a93-2f91-4251-b081-6430b53f9f17}" SourceID="{{listid:Incident Categories}}" StaticName="Image" ColName="ntext3" RowOrdinal="0" />
+            <Field ClientSideComponentId="00000000-0000-0000-0000-000000000000" DisplayName="Resolution Authority" Format="Dropdown" List="UserInfo" Name="ResolutionAuthority" Title="Resolution Authority" Type="User" UserDisplayOptions="NamePhoto" UserSelectionMode="0" UserSelectionScope="0" ID="{1e13a551-c8ae-41d5-9cdd-03016a75bf7f}" Version="2" StaticName="ResolutionAuthority" SourceID="{{listid:Incident Categories}}" ColName="int1" RowOrdinal="0" />
+            <Field ClientSideComponentId="00000000-0000-0000-0000-000000000000" DisplayName="Group ID" Format="Dropdown" MaxLength="255" Name="GroupID" Title="Group ID" Type="Text" ID="{aae5cc1d-1783-4386-8503-6bb0fe2e0db2}" Version="2" StaticName="GroupID" SourceID="{{listid:Incident Categories}}" ColName="nvarchar4" RowOrdinal="0" />
+            <Field ClientSideComponentId="00000000-0000-0000-0000-000000000000" DisplayName="Channel ID" Format="Dropdown" MaxLength="255" Name="ChannelID" Title="Channel ID" Type="Text" ID="{4369b91f-d35c-451f-b12c-65c519fd343a}" Version="2" StaticName="ChannelID" SourceID="{{listid:Incident Categories}}" ColName="nvarchar5" RowOrdinal="0" />
+          </pnp:Fields>
+          <pnp:FieldRefs>
+            <pnp:FieldRef ID="fa564e0f-0c70-4ab9-b863-0177e6ddd247" Name="Title" Required="true" DisplayName="Title" />
+          </pnp:FieldRefs>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Incidents" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Incidents" EnableVersioning="true" MinorVersionLimit="0" MaxVersionLimit="50" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Incidents/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Incidents/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Incidents/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{8EA796CF-22E5-4A38-B8CD-2142E03C9F6C}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Incidents/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query />
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="Category" />
+                <FieldRef Name="Description" />
+                <FieldRef Name="Date" />
+                <FieldRef Name="Status" />
+                <FieldRef Name="AssignedTo" />
+                <FieldRef Name="EmployeeInvolved" />
+                <FieldRef Name="Severity" />
+                <FieldRef Name="Category_x003a_Group_x0020_ID" />
+                <FieldRef Name="Category_x003a_Channel_x0020_ID" />
+                <FieldRef Name="Image" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+              <CustomFormatter />
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field DisplayName="Category" Format="Dropdown" Indexed="FALSE" IsModern="TRUE" List="{listid:Incident Categories}" Name="Category" ShowField="Title" Title="Category" Type="Lookup" ID="{d80b41f2-3b0a-414a-8f6e-cd1a268300b9}" SourceID="{{listid:Incidents}}" StaticName="Category" ColName="int1" RowOrdinal="0" Required="TRUE" EnforceUniqueValues="FALSE" Group="" UnlimitedLengthInDocumentLibrary="FALSE" RelationshipDeleteBehavior="None" Version="2" />
+            <Field AppendOnly="FALSE" DisplayName="Description" Format="Dropdown" IsModern="TRUE" IsolateStyles="FALSE" Name="Description" RichText="FALSE" RichTextMode="Compatible" Title="Description" Type="Note" ID="{c151f3ae-e3f9-425b-808f-ef8cbc1b8d01}" SourceID="{{listid:Incidents}}" StaticName="Description" ColName="ntext2" RowOrdinal="0" CustomFormatter="" Required="TRUE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="6" RestrictedMode="TRUE" Version="1" />
+            <Field DisplayName="Date" FriendlyDisplayFormat="Disabled" Format="DateTime" IsModern="TRUE" Name="Date" Title="Date" Type="DateTime" ID="{274765b8-6317-4320-ae77-26e5359d2375}" SourceID="{{listid:Incidents}}" StaticName="Date" ColName="datetime1" RowOrdinal="0">
+              <Default>[today]</Default>
+            </Field>
+            <Field CustomFormatter="{&quot;elmType&quot;:&quot;div&quot;,&quot;style&quot;:{&quot;flex-wrap&quot;:&quot;wrap&quot;,&quot;display&quot;:&quot;flex&quot;},&quot;children&quot;:[{&quot;elmType&quot;:&quot;div&quot;,&quot;style&quot;:{&quot;box-sizing&quot;:&quot;border-box&quot;,&quot;padding&quot;:&quot;4px 8px 5px 8px&quot;,&quot;overflow&quot;:&quot;hidden&quot;,&quot;text-overflow&quot;:&quot;ellipsis&quot;,&quot;display&quot;:&quot;flex&quot;,&quot;border-radius&quot;:&quot;16px&quot;,&quot;height&quot;:&quot;24px&quot;,&quot;align-items&quot;:&quot;center&quot;,&quot;white-space&quot;:&quot;nowrap&quot;,&quot;margin&quot;:&quot;4px 4px 4px 4px&quot;},&quot;attributes&quot;:{&quot;class&quot;:{&quot;operator&quot;:&quot;:&quot;,&quot;operands&quot;:[{&quot;operator&quot;:&quot;==&quot;,&quot;operands&quot;:[&quot;@currentField&quot;,&quot;Assigned&quot;]},&quot;sp-css-backgroundColor-BgCornflowerBlue sp-field-fontSizeSmall sp-css-color-CornflowerBlueFont&quot;,{&quot;operator&quot;:&quot;:&quot;,&quot;operands&quot;:[{&quot;operator&quot;:&quot;==&quot;,&quot;operands&quot;:[&quot;@currentField&quot;,&quot;Resolved&quot;]},&quot;sp-css-backgroundColor-BgMintGreen sp-field-fontSizeSmall sp-css-color-MintGreenFont&quot;,{&quot;operator&quot;:&quot;:&quot;,&quot;operands&quot;:[{&quot;operator&quot;:&quot;==&quot;,&quot;operands&quot;:[&quot;@currentField&quot;,&quot;Pending&quot;]},&quot;sp-css-backgroundColor-BgGold sp-field-fontSizeSmall sp-css-color-GoldFont&quot;,{&quot;operator&quot;:&quot;:&quot;,&quot;operands&quot;:[{&quot;operator&quot;:&quot;==&quot;,&quot;operands&quot;:[&quot;@currentField&quot;,&quot;&quot;]},&quot;&quot;,{&quot;operator&quot;:&quot;:&quot;,&quot;operands&quot;:[{&quot;operator&quot;:&quot;==&quot;,&quot;operands&quot;:[&quot;@currentField&quot;,&quot;Cancelled&quot;]},&quot;sp-css-backgroundColor-BgCoral sp-field-fontSizeSmall sp-css-color-CoralFont&quot;,&quot;sp-field-borderAllRegular sp-field-borderAllSolid sp-css-borderColor-neutralSecondary&quot;]}]}]}]}]}},&quot;txtContent&quot;:&quot;@currentField&quot;}],&quot;templateId&quot;:&quot;BgColorChoicePill&quot;}" DisplayName="Status" FillInChoice="FALSE" Format="Dropdown" IsModern="TRUE" Name="Status" Title="Status" Type="Choice" ID="{d0130227-1b71-4b48-8ecc-4e99e7bf3403}" SourceID="{{listid:Incidents}}" StaticName="Status" ColName="nvarchar4" RowOrdinal="0">
+              <CHOICES>
+                <CHOICE>Assigned</CHOICE>
+                <CHOICE>Resolved</CHOICE>
+                <CHOICE>Pending</CHOICE>
+                <CHOICE>Cancelled</CHOICE>
+              </CHOICES>
+              <Default>Pending</Default>
+            </Field>
+            <Field ClientSideComponentId="00000000-0000-0000-0000-000000000000" DisplayName="Assigned To" Format="Dropdown" List="UserInfo" Name="AssignedTo" Title="Assigned To" Type="User" UserDisplayOptions="NamePhoto" UserSelectionMode="0" UserSelectionScope="0" ID="{8e708472-c56d-49a5-89f7-dbe196375451}" Version="2" StaticName="AssignedTo" SourceID="{{listid:Incidents}}" ColName="int2" RowOrdinal="0" />
+            <Field ClientSideComponentId="00000000-0000-0000-0000-000000000000" DisplayName="Employee Involved" Format="Dropdown" List="UserInfo" Mult="TRUE" Name="EmployeeInvolved" Title="Employee Involved" Type="UserMulti" UserDisplayOptions="NamePhoto" UserSelectionMode="0" UserSelectionScope="0" ID="{e08db5e2-8688-4a10-bc23-8653f69a4c2a}" Version="2" StaticName="EmployeeInvolved" SourceID="{{listid:Incidents}}" ColName="int3" RowOrdinal="0" />
+            <Field CustomFormatter="{&quot;elmType&quot;:&quot;div&quot;,&quot;style&quot;:{&quot;flex-wrap&quot;:&quot;wrap&quot;,&quot;display&quot;:&quot;flex&quot;},&quot;children&quot;:[{&quot;elmType&quot;:&quot;div&quot;,&quot;style&quot;:{&quot;box-sizing&quot;:&quot;border-box&quot;,&quot;padding&quot;:&quot;4px 8px 5px 8px&quot;,&quot;overflow&quot;:&quot;hidden&quot;,&quot;text-overflow&quot;:&quot;ellipsis&quot;,&quot;display&quot;:&quot;flex&quot;,&quot;border-radius&quot;:&quot;16px&quot;,&quot;height&quot;:&quot;24px&quot;,&quot;align-items&quot;:&quot;center&quot;,&quot;white-space&quot;:&quot;nowrap&quot;,&quot;margin&quot;:&quot;4px 4px 4px 4px&quot;},&quot;attributes&quot;:{&quot;class&quot;:{&quot;operator&quot;:&quot;:&quot;,&quot;operands&quot;:[{&quot;operator&quot;:&quot;==&quot;,&quot;operands&quot;:[&quot;@currentField&quot;,&quot;Low&quot;]},&quot;sp-css-backgroundColor-BgMintGreen sp-field-fontSizeSmall sp-css-color-MintGreenFont&quot;,{&quot;operator&quot;:&quot;:&quot;,&quot;operands&quot;:[{&quot;operator&quot;:&quot;==&quot;,&quot;operands&quot;:[&quot;@currentField&quot;,&quot;Medium&quot;]},&quot;sp-css-backgroundColor-BgGold sp-field-fontSizeSmall sp-css-color-GoldFont&quot;,{&quot;operator&quot;:&quot;:&quot;,&quot;operands&quot;:[{&quot;operator&quot;:&quot;==&quot;,&quot;operands&quot;:[&quot;@currentField&quot;,&quot;High&quot;]},&quot;sp-css-backgroundColor-BgRed sp-css-borderColor-WhiteFont sp-field-fontSizeSmall sp-css-color-WhiteFont&quot;,{&quot;operator&quot;:&quot;:&quot;,&quot;operands&quot;:[{&quot;operator&quot;:&quot;==&quot;,&quot;operands&quot;:[&quot;@currentField&quot;,&quot;&quot;]},&quot;&quot;,&quot;sp-field-borderAllRegular sp-field-borderAllSolid sp-css-borderColor-neutralSecondary&quot;]}]}]}]}},&quot;txtContent&quot;:&quot;@currentField&quot;}],&quot;rulesOrder&quot;:[1,2,0,3,4],&quot;templateId&quot;:&quot;BgColorChoicePill&quot;}" DisplayName="Severity" FillInChoice="FALSE" Format="Dropdown" IsModern="TRUE" Name="Severity" Title="Severity" Type="Choice" ID="{345c1799-94fb-446e-b65e-705b7249d9fd}" SourceID="{{listid:Incidents}}" StaticName="Severity" ColName="nvarchar5" RowOrdinal="0">
+              <CHOICES>
+                <CHOICE>Low</CHOICE>
+                <CHOICE>Medium</CHOICE>
+                <CHOICE>High</CHOICE>
+              </CHOICES>
+              <Default>Low</Default>
+            </Field>
+            <Field Type="Lookup" DisplayName="Category:Group ID" List="{listid:Incident Categories}" WebId="{siteid}" ShowField="GroupID" FieldRef="d80b41f2-3b0a-414a-8f6e-cd1a268300b9" ReadOnly="TRUE" UnlimitedLengthInDocumentLibrary="FALSE" ID="{4700b0db-89d0-4442-8c01-e038d5a04ad8}" SourceID="{{listid:Incidents}}" StaticName="Category_x003a_Group_x0020_ID" Name="Category_x003a_Group_x0020_ID" Version="2" Group="Custom Columns" />
+            <Field Type="Lookup" DisplayName="Category:Channel ID" List="{listid:Incident Categories}" WebId="{siteid}" ShowField="ChannelID" FieldRef="d80b41f2-3b0a-414a-8f6e-cd1a268300b9" ReadOnly="TRUE" UnlimitedLengthInDocumentLibrary="FALSE" ID="{161a0f82-e971-40bf-8345-498d2bae29ca}" SourceID="{{listid:Incidents}}" StaticName="Category_x003a_Channel_x0020_ID" Name="Category_x003a_Channel_x0020_ID" Version="2" Group="Custom Columns" />
+            <Field DisplayName="Image" Format="Thumbnail" IsModern="TRUE" Name="Image" Title="Image" Type="Thumbnail" ID="{3e729a6d-3563-4033-8c61-0ee2854e9afe}" SourceID="{{listid:Incidents}}" StaticName="Image" ColName="ntext3" RowOrdinal="0" />
+          </pnp:Fields>
+          <pnp:FieldRefs>
+            <pnp:FieldRef ID="fa564e0f-0c70-4ab9-b863-0177e6ddd247" Name="Title" Required="true" DisplayName="Title" />
+          </pnp:FieldRefs>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://westeurope1-0.pushnp.svc.ms/notifications?token=66ce1854-a8f2-4d57-9495-853c2d04977a" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://flow-apim-europe-002-westeurope-01.azure-apim.net/apim/sharepointonline/ontableupdatedhook?r=https%253a%252f%252fprod-235.westeurope.logic.azure.com%252fworkflows%252feffe940074de406ba6a5a550db8e8d5f%252ftriggers%252fWhen_an_item_is_created%252fpaths%252finvoke%253fapi-version%253d2016-06-01%2526sp%253d%25252Ftriggers%25252FWhen_an_item_is_created%25252Frun%25252C%25252Ftriggers%25252FWhen_an_item_is_created%25252Fread%2526sv%253d1.0%2526sig%253dVp4l0VSjeqy2LRQ25psm0S8tkwGlhLUhA-auLgvfTiU" ExpiresInDays="3" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+      </pnp:Lists>
+    </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>
