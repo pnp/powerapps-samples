@@ -100,29 +100,7 @@ The following solution components are used in this sample:
 We use 2 SharePoint lists to store data.
 
 * Incident Categories
-|Type|Internal Name|Required|
-|---|---|:---:|
-|Single line of text|LinkTitle|Yes|
-|Multi line of text|Description|No|
-|Image|Image|No|
-|Choice|ResolutionAuthority|No|
-|Choice|GroupID|No|
-|Choice|ChannelID|No|
 * Incidents
-|Type|Internal Name|Required|
-|---|---|:---:|
-|Single line of text|LinkTitle|Yes|
-|Multi line of text|Description|No|
-|DateTime|Date|No|
-|Choice|Category|No|
-|Choice|Status|No|
-|Person|AssignedTo|No|
-|Choice|EmployeeInvolved|No|
-|Choice|Severity|No|
-|Lookup|Category_x003a_Group_x0020_ID|No|
-|Choice|Category_x003a_Channel_x0020_ID|No|
-|Image|Image|No|
-
 
 Approvals app is used for deletion of Incidents.
 
