@@ -1,4 +1,21 @@
 {
+  "73da3206-fcd6-4da3-bda8-3e77fca4aee4": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "displayName": "OpenAI (Independent Publisher)",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1618/1.0.1618.3179/openaiip/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_openaiip"
+    },
+    "datasets": {},
+    "dataSources": [
+      "OpenAI(IndependentPublisher)"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "73da3206-fcd6-4da3-bda8-3e77fca4aee4"
+  },
   "df224940-9fe0-4d88-b9bc-a03f4f98302f": {
     "connectionParameters": {
       "logicAppHostType": "ARM",
@@ -8,6 +25,7 @@
       "workflowPath": "/subscriptions/775928be-834e-40da-bde6-b48f96905a08/resourceGroups/84c31ca0ac3b4eaead11519d80233e6f-f8687448f66b45609ac69739a4a018f4/providers/Microsoft.Logic/workflows/d235e8d0-30ad-4439-a5cb-d6bc4fca8911"
     },
     "connectionRef": {
+      "apiTier": "Standard",
       "displayName": "Logic flows",
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1615/1.0.1615.3163/logicflows/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
@@ -31,25 +49,5 @@
     "dependencies": {},
     "dependents": [],
     "id": "df224940-9fe0-4d88-b9bc-a03f4f98302f"
-  },
-  "df2daa30-cb07-4ead-8844-ad4e22d47449": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
-    "connectionRef": {
-      "apiTier": "Premium",
-      "displayName": "OpenAI (Independent Publisher)",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1618/1.0.1618.3179/openaiip/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_openaiip",
-      "parameterHints": {},
-      "parameterHintsV2": {}
-    },
-    "datasets": {},
-    "dataSources": [
-      "OpenAI(IndependentPublisher)"
-    ],
-    "dependencies": {},
-    "dependents": [],
-    "id": "df2daa30-cb07-4ead-8844-ad4e22d47449"
   }
 }
