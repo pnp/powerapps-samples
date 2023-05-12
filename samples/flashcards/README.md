@@ -97,6 +97,5 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 
 ## For more information
 
-* [Companion blog post about this sample](https://www.m365princess.com/blogs/build-powerapps-progressbar-component/)
 * [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
 * [Power Apps canvas apps documentation](https://docs.microsoft.com/powerapps/maker/canvas-apps/)

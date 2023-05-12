@@ -1,0 +1,468 @@
+"FlashcardsScreen As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
+    Fill: =RGBA(36, 36, 36, 1)
+    OnVisible: |-
+        =Concurrent(Set(
+            varIcon,
+            ""
+        ),
+            Set(
+                varLoader,
+                false
+            ),
+            UpdateContext({varQuestion: true})
+        )
+
+    Canvas1_3 As fluidGrid.fluidGridWithBlankCard:
+        BorderThickness: =0
+        Height: =1135
+        Visible: =!varLoader
+        Width: =Parent.Width
+        Y: =1
+        ZIndex: =2
+
+        DataCard1_3 As dataCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =1457
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            Container1_6 As groupContainer:
+                Fill: =FlashcardsScreen.Fill
+                Height: =90
+                Width: =641
+                X: =-1
+                ZIndex: =1
+
+                Title2_16 As label:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Font: =varAppFont
+                    Height: =38
+                    OnSelect: =
+                    PaddingBottom: =0
+                    PaddingLeft: =30
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =24
+                    Text: =varTopic.Topic
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =455
+                    X: =107
+                    Y: =32
+                    ZIndex: =5
+
+                Icon8_1 As icon.ArrowLeft:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =51
+                    Icon: =Icon.ArrowLeft
+                    OnSelect: |-
+                        =Patch(colFlashCardSets, LookUp(colFlashCardSets, ID = varTopicSelected.ID), {Counter: varID});  Navigate(WelcomeScreen, ScreenTransition.UnCover)
+                    Width: =51
+                    X: =28
+                    Y: =26
+                    ZIndex: =6
+
+            Timer2 As timer:
+                BorderColor: =ColorFade(Timer2.Fill, -15%)
+                DisabledBorderColor: =ColorFade(Timer2.BorderColor, 70%)
+                DisabledColor: =ColorFade(Timer2.Fill, 90%)
+                DisabledFill: =ColorFade(Timer2.Fill, 70%)
+                Duration: =If(varTimer2, 750, 0)
+                Height: =70
+                HoverBorderColor: =ColorFade(Timer2.BorderColor, 20%)
+                OnTimerEnd: =Set(varTimer2, false)
+                PressedBorderColor: =Timer2.Fill
+                PressedColor: =Timer2.Fill
+                PressedFill: =Timer2.Color
+                Start: =varTimer2
+                Visible: =false
+                Width: =280
+                X: =341
+                Y: =506
+                ZIndex: =3
+
+            Timer3 As timer:
+                BorderColor: =ColorFade(Timer3.Fill, -15%)
+                DisabledBorderColor: =ColorFade(Timer3.BorderColor, 70%)
+                DisabledColor: =ColorFade(Timer3.Fill, 90%)
+                DisabledFill: =ColorFade(Timer3.Fill, 70%)
+                Duration: =10
+                Height: =70
+                HoverBorderColor: =ColorFade(Timer3.BorderColor, 20%)
+                OnTimerEnd: =Set(varHide, false)
+                OnTimerStart: |-
+                    =UpdateContext({varQuestion: !varQuestion}); 
+                PressedBorderColor: =Timer3.Fill
+                PressedColor: =Timer3.Fill
+                PressedFill: =Timer3.Color
+                Start: =!varTimer2
+                Visible: =false
+                Width: =280
+                X: =40
+                Y: =531
+                ZIndex: =6
+
+            Label6 As label:
+                AutoHeight: =true
+                Color: =RGBA(255, 255, 255, 1)
+                Font: =varAppFont
+                Height: =546
+                Size: =20
+                Text: =Switch(varTopic.ID , 1, LookUp(colGenerativeAI, ID = varID).Description, 2, LookUp(colOpenAI, ID = varID).Description)
+                Visible: =!varQuestion
+                Width: =560
+                X: =40
+                Y: =843
+                ZIndex: =11
+
+            Group1 As group:
+                Height: =5
+                Width: =5
+                X: =60
+                Y: =60
+                ZIndex: =11
+
+                Icon5 As icon.ChevronRight:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =38
+                    Icon: =Icon.ArrowRight
+                    OnSelect: |-
+                        =Set(varID, varID+1); UpdateContext({varQuestion:true}); Concurrent(  Set(varNext, true), Set(varHide, true), Set(RandumNumber, Round(Rand(), 1)))
+                    Visible: =If(varID <= Count(colGenerativeAI.ID) Or varID <= Count(colOpenAI.ID), true)
+                    Width: =45
+                    X: =388
+                    Y: =Icon5_1.Y
+                    ZIndex: =8
+
+                Icon5_1 As icon.ChevronRight:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =38
+                    Icon: =Icon.ArrowLeft
+                    OnSelect: |-
+                        =Set(varID, varID-1); UpdateContext({varQuestion:true}); Concurrent(  Set(varPrevious, true), Set(varHide, true), Set(RandumNumber, Round(Rand(), 1)))
+                    Visible: =If(varID > 1, true)
+                    Width: =45
+                    X: =174
+                    Y: =Gallery10_2.Y+Gallery10_2.Height+10
+                    ZIndex: =9
+
+                Label5 As label:
+                    Align: =Align.Center
+                    AutoHeight: =true
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =38
+                    Size: =16
+                    Text: =Switch(varTopic.ID , 1,  varID & " of " & Count(colGenerativeAI.ID), 2, varID & " of " & Count(colOpenAI.ID))
+                    Width: =Len(Self.Text)*15
+                    X: =254
+                    Y: =Icon5_1.Y
+                    ZIndex: =10
+
+            Container3_9 As groupContainer.horizontalAutoLayoutContainer:
+                Fill: =ColorFade(WelcomeScreen.Fill, 2%)
+                Height: =75
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                LayoutMode: =LayoutMode.Auto
+                LayoutWrap: =true
+                Visible: =!varQuestion
+                Width: =573
+                X: =33
+                Y: =736
+                ZIndex: =12
+
+                Title2_17 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(255, 255, 255, 1)
+                    Font: =varAppFont
+                    FontWeight: =FontWeight.Normal
+                    Height: =36
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =560
+                    OnSelect: =
+                    PaddingBottom: =0
+                    PaddingLeft: =15
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =24
+                    Text: ="More details"
+                    Width: =300
+                    X: =40
+                    Y: =132
+                    ZIndex: =1
+
+            Timer1 As timer:
+                Duration: =600
+                Height: =70
+                OnTimerEnd: =Concurrent( Set(varNext, false), Set(varPrevious, false), Set(varHide, false))
+                Start: =varNext || varPrevious
+                Visible: =false
+                Width: =280
+                X: =61
+                Y: =925
+                ZIndex: =13
+
+            Gallery10_2 As gallery.galleryVertical:
+                Height: =525
+                Items: =Switch(varTopic.ID , 1,  Filter(colGenerativeAI, ID = varID), 2, Filter(colOpenAI, ID = varID))
+                Layout: =Layout.Vertical
+                OnSelect: |-
+                    =Set(varTopicSelected, ThisItem);
+                    Navigate(FlashcardsScreen, ScreenTransition.CoverRight)
+                ShowScrollbar: =false
+                TemplatePadding: =2
+                TemplateSize: =505
+                Width: =632
+                Y: =89
+                ZIndex: =16
+
+                HtmlText1_1 As htmlViewer:
+                    Fill: =
+                    Height: =494
+                    HtmlText: |-
+                        ="<div style='
+                        position:absolute;
+                        top: 50px;
+                        left:10px;
+                        height:420px;
+                        width:570px;
+                        border-radius:10px;
+                        background-color: "&Switch(RandumNumber,0, "#767676",  0.1, "#0082f0", 0.2, "#0fc373", 0.3, "#ff8c0a", 0.4, "#fad22d", 0.5, "#af78d2", 0.6, "#000082", 0.7, "#0050ca", 0.8, "#48a8fa", 0.9, "#48a8fa", 1, "#ff8c0a")&";
+                        transform:rotateY("&6*(Timer2.Value/25)&"deg);
+                        '>
+                        </div>"
+                    OnSelect: =Set(varTimer2, true)
+                    Width: =583
+                    X: =If(varNext,Self.Width/2-Self.Width/2*((Exp(2*3*Timer1.Value/Timer1.Duration)-1)/(Exp(2*3*Timer1.Value/Timer1.Duration)+1)),If(varPrevious,-1*Self.Width/2+Self.Width/2*((Exp(2*3*Timer1.Value/Timer1.Duration)-1)/(Exp(2*3*Timer1.Value/Timer1.Duration)+1)),20))
+                    ZIndex: =6
+
+                Label2_1 As label:
+                    Align: =LayoutAlignItems.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =419
+                    OnSelect: =Set(varTimer2, true)
+                    Size: =21
+                    Text: =Switch(varTopic.ID , 1,    Left( LookUp(colGenerativeAI, ID = varID).Question, 150), 2,Left(  LookUp(colOpenAI, ID = varID).Question, 150))
+                    Visible: =varQuestion && !varHide
+                    Width: =546
+                    X: =38
+                    Y: =52
+                    ZIndex: =7
+
+                Label2_3 As label:
+                    Align: =LayoutAlignItems.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =Label2_1.Height
+                    OnSelect: =Set(varTimer2, true)
+                    PaddingRight: =10
+                    Size: =20
+                    Text: = Switch(varTopic.ID , 1,    Left( LookUp(colGenerativeAI, ID = varID).Answer, 150) & "...", 2,Left( LookUp(colOpenAI, ID = varID).Answer, 150) & "...") //Left("Answer",RoundUp(Timer3.Value*(Len("Answer")/Timer3.Duration),0))
+                    Visible: =!varQuestion && !varHide
+                    Width: = Label2_1.Width
+                    X: =Label2_1.X
+                    Y: =Label2_1.Y
+                    ZIndex: =8
+
+                Button1_2 As button:
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =419
+                    HoverColor: =
+                    HoverFill: =
+                    OnSelect: = Concurrent( Set(varTimer2, true), Set(varHide, true))
+                    PressedColor: =
+                    PressedFill: =
+                    Size: =24
+                    Text: =""
+                    Width: =573
+                    X: =30
+                    Y: =52
+                    ZIndex: =9
+
+    Container1_7 As groupContainer:
+        BorderColor: =RGBA(149, 149, 149, 1)
+        BorderThickness: =0.2
+        DropShadow: =DropShadow.Semilight
+        Fill: =FlashcardsScreen.Fill
+        Height: =90
+        Width: =640
+        Y: =1046
+        ZIndex: =3
+
+        Image8_2 As image:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderThickness: =1
+            Height: =50
+            Image: =User().Image
+            RadiusBottomLeft: =50
+            RadiusBottomRight: =50
+            RadiusTopLeft: =50
+            RadiusTopRight: =50
+            Width: =50
+            X: =525
+            Y: =24
+            ZIndex: =1
+
+        Image9_7 As image:
+            Height: =48
+            Image: |-
+                =Concatenate(
+                    "data:image/svg+xml;utf8, ",
+                    EncodeUrl(
+                        Concatenate(
+                            "<svg viewBox='",
+                            "0 0 2048 2048",
+                            "' xmlns='http://www.w3.org/2000/svg'><path d='",
+                            "M2048 1152q0 107-40 200t-111 163-165 109-201 40q-12 83-51 153t-99 121-134 81-159 29q-83 0-158-29t-135-80-98-122-52-153H128q-26 0-49-10t-41-27-28-41-10-50V512q0-26 10-49t27-41 41-28 50-10h289q30-86 84-156t126-121 157-79T960 0q119 0 224 45t183 124 123 183 46 224q0 16-1 32t-3 32q106 0 200 40t164 109 111 162 41 201zM960 128q-65 0-125 18t-114 51-95 81-71 106h597q26 0 49 10t41 27 28 41 10 50v197q29-16 58-29t62-22q8-43 8-82 0-93-35-174t-96-142-142-96-175-36zM624 1440q60 0 115-12t99-42 70-76 26-115q0-55-16-94t-46-69-68-50-85-41q-11-8-35-17t-49-20-45-25-19-35q0-18 12-28t31-17 37-8 32-2q36 0 63 4t52 14 49 24 54 33V646q-55-23-108-30t-114-8q-57 0-114 13t-103 42-75 76-29 113q0 64 27 108t67 74 88 51 87 39 68 36 27 43q0 19-12 30t-29 17-35 7-33 2q-24 0-51-4t-55-13-52-20-44-27l-51-40v231q62 32 128 43t136 11zm464 480q66 0 124-25t101-68 69-102 26-125q0-76-33-143t-95-113v192q0 26-10 49t-27 41-41 28-50 10H774q12 56 41 103t70 81 94 53 109 19zm448-384q79 0 149-30t122-82 83-122 30-150q0-79-30-149t-82-122-123-83-149-30q-71 0-137 25t-119 74v328q51 24 93 59t75 80 54 95 29 107h5z",
+                            "' fill='#ffffff'/></svg>"
+                        )
+                    )
+                )
+            OnSelect: |-
+                =Launch("https://adoption.microsoft.com/en-us/sample-solution-gallery/?product=Power+Apps&sortby=creationDateTime-true&page=1")
+            Width: =42
+            X: =Parent.Width/2.2
+            Y: =Parent.Height/3.5
+            ZIndex: =4
+
+        GroupHome_2 As group:
+            Height: =5
+            Width: =5
+            X: =30
+            Y: =40
+            ZIndex: =5
+
+            Image9_6 As image:
+                Height: =52
+                Image: |
+                    =If(
+                        varIcon = "Home",
+                        Concatenate(
+                            "data:image/svg+xml;utf8, ",
+                            EncodeUrl(
+                                Concatenate(
+                                    "<svg viewBox='",
+                                    "0 0 2048 2048",
+                                    "' xmlns='http://www.w3.org/2000/svg'><path d='",
+                                    "M1024 166l941 941-90 90-83-82v805h-512v-640H768v640H256v-805l-83 82-90-90 941-941z",
+                                    "' fill='#0fc373'/></svg>"
+                                )
+                            )
+                        ),
+                        
+                            Concatenate(
+                                "data:image/svg+xml;utf8, ",
+                                EncodeUrl(
+                                    Concatenate(
+                                        "<svg viewBox='",
+                                        "0 0 2048 2048",
+                                        "' xmlns='http://www.w3.org/2000/svg'><path d='",
+                                        "M1024 165l941 942-90 90-83-82v805h-640v-640H896v640H256v-805l-83 82-90-90 941-942zm640 1627V987l-640-640-640 640v805h384v-640h512v640h384z",
+                                        "' fill='#ffffff'/></svg>"
+                                    )
+                                )
+                            )
+                        )
+                OnSelect: |
+                    =Set(
+                        varIcon,
+                        "Home"
+                    );
+                Width: =49
+                X: =61
+                Y: =21
+                ZIndex: =2
+
+            Button6_2 As button:
+                BorderColor: |-
+                    =ColorValue("
+                    #767676")
+                BorderThickness: =0
+                Color: |-
+                    =ColorValue("
+                    #767676")
+                Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =0
+                Height: =90
+                HoverColor: |-
+                    =ColorValue("
+                    #767676")
+                HoverFill: =
+                OnSelect: |
+                    =Set(
+                        varIcon,
+                        "Home"
+                    );
+                    Navigate(
+                        WelcomeScreen,
+                        BorderStyle.None
+                    );
+                PressedBorderColor: |-
+                    =ColorFade( ColorValue("#767676"), 20%)
+                PressedColor: |-
+                    =ColorValue("
+                    #767676")
+                PressedFill: |-
+                    =ColorFade( ColorValue("#767676"), -20%)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =24
+                Text: =""
+                Width: =92
+                X: =38
+                ZIndex: =3
+
+    GroupLoader_2 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =6
+
+        Image1_2 As image:
+            Height: =247
+            Image: |-
+                =Concatenate(
+                    "data:image/svg+xml;utf8, ",
+                    EncodeUrl(
+                        Concatenate(
+                            "<svg viewBox='",
+                            "0 0 2048 2048",
+                            "' xmlns='http://www.w3.org/2000/svg'><path d='",
+                            "M128 1664H0q0-120 35-231t100-205 156-166 204-116q-56-36-100-83t-75-103-47-118-17-130q0-106 40-199t109-163T568 40 768 0q106 0 199 40t163 109 110 163 40 200q0 78-22 149t-64 133-98 110-129 80q-45 20-91 27t-92 11-93 8-93 17q-104 29-190 88t-149 141-96 181-35 207zm640-768q79 0 149-30t122-82 83-122 30-150q0-79-30-149t-82-122-123-82-149-31q-80 0-149 30t-122 82-83 123-30 149q0 80 30 149t82 122 122 83 150 30zm1024 895l-448 225-448-225q0-36 1-76t7-80 20-77 37-68l-193-88v582H640v-640l704-320 704 320-321 146q24 31 37 68t19 76 8 80 1 77zm-448-627l-395 180 395 180 395-180-395-180zm0 709l320-161q-1-26-4-47t-11-41-16-39-23-42l-266 121-266-121q-14 23-23 42t-16 39-9 41-5 48l319 160z",
+                            "' fill='#",
+                            "ffffff",
+                            "'/> <animate  attributeType='CSS' attributeName = 'opacity' 
+                             from='0.5'  to='1'
+                             begin='0s'
+                             dur='4s'
+                             repeatDur='01:30'
+                            repeatCount='1'/></svg>"
+                        )
+                    )
+                )
+            Visible: =varLoader
+            Width: =247
+            X: =220
+            Y: =228
+            ZIndex: =6
+
+        Label1_2 As label:
+            Align: =LayoutAlignItems.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Font: =varAppFont
+            Height: =153
+            Size: =44
+            Text: ="Learn with flashcards"
+            Visible: =varLoader
+            Width: =560
+            X: =39
+            Y: =531
+            ZIndex: =7
+

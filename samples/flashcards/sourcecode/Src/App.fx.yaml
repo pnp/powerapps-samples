@@ -1,0 +1,115 @@
+App As appinfo:
+    BackEnabled: =false
+    OnError: =
+    OnStart: |-
+        =Concurrent(
+            Set(
+                varLoader,
+                true
+            ),
+            Set(
+                varAppFont,
+                "Roboto, Open Sans"
+            ),
+           
+            //for the flashcard sets
+            ClearCollect(
+                colFlashCardSets,
+                {
+                    ID: 1,
+                    Topic: "Generative AI",
+                    Counter: 1
+                },
+                {
+                    ID: 2,
+                    Topic: "Open AI",
+                    Counter: 1
+                }
+            ),
+            ClearCollect(
+                colGenerativeAI,
+                 {
+            ID: 1,
+            Question: "What is Generative AI?",
+            Answer: "Generative AI refers to a category of artificial intelligence techniques that aim to generate new data, such as images, music, or text, that is similar to the training data it has been exposed to.",
+            Description: "Generative AI involves the use of machine learning models to generate new data that resembles the input data it has been trained on. It is particularly useful for tasks such as creating realistic images, composing music, or generating human-like text."
+          },
+          {
+            ID: 2,
+            Question: "What is a Generative Adversarial Network (GAN)?",
+            Answer: "A Generative Adversarial Network (GAN) is a type of generative model that consists of two neural networks: a generator network that generates new data samples, and a discriminator network that tries to distinguish the generated samples from real ones.",
+            Description: "GANs are a popular class of generative models that use two competing neural networks. The generator network generates synthetic data samples, while the discriminator network tries to differentiate between real and generated samples. The two networks engage in a training process where they learn from each other, resulting in the generator producing increasingly realistic data samples."
+          },
+          {
+            ID: 3,
+            Question: "What is the concept of style transfer in Generative AI?",
+            Answer: "Style transfer in Generative AI involves the process of taking the style of one image or artwork and applying it to another image, creating a new image that combines the content of the original image with the artistic style of the reference image.",
+            Description: "Style transfer is a technique in Generative AI that allows the transformation of the style of one image to another. By leveraging deep learning models, it becomes possible to extract the content and style representations from two different images and combine them to create a novel image that carries the content of one image and the artistic style of another."
+          },
+          {
+            ID: 4,
+            Question: "What is the purpose of sequence generation in Generative AI?",
+            Answer: "Sequence generation in Generative AI refers to the task of generating a sequence of output elements, such as words in a sentence or notes in a music composition. It is commonly used in natural language processing and music generation.",
+            Description: "Sequence generation is a fundamental task in Generative AI that involves generating a sequence of output elements based on a given context or input. This task is commonly used in natural language processing for tasks like text generation or machine translation, as well as in music generation to create melodies or harmonies."
+          },
+          {
+            ID: 5,
+            Question: "What are the potential applications of Generative AI?",
+            Answer: "Generative AI has diverse applications, including image synthesis, text generation, video game design, drug discovery, and data augmentation for machine learning tasks.",
+            Description: "Generative AI has a wide range of applications across various domains. It can be used for tasks such as generating realistic images, generating text for chatbots or language models, designing virtual environments for video games, assisting in drug discovery by generating novel molecular structures, and augmenting datasets for machine learning tasks to improve model performance."
+          }
+            ),
+            ClearCollect(
+                colOpenAI,
+                {
+            ID: 1,
+            Question: "What is OpenAI?",
+            Answer: "OpenAI is an artificial intelligence research laboratory and company that aims to ensure that artificial general intelligence (AGI) benefits all of humanity. It conducts cutting-edge research and develops AI technologies and applications.",
+            Description: "OpenAI is an organization dedicated to advancing artificial intelligence research and development. Its mission is to ensure that AGI, which refers to highly autonomous systems that outperform humans in most economically valuable work, is developed and deployed safely and for the benefit of all. OpenAI is known for its research breakthroughs and contributions to the AI community."
+          },
+          {
+            ID: 2,
+            Question: "What are some notable projects by OpenAI?",
+            Answer: "OpenAI has worked on several notable projects, including GPT (Generative Pre-trained Transformer) models, such as GPT-3, which are powerful language models capable of understanding and generating human-like text.",
+            Description: "OpenAI is renowned for its work on the development of GPT models. GPT stands for Generative Pre-trained Transformer, and it represents a class of large-scale language models that can perform a variety of language-related tasks. GPT-3, in particular, has garnered attention for its ability to generate coherent and contextually relevant text across a wide range of applications."
+          },
+          {
+            ID: 3,
+            Question: "What is the OpenAI API?",
+            Answer: "The OpenAI API provides access to OpenAI's language models, allowing developers to integrate the power of GPT-based models into their own applications, products, or services.",
+            Description: "The OpenAI API enables developers to leverage OpenAI's GPT-based language models in their own applications. By using the API, developers can make use of the advanced language generation capabilities of GPT models to enhance their products or build new AI-powered services."
+          },
+          {
+            ID: 4,
+            Question: "What are some ethical considerations in OpenAI's research?",
+            Answer: "OpenAI is committed to conducting research and development in a manner that aligns with ethical principles. It strives to ensure the responsible use of AI technology and avoid uses that could harm humanity or concentrate power unfairly.",
+            Description: "OpenAI places a strong emphasis on ethical considerations in its research and development efforts. It actively works to mitigate potential risks associated with AI technology and promotes the responsible deployment of AI systems. OpenAI is concerned about the impact of AI on society and aims to prevent any misuse or unfair concentration of power."
+          },
+          {
+            ID: 5,
+            Question: "How does OpenAI foster collaboration and knowledge sharing?",
+            Answer: "OpenAI actively promotes collaboration and knowledge sharing. It publishes most of its AI research, contributes to open-source projects, and engages in partnerships and collaborations with other research institutions and organizations.",
+            Description: "OpenAI believes in the importance of collaboration and knowledge sharing to advance the field of AI. It adopts an open approach by publishing a significant portion of its research, sharing insights, and contributing to open-source initiatives. Additionally, OpenAI actively seeks partnerships and collaborations with other research institutions and organizations to facilitate progress in AI development."
+          }
+            )
+        );
+        Set(
+            varGenereativeAICount,
+            CountRows(colGenerativeAI)
+        );
+        Set(
+            varOpenAICount,
+            CountRows(colOpenAI)
+        );
+        Set(
+            varLoader,
+            false
+        )
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

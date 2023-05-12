@@ -1,0 +1,644 @@
+"WelcomeScreen As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
+    Fill: =RGBA(36, 36, 36, 1)
+    OnVisible: |
+        =Concurrent(
+            Set(
+                varIcon,
+                "Home"
+            ),
+            UpdateContext({varQuestion: true})
+        );
+
+    rctangleFlyoutmenu As rectangle:
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =600
+        Width: =640
+        ZIndex: =2
+
+    Canvas As fluidGrid.fluidGridWithBlankCard:
+        BorderThickness: =0
+        Height: =1135
+        Visible: =!varLoader
+        Width: =Parent.Width
+        Y: =1
+        ZIndex: =3
+
+        DataCard1_2 As dataCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =510
+            Width: =Parent.Width
+            WidthFit: =false
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            Container1_4 As groupContainer:
+                Fill: =WelcomeScreen.Fill
+                Height: =90
+                Width: =641
+                X: =-1
+                ZIndex: =1
+
+                Title2_11 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(255, 255, 255, 1)
+                    Font: =varAppFont
+                    FontWeight: =FontWeight.Normal
+                    Height: =38
+                    OnSelect: =
+                    PaddingBottom: =0
+                    PaddingLeft: =30
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =28
+                    Text: ="Flashcards"
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =455
+                    X: =15
+                    Y: =25
+                    ZIndex: =5
+
+                Icon1 As icon.Error:
+                    Color: =RGBA(241, 244, 249, 1)
+                    Height: =38
+                    Icon: =Icon.Lightbulb
+                    Width: =56
+                    X: =554
+                    Y: =25
+                    ZIndex: =6
+
+            Container2_3 As groupContainer.verticalAutoLayoutContainer:
+                Height: =396
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =10
+                LayoutMode: =LayoutMode.Auto
+                Width: =640
+                Y: =104
+                ZIndex: =2
+
+                Container4_1 As groupContainer.verticalAutoLayoutContainer:
+                    Height: =300
+                    LayoutMinHeight: =112
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    LayoutOverflowX: =LayoutOverflow.Scroll
+                    LayoutWrap: =true
+                    ZIndex: =1
+
+                    "galHome As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver4.0'":
+                        AlignInContainer: =AlignInContainer.Start
+                        Height: =400
+                        Items: |-
+                            =Table(
+                                {
+                                    Text: "Flashcard is a card bearing information on both sides, which is intended to be used as an aid in memorization. Each flashcard bears a question on one side and an answer on the other. 
+                                    
+                            Pick any flashcard set below to begin your learning.",
+                                    FillValue: "#0082f0"
+                                }
+                            )
+                        LayoutMinHeight: =250
+                        LayoutMinWidth: =320
+                        OnSelect: =
+                        ShowScrollbar: =false
+                        TemplateFill: =
+                        TemplatePadding: =30
+                        TemplateSize: =550
+                        Width: =Parent.Width
+                        Y: =24
+                        ZIndex: =2
+
+                        HtmlText1_2 As htmlViewer:
+                            Height: =353
+                            HtmlText: |-
+                                ="<div style='
+                                position:absolute;
+                                top: 0px;
+                                left:10px;
+                                height:350px;
+                                width:540px;
+                                border-radius:10px;
+                                background-color: #0082f0;
+                                transform:rotateY("&6*(Timer2_1.Value/20)&"deg);
+                                '>
+                                </div>"
+                            OnSelect: =Concurrent( Set(varTimerHome, true), Set(varHide, true))
+                            Width: =550
+                            ZIndex: =1
+
+                        Title2_13 As label:
+                            Align: =LayoutAlignItems.Center
+                            Color: =RGBA(255, 255, 255, 1)
+                            Font: =varAppFont
+                            FontWeight: =FontWeight.Normal
+                            Height: =84
+                            OnSelect: =Set(varTimerHome, true)
+                            PaddingBottom: =0
+                            PaddingLeft: =20
+                            PaddingRight: =0
+                            PaddingTop: =20
+                            Size: =24
+                            Text: ="Tap or click to flip card"
+                            VerticalAlign: =VerticalAlign.Top
+                            Visible: = varQuestion && !varHide
+                            Width: =538
+                            X: =12
+                            Y: =134
+                            ZIndex: =2
+
+                        Title2_18 As label:
+                            Color: =RGBA(255, 255, 255, 1)
+                            Font: =varAppFont
+                            FontWeight: =FontWeight.Normal
+                            Height: =277
+                            OnSelect: =Set(varTimerHome, true)
+                            PaddingBottom: =0
+                            PaddingLeft: =20
+                            PaddingRight: =0
+                            PaddingTop: =20
+                            Size: =If(!varQuestion, 20, 0)
+                            Text: =ThisItem.Text
+                            VerticalAlign: =VerticalAlign.Top
+                            Visible: =!varQuestion && !varHide
+                            Width: =513
+                            X: =12
+                            Y: =13
+                            ZIndex: =3
+
+                        Button1_3 As button:
+                            Fill: =RGBA(0, 0, 0, 0)
+                            Height: =353
+                            HoverColor: =
+                            HoverFill: =RGBA(0,0,0,0)
+                            OnSelect: =Concurrent( Set(varHide, true), Set(varTimerHome, true))
+                            PressedFill: =
+                            Size: =24
+                            Text: =""
+                            Width: =538
+                            X: =12
+                            ZIndex: =4
+
+        cardSets As dataCard.blankCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =contSets.Height
+            Width: =640
+            X: =0
+            Y: =1
+            ZIndex: =2
+
+            contSets As groupContainer.verticalAutoLayoutContainer:
+                Height: =galSets.Height+contSetTitle.Height
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMode: =LayoutMode.Auto
+                Width: =572
+                X: =20
+                Y: =10
+                ZIndex: =2
+
+                contSetTitle As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    Fill: =ColorFade(WelcomeScreen.Fill, 2%)
+                    FillPortions: =0
+                    Height: =75
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                    LayoutMinHeight: =75
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    LayoutWrap: =true
+                    Width: =Parent.Width
+                    Y: =40
+                    ZIndex: =1
+
+                    Title2_12 As label:
+                        AutoHeight: =true
+                        Color: =RGBA(255, 255, 255, 1)
+                        Font: =varAppFont
+                        FontWeight: =FontWeight.Normal
+                        Height: =36
+                        LayoutMinHeight: =70
+                        LayoutMinWidth: =560
+                        OnSelect: =
+                        PaddingBottom: =0
+                        PaddingLeft: =30
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =24
+                        Text: ="Sets"
+                        Width: =300
+                        X: =40
+                        Y: =132
+                        ZIndex: =1
+
+                    Container3_8 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        Fill: =ColorFade(WelcomeScreen.Fill, 2%)
+                        Height: =75
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
+                        LayoutJustifyContent: =LayoutJustifyContent.End
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingLeft: =30
+                        PaddingRight: =30
+                        Width: =80
+                        Y: =216
+                        ZIndex: =5
+
+                        IconRefresh1_3 As icon.Reload:
+                            AccessibleLabel: =Self.Tooltip
+                            Height: =70
+                            Icon: =Icon.Reload
+                            OnSelect: =Refresh(Acronyms)
+                            PaddingBottom: =22
+                            PaddingLeft: =22
+                            PaddingRight: =22
+                            PaddingTop: =22
+                            TabIndex: =0
+                            Tooltip: ="Refresh list"
+                            Width: =70
+                            X: =515
+                            Y: =10
+                            ZIndex: =4
+
+                galSets As gallery.galleryVertical:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =0
+                    Height: =200*CountRows(galSets.AllItems)+galSets.TemplatePadding*(CountRows(galSets.AllItems)+1)
+                    Items: =colFlashCardSets
+                    Layout: =Layout.Vertical
+                    LayoutMinHeight: =287
+                    LayoutMinWidth: =320
+                    OnSelect: |-
+                        =Set(varTopic, ThisItem);
+                        Navigate(FlashcardsScreen, ScreenTransition.CoverRight)
+                    ShowScrollbar: =false
+                    TemplatePadding: =25
+                    TemplateSize: =120//If(Self.Layout = Layout.Horizontal, Min(60, Self.Width - 40), Min(60, Self.Height - 40))
+                    Y: =60
+                    ZIndex: =3
+
+                    Icon2 As icon.HalfFilledCircle:
+                        Color: |-
+                            =ColorValue("#0082f0")
+                        FocusedBorderThickness: =1
+                        Icon: =Icon.HalfFilledCircle
+                        OnSelect: =Select(Parent)
+                        X: =5
+                        Y: =5
+                        ZIndex: =1
+
+                    Title5_2 As label:
+                        AutoHeight: =true
+                        Color: =RGBA(255, 255, 255, 1)
+                        Font: =varAppFont
+                        FontWeight: =FontWeight.Normal
+                        Height: =36
+                        OnSelect: =
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =ThisItem.Topic
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Len(Self.Text)*20  +4
+                        X: =102
+                        Y: =3
+                        ZIndex: =3
+
+                    NextArrow2_2 As icon.ChevronRight:
+                        AccessibleLabel: =Self.Tooltip
+                        Color: =RGBA(255, 255, 255, 1)
+                        FocusedBorderColor: =
+                        FocusedBorderThickness: =0
+                        Height: =58
+                        Icon: =Icon.ChevronRight
+                        OnSelect: |-
+                            =Set(
+                                varLoader,
+                                true
+                            );
+                            Set(
+                                varTopic,
+                                ThisItem
+                            );
+                            Concurrent(
+                                Set(
+                                    varID,
+                                    ThisItem.Counter
+                                ),
+                                Set(
+                                    RandumNumber,
+                                    Round(
+                                        Rand(),
+                                        1
+                                    )
+                                )
+                            );
+                            /* If(
+                                varID < 1 || varID > CountRows(colAcronyms),
+                                Set(
+                                    varID,
+                                    First(colAcronyms).ID
+                                )
+                            );*/ 
+                            Navigate(
+                                FlashcardsScreen,
+                                ScreenTransition.CoverRight
+                            )
+                        PaddingBottom: =10
+                        PaddingLeft: =10
+                        PaddingRight: =10
+                        PaddingTop: =10
+                        PressedBorderColor: =
+                        TabIndex: =0
+                        Tooltip: ="View item details"
+                        Width: =51
+                        X: =457
+                        Y: =3
+                        ZIndex: =4
+
+                    Image10_2 As image:
+                        Height: =41
+                        Image: |-
+                            =Concatenate(
+                                "data:image/svg+xml;utf8, ",
+                                EncodeUrl(
+                                    Concatenate(
+                                        "<svg viewBox='",
+                                        "0 0 2048 2048",
+                                        "' xmlns='http://www.w3.org/2000/svg'><path d='",
+                                        "M128 1664H0q0-120 35-231t100-205 156-166 204-116q-56-36-100-83t-75-103-47-118-17-130q0-106 40-199t109-163T568 40 768 0q106 0 199 40t163 109 110 163 40 200q0 78-22 149t-64 133-98 110-129 80q-45 20-91 27t-92 11-93 8-93 17q-104 29-190 88t-149 141-96 181-35 207zm640-768q79 0 149-30t122-82 83-122 30-150q0-79-30-149t-82-122-123-82-149-31q-80 0-149 30t-122 82-83 123-30 149q0 80 30 149t82 122 122 83 150 30zm1024 895l-448 225-448-225q0-36 1-76t7-80 20-77 37-68l-193-88v582H640v-640l704-320 704 320-321 146q24 31 37 68t19 76 8 80 1 77zm-448-627l-395 180 395 180 395-180-395-180zm0 709l320-161q-1-26-4-47t-11-41-16-39-23-42l-266 121-266-121q-14 23-23 42t-16 39-9 41-5 48l319 160z",
+                                        "' fill='#",
+                                        "ffffff",
+                                        "'/> <animate  attributeType='CSS' attributeName = 'opacity' 
+                                         from='0.5'  to='1'
+                                         begin='0s'
+                                         dur='5s'
+                                         repeatDur='01:30'
+                                        repeatCount='1'/></svg>"
+                                    )
+                                )
+                            )
+                        OnSelect: =Select(Parent)
+                        Width: =45
+                        X: =14
+                        Y: =16
+                        ZIndex: =5
+
+                    Title5_3 As label:
+                        Color: =RGBA(255, 255, 255, 1)
+                        Font: =varAppFont
+                        FontWeight: =FontWeight.Normal
+                        Height: =32
+                        OnSelect: =
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =16
+                        Text: =If(ThisItem.Topic = "Generative AI", varGenereativeAICount, varOpenAICount) & " items in this set"
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =241
+                        X: =100
+                        Y: =55
+                        ZIndex: =6
+
+                    Rectangle1 As rectangle:
+                        Fill: =Button1_3.Fill
+                        Height: =1
+                        OnSelect: =Select(Parent)
+                        Width: =499
+                        X: =9
+                        Y: =105
+                        ZIndex: =7
+
+    Container1_5 As groupContainer:
+        BorderColor: =RGBA(149, 149, 149, 1)
+        BorderThickness: =0.2
+        DropShadow: =DropShadow.Semilight
+        Fill: =WelcomeScreen.Fill
+        Height: =90
+        Width: =640
+        Y: =1046
+        ZIndex: =4
+
+        imgUser As image:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderThickness: =1
+            Height: =50
+            Image: =User().Image
+            OnSelect: =
+            RadiusBottomLeft: =50
+            RadiusBottomRight: =50
+            RadiusTopLeft: =50
+            RadiusTopRight: =50
+            Width: =50
+            X: =525
+            Y: =24
+            ZIndex: =1
+
+        imgSharePoint As image:
+            Height: =48
+            Image: |-
+                =Concatenate(
+                    "data:image/svg+xml;utf8, ",
+                    EncodeUrl(
+                        Concatenate(
+                            "<svg viewBox='",
+                            "0 0 2048 2048",
+                            "' xmlns='http://www.w3.org/2000/svg'><path d='",
+                            "M2048 1152q0 107-40 200t-111 163-165 109-201 40q-12 83-51 153t-99 121-134 81-159 29q-83 0-158-29t-135-80-98-122-52-153H128q-26 0-49-10t-41-27-28-41-10-50V512q0-26 10-49t27-41 41-28 50-10h289q30-86 84-156t126-121 157-79T960 0q119 0 224 45t183 124 123 183 46 224q0 16-1 32t-3 32q106 0 200 40t164 109 111 162 41 201zM960 128q-65 0-125 18t-114 51-95 81-71 106h597q26 0 49 10t41 27 28 41 10 50v197q29-16 58-29t62-22q8-43 8-82 0-93-35-174t-96-142-142-96-175-36zM624 1440q60 0 115-12t99-42 70-76 26-115q0-55-16-94t-46-69-68-50-85-41q-11-8-35-17t-49-20-45-25-19-35q0-18 12-28t31-17 37-8 32-2q36 0 63 4t52 14 49 24 54 33V646q-55-23-108-30t-114-8q-57 0-114 13t-103 42-75 76-29 113q0 64 27 108t67 74 88 51 87 39 68 36 27 43q0 19-12 30t-29 17-35 7-33 2q-24 0-51-4t-55-13-52-20-44-27l-51-40v231q62 32 128 43t136 11zm464 480q66 0 124-25t101-68 69-102 26-125q0-76-33-143t-95-113v192q0 26-10 49t-27 41-41 28-50 10H774q12 56 41 103t70 81 94 53 109 19zm448-384q79 0 149-30t122-82 83-122 30-150q0-79-30-149t-82-122-123-83-149-30q-71 0-137 25t-119 74v328q51 24 93 59t75 80 54 95 29 107h5z",
+                            "' fill='#ffffff'/></svg>"
+                        )
+                    )
+                )
+            OnSelect: |-
+                =Launch("https://adoption.microsoft.com/en-us/sample-solution-gallery/?product=Power+Apps&sortby=creationDateTime-true&page=1")
+            Width: =42
+            X: =Parent.Width/2.2
+            Y: =24
+            ZIndex: =4
+
+        GroupHome As group:
+            Height: =5
+            Width: =5
+            X: =60
+            Y: =60
+            ZIndex: =6
+
+            Image9 As image:
+                Height: =50
+                Image: |
+                    =If(
+                        varIcon = "Home",
+                        Concatenate(
+                            "data:image/svg+xml;utf8, ",
+                            EncodeUrl(
+                                Concatenate(
+                                    "<svg viewBox='",
+                                    "0 0 2048 2048",
+                                    "' xmlns='http://www.w3.org/2000/svg'><path d='",
+                                    "M1024 166l941 941-90 90-83-82v805h-512v-640H768v640H256v-805l-83 82-90-90 941-941z",
+                                    "' fill='#0082f0'/></svg>"
+                                )
+                            )
+                        ),
+                        
+                            Concatenate(
+                                "data:image/svg+xml;utf8, ",
+                                EncodeUrl(
+                                    Concatenate(
+                                        "<svg viewBox='",
+                                        "0 0 2048 2048",
+                                        "' xmlns='http://www.w3.org/2000/svg'><path d='",
+                                        "M1024 165l941 942-90 90-83-82v805h-640v-640H896v640H256v-805l-83 82-90-90 941-942zm640 1627V987l-640-640-640 640v805h384v-640h512v640h384z",
+                                        "' fill='#ffffff'/></svg>"
+                                    )
+                                )
+                            )
+                        )
+                OnSelect: |
+                    =Set(
+                        varIcon,
+                        "Home"
+                    );
+                Width: =46
+                X: =61
+                Y: =20
+                ZIndex: =2
+
+            btnHome00 As button:
+                BorderColor: |-
+                    =ColorValue("
+                    #767676")
+                BorderThickness: =0
+                Color: |-
+                    =ColorValue("
+                    #767676")
+                Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =0
+                Height: =81
+                HoverColor: |-
+                    =ColorValue("
+                    #767676")
+                HoverFill: =
+                OnSelect: |
+                    =Set(
+                        varIcon,
+                        "Home"
+                    );
+                PressedBorderColor: |-
+                    =ColorFade( ColorValue("#767676"), 20%)
+                PressedColor: |-
+                    =ColorValue("
+                    #767676")
+                PressedFill: =ColorFade(RGBA(118,118,118,.5), -20%)
+                RadiusBottomLeft: =50
+                RadiusBottomRight: =50
+                RadiusTopLeft: =50
+                RadiusTopRight: =50
+                Size: =24
+                Text: =""
+                Tooltip: ="Home"
+                Width: =83
+                X: =40
+                Y: =9
+                ZIndex: =5
+
+    GroupLoader_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =6
+
+        Image1_1 As image:
+            Height: =247
+            Image: |-
+                =Concatenate(
+                    "data:image/svg+xml;utf8, ",
+                    EncodeUrl(
+                        Concatenate(
+                            "<svg viewBox='",
+                            "0 0 2048 2048",
+                            "' xmlns='http://www.w3.org/2000/svg'><path d='",
+                            "M128 1664H0q0-120 35-231t100-205 156-166 204-116q-56-36-100-83t-75-103-47-118-17-130q0-106 40-199t109-163T568 40 768 0q106 0 199 40t163 109 110 163 40 200q0 78-22 149t-64 133-98 110-129 80q-45 20-91 27t-92 11-93 8-93 17q-104 29-190 88t-149 141-96 181-35 207zm640-768q79 0 149-30t122-82 83-122 30-150q0-79-30-149t-82-122-123-82-149-31q-80 0-149 30t-122 82-83 123-30 149q0 80 30 149t82 122 122 83 150 30zm1024 895l-448 225-448-225q0-36 1-76t7-80 20-77 37-68l-193-88v582H640v-640l704-320 704 320-321 146q24 31 37 68t19 76 8 80 1 77zm-448-627l-395 180 395 180 395-180-395-180zm0 709l320-161q-1-26-4-47t-11-41-16-39-23-42l-266 121-266-121q-14 23-23 42t-16 39-9 41-5 48l319 160z",
+                            "' fill='#",
+                            "ffffff",
+                            "'/> <animate  attributeType='CSS' attributeName = 'opacity' 
+                             from='0.5'  to='1'
+                             begin='0s'
+                             dur='4s'
+                             repeatDur='01:30'
+                            repeatCount='1'/></svg>"
+                        )
+                    )
+                )
+            Visible: =varLoader
+            Width: =247
+            X: =220
+            Y: =228
+            ZIndex: =7
+
+        Label1_1 As label:
+            Align: =LayoutAlignItems.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Font: =varAppFont
+            Height: =153
+            Size: =44
+            Text: ="Learn with flashcards"
+            Visible: =varLoader
+            Width: =560
+            X: =39
+            Y: =531
+            ZIndex: =8
+
+    Timer2_1 As timer:
+        BorderColor: =ColorFade(Timer2_1.Fill, -15%)
+        DisabledBorderColor: =ColorFade(Timer2_1.BorderColor, 70%)
+        DisabledColor: =ColorFade(Timer2_1.Fill, 90%)
+        DisabledFill: =ColorFade(Timer2_1.Fill, 70%)
+        Duration: =600
+        Height: =70
+        HoverBorderColor: =ColorFade(Timer2_1.BorderColor, 20%)
+        OnTimerEnd: =Set(varTimerHome, false)
+        OnTimerStart: =Set(varHide, true)
+        PressedBorderColor: =Timer2_1.Fill
+        PressedColor: =Timer2_1.Fill
+        PressedFill: =Timer2_1.Color
+        Start: =varTimerHome
+        Visible: =false
+        Width: =280
+        X: =296
+        Y: =908
+        ZIndex: =9
+
+    Timer3_1 As timer:
+        BorderColor: =ColorFade(Timer3_1.Fill, -15%)
+        DisabledBorderColor: =ColorFade(Timer3_1.BorderColor, 70%)
+        DisabledColor: =ColorFade(Timer3_1.Fill, 90%)
+        DisabledFill: =ColorFade(Timer3_1.Fill, 70%)
+        Duration: =10
+        Height: =70
+        HoverBorderColor: =ColorFade(Timer3_1.BorderColor, 20%)
+        OnTimerEnd: =Set(varHide, false)
+        OnTimerStart: |-
+            =UpdateContext({varQuestion: !varQuestion})
+        PressedBorderColor: =Timer3_1.Fill
+        PressedColor: =Timer3_1.Fill
+        PressedFill: =Timer3_1.Color
+        Start: =!varTimerHome
+        Visible: =false
+        Width: =280
+        X: =60
+        Y: =551
+        ZIndex: =10
+
