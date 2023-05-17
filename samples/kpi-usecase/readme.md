@@ -1,19 +1,15 @@
 # If Value/Text Color Conditions - KPI Usecase
 
-
 ## Summary
 
-Short summary on functionality and used technologies.
-
-This PowerFX example shows how to leverage an IF statement, against Text or Values on the Fill property of a text label.
-This can of course be used for conditional fonts, font weight, combining with dynamic variables and many more.
+This PowerFX example shows how to leverage an IF statement, against Text or Values on the Fill property of a text label. This can of course be used for conditional fonts, font weight, combining with dynamic variables and many more.
 
 ![KPI Values in a condition](assets/screenshotkpivalues.png)
 
-* [If](#If)
-* [Value](#Value)
-* [Text](#Text)
-* [Color](#Color)
+* [If](#if)
+* [Value](#value)
+* [Text](#text)
+* [Color](#color)
 
 ## Applies to
 
@@ -27,7 +23,7 @@ This can of course be used for conditional fonts, font weight, combining with dy
 
 Solution|Author(s)
 --------|---------
-Ifcolorconditions-function | [Author Name](Nathalie-:eenders) ([@NathLeenders](https://twitter.com/yourtwitterhandle))
+If Value/Text Color Conditions - KPI Usecase | [Nathalie Leenders](https://github.com/Nathalie-Leenders) ([@NathLeenders](https://twitter.com/NathLeenders))
 
 ## Version history
 
@@ -35,24 +31,28 @@ Version|Date|Comments
 -------|----|--------
 1.0|March 30, 2023|Initial release
 
-
 ## Prerequisites
 
-No pre requisities needed for this app.
+No prerequisites needed for this app.
 
 ## Minimal Path to Awesome
 
-* [Download](solution\KPIUsecases.msapp) the `.msapp` from the `solution` folder
-* Use the `.msapp` file using **File** > **Open** > **Browse** within Power Apps Studio.
-
+* [Download](./solution/solution.zip) the `.zip` from the `solution` folder
+* Within **Power Apps Studio**, import the solution `.zip` file using **Solutions** > **Import Solution** and select the `.zip` file you just packed.
 
 ## Using the Source Code
 
-  You can also use the [Power Apps Source Code tool](https://github.com/microsoft/PowerApps-Language-Tooling) to the code using these steps:
+You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/developer/data-platform/powerapps-cli) to pack the source code by following these steps::
+
 * Clone the repository to a local drive
-* Pack the source files back into `.msapp` file:
-  * [Power Apps Tooling Usage](https://github.com/microsoft/PowerApps-Language-Tooling)
-* Use the `.msapp` file using **File** > **Open** > **Browse** in Power Apps Studio.
+* Pack the source files back into a solution `.zip` file:
+
+  ```bash
+  pac solution pack --zipfile pathtodestinationfile --folder pathtosourcefolder --processCanvasApps
+  ```
+
+  Making sure to replace `pathtosourcefolder` to point to the path to this sample's `sourcecode` folder, and `pathtodestinationfile` to point to the path of this solution's `.zip` file (located under the `solution` folder)
+* Within **Power Apps Studio**, import the solution `.zip` file using **Solutions** > **Import Solution** and select the `.zip` file you just packed.
 
 ## Features
 
@@ -64,10 +64,7 @@ This sample illustrates the following Power Fx concepts:
 * Text function
 * Using "" for string/text wrapping
 
-
-
 ## Functions
-
 
 ### [Color]
 
@@ -87,11 +84,9 @@ Recognise the parameter as values (to use for currency, numbers, or converting o
 
 #### Syntax
 
-
 ```excel
 If(Value('KPI Value 1 Text 1'.Text)<20,Color.Green,Color.Red)
 ```
-
 
 Parameter | Description | Required | Type
 ---|---|---|--
@@ -103,7 +98,6 @@ If the value is less than 20, make green, otherwise make red.
 
 #### Syntax
 
-
 ```excel
 If(Value('KPI Value Text 2'.Text)<20,Color.Green,If(Value('KPI Value Text 2'.Text) >=20  And Value('KPI Value Text 2'.Text) <=40, Color.Orange,Color.Red))
 ```
@@ -112,30 +106,23 @@ Parameter | Description | Required | Type
 ---|---|---|--
 KPI Value Text 2'.Text |Text label holding the value| Yes | Value
 
-
 #### Output
 
 If the value is below 20, make green. Between 20 and 39, make orange. 40 equal and larger make red.
 
-
 #### Syntax
-
 
 ```excel
 If(Text('KPI Text.Text) =Resolved within same day,Color.Green,Color.Red)
 ```
 
-
 Parameter | Description | Required | Type
 ---|---|---|--
 KPI Text.Text |Text label holding the text| Yes | Text
 
-
-
 #### Output
 
 This function enables colors based on whether it's Resolved within same day. It's hardcoded to this text, but you can use variables.
-
 
 ## Disclaimer
 
@@ -147,10 +134,10 @@ This function enables colors based on whether it's Resolved within same day. It'
 
 We do not support samples, but we this community is always willing to help, and we want to improve these samples. We use GitHub to track issues, which makes it easy for  community members to volunteer their time and help resolve issues.
 
-If you encounter any issues while using this sample, [create a new issue](https://github.com/pnp/powerfx-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=YOUR-SOLUTION-NAME&authors=@YOURGITHUBUSERNAME&title=YOUR-SOLUTION-NAME%20-%20).
+If you encounter any issues while using this sample, [create a new issue](https://github.com/pnp/powerfx-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=kpi-usecase&authors=@Nathalie-Leenders&title=kpi-usecase%20-%20).
 
-For questions regarding this sample, [create a new question](https://github.com/pnp/powerfx-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=YOUR-SOLUTION-NAME&authors=@YOURGITHUBUSERNAME&title=YOUR-SOLUTION-NAME%20-%20).
+For questions regarding this sample, [create a new question](https://github.com/pnp/powerfx-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=kpi-usecase&authors=@Nathalie-Leenders&title=kpi-usecase%20-%20).
 
-Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerfx-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=YOUR-SOLUTION-NAME&authors=@YOURGITHUBUSERNAME&title=YOUR-SOLUTION-NAME%20-%20).
+Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerfx-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=kpi-usecase&authors=@Nathalie-Leenders&title=kpi-usecase%20-%20).
 
-<img src="https://telemetry.sharepointpnp.com/powerfx-samples/samples/readme-template" />
+<img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/readme-template" />
