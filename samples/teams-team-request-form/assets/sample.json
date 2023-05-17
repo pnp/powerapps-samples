@@ -1,0 +1,81 @@
+[
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-teams-team-request-form",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2023-05-17T00:00:00.000Z",
+    "updateDateTime": "2023-05-17T00:00:00.000Z",
+    "title": "Teams team Request Form",
+    "shortDescription": "This sample helps standardize the process of creating teams, especially for enterprise companies with limited user permissions to create Microsoft Teams teams.",
+    "longDescription": [
+      "This sample helps standardize the process of creating teams, especially for enterprise companies with limited user permissions to create Microsoft Teams teams."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/teams-team-request-form",
+    "products": [
+      "Power Apps",
+      "Power Automate",
+      "Power Platform"
+    ],
+    "tags": [
+      "TEAMS"
+    ],
+    "categories": [
+      "POWERAPPS",
+      "POWER-AUTOMATE"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/teams-team-request-form/assets/Teams-team-request-form.gif?raw=true",
+        "alt": "Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "Katerina-Chernevskaya",
+        "name": "Katerina Chernevskaya",
+        "pictureUrl": "https://github.com/Katerina-Chernevskaya.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  }
+]

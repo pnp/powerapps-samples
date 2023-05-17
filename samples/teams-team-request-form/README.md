@@ -45,7 +45,7 @@ This sample illustrates the following concepts:
 ## Prerequisites
 
 * If your tenant has restrictions on creating teams in Microsoft Teams for users, you must have an Azure AD Premium license and be a member of the security group whose members are allowed to create teams. Please follow [this](https://learn.microsoft.com/en-us/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide) guide to assign the license and configure the group.
-* A team in Microsoft Teams where the sample will be installed. Provision the Dataverse for Teams in this team in advance. 
+* A team in Microsoft Teams where the sample will be installed. Provision the Dataverse for Teams in this team in advance.
 *Please note that members of this group will be able to submit request for the new team creation and these requests will be completed automatically by the Power Automate flow (the part of the solution).*
 * A SharePoint list created in the SharePoint site for the team mentioned above. Please see details about columns below.
 
@@ -62,14 +62,13 @@ The following solution components are used in this sample:
 * SharePoint Connection (Connection Reference)
 ![Solution Overview](assets/SolutionOverview.png)
 
-
 ### MySample List
 
 This SharePoint list contains stores request's information and uses in the cloud flow.
 Set the list up as follows:
 
 * Go to the SharePoint site created for your Microsoft Teams' team.
-* On the `Home` page click `New`, select `List` in the dropdown menu and on the pop-up window choose `Blank list`. 
+* On the `Home` page click `New`, select `List` in the dropdown menu and on the pop-up window choose `Blank list`.
 ![SampleList Step1](assets/SampleList_Step1.png)
 * Type the name for your new list: `TeamsRequest`
 * Add 9 columns to your list:
@@ -136,16 +135,15 @@ Once all steps will be completed users will be able to use this app to submit re
 
 We do not support samples, but we this community is always willing to help, and we want to improve these samples. We use GitHub to track issues, which makes it easy for  community members to volunteer their time and help resolve issues.
 
-If you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+If you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=teams-team-request-form&authors=@Katerina-Chernevskaya&title=teams-team-request-form%20-%20).
 
-For questions regarding this sample, [create a new question](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+For questions regarding this sample, [create a new question](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=teams-team-request-form&authors=@Katerina-Chernevskaya&title=teams-team-request-form%20-%20).
 
-Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerapps-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=teams-team-request-form&authors=@Katerina-Chernevskaya&title=teams-team-request-form%20-%20).
 
 ## For more information
 
-- [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
-- [Power Apps canvas apps documentation](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/)
-
+* [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
+* [Power Apps canvas apps documentation](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/)
 
 <img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/readme-template" />
