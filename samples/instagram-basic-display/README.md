@@ -31,7 +31,7 @@ This uses the **Instagram Basic Display (IndependentPublisher)** connector to re
 ## Compatibility
 
 ![Power Apps Source File Pack and Unpack Utility 0.20](https://img.shields.io/badge/Packing%20Tool-0.20-green.svg)
-![Premium License](https://img.shields.io/badge/Premium%20License-Not%20Required-green.svg "Premium Power Apps license not required")
+![Premium License](https://img.shields.io/badge/Premium%20License-Required-red.svg "Premium Power Apps license required")
 ![Experimental Features](https://img.shields.io/badge/Experimental%20Features-No-green.svg "Does not rely on experimental features")
 ![On-Premises Connectors](https://img.shields.io/badge/On--Premises%20Connectors-No-green.svg "Does not use on-premise connectors")
 ![Custom Connectors](https://img.shields.io/badge/Custom%20Connectors-Not%20Required-green.svg "Does not use custom connectors")
@@ -123,7 +123,7 @@ There is also a limit on the number of calls done daily.
 
 ## Minimal Path to Awesome
 
-* [Download](./solution/InstagramBasicDisplay_1_0_0_2.zip) the `.zip` from the `solution` folder
+* [Download](./solution/solution.zip) the `.zip` from the `solution` folder
 * Within **Power Apps Studio**, import the solution `.zip` file using **Solutions** > **Import Solution** and select the `.zip` file you just packed.
 * Open the app in edit mode and make sure the data source **InstagramBasicDisplay** is connected correctly.
 
