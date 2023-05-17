@@ -1,0 +1,79 @@
+[
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "employee-survey-modern-control",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2023-04-18T00:00:00.000Z",
+    "updateDateTime": "2023-04-18T00:00:00.000Z",
+    "title": "Employee Engagement Survey - Modern Controls",
+    "shortDescription": "This is a an App like 'Employee Engagement Survey' app's sample by Microsoft (you can create it by 'Start from template' section when you creating new Power App) but this one using (when possible) modern controls.",
+    "longDescription": [
+      "This is a an App like 'Employee Engagement Survey' app's sample by Microsoft (you can create it by 'Start from template' section when you creating new Power App) but this one using (when possible) modern controls. These new controls (In Preview) are based on Fluent UI and you can use it to build application with professional UI."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/employee-survey-modern-control",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "Power Apps","Power Platform"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/raw/main/samples/employee-survey-modern-control/assets/employee-survey-modern-controls.gif?raw=true",
+        "alt": "Animated GIF of the solution"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "angelogulisano",
+        "name": "Angelo Gulisano",
+        "pictureUrl": "https://github.com/angelogulisano.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Modern controls coming to canvas apps",
+        "description": "Modern controls coming to canvas apps.",
+        "url": "https://powerapps.microsoft.com/en-us/blog/modern-controls-coming-to-canvas-apps/"
+      },
+      {
+        "name": "Blog about modern controls",
+        "description": "Blog about modern controls.",
+        "url": "https://angelogulisano.com/power-apps-modern-controls/"
+      }
+    ]
+  }
+]
