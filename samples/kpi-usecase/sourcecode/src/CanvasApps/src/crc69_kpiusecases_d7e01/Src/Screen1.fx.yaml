@@ -1,0 +1,242 @@
+Screen1 As screen:
+
+    Header As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =15
+
+        Headerbar As button:
+            Fill: =RGBA(56, 96, 178, 0.5)
+            Height: =69
+            Text: =""
+            Width: =1366
+            ZIndex: =1
+
+        HeaderText As label:
+            Align: =Align.Center
+            Size: =25
+            Text: ="Colors based on Values or text - KPI Edition"
+            Width: =1366
+            Y: =15
+            ZIndex: =7
+
+    KPI2 As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =27
+
+        "'Sales per month text 2' As label":
+            Text: ="Sales per month"
+            X: =40
+            Y: =249
+            ZIndex: =8
+
+        "'KPI Below 20 text 2' As label":
+            Text: ="KPI Below 20 - OK"
+            Width: =248
+            X: =219
+            Y: =249
+            ZIndex: =9
+
+        "'KPI Middle text 2' As label":
+            Text: ="KPI between 20 and 40"
+            Width: =248
+            X: =219
+            Y: =328
+            ZIndex: =10
+
+        "'KPI Value Text 2' As label":
+            Align: =Align.Center
+            Color: =Color.White
+            Fill: =If(Value('KPI Value Text 2'.Text)<20,Color.Green,If(Value('KPI Value Text 2'.Text) >=20  And Value('KPI Value Text 2'.Text) <=40, Color.Orange,Color.Red))
+            FontWeight: =FontWeight.Lighter
+            Text: ="4"
+            Width: =248
+            X: =512
+            Y: =249
+            ZIndex: =11
+
+        "'KPI Value 2 text 2' As label":
+            Align: =Align.Center
+            Color: =Color.White
+            Fill: =If(Value('KPI Value 2 text 2'.Text)<20,Color.Green,If(Value('KPI Value 2 text 2'.Text) >=20  And Value('KPI Value 2 text 2'.Text) <=40, Color.Orange,Color.Red))
+            FontWeight: =FontWeight.Lighter
+            Text: |-
+                ="32
+                "
+            Width: =248
+            X: =512
+            Y: =328
+            ZIndex: =12
+
+        "'KPI Above 40 text 2' As label":
+            Text: ="KPI above 40"
+            Width: =248
+            X: =219
+            Y: =420
+            ZIndex: =13
+
+        "'KPI Value 3 text 2' As label":
+            Align: =Align.Center
+            Color: =Color.White
+            Fill: =If(Value('KPI Value 3 text 2'.Text)<20,Color.Green,If(Value('KPI Value 3 text 2'.Text) >=20  And Value('KPI Value 3 text 2'.Text) <=40, Color.Orange,Color.Red))
+            FontWeight: =FontWeight.Lighter
+            Text: |-
+                ="64
+                "
+            Width: =248
+            X: =512
+            Y: =420
+            ZIndex: =14
+
+        Label5 As label:
+            Height: =82
+            Text: ="If(Value('KPI Value Text 2'.Text)<20,Color.Green,If(Value('KPI Value Text 2'.Text) >=20  And Value('KPI Value Text 2'.Text) <=40, Color.Orange,Color.Red))"
+            Width: =557
+            X: =792
+            Y: =235
+            ZIndex: =17
+
+        Label5_1 As label:
+            Height: =72
+            Text: ="If(Value('KPI Value 2 text 2'.Text)<20,Color.Green,If(Value('KPI Value 2 text 2'.Text) >=20  And Value('KPI Value 2 text 2'.Text) <=40, Color.Orange,Color.Red))"
+            Width: =544
+            X: =792
+            Y: =320
+            ZIndex: =18
+
+        Label6 As label:
+            Height: =91
+            Text: ="If(Value('KPI Value 3 text 2'.Text)<20,Color.Green,If(Value('KPI Value 3 text 2'.Text) >=20  And Value('KPI Value 3 text 2'.Text) <=40, Color.Orange,Color.Red))"
+            Width: =524
+            X: =792
+            Y: =408
+            ZIndex: =19
+
+    KPI1 As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =27
+
+        "'Sales per month text' As label":
+            Text: ="Sales per month"
+            X: =40
+            Y: =111
+            ZIndex: =2
+
+        "'KPI Below 20 text 1' As label":
+            Text: ="KPI Below 20 - OK"
+            Width: =248
+            X: =219
+            Y: =111
+            ZIndex: =3
+
+        "'KPI above 20 Text 1' As label":
+            Text: ="KPI Above 20 - Not OK"
+            Width: =248
+            X: =219
+            Y: =170
+            ZIndex: =4
+
+        "'KPI Value 1 Text 1' As label":
+            Align: =Align.Center
+            Color: =Color.White
+            Fill: =If(Value('KPI Value 1 Text 1'.Text)<20,Color.Green,Color.Red)
+            FontWeight: =FontWeight.Lighter
+            Text: ="4"
+            Width: =248
+            X: =512
+            Y: =111
+            ZIndex: =5
+
+        "'KPI Value 2 Text 1' As label":
+            Align: =Align.Center
+            Color: =Color.White
+            Fill: =If(Value('KPI Value 2 Text 1'.Text)<20,Color.Green,Color.Red)
+            FontWeight: =FontWeight.Lighter
+            Text: |-
+                ="32
+                "
+            Width: =248
+            X: =512
+            Y: =170
+            ZIndex: =6
+
+        Label3 As label:
+            Text: ="If(Value('KPI Value 2 Text 1'.Text)<20,Color.Green,Color.Red)"
+            Width: =280
+            X: =792
+            Y: =170
+            ZIndex: =15
+
+        Label4 As label:
+            Text: ="If(Value('KPI Value 1 Text 1'.Text)<20,Color.Green,Color.Red)"
+            Width: =313
+            X: =792
+            Y: =111
+            ZIndex: =16
+
+    "'Text Example group' As group":
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =27
+
+        "'Sales per month text_3' As label":
+            Text: ="Sales per month"
+            X: =40
+            Y: =647
+            ZIndex: =20
+
+        "'KPI Text3-Text1' As label":
+            Text: ="KPI Resolved same day?"
+            Width: =248
+            X: =219
+            Y: =647
+            ZIndex: =21
+
+        "'KPI Text 3-1' As label":
+            Align: =Align.Center
+            Color: =Color.White
+            Fill: =If(Text('KPI Text 3-1'.Text) ="Resolved within same day",Color.Green,Color.Red)
+            FontWeight: =FontWeight.Lighter
+            Text: ="Resolved within same day"
+            Width: =267
+            X: =512
+            Y: =618
+            ZIndex: =23
+
+        "'KPI Text 3-2' As label":
+            Align: =Align.Center
+            Color: =Color.White
+            Fill: =If(Text('KPI Text 3-2'.Text) ="Resolved within same day",Color.Green,Color.Red)
+            FontWeight: =FontWeight.Lighter
+            Text: ="Not resolved with the same day"
+            Width: =267
+            X: =512
+            Y: =677
+            ZIndex: =24
+
+        Label7 As label:
+            Text: ="If(Text('KPI Text.Text) =Resolved within same day,Color.Green,Color.Red)"
+            Width: =529
+            X: =807
+            Y: =647
+            ZIndex: =25
+
+        TextPortionLabel As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Semibold
+            Text: ="Make sure to wrap your Text in "" front and back otherwise it wont see it as a string"
+            Width: =726
+            X: =282
+            Y: =553
+            ZIndex: =26
+
