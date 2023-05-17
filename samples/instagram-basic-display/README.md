@@ -16,7 +16,6 @@ level: beginner
 ms.prod: power-apps
 ---
 
-
 # Instagram Basic Display canvas app
 
 ## Summary
@@ -41,7 +40,7 @@ This uses the **Instagram Basic Display (IndependentPublisher)** connector to re
 
 Solution|Author(s)
 --------|---------
-Instagram Basic Display | [Reshmee Auckloo](https://github.com/reshmee011) 
+Instagram Basic Display | [Reshmee Auckloo](https://github.com/reshmee011)
 
 ## Version history
 
@@ -53,7 +52,7 @@ Version|Date|Comments
 
 This uses **Instagram Basic Display (IndependentPublisher)** connector to display a combination of media images and videos in a gallery from Instagram.
 
-The UI consists of a gallery with swiping effect achieved using the slider trick mentioned in [How to build a curved gallery in Power Apps](https://www.m365princess.com/blogs/build-curved-gallery-power-apps/) by Luise Freese. 
+The UI consists of a gallery with swiping effect achieved using the slider trick mentioned in [How to build a curved gallery in Power Apps](https://www.m365princess.com/blogs/build-curved-gallery-power-apps/) by Luise Freese.
 
 ## Prerequisites
 
@@ -114,9 +113,9 @@ You must then enter this access token in the connector to get the instagram feed
 ![Access Token](assets/AccessToken.png)
 
 ## Known Limitations
+
 Instagram Basic API only allows access to basic data such as user profiles and photos. It does not provide access to more advanced features such as direct messaging, insights, and analytics.
 There is also a limit on the number of calls done daily.
-
 
 ## Data Sources
 
@@ -134,12 +133,13 @@ You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/devel
 
 * Clone the repository to a local drive
 * Pack the source files back into a solution `.zip` file:
+
   ```bash
   pac solution pack --zipfile pathtodestinationfile --folder pathtosourcefolder --processCanvasApps
   ```
+
   Making sure to replace `pathtosourcefolder` to point to the path to this sample's `sourcecode` folder, and `pathtodestinationfile` to point to the path of this solution's `.zip` file (located under the `solution` folder)
 * Within **Power Apps Studio**, import the solution `.zip` file using **Solutions** > **Import Solution** and select the `.zip` file you just packed.
-
 
 ## Disclaimer
 
