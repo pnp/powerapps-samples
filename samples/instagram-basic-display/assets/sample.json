@@ -1,0 +1,74 @@
+[
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-instagram-basic-display",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2023-05-17T00:00:00.000Z",
+    "updateDateTime": "2023-05-17T00:00:00.000Z",
+    "title": "Instagram Basic Display",
+    "shortDescription": "Power App that shows how to use the Instagram Basic Display connector",
+    "longDescription": [
+      "This app shows how to use the Instagram Basic Display connector in Power Apps"
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/instagram-basic-display",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "Power Apps"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "Yes"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/instagram-basic-display/assets/Preview.png?raw=true",
+        "alt": "Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "reshmee011",
+        "name": "Reshmee Auckloo",
+        "pictureUrl": "https://github.com/reshmee011.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Instagram Basic Display connector",
+        "description": "Documentation page of the Instagram Basic Display connector.",
+        "url": "https://learn.microsoft.com/en-us/connectors/instagrambasicdispip/"
+      }
+    ]
+  }
+]
