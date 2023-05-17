@@ -1,0 +1,5 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =Set(colPosts,'InstagramBasicDisplay(IndependentPublisher)'.GetMyMedia({fields:"media_type,media_url,caption,permalink"}));
+

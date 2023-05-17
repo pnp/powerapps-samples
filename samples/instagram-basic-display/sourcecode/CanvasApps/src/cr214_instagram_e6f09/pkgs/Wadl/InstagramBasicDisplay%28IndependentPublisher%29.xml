@@ -1,0 +1,132 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://uk-001.azure-apim.net/apim/instagrambasicdispip" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="InstagramBasicDisplay(IndependentPublisher)" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="Instagram Basic Display (Independent Publisher)">The Instagram Basic Display connector allows users of your app to get basic profile information, photos, and videos in their Instagram accounts. The API is intended for non-Business and non-Creator Instagram users.</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://uk-001.azure-apim.net/apim/instagrambasicdispip" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="GetMyMedia_responses_200_def_data_def_items_def_media_type_def" />
+      <string name="GetMyMedia_responses_200_def_data_def_items_def_media_url_def" />
+      <string name="GetMyMedia_responses_200_def_data_def_items_def_permalink_def" />
+      <string name="GetMyMedia_responses_200_def_data_def_items_def_id_def" />
+      <string name="GetMyMedia_responses_200_def_data_def_items_def_username_def" />
+      <string name="GetMyMedia_responses_200_def_data_def_items_def_timestamp_def" />
+      <string name="GetMyMedia_responses_200_def_data_def_items_def_caption_def" />
+      <object name="GetMyMedia_responses_200_def_data_def_items_def">
+        <property name="media_type" type="string" />
+        <property name="media_url" type="string" />
+        <property name="permalink" type="string" />
+        <property name="id" type="string" />
+        <property name="username" type="string" />
+        <property name="timestamp" type="string" />
+        <property name="caption" type="string" />
+      </object>
+      <array typeRef="GetMyMedia_responses_200_def_data_def_items_def" name="GetMyMedia_responses_200_def_data_def" />
+      <string name="GetMyMedia_responses_200_def_paging_def_cursors_def_before_def" />
+      <string name="GetMyMedia_responses_200_def_paging_def_cursors_def_after_def" />
+      <object name="GetMyMedia_responses_200_def_paging_def_cursors_def">
+        <property name="before" type="string" />
+        <property name="after" type="string" />
+      </object>
+      <object name="GetMyMedia_responses_200_def_paging_def">
+        <property name="cursors" typeRef="GetMyMedia_responses_200_def_paging_def_cursors_def" />
+      </object>
+      <object name="GetMyMedia_responses_200_def">
+        <property name="data" typeRef="GetMyMedia_responses_200_def_data_def" />
+        <property name="paging" typeRef="GetMyMedia_responses_200_def_paging_def" />
+      </object>
+      <string name="GetMyDetails_responses_200_def_username_def" />
+      <integer name="GetMyDetails_responses_200_def_media_count_def" />
+      <string name="GetMyDetails_responses_200_def_account_type_def" />
+      <string name="GetMyDetails_responses_200_def_id_def" />
+      <object name="GetMyDetails_responses_200_def">
+        <property name="username" type="string" />
+        <property name="media_count" type="integer" />
+        <property name="account_type" type="string" />
+        <property name="id" type="string" />
+      </object>
+      <string name="GetMediaDetails_responses_200_def_data_def_items_def_media_type_def" />
+      <string name="GetMediaDetails_responses_200_def_data_def_items_def_media_url_def" />
+      <string name="GetMediaDetails_responses_200_def_data_def_items_def_permalink_def" />
+      <string name="GetMediaDetails_responses_200_def_data_def_items_def_username_def" />
+      <string name="GetMediaDetails_responses_200_def_data_def_items_def_timestamp_def" />
+      <string name="GetMediaDetails_responses_200_def_data_def_items_def_id_def" />
+      <string name="GetMediaDetails_responses_200_def_data_def_items_def_caption_def" />
+      <object name="GetMediaDetails_responses_200_def_data_def_items_def">
+        <property name="media_type" type="string" />
+        <property name="media_url" type="string" />
+        <property name="permalink" type="string" />
+        <property name="username" type="string" />
+        <property name="timestamp" type="string" />
+        <property name="id" type="string" />
+        <property name="caption" type="string" />
+      </object>
+      <array typeRef="GetMediaDetails_responses_200_def_data_def_items_def" name="GetMediaDetails_responses_200_def_data_def" />
+      <string name="GetMediaDetails_responses_200_def_paging_def_cursors_def_before_def" />
+      <string name="GetMediaDetails_responses_200_def_paging_def_cursors_def_after_def" />
+      <object name="GetMediaDetails_responses_200_def_paging_def_cursors_def">
+        <property name="before" type="string" />
+        <property name="after" type="string" />
+      </object>
+      <object name="GetMediaDetails_responses_200_def_paging_def">
+        <property name="cursors" typeRef="GetMediaDetails_responses_200_def_paging_def_cursors_def" />
+      </object>
+      <object name="GetMediaDetails_responses_200_def">
+        <property name="data" typeRef="GetMediaDetails_responses_200_def_data_def" />
+        <property name="paging" typeRef="GetMediaDetails_responses_200_def_paging_def" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://uk-001.azure-apim.net/apim/instagrambasicdispip">
+    <resource path="/{connectionId}/me/media">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetMyMedia" actionName="GetMyMedia" siena:isDeprecated="false">
+        <doc title="Get my Media&#xA;Retrieves a list of media items posted by the authenticated user and additional fields like media_type, media_url, caption, permalink and timestamp of each item can be specified." />
+        <request>
+          <param style="query" name="fields" type="xs:string" default="caption,media_type,media_url,permalink,timestamp,username">
+            <doc title="Specify the fields you want returned. Example (caption,media_type,media_url,permalink,timestamp,username)." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:GetMyMedia_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/me">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetMyDetails" actionName="GetMyDetails" siena:isDeprecated="false">
+        <doc title="Get My Details&#xA;Retrieves information about the authenticated user. By default it retrieves the Id and other details like username,  media_count and account_type can be returned by requesting them via the fields parameter." />
+        <request>
+          <param style="query" name="fields" type="xs:string" default="id,media_count,username,account_type">
+            <doc title="Specify the fields you want returned. Example (id,media_count,username,account_type)." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:GetMyDetails_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/{media-id}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="media-id" type="xs:string" required="true">
+        <doc title="A valid media id of the post." />
+      </param>
+      <method siena:requiresAuthentication="true" name="GET" id="GetMediaDetails" actionName="GetMediaDetails" siena:isDeprecated="false">
+        <doc title="Get Media Details&#xA;Retrieves media details posted by the authenticated user and additional fields like media_type, media_url, caption and permalink can be specified." />
+        <request>
+          <param style="query" name="fields" type="xs:string" default="caption,media_type,media_url,permalink,timestamp,username">
+            <doc title="Specify the fields you want returned. Example (caption,media_type,media_url,permalink,timestamp,username)." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:GetMediaDetails_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_instagrambasicdispip" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>

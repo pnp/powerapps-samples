@@ -1,0 +1,65 @@
+scrMain As screen:
+    Fill: =Color.Black
+
+    Slider1 As slider:
+        BorderColor: =Color.Transparent
+        Default: =
+        HandleFill: =Color.Transparent
+        HandleHoverFill: =Color.Transparent
+        HandleSize: =galInsta.TemplateHeight
+        Height: =657
+        Max: =galInsta.Width-galInsta.TemplateWidth
+        Min: =(galInsta.TemplateWidth*CountRows(galInsta.AllItems)-galInsta.Width-galInsta.TemplateWidth)*-1
+        PressedBorderColor: =Color.Transparent
+        RailFill: =Color.Transparent
+        RailHoverFill: =Color.Transparent
+        ShowValue: =false
+        ValueFill: =RGBA(0, 0, 0, 0)
+        Width: =galInsta.Width
+        X: =galInsta.X
+        Y: =40
+        ZIndex: =1
+
+    "galInsta As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver4.0'":
+        DelayItemLoading: =true
+        Height: =331
+        Items: =colPosts.data
+        LoadingSpinner: =LoadingSpinner.Data
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =341
+        Width: =1366
+        Y: =189
+        ZIndex: =2
+
+        img As image:
+            Height: =296
+            Image: =ThisItem.media_url
+            OnSelect: =Launch(ThisItem.permalink)
+            Visible: =If(ThisItem.media_type="VIDEO",false,true)
+            Width: =Parent.TemplateWidth - 32
+            X: =32
+            Y: =16
+            ZIndex: =1
+
+        btnImag As button:
+            Color: =Color.Black
+            Fill: =RGBA(255, 255, 255, 0.8)
+            Height: =65
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.caption
+            Visible: =If(IsBlank(ThisItem.caption),false,true)
+            Width: =img.Width
+            X: =img.X
+            Y: =246
+            ZIndex: =3
+
+        vd As videoPlayback:
+            Height: =296
+            Media: =ThisItem.media_url
+            Tooltip: ="ThisItem.caption"
+            Visible: =If(ThisItem.media_type="VIDEO",true,false)
+            Width: =Parent.TemplateWidth - 32
+            X: =32
+            ZIndex: =4
+
