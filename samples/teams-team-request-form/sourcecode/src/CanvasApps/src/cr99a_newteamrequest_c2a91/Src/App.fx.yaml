@@ -1,0 +1,41 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =ClearCollect(
+            Timeline,
+            Table(
+                {
+                    Step: "1",
+                    Name: "General information",
+                    Description: "Provide name and description"
+                },
+                {
+                    Step: "2",
+                    Name: "Members",
+                    Description: "Select mambers to add"
+                },
+                {
+                    Step: "3",
+                    Name: "Welcome message",
+                    Description: "Write a welcome message"
+                },
+                {
+                    Step: "4",
+                    Name: "Channels",
+                    Description: "Describe channels to create"
+                }
+            )
+        );
+        
+        Set(
+            _created,
+            "created by Katerina Chernevskaya | 2023 | v. 1.3"
+        )
+
+    Teams As hostControl.TeamsHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

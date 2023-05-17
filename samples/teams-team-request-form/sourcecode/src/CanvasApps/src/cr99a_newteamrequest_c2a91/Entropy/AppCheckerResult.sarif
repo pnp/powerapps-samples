@@ -1,0 +1,1126 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.4.json",
+  "runs": [
+    {
+      "columnKind": "utf16CodeUnits",
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "results": [
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Step 1 Screen'.'Step 1 - Screen Container'.'Step 1 - Form Container'.'Step 1 - Timeline Container'.'Step 1 - Timeline Gallery'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Step 1 Screen'.'Step 1 - Screen Container'.'Step 1 - Form Container'.'Step 1 - Timeline Container'.'Step 1 - Timeline Gallery'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Step 1 Screen",
+                "type": "'Step 1 Screen'.'Step 1 - Screen Container'.'Step 1 - Form Container'.'Step 1 - Timeline Container'.'Step 1 - Timeline Gallery'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Step 1 Screen'.'Step 1 - Screen Container'.'Step 1 - Form Container'.'Step 1 - Timeline Container'.'Step 1 - Timeline Gallery'.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Step 1 Screen'.'Step 1 - Screen Container'.'Step 1 - Form Container'.'Step 1 - Timeline Container'.'Step 1 - Timeline Gallery'.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Step 1 Screen",
+                "type": "'Step 1 Screen'.'Step 1 - Screen Container'.'Step 1 - Form Container'.'Step 1 - Timeline Container'.'Step 1 - Timeline Gallery'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Step 1 Screen'.'Step 1 - Screen Container'.'Step 1 - Form Container'.'Step 1 - Fields Container'.'Step 1 - Team Name TextBox'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Step 1 Screen'.'Step 1 - Screen Container'.'Step 1 - Form Container'.'Step 1 - Fields Container'.'Step 1 - Team Name TextBox'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Step 1 Screen",
+                "type": "'Step 1 Screen'.'Step 1 - Screen Container'.'Step 1 - Form Container'.'Step 1 - Fields Container'.'Step 1 - Team Name TextBox'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Step 1 Screen'.'Step 1 - Screen Container'.'Step 1 - Form Container'.'Step 1 - Fields Container'.'Step 1 - Team Description TextBox'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Step 1 Screen'.'Step 1 - Screen Container'.'Step 1 - Form Container'.'Step 1 - Fields Container'.'Step 1 - Team Description TextBox'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Step 1 Screen",
+                "type": "'Step 1 Screen'.'Step 1 - Screen Container'.'Step 1 - Form Container'.'Step 1 - Fields Container'.'Step 1 - Team Description TextBox'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Step 1 Screen'.'Step 1 - Screen Container'.'Step 1 - Form Container'.'Step 1 - Fields Container'.'Step 1 - Team Kind RadioGroup'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Step 1 Screen'.'Step 1 - Screen Container'.'Step 1 - Form Container'.'Step 1 - Fields Container'.'Step 1 - Team Kind RadioGroup'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Step 1 Screen",
+                "type": "'Step 1 Screen'.'Step 1 - Screen Container'.'Step 1 - Form Container'.'Step 1 - Fields Container'.'Step 1 - Team Kind RadioGroup'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Step 1 Screen'.'Step 1 - Screen Container'.'Step 1 - Form Container'.'Step 1 - Fields Container'.'Step 1 - Prev Button'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Step 1 Screen'.'Step 1 - Screen Container'.'Step 1 - Form Container'.'Step 1 - Fields Container'.'Step 1 - Prev Button'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Step 1 Screen",
+                "type": "'Step 1 Screen'.'Step 1 - Screen Container'.'Step 1 - Form Container'.'Step 1 - Fields Container'.'Step 1 - Prev Button'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Step 1 Screen'.'Step 1 - Screen Container'.'Step 1 - Form Container'.'Step 1 - Fields Container'.'Step 1 - Next Button'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Step 1 Screen'.'Step 1 - Screen Container'.'Step 1 - Form Container'.'Step 1 - Fields Container'.'Step 1 - Next Button'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Step 1 Screen",
+                "type": "'Step 1 Screen'.'Step 1 - Screen Container'.'Step 1 - Form Container'.'Step 1 - Fields Container'.'Step 1 - Next Button'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Step 2 Screen'.'Step 2 - Screen Container'.'Step 2 - Form Container'.'Step 2 - Timeline Container'.'Step 2 - Timeline Gallery'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Step 2 Screen'.'Step 2 - Screen Container'.'Step 2 - Form Container'.'Step 2 - Timeline Container'.'Step 2 - Timeline Gallery'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Step 2 Screen",
+                "type": "'Step 2 Screen'.'Step 2 - Screen Container'.'Step 2 - Form Container'.'Step 2 - Timeline Container'.'Step 2 - Timeline Gallery'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Step 2 Screen'.'Step 2 - Screen Container'.'Step 2 - Form Container'.'Step 2 - Timeline Container'.'Step 2 - Timeline Gallery'.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Step 2 Screen'.'Step 2 - Screen Container'.'Step 2 - Form Container'.'Step 2 - Timeline Container'.'Step 2 - Timeline Gallery'.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Step 2 Screen",
+                "type": "'Step 2 Screen'.'Step 2 - Screen Container'.'Step 2 - Form Container'.'Step 2 - Timeline Container'.'Step 2 - Timeline Gallery'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Step 2 Screen'.'Step 2 - Screen Container'.'Step 2 - Form Container'.'Step 2 - Fields Container'.'Step 2 - Team Members ComboBox'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Step 2 Screen'.'Step 2 - Screen Container'.'Step 2 - Form Container'.'Step 2 - Fields Container'.'Step 2 - Team Members ComboBox'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Step 2 Screen",
+                "type": "'Step 2 Screen'.'Step 2 - Screen Container'.'Step 2 - Form Container'.'Step 2 - Fields Container'.'Step 2 - Team Members ComboBox'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Step 2 Screen'.'Step 2 - Screen Container'.'Step 2 - Form Container'.'Step 2 - Fields Container'.'Step 2 - Prev Button'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Step 2 Screen'.'Step 2 - Screen Container'.'Step 2 - Form Container'.'Step 2 - Fields Container'.'Step 2 - Prev Button'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Step 2 Screen",
+                "type": "'Step 2 Screen'.'Step 2 - Screen Container'.'Step 2 - Form Container'.'Step 2 - Fields Container'.'Step 2 - Prev Button'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Step 2 Screen'.'Step 2 - Screen Container'.'Step 2 - Form Container'.'Step 2 - Fields Container'.'Step 2 - Next Button'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Step 2 Screen'.'Step 2 - Screen Container'.'Step 2 - Form Container'.'Step 2 - Fields Container'.'Step 2 - Next Button'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Step 2 Screen",
+                "type": "'Step 2 Screen'.'Step 2 - Screen Container'.'Step 2 - Form Container'.'Step 2 - Fields Container'.'Step 2 - Next Button'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Step 4 Screen'.'Step 4 - Screen Container'.'Step 4 - Form Container'.'Step 4 - Timeline Container'.'Step 4 - Timeline Gallery'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Step 4 Screen'.'Step 4 - Screen Container'.'Step 4 - Form Container'.'Step 4 - Timeline Container'.'Step 4 - Timeline Gallery'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Step 4 Screen",
+                "type": "'Step 4 Screen'.'Step 4 - Screen Container'.'Step 4 - Form Container'.'Step 4 - Timeline Container'.'Step 4 - Timeline Gallery'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Step 4 Screen'.'Step 4 - Screen Container'.'Step 4 - Form Container'.'Step 4 - Timeline Container'.'Step 4 - Timeline Gallery'.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Step 4 Screen'.'Step 4 - Screen Container'.'Step 4 - Form Container'.'Step 4 - Timeline Container'.'Step 4 - Timeline Gallery'.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Step 4 Screen",
+                "type": "'Step 4 Screen'.'Step 4 - Screen Container'.'Step 4 - Form Container'.'Step 4 - Timeline Container'.'Step 4 - Timeline Gallery'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Step 4 Screen'.'Step 4 - Screen Container'.'Step 4 - Form Container'.'Step 4 - Fields Container'.'Step 4 - Channel 1 Name TextBox'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Step 4 Screen'.'Step 4 - Screen Container'.'Step 4 - Form Container'.'Step 4 - Fields Container'.'Step 4 - Channel 1 Name TextBox'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Step 4 Screen",
+                "type": "'Step 4 Screen'.'Step 4 - Screen Container'.'Step 4 - Form Container'.'Step 4 - Fields Container'.'Step 4 - Channel 1 Name TextBox'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Step 4 Screen'.'Step 4 - Screen Container'.'Step 4 - Form Container'.'Step 4 - Fields Container'.'Step 4 - Channel 2 Name TextBox'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Step 4 Screen'.'Step 4 - Screen Container'.'Step 4 - Form Container'.'Step 4 - Fields Container'.'Step 4 - Channel 2 Name TextBox'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Step 4 Screen",
+                "type": "'Step 4 Screen'.'Step 4 - Screen Container'.'Step 4 - Form Container'.'Step 4 - Fields Container'.'Step 4 - Channel 2 Name TextBox'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Step 4 Screen'.'Step 4 - Screen Container'.'Step 4 - Form Container'.'Step 4 - Fields Container'.'Step 4 - Channel 3 Name TextBox'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Step 4 Screen'.'Step 4 - Screen Container'.'Step 4 - Form Container'.'Step 4 - Fields Container'.'Step 4 - Channel 3 Name TextBox'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Step 4 Screen",
+                "type": "'Step 4 Screen'.'Step 4 - Screen Container'.'Step 4 - Form Container'.'Step 4 - Fields Container'.'Step 4 - Channel 3 Name TextBox'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Step 4 Screen'.'Step 4 - Screen Container'.'Step 4 - Form Container'.'Step 4 - Fields Container'.'Step 4 - Prev Button'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Step 4 Screen'.'Step 4 - Screen Container'.'Step 4 - Form Container'.'Step 4 - Fields Container'.'Step 4 - Prev Button'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Step 4 Screen",
+                "type": "'Step 4 Screen'.'Step 4 - Screen Container'.'Step 4 - Form Container'.'Step 4 - Fields Container'.'Step 4 - Prev Button'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Step 4 Screen'.'Step 4 - Screen Container'.'Step 4 - Form Container'.'Step 4 - Fields Container'.'Step 4 - Next Button'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Step 4 Screen'.'Step 4 - Screen Container'.'Step 4 - Form Container'.'Step 4 - Fields Container'.'Step 4 - Next Button'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Step 4 Screen",
+                "type": "'Step 4 Screen'.'Step 4 - Screen Container'.'Step 4 - Form Container'.'Step 4 - Fields Container'.'Step 4 - Next Button'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Step 3 Screen'.'Step 3 - Screen Container'.'Step 3 - Form Container'.'Step 3 - Timeline Container'.'Step 3 - Timeline Gallery'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Step 3 Screen'.'Step 3 - Screen Container'.'Step 3 - Form Container'.'Step 3 - Timeline Container'.'Step 3 - Timeline Gallery'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Step 3 Screen",
+                "type": "'Step 3 Screen'.'Step 3 - Screen Container'.'Step 3 - Form Container'.'Step 3 - Timeline Container'.'Step 3 - Timeline Gallery'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Step 3 Screen'.'Step 3 - Screen Container'.'Step 3 - Form Container'.'Step 3 - Timeline Container'.'Step 3 - Timeline Gallery'.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Step 3 Screen'.'Step 3 - Screen Container'.'Step 3 - Form Container'.'Step 3 - Timeline Container'.'Step 3 - Timeline Gallery'.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Step 3 Screen",
+                "type": "'Step 3 Screen'.'Step 3 - Screen Container'.'Step 3 - Form Container'.'Step 3 - Timeline Container'.'Step 3 - Timeline Gallery'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Step 3 Screen'.'Step 3 - Screen Container'.'Step 3 - Form Container'.'Step 3 - Fields Container'.'Step 3 - Welcome RichTextEditor'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Step 3 Screen'.'Step 3 - Screen Container'.'Step 3 - Form Container'.'Step 3 - Fields Container'.'Step 3 - Welcome RichTextEditor'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Step 3 Screen",
+                "type": "'Step 3 Screen'.'Step 3 - Screen Container'.'Step 3 - Form Container'.'Step 3 - Fields Container'.'Step 3 - Welcome RichTextEditor'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Step 3 Screen'.'Step 3 - Screen Container'.'Step 3 - Form Container'.'Step 3 - Fields Container'.'Step 3 - Prev Button'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Step 3 Screen'.'Step 3 - Screen Container'.'Step 3 - Form Container'.'Step 3 - Fields Container'.'Step 3 - Prev Button'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Step 3 Screen",
+                "type": "'Step 3 Screen'.'Step 3 - Screen Container'.'Step 3 - Form Container'.'Step 3 - Fields Container'.'Step 3 - Prev Button'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Step 3 Screen'.'Step 3 - Screen Container'.'Step 3 - Form Container'.'Step 3 - Fields Container'.'Step 3 - Next Button'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Step 3 Screen'.'Step 3 - Screen Container'.'Step 3 - Form Container'.'Step 3 - Fields Container'.'Step 3 - Next Button'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Step 3 Screen",
+                "type": "'Step 3 Screen'.'Step 3 - Screen Container'.'Step 3 - Form Container'.'Step 3 - Fields Container'.'Step 3 - Next Button'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Submit Screen'.'Submit - Screen Container'.'Submit - Form Container'.'Submit - Timeline Container'.'Submit - Timeline Gallery'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Submit Screen'.'Submit - Screen Container'.'Submit - Form Container'.'Submit - Timeline Container'.'Submit - Timeline Gallery'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Submit Screen",
+                "type": "'Submit Screen'.'Submit - Screen Container'.'Submit - Form Container'.'Submit - Timeline Container'.'Submit - Timeline Gallery'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Submit Screen'.'Submit - Screen Container'.'Submit - Form Container'.'Submit - Timeline Container'.'Submit - Timeline Gallery'.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Submit Screen'.'Submit - Screen Container'.'Submit - Form Container'.'Submit - Timeline Container'.'Submit - Timeline Gallery'.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Submit Screen",
+                "type": "'Submit Screen'.'Submit - Screen Container'.'Submit - Form Container'.'Submit - Timeline Container'.'Submit - Timeline Gallery'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Submit Screen'.'Submit - Screen Container'.'Submit - Form Container'.'Submit - Fields Container'.'Submit - Gallery'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Submit Screen'.'Submit - Screen Container'.'Submit - Form Container'.'Submit - Fields Container'.'Submit - Gallery'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Submit Screen",
+                "type": "'Submit Screen'.'Submit - Screen Container'.'Submit - Form Container'.'Submit - Fields Container'.'Submit - Gallery'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Submit Screen'.'Submit - Screen Container'.'Submit - Form Container'.'Submit - Fields Container'.'Submit - Gallery'.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Submit Screen'.'Submit - Screen Container'.'Submit - Form Container'.'Submit - Fields Container'.'Submit - Gallery'.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Submit Screen",
+                "type": "'Submit Screen'.'Submit - Screen Container'.'Submit - Form Container'.'Submit - Fields Container'.'Submit - Gallery'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Submit Screen'.'Submit - Screen Container'.'Submit - Form Container'.'Submit - Fields Container'.'Submit - Prev Button'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Submit Screen'.'Submit - Screen Container'.'Submit - Form Container'.'Submit - Fields Container'.'Submit - Prev Button'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Submit Screen",
+                "type": "'Submit Screen'.'Submit - Screen Container'.'Submit - Form Container'.'Submit - Fields Container'.'Submit - Prev Button'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Submit Screen'.'Submit - Screen Container'.'Submit - Form Container'.'Submit - Fields Container'.'Submit - Next Button'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Submit Screen'.'Submit - Screen Container'.'Submit - Form Container'.'Submit - Fields Container'.'Submit - Next Button'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Submit Screen",
+                "type": "'Submit Screen'.'Submit - Screen Container'.'Submit - Form Container'.'Submit - Fields Container'.'Submit - Next Button'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Thank you Screen'.'Thank you - Screen Container'.'Thank you - Form Container'.'Thank you - Timeline Container'.'Thank you - Timeline Gallery'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Thank you Screen'.'Thank you - Screen Container'.'Thank you - Form Container'.'Thank you - Timeline Container'.'Thank you - Timeline Gallery'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Thank you Screen",
+                "type": "'Thank you Screen'.'Thank you - Screen Container'.'Thank you - Form Container'.'Thank you - Timeline Container'.'Thank you - Timeline Gallery'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Thank you Screen'.'Thank you - Screen Container'.'Thank you - Form Container'.'Thank you - Timeline Container'.'Thank you - Timeline Gallery'.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Thank you Screen'.'Thank you - Screen Container'.'Thank you - Form Container'.'Thank you - Timeline Container'.'Thank you - Timeline Gallery'.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Thank you Screen",
+                "type": "'Thank you Screen'.'Thank you - Screen Container'.'Thank you - Form Container'.'Thank you - Timeline Container'.'Thank you - Timeline Gallery'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Thank you Screen'.'Thank you - Screen Container'.'Thank you - Form Container'.'Thank you - Fields Container'.'Thank you - No Button'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Thank you Screen'.'Thank you - Screen Container'.'Thank you - Form Container'.'Thank you - Fields Container'.'Thank you - No Button'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Thank you Screen",
+                "type": "'Thank you Screen'.'Thank you - Screen Container'.'Thank you - Form Container'.'Thank you - Fields Container'.'Thank you - No Button'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Thank you Screen'.'Thank you - Screen Container'.'Thank you - Form Container'.'Thank you - Fields Container'.'Thank you - Yes Button'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Thank you Screen'.'Thank you - Screen Container'.'Thank you - Form Container'.'Thank you - Fields Container'.'Thank you - Yes Button'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Thank you Screen",
+                "type": "'Thank you Screen'.'Thank you - Screen Container'.'Thank you - Form Container'.'Thank you - Fields Container'.'Thank you - Yes Button'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.Step1next"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.Step1next",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Step1next",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 2
+        }
+      ],
+      "tool": {
+        "driver": {
+          "fullName": "PowerApps app checker",
+          "name": "PowerApps app checker",
+          "rules": [
+            {
+              "id": "acc-AccessibleLabelNeeded",
+              "messageStrings": {
+                "issue": {
+                  "text": "Missing accessible label"
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Edit the accessible label property to describe the item."
+                ],
+                "level": "Medium",
+                "primaryCategory": "accessibility",
+                "whyFix": "If there's no accessible text, people who can’t see the screen won't understand what’s in images and controls."
+              }
+            },
+            {
+              "id": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+              "messageStrings": {
+                "issue": {
+                  "text": "Missing tab stop"
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Set TabIndex to 0 or greater to ensure that interactive elements have a tab stop."
+                ],
+                "level": "Medium",
+                "primaryCategory": "accessibility",
+                "whyFix": "People who use the keyboard with your app will not be able to access this element without a tab stop."
+              }
+            },
+            {
+              "id": "app-UnusedMediaResources",
+              "messageStrings": {
+                "issue": {
+                  "text": "Unused media files"
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Remove the unused media file in the Media pane."
+                ],
+                "level": "Medium",
+                "primaryCategory": "performance",
+                "whyFix": "This media file is not referenced by any control formulas so it is not needed. Removing it will improve performance."
+              }
+            }
+          ],
+          "version": "1.330"
+        }
+      }
+    }
+  ],
+  "version": "2.1.0"
+}

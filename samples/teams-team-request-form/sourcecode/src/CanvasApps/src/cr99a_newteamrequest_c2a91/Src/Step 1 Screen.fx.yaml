@@ -1,0 +1,503 @@
+"'Step 1 Screen' As screen":
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+
+    "'Step 1 - Screen Container' As groupContainer.manualLayoutContainer":
+        Height: =Parent.Height
+        Width: =Parent.Width
+        ZIndex: =1
+
+        "'Step 1 - Form Container' As groupContainer.horizontalAutoLayoutContainer":
+            Height: =Parent.Height-200
+            LayoutMode: =LayoutMode.Auto
+            Width: =Parent.Width-100
+            X: =50
+            Y: =150
+            ZIndex: =1
+
+            "'Step 1 - Timeline Container' As groupContainer.manualLayoutContainer":
+                AlignInContainer: =AlignInContainer.SetByContainer
+                FillPortions: =0
+                Height: =Parent.Height
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                Width: =Parent.Width/4
+                ZIndex: =1
+
+                "'Step 1 - Timeline Gallery' As gallery.BrowseLayout_Vertical_TwoTextVariant_pcfCore":
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    DelayItemLoading: =true
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Height: =Parent.Height-100
+                    Items: =Timeline
+                    Layout: =Layout.Vertical
+                    LoadingSpinner: =LoadingSpinner.Data
+                    TemplatePadding: =0
+                    TemplateSize: =(Parent.Height-100)/4
+                    Width: =Parent.Width
+                    Y: =(Parent.Height-Self.Height)/2
+                    ZIndex: =1
+
+                    "'Step 1 - Step Title' As Label":
+                        Alignment: =Align.Right
+                        Color: =RGBA(105,105,105,1)
+                        DisplayMode: =DisplayMode.Edit
+                        Font: =Font.Lato
+                        FontSize: =12
+                        FontWeight: =FontWeight.Semibold
+                        Height: =30
+                        OnSelect: =Select(Parent)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        TabIndex: =-1
+                        Text: =ThisItem.Name
+                        VerticalAlignment: =VerticalAlign.Middle
+                        Visible: |-
+                            =If(
+                                Parent.Width > 316,
+                                true,
+                                false
+                            )
+                        Width: =Parent.TemplateWidth - 80
+                        X: =0
+                        Y: =((Parent.TemplateHeight - 48) / 2)
+                        ZIndex: =1
+
+                    "'Step 1 - Step Description' As Label":
+                        Alignment: =Align.Right
+                        Color: =RGBA(135,135,135,1)
+                        DisplayMode: =DisplayMode.Edit
+                        Font: =Font.Lato
+                        FontSize: =12
+                        FontWeight: =FontWeight.Lighter
+                        Height: =28
+                        OnSelect: =Select(Parent)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        TabIndex: =-1
+                        Text: =ThisItem.Description
+                        VerticalAlignment: =VerticalAlign.Top
+                        Visible: ='Step 1 - Step Title'.Visible
+                        Width: ='Step 1 - Step Title'.Width
+                        X: ='Step 1 - Step Title'.X
+                        Y: ='Step 1 - Step Title'.Y+'Step 1 - Step Title'.Height-10
+                        ZIndex: =2
+
+                    "'Step 1 - Timeline' As rectangle":
+                        BorderColor: =RGBA(243, 242, 241, 1)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        DisabledFill: =RGBA(200, 198, 196, 1)
+                        Fill: =RGBA(219, 220, 231, 1)
+                        FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(98, 100, 167, 1)
+                        OnSelect: =Select(Parent)
+                        PressedFill: =RGBA(98, 100, 167, 1)
+                        Width: =1
+                        X: ='Step 1 - Step Image'.X + 'Step 1 - Step Image'.Width/2
+                        ZIndex: =3
+
+                    "'Step 1 - Step Image' As image":
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        Height: =30
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        Image: |-
+                            =Switch(
+                                App.ActiveScreen.Name,
+                                "Step 1 Screen",
+                                    Switch(
+                                        ThisItem.Step,
+                                        "1", Step1active,
+                                        "2", Step2next,
+                                        "3", Step3next,
+                                        "4", Step4next
+                                    ),
+                                "Step 2 Screen",
+                                    Switch(
+                                        ThisItem.Step,
+                                        "1", StepDone,
+                                        "2", Step2active,
+                                        "3", Step3next,
+                                        "4", Step4next
+                                    ),
+                                "Step 3 Screen",
+                                    Switch(
+                                        ThisItem.Step,
+                                        "1", StepDone,
+                                        "2", StepDone,
+                                        "3", Step3active,
+                                        "4", Step4next
+                                    ),
+                                "Step 4 Screen",
+                                    Switch(
+                                        ThisItem.Step,
+                                        "1", StepDone,
+                                        "2", StepDone,
+                                        "3", StepDone,
+                                        "4", Step4active
+                                    ),
+                                "Submit Screen",
+                                    Switch(
+                                        ThisItem.Step,
+                                        "1", StepDone,
+                                        "2", StepDone,
+                                        "3", StepDone,
+                                        "4", StepDone
+                                    ),
+                                "Thank you Screen",
+                                    Switch(
+                                        ThisItem.Step,
+                                        "1", StepDone,
+                                        "2", StepDone,
+                                        "3", StepDone,
+                                        "4", StepDone
+                                    )
+                            )
+                        OnSelect: =Select(Parent)
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedFill: =RGBA(0, 0, 0, 0)
+                        RadiusBottomLeft: =3
+                        RadiusBottomRight: =3
+                        RadiusTopLeft: =3
+                        RadiusTopRight: =3
+                        Width: =30
+                        X: |-
+                            =//'Step 1 - Step Title'.X + 'Step 1 - Step Title'.Width + 30
+                            
+                            If(
+                                Parent.Width > 316,
+                                'Step 1 - Step Title'.X + 'Step 1 - Step Title'.Width + 30,
+                                30
+                            )
+                        Y: =Parent.TemplateHeight/2 - Self.Height/2 + 3
+                        ZIndex: =4
+
+            "'Step 1 - Fields Container' As groupContainer.manualLayoutContainer":
+                AlignInContainer: =AlignInContainer.SetByContainer
+                FillPortions: =0
+                Height: =Parent.Height
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                Width: =(Parent.Width/4)*3
+                ZIndex: =2
+
+                "'Step 1 - Title' As Label":
+                    AutoHeight: =false
+                    Color: =RGBA(166,51,245,1)
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.Lato
+                    FontSize: =18
+                    FontWeight: =FontWeight.Normal
+                    Height: =40
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: |-
+                        =Switch(
+                            App.ActiveScreen.Name,
+                            "Step 1 Screen",
+                                "General information",
+                            "Step 2 Screen",
+                                "Members",
+                            "Step 3 Screen",
+                                "Welcome message",
+                            "Step 4 Screen",
+                                "Channels",
+                            "Submit Screen",
+                                "Review and submit"
+                        )
+                    Width: =Parent.Width-100
+                    X: =50
+                    Y: ='Step 1 - Timeline Gallery'.Y
+                    ZIndex: =1
+
+                "'Step 1 - Team Name Label' As Label":
+                    Color: =RGBA(135,135,135,1)
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.Lato
+                    FontSize: =12
+                    FontWeight: =FontWeight.Lighter
+                    Height: =32
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: ="Team name"
+                    Width: =Parent.Width-100
+                    X: =50
+                    Y: ='Step 1 - Title'.Y + 'Step 1 - Title'.Height + 20
+                    ZIndex: =2
+
+                "'Step 1 - Team Name TextBox' As 'Text box'":
+                    ColorBackground: =
+                    ColorText: =RGBA(166,51,245,1)
+                    DisplayMode: =DisplayMode.Edit
+                    FontWeight: =FontWeight.Normal
+                    Height: =32
+                    MaxLength: =30
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    SpellCheck: =true
+                    Underlined: =false
+                    Value: =""
+                    Width: =Parent.Width-100
+                    X: =50
+                    Y: ='Step 1 - Team Name Label'.Y + 'Step 1 - Team Name Label'.Height
+                    ZIndex: =3
+
+                "'Step 1 - Team Description Label' As Label":
+                    Color: =RGBA(135,135,135,1)
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.Lato
+                    FontSize: =12
+                    FontWeight: =FontWeight.Lighter
+                    Height: =32
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: ="Team description"
+                    Width: =Parent.Width-100
+                    X: =50
+                    Y: ='Step 1 - Team Name TextBox'.Y + 'Step 1 - Team Name TextBox'.Height + 30
+                    ZIndex: =4
+
+                "'Step 1 - Team Description TextBox' As 'Text box'":
+                    ColorText: =RGBA(166,51,245,1)
+                    DisplayMode: =DisplayMode.Edit
+                    FontWeight: =FontWeight.Normal
+                    Height: =78
+                    MaxLength: =1024
+                    Mode: ='Microsoft.CoreControls.TextBox.Mode'.Multiline
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Value: =""
+                    Width: =Parent.Width-100
+                    X: =50
+                    Y: ='Step 1 - Team Description Label'.Y + 'Step 1 - Team Description Label'.Height
+                    ZIndex: =5
+
+                "'Step 1 - Team Kind Label' As Label":
+                    Color: =RGBA(135,135,135,1)
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.Lato
+                    FontSize: =12
+                    FontWeight: =FontWeight.Lighter
+                    Height: =32
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: ="What kind of team will this be?"
+                    Width: =Parent.Width-100
+                    X: =50
+                    Y: ='Step 1 - Team Description TextBox'.Y + 'Step 1 - Team Description TextBox'.Height + 30
+                    ZIndex: =6
+
+                "'Step 1 - Team Kind RadioGroup' As 'Radio group'.pcfdataset":
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =66
+                    Items: =["Private","Public"]
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Width: =Parent.Width-100
+                    X: =50
+                    Y: ='Step 1 - Team Kind Label'.Y + 'Step 1 - Team Kind Label'.Height
+                    ZIndex: =7
+
+                    Value1_1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="Value"
+                        FieldName: ="Value"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =1
+                        ZIndex: =1
+
+                "'Step 1 - Next Button' As Button":
+                    Alignment: =Align.Center
+                    BorderColor: =Color.Transparent
+                    ButtonType: =
+                    DisabledBorderColor: =Color.Transparent
+                    DisabledFillColor: =RGBA(166,51,245,1)
+                    DisabledTextColor: =RGBA(255, 255, 255, 1)
+                    DisplayMode: =DisplayMode.Edit
+                    FillColor: =RGBA(166,51,245,1)
+                    Font: =Font.Lato
+                    FontSize: =12
+                    FontWeight: =FontWeight.Lighter
+                    Height: =32
+                    HoverBorderColor: =Color.Transparent
+                    HoverFillColor: =RGBA(109, 49, 162, 1)
+                    HoverTextColor: =RGBA(230, 230, 230, 1)
+                    OnSelect: |-
+                        =Navigate(
+                            Switch(
+                                App.ActiveScreen.Name,
+                                "Step 1 Screen",
+                                    'Step 2 Screen',
+                                "Step 2 Screen",
+                                    'Step 3 Screen',
+                                "Step 3 Screen",
+                                    'Step 4 Screen',
+                                "Step 4 Screen",
+                                    'Submit Screen'
+                            )
+                        )
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    PressedBorderColor: =Color.Transparent
+                    PressedFillColor: =RGBA(109, 49, 162, 1)
+                    PressedTextColor: =RGBA(255, 255, 255, 1)
+                    Text: |-
+                        =If(
+                            App.ActiveScreen.Name = "Submit Screen",
+                            "Submit",
+                            "Next"
+                        )
+                    TextColor: =RGBA(255, 255, 255, 1)
+                    Width: =100
+                    X: ='Step 1 - Title'.X + 'Step 1 - Title'.Width - 100
+                    Y: ='Step 1 - Team Kind RadioGroup'.Y + 'Step 1 - Team Kind RadioGroup'.Height + 40
+                    ZIndex: =8
+
+                "'Step 1 - Prev Button' As Button":
+                    ButtonType: ='Microsoft.CoreControls.Button.ButtonType'.Standard
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.Lato
+                    FontSize: =12
+                    Height: =32
+                    OnSelect: |-
+                        =Navigate(
+                            Switch(
+                                App.ActiveScreen.Name,
+                                "Step 2 Screen",
+                                    'Step 1 Screen',
+                                "Step 3 Screen",
+                                    'Step 2 Screen',
+                                "Step 4 Screen",
+                                    'Step 3 Screen',
+                                "Submit Screen",
+                                    'Step 4 Screen'
+                            )
+                        )
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: ="Prev"
+                    Visible: |-
+                        =If(
+                            App.ActiveScreen.Name = "Step 1 Screen",
+                            false,
+                            true
+                        )
+                    Width: =100
+                    X: ='Step 1 - Next Button'.X - Self.Width - 40
+                    Y: ='Step 1 - Team Kind RadioGroup'.Y + 'Step 1 - Team Kind RadioGroup'.Height + 40
+                    ZIndex: =10
+
+                "'Step 1 - Team Name Length' As Label":
+                    Alignment: =Align.Right
+                    Color: =RGBA(135,135,135,1)
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.Lato
+                    FontSize: =8
+                    FontWeight: =FontWeight.Lighter
+                    Height: =25
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: |-
+                        =30 - Len('Step 1 - Team Name TextBox'.Value) & " character" &
+                        
+                        If(
+                            Len('Step 1 - Team Name TextBox'.Value) = 29,
+                            "",
+                            "s"
+                        )
+                        
+                        & " remain"
+                    VerticalAlignment: =VerticalAlign.Top
+                    Width: =Parent.Width-100
+                    X: =50
+                    Y: ='Step 1 - Team Name TextBox'.Y + 'Step 1 - Team Name TextBox'.Height
+                    ZIndex: =11
+
+                "'Step 1 - Team Description Length' As Label":
+                    Alignment: =Align.Right
+                    Color: =RGBA(135,135,135,1)
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.Lato
+                    FontSize: =8
+                    FontWeight: =FontWeight.Lighter
+                    Height: =25
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: |-
+                        =1024 - Len('Step 1 - Team Description TextBox'.Value) & " character" &
+                        
+                        If(
+                            Len('Step 1 - Team Description TextBox'.Value) = 1023,
+                            "",
+                            "s"
+                        )
+                        
+                        & " remain"
+                    VerticalAlignment: =VerticalAlign.Top
+                    Width: =Parent.Width-100
+                    X: =50
+                    Y: ='Step 1 - Team Description TextBox'.Y + 'Step 1 - Team Description TextBox'.Height
+                    ZIndex: =12
+
+        "'Step 1 - Header' As Label":
+            AutoHeight: =false
+            Color: =RGBA(105,105,105,1)
+            DisplayMode: =DisplayMode.Edit
+            Font: =Font.Lato
+            FontSize: =18
+            FontWeight: =FontWeight.Normal
+            Height: =40
+            PCFTeamsTheme: =TeamsTheme.Default
+            Text: ="Request for a new Teams group"
+            Width: =Parent.Width-100
+            X: =50
+            Y: =50
+            ZIndex: =2
+
+        "'Step 1 - Sub Header' As Label":
+            AutoHeight: =false
+            Color: =RGBA(135,135,135,1)
+            DisplayMode: =DisplayMode.Edit
+            Font: =Font.Lato
+            FontSize: =12
+            FontWeight: =FontWeight.Lighter
+            Height: =35
+            PCFTeamsTheme: =TeamsTheme.Default
+            Text: ="Follow the simple 4 steps to request a new Teams group"
+            Width: =Parent.Width-100
+            X: =50
+            Y: =90
+            ZIndex: =3
+
+        "'Step 1 - Profile Image' As image":
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: =Microsoft_Teams_256x256
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            RadiusBottomLeft: =3
+            RadiusBottomRight: =3
+            RadiusTopLeft: =3
+            RadiusTopRight: =3
+            Width: =50
+            X: =Parent.Width - 150
+            Y: =50
+            ZIndex: =4
+
+        "'Step 1 - Created by' As Label":
+            Alignment: =Align.Right
+            AutoHeight: =false
+            Color: =RGBA(135,135,135,1)
+            DisplayMode: =DisplayMode.Edit
+            Font: =Font.Lato
+            FontSize: =8
+            FontWeight: =FontWeight.Lighter
+            Height: =30
+            PaddingEnd: =10
+            PCFTeamsTheme: =TeamsTheme.Default
+            Text: =_created
+            Width: |
+                =Parent.Width
+            X: =0
+            Y: =Parent.Height - 30
+            ZIndex: =5
+

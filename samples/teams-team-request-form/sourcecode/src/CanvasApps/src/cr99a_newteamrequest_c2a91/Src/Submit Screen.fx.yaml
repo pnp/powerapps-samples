@@ -1,0 +1,515 @@
+"'Submit Screen' As screen":
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+
+    "'Submit - Screen Container' As groupContainer.manualLayoutContainer":
+        Height: =Parent.Height
+        Width: =Parent.Width
+        ZIndex: =1
+
+        "'Submit - Form Container' As groupContainer.horizontalAutoLayoutContainer":
+            Height: =Parent.Height-200
+            LayoutMode: =LayoutMode.Auto
+            Width: =Parent.Width-100
+            X: =50
+            Y: =150
+            ZIndex: =1
+
+            "'Submit - Timeline Container' As groupContainer.manualLayoutContainer":
+                AlignInContainer: =AlignInContainer.SetByContainer
+                FillPortions: =0
+                Height: =Parent.Height
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                Width: =Parent.Width/4
+                ZIndex: =1
+
+                "'Submit - Timeline Gallery' As gallery.BrowseLayout_Vertical_TwoTextVariant_pcfCore":
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    DelayItemLoading: =true
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Height: =Parent.Height-100
+                    Items: =Timeline
+                    Layout: =Layout.Vertical
+                    LoadingSpinner: =LoadingSpinner.Data
+                    TemplatePadding: =0
+                    TemplateSize: =(Parent.Height-100)/4
+                    Width: =Parent.Width
+                    Y: =(Parent.Height-Self.Height)/2
+                    ZIndex: =1
+
+                    "'Submit - Step Title' As Label":
+                        Alignment: =Align.Right
+                        Color: =RGBA(105,105,105,1)
+                        DisplayMode: =DisplayMode.Edit
+                        Font: =Font.Lato
+                        FontSize: =12
+                        FontWeight: =FontWeight.Semibold
+                        Height: =30
+                        OnSelect: =Select(Parent)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        TabIndex: =-1
+                        Text: =ThisItem.Name
+                        VerticalAlignment: =VerticalAlign.Middle
+                        Visible: |-
+                            =If(
+                                Parent.Width > 316,
+                                true,
+                                false
+                            )
+                        Width: =Parent.TemplateWidth - 80
+                        X: =0
+                        Y: =((Parent.TemplateHeight - 48) / 2)
+                        ZIndex: =1
+
+                    "'Submit - Step Description' As Label":
+                        Alignment: =Align.Right
+                        Color: =RGBA(135,135,135,1)
+                        DisplayMode: =DisplayMode.Edit
+                        Font: =Font.Lato
+                        FontSize: =12
+                        FontWeight: =FontWeight.Lighter
+                        Height: =28
+                        OnSelect: =Select(Parent)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        TabIndex: =-1
+                        Text: =ThisItem.Description
+                        VerticalAlignment: =VerticalAlign.Top
+                        Visible: ='Submit - Step Title'.Visible
+                        Width: ='Submit - Step Title'.Width
+                        X: ='Submit - Step Title'.X
+                        Y: ='Submit - Step Title'.Y+'Submit - Step Title'.Height-10
+                        ZIndex: =2
+
+                    "'Submit - Timeline' As rectangle":
+                        BorderColor: =RGBA(243, 242, 241, 1)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        DisabledFill: =RGBA(200, 198, 196, 1)
+                        Fill: =RGBA(219, 220, 231, 1)
+                        FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(98, 100, 167, 1)
+                        OnSelect: =Select(Parent)
+                        PressedFill: =RGBA(98, 100, 167, 1)
+                        Width: =1
+                        X: ='Submit - Step Image'.X + 'Submit - Step Image'.Width/2
+                        ZIndex: =3
+
+                    "'Submit - Step Image' As image":
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        Height: =30
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        Image: |-
+                            =Switch(
+                                App.ActiveScreen.Name,
+                                "Step 1 Screen",
+                                    Switch(
+                                        ThisItem.Step,
+                                        "1", Step1active,
+                                        "2", Step2next,
+                                        "3", Step3next,
+                                        "4", Step4next
+                                    ),
+                                "Step 2 Screen",
+                                    Switch(
+                                        ThisItem.Step,
+                                        "1", StepDone,
+                                        "2", Step2active,
+                                        "3", Step3next,
+                                        "4", Step4next
+                                    ),
+                                "Step 3 Screen",
+                                    Switch(
+                                        ThisItem.Step,
+                                        "1", StepDone,
+                                        "2", StepDone,
+                                        "3", Step3active,
+                                        "4", Step4next
+                                    ),
+                                "Step 4 Screen",
+                                    Switch(
+                                        ThisItem.Step,
+                                        "1", StepDone,
+                                        "2", StepDone,
+                                        "3", StepDone,
+                                        "4", Step4active
+                                    ),
+                                "Submit Screen",
+                                    Switch(
+                                        ThisItem.Step,
+                                        "1", StepDone,
+                                        "2", StepDone,
+                                        "3", StepDone,
+                                        "4", StepDone
+                                    ),
+                                "Thank you Screen",
+                                    Switch(
+                                        ThisItem.Step,
+                                        "1", StepDone,
+                                        "2", StepDone,
+                                        "3", StepDone,
+                                        "4", StepDone
+                                    )
+                            )
+                        OnSelect: =Select(Parent)
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedFill: =RGBA(0, 0, 0, 0)
+                        RadiusBottomLeft: =3
+                        RadiusBottomRight: =3
+                        RadiusTopLeft: =3
+                        RadiusTopRight: =3
+                        Width: =30
+                        X: |-
+                            =//'Step 1 - Step Title'.X + 'Step 1 - Step Title'.Width + 30
+                            
+                            If(
+                                Parent.Width > 316,
+                                'Submit - Step Title'.X + 'Submit - Step Title'.Width + 30,
+                                30
+                            )
+                        Y: =Parent.TemplateHeight/2 - Self.Height/2 + 3
+                        ZIndex: =4
+
+            "'Submit - Fields Container' As groupContainer.manualLayoutContainer":
+                AlignInContainer: =AlignInContainer.SetByContainer
+                FillPortions: =0
+                Height: =Parent.Height
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                Width: =(Parent.Width/4)*3
+                ZIndex: =2
+
+                "'Submit - Title' As Label":
+                    AutoHeight: =false
+                    Color: =RGBA(166,51,245,1)
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.Lato
+                    FontSize: =18
+                    FontWeight: =FontWeight.Normal
+                    Height: =40
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: |-
+                        =Switch(
+                            App.ActiveScreen.Name,
+                            "Step 1 Screen",
+                                "General information",
+                            "Step 2 Screen",
+                                "Members",
+                            "Step 3 Screen",
+                                "Welcome message",
+                            "Step 4 Screen",
+                                "Channels",
+                            "Submit Screen",
+                                "Review and submit"
+                        )
+                    Width: =Parent.Width-100
+                    X: =50
+                    Y: ='Submit - Timeline Gallery'.Y
+                    ZIndex: =1
+
+                "'Submit - Gallery' As gallery.BrowseLayout_Flexible_NewsFeed_pcfCore":
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    DelayItemLoading: =true
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Height: =Parent.Height - Self.Y - 72
+                    Items: =_submission
+                    Layout: =Layout.Vertical
+                    LoadingSpinner: =LoadingSpinner.Data
+                    TemplatePadding: =0
+                    TemplateSize: =55
+                    Width: |-
+                        =Max(
+                            550,
+                            Parent.Width-100
+                        )
+                    X: ='Submit - Title'.X
+                    Y: ='Submit - Title'.Y + 'Submit - Title'.Height + 20
+                    ZIndex: =1
+
+                    "'Submit - Parameter' As label":
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(135,135,135,1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(200, 198, 196, 1)
+                        FocusedBorderThickness: =2
+                        Font: =Font.Lato
+                        Height: =Self.Size * 1.8
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =12
+                        Text: =ThisItem.Parameter
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =200
+                        Y: =15
+                        ZIndex: =1
+
+                    "'Submit - Value' As label":
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(166,51,245,1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(200, 198, 196, 1)
+                        FocusedBorderThickness: =2
+                        Font: =Font.Lato
+                        Height: =Self.Size * 1.8
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =12
+                        Text: |-
+                            =PlainText(
+                                ThisItem.Value
+                            )
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Parent.Width - 'Submit - Parameter'.Width - 40
+                        X: ='Submit - Parameter'.X + 'Submit - Parameter'.Width + 10
+                        Y: ='Submit - Parameter'.Y
+                        ZIndex: =2
+
+                    Separator1 As rectangle:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        Fill: =RGBA(219, 220, 231, 1)
+                        Height: =1
+                        OnSelect: =Select(Parent)
+                        Width: =Parent.TemplateWidth
+                        Y: |-
+                            =//Max(Parent.TemplateHeight - 1, 'Submit - Value'.Y + 'Submit - Value'.Height + 10)
+                            'Submit - Value'.Y + 'Submit - Value'.Height + 20
+                        ZIndex: =4
+
+                "'Submit - Next Button' As Button":
+                    Alignment: =Align.Center
+                    BorderColor: =Color.Transparent
+                    ButtonType: =
+                    DisabledBorderColor: =Color.Transparent
+                    DisabledFillColor: =RGBA(166,51,245,1)
+                    DisabledTextColor: =RGBA(255, 255, 255, 1)
+                    DisplayMode: =DisplayMode.Edit
+                    FillColor: =RGBA(166,51,245,1)
+                    Font: =Font.Lato
+                    FontSize: =12
+                    FontWeight: =FontWeight.Lighter
+                    Height: =32
+                    HoverBorderColor: =Color.Transparent
+                    HoverFillColor: =RGBA(109, 49, 162, 1)
+                    HoverTextColor: =RGBA(230, 230, 230, 1)
+                    OnSelect: |-
+                        =Patch(
+                            SharePointList,
+                            Defaults(SharePointList),
+                            {
+                                Title:
+                                    First(
+                                        Filter(
+                                            _submission,
+                                            Parameter = "Name"
+                                        )
+                                    ).Value,
+                                Description:
+                                    First(
+                                        Filter(
+                                            _submission,
+                                            Parameter = "Description"
+                                        )
+                                    ).Value,
+                                Kind:
+                                    First(
+                                        Filter(
+                                            _submission,
+                                            Parameter = "Kind"
+                                        )
+                                    ).Value,
+                                Requestor:
+                                    {
+                                        Claims: "i:0#.f|membership|" & User().Email,
+                                        DisplayName: User().FullName,
+                                        Email: User().Email,
+                                        Department: "",
+                                        JobTitle: "",
+                                        Picture: ""
+                                    },
+                                ParticipantsText:
+                                    First(
+                                        Filter(
+                                            _submission,
+                                            Parameter = "Members"
+                                        )
+                                    ).Value,
+                                Participants:
+                                    ForAll(
+                                        'Step 2 - Team Members ComboBox'.SelectedItems,
+                                        {
+                                            Claims: "i:0#.f|membership|" & Mail,
+                                            DisplayName: DisplayName,
+                                            Email: Mail,
+                                            Department: "",
+                                            JobTitle: "",
+                                            Picture: ""
+                                        }
+                                    ),
+                                WelcomeMessage:
+                                    First(
+                                        Filter(
+                                            _submission,
+                                            Parameter = "Welcome message"
+                                        )
+                                    ).Value,
+                                Channel1:
+                                    First(
+                                        Filter(
+                                            _submission,
+                                            Parameter = "Channel 1"
+                                        )
+                                    ).Value,
+                                Channel2:
+                                    First(
+                                        Filter(
+                                            _submission,
+                                            Parameter = "Channel 2"
+                                        )
+                                    ).Value,
+                                Channel3:
+                                    First(
+                                        Filter(
+                                            _submission,
+                                            Parameter = "Channel 3"
+                                        )
+                                    ).Value
+                            }
+                        );
+                        
+                        Navigate('Thank you Screen')
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    PressedBorderColor: =Color.Transparent
+                    PressedFillColor: =RGBA(109, 49, 162, 1)
+                    PressedTextColor: =RGBA(255, 255, 255, 1)
+                    Text: |-
+                        =If(
+                            App.ActiveScreen.Name = "Submit Screen",
+                            "Submit",
+                            "Next"
+                        )
+                    TextColor: =RGBA(255, 255, 255, 1)
+                    Width: =100
+                    X: ='Submit - Title'.X + 'Submit - Title'.Width - 100
+                    Y: ='Submit - Gallery'.Y + 'Submit - Gallery'.Height + 40
+                    ZIndex: =8
+
+                "'Submit - Prev Button' As Button":
+                    ButtonType: ='Microsoft.CoreControls.Button.ButtonType'.Standard
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.Lato
+                    FontSize: =12
+                    Height: =32
+                    OnSelect: |-
+                        =Navigate(
+                            Switch(
+                                App.ActiveScreen.Name,
+                                "Step 2 Screen",
+                                    'Step 1 Screen',
+                                "Step 3 Screen",
+                                    'Step 2 Screen',
+                                "Step 4 Screen",
+                                    'Step 3 Screen',
+                                "Submit Screen",
+                                    'Step 4 Screen'
+                            )
+                        )
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: ="Prev"
+                    Visible: |-
+                        =If(
+                            App.ActiveScreen.Name = "Step 1 Screen",
+                            false,
+                            true
+                        )
+                    Width: =100
+                    X: ='Submit - Next Button'.X - Self.Width - 40
+                    Y: ='Submit - Gallery'.Y + 'Submit - Gallery'.Height + 40
+                    ZIndex: =10
+
+        "'Submit - Header' As Label":
+            AutoHeight: =false
+            Color: =RGBA(105,105,105,1)
+            DisplayMode: =DisplayMode.Edit
+            Font: =Font.Lato
+            FontSize: =18
+            FontWeight: =FontWeight.Normal
+            Height: =40
+            PCFTeamsTheme: =TeamsTheme.Default
+            Text: ="Request for a new Teams group"
+            Width: =Parent.Width-100
+            X: =50
+            Y: =50
+            ZIndex: =2
+
+        "'Submit - Sub Header' As Label":
+            AutoHeight: =false
+            Color: =RGBA(135,135,135,1)
+            DisplayMode: =DisplayMode.Edit
+            Font: =Font.Lato
+            FontSize: =12
+            FontWeight: =FontWeight.Lighter
+            Height: =35
+            PCFTeamsTheme: =TeamsTheme.Default
+            Text: ="Follow the simple 4 steps to request a new Teams group"
+            Width: =Parent.Width-100
+            X: =50
+            Y: =90
+            ZIndex: =3
+
+        "'Submit - Profile Image' As image":
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: =Microsoft_Teams_256x256
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            RadiusBottomLeft: =3
+            RadiusBottomRight: =3
+            RadiusTopLeft: =3
+            RadiusTopRight: =3
+            Width: =50
+            X: =Parent.Width - 150
+            Y: =50
+            ZIndex: =4
+
+    "'Submit - Created by' As Label":
+        Alignment: =Align.Right
+        AutoHeight: =false
+        Color: =RGBA(135,135,135,1)
+        DisplayMode: =DisplayMode.Edit
+        Font: =Font.Lato
+        FontSize: =8
+        FontWeight: =FontWeight.Lighter
+        Height: =30
+        PaddingEnd: =10
+        PCFTeamsTheme: =TeamsTheme.Default
+        Text: =_created
+        Width: |
+            =Parent.Width
+        X: =0
+        Y: =Parent.Height - 30
+        ZIndex: =2
+
