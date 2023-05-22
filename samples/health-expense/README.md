@@ -73,6 +73,20 @@ Use a Power Automate Flow to pass the input to the model and get the results bac
 A screenshot for the flow:
 ![starting page](assets/PowerAutomateFlow.jpg)
 
+## Instructions to Deploy your own Azure AutoML Model
+* Go to Azure Machine Learning Studio and create a new Workspace
+* Select Automated ML and Select +New automated ML job
+* Follow the instructions on the screen to add dataset
+* After that, configure the job and forecast settings
+* Run the experiment
+* Once training is completed, select the best model from the results
+* Select Deploy
+* This process might take a while
+* Once deploying is completed, go to the deployed model and copy the end point URL
+* This end point URL can be used directly in the Power Automate Flow to connect the model with Power Apps
+
+Check out [this](https://learn.microsoft.com/azure/machine-learning/tutorial-automated-ml-forecast?view=azureml-api-2&wt.mc_id=studentamb_133327) for more detailed instructions.
+
 ## Minimal Path to Awesome
 
 * [Download](./solution/HealthExpense.zip) the solution `.zip` from the `solution` folder
