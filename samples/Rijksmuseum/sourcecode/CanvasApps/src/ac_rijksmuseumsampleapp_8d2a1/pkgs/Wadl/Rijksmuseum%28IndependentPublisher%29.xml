@@ -1,0 +1,306 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://europe-002.azure-apim.net/apim/rijksmuseumip" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="Rijksmuseum(IndependentPublisher)" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="Rijksmuseum (Independent Publisher)">Retrieve metadata of objects from the Rijksmuseum collection</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://europe-002.azure-apim.net/apim/rijksmuseumip" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <integer name="GetCollection_responses_200_def_elapsedMilliseconds_def" />
+      <integer name="GetCollection_responses_200_def_count_def" />
+      <integer name="GetCollection_responses_200_def_countFacets_def_hasimage_def" />
+      <integer name="GetCollection_responses_200_def_countFacets_def_ondisplay_def" />
+      <object name="GetCollection_responses_200_def_countFacets_def">
+        <property name="hasimage" type="integer" />
+        <property name="ondisplay" type="integer" />
+      </object>
+      <string name="GetCollection_responses_200_def_artObjects_def_items_def_links_def_self_def" />
+      <string name="GetCollection_responses_200_def_artObjects_def_items_def_links_def_web_def" />
+      <object name="GetCollection_responses_200_def_artObjects_def_items_def_links_def">
+        <property name="self" type="string" />
+        <property name="web" type="string" />
+      </object>
+      <string name="GetCollection_responses_200_def_artObjects_def_items_def_id_def" />
+      <string name="GetCollection_responses_200_def_artObjects_def_items_def_objectNumber_def" />
+      <string name="GetCollection_responses_200_def_artObjects_def_items_def_title_def" />
+      <boolean name="GetCollection_responses_200_def_artObjects_def_items_def_hasImage_def" />
+      <string name="GetCollection_responses_200_def_artObjects_def_items_def_principalOrFirstMaker_def" />
+      <string name="GetCollection_responses_200_def_artObjects_def_items_def_longTitle_def" />
+      <boolean name="GetCollection_responses_200_def_artObjects_def_items_def_showImage_def" />
+      <boolean name="GetCollection_responses_200_def_artObjects_def_items_def_permitDownload_def" />
+      <string name="GetCollection_responses_200_def_artObjects_def_items_def_webImage_def_guid_def" />
+      <integer name="GetCollection_responses_200_def_artObjects_def_items_def_webImage_def_offsetPercentageX_def" />
+      <integer name="GetCollection_responses_200_def_artObjects_def_items_def_webImage_def_offsetPercentageY_def" />
+      <integer name="GetCollection_responses_200_def_artObjects_def_items_def_webImage_def_width_def" />
+      <integer name="GetCollection_responses_200_def_artObjects_def_items_def_webImage_def_height_def" />
+      <string name="GetCollection_responses_200_def_artObjects_def_items_def_webImage_def_url_def" />
+      <object name="GetCollection_responses_200_def_artObjects_def_items_def_webImage_def">
+        <property name="guid" type="string" />
+        <property name="offsetPercentageX" type="integer" />
+        <property name="offsetPercentageY" type="integer" />
+        <property name="width" type="integer" />
+        <property name="height" type="integer" />
+        <property name="url" type="string" />
+      </object>
+      <string name="GetCollection_responses_200_def_artObjects_def_items_def_headerImage_def_guid_def" />
+      <integer name="GetCollection_responses_200_def_artObjects_def_items_def_headerImage_def_offsetPercentageX_def" />
+      <integer name="GetCollection_responses_200_def_artObjects_def_items_def_headerImage_def_offsetPercentageY_def" />
+      <integer name="GetCollection_responses_200_def_artObjects_def_items_def_headerImage_def_width_def" />
+      <integer name="GetCollection_responses_200_def_artObjects_def_items_def_headerImage_def_height_def" />
+      <string name="GetCollection_responses_200_def_artObjects_def_items_def_headerImage_def_url_def" />
+      <object name="GetCollection_responses_200_def_artObjects_def_items_def_headerImage_def">
+        <property name="guid" type="string" />
+        <property name="offsetPercentageX" type="integer" />
+        <property name="offsetPercentageY" type="integer" />
+        <property name="width" type="integer" />
+        <property name="height" type="integer" />
+        <property name="url" type="string" />
+      </object>
+      <string name="GetCollection_responses_200_def_artObjects_def_items_def_productionPlaces_def_items_def" />
+      <array type="string" name="GetCollection_responses_200_def_artObjects_def_items_def_productionPlaces_def" />
+      <object name="GetCollection_responses_200_def_artObjects_def_items_def">
+        <property name="links" typeRef="GetCollection_responses_200_def_artObjects_def_items_def_links_def" />
+        <property name="id" type="string" />
+        <property name="objectNumber" type="string" />
+        <property name="title" type="string" />
+        <property name="hasImage" type="boolean" />
+        <property name="principalOrFirstMaker" type="string" />
+        <property name="longTitle" type="string" />
+        <property name="showImage" type="boolean" />
+        <property name="permitDownload" type="boolean" />
+        <property name="webImage" typeRef="GetCollection_responses_200_def_artObjects_def_items_def_webImage_def" />
+        <property name="headerImage" typeRef="GetCollection_responses_200_def_artObjects_def_items_def_headerImage_def" />
+        <property name="productionPlaces" typeRef="GetCollection_responses_200_def_artObjects_def_items_def_productionPlaces_def" />
+      </object>
+      <array typeRef="GetCollection_responses_200_def_artObjects_def_items_def" name="GetCollection_responses_200_def_artObjects_def" />
+      <string name="GetCollection_responses_200_def_facets_def_items_def_facets_def_items_def_key_def" />
+      <integer name="GetCollection_responses_200_def_facets_def_items_def_facets_def_items_def_value_def" />
+      <object name="GetCollection_responses_200_def_facets_def_items_def_facets_def_items_def">
+        <property name="key" type="string" />
+        <property name="value" type="integer" />
+      </object>
+      <array typeRef="GetCollection_responses_200_def_facets_def_items_def_facets_def_items_def" name="GetCollection_responses_200_def_facets_def_items_def_facets_def" />
+      <string name="GetCollection_responses_200_def_facets_def_items_def_name_def" />
+      <integer name="GetCollection_responses_200_def_facets_def_items_def_otherTerms_def" />
+      <integer name="GetCollection_responses_200_def_facets_def_items_def_prettyName_def" />
+      <object name="GetCollection_responses_200_def_facets_def_items_def">
+        <property name="facets" typeRef="GetCollection_responses_200_def_facets_def_items_def_facets_def" />
+        <property name="name" type="string" />
+        <property name="otherTerms" type="integer" />
+        <property name="prettyName" type="integer" />
+      </object>
+      <array typeRef="GetCollection_responses_200_def_facets_def_items_def" name="GetCollection_responses_200_def_facets_def" />
+      <object name="GetCollection_responses_200_def">
+        <property name="elapsedMilliseconds" type="integer" />
+        <property name="count" type="integer" />
+        <property name="countFacets" typeRef="GetCollection_responses_200_def_countFacets_def" />
+        <property name="artObjects" typeRef="GetCollection_responses_200_def_artObjects_def" />
+        <property name="facets" typeRef="GetCollection_responses_200_def_facets_def" />
+      </object>
+      <integer name="GetUsersets_responses_200_def_elapsedMilliseconds_def" />
+      <string name="GetUsersets_responses_200_def_userSet_def_links_def_overview_def" />
+      <string name="GetUsersets_responses_200_def_userSet_def_links_def_web_def" />
+      <object name="GetUsersets_responses_200_def_userSet_def_links_def">
+        <property name="overview" type="string" />
+        <property name="web" type="string" />
+      </object>
+      <string name="GetUsersets_responses_200_def_userSet_def_id_def" />
+      <integer name="GetUsersets_responses_200_def_userSet_def_count_def" />
+      <string name="GetUsersets_responses_200_def_userSet_def_type_def" />
+      <string name="GetUsersets_responses_200_def_userSet_def_name_def" />
+      <string name="GetUsersets_responses_200_def_userSet_def_slug_def" />
+      <string name="GetUsersets_responses_200_def_userSet_def_description_def" />
+      <integer name="GetUsersets_responses_200_def_userSet_def_user_def_id_def" />
+      <string name="GetUsersets_responses_200_def_userSet_def_user_def_name_def" />
+      <string name="GetUsersets_responses_200_def_userSet_def_user_def_lang_def" />
+      <string name="GetUsersets_responses_200_def_userSet_def_user_def_avatarUrl_def" />
+      <string name="GetUsersets_responses_200_def_userSet_def_user_def_headerUrl_def" />
+      <string name="GetUsersets_responses_200_def_userSet_def_user_def_initials_def" />
+      <object name="GetUsersets_responses_200_def_userSet_def_user_def">
+        <property name="id" type="integer" />
+        <property name="name" type="string" />
+        <property name="lang" type="string" />
+        <property name="avatarUrl" type="string" />
+        <property name="headerUrl" type="string" />
+        <property name="initials" type="string" />
+      </object>
+      <string name="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_links_def_artobject_def" />
+      <string name="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_links_def_web_def" />
+      <object name="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_links_def">
+        <property name="artobject" type="string" />
+        <property name="web" type="string" />
+      </object>
+      <string name="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_id_def" />
+      <string name="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_objectNumber_def" />
+      <string name="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_relation_def" />
+      <string name="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_relationDescription_def" />
+      <boolean name="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_cropped_def" />
+      <integer name="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_cropX_def" />
+      <integer name="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_cropY_def" />
+      <integer name="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_cropWidth_def" />
+      <integer name="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_cropHeight_def" />
+      <integer name="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_origWidth_def" />
+      <integer name="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_origHeight_def" />
+      <string name="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_image_def_guid_def" />
+      <string name="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_image_def_parentObjectNumber_def" />
+      <string name="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_image_def_cdnUrl_def" />
+      <string name="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_image_def_cropX_def" />
+      <string name="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_image_def_cropY_def" />
+      <integer name="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_image_def_width_def" />
+      <integer name="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_image_def_height_def" />
+      <integer name="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_image_def_offsetPercentageX_def" />
+      <integer name="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_image_def_offsetPercentageY_def" />
+      <object name="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_image_def">
+        <property name="guid" type="string" />
+        <property name="parentObjectNumber" type="string" />
+        <property name="cdnUrl" type="string" />
+        <property name="cropX" type="string" />
+        <property name="cropY" type="string" />
+        <property name="width" type="integer" />
+        <property name="height" type="integer" />
+        <property name="offsetPercentageX" type="integer" />
+        <property name="offsetPercentageY" type="integer" />
+      </object>
+      <object name="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def">
+        <property name="links" typeRef="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_links_def" />
+        <property name="id" type="string" />
+        <property name="objectNumber" type="string" />
+        <property name="relation" type="string" />
+        <property name="relationDescription" type="string" />
+        <property name="cropped" type="boolean" />
+        <property name="cropX" type="integer" />
+        <property name="cropY" type="integer" />
+        <property name="cropWidth" type="integer" />
+        <property name="cropHeight" type="integer" />
+        <property name="origWidth" type="integer" />
+        <property name="origHeight" type="integer" />
+        <property name="image" typeRef="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def_image_def" />
+      </object>
+      <array typeRef="GetUsersets_responses_200_def_userSet_def_setItems_def_items_def" name="GetUsersets_responses_200_def_userSet_def_setItems_def" />
+      <string name="GetUsersets_responses_200_def_userSet_def_createdOn_def" />
+      <string name="GetUsersets_responses_200_def_userSet_def_updatedOn_def" />
+      <object name="GetUsersets_responses_200_def_userSet_def">
+        <property name="links" typeRef="GetUsersets_responses_200_def_userSet_def_links_def" />
+        <property name="id" type="string" />
+        <property name="count" type="integer" />
+        <property name="type" type="string" />
+        <property name="name" type="string" />
+        <property name="slug" type="string" />
+        <property name="description" type="string" />
+        <property name="user" typeRef="GetUsersets_responses_200_def_userSet_def_user_def" />
+        <property name="setItems" typeRef="GetUsersets_responses_200_def_userSet_def_setItems_def" />
+        <property name="createdOn" type="string" />
+        <property name="updatedOn" type="string" />
+      </object>
+      <object name="GetUsersets_responses_200_def">
+        <property name="elapsedMilliseconds" type="integer" />
+        <property name="userSet" typeRef="GetUsersets_responses_200_def_userSet_def" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://europe-002.azure-apim.net/apim/rijksmuseumip">
+    <resource path="/{connectionId}/api/{culture}/collection/">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="culture" type="xs:string" required="true" default="nl">
+        <doc title="The language to search in (and of the results)." />
+        <option value="nl" />
+        <option value="en" />
+      </param>
+      <method siena:requiresAuthentication="true" name="GET" id="GetCollection" actionName="GetCollection" siena:isDeprecated="false">
+        <doc title="Search the Collection&#xA;This operation is used for searching the rijksmuseum  collection" />
+        <request>
+          <param style="query" name="objectnumber" type="xs:string">
+            <doc title="The identifier of the object (case-sensitive)." />
+          </param>
+          <param style="query" name="involvedMaker" type="xs:string">
+            <doc title="Object needs to be made by this agent." />
+          </param>
+          <param style="query" name="p" type="xs:long" default="0">
+            <doc title="The result page. Note that p * ps cannot exceed 10,000." />
+          </param>
+          <param style="query" name="ps" type="xs:long" default="10">
+            <doc title="The number of results per page. Note that p * ps cannot exceed 10,000. ps can have a value from 1-100." />
+          </param>
+          <param style="query" name="s" type="xs:string">
+            <doc title="Sorting of the Results" />
+            <option value="relevance" />
+            <option value="objecttype" />
+            <option value="chronologic" />
+            <option value="achronologic" />
+            <option value="artist" />
+            <option value="artistdesc" />
+          </param>
+          <param style="query" name="toppieces" type="xs:boolean" default="false">
+            <doc title="Only give works that are top pieces." />
+            <option value="true" />
+            <option value="false" />
+          </param>
+          <param style="query" name="imgoly" type="xs:boolean" default="false">
+            <doc title="Only give results for which an image is available or not." />
+            <option value="true" />
+            <option value="false" />
+          </param>
+          <param style="query" name="f.dating.period" type="xs:long">
+            <doc title="The century in which the object is made (0-21)." />
+          </param>
+          <param style="query" name="title" type="xs:string">
+            <doc title="Title of the Object" />
+          </param>
+          <param style="query" name="technique" type="xs:string">
+            <doc title="The technique used to make the object." />
+          </param>
+          <param style="query" name="material" type="xs:string">
+            <doc title="The material of the object." />
+          </param>
+          <param style="query" name="type" type="xs:string">
+            <doc title="The type of the object." />
+          </param>
+          <param style="query" name="place" type="xs:string">
+            <doc title="The place where the object was produced" />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:GetCollection_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/{culture}/usersets/{user-id}-{collection-name}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="culture" type="xs:string" required="true" default="nl">
+        <doc title="The language to search in (and of the results)." />
+        <option value="nl" />
+        <option value="en" />
+      </param>
+      <param style="template" name="user-id" type="xs:long" required="true">
+        <doc title="Specify an individual user-id" />
+      </param>
+      <param style="template" name="collection-name" type="xs:string" required="true">
+        <doc title="Specify your collection name (in small letter and spaces to be replaced with &quot;-&quot;)" />
+      </param>
+      <method siena:requiresAuthentication="true" name="GET" id="GetUsersets" actionName="GetUsersets" siena:isDeprecated="false">
+        <doc title="User-generated content&#xA;These APIs give access to sets of objects created by users in Rijksstudio." />
+        <request>
+          <param style="query" name="format" type="xs:string" default="json">
+            <doc title="The format of the result." />
+            <option value="json" />
+            <option value="jsonp" />
+            <option value="xml" />
+          </param>
+          <param style="query" name="page" type="xs:long" default="0">
+            <doc title="The result page to fetch. Note that page * pageSize cannot exceed 10.000." />
+          </param>
+          <param style="query" name="pageSize" type="xs:long" default="25">
+            <doc title="The number of results per page. Note that page * pageSize cannot exceed 10.000." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:GetUsersets_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_rijksmuseumip" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>

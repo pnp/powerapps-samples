@@ -1,0 +1,353 @@
+"'Advanced Search' As screen":
+    Fill: =ColorValue(AppTheme.palette.white)
+
+    lbl_AdvSearch As label:
+        Align: =Align.Center
+        Color: =ColorValue(AppTheme.palette.neutralPrimary)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Size: =20
+        Text: ="Advanced Search"
+        Width: =300
+        X: ='Advanced Search'.Width/2 - lbl_AdvSearch.Width/2
+        Y: =30
+        ZIndex: =12
+
+    "FluentDetailsList1_1 As 'Fluent Details List (1.0.22)'.pcfdataset":
+        columns_Items: |-
+            =Table(
+                {
+                    ColDisplayName: "✍️ Principal/First Maker",
+                    ColName: "principalOrFirstMaker",
+                    ColResizable: true,
+                    ColWidth: 200,
+                    ColRowHeader: true
+                },
+                {
+                    ColDisplayName: "🏢 Object Number",
+                    ColName: "objectNumber",
+                    ColResizable: true,
+                    ColWidth: 150,
+                    ColRowHeader: true
+                },
+                {
+                    ColDisplayName: "📰 Title",
+                    ColName: "longTitle",
+                    ColBold: true,
+                    ColWidth: 300,
+                    ColRowHeader: true,
+                    ColResizable: true,
+                    ColMultiLine: true
+                },
+                {
+                    ColDisplayName: "🖼️ Image",
+                    ColName: "WebURL",
+                    ColBold: true,
+                    ColWidth: 100,
+                    ColRowHeader: true,
+                    ColResizable: true,
+                    ColCellType: "image",
+                    ColImageWidth: 60,
+                    ColImagePadding: 6
+                },
+                {
+                    ColDisplayName: "🔗Link",
+                    ColName: "Link",
+                    ColBold: true,
+                    ColWidth: 400,
+                    ColRowHeader: true,
+                    ColResizable: true,
+                    ColCellType: "link",
+                    ColMultiLine: true
+                }
+            )
+        Compact: =true
+        DisplayMode: =DisplayMode.Edit
+        HeaderVisible: =true
+        Height: =622
+        Items: |-
+            =If(
+                Len(SearchBox1_1.SearchText) >= 3,
+                SortByColumns(
+                    Search(
+                        colAdvSearchTable,
+                        SearchBox1_1.SearchText,
+                        "principalOrFirstMaker",
+                        "longTitle",
+                        "objectNumber"
+                    ),
+                    ctxSortCol,
+                    If(
+                        ctxSortAsc,
+                        SortOrder.Ascending,
+                        SortOrder.Descending
+                    )
+                ),
+                SortByColumns(
+                    colAdvSearchTable,
+                    ctxSortCol,
+                    If(
+                        ctxSortAsc,
+                        SortOrder.Ascending,
+                        SortOrder.Descending
+                    )
+                )
+            )
+        LargeDatasetPaging: =false
+        OnChange: |
+            =If(Self.EventName="Sort", 
+            UpdateContext({
+                            ctxSortCol:Self.SortEventColumn,
+                            ctxSortAsc:If(Self.SortEventDirection='PowerCAT.FluentDetailsList.SortEventDirection'.Ascending,true,false)
+             })
+            );
+            
+            If(Self.EventName="CellAction",    Launch(Self.Selected.Link))
+        RaiseOnRowSelectionChangeEvent: =true
+        RecordKey: ="id"
+        SelectionAlwaysVisible: =false
+        SelectionType: ='PowerCAT.FluentDetailsList.SelectionType'.None
+        SelectRowsOnFocus: =false
+        Theme: =AppThemeJson
+        Width: =1023
+        X: =0
+        Y: =145
+        ZIndex: =15
+
+        objectNumber1_1 As pcfDataField.textualColumn:
+            FieldDisplayName: ="objectNumber"
+            FieldName: ="objectNumber"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =1
+            ZIndex: =1
+
+        longTitle1_1 As pcfDataField.textualColumn:
+            FieldDisplayName: ="longTitle"
+            FieldName: ="longTitle"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =3
+            ZIndex: =3
+
+        headerImage1_1 As pcfDataField.textualColumn:
+            FieldDisplayName: ="headerImage"
+            FieldName: ="headerImage"
+            FieldType: |-
+                ="![guid:s, height:n, offsetPercentageX:n, offsetPercentageY:n, url:s, width:n]"
+            FieldVariantName: ="textualColumn"
+            Order: =6
+            ZIndex: =6
+
+        Link1_1 As pcfDataField.textualColumn:
+            FieldDisplayName: ="Link"
+            FieldName: ="Link"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =5
+            ZIndex: =7
+
+        WebURL1_1 As pcfDataField.textualColumn:
+            FieldDisplayName: ="WebURL"
+            FieldName: ="WebURL"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =6
+            ZIndex: =8
+
+    grp_AdvSearchItems As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =15
+
+        btn_SearchCollectionFlow As button:
+            DisplayMode: |-
+                =If(
+                    Or(
+                        IsBlank(txt_PrincipalMaker),
+                        IsBlank(drp_Language),
+                        IsBlank(txt_Century),
+                        IsBlank(txt_ResultperPage)
+                    ),
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            Fill: =ColorValue(AppTheme.palette.neutralPrimaryAlt)
+            Font: =Font.'Segoe UI'
+            Height: =50
+            HoverFill: =ColorValue(AppTheme.palette.neutralQuaternaryAlt)
+            OnSelect: |-
+                =ClearCollect(
+                    colAdvSearch,
+                    RijksmuseumSearchCollection.Run(
+                        drp_Language.Selected.Value,
+                        txt_PrincipalMaker.Text,
+                        Value(txt_ResultperPage.Text),
+                        Value(txt_Century.Text)
+                    )
+                );
+                ClearCollect(
+                    colAdvSearchTable,
+                    AddColumns(colAdvSearch,
+                    "WebURL",webImage.url,"Link",links.web)
+                )
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            Size: =12
+            Text: ="Search the Collection"
+            Width: =150
+            X: =1108
+            Y: =355
+            ZIndex: =1
+
+        txt_PrincipalMaker As text:
+            BorderColor: =ColorValue(AppTheme.palette.neutralDark)
+            Color: =RGBA(255,255,255,1)
+            Default: =""
+            Fill: =ColorValue(AppTheme.palette.white)
+            HintText: ="Full Name of the Maker"
+            HoverBorderColor: =ColorValue(AppTheme.palette.neutralDark)
+            HoverColor: =RGBA(255,255,255,1)
+            HoverFill: =ColorValue(AppTheme.palette.neutralQuaternaryAlt)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            Size: =11
+            Width: =200
+            X: =1149
+            Y: =120
+            ZIndex: =3
+
+        lbl_PrincipalMaker As label:
+            Color: =ColorValue(AppTheme.palette.neutralPrimary)
+            Size: =11
+            Text: ="Principal Maker"
+            Width: =125
+            X: =1023
+            Y: =120
+            ZIndex: =4
+
+        txt_ResultperPage As text:
+            BorderColor: =ColorValue(AppTheme.palette.neutralDark)
+            Color: =RGBA(255, 255, 255, 1)
+            Default: =""
+            Fill: =ColorValue(AppTheme.palette.white)
+            Format: =TextFormat.Number
+            HintText: ="Result/Page (1-100)"
+            HoverBorderColor: =ColorValue(AppTheme.palette.neutralQuaternaryAlt)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorValue(AppTheme.palette.neutralQuaternaryAlt)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            Size: =11
+            Width: =200
+            X: =1148
+            Y: =287
+            ZIndex: =6
+
+        lbl_ResultsperPage As label:
+            Color: =ColorValue(AppTheme.palette.neutralPrimary)
+            Size: =11
+            Text: ="Results/ Page"
+            Width: =125
+            X: =1023
+            Y: =287
+            ZIndex: =7
+
+        drp_Language As dropdown:
+            AllowEmptySelection: =true
+            BorderColor: =ColorValue(AppTheme.palette.neutralDark)
+            ChevronBackground: =ColorValue(AppTheme.palette.white)
+            ChevronFill: =ColorValue(AppTheme.palette.neutralDark)
+            ChevronHoverBackground: =ColorValue(AppTheme.palette.neutralQuaternaryAlt)
+            ChevronHoverFill: =ColorValue(AppTheme.palette.neutralDark)
+            Color: =RGBA(255, 255, 255, 1)
+            Default: =Blank()
+            Fill: =ColorValue(AppTheme.palette.white)
+            HoverColor: =ColorValue(AppTheme.palette.neutralPrimaryAlt)
+            HoverFill: =ColorValue(AppTheme.palette.neutralTertiaryAlt)
+            Items: =[ "nl","en"]
+            PressedFill: =ColorValue(AppTheme.palette.neutralTertiaryAlt)
+            SelectionFill: =ColorValue(AppTheme.palette.neutralTertiaryAlt)
+            Size: =11
+            Width: =200
+            X: =1149
+            Y: =171
+            ZIndex: =9
+
+        lbl_Language As label:
+            Color: =ColorValue(AppTheme.palette.neutralPrimary)
+            Size: =11
+            Text: ="Language"
+            Width: =125
+            X: =1023
+            Y: =171
+            ZIndex: =10
+
+        lbl_Century As label:
+            Color: =ColorValue(AppTheme.palette.neutralPrimary)
+            Size: =11
+            Text: ="Century"
+            Width: =125
+            X: =1024
+            Y: =228
+            ZIndex: =13
+
+        txt_Century As text:
+            BorderColor: =ColorValue(AppTheme.palette.neutralDark)
+            Color: =RGBA(255, 255, 255, 1)
+            Default: =""
+            Fill: =ColorValue(AppTheme.palette.white)
+            Format: =TextFormat.Number
+            HintText: ="Object made in century "
+            HoverBorderColor: =ColorValue(AppTheme.palette.neutralQuaternaryAlt)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorValue(AppTheme.palette.neutralQuaternaryAlt)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            Size: =11
+            Tooltip: ="(0-21)"
+            Width: =200
+            X: =1149
+            Y: =228
+            ZIndex: =14
+
+    "SearchBox1_1 As 'Fluent SearchBox (1.0.22) Preview'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =30
+        PlaceHolderText: ="""Search in the collection of "" & First(colAdvSearchTable).principalOrFirstMaker"
+        SearchText: =
+        Theme: =AppThemeJson
+        Width: =400
+        X: =179
+        Y: =105
+        ZIndex: =16
+
+    ico_Home As icon.Home:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =ColorValue(AppTheme.palette.neutralPrimary)
+        Fill: =ColorValue(AppTheme.palette.white)
+        Height: =100
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Home,ScreenTransition.Cover)
+        Width: =100
+        X: =1266
+        ZIndex: =17
+
+    Image2_1 As image:
+        Image: =rijksmuseum_1
+        PaddingBottom: =10
+        PaddingLeft: =10
+        PaddingRight: =10
+        PaddingTop: =10
+        ZIndex: =18
+
