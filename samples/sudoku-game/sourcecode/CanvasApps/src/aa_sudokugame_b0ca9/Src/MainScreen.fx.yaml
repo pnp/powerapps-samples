@@ -1,0 +1,3029 @@
+MainScreen As screen:
+    Fill: =RGBA(13, 17, 23, 1)
+    OnVisible: |-
+        =UpdateContext({ctxAnswerBtn : "Show Answers"});
+
+    img_sudoku As image:
+        Height: =768
+        Image: ='sudoku-bkg'
+        Width: =1366
+        ZIndex: =1
+
+    btn_NewGame As button:
+        DisplayMode: =If(IsBlank(cmb_GameLevel.Selected.Value),DisplayMode.Disabled,DisplayMode.Edit)
+        Fill: =RGBA(0, 134, 208, 1)
+        Height: =60
+        OnSelect: |-
+            =Set(varBtnAnswers,"Solve!");
+            Clear(colSodukoTaskGrid);
+            Clear(colStoreNumber);
+            Set(
+                varGameLevel,
+                Blank()
+            );
+            Switch(
+                cmb_GameLevel.Selected.Value,
+                "Easy",
+                Set(
+                    varGameLevel,
+                    70
+                ),
+                "Medium",
+                Set(
+                    varGameLevel,
+                    50
+                ),
+                "Hard",
+                Set(
+                    varGameLevel,
+                    30
+                ),
+                "Expert",
+                Set(
+                    varGameLevel,
+                    10
+                ),
+                "Medium"
+            );
+            Set(
+                gridArray,
+                'Shadify(IndependentPublisher)'.SudokuGet({fill:varGameLevel})
+            );
+            ClearCollect(
+                colSodukoTask,
+                {value: gridArray.task}
+            );
+            ClearCollect(
+                colUnGroupSodukoTask,
+                Ungroup(
+                    colSodukoTask,
+                    "value"
+                )
+            );
+            Clear(colSodukoTask);
+            ForAll(
+                colUnGroupSodukoTask,
+                Collect(
+                    colSodukoTaskGrid,
+                    {
+                        A1: If(
+                            Index(
+                                ThisRecord.Value,
+                                1
+                            ).Value = 0,
+                            Blank(),
+                            Index(
+                                ThisRecord.Value,
+                                1
+                            ).Value
+                        ),
+                        A2: If(
+                            Index(
+                                ThisRecord.Value,
+                                2
+                            ).Value = 0,
+                            Blank(),
+                            Index(
+                                ThisRecord.Value,
+                                2
+                            ).Value
+                        ),
+                        A3: If(
+                            Index(
+                                ThisRecord.Value,
+                                3
+                            ).Value = 0,
+                            Blank(),
+                            Index(
+                                ThisRecord.Value,
+                                3
+                            ).Value
+                        ),
+                        A4: If(
+                            Index(
+                                ThisRecord.Value,
+                                4
+                            ).Value = 0,
+                            Blank(),
+                            Index(
+                                ThisRecord.Value,
+                                4
+                            ).Value
+                        ),
+                        A5: If(
+                            Index(
+                                ThisRecord.Value,
+                                5
+                            ).Value = 0,
+                            Blank(),
+                            Index(
+                                ThisRecord.Value,
+                                5
+                            ).Value
+                        ),
+                        A6: If(
+                            Index(
+                                ThisRecord.Value,
+                                6
+                            ).Value = 0,
+                            Blank(),
+                            Index(
+                                ThisRecord.Value,
+                                6
+                            ).Value
+                        ),
+                        A7: If(
+                            Index(
+                                ThisRecord.Value,
+                                7
+                            ).Value = 0,
+                            Blank(),
+                            Index(
+                                ThisRecord.Value,
+                                7
+                            ).Value
+                        ),
+                        A8: If(
+                            Index(
+                                ThisRecord.Value,
+                                8
+                            ).Value = 0,
+                            Blank(),
+                            Index(
+                                ThisRecord.Value,
+                                8
+                            ).Value
+                        ),
+                        A9: If(
+                            Index(
+                                ThisRecord.Value,
+                                9
+                            ).Value = 0,
+                            Blank(),
+                            Index(
+                                ThisRecord.Value,
+                                9
+                            ).Value
+                        )
+                    }
+                )
+            );
+            Set(varEnableBtns, true);
+        Size: =17
+        Text: ="New Game"
+        Width: =269
+        X: =27
+        Y: =662
+        ZIndex: =2
+
+    btn_ShowAnswer As button:
+        DisplayMode: =If(varEnableBtns,DisplayMode.Edit,DisplayMode.Disabled)
+        Fill: =RGBA(0, 134, 208, 1)
+        Height: =60
+        OnSelect: |-
+            =If(
+                Self.Text = "Solve!",
+                Set(
+                    varBtnAnswers,
+                    "Unsolved!"
+                );
+                Set(
+                    varStatus,
+                    "Answer"
+                );
+                Clear(colSodukoSolveGrid);
+                ClearCollect(
+                    colSodukoSolve,
+                    {value: gridArray.grid}
+                );
+                ClearCollect(
+                    colUnGroupSodukoSolve,
+                    Ungroup(
+                        colSodukoSolve,
+                        "value"
+                    )
+                );
+                Clear(colSodukoSolve);
+                ForAll(
+                    colUnGroupSodukoSolve,
+                    Collect(
+                        colSodukoSolveGrid,
+                        {
+                            A1: Index(
+                                ThisRecord.Value,
+                                1
+                            ).Value,
+                            A2: Index(
+                                ThisRecord.Value,
+                                2
+                            ).Value,
+                            A3: Index(
+                                ThisRecord.Value,
+                                3
+                            ).Value,
+                            A4: Index(
+                                ThisRecord.Value,
+                                4
+                            ).Value,
+                            A5: Index(
+                                ThisRecord.Value,
+                                5
+                            ).Value,
+                            A6: Index(
+                                ThisRecord.Value,
+                                6
+                            ).Value,
+                            A7: Index(
+                                ThisRecord.Value,
+                                7
+                            ).Value,
+                            A8: Index(
+                                ThisRecord.Value,
+                                8
+                            ).Value,
+                            A9: Index(
+                                ThisRecord.Value,
+                                9
+                            ).Value
+                        }
+                    )
+                ),
+                If(
+                    Self.Text = "Unsolved!",
+                    Clear(colSodukoSolveGrid);
+                    Set(
+                        varBtnAnswers,
+                        "Solve!"
+                    );
+                )
+            )
+        Size: =18
+        Text: =varBtnAnswers
+        Width: =269
+        X: =1079
+        Y: =580
+        ZIndex: =3
+
+    btn_RestartGame As button:
+        DisplayMode: =If(varEnableBtns,DisplayMode.Edit,DisplayMode.Disabled)
+        Fill: =RGBA(0, 134, 208, 1)
+        Height: =60
+        OnSelect: |+
+            =Clear(colStoreNumber);
+            ClearCollect(
+                colSodukoTask,
+                {value: gridArray.task}
+            );
+            ClearCollect(
+                colUnGroupSodukoTask,
+                Ungroup(
+                    colSodukoTask,
+                    "value"
+                )
+            );
+            Clear(colSodukoTask);
+            ForAll(
+                colUnGroupSodukoTask,
+                Collect(
+                    colSodukoTaskGrid,
+                    {
+                        A1: If(Index(ThisRecord.Value,1).Value = 0,Blank(),Index(ThisRecord.Value,1).Value),
+                        A2: If(Index(ThisRecord.Value,2).Value = 0,Blank(),Index(ThisRecord.Value,2).Value),
+                        A3: If(Index(ThisRecord.Value,3).Value = 0,Blank(),Index(ThisRecord.Value,3).Value),
+                        A4: If(Index(ThisRecord.Value,4).Value = 0,Blank(),Index(ThisRecord.Value,4).Value),
+                        A5: If(Index(ThisRecord.Value,5).Value = 0,Blank(),Index(ThisRecord.Value,5).Value),
+                        A6: If(Index(ThisRecord.Value,6).Value = 0,Blank(),Index(ThisRecord.Value,6).Value),
+                        A7: If(Index(ThisRecord.Value,7).Value = 0,Blank(),Index(ThisRecord.Value,7).Value),
+                        A8: If(Index(ThisRecord.Value,8).Value = 0,Blank(),Index(ThisRecord.Value,8).Value),
+                        A9: If(Index(ThisRecord.Value,9).Value = 0,Blank(),Index(ThisRecord.Value,9).Value)
+                    }
+                )
+            );
+            
+        Size: =17
+        Text: ="Restart Game"
+        Width: =269
+        X: =1080
+        Y: =294
+        ZIndex: =4
+
+    grp_NumKey As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =67
+
+        btn_NumKey1 As button:
+            BorderColor: =
+            BorderStyle: =
+            BorderThickness: =0
+            Color: =RGBA(0, 134, 208, 1)
+            DisabledBorderColor: =
+            Fill: =RGBA(234, 238, 244, 1)
+            FocusedBorderColor: =
+            FocusedBorderThickness: =
+            Height: =75
+            HoverBorderColor: =
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            OnSelect: |
+                =Patch(colStoreNumber,Last(colStoreNumber),{Num: Value(Self.Text)})
+            PressedBorderColor: =
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Size: =30
+            Text: ="1"
+            Width: =85
+            X: =1080
+            Y: =20
+            ZIndex: =5
+
+        btn_NumKey2 As button:
+            BorderColor: =
+            BorderStyle: =
+            BorderThickness: =0
+            Color: =RGBA(0, 134, 208, 1)
+            DisabledBorderColor: =
+            Fill: =RGBA(234, 238, 244, 1)
+            FocusedBorderColor: =
+            FocusedBorderThickness: =
+            Height: =75
+            HoverBorderColor: =
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            OnSelect: |-
+                =Patch(colStoreNumber,Last(colStoreNumber),{Num: Value(Self.Text)})
+            PressedBorderColor: =
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Size: =30
+            Text: ="2"
+            Width: =85
+            X: =1172
+            Y: =20
+            ZIndex: =6
+
+        btn_NumKey3 As button:
+            BorderColor: =
+            BorderStyle: =
+            BorderThickness: =0
+            Color: =RGBA(0, 134, 208, 1)
+            DisabledBorderColor: =
+            Fill: =RGBA(234, 238, 244, 1)
+            FocusedBorderColor: =
+            FocusedBorderThickness: =
+            Height: =75
+            HoverBorderColor: =
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            OnSelect: |-
+                =Patch(colStoreNumber,Last(colStoreNumber),{Num: Value(Self.Text)})
+            PressedBorderColor: =
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Size: =30
+            Text: ="3"
+            Width: =85
+            X: =1264
+            Y: =20
+            ZIndex: =7
+
+        btn_NumKey4 As button:
+            BorderColor: =
+            BorderStyle: =
+            BorderThickness: =0
+            Color: =RGBA(0, 134, 208, 1)
+            DisabledBorderColor: =
+            Fill: =RGBA(234, 238, 244, 1)
+            FocusedBorderColor: =
+            FocusedBorderThickness: =
+            Height: =75
+            HoverBorderColor: =
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            OnSelect: |-
+                =Patch(colStoreNumber,Last(colStoreNumber),{Num: Value(Self.Text)})
+            PressedBorderColor: =
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Size: =30
+            Text: ="4"
+            Width: =85
+            X: =1080
+            Y: =103
+            ZIndex: =8
+
+        btn_NumKey5 As button:
+            BorderColor: =
+            BorderStyle: =
+            BorderThickness: =0
+            Color: =RGBA(0, 134, 208, 1)
+            DisabledBorderColor: =
+            Fill: =RGBA(234, 238, 244, 1)
+            FocusedBorderColor: =
+            FocusedBorderThickness: =
+            Height: =75
+            HoverBorderColor: =
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            OnSelect: |-
+                =Patch(colStoreNumber,Last(colStoreNumber),{Num: Value(Self.Text)})
+            PressedBorderColor: =
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Size: =30
+            Text: ="5"
+            Width: =85
+            X: =1171
+            Y: =103
+            ZIndex: =9
+
+        btn_NumKey6 As button:
+            BorderColor: =
+            BorderStyle: =
+            BorderThickness: =0
+            Color: =RGBA(0, 134, 208, 1)
+            DisabledBorderColor: =
+            Fill: =RGBA(234, 238, 244, 1)
+            FocusedBorderColor: =
+            FocusedBorderThickness: =
+            Height: =75
+            HoverBorderColor: =
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            OnSelect: |-
+                =Patch(colStoreNumber,Last(colStoreNumber),{Num: Value(Self.Text)})
+            PressedBorderColor: =
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Size: =30
+            Text: ="6"
+            Width: =85
+            X: =1264
+            Y: =103
+            ZIndex: =10
+
+        btn_NumKey7 As button:
+            BorderColor: =
+            BorderStyle: =
+            BorderThickness: =0
+            Color: =RGBA(0, 134, 208, 1)
+            DisabledBorderColor: =
+            Fill: =RGBA(234, 238, 244, 1)
+            FocusedBorderColor: =
+            FocusedBorderThickness: =
+            Height: =75
+            HoverBorderColor: =
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            OnSelect: |-
+                =Patch(colStoreNumber,Last(colStoreNumber),{Num: Value(Self.Text)})
+            PressedBorderColor: =
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Size: =30
+            Text: ="7"
+            Width: =85
+            X: =1080
+            Y: =187
+            ZIndex: =11
+
+        btn_NumKey8 As button:
+            BorderColor: =
+            BorderStyle: =
+            BorderThickness: =0
+            Color: =RGBA(0, 134, 208, 1)
+            DisabledBorderColor: =
+            Fill: =RGBA(234, 238, 244, 1)
+            FocusedBorderColor: =
+            FocusedBorderThickness: =
+            Height: =75
+            HoverBorderColor: =
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            OnSelect: |-
+                =Patch(colStoreNumber,Last(colStoreNumber),{Num: Value(Self.Text)})
+            PressedBorderColor: =
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Size: =30
+            Text: ="8"
+            Width: =85
+            X: =1172
+            Y: =187
+            ZIndex: =12
+
+        btn_NumKey9 As button:
+            BorderColor: =
+            BorderStyle: =
+            BorderThickness: =0
+            Color: =RGBA(0, 134, 208, 1)
+            Fill: =RGBA(234, 238, 244, 1)
+            FocusedBorderColor: =
+            FocusedBorderThickness: =
+            Height: =75
+            HoverBorderColor: =
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            OnSelect: |-
+                =Patch(colStoreNumber,Last(colStoreNumber),{Num: Value(Self.Text)})
+            PressedBorderColor: =
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Size: =30
+            Text: ="9"
+            Width: =85
+            X: =1264
+            Y: =187
+            ZIndex: =13
+
+    grp_Section4 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =67
+
+        lbl_Grid_4_1 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,4).A1), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,4).A1), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,4).A1), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,4).A1), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,4).A1)
+            Tooltip: ="X4Y1"
+            Width: =75
+            X: =324
+            Y: =275
+            ZIndex: =14
+
+        lbl_Grid_4_2 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,4).A2), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,4).A2), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,4).A2), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,4).A2), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,4).A2)
+            Tooltip: ="X4Y2"
+            Width: =75
+            X: =399
+            Y: =275
+            ZIndex: =15
+
+        lbl_Grid_4_3 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,4).A3), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,4).A3), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,4).A3), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,4).A3), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,4).A3)
+            Tooltip: ="X4Y3"
+            Width: =75
+            X: =485
+            Y: =275
+            ZIndex: =16
+
+        lbl_Grid_5_1 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,5).A1), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,5).A1), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,5).A1), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,5).A1), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,5).A1)
+            Tooltip: ="X5Y1"
+            Width: =75
+            X: =324
+            Y: =356
+            ZIndex: =17
+
+        lbl_Grid_5_2 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,5).A2), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,5).A2), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,5).A2), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,5).A2), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,5).A2)
+            Tooltip: ="X5Y2"
+            Width: =75
+            X: =404
+            Y: =356
+            ZIndex: =18
+
+        lbl_Grid_5_3 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,5).A3), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,5).A3), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,5).A3), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,5).A3), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,5).A3)
+            Tooltip: ="X5Y3"
+            Width: =75
+            X: =484
+            Y: =356
+            ZIndex: =19
+
+        lbl_Grid_6_1 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,6).A1), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,6).A1), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,6).A1), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,6).A1), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,6).A1)
+            Tooltip: ="X6Y1"
+            Width: =75
+            X: =324
+            Y: =434
+            ZIndex: =20
+
+        lbl_Grid_6_2 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,6).A2), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,6).A2), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,6).A2), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,6).A2), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,6).A2)
+            Tooltip: ="X6Y2"
+            Width: =75
+            X: =407
+            Y: =434
+            ZIndex: =21
+
+        lbl_Grid_6_3 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,6).A3), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,6).A3), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,6).A3), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,6).A3), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,6).A3)
+            Tooltip: ="X6Y3"
+            Width: =75
+            X: =484
+            Y: =434
+            ZIndex: =22
+
+        lbl_Solve_4_1 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,4).A1 = Blank() , Index(colSodukoSolveGrid,4).A1, Blank())
+            Width: =20
+            X: =380
+            Y: =325
+            ZIndex: =23
+
+        lbl_Solve_4_2 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,4).A2 = Blank() , Index(colSodukoSolveGrid,4).A2, Blank())
+            Width: =20
+            X: =459
+            Y: =325
+            ZIndex: =24
+
+        lbl_Solve_4_3 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,4).A3 = Blank() , Index(colSodukoSolveGrid,4).A3, Blank())
+            Width: =20
+            X: =539
+            Y: =325
+            ZIndex: =25
+
+        lbl_Solve_5_1 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,5).A1 = Blank() , Index(colSodukoSolveGrid,5).A1, Blank())
+            Width: =20
+            X: =380
+            Y: =404
+            ZIndex: =26
+
+        lbl_Solve_5_2 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,5).A2 = Blank() , Index(colSodukoSolveGrid,5).A2, Blank())
+            Width: =20
+            X: =464
+            Y: =404
+            ZIndex: =27
+
+        lbl_Solve_5_3 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,5).A3 = Blank() , Index(colSodukoSolveGrid,5).A3, Blank())
+            Width: =20
+            X: =539
+            Y: =404
+            ZIndex: =28
+
+        lbl_Solve_6_1 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,6).A1 = Blank() , Index(colSodukoSolveGrid,6).A1, Blank())
+            Width: =20
+            X: =381
+            Y: =479
+            ZIndex: =29
+
+        lbl_Solve_6_2 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,6).A2 = Blank() , Index(colSodukoSolveGrid,6).A2, Blank())
+            Width: =20
+            X: =465
+            Y: =479
+            ZIndex: =30
+
+        lbl_Solve_6_3 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,6).A3 = Blank() , Index(colSodukoSolveGrid,6).A3, Blank())
+            Width: =20
+            X: =540
+            Y: =479
+            ZIndex: =31
+
+    grp_Section1 As group:
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =85
+
+        lbl_Grid_1_1 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,1).A1), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FocusedBorderThickness: =1
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,1).A1), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,1).A1), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,1).A1), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,1).A1)
+            Tooltip: ="X1Y1"
+            Width: =75
+            X: =323
+            Y: =29
+            ZIndex: =32
+
+        lbl_Grid_1_2 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,1).A2), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,1).A2), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,1).A2), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,1).A2), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,1).A2)
+            Tooltip: ="X1Y2"
+            Width: =75
+            X: =398
+            Y: =29
+            ZIndex: =33
+
+        lbl_Grid_1_3 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,1).A3), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,1).A3), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,1).A3), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,1).A3), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,1).A3)
+            Tooltip: ="X1Y3"
+            Width: =75
+            X: =484
+            Y: =29
+            ZIndex: =34
+
+        lbl_Grid_2_1 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,2).A1), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,2).A1), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,2).A1), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,2).A1), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,2).A1)
+            Tooltip: ="X2Y1"
+            Width: =75
+            X: =323
+            Y: =110
+            ZIndex: =35
+
+        lbl_Grid_2_2 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,2).A2), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,2).A2), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,2).A2), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,2).A2), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,2).A2)
+            Tooltip: ="X2Y2"
+            Width: =75
+            X: =403
+            Y: =110
+            ZIndex: =36
+
+        lbl_Grid_2_3 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,2).A3), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,2).A3), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,2).A3), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,2).A3), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,2).A3)
+            Tooltip: ="X2Y3"
+            Width: =75
+            X: =483
+            Y: =110
+            ZIndex: =37
+
+        lbl_Grid_3_1 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,3).A1), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,3).A1), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,3).A1), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,3).A1), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,3).A1)
+            Tooltip: ="X3Y1"
+            Width: =75
+            X: =323
+            Y: =188
+            ZIndex: =38
+
+        lbl_Grid_3_2 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,3).A2), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,3).A2), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,3).A2), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,3).A2), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,3).A2)
+            Tooltip: ="X3Y2"
+            Width: =75
+            X: =406
+            Y: =188
+            ZIndex: =39
+
+        lbl_Grid_3_3 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,3).A3), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,3).A3), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,3).A3), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,3).A3), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,3).A3)
+            Tooltip: ="X3Y3"
+            Width: =75
+            X: =483
+            Y: =188
+            ZIndex: =40
+
+        lbl_Solve_1_1 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,1).A1 = Blank() , Index(colSodukoSolveGrid,1).A1, Blank())
+            Width: =20
+            X: =379
+            Y: =79
+            ZIndex: =41
+
+        lbl_Solve_1_2 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,1).A2 = Blank() , Index(colSodukoSolveGrid,1).A2, Blank())
+            Width: =20
+            X: =458
+            Y: =79
+            ZIndex: =42
+
+        lbl_Solve_1_3 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,1).A3 = Blank() , Index(colSodukoSolveGrid,1).A3, Blank())
+            Width: =20
+            X: =538
+            Y: =79
+            ZIndex: =43
+
+        lbl_Solve_2_1 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,2).A1 = Blank() , Index(colSodukoSolveGrid,2).A1, Blank())
+            Width: =20
+            X: =379
+            Y: =158
+            ZIndex: =44
+
+        lbl_Solve_2_2 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,2).A2 = Blank() , Index(colSodukoSolveGrid,2).A2, Blank())
+            Width: =20
+            X: =463
+            Y: =158
+            ZIndex: =45
+
+        lbl_Solve_2_3 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,2).A3 = Blank() , Index(colSodukoSolveGrid,2).A3, Blank())
+            Width: =20
+            X: =538
+            Y: =158
+            ZIndex: =46
+
+        lbl_Solve_3_1 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,3).A1 = Blank() , Index(colSodukoSolveGrid,3).A1, Blank())
+            Width: =20
+            X: =380
+            Y: =233
+            ZIndex: =47
+
+        lbl_Solve_3_2 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,3).A2 = Blank() , Index(colSodukoSolveGrid,3).A2, Blank())
+            Width: =20
+            X: =464
+            Y: =233
+            ZIndex: =48
+
+        lbl_Solve_3_3 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,3).A3 = Blank() , Index(colSodukoSolveGrid,3).A3, Blank())
+            Width: =20
+            X: =539
+            Y: =233
+            ZIndex: =49
+
+    grp_Section2 As group:
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =104
+
+        lbl_Grid_1_4 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,1).A4), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,1).A4), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,1).A4), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,1).A4), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,1).A4)
+            Tooltip: ="X1Y4"
+            Width: =75
+            X: =562
+            Y: =30
+            ZIndex: =50
+
+        lbl_Grid_1_5 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,1).A5), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,1).A5), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,1).A5), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,1).A5), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,1).A5)
+            Tooltip: ="X1Y5"
+            Width: =75
+            X: =642
+            Y: =30
+            ZIndex: =51
+
+        lbl_Grid_1_6 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,1).A6), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,1).A6), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,1).A6), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,1).A6), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,1).A6)
+            Tooltip: ="X1Y6"
+            Width: =75
+            X: =723
+            Y: =30
+            ZIndex: =52
+
+        lbl_Grid_2_4 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,2).A4), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,2).A4), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,2).A4), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,2).A4), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,2).A4)
+            Tooltip: ="X2Y4"
+            Width: =75
+            X: =562
+            Y: =111
+            ZIndex: =53
+
+        lbl_Grid_2_5 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,2).A5), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,2).A5), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,2).A5), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,2).A5), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,2).A5)
+            Tooltip: ="X2Y5"
+            Width: =75
+            X: =647
+            Y: =111
+            ZIndex: =54
+
+        lbl_Grid_2_6 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,2).A6), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,2).A6), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,2).A6), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,2).A6), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,2).A6)
+            Tooltip: ="X2Y6"
+            Width: =75
+            X: =722
+            Y: =111
+            ZIndex: =55
+
+        lbl_Grid_3_4 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,3).A4), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,3).A4), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,3).A4), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,3).A4), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,3).A4)
+            Tooltip: ="X3Y4"
+            Width: =75
+            X: =562
+            Y: =189
+            ZIndex: =56
+
+        lbl_Grid_3_5 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,3).A5), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,3).A5), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,3).A5), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,3).A5), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,3).A5)
+            Tooltip: ="X3Y5"
+            Width: =75
+            X: =645
+            Y: =189
+            ZIndex: =57
+
+        lbl_Grid_3_6 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,3).A6), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,3).A6), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,3).A6), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,3).A6), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,3).A6)
+            Tooltip: ="X3Y6"
+            Width: =75
+            X: =722
+            Y: =189
+            ZIndex: =58
+
+        lbl_Solve_1_4 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,1).A4 = Blank() , Index(colSodukoSolveGrid,1).A4, Blank())
+            Width: =20
+            X: =618
+            Y: =80
+            ZIndex: =59
+
+        lbl_Solve_1_5 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,1).A5 = Blank() , Index(colSodukoSolveGrid,1).A5, Blank())
+            Width: =20
+            X: =697
+            Y: =80
+            ZIndex: =60
+
+        lbl_Solve_1_6 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,1).A6 = Blank() , Index(colSodukoSolveGrid,1).A6, Blank())
+            Width: =20
+            X: =777
+            Y: =80
+            ZIndex: =61
+
+        lbl_Solve_2_4 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,2).A4 = Blank() , Index(colSodukoSolveGrid,2).A4, Blank())
+            Width: =20
+            X: =618
+            Y: =159
+            ZIndex: =62
+
+        lbl_Solve_2_5 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,2).A5 = Blank() , Index(colSodukoSolveGrid,2).A5, Blank())
+            Width: =20
+            X: =702
+            Y: =159
+            ZIndex: =63
+
+        lbl_Solve_2_6 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,2).A6 = Blank() , Index(colSodukoSolveGrid,2).A6, Blank())
+            Width: =20
+            X: =777
+            Y: =159
+            ZIndex: =64
+
+        lbl_Solve_3_4 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,3).A4 = Blank() , Index(colSodukoSolveGrid,3).A4, Blank())
+            Width: =20
+            X: =619
+            Y: =234
+            ZIndex: =65
+
+        lbl_Solve_3_5 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,3).A5 = Blank() , Index(colSodukoSolveGrid,3).A5, Blank())
+            Width: =20
+            X: =703
+            Y: =234
+            ZIndex: =66
+
+        lbl_Solve_3_6 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,3).A6 = Blank() , Index(colSodukoSolveGrid,3).A6, Blank())
+            Width: =20
+            X: =778
+            Y: =234
+            ZIndex: =67
+
+    grp_Section3 As group:
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =122
+
+        lbl_Grid_1_7 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,1).A7), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,1).A7), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,1).A7), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,1).A7), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,1).A7)
+            Tooltip: ="X1Y7"
+            Width: =75
+            X: =809
+            Y: =31
+            ZIndex: =68
+
+        lbl_Grid_1_8 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,1).A8), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,1).A8), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,1).A8), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,1).A8), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,1).A8)
+            Tooltip: ="X1Y8"
+            Width: =75
+            X: =889
+            Y: =31
+            ZIndex: =69
+
+        lbl_Grid_1_9 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,1).A9), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,1).A9), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,1).A9), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,1).A9), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,1).A9)
+            Tooltip: ="X1Y9"
+            Width: =75
+            X: =962
+            Y: =31
+            ZIndex: =70
+
+        lbl_Grid_2_7 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,2).A7), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,2).A7), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,2).A7), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,2).A7), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,2).A7)
+            Tooltip: ="X2Y7"
+            Width: =75
+            X: =809
+            Y: =112
+            ZIndex: =71
+
+        lbl_Grid_2_8 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,2).A8), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,2).A8), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,2).A8), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,2).A8), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,2).A8)
+            Tooltip: ="X2Y8"
+            Width: =75
+            X: =889
+            Y: =112
+            ZIndex: =72
+
+        lbl_Grid_2_9 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,2).A9), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,2).A9), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,2).A9), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,2).A9), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,2).A9)
+            Tooltip: ="X2Y9"
+            Width: =75
+            X: =961
+            Y: =112
+            ZIndex: =73
+
+        lbl_Grid_3_7 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,3).A7), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,3).A7), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,3).A7), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,3).A7), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,3).A7)
+            Tooltip: ="X3Y7"
+            Width: =75
+            X: =809
+            Y: =190
+            ZIndex: =74
+
+        lbl_Grid_3_8 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,3).A8), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,3).A8), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,3).A8), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,3).A8), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,3).A8)
+            Tooltip: ="X3Y8"
+            Width: =75
+            X: =892
+            Y: =190
+            ZIndex: =75
+
+        lbl_Grid_3_9 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,3).A9), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,3).A9), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,3).A9), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,3).A9), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,3).A9)
+            Tooltip: ="X3Y9"
+            Width: =75
+            X: =961
+            Y: =190
+            ZIndex: =76
+
+        lbl_Solve_1_7 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,1).A7 = Blank() , Index(colSodukoSolveGrid,1).A7, Blank())
+            Width: =20
+            X: =857
+            Y: =81
+            ZIndex: =77
+
+        lbl_Solve_1_8 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,1).A8 = Blank() , Index(colSodukoSolveGrid,1).A8, Blank())
+            Width: =20
+            X: =936
+            Y: =81
+            ZIndex: =78
+
+        lbl_Solve_1_9 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,1).A9 = Blank() , Index(colSodukoSolveGrid,1).A9, Blank())
+            Width: =20
+            X: =1016
+            Y: =81
+            ZIndex: =79
+
+        lbl_Solve_2_7 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,2).A7 = Blank() , Index(colSodukoSolveGrid,2).A7, Blank())
+            Width: =20
+            X: =857
+            Y: =160
+            ZIndex: =80
+
+        lbl_Solve_2_8 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,2).A8 = Blank() , Index(colSodukoSolveGrid,2).A8, Blank())
+            Width: =20
+            X: =941
+            Y: =160
+            ZIndex: =81
+
+        lbl_Solve_2_9 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,2).A9 = Blank() , Index(colSodukoSolveGrid,2).A9, Blank())
+            Width: =20
+            X: =1016
+            Y: =160
+            ZIndex: =82
+
+        lbl_Solve_3_7 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,3).A7 = Blank() , Index(colSodukoSolveGrid,3).A7, Blank())
+            Width: =20
+            X: =858
+            Y: =235
+            ZIndex: =83
+
+        lbl_Solve_3_8 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,3).A8 = Blank() , Index(colSodukoSolveGrid,3).A8, Blank())
+            Width: =20
+            X: =942
+            Y: =235
+            ZIndex: =84
+
+        lbl_Solve_3_9 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,3).A9 = Blank() , Index(colSodukoSolveGrid,3).A9, Blank())
+            Width: =20
+            X: =1017
+            Y: =235
+            ZIndex: =85
+
+    grp_Section5 As group:
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =140
+
+        lbl_Grid_4_4 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,4).A4), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,4).A4), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,4).A4), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,4).A4), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,4).A4)
+            Tooltip: ="X4Y4"
+            Width: =75
+            X: =566
+            Y: =275
+            ZIndex: =86
+
+        lbl_Grid_4_5 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,4).A5), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,4).A5), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,4).A5), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,4).A5), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,4).A5)
+            Tooltip: ="X4Y5"
+            Width: =75
+            X: =646
+            Y: =275
+            ZIndex: =87
+
+        lbl_Grid_4_6 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,4).A6), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,4).A6), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,4).A6), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,4).A6), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,4).A6)
+            Tooltip: ="X4Y6"
+            Width: =75
+            X: =727
+            Y: =275
+            ZIndex: =88
+
+        lbl_Grid_5_4 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,5).A4), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,5).A4), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,5).A4), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,5).A4), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,5).A4)
+            Tooltip: ="X5Y4"
+            Width: =75
+            X: =566
+            Y: =356
+            ZIndex: =89
+
+        lbl_Grid_5_5 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,5).A5), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,5).A5), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,5).A5), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,5).A5), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,5).A5)
+            Tooltip: ="X5Y5"
+            Width: =75
+            X: =646
+            Y: =356
+            ZIndex: =90
+
+        lbl_Grid_5_6 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,5).A6), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,5).A6), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,5).A6), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,5).A6), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,5).A6)
+            Tooltip: ="X5Y6"
+            Width: =75
+            X: =726
+            Y: =356
+            ZIndex: =91
+
+        lbl_Grid_6_4 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,6).A4), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,6).A4), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,6).A4), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,6).A4), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,6).A4)
+            Tooltip: ="X6Y4"
+            Width: =75
+            X: =566
+            Y: =434
+            ZIndex: =92
+
+        lbl_Grid_6_5 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,6).A5), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,6).A5), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,6).A5), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,6).A5), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,6).A5)
+            Tooltip: ="X6Y5"
+            Width: =75
+            X: =649
+            Y: =434
+            ZIndex: =93
+
+        lbl_Grid_6_6 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,6).A6), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,6).A6), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,6).A6), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,6).A6), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,6).A6)
+            Tooltip: ="X6Y6"
+            Width: =75
+            X: =726
+            Y: =434
+            ZIndex: =94
+
+        lbl_Solve_4_4 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,4).A4 = Blank() , Index(colSodukoSolveGrid,4).A4, Blank())
+            Width: =20
+            X: =622
+            Y: =325
+            ZIndex: =95
+
+        lbl_Solve_4_5 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,4).A5 = Blank() , Index(colSodukoSolveGrid,4).A5, Blank())
+            Width: =20
+            X: =701
+            Y: =325
+            ZIndex: =96
+
+        lbl_Solve_4_6 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,4).A6 = Blank() , Index(colSodukoSolveGrid,4).A6, Blank())
+            Width: =20
+            X: =781
+            Y: =325
+            ZIndex: =97
+
+        lbl_Solve_5_4 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,5).A4 = Blank() , Index(colSodukoSolveGrid,5).A4, Blank())
+            Width: =20
+            X: =622
+            Y: =404
+            ZIndex: =98
+
+        lbl_Solve_5_5 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,5).A5 = Blank() , Index(colSodukoSolveGrid,5).A5, Blank())
+            Width: =20
+            X: =706
+            Y: =404
+            ZIndex: =99
+
+        lbl_Solve_5_6 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,5).A6 = Blank() , Index(colSodukoSolveGrid,5).A6, Blank())
+            Width: =20
+            X: =781
+            Y: =404
+            ZIndex: =100
+
+        lbl_Solve_6_4 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,6).A4 = Blank() , Index(colSodukoSolveGrid,6).A4, Blank())
+            Width: =20
+            X: =623
+            Y: =479
+            ZIndex: =101
+
+        lbl_Solve_6_5 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,6).A5 = Blank() , Index(colSodukoSolveGrid,6).A5, Blank())
+            Width: =20
+            X: =707
+            Y: =479
+            ZIndex: =102
+
+        lbl_Solve_6_6 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,6).A6 = Blank() , Index(colSodukoSolveGrid,6).A6, Blank())
+            Width: =20
+            X: =782
+            Y: =479
+            ZIndex: =103
+
+    grp_Section6 As group:
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =158
+
+        lbl_Grid_4_7 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,4).A7), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,4).A7), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,4).A7), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,4).A7), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,4).A7)
+            Tooltip: ="X4Y7"
+            Width: =75
+            X: =808
+            Y: =276
+            ZIndex: =104
+
+        lbl_Grid_4_8 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,4).A8), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,4).A8), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,4).A8), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,4).A8), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,4).A8)
+            Tooltip: ="X4Y8"
+            Width: =75
+            X: =888
+            Y: =276
+            ZIndex: =105
+
+        lbl_Grid_4_9 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,4).A9), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,4).A9), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,4).A9), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,4).A9), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,4).A9)
+            Tooltip: ="X4Y9"
+            Width: =75
+            X: =969
+            Y: =276
+            ZIndex: =106
+
+        lbl_Grid_5_7 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,5).A7), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,5).A7), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,5).A7), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,5).A7), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,5).A7)
+            Tooltip: ="X5Y7"
+            Width: =75
+            X: =808
+            Y: =357
+            ZIndex: =107
+
+        lbl_Grid_5_8 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,5).A8), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,5).A8), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,5).A8), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,5).A8), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,5).A8)
+            Tooltip: ="X5Y8"
+            Width: =75
+            X: =888
+            Y: =357
+            ZIndex: =108
+
+        lbl_Grid_5_9 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,5).A9), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,5).A9), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,5).A9), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,5).A9), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,5).A9)
+            Tooltip: ="X5Y9"
+            Width: =75
+            X: =968
+            Y: =357
+            ZIndex: =109
+
+        lbl_Grid_6_7 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,6).A7), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,6).A7), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,6).A7), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,6).A7), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,6).A7)
+            Tooltip: ="X6Y7"
+            Width: =75
+            X: =808
+            Y: =435
+            ZIndex: =110
+
+        lbl_Grid_6_8 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,6).A8), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,6).A8), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,6).A8), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,6).A8), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,6).A8)
+            Tooltip: ="X6Y8"
+            Width: =75
+            X: =891
+            Y: =435
+            ZIndex: =111
+
+        lbl_Grid_6_9 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,6).A9), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,6).A9), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,6).A9), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,6).A9), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,6).A9)
+            Tooltip: ="X6Y9"
+            Width: =75
+            X: =968
+            Y: =435
+            ZIndex: =112
+
+        lbl_Solve_4_7 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,4).A7 = Blank() , Index(colSodukoSolveGrid,4).A7, Blank())
+            Width: =20
+            X: =864
+            Y: =326
+            ZIndex: =113
+
+        lbl_Solve_4_8 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,4).A8 = Blank() , Index(colSodukoSolveGrid,4).A8, Blank())
+            Width: =20
+            X: =943
+            Y: =326
+            ZIndex: =114
+
+        lbl_Solve_4_9 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,4).A9 = Blank() , Index(colSodukoSolveGrid,4).A9, Blank())
+            Width: =20
+            X: =1023
+            Y: =326
+            ZIndex: =115
+
+        lbl_Solve_5_7 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,5).A7 = Blank() , Index(colSodukoSolveGrid,5).A7, Blank())
+            Width: =20
+            X: =864
+            Y: =405
+            ZIndex: =116
+
+        lbl_Solve_5_8 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,5).A8 = Blank() , Index(colSodukoSolveGrid,5).A8, Blank())
+            Width: =20
+            X: =948
+            Y: =405
+            ZIndex: =117
+
+        lbl_Solve_5_9 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,5).A9 = Blank() , Index(colSodukoSolveGrid,5).A9, Blank())
+            Width: =20
+            X: =1023
+            Y: =405
+            ZIndex: =118
+
+        lbl_Solve_6_7 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,6).A7 = Blank() , Index(colSodukoSolveGrid,6).A7, Blank())
+            Width: =20
+            X: =865
+            Y: =480
+            ZIndex: =119
+
+        lbl_Solve_6_8 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,6).A8 = Blank() , Index(colSodukoSolveGrid,6).A8, Blank())
+            Width: =20
+            X: =949
+            Y: =480
+            ZIndex: =120
+
+        lbl_Solve_6_9 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,6).A9 = Blank() , Index(colSodukoSolveGrid,6).A9, Blank())
+            Width: =20
+            X: =1024
+            Y: =480
+            ZIndex: =121
+
+    lbl_SelectGameLevel As label:
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Semibold
+        Size: =14
+        Text: |-
+            ="Select Game Level :"
+        Width: =263
+        X: =23
+        Y: =543
+        ZIndex: =176
+
+    grp_Section7 As group:
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =176
+
+        lbl_Grid_7_1 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,7).A1), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,7).A1), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,7).A1), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,7).A1), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,7).A1)
+            Tooltip: ="X7Y1"
+            Width: =75
+            X: =323
+            Y: =512
+            ZIndex: =122
+
+        lbl_Grid_7_2 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,7).A2), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,7).A2), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,7).A2), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,7).A2), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,7).A2)
+            Tooltip: ="X7Y2"
+            Width: =75
+            X: =408
+            Y: =512
+            ZIndex: =123
+
+        lbl_Grid_7_3 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,7).A3), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,7).A3), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,7).A3), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,7).A3), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,7).A3)
+            Tooltip: ="X7Y3"
+            Width: =75
+            X: =484
+            Y: =512
+            ZIndex: =124
+
+        lbl_Grid_8_1 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,8).A1), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,8).A1), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,8).A1), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,8).A1), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,8).A1)
+            Tooltip: ="X8Y1"
+            Width: =75
+            X: =323
+            Y: =593
+            ZIndex: =125
+
+        lbl_Grid_8_2 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,8).A2), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,8).A2), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,8).A2), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,8).A2), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,8).A2)
+            Tooltip: ="X8Y2"
+            Width: =75
+            X: =408
+            Y: =593
+            ZIndex: =126
+
+        lbl_Grid_8_3 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,8).A3), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,8).A3), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,8).A3), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,8).A3), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,8).A3)
+            Tooltip: ="X8Y3"
+            Width: =75
+            X: =483
+            Y: =593
+            ZIndex: =127
+
+        lbl_Grid_9_1 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,9).A1), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,9).A1), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,9).A1), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,9).A1), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,9).A1)
+            Tooltip: ="X9Y1"
+            Width: =75
+            X: =323
+            Y: =671
+            ZIndex: =128
+
+        lbl_Grid_9_2 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,9).A2), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,9).A2), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,9).A2), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,9).A2), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,9).A2)
+            Tooltip: ="X9Y2"
+            Width: =75
+            X: =406
+            Y: =671
+            ZIndex: =129
+
+        lbl_Grid_9_3 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,9).A3), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,9).A3), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,9).A3), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,9).A3), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,9).A3)
+            Tooltip: ="X9Y3"
+            Width: =75
+            X: =483
+            Y: =671
+            ZIndex: =130
+
+        lbl_Solve_7_1 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,7).A1 = Blank() , Index(colSodukoSolveGrid,7).A1, Blank())
+            Width: =20
+            X: =379
+            Y: =562
+            ZIndex: =131
+
+        lbl_Solve_7_2 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,7).A2 = Blank() , Index(colSodukoSolveGrid,7).A2, Blank())
+            Width: =20
+            X: =458
+            Y: =562
+            ZIndex: =132
+
+        lbl_Solve_7_3 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,7).A3 = Blank() , Index(colSodukoSolveGrid,7).A3, Blank())
+            Width: =20
+            X: =538
+            Y: =562
+            ZIndex: =133
+
+        lbl_Solve_8_1 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,8).A1 = Blank() , Index(colSodukoSolveGrid,8).A1, Blank())
+            Width: =20
+            X: =379
+            Y: =641
+            ZIndex: =134
+
+        lbl_Solve_8_2 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,8).A2 = Blank() , Index(colSodukoSolveGrid,8).A2, Blank())
+            Width: =20
+            X: =463
+            Y: =641
+            ZIndex: =135
+
+        lbl_Solve_8_3 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,8).A3 = Blank() , Index(colSodukoSolveGrid,8).A3, Blank())
+            Width: =20
+            X: =538
+            Y: =641
+            ZIndex: =136
+
+        lbl_Solve_9_1 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,9).A1 = Blank() , Index(colSodukoSolveGrid,9).A1, Blank())
+            Width: =20
+            X: =380
+            Y: =716
+            ZIndex: =137
+
+        lbl_Solve_9_2 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,9).A2 = Blank() , Index(colSodukoSolveGrid,9).A2, Blank())
+            Width: =20
+            X: =464
+            Y: =716
+            ZIndex: =138
+
+        lbl_Solve_9_3 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,9).A3 = Blank() , Index(colSodukoSolveGrid,9).A3, Blank())
+            Width: =20
+            X: =539
+            Y: =716
+            ZIndex: =139
+
+    cmb_GameLevel As combobox:
+        DisplayFields: =["Value"]
+        IsSearchable: =false
+        Items: =["Easy","Medium","Hard","Expert"]
+        SearchFields: =["Value"]
+        SearchItems: =[]
+        SelectMultiple: =false
+        Width: =269
+        X: =27
+        Y: =592
+        ZIndex: =177
+
+    lbl_Logo As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.'Patrick Hand'
+        Height: =73
+        Size: =65
+        Text: ="Sudoku"
+        Width: =231
+        X: =23
+        Y: =20
+        ZIndex: =178
+
+    icn_Logo As icon.EmojiSmile:
+        Color: =RGBA(255, 191, 0, 1)
+        Height: =40
+        Icon: =Icon.Help
+        OnSelect: =Set(varShowInfoFrame, true)
+        Tooltip: ="About"
+        Width: =40
+        X: =246
+        Y: =12
+        ZIndex: =179
+
+    lbl_Author As label:
+        Color: =RGBA(237, 237, 237, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        OnSelect: |-
+            =Launch("https://arashaghajani.com")
+        Text: ="Made by Arash Aghajani"
+        Width: =215
+        X: =31
+        Y: =98
+        ZIndex: =180
+
+    btn_CheckResult As button:
+        DisplayMode: =If(varEnableBtns,DisplayMode.Edit,DisplayMode.Disabled)
+        Fill: =RGBA(0, 134, 208, 1)
+        Height: =60
+        OnSelect: |-
+            =Set(
+                varStringResult,
+                lbl_Grid_1_1.Text & lbl_Grid_1_2.Text & lbl_Grid_1_3.Text & lbl_Grid_1_4.Text & lbl_Grid_1_5.Text & lbl_Grid_1_6.Text & lbl_Grid_1_7.Text & lbl_Grid_1_8.Text & lbl_Grid_1_9.Text & "-" & lbl_Grid_2_1.Text & lbl_Grid_2_2.Text & lbl_Grid_2_3.Text & lbl_Grid_2_4.Text & lbl_Grid_2_5.Text & lbl_Grid_2_6.Text & lbl_Grid_2_7.Text & lbl_Grid_2_8.Text & lbl_Grid_2_9.Text & "-" & lbl_Grid_3_1.Text & lbl_Grid_3_2.Text & lbl_Grid_3_3.Text & lbl_Grid_3_4.Text & lbl_Grid_3_5.Text & lbl_Grid_3_6.Text & lbl_Grid_3_7.Text & lbl_Grid_3_8.Text & lbl_Grid_3_9.Text & "-" & lbl_Grid_4_1.Text & lbl_Grid_4_2.Text & lbl_Grid_4_3.Text & lbl_Grid_4_4.Text & lbl_Grid_4_5.Text & lbl_Grid_4_6.Text & lbl_Grid_4_7.Text & lbl_Grid_4_8.Text & lbl_Grid_4_9.Text & "-" & lbl_Grid_5_1.Text & lbl_Grid_5_2.Text & lbl_Grid_5_3.Text & lbl_Grid_5_4.Text & lbl_Grid_5_5.Text & lbl_Grid_5_6.Text & lbl_Grid_5_7.Text & lbl_Grid_5_8.Text & lbl_Grid_5_9.Text & "-" & lbl_Grid_6_1.Text & lbl_Grid_6_2.Text & lbl_Grid_6_3.Text & lbl_Grid_6_4.Text & lbl_Grid_6_5.Text & lbl_Grid_6_6.Text & lbl_Grid_6_7.Text & lbl_Grid_6_8.Text & lbl_Grid_6_9.Text & "-" & lbl_Grid_7_1.Text & lbl_Grid_7_2.Text & lbl_Grid_7_3.Text & lbl_Grid_7_4.Text & lbl_Grid_7_5.Text & lbl_Grid_7_6.Text & lbl_Grid_7_7.Text & lbl_Grid_7_8.Text & lbl_Grid_7_9.Text & "-" & lbl_Grid_8_1.Text & lbl_Grid_8_2.Text & lbl_Grid_8_3.Text & lbl_Grid_8_4.Text & lbl_Grid_8_5.Text & lbl_Grid_8_6.Text & lbl_Grid_8_7.Text & lbl_Grid_8_8.Text & lbl_Grid_8_9.Text & "-" & lbl_Grid_9_1.Text & lbl_Grid_9_2.Text & lbl_Grid_9_3.Text & lbl_Grid_9_4.Text & lbl_Grid_9_5.Text & lbl_Grid_9_6.Text & lbl_Grid_9_7.Text & lbl_Grid_9_8.Text & lbl_Grid_9_9.Text
+            );
+            If(
+                IsMatch(
+                    varStringResult,"\d{9}-\d{9}-\d{9}-\d{9}-\d{9}-\d{9}-\d{9}-\d{9}-\d{9}"
+                ),
+                IfError(
+                    'Shadify(IndependentPublisher)'.SudokuCheck(varStringResult),
+                    Notify(
+                        "Make sure all cells have values, then try again!",
+                        NotificationType.Warning
+                    ),
+                    Set(
+                        gridResult,
+                        'Shadify(IndependentPublisher)'.SudokuCheck(varStringResult)
+                    );
+                    If(
+                        IsBlank(gridResult.position),
+                        Set(
+                            varShowFrame,
+                            true
+                        ),
+                        Set(
+                            varShowFrame,
+                            false
+                        );
+                        Notify(
+                            "Sorry! The result is not correct! Please Try Again!",
+                            NotificationType.Warning
+                        )
+                    )
+                ),
+                Notify(
+                    "Make sure all cells have values, then try again!",
+                    NotificationType.Warning
+                )
+            )
+        Size: =18
+        Text: ="Validate"
+        Width: =269
+        X: =1080
+        Y: =662
+        ZIndex: =181
+
+    Icon4 As icon.Check:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =35
+        Icon: =Icon.Check
+        Width: =35
+        X: =1094
+        Y: =672
+        ZIndex: =182
+
+    Icon6 As icon.Reload:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =35
+        Icon: =Icon.Reload
+        OnSelect: =
+        Width: =35
+        X: =1095
+        Y: =307
+        ZIndex: =183
+
+    Icon5 As icon.Enhance:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =35
+        Icon: =Icon.Enhance
+        OnSelect: =
+        Width: =35
+        X: =1094
+        Y: =590
+        ZIndex: =184
+
+    Star1 As star:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =40
+        Width: =40
+        X: =41
+        Y: =672
+        ZIndex: =185
+
+    grp_CongratsFrame As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =185
+
+        rec_CongratsFrame As rectangle:
+            Fill: =RGBA(0, 0, 0, 0.7)
+            Height: =768
+            Visible: =varShowFrame
+            Width: =1366
+            ZIndex: =189
+
+        img_Congrats As image:
+            Height: =484
+            Image: ='congratulations-congrats'
+            Visible: =varShowFrame
+            Width: =537
+            X: =418
+            Y: =127
+            ZIndex: =190
+
+        icn_CloseFrame As icon.Cancel:
+            Color: =RGBA(255, 0, 0, 1)
+            Height: =50
+            Icon: =Icon.Cancel
+            OnSelect: =Set(varShowFrame,false)
+            Visible: =varShowFrame
+            Width: =50
+            X: =889
+            Y: =124
+            ZIndex: =191
+
+    grp_Section8 As group:
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =194
+
+        lbl_Grid_7_4 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,7).A4), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,7).A4), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,7).A4), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,7).A4), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,7).A4)
+            Tooltip: ="X7Y4"
+            Width: =75
+            X: =568
+            Y: =513
+            ZIndex: =140
+
+        lbl_Grid_7_5 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,7).A5), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,7).A5), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,7).A5), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,7).A5), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,7).A5)
+            Tooltip: ="X7Y5"
+            Width: =75
+            X: =648
+            Y: =513
+            ZIndex: =141
+
+        lbl_Grid_7_6 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,7).A6), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,7).A6), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,7).A6), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,7).A6), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,7).A6)
+            Tooltip: ="X7Y6"
+            Width: =75
+            X: =729
+            Y: =513
+            ZIndex: =142
+
+        lbl_Grid_8_4 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,8).A4), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,8).A4), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,8).A4), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,8).A4), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,8).A4)
+            Tooltip: ="X8Y4"
+            Width: =75
+            X: =568
+            Y: =594
+            ZIndex: =143
+
+        lbl_Grid_8_5 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,8).A5), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,8).A5), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,8).A5), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,8).A5), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,8).A5)
+            Tooltip: ="X8Y5"
+            Width: =75
+            X: =648
+            Y: =594
+            ZIndex: =144
+
+        lbl_Grid_8_6 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,8).A6), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,8).A6), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,8).A6), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,8).A6), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,8).A6)
+            Tooltip: ="X8Y6"
+            Width: =75
+            X: =728
+            Y: =594
+            ZIndex: =145
+
+        lbl_Grid_9_4 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,9).A4), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,9).A4), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,9).A4), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,9).A4), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,9).A4)
+            Tooltip: ="X9Y4"
+            Width: =75
+            X: =568
+            Y: =672
+            ZIndex: =146
+
+        lbl_Grid_9_5 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,9).A5), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,9).A5), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,9).A5), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,9).A5), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,9).A5)
+            Tooltip: ="X9Y5"
+            Width: =75
+            X: =646
+            Y: =672
+            ZIndex: =147
+
+        lbl_Grid_9_6 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,9).A6), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,9).A6), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,9).A6), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,9).A6), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,9).A6)
+            Tooltip: ="X9Y6"
+            Width: =75
+            X: =728
+            Y: =672
+            ZIndex: =148
+
+        lbl_Solve_7_4 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,7).A4 = Blank() , Index(colSodukoSolveGrid,7).A4, Blank())
+            Width: =20
+            X: =624
+            Y: =563
+            ZIndex: =149
+
+        lbl_Solve_7_5 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,7).A5 = Blank() , Index(colSodukoSolveGrid,7).A5, Blank())
+            Width: =20
+            X: =703
+            Y: =563
+            ZIndex: =150
+
+        lbl_Solve_7_6 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,7).A6 = Blank() , Index(colSodukoSolveGrid,7).A6, Blank())
+            Width: =20
+            X: =783
+            Y: =563
+            ZIndex: =151
+
+        lbl_Solve_8_4 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,8).A4 = Blank() , Index(colSodukoSolveGrid,8).A4, Blank())
+            Width: =20
+            X: =624
+            Y: =642
+            ZIndex: =152
+
+        lbl_Solve_8_5 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,8).A5 = Blank() , Index(colSodukoSolveGrid,8).A5, Blank())
+            Width: =20
+            X: =708
+            Y: =642
+            ZIndex: =153
+
+        lbl_Solve_8_6 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,8).A6 = Blank() , Index(colSodukoSolveGrid,8).A6, Blank())
+            Width: =20
+            X: =783
+            Y: =642
+            ZIndex: =154
+
+        lbl_Solve_9_4 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,9).A4 = Blank() , Index(colSodukoSolveGrid,9).A4, Blank())
+            Width: =20
+            X: =625
+            Y: =717
+            ZIndex: =155
+
+        lbl_Solve_9_5 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,9).A5 = Blank() , Index(colSodukoSolveGrid,9).A5, Blank())
+            Width: =20
+            X: =709
+            Y: =717
+            ZIndex: =156
+
+        lbl_Solve_9_6 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,9).A6 = Blank() , Index(colSodukoSolveGrid,9).A6, Blank())
+            Width: =20
+            X: =784
+            Y: =717
+            ZIndex: =157
+
+    grp_AppInfo As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =195
+
+        Rectangle1 As rectangle:
+            BorderColor: =RGBA(102, 182, 227, 1)
+            BorderThickness: =10
+            Fill: =RGBA(235, 246, 252, 1)
+            Height: =739
+            Visible: =varShowInfoFrame
+            Width: =1050
+            X: =172
+            Y: =10
+            ZIndex: =186
+
+        HtmlText1 As htmlViewer:
+            Height: =657
+            HtmlText: |-
+                ="<div class='post'><h2 class='entry-title'>About Sudoku</h2><div class='entry-content'><p>The popular Japanese puzzle game Sudoku is based on the logical placement of numbers. An online game of logic, Sudoku does not require any calculation nor special math skills; all that is needed are brains and concentration.</p></div></div><div class='post'><h2 class='entry-title'>How to play Sudoku</h2><div class='entry-content'><p>The goal of Sudoku is to fill in a 9×9 grid with digits so that each column, row, and 3×3 section contain the numbers between 1 to 9. At the beginning of the game, the 9×9 grid will have some of the squares filled in. Your job is to use logic to fill in the missing digits and complete the grid. Don not forget, a move is incorrect if:</p><ul><li>Any row contains more than one of the same number from 1 to 9</li><li>Any column contains more than one of the same number from 1 to 9</li><li>Any 3×3 grid contains more than one of the same number from 1 to 9</li></ul></div></div><div class='post'><h2 class='entry-title'>Credit</h2><div class='entry-content'><p>This app is made by Arash Aghajani (<a href='https://arashaghajani.com' target='_blank'>https://arashaghajani.com</a>) and uses Shadify's free connector service to get sudoku grid data as well as result validation, So to use the app you need to have a Premium Power Apps license. Check out the following link for more information:<br><br>Shadify Connector Details: <a href='https://learn.microsoft.com/en-us/connectors/shadifyip' target='_blank'>https://learn.microsoft.com/en-us/connectors/shadifyip/</a></p></div></div>"
+            Size: =14
+            Visible: =varShowInfoFrame
+            Width: =1002
+            X: =196
+            Y: =59
+            ZIndex: =187
+
+        Icon7 As icon.Cancel:
+            BorderThickness: =1
+            Height: =30
+            Icon: =Icon.Cancel
+            OnSelect: =Set(varShowInfoFrame, false)
+            Visible: =varShowInfoFrame
+            Width: =30
+            X: =1182
+            Y: =22
+            ZIndex: =188
+
+    grp_Section9 As group:
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =212
+
+        lbl_Grid_7_7 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,7).A7), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,7).A7), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,7).A7), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,7).A7), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,7).A7)
+            Tooltip: ="X7Y7"
+            Width: =75
+            X: =807
+            Y: =512
+            ZIndex: =158
+
+        lbl_Grid_7_8 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,7).A8), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,7).A8), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,7).A8), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,7).A8), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,7).A8)
+            Tooltip: ="X7Y8"
+            Width: =75
+            X: =887
+            Y: =512
+            ZIndex: =159
+
+        lbl_Grid_7_9 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,7).A9), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,7).A9), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,7).A9), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,7).A9), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,7).A9)
+            Tooltip: ="X7Y9"
+            Width: =75
+            X: =968
+            Y: =512
+            ZIndex: =160
+
+        lbl_Grid_8_7 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,8).A7), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,8).A7), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,8).A7), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,8).A7), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,8).A7)
+            Tooltip: ="X8Y7"
+            Width: =75
+            X: =807
+            Y: =593
+            ZIndex: =161
+
+        lbl_Grid_8_8 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,8).A8), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,8).A8), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,8).A8), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,8).A8), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,8).A8)
+            Tooltip: ="X8Y8"
+            Width: =75
+            X: =887
+            Y: =593
+            ZIndex: =162
+
+        lbl_Grid_8_9 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,8).A9), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,8).A9), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,8).A9), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,8).A9), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,8).A9)
+            Tooltip: ="X8Y9"
+            Width: =75
+            X: =967
+            Y: =593
+            ZIndex: =163
+
+        lbl_Grid_9_7 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,9).A7), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,9).A7), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,9).A7), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,9).A7), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,9).A7)
+            Tooltip: ="X9Y7"
+            Width: =75
+            X: =807
+            Y: =671
+            ZIndex: =164
+
+        lbl_Grid_9_8 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,9).A8), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,9).A8), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,9).A8), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,9).A8), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,9).A8)
+            Tooltip: ="X9Y8"
+            Width: =75
+            X: =885
+            Y: =671
+            ZIndex: =165
+
+        lbl_Grid_9_9 As label:
+            Align: =Align.Center
+            Color: =If(IsBlank(Index(colSodukoTaskGrid,9).A9), RGBA(0, 223, 21, 1),RGBA(45, 218, 255, 1))
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            OnSelect: |-
+                =Collect(colStoreNumber, {Num: Blank(), Position:Self.Tooltip, Time: Now()})
+            PressedColor: =If(IsBlank(Index(colSodukoTaskGrid,9).A9), RGBA(0,0,0,1),Self.Color)
+            PressedFill: =If(IsBlank(Index(colSodukoTaskGrid,9).A9), RGBA(45, 218, 255, 1))
+            Size: =40
+            Text: =If(IsBlank(Index(colSodukoTaskGrid,9).A9), LookUp(Sort(colStoreNumber,Time,SortOrder.Descending),Position = Self.Tooltip, Num), Index(colSodukoTaskGrid,9).A9)
+            Tooltip: ="X9Y9"
+            Width: =75
+            X: =967
+            Y: =671
+            ZIndex: =166
+
+        lbl_Solve_7_7 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,7).A7 = Blank() , Index(colSodukoSolveGrid,7).A7, Blank())
+            Width: =20
+            X: =863
+            Y: =562
+            ZIndex: =167
+
+        lbl_Solve_7_8 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,7).A8 = Blank() , Index(colSodukoSolveGrid,7).A8, Blank())
+            Width: =20
+            X: =942
+            Y: =562
+            ZIndex: =168
+
+        lbl_Solve_7_9 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,7).A9 = Blank() , Index(colSodukoSolveGrid,7).A9, Blank())
+            Width: =20
+            X: =1022
+            Y: =562
+            ZIndex: =169
+
+        lbl_Solve_8_7 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,8).A7 = Blank() , Index(colSodukoSolveGrid,8).A7, Blank())
+            Width: =20
+            X: =863
+            Y: =641
+            ZIndex: =170
+
+        lbl_Solve_8_8 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,8).A8 = Blank() , Index(colSodukoSolveGrid,8).A8, Blank())
+            Width: =20
+            X: =947
+            Y: =641
+            ZIndex: =171
+
+        lbl_Solve_8_9 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,8).A9 = Blank() , Index(colSodukoSolveGrid,8).A9, Blank())
+            Width: =20
+            X: =1022
+            Y: =641
+            ZIndex: =172
+
+        lbl_Solve_9_7 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,9).A7 = Blank() , Index(colSodukoSolveGrid,9).A7, Blank())
+            Width: =20
+            X: =864
+            Y: =716
+            ZIndex: =173
+
+        lbl_Solve_9_8 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,9).A8 = Blank() , Index(colSodukoSolveGrid,9).A8, Blank())
+            Width: =20
+            X: =948
+            Y: =716
+            ZIndex: =174
+
+        lbl_Solve_9_9 As label:
+            Color: =RGBA(149, 149, 149, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Text: =If(varStatus = "Answer" && Index(colSodukoTaskGrid,9).A9 = Blank() , Index(colSodukoSolveGrid,9).A9, Blank())
+            Width: =20
+            X: =1023
+            Y: =716
+            ZIndex: =175
+

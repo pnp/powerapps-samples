@@ -1,0 +1,488 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://unitedstates-002.azure-apim.net/apim/shadifyip" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="Shadify(IndependentPublisher)" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="Shadify (Independent Publisher)">Shadify is a powerful service for generating data and executing various logic to create different applications and games. Endpoints include data generated for Suduku, Takuzu, Schulte, Minesweeper, word search, anagrams, and math expressions.</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://unitedstates-002.azure-apim.net/apim/shadifyip" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <boolean name="SudokuCheck_responses_200_def_isError_def" />
+      <string name="SudokuCheck_responses_200_def_position_def" />
+      <object name="SudokuCheck_responses_200_def">
+        <property name="isError" type="boolean" />
+        <property name="position" type="string" />
+      </object>
+      <integer name="SudokuGet_responses_200_def_grid_def_items_def_items_def" />
+      <array type="integer" name="SudokuGet_responses_200_def_grid_def_items_def" />
+      <array typeRef="SudokuGet_responses_200_def_grid_def_items_def" name="SudokuGet_responses_200_def_grid_def" />
+      <integer name="SudokuGet_responses_200_def_task_def_items_def_items_def" />
+      <array type="integer" name="SudokuGet_responses_200_def_task_def_items_def" />
+      <array typeRef="SudokuGet_responses_200_def_task_def_items_def" name="SudokuGet_responses_200_def_task_def" />
+      <object name="SudokuGet_responses_200_def">
+        <property name="grid" typeRef="SudokuGet_responses_200_def_grid_def" />
+        <property name="task" typeRef="SudokuGet_responses_200_def_task_def" />
+      </object>
+      <integer name="TakuzuGet_responses_200_def_size_def" />
+      <string name="TakuzuGet_responses_200_def_field_def_items_def_items_def" />
+      <array type="string" name="TakuzuGet_responses_200_def_field_def_items_def" />
+      <array typeRef="TakuzuGet_responses_200_def_field_def_items_def" name="TakuzuGet_responses_200_def_field_def" />
+      <string name="TakuzuGet_responses_200_def_task_def_items_def_items_def" />
+      <array type="string" name="TakuzuGet_responses_200_def_task_def_items_def" />
+      <array typeRef="TakuzuGet_responses_200_def_task_def_items_def" name="TakuzuGet_responses_200_def_task_def" />
+      <object name="TakuzuGet_responses_200_def">
+        <property name="size" type="integer" />
+        <property name="field" typeRef="TakuzuGet_responses_200_def_field_def" />
+        <property name="task" typeRef="TakuzuGet_responses_200_def_task_def" />
+      </object>
+      <boolean name="TakuzuCheck_responses_200_def_isError_def" />
+      <string name="TakuzuCheck_responses_200_def_message_def" />
+      <string name="TakuzuCheck_responses_200_def_position_def_items_def" />
+      <array type="string" name="TakuzuCheck_responses_200_def_position_def" />
+      <object name="TakuzuCheck_responses_200_def">
+        <property name="isError" type="boolean" />
+        <property name="message" type="string" />
+        <property name="position" typeRef="TakuzuCheck_responses_200_def_position_def" />
+      </object>
+      <integer name="AdditionGet_responses_200_def_first_def" />
+      <integer name="AdditionGet_responses_200_def_second_def" />
+      <string name="AdditionGet_responses_200_def_operation_def" />
+      <string name="AdditionGet_responses_200_def_expression_def" />
+      <integer name="AdditionGet_responses_200_def_answer_def" />
+      <object name="AdditionGet_responses_200_def">
+        <property name="first" type="integer" />
+        <property name="second" type="integer" />
+        <property name="operation" type="string" />
+        <property name="expression" type="string" />
+        <property name="answer" type="integer" />
+      </object>
+      <integer name="SchulteGet_responses_200_def_grid_def_items_def_items_def" />
+      <array type="integer" name="SchulteGet_responses_200_def_grid_def_items_def" />
+      <array typeRef="SchulteGet_responses_200_def_grid_def_items_def" name="SchulteGet_responses_200_def_grid_def" />
+      <object name="SchulteGet_responses_200_def">
+        <property name="grid" typeRef="SchulteGet_responses_200_def_grid_def" />
+      </object>
+      <string name="MinesweeperGet_responses_200_def_start_def" />
+      <integer name="MinesweeperGet_responses_200_def_width_def" />
+      <integer name="MinesweeperGet_responses_200_def_height_def" />
+      <string name="MinesweeperGet_responses_200_def_board_def_items_def_items_def" />
+      <array type="string" name="MinesweeperGet_responses_200_def_board_def_items_def" />
+      <array typeRef="MinesweeperGet_responses_200_def_board_def_items_def" name="MinesweeperGet_responses_200_def_board_def" />
+      <integer name="MinesweeperGet_responses_200_def_mines_def" />
+      <object name="MinesweeperGet_responses_200_def">
+        <property name="start" type="string" />
+        <property name="width" type="integer" />
+        <property name="height" type="integer" />
+        <property name="board" typeRef="MinesweeperGet_responses_200_def_board_def" />
+        <property name="mines" type="integer" />
+      </object>
+      <integer name="WordSearchGet_responses_200_def_width_def" />
+      <integer name="WordSearchGet_responses_200_def_height_def" />
+      <integer name="WordSearchGet_responses_200_def_wordsCount_def" />
+      <string name="WordSearchGet_responses_200_def_grid_def_items_def_items_def" />
+      <array type="string" name="WordSearchGet_responses_200_def_grid_def_items_def" />
+      <array typeRef="WordSearchGet_responses_200_def_grid_def_items_def" name="WordSearchGet_responses_200_def_grid_def" />
+      <string name="WordSearchGet_responses_200_def_words_def_items_def_word_def" />
+      <integer name="WordSearchGet_responses_200_def_words_def_items_def_position_def_start_def_items_def" />
+      <array type="integer" name="WordSearchGet_responses_200_def_words_def_items_def_position_def_start_def" />
+      <integer name="WordSearchGet_responses_200_def_words_def_items_def_position_def_end_def_items_def" />
+      <array type="integer" name="WordSearchGet_responses_200_def_words_def_items_def_position_def_end_def" />
+      <object name="WordSearchGet_responses_200_def_words_def_items_def_position_def">
+        <property name="start" typeRef="WordSearchGet_responses_200_def_words_def_items_def_position_def_start_def" />
+        <property name="end" typeRef="WordSearchGet_responses_200_def_words_def_items_def_position_def_end_def" />
+      </object>
+      <object name="WordSearchGet_responses_200_def_words_def_items_def">
+        <property name="word" type="string" />
+        <property name="position" typeRef="WordSearchGet_responses_200_def_words_def_items_def_position_def" />
+      </object>
+      <array typeRef="WordSearchGet_responses_200_def_words_def_items_def" name="WordSearchGet_responses_200_def_words_def" />
+      <object name="WordSearchGet_responses_200_def">
+        <property name="width" type="integer" />
+        <property name="height" type="integer" />
+        <property name="wordsCount" type="integer" />
+        <property name="grid" typeRef="WordSearchGet_responses_200_def_grid_def" />
+        <property name="words" typeRef="WordSearchGet_responses_200_def_words_def" />
+      </object>
+      <string name="AnagramGet_responses_200_def_Task_def" />
+      <string name="AnagramGet_responses_200_def_Words_def_items_def" />
+      <array type="string" name="AnagramGet_responses_200_def_Words_def" />
+      <object name="AnagramGet_responses_200_def">
+        <property name="Task" type="string" />
+        <property name="Words" typeRef="AnagramGet_responses_200_def_Words_def" />
+      </object>
+      <integer name="SubtractionGet_responses_200_def_first_def" />
+      <integer name="SubtractionGet_responses_200_def_second_def" />
+      <string name="SubtractionGet_responses_200_def_operation_def" />
+      <string name="SubtractionGet_responses_200_def_expression_def" />
+      <integer name="SubtractionGet_responses_200_def_answer_def" />
+      <object name="SubtractionGet_responses_200_def">
+        <property name="first" type="integer" />
+        <property name="second" type="integer" />
+        <property name="operation" type="string" />
+        <property name="expression" type="string" />
+        <property name="answer" type="integer" />
+      </object>
+      <integer name="MultiplicationGet_responses_200_def_first_def" />
+      <integer name="MultiplicationGet_responses_200_def_second_def" />
+      <string name="MultiplicationGet_responses_200_def_operation_def" />
+      <string name="MultiplicationGet_responses_200_def_expression_def" />
+      <integer name="MultiplicationGet_responses_200_def_answer_def" />
+      <object name="MultiplicationGet_responses_200_def">
+        <property name="first" type="integer" />
+        <property name="second" type="integer" />
+        <property name="operation" type="string" />
+        <property name="expression" type="string" />
+        <property name="answer" type="integer" />
+      </object>
+      <integer name="DivisionGet_responses_200_def_first_def" />
+      <integer name="DivisionGet_responses_200_def_second_def" />
+      <string name="DivisionGet_responses_200_def_operation_def" />
+      <string name="DivisionGet_responses_200_def_expression_def" />
+      <integer name="DivisionGet_responses_200_def_answer_def" />
+      <object name="DivisionGet_responses_200_def">
+        <property name="first" type="integer" />
+        <property name="second" type="integer" />
+        <property name="operation" type="string" />
+        <property name="expression" type="string" />
+        <property name="answer" type="integer" />
+      </object>
+      <string name="QuadraticGet_responses_200_def_equation_def" />
+      <integer name="QuadraticGet_responses_200_def_a_def" />
+      <integer name="QuadraticGet_responses_200_def_b_def" />
+      <integer name="QuadraticGet_responses_200_def_c_def" />
+      <integer name="QuadraticGet_responses_200_def_discriminant_def" />
+      <string name="QuadraticGet_responses_200_def_x1_def" />
+      <string name="QuadraticGet_responses_200_def_x2_def" />
+      <object name="QuadraticGet_responses_200_def">
+        <property name="equation" type="string" />
+        <property name="a" type="integer" />
+        <property name="b" type="integer" />
+        <property name="c" type="integer" />
+        <property name="discriminant" type="integer" />
+        <property name="x1" type="string" />
+        <property name="x2" type="string" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://unitedstates-002.azure-apim.net/apim/shadifyip">
+    <resource path="/{connectionId}/sudoku/verifier">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="SudokuCheck" actionName="SudokuCheck" siena:isDeprecated="false">
+        <doc title="Check Sudoku answers&#xA;Uses answer lines in a string format (separated by a dash) to retrieve errors and error position." />
+        <request>
+          <param style="query" name="task" type="xs:string" required="true">
+            <doc title="The answer lines." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:SudokuCheck_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/sudoku/generator">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="SudokuGet" actionName="SudokuGet" siena:isDeprecated="false">
+        <doc title="Get a Sudoku puzzle&#xA;Returns an array of the task and completed grid lines." />
+        <request>
+          <param style="query" name="fill" type="xs:long">
+            <doc title="The fill level." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:SudokuGet_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/takuzu/generator">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="TakuzuGet" actionName="TakuzuGet" siena:isDeprecated="false">
+        <doc title="Get a Takuzu puzzle&#xA;Retrieves a puzzle based on the requested size and field fill." />
+        <request>
+          <param style="query" name="size" type="xs:long" default="8">
+            <doc title="The size." />
+          </param>
+          <param style="query" name="fill" type="xs:long" default="33">
+            <doc title="The fill level." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:TakuzuGet_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/takuzu/verifier">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="TakuzuCheck" actionName="TakuzuCheck" siena:isDeprecated="false">
+        <doc title="Check Takuzu answers&#xA;Uses answer lines in a string format (separated by a dash) to retrieve errors and error position." />
+        <request>
+          <param style="query" name="task" type="xs:string" required="true">
+            <doc title="The answer lines." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:TakuzuCheck_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/math/add">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="AdditionGet" actionName="AdditionGet" siena:isDeprecated="false">
+        <doc title="Get an addition expression&#xA;Retrieves a random addition expression." />
+        <request>
+          <param style="query" name="minFirst" type="xs:long" default="1">
+            <doc title="The first number minimum." />
+          </param>
+          <param style="query" name="maxFirst" type="xs:long" default="99">
+            <doc title="The first number maximum." />
+          </param>
+          <param style="query" name="minSecond" type="xs:long" default="1">
+            <doc title="The second number minimum." />
+          </param>
+          <param style="query" name="maxSecond" type="xs:long" default="99">
+            <doc title="The second number maximum" />
+          </param>
+          <param style="query" name="negative" type="xs:long" default="0">
+            <doc title="Whether to allow (1) negative numbers or not (0)." />
+            <option value="0" />
+            <option value="1" />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:AdditionGet_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/schulte/generator">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="SchulteGet" actionName="SchulteGet" siena:isDeprecated="false">
+        <doc title="Get a Schulte table&#xA;Retrieves a random Schulte table with the given size and mode." />
+        <request>
+          <param style="query" name="size" type="xs:long" default="5">
+            <doc title="The size." />
+            <option value="1" />
+            <option value="2" />
+            <option value="3" />
+            <option value="4" />
+            <option value="5" />
+            <option value="6" />
+            <option value="7" />
+            <option value="8" />
+            <option value="9" />
+            <option value="10" />
+            <option value="11" />
+            <option value="12" />
+            <option value="13" />
+            <option value="14" />
+            <option value="15" />
+          </param>
+          <param style="query" name="mode" type="xs:string" default="number">
+            <doc title="The mode." />
+            <option value="number" />
+            <option value="alphabet" />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:SchulteGet_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/minesweeper/generator">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="MinesweeperGet" actionName="MinesweeperGet" siena:isDeprecated="false">
+        <doc title="Get a Minesweeper puzzle&#xA;Retrieve a random Minesweeper puzzle from the given width and height, number of mines, and start position." />
+        <request>
+          <param style="query" name="width" type="xs:long" default="9">
+            <doc title="The width." />
+          </param>
+          <param style="query" name="height" type="xs:long" default="9">
+            <doc title="The height." />
+          </param>
+          <param style="query" name="start" type="xs:string">
+            <doc title="The start position." />
+          </param>
+          <param style="query" name="mines" type="xs:long" default="12">
+            <doc title="The number of mines." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:MinesweeperGet_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/wordsearch/generator">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="WordSearchGet" actionName="WordSearchGet" siena:isDeprecated="false">
+        <doc title="Get a word search puzzle&#xA;Retrieve a random word search puzzle." />
+        <request>
+          <param style="query" name="width" type="xs:long" default="9">
+            <doc title="The width." />
+            <option value="5" />
+            <option value="6" />
+            <option value="7" />
+            <option value="8" />
+            <option value="9" />
+            <option value="10" />
+            <option value="11" />
+            <option value="12" />
+            <option value="13" />
+            <option value="14" />
+            <option value="15" />
+            <option value="16" />
+            <option value="17" />
+            <option value="18" />
+            <option value="19" />
+            <option value="20" />
+          </param>
+          <param style="query" name="height" type="xs:long" default="9">
+            <doc title="The height." />
+            <option value="5" />
+            <option value="6" />
+            <option value="7" />
+            <option value="8" />
+            <option value="9" />
+            <option value="10" />
+            <option value="11" />
+            <option value="12" />
+            <option value="13" />
+            <option value="14" />
+            <option value="15" />
+            <option value="16" />
+            <option value="17" />
+            <option value="18" />
+            <option value="19" />
+            <option value="20" />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:WordSearchGet_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/anagram/generator">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="AnagramGet" actionName="AnagramGet" siena:isDeprecated="false">
+        <doc title="Get an anagram&#xA;Retrieves a word and an array of all possible words composed from that word." />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:AnagramGet_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/math/sub">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="SubtractionGet" actionName="SubtractionGet" siena:isDeprecated="false">
+        <doc title="Get a subtraction expression&#xA;Retrieves a random subtraction expression." />
+        <request>
+          <param style="query" name="minFirst" type="xs:long" default="1">
+            <doc title="The first number minimum." />
+          </param>
+          <param style="query" name="maxFirst" type="xs:long" default="99">
+            <doc title="The first number maximum." />
+          </param>
+          <param style="query" name="minSecond" type="xs:long" default="1">
+            <doc title="The second number minimum." />
+          </param>
+          <param style="query" name="maxSecond" type="xs:long" default="99">
+            <doc title="The second number maximum" />
+          </param>
+          <param style="query" name="negative" type="xs:long" default="0">
+            <doc title="Whether to allow (1) negative numbers or not (0)." />
+            <option value="0" />
+            <option value="1" />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:SubtractionGet_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/math/mul">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="MultiplicationGet" actionName="MultiplicationGet" siena:isDeprecated="false">
+        <doc title="Get a multiplication expression&#xA;Retrieves a random multiplication expression." />
+        <request>
+          <param style="query" name="minFirst" type="xs:long" default="1">
+            <doc title="The first number minimum." />
+          </param>
+          <param style="query" name="maxFirst" type="xs:long" default="99">
+            <doc title="The first number maximum." />
+          </param>
+          <param style="query" name="minSecond" type="xs:long" default="1">
+            <doc title="The second number minimum." />
+          </param>
+          <param style="query" name="maxSecond" type="xs:long" default="99">
+            <doc title="The second number maximum" />
+          </param>
+          <param style="query" name="negative" type="xs:long" default="0">
+            <doc title="Whether to allow (1) negative numbers or not (0)." />
+            <option value="0" />
+            <option value="1" />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:MultiplicationGet_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/math/div">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="DivisionGet" actionName="DivisionGet" siena:isDeprecated="false">
+        <doc title="Get a division expression&#xA;Retrieves a random division expression." />
+        <request>
+          <param style="query" name="minFirst" type="xs:long" default="1">
+            <doc title="The first number minimum." />
+          </param>
+          <param style="query" name="maxFirst" type="xs:long" default="99">
+            <doc title="The first number maximum." />
+          </param>
+          <param style="query" name="minSecond" type="xs:long" default="1">
+            <doc title="The second number minimum." />
+          </param>
+          <param style="query" name="maxSecond" type="xs:long" default="99">
+            <doc title="The second number maximum" />
+          </param>
+          <param style="query" name="negative" type="xs:long" default="0">
+            <doc title="Whether to allow (1) negative numbers or not (0)." />
+            <option value="0" />
+            <option value="1" />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:DivisionGet_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/math/quad">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="QuadraticGet" actionName="QuadraticGet" siena:isDeprecated="false">
+        <doc title="Get a quadratic equation&#xA;Retrieve a random quadratic equation." />
+        <request>
+          <param style="query" name="minA" type="xs:long" default="1">
+            <doc title="The a minimum." />
+          </param>
+          <param style="query" name="maxA" type="xs:long" default="20">
+            <doc title="The a maximum." />
+          </param>
+          <param style="query" name="minB" type="xs:long" default="1">
+            <doc title="The b minimum." />
+          </param>
+          <param style="query" name="maxB" type="xs:long" default="40">
+            <doc title="The b maximum." />
+          </param>
+          <param style="query" name="minC" type="xs:long" default="1">
+            <doc title="The c minimum." />
+          </param>
+          <param style="query" name="maxC" type="xs:long" default="20">
+            <doc title="The c maximum." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:QuadraticGet_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_shadifyip" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>
