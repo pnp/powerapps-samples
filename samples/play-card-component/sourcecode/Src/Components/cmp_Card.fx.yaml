@@ -1,0 +1,295 @@
+cmp_Card As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =230
+    Input_CardInfo: |-
+        ={
+            Value: 1,
+            Type: "♥",
+            Color: "red"
+        }
+    Input_TypeTemplate: |-
+        =[
+            {
+                CardType: "♠️",
+                Color: "black"
+            },
+            {
+                CardType: "♣",
+                Color: "black"
+            },
+            {
+                CardType: "♦",
+                Color: "red"
+            },
+            {
+                CardType: "♥",
+                Color: "red"
+            }
+        ]
+    OnReset: |-
+        =Set(
+            Card,
+            {
+                Value: cmp_Card.Input_CardInfo.Value,
+                Type: cmp_Card.Input_CardInfo.Type,
+                Color: cmp_Card.Input_CardInfo.Color
+            }
+        )
+    Output_CardInfo: |-
+        ={
+            Value: Card.Value,
+            Color: Card.Color,
+            Type: Card.Type
+        } 
+    Width: =165
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    html_card As htmlViewer:
+        Height: =235
+        HtmlText: |-
+            =If(
+                IsBlankOrError(Card.Value),
+                "<div style='cursor:pointer;margin:10px 10px 10px 0;width:150px;height:200px;border-radius:5px;border:1px solid #eee;box-shadow:rgba(0, 0, 0, 0.24) 0px 3px 8px;position:relative;' class='ms-bgColor-white'>
+                <div style='margin:10px;border:5px solid red;height:180px;border-radius:5px;background-image: url(""data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURflCOgAAACpf4vIAAAACdFJOU/8A5bcwSgAAAAlwSFlzAAAOwwAADsMBx2+oZAAAACtJREFUGFdjYGBgBAMgA8oG02A2mIGQAslCWGhMEAuiAEIBCYgAQgoEGBgACr4AMXAkp2cAAAAASUVORK5CYII="");background-repeat: repeat''>
+                </div>
+            </div>
+            ",
+                If(Card.Value < 11, "<div style='cursor:pointer;margin:10px 10px 10px 0;width:150px;height:200px;border-radius:5px;border:1px solid #eee;box-shadow:rgba(0, 0, 0, 0.24) 0px 3px 8px;position:relative;' class='ms-bgColor-white'>
+            	<div style='margin:10px 0 0 10px;font-family:serif;font-size:20px;color:" & Card.Color & ";'>" & If(
+                    Card.Value = 1,
+                    "A",
+                    Card.Value
+                ) & "</div>
+            	<div style='font-weight:700;font-family:serif;font-size:25px;margin:0px 0 0 10px;color:" & Card.Color & ";'>" & Card.Type & "</div>
+            	<div style='position:absolute;top:5px;'>
+            		<div style='display:flex;'>
+            			<div style='font-weight:700;font-family:serif;font-size:40px;margin:0px 0 0 33px;width:20px;height:50px;color:" & Card.Color & ";'>" & Switch(
+                    Card.Value,
+                    10,
+                    Card.Type,
+                    8,
+                    Card.Type,
+                    9,
+                    Card.Type
+                ) & "</div>
+            			<div style='position:relative;'>
+            				<div style='position:absolute;font-weight:700;font-family:serif;font-size:40px;margin:25px 0 0 -20px;width:20px;height:50px;color:" & Card.Color & ";'>" & Switch(
+                    Card.Value,
+                    6,
+                    Card.Type,
+                    4,
+                    Card.Type,
+                    5,
+                    Card.Type,
+                    7,
+                    Card.Type
+                ) & "</div>
+            				<div style='position:absolute;font-weight:700;font-family:serif;font-size:40px;margin:25px 0 0 10px;width:20px;height:50px;color:;'></div>
+            				<div style='position:absolute;font-weight:700;font-family:serif;font-size:40px;margin:25px 0 0 10px;width:20px;height:50px;color:" & Card.Color & ";'>" & Switch(
+                    Card.Value,
+                    10,
+                    Card.Type,
+                    2,
+                    Card.Type,
+                    3,
+                    Card.Type
+                ) & "</div>
+            				<div style='position:absolute;font-weight:700;font-family:serif;font-size:40px;margin:25px 0 0 40px;width:20px;height:50px;color:" & Card.Color & ";'>" & Switch(
+                    Card.Value,
+                    5,
+                    Card.Type,
+                    4,
+                    Card.Type,
+                    6,
+                    Card.Type,
+                    7,
+                    Card.Type
+                ) & "</div>
+            			</div>
+            			<div style='font-weight:700;font-family:serif;font-size:40px;margin:0px 0 0 10px;width:20px;height:50px;'></div>
+            			<div style='font-weight:700;font-family:serif;font-size:40px;margin:0px 0 0 10px;width:20px;height:50px;color:" & Card.Color & ";'>" & Switch(
+                    Card.Value,
+                    10,
+                    Card.Type,
+                    8,
+                    Card.Type,
+                    9,
+                    Card.Type
+                ) & "</div>
+            		</div>
+            		<div style='display:flex;'>
+            			<div style='font-weight:700;font-family:serif;font-size:40px;margin:0px 0 0 33px;width:20px;height:50px;color:" & Card.Color & ";'>" & Switch(
+                    Card.Value,
+                    10,
+                    Card.Type,
+                    8,
+                    Card.Type,
+                    9,
+                    Card.Type
+                ) & "</div>
+            			<div style='position:relative;'>
+            				<div style='position:absolute;font-weight:700;font-family:serif;font-size:40px;margin:25px 0 0 -20px;width:20px;height:50px;color:" & Card.Color & ";'>" & Switch(
+                    Card.Value,
+                    6,
+                    Card.Type,
+                    7,
+                    Card.Type
+                ) & "</div>
+            				<div style='position:absolute;font-weight:700;font-family:serif;font-size:40px;margin:25px 0 0 10px;width:20px;height:50px;color:" & Card.Color & ";'>" & Switch(
+                    Card.Value,
+                    5,
+                    Card.Type,
+                    1,
+                    Card.Type,
+                    3,
+                    Card.Type,
+                    9,
+                    Card.Type
+                ) & "</div>
+            				<div style='position:absolute;font-weight:700;font-family:serif;font-size:40px;margin:25px 0 0 40px;width:20px;height:50px;color:" & Card.Color & ";'>" & Switch(
+                    Card.Value,
+                    6,
+                    Card.Type,
+                    7,
+                    Card.Type
+                ) & "</div>
+            			</div>
+            			<div style='font-weight:700;font-family:serif;font-size:40px;margin:0px 0 0 10px;width:20px;height:50px;color:" & Card.Color & ";'>" & Switch(
+                    Card.Value,
+                    7,
+                    Card.Type
+                ) & "</div>
+            			<div style='font-weight:700;font-family:serif;font-size:40px;margin:0px 0 0 10px;width:20px;height:50px;color:" & Card.Color & ";'>" & Switch(
+                    Card.Value,
+                    10,
+                    Card.Type,
+                    8,
+                    Card.Type,
+                    9,
+                    Card.Type
+                ) & "</div>
+            		</div>
+            		<div style='display:flex;'>
+            			<div style='font-weight:700;font-family:serif;font-size:40px;margin:0px 0 0 33px;width:20px;height:50px;color:" & Card.Color & ";'>" & Switch(
+                    Card.Value,
+                    10,
+                    Card.Type,
+                    8,
+                    Card.Type,
+                    9,
+                    Card.Type
+                ) & "</div>
+            			<div style='position:relative;'>
+            				<div style='position:absolute;font-weight:700;font-family:serif;font-size:40px;margin:25px 0 0 -20px;width:20px;height:50px;color:" & Card.Color & ";'>" & Switch(
+                    Card.Value,
+                    5,
+                    Card.Type,
+                    4,
+                    Card.Type,
+                    6,
+                    Card.Type,
+                    7,
+                    Card.Type
+                ) & "</div>
+            				<div style='position:absolute;font-weight:700;font-family:serif;font-size:40px;margin:25px 0 0 10px;width:20px;height:50px;color:" & Card.Color & ";'>" & Switch(
+                    Card.Value,
+                    10,
+                    Card.Type,
+                    2,
+                    Card.Type,
+                    3,
+                    Card.Type
+                ) & "</div>
+            				<div style='position:absolute;font-weight:700;font-family:serif;font-size:40px;margin:25px 0 0 40px;width:20px;height:50px;color:" & Card.Color & ";'>" & Switch(
+                    Card.Value,
+                    5,
+                    Card.Type,
+                    4,
+                    Card.Type,
+                    6,
+                    Card.Type,
+                    7,
+                    Card.Type
+                ) & "</div>
+            			</div>
+            			<div style='font-weight:700;font-family:serif;font-size:40px;margin:0px 0 0 40px;width:20px;height:50px;color:" & Card.Color & ";'>" & Switch(
+                    Card.Value,
+                    10,
+                    Card.Type,
+                    8,
+                    Card.Type,
+                    9,
+                    Card.Type
+                ) & "</div>
+            		</div>
+            		<div style='display:flex;'>
+            			<div style='font-weight:700;font-family:serif;font-size:40px;margin:0px 0 0 33px;width:20px;height:50px;color:" & Card.Color & ";'>" & Switch(
+                    Card.Value,
+                    10,
+                    Card.Type,
+                    8,
+                    Card.Type,
+                    9,
+                    Card.Type
+                ) & "</div>
+            			<div style='font-weight:700;font-family:serif;font-size:40px;margin:0px 0 0 10px;width:20px;height:50px;'></div>
+            			<div style='font-weight:700;font-family:serif;font-size:40px;margin:0px 0 0 10px;width:20px;height:50px;color:" & Card.Color & ";'>" & Switch(
+                    Card.Value,
+                    10,
+                    Card.Type,
+                    8,
+                    Card.Type,
+                    9,
+                    Card.Type
+                ) & "</div>
+            		</div>
+            	</div>
+            	<div style='font-weight:700;font-family:serif;font-size:25px;margin:80px 0 0 125px;color:" & Card.Color & ";' class='sp-field-editorBorder' >" & Card.Type & "</div>
+            	<div style='margin:0 0 0 125px;font-family:serif;font-size:20px;color:" & Card.Color & ";' class='sp-field-editorBorder'>" & If(
+                    Card.Value = 1,
+                    "A",
+                    Card.Value
+                ) & "</div>
+            </div>","
+            <div style='cursor:pointer;margin:10px 10px 10px 0;width:150px;height:200px;border-radius:5px;border:1px solid #eee;box-shadow:rgba(0, 0, 0, 0.24) 0px 3px 8px;position:relative;' class='ms-bgColor-white'>
+            <div style='margin:10px 0 0 10px;font-family:serif;font-size:20px;color:" & Card.Color & ";'>" & Switch(Card.Value,11,"V",12,"Q",13,"K") & "</div>
+            	<div style='font-weight:700;font-family:serif;font-size:25px;margin:0px 0 0 10px;color:" & Card.Color & ";'>" & Card.Type & "</div>
+              
+                <div style='position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);padding: 10px;font-size:90pt;color:" & Card.Color & ";'>
+                   " & Card.Type & "
+                </div>
+                
+                <div style='font-weight:700;font-family:serif;font-size:25px;margin:80px 0 0 125px;color:" & Card.Color & ";' class='sp-field-editorBorder' >" & Card.Type & "</div>
+            	<div style='margin:0 0 0 125px;font-family:serif;font-size:20px;color:" & Card.Color & ";' class='sp-field-editorBorder'>" & Switch(Card.Value,11,"V",12,"Q",13,"K") & "</div>
+            </div>
+            ")
+            )
+        OnSelect: |
+            =Set(
+                CardValue,
+                Last(
+                    FirstN(
+                        cmp_Card.Input_TypeTemplate,
+                        RandBetween(
+                            1,
+                            CountRows(cmp_Card.Input_TypeTemplate)
+                        )
+                    )
+                )
+            );
+            Set(
+                Card,
+                {
+                    Value: RandBetween(
+                        1,
+                        13
+                    ),
+                    Color: CardValue.Color,
+                    Type: CardValue.CardType
+                }
+            );
+        Width: =175
+        ZIndex: =1
+

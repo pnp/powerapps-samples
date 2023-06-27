@@ -1,0 +1,85 @@
+Screen1 As screen:
+
+    cmp_Card_1 As cmp_Card:
+        Input_CardInfo: =CardTemplate
+        OnReset: |-
+            =Set(
+                Card,
+                {
+                    Value: cmp_Card_1.Input_CardInfo.Value,
+                    Type: cmp_Card_1.Input_CardInfo.Type,
+                    Color: cmp_Card_1.Input_CardInfo.Color
+                }
+            )
+        X: =243
+        Y: =121
+
+    Label1 As label:
+        Align: =Align.Center
+        Height: =70
+        Size: =21
+        Text: =cmp_Card_1.Output_CardInfo.Value
+        Width: =560
+        X: =45
+        Y: =351
+        ZIndex: =2
+
+    Label1_1 As label:
+        Align: =Align.Center
+        Height: =70
+        Size: =21
+        Text: =cmp_Card_1.Output_CardInfo.Type
+        Width: =560
+        X: =46
+        Y: =421
+        ZIndex: =3
+
+    Label1_2 As label:
+        Align: =Align.Center
+        Height: =70
+        Size: =21
+        Text: =cmp_Card_1.Output_CardInfo.Color
+        Width: =560
+        X: =46
+        Y: =491
+        ZIndex: =4
+
+    Button1 As button:
+        Height: =55
+        OnSelect: |-
+            =Set(
+                CardTemplate,
+                Blank()
+            );
+            Reset(cmp_Card_1);
+        Size: =24
+        Text: ="New"
+        Width: =180
+        X: =46
+        Y: =66
+        ZIndex: =5
+
+    Button1_1 As button:
+        Height: =55
+        OnSelect: |-
+            =Set(
+                CardTemplate,
+                {
+                    Value: RandBetween(
+                        1,
+                        13
+                    ),
+                    Type: "♥",
+                    Color: "red"
+                }
+            );
+            Reset(cmp_Card_1);
+        Size: =24
+        Text: |-
+            ="Random
+            "
+        Width: =180
+        X: =408
+        Y: =66
+        ZIndex: =6
+
