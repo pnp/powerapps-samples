@@ -1,0 +1,68 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |+
+        =Set(
+            AppTheme,
+            {
+                palette: {
+                    themePrimary: "#FFFFFF",
+                    themeLighterAlt: "#767676",
+                    themeLighter: "#a6a6a6",
+                    themeLight: "#c8c8c8",
+                    themeTertiary: "#d0d0d0",
+                    themeSecondary: "#dadada",
+                    themeDarkAlt: "#eaeaea",
+                    themeDark: "#f4f4f4",
+                    themeDarker: "#f8f8f8",
+                    neutralLighterAlt: "#0b0b0b",
+                    neutralLighter: "#151515",
+                    neutralLight: "#252525",
+                    neutralQuaternaryAlt: "#2f2f2f",
+                    neutralQuaternary: "#373737",
+                    neutralTertiaryAlt: "#595959",
+                    neutralTertiary: "#4d3b1d",
+                    neutralSecondary: "#99763a",
+                    neutralPrimaryAlt: "#e0ad55",
+                    neutralPrimary: "#ffc561",
+                    neutralDark: "#ffd387",
+                    black: "#ffdfa6",
+                    white: "#000000"
+                }
+            }
+        );
+        Set(
+            AppThemeJson,
+            JSON(
+                AppTheme,
+                JSONFormat.IndentFour
+            )
+        );
+        
+        ClearCollect(
+            searchCollectionFirst100,
+            'Rijksmuseum(IndependentPublisher)'.GetCollection(
+                "nl",
+                {
+                    p: 1,
+                    ps: 100
+                }
+            )
+        );
+        ClearCollect(
+            searchCollectionResultTop100,
+            AddColumns(
+            Ungroup(
+                searchCollectionFirst100.artObjects,
+                "artObjects"
+            ),
+            "WebURL",webImage.url,"Link",links.web)
+        );
+        
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

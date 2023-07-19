@@ -1,0 +1,361 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_rijksmuseumip": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "ac_sharedrijksmuseumip_bff17"
+        },
+        "api": {
+          "name": "shared_rijksmuseumip"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "5ddd87c2-ff36-451c-afa3-fcff54401618"
+          },
+          "type": "Request",
+          "kind": "PowerAppV2",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "title": "Language",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT",
+                  "enum": [
+                    "nl",
+                    "en"
+                  ]
+                },
+                "text_1": {
+                  "title": "Principal Maker",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                },
+                "number_1": {
+                  "title": "Results/Page (1-100)",
+                  "type": "number",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter a number",
+                  "x-ms-content-hint": "NUMBER"
+                },
+                "number_2": {
+                  "title": "Century",
+                  "type": "number",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter a number",
+                  "x-ms-content-hint": "NUMBER"
+                }
+              },
+              "required": [
+                "text",
+                "text_1",
+                "number_1",
+                "number_2"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Search_the_Collection": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "fdde462e-d73a-4a02-aed8-21e62066d5c3"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_rijksmuseumip",
+              "operationId": "GetCollection",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_rijksmuseumip"
+            },
+            "parameters": {
+              "culture": "@triggerBody()['text']",
+              "involvedMaker": "@triggerBody()?['text_1']",
+              "f.dating.period": "@triggerBody()?['number_2']",
+              "ps": "@triggerBody()['number_1']",
+              "toppieces": false,
+              "imgoly": false
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Parse_JSON": {
+          "runAfter": {
+            "Search_the_Collection": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "83b08cb5-50e6-4aad-b3e6-55aef5575c11"
+          },
+          "type": "ParseJson",
+          "inputs": {
+            "content": "@outputs('Search_the_Collection')?['body/artObjects']",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "links": {
+                    "type": "object",
+                    "properties": {
+                      "self": {
+                        "type": "string"
+                      },
+                      "web": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "objectNumber": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "hasImage": {
+                    "type": "boolean"
+                  },
+                  "principalOrFirstMaker": {
+                    "type": "string"
+                  },
+                  "longTitle": {
+                    "type": "string"
+                  },
+                  "showImage": {
+                    "type": "boolean"
+                  },
+                  "permitDownload": {
+                    "type": "boolean"
+                  },
+                  "webImage": {
+                    "type": "object",
+                    "properties": {
+                      "guid": {
+                        "type": "string"
+                      },
+                      "offsetPercentageX": {
+                        "type": "integer"
+                      },
+                      "offsetPercentageY": {
+                        "type": "integer"
+                      },
+                      "width": {
+                        "type": "integer"
+                      },
+                      "height": {
+                        "type": "integer"
+                      },
+                      "url": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "headerImage": {
+                    "type": "object",
+                    "properties": {
+                      "guid": {
+                        "type": "string"
+                      },
+                      "offsetPercentageX": {
+                        "type": "integer"
+                      },
+                      "offsetPercentageY": {
+                        "type": "integer"
+                      },
+                      "width": {
+                        "type": "integer"
+                      },
+                      "height": {
+                        "type": "integer"
+                      },
+                      "url": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "productionPlaces": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "links",
+                  "id",
+                  "objectNumber",
+                  "title",
+                  "hasImage",
+                  "principalOrFirstMaker",
+                  "longTitle",
+                  "showImage",
+                  "permitDownload",
+                  "webImage",
+                  "headerImage",
+                  "productionPlaces"
+                ]
+              }
+            }
+          }
+        },
+        "Response": {
+          "runAfter": {
+            "Parse_JSON": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8037498d-4b7d-4217-bc36-3c57f9507241"
+          },
+          "type": "Response",
+          "kind": "Http",
+          "inputs": {
+            "statusCode": 200,
+            "headers": {
+              "Content Type": "application/json"
+            },
+            "body": "@body('Parse_JSON')",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "links": {
+                    "type": "object",
+                    "properties": {
+                      "self": {
+                        "type": "string"
+                      },
+                      "web": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "objectNumber": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "hasImage": {
+                    "type": "boolean"
+                  },
+                  "principalOrFirstMaker": {
+                    "type": "string"
+                  },
+                  "longTitle": {
+                    "type": "string"
+                  },
+                  "showImage": {
+                    "type": "boolean"
+                  },
+                  "permitDownload": {
+                    "type": "boolean"
+                  },
+                  "webImage": {
+                    "type": "object",
+                    "properties": {
+                      "guid": {
+                        "type": "string"
+                      },
+                      "offsetPercentageX": {
+                        "type": "integer"
+                      },
+                      "offsetPercentageY": {
+                        "type": "integer"
+                      },
+                      "width": {
+                        "type": "integer"
+                      },
+                      "height": {
+                        "type": "integer"
+                      },
+                      "url": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "headerImage": {
+                    "type": "object",
+                    "properties": {
+                      "guid": {
+                        "type": "string"
+                      },
+                      "offsetPercentageX": {
+                        "type": "integer"
+                      },
+                      "offsetPercentageY": {
+                        "type": "integer"
+                      },
+                      "width": {
+                        "type": "integer"
+                      },
+                      "height": {
+                        "type": "integer"
+                      },
+                      "url": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "productionPlaces": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "links",
+                  "id",
+                  "objectNumber",
+                  "title",
+                  "hasImage",
+                  "principalOrFirstMaker",
+                  "longTitle",
+                  "showImage",
+                  "permitDownload",
+                  "webImage",
+                  "headerImage",
+                  "productionPlaces"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

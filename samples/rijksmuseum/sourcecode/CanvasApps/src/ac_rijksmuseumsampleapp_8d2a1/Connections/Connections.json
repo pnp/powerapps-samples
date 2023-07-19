@@ -1,0 +1,88 @@
+{
+  "50bca17e-e310-4216-969b-291be09647f6": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Users",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/shgogna/globalperconnector-train1/1.0.1639.3310/office365users/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365users",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Users"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "50bca17e-e310-4216-969b-291be09647f6"
+  },
+  "91c5bd96-6453-4cce-964c-3fac4aefc069": {
+    "connectionRef": {
+      "displayName": "Rijksmuseum (Independent Publisher)",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1625/1.0.1625.3225/rijksmuseumip/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_rijksmuseumip"
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "c8fc610e-23f7-495e-a2ff-6e775f4ab971"
+    ],
+    "id": "91c5bd96-6453-4cce-964c-3fac4aefc069"
+  },
+  "c8fc610e-23f7-495e-a2ff-6e775f4ab971": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1636/1.0.1636.3297/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "91c5bd96-6453-4cce-964c-3fac4aefc069": {
+          "value": "shared_rijksmuseumip"
+        },
+        "workflowEntityId": {
+          "value": "b8e08097-2001-ee11-8f6e-000d3a475ad5"
+        },
+        "workflowName": {
+          "value": "2e4efea9-2784-6cb2-5370-44ebaf85e738"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_rijksmuseumip": {
+          "value": "91c5bd96-6453-4cce-964c-3fac4aefc069"
+        },
+        "workflowEntityId": {
+          "value": "b8e08097-2001-ee11-8f6e-000d3a475ad5"
+        },
+        "workflowName": {
+          "value": "2e4efea9-2784-6cb2-5370-44ebaf85e738"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "RijksmuseumSearchCollection"
+    ],
+    "dependencies": {
+      "shared_rijksmuseumip": "91c5bd96-6453-4cce-964c-3fac4aefc069"
+    },
+    "dependents": [],
+    "id": "c8fc610e-23f7-495e-a2ff-6e775f4ab971"
+  },
+  "ebf14b24-c372-4e13-b68a-4a7e1f625807": {
+    "connectionRef": {
+      "apiTier": "Premium",
+      "displayName": "Rijksmuseum (Independent Publisher)",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1625/1.0.1625.3225/rijksmuseumip/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_rijksmuseumip",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Rijksmuseum(IndependentPublisher)"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "ebf14b24-c372-4e13-b68a-4a7e1f625807"
+  }
+}

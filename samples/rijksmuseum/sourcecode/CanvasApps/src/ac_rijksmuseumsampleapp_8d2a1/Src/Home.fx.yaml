@@ -1,0 +1,201 @@
+Home As screen:
+    Fill: =ColorValue(AppTheme.palette.white)
+
+    Image2 As image:
+        Image: =rijksmuseum_1
+        PaddingBottom: =10
+        PaddingLeft: =10
+        PaddingRight: =10
+        PaddingTop: =10
+        ZIndex: =1
+
+    "Pivot1 As 'Fluent Pivot (1.0.22)'.pcfdataset":
+        DisplayMode: =DisplayMode.Edit
+        Height: =50
+        Items: |-
+            =Table(
+                {
+                    ItemKey: "Home",
+                    ItemDisplayName: "Home",
+                    ItemIconName: "Home"
+                },
+                {
+                    ItemKey : "SearchCollection",
+                    ItemDisplayName: "Search Collection",
+                    ItemIconName: "SearchData"
+                }
+            )
+        OnSelect: |-
+            =Switch(
+                Self.SelectedKey,
+                "Home",
+                searchCollectionResultTop100,
+                "SearchCollection",
+                Navigate('Advanced Search',ScreenTransition.Cover)
+                )
+        SelectedKey: =Self.Selected.ItemKey
+        Theme: =AppThemeJson
+        Width: =600
+        X: =100
+        Y: =Self.Height/2
+        ZIndex: =2
+
+    "SearchBox1 As 'Fluent SearchBox (1.0.22) Preview'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =30
+        Theme: =AppThemeJson
+        Width: =600
+        X: =700
+        Y: =30
+        ZIndex: =3
+
+    "FluentDetailsList1 As 'Fluent Details List (1.0.22)'.pcfdataset":
+        columns_Items: |-
+            =Table(
+                {
+                    ColDisplayName: "✍️ Principal/First Maker",
+                    ColName: "principalOrFirstMaker",
+                    ColResizable: true,
+                    ColWidth: 200,
+                    ColRowHeader: true
+                },
+                {
+                    ColDisplayName: "🏢 Object Number",
+                    ColName: "objectNumber",
+                    ColResizable: true,
+                    ColWidth: 150,
+                    ColRowHeader: true
+                },
+                {
+                    ColDisplayName: "📰 Title",
+                    ColName: "longTitle",
+                    ColBold: true,
+                    ColWidth: 300,
+                    ColRowHeader: true,
+                    ColResizable: true,
+                    ColMultiLine: true
+                },
+                {
+                    ColDisplayName: "🖼️ Image",
+                    ColName: "WebURL",
+                    ColBold: true,
+                    ColWidth: 100,
+                    ColRowHeader: true,
+                    ColResizable: true,
+                    ColCellType: "image",
+                    ColImageWidth: 60,
+                    ColImagePadding: 6
+                },
+                {
+                    ColDisplayName: "🔗Link",
+                    ColName: "Link",
+                    ColBold: true,
+                    ColWidth: 400,
+                    ColRowHeader: true,
+                    ColResizable: true,
+                    ColCellType: "link",
+                    ColMultiLine: true
+                }
+            )
+        Compact: =true
+        DisplayMode: =DisplayMode.Edit
+        HeaderVisible: =true
+        Height: =628
+        Items: |-
+            =If(
+                Len(SearchBox1.SearchText) >= 3,
+                SortByColumns(
+                    Search(
+                        searchCollectionResultTop100,
+                        SearchBox1.SearchText,
+                        "principalOrFirstMaker",
+                        "longTitle",
+                        "objectNumber"
+                    ),
+                    ctxSortCol,
+                    If(
+                        ctxSortAsc,
+                        SortOrder.Ascending,
+                        SortOrder.Descending
+                    )
+                ),
+                SortByColumns(
+                    searchCollectionResultTop100,
+                    ctxSortCol,
+                    If(
+                        ctxSortAsc,
+                        SortOrder.Ascending,
+                        SortOrder.Descending
+                    )
+                )
+            )
+        LargeDatasetPaging: =false
+        OnChange: |
+            =If(Self.EventName="Sort", 
+            UpdateContext({
+                            ctxSortCol:Self.SortEventColumn,
+                            ctxSortAsc:If(Self.SortEventDirection='PowerCAT.FluentDetailsList.SortEventDirection'.Ascending,true,false)
+             })
+            );
+            
+            If(Self.EventName="CellAction",    Launch(Self.Selected.Link))
+        RaiseOnRowSelectionChangeEvent: =true
+        RecordKey: ="id"
+        SelectionAlwaysVisible: =false
+        SelectionType: ='PowerCAT.FluentDetailsList.SelectionType'.None
+        SelectRowsOnFocus: =false
+        Theme: =AppThemeJson
+        Width: =1366
+        X: =0
+        Y: =140
+        ZIndex: =4
+
+        objectNumber1 As pcfDataField.textualColumn:
+            FieldDisplayName: ="objectNumber"
+            FieldName: ="objectNumber"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =1
+            ZIndex: =1
+
+        principalOrFirstMaker1 As pcfDataField.textualColumn:
+            FieldDisplayName: ="principalOrFirstMaker"
+            FieldName: ="principalOrFirstMaker"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =2
+            ZIndex: =2
+
+        longTitle1 As pcfDataField.textualColumn:
+            FieldDisplayName: ="longTitle"
+            FieldName: ="longTitle"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =3
+            ZIndex: =3
+
+        headerImage1 As pcfDataField.textualColumn:
+            FieldDisplayName: ="headerImage"
+            FieldName: ="headerImage"
+            FieldType: |-
+                ="![guid:s, height:n, offsetPercentageX:n, offsetPercentageY:n, url:s, width:n]"
+            FieldVariantName: ="textualColumn"
+            Order: =6
+            ZIndex: =6
+
+        Link1 As pcfDataField.textualColumn:
+            FieldDisplayName: ="Link"
+            FieldName: ="Link"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =5
+            ZIndex: =7
+
+        WebURL1 As pcfDataField.textualColumn:
+            FieldDisplayName: ="WebURL"
+            FieldName: ="WebURL"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =6
+            ZIndex: =8
+

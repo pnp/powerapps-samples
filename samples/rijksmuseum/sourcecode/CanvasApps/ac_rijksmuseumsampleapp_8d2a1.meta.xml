@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>ac_rijksmuseumsampleapp_8d2a1</Name>
+  <AppVersion>2023-06-07T07:31:47Z</AppVersion>
+  <Status>Ready</Status>
+  <CreatedByClientVersion>3.23053.41.0</CreatedByClientVersion>
+  <MinClientVersion>3.23053.41.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"1366","primaryDeviceHeight":"768","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","publisherVersion":"3.23053.41","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false","sienaVersion":"20230606T133335Z-3.23053.41.0"}</Tags>
+  <IsCdsUpgraded>0</IsCdsUpgraded>
+  <GalleryItemId xsi:nil="true"></GalleryItemId>
+  <BackgroundColor>rgba(184, 0, 0, 1)</BackgroundColor>
+  <DisplayName>Rijksmuseum Sample App</DisplayName>
+  <Description xsi:nil="true"></Description>
+  <CommitMessage xsi:nil="true"></CommitMessage>
+  <Publisher xsi:nil="true"></Publisher>
+  <AuthorizationReferences>[]</AuthorizationReferences>
+  <ConnectionReferences>{"ebf14b24-c372-4e13-b68a-4a7e1f625807":{"id":"/providers/microsoft.powerapps/apis/shared_rijksmuseumip","displayName":"Rijksmuseum (Independent Publisher)","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1625/1.0.1625.3225/rijksmuseumip/icon.png","dataSources":["Rijksmuseum(IndependentPublisher)"],"dependencies":[],"dependents":[],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Premium","actions":["GetCollection"]},"50bca17e-e310-4216-969b-291be09647f6":{"id":"/providers/microsoft.powerapps/apis/shared_office365users","displayName":"Office 365 Users","iconUri":"https://connectoricons-prod.azureedge.net/u/shgogna/globalperconnector-train1/1.0.1639.3312/office365users/icon.png","dataSources":["Office365Users"],"dependencies":[],"dependents":[],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard"},"c8fc610e-23f7-495e-a2ff-6e775f4ab971":{"id":"/providers/microsoft.powerapps/apis/shared_logicflows","displayName":"Logic flows","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1636/1.0.1636.3297/logicflows/icon.png","dataSources":["RijksmuseumSearchCollection"],"dependencies":["91c5bd96-6453-4cce-964c-3fac4aefc069"],"dependents":[],"parameterHints":{"workflowName":{"value":"50efa827-9cda-4dfa-8012-2fc515d8aba9"},"workflowEntityId":{"value":"b8e08097-2001-ee11-8f6e-000d3a475ad5"},"91c5bd96-6453-4cce-964c-3fac4aefc069":{"value":"shared_rijksmuseumip"}},"parameterHintsV2":{"workflowName":{"value":"50efa827-9cda-4dfa-8012-2fc515d8aba9"},"workflowEntityId":{"value":"b8e08097-2001-ee11-8f6e-000d3a475ad5"},"shared_rijksmuseumip":{"value":"91c5bd96-6453-4cce-964c-3fac4aefc069"}},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard","actions":["Run"]},"91c5bd96-6453-4cce-964c-3fac4aefc069":{"id":"/providers/microsoft.powerapps/apis/shared_rijksmuseumip","displayName":"Rijksmuseum (Independent Publisher)","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1625/1.0.1625.3225/rijksmuseumip/icon.png","dataSources":[],"dependencies":[],"dependents":["c8fc610e-23f7-495e-a2ff-6e775f4ab971"],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Premium"}}</ConnectionReferences>
+  <DatabaseReferences>{"default.cds":{"databaseDetails":{"referenceType":"Environmental","environmentName":"default.cds","overrideValues":{"status":"NotSpecified"}},"dataSources":{},"components":[{"componentName":"CustomControl","identifier":"cat_PowerCAT.Pivot","identifierType":"LogicalName","capabilities":{"pcfExternalServiceUsageAllowed":false}},{"componentName":"CustomControl","identifier":"cat_PowerCAT.SearchBox","identifierType":"LogicalName","capabilities":{"pcfExternalServiceUsageAllowed":false}},{"componentName":"CustomControl","identifier":"cat_PowerCAT.FluentDetailsList","identifierType":"LogicalName","capabilities":{"pcfExternalServiceUsageAllowed":false}},{"componentName":"CustomControl","identifier":"cat_PowerCAT.SearchBox","identifierType":"LogicalName","capabilities":{"pcfExternalServiceUsageAllowed":false}},{"componentName":"CustomControl","identifier":"cat_PowerCAT.FluentDetailsList","identifierType":"LogicalName","capabilities":{"pcfExternalServiceUsageAllowed":false}}]}}</DatabaseReferences>
+  <AppComponents>[]</AppComponents>
+  <AppComponentDependencies>[]</AppComponentDependencies>
+  <CanConsumeAppPass>1</CanConsumeAppPass>
+  <CanvasAppType>0</CanvasAppType>
+  <BypassConsent>0</BypassConsent>
+  <AdminControlBypassConsent>0</AdminControlBypassConsent>
+  <EmbeddedApp xsi:nil="true"></EmbeddedApp>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CdsDependencies>{"cdsdependencies":[{"dependencyid":"b8e08097-2001-ee11-8f6e-000d3a475ad5","componenttype":29,"componenttypeplatformname":"Workflow"},{"dependencyid":"","logicalname":"cat_PowerCAT.Pivot","componenttype":66,"componenttypeplatformname":"CustomControl"},{"dependencyid":"","logicalname":"cat_PowerCAT.SearchBox","componenttype":66,"componenttypeplatformname":"CustomControl"},{"dependencyid":"","logicalname":"cat_PowerCAT.FluentDetailsList","componenttype":66,"componenttypeplatformname":"CustomControl"},{"dependencyid":"","logicalname":"cat_PowerCAT.SearchBox","componenttype":66,"componenttypeplatformname":"CustomControl"},{"dependencyid":"","logicalname":"cat_PowerCAT.FluentDetailsList","componenttype":66,"componenttypeplatformname":"CustomControl"}]}</CdsDependencies>
+  <IsCustomizable>1</IsCustomizable>
+  <BackgroundImageUri>/CanvasApps/ac_rijksmuseumsampleapp_8d2a1_BackgroundImageUri</BackgroundImageUri>
+  <DocumentUri>/CanvasApps/ac_rijksmuseumsampleapp_8d2a1_DocumentUri.msapp</DocumentUri>
+</CanvasApp>
