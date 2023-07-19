@@ -1,0 +1,80 @@
+[
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "rijksmuseum",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2023-06-07T00:00:00.000Z",
+    "updateDateTime": "2023-06-07T00:00:00.000Z",
+    "title": "Rijksmuseum Sample App",
+    "shortDescription": "This sample illustrates how to use the Rijksmuseum (Independent Publisher) connector.",
+    "longDescription": [
+      "This sample illustrates how to use the Rijksmuseum (Independent Publisher) connector."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/rijksmuseum",
+    "products": [
+      "Power Apps",
+      "Power Platform",
+      "Power Automate"
+    ],
+    "tags": [
+      "Power Apps", "Power Automate"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/raw/main/samples/rijksmuseum/assets/Rijksmuseum.png?raw=true",
+        "alt": "Rijksmuseum Sample App"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "ashes2076",
+        "name": "Ashwin Ganesh Kumar",
+        "pictureUrl": "https://github.com/ashes2076.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Rijks Data",
+        "description": "Link to the Rijks Data website.",
+        "url": "https://data.rijksmuseum.nl/"
+      },
+      {
+        "name": "Rijksmuseum Independent Publisher Connector",
+        "description": "The Microsoft Learn documentation page of the Rijksmuseum Independent Publisher Connector.",
+        "url": "https://learn.microsoft.com/en-us/connectors/rijksmuseumip/"
+      }
+    ]
+  }
+]
