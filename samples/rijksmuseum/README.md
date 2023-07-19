@@ -57,8 +57,8 @@ The following solution components are used in this sample:
 
 ## Minimal Path to Awesome
 
-* [Download](./solution/YOURSAMPLENAME.zip) the solution `.zip` from the `solution` folder
-* Within **https://make.powerapps.com**, import the `.zip` file via **Solutions** > **Import solution** > **Browse** and select the `.zip` file you just downloaded.
+* [Download](./solution/rijksmuseum.zip) the solution `.zip` from the `solution` folder
+* Within **<https://make.powerapps.com>**, import the `.zip` file via **Solutions** > **Import solution** > **Browse** and select the `.zip` file you just downloaded.
 * Play the app and make sure that you fill in your own API Key ([How to get one?](https://data.rijksmuseum.nl/)).
 
 ## Using the Source Code
@@ -67,11 +67,13 @@ You can also use the [Power Apps CLI](https://aka.ms/pac/docs) to pack the sourc
 
 * Clone the repository to a local drive
 * Pack the source files back into `.zip` file:
+
   ```bash
   pac solution pack --folder pathtosourcefolder --zipfile pathtosolution  --processCanvasApps
   ```
+
   Making sure to replace `pathtosourcefolder` to point to the path to this sample's `sourcecode` folder, and `pathtosolution` to point to the path of this solution's `.zip` file (located under the `solution` folder)
-* Within **https://make.powerapps.com**, import the `.zip` file via **Solutions** > **Import solution** > **Browse** and select the `.zip` file you just downloaded.
+* Within **<https://make.powerapps.com>**, import the `.zip` file via **Solutions** > **Import solution** > **Browse** and select the `.zip` file you just downloaded.
 * Click next.
 * ...
 
@@ -93,9 +95,8 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 
 ## For more information
 
-- [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
-- [Power Apps canvas apps documentation](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/)
-
+* [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
+* [Power Apps canvas apps documentation](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/)
 
 <img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/readme-template" />
 
