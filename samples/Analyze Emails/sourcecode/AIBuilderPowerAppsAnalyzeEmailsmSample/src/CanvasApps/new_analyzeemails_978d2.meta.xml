@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>new_analyzeemails_978d2</Name>
+  <AppVersion>2023-07-24T22:33:51Z</AppVersion>
+  <Status>Ready</Status>
+  <CreatedByClientVersion>3.23071.17.0</CreatedByClientVersion>
+  <MinClientVersion>3.23071.17.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"1366","primaryDeviceHeight":"768","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","publisherVersion":"3.23071.17","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false","sienaVersion":"20230714T180119Z-3.23064.16.0"}</Tags>
+  <IsCdsUpgraded>0</IsCdsUpgraded>
+  <GalleryItemId xsi:nil="true"></GalleryItemId>
+  <BackgroundColor>rgba(56, 96, 178, 1)</BackgroundColor>
+  <DisplayName>Analyze Emails</DisplayName>
+  <Description>Sample Power App analyzes the sentiment of emails located in Feedback folder using AI Builder.</Description>
+  <CommitMessage xsi:nil="true"></CommitMessage>
+  <Publisher xsi:nil="true"></Publisher>
+  <AuthorizationReferences>[]</AuthorizationReferences>
+  <ConnectionReferences>{"25fcc947-df7c-4e8d-80a1-50422e8ffb57":{"id":"/providers/microsoft.powerapps/apis/shared_office365","displayName":"Office 365 Outlook","iconUri":"https://connectoricons-prod.azureedge.net/u/laborbol/partial-builds/390724148/1.0.1641.3327/office365/icon.png","dataSources":["Office365Outlook"],"dependencies":[],"dependents":[],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard","actions":["GetEmails","MarkAsRead_V3","ReplyTo"]}}</ConnectionReferences>
+  <DatabaseReferences>{"default.cds":{"databaseDetails":{"referenceType":"Environmental","environmentName":"default.cds","overrideValues":{"status":"NotSpecified"}},"dataSources":{"43b0dc67-68af-47ae-9a9c-9e69d396ba3e":{"entitySetName":"msdyn_aimodels","logicalName":"msdyn_aimodel"}},"components":[{"componentName":"msdyn_AIModel","identifier":"f1c549c2-a97e-47a5-b612-c5c2bab0f163","identifierType":"UniqueId"}]}}</DatabaseReferences>
+  <AppComponents>[]</AppComponents>
+  <AppComponentDependencies>[]</AppComponentDependencies>
+  <CanConsumeAppPass>1</CanConsumeAppPass>
+  <CanvasAppType>0</CanvasAppType>
+  <BypassConsent>0</BypassConsent>
+  <AdminControlBypassConsent>0</AdminControlBypassConsent>
+  <EmbeddedApp xsi:nil="true"></EmbeddedApp>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CdsDependencies>{"cdsdependencies":[{"logicalname":"msdyn_aimodel","componenttype":1},{"dependencyid":"f1c549c2-a97e-47a5-b612-c5c2bab0f163","logicalname":"","componenttype":401,"componenttypeplatformname":"msdyn_AIModel"}]}</CdsDependencies>
+  <IsCustomizable>1</IsCustomizable>
+  <BackgroundImageUri>/CanvasApps/new_analyzeemails_978d2_BackgroundImageUri</BackgroundImageUri>
+  <DocumentUri>/CanvasApps/new_analyzeemails_978d2_DocumentUri.msapp</DocumentUri>
+</CanvasApp>

@@ -1,0 +1,238 @@
+BrowseScreen1 As screen:
+
+    Navbar As rectangle:
+        Height: =92
+        Width: =1366
+        ZIndex: =1
+
+    AppLabel As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =92
+        PaddingBottom: =10
+        PaddingLeft: =10
+        PaddingRight: =10
+        PaddingTop: =10
+        Size: =40
+        Text: ="Analyze Emails"
+        Width: =438
+        ZIndex: =2
+
+    ComboSentiment As combobox:
+        AccessibleLabel: =Self.Tooltip
+        BorderStyle: =BorderStyle.None
+        DefaultSelectedItems: =["Negative"]
+        DisplayFields: =["Value"]
+        Font: =Font.'Segoe UI'
+        Height: =92
+        InputTextPlaceholder: ="Filter Sentiment"
+        Items: =["Negative", "Neutral", "Positive", "Mixed"]
+        NoSelectionText: ="Filter Sentiment"
+        SearchFields: =["Value"]
+        SearchItems: =Search(["Negative", "Neutral", "Positive", "Mixed"],ComboSentiment.SearchText,"Value")
+        SelectMultiple: =false
+        Size: =20
+        Tooltip: ="Filter Sentiment"
+        X: =817
+        ZIndex: =5
+
+    IconReset As icon.Reset:
+        AccessibleLabel: =Self.Tooltip
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Reset
+        OnSelect: =Set(RefreshOutlook,true);
+        TabIndex: =0
+        Tooltip: ="Reset list"
+        X: =1177
+        Y: =14
+        ZIndex: =6
+
+    IconRefresh As icon.Reload:
+        AccessibleLabel: =Self.Tooltip
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Reload
+        OnSelect: =Set(RefreshOutlook,false);
+        TabIndex: =0
+        Tooltip: ="Refresh list"
+        X: =1273
+        Y: =14
+        ZIndex: =7
+
+    "VerticalGallery1 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver5.0'":
+        AccessibleLabel: ="Emails List"
+        DelayItemLoading: =true
+        Height: =675
+        ItemAccessibleLabel: ="Email"
+        Items: |-
+            =Filter(
+                Search(
+                    If(
+                        RefreshOutlook,
+                        Blank(),
+                        Office365Outlook.GetEmails(
+                            {
+                                folderPath: "Feedback",
+                                fetchOnlyUnread: true
+                            }
+                        )
+                    ),
+                    TextInput1.Text,
+                    "Subject",
+                    "BodyPreview",
+                    "From"
+                ),
+                ('Sentiment analysis'.Predict(BodyPreview).Document.TopSentiment).Name = ComboSentiment.Selected.Value
+            )
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        OnSelect: =Navigate(DetailScreen1, ScreenTransition.None)
+        TabIndex: =0
+        TemplatePadding: =0
+        TemplateSize: =170
+        Width: =1366
+        Y: =92
+        ZIndex: =8
+
+        SentimentLabel As label:
+            DisplayMode: =DisplayMode.View
+            Font: =Font.'Segoe UI'
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =Self.Size * 1.8
+            LineHeight: =2
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: |-
+                =If(
+                    IsBlank(ThisItem.BodyPreview),
+                    "Loading",
+                    "Sentiment: " & ('Sentiment analysis'.Predict(ThisItem.BodyPreview).Document.TopSentiment).Name & ", Confidence: " & ('Sentiment analysis'.Predict(ThisItem.BodyPreview).Document.TopSentiment).Confidence * 100 & " % "
+                )
+            Width: =SubjectLabel.Width
+            X: =14
+            Y: =141
+            ZIndex: =1
+
+        SubjectLabel As label:
+            DisplayMode: =DisplayMode.View
+            Font: =Font.'Segoe UI'
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Subject
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 86
+            X: =14
+            Y: =10
+            ZIndex: =2
+
+        EmailLabel As label:
+            DisplayMode: =DisplayMode.View
+            Font: =Font.'Segoe UI'
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =Self.Size * 1.8
+            LineHeight: =2
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.From
+            Width: =SubjectLabel.Width
+            X: =14
+            Y: =44.2
+            ZIndex: =3
+
+        BodyLabel As label:
+            DisplayMode: =DisplayMode.View
+            Font: =Font.'Segoe UI'
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =57
+            OnSelect: =Select(Parent)
+            Overflow: =Overflow.Scroll
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.BodyPreview
+            VerticalAlign: =VerticalAlign.Top
+            Width: =SubjectLabel.Width
+            X: =14
+            Y: =74.80000000000001
+            ZIndex: =4
+
+        NextArrow2 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Color: =RGBA(166, 166, 166, 1)
+            Height: =50
+            Icon: =Icon.ChevronRight
+            OnSelect: =Select(Parent)
+            PaddingBottom: =16
+            PaddingLeft: =16
+            PaddingRight: =16
+            PaddingTop: =16
+            Tooltip: ="View item details"
+            Width: =50
+            X: =Parent.TemplateWidth - Self.Width - 12
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =5
+
+        Separator2 As rectangle:
+            AccessibleLabel: =Self.Tooltip
+            Height: =8
+            OnSelect: =Select(Parent);
+            TabIndex: =0
+            Tooltip: ="Bottom Border"
+            Width: =Parent.TemplateWidth
+            Y: =162
+            ZIndex: =6
+
+        Rectangle2 As rectangle:
+            Height: =Parent.TemplateHeight - Separator2.Height
+            OnSelect: =Select(Parent)
+            Visible: =ThisItem.IsSelected
+            Width: =4
+            ZIndex: =7
+
+    SearchBar As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =8
+
+        TextSearchBox1 As text:
+            AccessibleLabel: =Self.HintText
+            BorderStyle: =BorderStyle.None
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =92
+            HintText: ="Search Items"
+            PaddingLeft: =80
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =20
+            Tooltip: =Self.HintText
+            Width: =350
+            X: =422
+            ZIndex: =3
+
+        IconSearch As icon.Search:
+            AccessibleLabel: =Self.Tooltip
+            Color: =RGBA(166, 166, 166, 1)
+            Icon: =Icon.Search
+            TabIndex: =0
+            Tooltip: ="Search"
+            X: =434
+            Y: =14
+            ZIndex: =4
+

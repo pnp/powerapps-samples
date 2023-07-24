@@ -1,0 +1,87 @@
+RespondScreen1 As screen:
+
+    Navbar3 As rectangle:
+        Height: =92
+        Width: =1366
+        ZIndex: =1
+
+    IconBack3 As icon.BackArrow:
+        AccessibleLabel: =Self.Tooltip
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Navigate(DetailScreen1, ScreenTransition.None)
+        TabIndex: =0
+        Tooltip: ="Back to list"
+        X: =30
+        Y: =14
+        ZIndex: =2
+
+    AppLabel3 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =92
+        PaddingBottom: =10
+        PaddingLeft: =10
+        PaddingRight: =10
+        PaddingTop: =10
+        Size: =40
+        Text: ="Analyze Emails Respond"
+        Width: =623
+        X: =110
+        ZIndex: =3
+
+    IconReset3 As icon.Reset:
+        AccessibleLabel: =Self.Tooltip
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Reset
+        OnSelect: =Set(RefreshOutlook,true);
+        TabIndex: =0
+        Tooltip: ="Reset List"
+        X: =1192
+        Y: =14
+        ZIndex: =4
+
+    IconRefresh3 As icon.Reload:
+        AccessibleLabel: =Self.Tooltip
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Reload
+        OnSelect: =Set(RefreshOutlook,false);
+        TabIndex: =0
+        Tooltip: ="Refresh List"
+        X: =1273
+        Y: =14
+        ZIndex: =5
+
+    TextInput1 As text:
+        AccessibleLabel: ="Email Input Box"
+        Clear: =true
+        Default: =""
+        EnableSpellCheck: =true
+        Font: =Font.'Segoe UI'
+        Height: =245
+        HintText: ="Enter your Message"
+        Mode: =TextMode.MultiLine
+        Size: =18
+        Tooltip: =Self.AccessibleLabel
+        Width: =1065
+        X: =110
+        Y: =152
+        ZIndex: =6
+
+    ReplyButton1 As button:
+        Font: =Font.'Segoe UI'
+        Height: =51
+        OnSelect: |-
+            =Office365Outlook.ReplyTo(VerticalGallery1.Selected.Id, TextInput1.Text);
+            Reset(TextInput1);
+            Set(RefreshOutlook, true);
+            Navigate(BrowseScreen1, ScreenTransition.None)
+        Size: =20
+        Text: ="Reply"
+        Tooltip: ="Reply to Email"
+        Width: =172
+        X: =1003
+        Y: =451
+        ZIndex: =7
+
