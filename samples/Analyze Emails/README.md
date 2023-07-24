@@ -76,8 +76,8 @@ No datasource needed.
 * Click next.
 * Click on the **Solution Display Name** to open it.
 * Click on the **Canvas App** to Open the application in edit mode.
-* Click Allow to give the Power App permission to access your Outlook emails.
-* Click on the Play button to test the App.
+* Click **Allow** to give the Power App permission to access your Outlook emails.
+* Click on the **Play** button to test the App.
 
 ## Using the Source Code
 
@@ -95,8 +95,8 @@ You can also use the [Power Apps CLI](https://aka.ms/pac/docs) to pack the sourc
 * Click next.
 * Click on the **Solution Display Name** to open it.
 * Click on the **Canvas App** to Open the application in edit mode.
-* Click Allow to give the Power App permission to access your Outlook emails.
-* Click on the Play button to test the App.
+* Click **Allow** to give the Power App permission to access your Outlook emails.
+* Click on the **Play** button to test the App.
 
 ## Disclaimer
 
