@@ -27,6 +27,6 @@ jobs:
         with:
           cwd: ./main
           branch: main
-          add: 'main/.metadata/samples.json --force'
+          add: './main/.metadata/samples.json --force'
           push: true
           token: ${{ secrets.GITHUB_TOKEN }}
