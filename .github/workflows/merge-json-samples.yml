@@ -18,16 +18,6 @@ jobs:
         with:
           ref: main
           path: main
-      - name: Checkout gh-pages branch
-        uses: actions/checkout@v2
-        with:
-          ref: gh-pages
-          path: gh-pages
-      - name: Checkout Docs branch
-        uses: actions/checkout@v2
-        with:
-          ref: Docs
-          path: Docs
       - name: Join samples  
         run: |
           jq -s '[.[][]]' ./main/samples/**/assets/sample.json > ./main/.metadata/samples.json
@@ -36,3 +26,11 @@ jobs:
         env:
           INPUT_SCHEMA: ./main/templates/metadata-schema.json
           INPUT_JSONS: ./main/.metadata/samples.json
+      - name: Commit samples.json to main
+        uses: EndBug/add-and-commit@v6
+        with:
+          cwd: ./main
+          branch: main
+          add: 'main/.metadata/samples.json --force'
+          push: true
+          token: ${{ secrets.GITHUB_TOKEN }}
