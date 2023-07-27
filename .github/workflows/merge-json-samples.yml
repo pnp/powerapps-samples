@@ -19,7 +19,7 @@ jobs:
       - name: Join samples  
         run: |
           jq -s '[.[][]]' samples/**/assets/sample.json > .metadata/samples.json
-      - mame: Commit changes
+      - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Merge all sample.json files to samples.json
