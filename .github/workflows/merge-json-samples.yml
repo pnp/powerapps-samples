@@ -36,24 +36,3 @@ jobs:
         env:
           INPUT_SCHEMA: ./main/templates/metadata-schema.json
           INPUT_JSONS: ./main/.metadata/samples.json
-    //   - name: copy file to gh-pages
-    //     uses: canastro/copy-file-action@master
-    //     with:
-    //       source: "./Docs/docs/samples.json" 
-    //       target: "./gh-pages/samples.json"     
-    //   - name: Commit samples.json to gh-pages
-    //     uses: EndBug/add-and-commit@v6
-    //     with:
-    //       cwd: ./gh-pages
-    //       branch: gh-pages
-    //       add: 'samples.json --force'
-    //       push: true
-    //       token: ${{ secrets.GITHUB_TOKEN }}
-    //   - name: Commit samples.json to Docs
-    //     uses: EndBug/add-and-commit@v6
-    //     with:
-    //       cwd: ./Docs
-    //       branch: Docs
-    //       add: 'docs/samples.json --force'
-    //       push: true
-    //       token: ${{ secrets.GITHUB_TOKEN }}
