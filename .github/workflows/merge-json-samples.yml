@@ -19,6 +19,7 @@ jobs:
       - name: Join samples  
         run: |
           jq -s '[.[][]]' samples/**/assets/sample.json > .metadata/samples.json
-          git add .metadata/samples.json
-          git commit -m "Merged samples.json"
-          git push origin main
+      - mame: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Merge all sample.json files to samples.json
