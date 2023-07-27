@@ -1,6 +1,7 @@
 name: Merge sample metadata
 
 on:
+  workflow_dispatch:
   push:
     branches:
       # When someone push to `main` branch
