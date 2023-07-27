@@ -14,14 +14,11 @@ jobs:
     name: 'Merge all sample.json files to samples.json'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout main branch
+      - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          ref: main
-          path: main
       - name: Join samples  
         run: |
-          jq -s '[.[][]]' ./main/samples/**/assets/sample.json > ./main/.metadata/samples.json
-          git add ./main/.metadata/samples.json
+          jq -s '[.[][]]' samples/**/assets/sample.json > .metadata/samples.json
+          git add .metadata/samples.json
           git commit -m "Merged samples.json"
           git push origin main
