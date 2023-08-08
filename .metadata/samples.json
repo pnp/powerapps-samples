@@ -1,0 +1,3001 @@
+[
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-ClockTimePickerComponent",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2022-12-04",
+    "updateDateTime": "2022-12-04",
+    "title": "Clock Time Picker Component",
+    "shortDescription": "A re-usable component that allows you to select specific times in HH and hh formats through a user friendly and efficient UX.",
+    "longDescription": [
+      "A re-usable component that allows you to select specific times in HH and hh formats through a user friendly and efficient UX."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/ClockTimePickerComponent",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "CLOCK",
+      "COMPONENT",
+      "TIME"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "Yes"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/ClockTimePickerComponent/assets/preview.gif",
+        "alt": "Preview GIF"
+      },
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/ClockTimePickerComponent/assets/preview.png",
+        "alt": "Preview PNG"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "NatiTurts",
+        "name": "Nati Turtledove",
+        "pictureUrl": "https://github.com/NatiTurts.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Create a component for canvas apps",
+        "description": "Components are reusable building blocks for canvas apps so that app makers can create custom controls to use inside an app, or across apps using a component library",
+        "url": "https://docs.microsoft.com/powerapps/maker/canvas-apps/"
+      },
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-HelpDesk-theme",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2021-05-19",
+    "updateDateTime": "2021-05-19",
+    "title": "Helpdesk",
+    "shortDescription": "Beautiful template for HelpDesk applications, inspiration for you.",
+    "longDescription": [
+      "Beautiful template for HelpDesk applications, inspiration for you, Advantage: Easy to install, Easy to customize, Interface design time reduction and Higher productivity at work."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/HelpDesk-theme",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "TEMPLATE",
+      "HELPDESK"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/HelpDesk-theme/assets/screen1.png?raw=true",
+        "alt": "Home"
+      },
+      {
+        "type": "image",
+        "order": 101,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/HelpDesk-theme/assets/screen2.png?raw=true",
+        "alt": "New Ticket"
+      },
+      {
+        "type": "image",
+        "order": 102,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/HelpDesk-theme/assets/screen3.png?raw=true",
+        "alt": "List Tickets"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "neiydarry28",
+        "name": "Neiy Briceño",
+        "pictureUrl": "https://avatars.githubusercontent.com/u/92815715?v=4"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-InvoiceProcessing",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2022-05-03",
+    "updateDateTime": "2022-05-03",
+    "title": "Invoice Processing",
+    "shortDescription": "Power App that uses AI Builder and SharePoint Syntex for Invoice Processing",
+    "longDescription": [
+      "This app shows how to integrate with SharePoint Syntex and AI Builder to do Invoice Processing in Power Apps"
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/InvoiceProcessing",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "AI Builder",
+      "Power Apps",
+      "SharePoint Syntex"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/InvoiceProcessing/assets/5-InvoiceReview-Details.png?raw=true",
+        "alt": "Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "Spucelik",
+        "name": "Steve Pucelik",
+        "pictureUrl": "https://github.com/Spucelik.png",
+        "twitter": "https://www.twitter.com/Spucelik"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-keyword-tagging",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2022-06-17",
+    "updateDateTime": "2022-06-17",
+    "title": "Keyword Tagging",
+    "shortDescription": "This sample illustrates the following concepts: Add/Remove Tags from New Content, Add/Remove Tags while Editing Content, Ability to provide Suggested Tags based on Content Category, Prevention of Duplicate Tags, Ability to add new tags to Master Tag List, Modern UX",
+    "longDescription": [
+      "This sample illustrates the following concepts: Add/Remove Tags from New Content, Add/Remove Tags while Editing Content, Ability to provide Suggested Tags based on Content, Ability to provide Suggested Tags based on Content Category, Prevention of Duplicate Tags, Ability to add new tags to Master Tag List, Modern UX "
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/Keyword-Tagging",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "SHAREPOINT"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CONNECTORS",
+        "value": "SharePoint"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/Keyword-Tagging/assets/annimation.gif",
+        "alt": "Timesheet Home Screen"
+      },
+      {
+        "type": "image",
+        "order": 101,
+        "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/Keyword-Tagging/assets/preview.png",
+        "alt": "Timesheet Entry Screen"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "mschuess",
+        "name": "Matt Schuessler",
+        "pictureUrl": "https://github.com/mschuess.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "powerapps-graph-toolkit-peoplepicker",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2022-12-06",
+    "updateDateTime": "2022-12-06",
+    "title": "Microsoft Graph toolkit People Picker",
+    "shortDescription": "Microsoft Graph toolkit components provide a design consistent way to work with Graph API - This component library aims to mimic them for Power Apps",
+    "longDescription": [
+      "Microsoft Graph toolkit components provide a design consistent way to work with Graph API - This component library aims to mimic them for Power Apps"
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/Microsoft-Graph-toolkit-people-picker",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "Yes"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "Tes"
+      },
+      {
+        "key": "POWERAPPS-CONNECTORS",
+        "value": ""
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/Microsoft-Graph-toolkit-people-picker/assets/pp-dark.png",
+        "alt": "People Picker in dark mode"
+      },
+      {
+        "type": "image",
+        "order": 101,
+        "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/Microsoft-Graph-toolkit-people-picker/assets/pp-explained.png",
+        "alt": "People Picker explained"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "LuiseFreese",
+        "name": ":Luise Freese",
+        "pictureUrl": "https://github.com/luisefreese.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-PDF-Reader-Creator-Kit",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2023-01-06",
+    "updateDateTime": "2023-01-06",
+    "title": "PDF Reader - Creator Kit",
+    "shortDescription": "This is a an app like the 'PDF Reader' app sample by Microsoft (you can create it by 'Start from template' section when you creating new Power App) but this one using Creator Kit controls.",
+    "longDescription": [
+      "This is a an app like the 'PDF Reader' app sample by Microsoft (you can create it by 'Start from template' section when you creating new Power App) but this one using Creator Kit controls."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/PDF-Reader-Creator-Kit",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "PDF READER",
+      "CREATOR KIT"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/PDF-Reader-Creator-Kit/assets/PDF-Reader-creator-kit.gif?raw=true",
+        "alt": "Home"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "angelogulisano",
+        "name": "Angelo Gulisano",
+        "pictureUrl": "https://avatars.githubusercontent.com/u/25862526?v=4"
+      }
+    ],
+    "references": [
+      {
+        "name": "Creator Kit",
+        "description": "Official Microsoft reference for the Creator Kit.",
+        "url": "https://learn.microsoft.com/power-platform/guidance/creator-kit/overview"
+      },
+      {
+        "name": "Creator Kit - Introduction",
+        "description": "Creator Kit - Introduction, from Angelo's blog.",
+        "url": "https://angelogulisano.com/creator-kit-introduction/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "PowerHappening",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2023-03-06",
+    "updateDateTime": "2023-03-06",
+    "title": "Power Happening",
+    "shortDescription": "This is a community sample to inspire you how you can use Model-Driven Power Apps and Custom Pages for your business processes",
+    "longDescription": [
+      "This is a community sample to inspire you how you can use Model-Driven Power Apps and Custom Pages for your business processes"
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/PowerHappening",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "Power Apps"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Model-driven"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "Yes"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/PowerHappening/assets/AgendaSchedulerDemo.gif",
+        "alt": "Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "walcivar",
+        "name": "Wilmer Alcivar",
+        "pictureUrl": "https://github.com/walcivar.png"
+      },
+      {
+        "gitHubAccount": "bendenblanken",
+        "name": "Ben den Blanken",
+        "pictureUrl": "https://github.com/bendenblanken.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "User Manual",
+        "description": "User manual for Power Happening.",
+        "url": "https://github.com/BendenBlanken/PowerHappening/wiki/2.-User-manual"
+      },
+      {
+        "name": "Power Drag and Drop",
+        "description": "Power Drag and Drop is a PCF component that helps you enable drag and drop functionality in Power Apps.",
+        "url": "https://github.com/scottdurow/power-drag-drop"
+      },
+      {
+        "name": "Creator Kit",
+        "description": "The Creator Kit helps create Power Apps experiences on the web and mobile platforms with convenient components that are ubiquitous in modern software.",
+        "url": "https://learn.microsoft.com/en-us/power-platform/guidance/creator-kit/overview"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-tagbox",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2021-04-24",
+    "updateDateTime": "2021-04-24",
+    "title": "Tag Box",
+    "shortDescription": "Contains a textbox that adds items into a dynamic list.",
+    "longDescription": [
+      "Contains a textbox that adds items into a dynamic list. Items can be removed from the list again, and the list can be cleared. No duplicate or blank values are allowed."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/Tagbox",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "TAGS"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/Tagbox/assets/preview.gif?raw=true",
+        "alt": "Preview"
+      },
+      {
+        "type": "image",
+        "order": 101,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/Tagbox/assets/tagbox.png?raw=true",
+        "alt": "Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "CarmenYsewijn",
+        "name": "Carmen Ysewijn",
+        "pictureUrl": "https://github.com/CarmenYsewijn.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-timesheet",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2021-02-26",
+    "updateDateTime": "2021-02-26",
+    "title": "Timesheet",
+    "shortDescription": "This timesheet application is a tablet-based canvas app that gives you a way to create and manage weekly timesheets.",
+    "longDescription": [
+      "This timesheet application is a tablet-based canvas app that gives you a way to create and manage weekly timesheets."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/Timesheet",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "SHAREPOINT"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CONNECTORS",
+        "value": "SharePoint"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/Timesheet/assets/TimesheetHomeScreen.png",
+        "alt": "Timesheet Home Screen"
+      },
+      {
+        "type": "image",
+        "order": 101,
+        "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/Timesheet/assets/TimesheetEntryScreen.png",
+        "alt": "Timesheet Entry Screen"
+      },
+      {
+        "type": "video",
+        "order": 102,
+        "url": "https://youtu.be/A8SiNTnQw0Q",
+        "alt": "PowerApps Timesheet Template"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "aprildunnam",
+        "name": "April Dunnam",
+        "pictureUrl": "https://github.com/aprildunnam.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "svg-us-map",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2022-03-05",
+    "updateDateTime": "2022-03-05",
+    "title": "US Map with SVG Images",
+    "shortDescription": "This sample provides an idea of using SVG images within Power Apps",
+    "longDescription": [
+      "This sample provides an idea of using SVG images within Power Apps. Also, showcases how powerful operations we can perform by using SVG images within Power Apps."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/US-Map-with-SVG-Images",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "Power Apps",
+      "SVG"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/US-Map-with-SVG-Images/assets/USMapPopulation.JPG?raw=true",
+        "alt": "Theme Light"
+      },
+      {
+        "type": "image",
+        "order": 101,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/US-Map-with-SVG-Images/assets/USMapStateSElection.JPG?raw=true",
+        "alt": "Theme Dark"
+      },
+      {
+        "type": "image",
+        "order": 102,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/US-Map-with-SVG-Images/assets/USMapwithSVGImage.gif?raw=true",
+        "alt": "Phone Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "rsk2013",
+        "name": "Krishna Rachakonda",
+        "pictureUrl": "https://github.com/rsk2013.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-accessibility-color-contrast-checker",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2021-05-05",
+    "updateDateTime": "2021-05-05",
+    "title": "Color Contrast Ratio Checker",
+    "shortDescription": "an app that allows maker to choose colors that fulfill WCAG 2.1 standard for color contrast ratio to improve accessibility",
+    "longDescription": [
+      "an app that allows maker to choose colors that fulfill WCAG 2.1 standard for color contrast ratio to improve accessibility"
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/accessibility-color-contrast-checker",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "ACCESSIBILITY",
+      "CANVAS"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/accessibility-color-contrast-checker/assets/colorcontrastratiochecker11.png",
+        "alt": "Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "LuiseFreese",
+        "name": "Luise Freese",
+        "pictureUrl": "https://github.com/LuiseFreese.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Create a component for canvas apps",
+        "description": "Components are reusable building blocks for canvas apps so that app makers can create custom controls to use inside an app, or across apps using a component library",
+        "url": "https://docs.microsoft.com/powerapps/maker/canvas-apps/"
+      },
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  "1.0",
+  {
+    "id": "/providers/Microsoft.PowerApps/apps/",
+    "type": "Microsoft.PowerApps/apps",
+    "tags": {
+      "primaryDeviceWidth": "1366",
+      "primaryDeviceHeight": "768",
+      "supportsPortrait": "true",
+      "supportsLandscape": "true",
+      "primaryFormFactor": "Tablet",
+      "publisherVersion": "3.22094.23",
+      "minimumRequiredApiVersion": "2.2.0",
+      "hasComponent": "false",
+      "hasUnlockedComponent": "false",
+      "isUnifiedRootApp": "false",
+      "sienaVersion": "20221017T104148Z-3.22094.23.0"
+    },
+    "properties": {
+      "appVersion": "2022-10-17T10:41:48Z",
+      "lifeCycleId": "Published",
+      "createdByClientVersion": {
+        "major": 3,
+        "minor": 22094,
+        "build": 23,
+        "revision": 0,
+        "majorRevision": 0,
+        "minorRevision": 0
+      },
+      "minClientVersion": {
+        "major": 3,
+        "minor": 22094,
+        "build": 23,
+        "revision": 0,
+        "majorRevision": 0,
+        "minorRevision": 0
+      },
+      "backgroundColor": "rgba(255, 255, 255, 1)",
+      "backgroundImageUri": "/17193815871628659054/N86e39a18-2347-48af-8437-a72afc07b4d5-logoSmallFile",
+      "displayName": "Body Part Selection",
+      "description": "A gallery that can be applied to a canvas app to select various part of the body. Use case: An accident reporting app that requires that the injured part be submitted as multi choice option. \n\n\nBy Mubarak Adeyemo (@tmub365)",
+      "commitMessage": "",
+      "appUris": {
+        "documentUri": {
+          "value": "/17193815871628659054/Nadfcbdee-941e-489f-8324-9e9e1fc6fa89-document.msapp"
+        },
+        "imageUris": [],
+        "additionalUris": []
+      },
+      "createdTime": "0001-01-01T00:00:00Z",
+      "lastModifiedTime": "0001-01-01T00:00:00Z",
+      "sharedGroupsCount": 0,
+      "sharedUsersCount": 0,
+      "icons": {
+        "smallIconUri": "/17193815871628659054/N17b69000-3988-426d-82a0-716967472051-small.png",
+        "mediumIconUri": "/17193815871628659054/Nfafd4004-327f-4e05-a631-9bc85207fc28-medium.png",
+        "largeIconUri": "/17193815871628659054/N57f02a72-e912-48ba-bf33-b24df5bccce6-large.png",
+        "wideIconUri": "/17193815871628659054/N3c27cef6-879c-47c5-a132-3caafa62abe0-wide.png"
+      },
+      "connectionReferences": {},
+      "databaseReferences": {},
+      "almMode": "Environment",
+      "performanceOptimizationEnabled": true,
+      "canConsumeAppPass": true,
+      "enableModernRuntimeMode": false,
+      "executionRestrictions": {
+        "isTeamsOnly": false,
+        "dataLossPreventionEvaluationResult": {
+          "status": "Compliant",
+          "lastEvaluationDate": "2022-10-17T09:04:00.3584214Z",
+          "violations": [],
+          "violationsByPolicy": [],
+          "violationErrorMessage": "The app uses the following connectors: ."
+        }
+      }
+    },
+    "appType": "ClassicCanvasApp",
+    "appComponents": []
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-calendar-component",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2021-05-05",
+    "updateDateTime": "2021-05-05",
+    "title": "Calendar Component",
+    "shortDescription": "A re-usable component that allows you to display events in  a calendar.",
+    "longDescription": [
+      "A re-usable component that allows you to display events in  a calendar."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/calendar-component",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "CALENDAR",
+      "COMPONENT"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/calendar-component/assets/preview.png?raw=true",
+        "alt": "Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "aprildunnam",
+        "name": "April Dunnam",
+        "pictureUrl": "https://github.com/aprildunnam.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Create a component for canvas apps",
+        "description": "Components are reusable building blocks for canvas apps so that app makers can create custom controls to use inside an app, or across apps using a component library",
+        "url": "https://docs.microsoft.com/powerapps/maker/canvas-apps/"
+      },
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "cascading-dropdown-component",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2022-10-29",
+    "updateDateTime": "2022-10-29",
+    "title": "Cascading Dropdown Component",
+    "shortDescription": "Power Apps Canvas Component for two-level cascading dropdowns",
+    "longDescription": [
+      "Demonstrates how to create a custom control that can handle a two-level cascading dropdown picker"
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/cascading-dropdown-component",
+    "products": [
+      "Power Apps",
+      "Power Platform",
+      "Component"
+    ],
+    "tags": [
+      "Power Apps",
+      "Component",
+      "Canvas"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/raw/main/samples/cascading-dropdown-component/assets/preview.png?raw=true",
+        "alt": "Theme Light"
+      },
+      {
+        "type": "image",
+        "order": 101,
+        "url": "https://github.com/pnp/powerapps-samples/raw/main/samples/cascading-dropdown-component/assets/preview.png?raw=true",
+        "alt": "Theme Dark"
+      },
+      {
+        "type": "image",
+        "order": 102,
+        "url": "https://github.com/pnp/powerapps-samples/raw/main/samples/cascading-dropdown-component/assets/preview.png?raw=true",
+        "alt": "Phone Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "aprildunnam",
+        "name": "April Dunnam",
+        "pictureUrl": "https://github.com/aprildunnam.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-containers-examples",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2021-06-06",
+    "updateDateTime": "2021-06-06",
+    "title": "Visual Guide To Power Apps Containers",
+    "shortDescription": "21 screen with Power Apps containers examples to help you learn.",
+    "longDescription": [
+      "21 screen with Power Apps containers examples to help you learn."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/containers-examples",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/containers-examples/assets/preview.gif?raw=true",
+        "alt": "Home"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "matthewdevaney",
+        "name": "Matthew Devaney",
+        "pictureUrl": "https://github.com/matthewdevaney.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-covid-vaccine-survey",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2021-10-27",
+    "updateDateTime": "2021-10-27",
+    "title": "COVID Vaccine Survey App",
+    "shortDescription": "Canvas App for collection COVID vaccination surveys",
+    "longDescription": [
+      "A PowerApps and SharePoint based solution for companies to collect surveys (data) on the vaccination status of their employees."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/covid-vaccine-survey",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "TEMPLATES",
+      "CANVAS APP"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/covid-vaccine-survey/assets/1.png?raw=true",
+        "alt": "Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "siddharth-vaghasia",
+        "name": "Siddharth Vaghasia",
+        "pictureUrl": "https://github.com/siddharth-vaghasia.png",
+        "twitter": "https://twitter.com/siddh_me"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-custom-font-samples",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2021-05-13",
+    "updateDateTime": "2021-05-13",
+    "title": "Custom Font Samples",
+    "shortDescription": "177 custom font samples for Power Apps",
+    "longDescription": [
+      "177 custom font samples for Power Apps"
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/custom-font-samples",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "FONT"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/raw/main/samples/custom-font-samples/assets/preview.jpg",
+        "alt": "Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "matthewdevaney",
+        "name": "Matthew Devaney",
+        "pictureUrl": "https://github.com/matthewdevaney.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "dataverse-admin",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2022-02-24",
+    "updateDateTime": "2022-02-24",
+    "title": "Dataverse Admin Power App",
+    "shortDescription": "The Dataverse admin app enables admins to easily manage users/teams/security roles/apps and perform some repetitive tasks more efficiently.",
+    "longDescription": [
+      "The Dataverse admin app enables admins to easily manage users/teams/security roles/apps and perform some repetitive tasks more efficiently."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/dataverse-admin",
+    "products": [
+      "Power Apps",
+      "Power Platform",
+      "Dataverse"
+    ],
+    "tags": [
+      "Power Apps",
+      "Dataverse"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/raw/main/samples/dataverse-admin/assets/home-screenshot.png?raw=true",
+        "alt": "Theme Light"
+      },
+      {
+        "type": "image",
+        "order": 101,
+        "url": "https://github.com/pnp/powerapps-samples/raw/main/samples/dataverse-admin/assets/home-screenshot.png?raw=true",
+        "alt": "Theme Dark"
+      },
+      {
+        "type": "image",
+        "order": 102,
+        "url": "https://github.com/pnp/powerapps-samples/raw/main/samples/dataverse-admin/assets/home-screenshot.png?raw=true",
+        "alt": "Phone Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "thatapiguy",
+        "name": "Vivek Bavishi",
+        "pictureUrl": "https://github.com/thatapiguy.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "employee-survey-modern-control",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2023-04-18",
+    "updateDateTime": "2023-04-18",
+    "title": "Employee Engagement Survey - Modern Controls",
+    "shortDescription": "This is a an App like 'Employee Engagement Survey' app's sample by Microsoft (you can create it by 'Start from template' section when you creating new Power App) but this one using (when possible) modern controls.",
+    "longDescription": [
+      "This is a an App like 'Employee Engagement Survey' app's sample by Microsoft (you can create it by 'Start from template' section when you creating new Power App) but this one using (when possible) modern controls. These new controls (In Preview) are based on Fluent UI and you can use it to build application with professional UI."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/employee-survey-modern-control",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/raw/main/samples/employee-survey-modern-control/assets/employee-survey-modern-controls.gif?raw=true",
+        "alt": "Animated GIF of the solution"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "angelogulisano",
+        "name": "Angelo Gulisano",
+        "pictureUrl": "https://github.com/angelogulisano.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Modern controls coming to canvas apps",
+        "description": "Modern controls coming to canvas apps.",
+        "url": "https://powerapps.microsoft.com/en-us/blog/modern-controls-coming-to-canvas-apps/"
+      },
+      {
+        "name": "Blog about modern controls",
+        "description": "Blog about modern controls.",
+        "url": "https://angelogulisano.com/power-apps-modern-controls/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-expandable-navigation",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2021-04-26",
+    "updateDateTime": "2021-04-26",
+    "title": "Expandable Navigation",
+    "shortDescription": "This Canvas Application is an example for a expandable navigation using Fluent UI icons.",
+    "longDescription": [
+      "This Canvas Application is an example for a expandable navigation using Fluent UI icons. It also shows how a lightbox-styled pop up works."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/expandable-navigation",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "NAVIGATION",
+      "UI-PATTERNS"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/expandable-navigation/assets/preview.gif?raw=true",
+        "alt": "Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "LuiseFreese",
+        "name": "Luise Freese",
+        "pictureUrl": "https://github.com/LuiseFreese.png",
+        "twitter": "https://www.twitter.com/luisefreese"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-Fluentui-custom-theme",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2021-05-19",
+    "updateDateTime": "2021-05-19",
+    "title": "Fluent UI Custom Theme",
+    "shortDescription": "Implementing a custom theme to apply the style of the Fluent UI controls to the canvas controls",
+    "longDescription": [
+      "Implementing a custom theme (for tablet layout) to apply the style of the Fluent UI controls to the canvas controls with extensive modification of the \"Default Theme\" inside the theme.json file."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/fluentui-custom-theme",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "THEME",
+      "FLUENTUI"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/fluentui-custom-theme/assets/theme-light.png?raw=true",
+        "alt": "Theme Light"
+      },
+      {
+        "type": "image",
+        "order": 101,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/fluentui-custom-theme/assets/theme-dark.png?raw=true",
+        "alt": "Theme Dark"
+      },
+      {
+        "type": "image",
+        "order": 102,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/fluentui-custom-theme/assets/theme-dark-light-phone.png?raw=true",
+        "alt": "Phone Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "fabiofranzini",
+        "name": "Fabio Franzini",
+        "pictureUrl": "https://github.com/fabiofranzini.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "fluent-ui-for-teams-theme",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2022-06-20",
+    "updateDateTime": "2022-06-20",
+    "title": "Fluent UI for Teams theme",
+    "shortDescription": "Implementing a custom theme to apply the style of the Microsoft Teams Fluent UI controls with extensive modification of the theme.json file and providing components that fit into Teams' look & feel",
+    "longDescription": [
+      "Implementing a custom theme to apply the style of the Microsoft Teams Fluent UI controls with extensive modification of the theme.json file and providing components that fit into Teams' look & feel. refernce app also includes 10 canvas components"
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/fluentui-for-teams-theme",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CONNECTORS",
+        "value": ""
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/fluentui-for-teams-theme/assets/FluentUiforTeams.png",
+        "alt": "Components Screen"
+      },
+      {
+        "type": "image",
+        "order": 101,
+        "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/fluentui-for-teams-theme/assets/ListScreen.png",
+        "alt": "List Screen"
+      },
+      {
+        "type": "video",
+        "order": 102,
+        "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/fluentui-for-teams-theme/assets/FluentUiforTeams.gif",
+        "alt": "Fluent UI theme walkthrough"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "luisefreese",
+        "name": ":Luise Freese",
+        "pictureUrl": "https://github.com/luisefreese.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "ID": 1,
+    "Image": "https://images.pexels.com/photos/11495942/pexels-photo-11495942.jpeg?cs=tinysrgb&w=1260&h=750&dpr=1",
+    "AltText": "A"
+  },
+  {
+    "ID": 2,
+    "Image": "https://images.pexels.com/photos/11166329/pexels-photo-11166329.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "AltText": "B"
+  },
+  {
+    "ID": 3,
+    "Image": "https://images.pexels.com/photos/2158014/pexels-photo-2158014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "AltText": "C"
+  },
+  {
+    "ID": 4,
+    "Image": "https://images.pexels.com/photos/2164378/pexels-photo-2164378.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "AltText": "D"
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-instagram-basic-display",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2023-05-17",
+    "updateDateTime": "2023-05-17",
+    "title": "Instagram Basic Display",
+    "shortDescription": "Power App that shows how to use the Instagram Basic Display connector",
+    "longDescription": [
+      "This app shows how to use the Instagram Basic Display connector in Power Apps"
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/instagram-basic-display",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "Power Apps"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "Yes"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/instagram-basic-display/assets/Preview.png?raw=true",
+        "alt": "Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "reshmee011",
+        "name": "Reshmee Auckloo",
+        "pictureUrl": "https://github.com/reshmee011.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Instagram Basic Display connector",
+        "description": "Documentation page of the Instagram Basic Display connector.",
+        "url": "https://learn.microsoft.com/en-us/connectors/instagrambasicdispip/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-kpi-usecase",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2023-05-17",
+    "updateDateTime": "2023-05-17",
+    "title": "KPI Usecase",
+    "shortDescription": "This PowerFX example shows how to leverage an IF statement, against Text or Values on the Fill property of a text label.",
+    "longDescription": [
+      "This PowerFX example shows how to leverage an IF statement, against Text or Values on the Fill property of a text label. This can of course be used for conditional fonts, font weight, combining with dynamic variables and many more."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/kpi-usecase",
+    "products": [
+      "Power Apps"
+    ],
+    "tags": [
+      "Power Fx"
+    ],
+    "categories": [
+      "POWERAPPS",
+      "POWER-AUTOMATE"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/kpi-usecase/assets/screenshotkpivalues.png?raw=true",
+        "alt": "Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "Nathalie-Leenders",
+        "name": "Nathalie Leenders",
+        "pictureUrl": "https://github.com/Nathalie-Leenders.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Microsoft Power Fx",
+        "description": "Microsoft Power Fx overview.",
+        "url": "https://docs.microsoft.com/en-us/power-platform/power-fx/overview"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-power-apps-quality-assurance-assessment",
+    "version": "1.0.0.3",
+    "source": "pnp",
+    "creationDateTime": "2023-02-23",
+    "updateDateTime": "2023-02-23",
+    "title": "PowerApps Quality Assurance Assessment",
+    "shortDescription": "A Quality Assurance tool integrating with Power Platform Pipelines allowing users to conduct QA Assessments on solutions deployed to a QA Environment.",
+    "longDescription": [
+      "Inspired by the ALM Accelerator by PowerCAT, This solution is built alongside Power Platform Pipelines accessing all deployed solutions within your designated QA Environment. When a solution is in QA, the user can create a QA Assessment for the project, assign it to other users, manage checklist items, and submit a final QA grade for the solution."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/power-apps-quality-assurance-assessment",
+    "products": [
+      "Power Apps",
+      "Power Platform",
+      "Dataverse"
+    ],
+    "tags": [
+      "ALM",
+      "SOLUTION",
+      "QUALITY ASSURANCE"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "Yes"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/power-apps-quality-assurance-assessment/assets/LandingPage.png",
+        "alt": "Preview PNG"
+      },
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/power-apps-quality-assurance-assessment/assets/preview.gif",
+        "alt": "Preview GIF"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "NatiTurts",
+        "name": "Nati Turtledove",
+        "pictureUrl": "https://github.com/NatiTurts.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Create a component for canvas apps",
+        "description": "Components are reusable building blocks for canvas apps so that app makers can create custom controls to use inside an app, or across apps using a component library",
+        "url": "https://docs.microsoft.com/powerapps/maker/canvas-apps/"
+      },
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "power-wordle-game",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2021-05-19",
+    "updateDateTime": "2021-05-19",
+    "title": "Power Wordle Game",
+    "shortDescription": "Re-imaging of the popular word puzzle game Wordle inside of a Power Apps Canvas App",
+    "longDescription": [
+      "Re-imaging of the popular word puzzle game Wordle inside of a Power Apps Canvas App"
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/power-wordle-game",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "Power Apps",
+      "Game"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/power-wordle-game/assets/thumbnail.png",
+        "alt": "Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "aprildunnam",
+        "name": "April Dunnam",
+        "pictureUrl": "https://github.com/aprildunnam.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-progressbar",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2022-07-28",
+    "updateDateTime": "2022-08-15",
+    "title": "Progress Bar",
+    "shortDescription": "A component library with 2 progress bar components",
+    "longDescription": [
+      "This component library features a vertical and a horizontal progress bar, which are both fully customizeable."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/progress-bar",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "COMPONENT LIBRARY",
+      "UI-PATTERNS"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/progress-bar/assets/progressbar.gif?raw=true",
+        "alt": "Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "LuiseFreese",
+        "name": "Luise Freese",
+        "pictureUrl": "https://github.com/LuiseFreese.png",
+        "twitter": "https://www.twitter.com/luisefreese"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "random-rolldice",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2022-08-10",
+    "updateDateTime": "2022-08-10",
+    "title": "Random roll dice",
+    "shortDescription": "Simulate roll dice launcher and associated progress with victory counting.",
+    "longDescription": [
+      "Simulate roll dice launcher based on random number and associated progress with victory counting."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/random-rolldice",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "Power Apps",
+      "Game"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.24"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/random-rolldice/assets/rolldice.gif",
+        "alt": "Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "aaclage",
+        "name": "Andre Lage",
+        "pictureUrl": "https://github.com/aaclage.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "rijksmuseum",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2023-06-07",
+    "updateDateTime": "2023-06-07",
+    "title": "Rijksmuseum Sample App",
+    "shortDescription": "This sample illustrates how to use the Rijksmuseum (Independent Publisher) connector.",
+    "longDescription": [
+      "This sample illustrates how to use the Rijksmuseum (Independent Publisher) connector."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/rijksmuseum",
+    "products": [
+      "Power Apps",
+      "Power Platform",
+      "Power Automate"
+    ],
+    "tags": [
+      "Power Apps",
+      "Power Automate"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/raw/main/samples/rijksmuseum/assets/Rijksmuseum.png?raw=true",
+        "alt": "Rijksmuseum Sample App"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "ashes2076",
+        "name": "Ashwin Ganesh Kumar",
+        "pictureUrl": "https://github.com/ashes2076.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Rijks Data",
+        "description": "Link to the Rijks Data website.",
+        "url": "https://data.rijksmuseum.nl/"
+      },
+      {
+        "name": "Rijksmuseum Independent Publisher Connector",
+        "description": "The Microsoft Learn documentation page of the Rijksmuseum Independent Publisher Connector.",
+        "url": "https://learn.microsoft.com/en-us/connectors/rijksmuseumip/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-selfservice-groups",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2021-02-26",
+    "updateDateTime": "2021-02-26",
+    "title": "SelfService Portal for Microsoft 365",
+    "shortDescription": "The app lets users pu themselves into groups, which can either be Microsoft 365 groups or security groups",
+    "longDescription": [
+      "The app lets users pu themselves into groups, which can either be Microsoft 365 groups or security groups"
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/selfservice-groups",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "Yes"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CONNECTORS",
+        "value": "Office 365 Users"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/selfservice-groups/assets/1641653378.png",
+        "alt": "Timesheet Home Screen"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "BakkerJan",
+        "name": "Jan Bakker",
+        "pictureUrl": "https://github.com/BakkerJan.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "sharepoint-events",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2022-02-24",
+    "updateDateTime": "2022-02-24",
+    "title": "SharePoint Event Registration Power App",
+    "shortDescription": "Proof of concept Power App that is designed to be embedded in a SharePoint site/page, offering event registration functionality. An alternative to the OOTB Events Web Part.",
+    "longDescription": [
+      "Proof of concept Power App that is designed to be embedded in a SharePoint site/page, offering event registration functionality. An alternative to the OOTB Events Web Part."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/sharepoint-events",
+    "products": [
+      "Power Apps",
+      "Power Platform",
+      "SharePoint"
+    ],
+    "tags": [
+      "Power Apps",
+      "SharePoint",
+      "Events"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/raw/main/samples/sharepoint-events/assets/thumbnail.png?raw=true",
+        "alt": "Theme Light"
+      },
+      {
+        "type": "image",
+        "order": 101,
+        "url": "https://github.com/pnp/powerapps-samples/raw/main/samples/sharepoint-events/assets/thumbnail.png?raw=true",
+        "alt": "Theme Dark"
+      },
+      {
+        "type": "image",
+        "order": 102,
+        "url": "https://github.com/pnp/powerapps-samples/raw/main/samples/sharepoint-events/assets/thumbnail.png?raw=true",
+        "alt": "Phone Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "alexc-MSFT",
+        "name": "Alex Clark",
+        "pictureUrl": "https://github.com/alexc-MSFT.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "sharepoint-events",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2022-05-01",
+    "updateDateTime": "2022-05-01",
+    "title": "Office 365 Network (Skills Matrix) Power App",
+    "shortDescription": "The skills matrix Power App lets everyone fill out their skills and gives the ability to search for the right person with the right combination of skills for your unique project",
+    "longDescription": [
+      "The skills matrix Power App lets everyone fill out their skills and gives the ability to search for the right person with the right combination of skills for your unique project"
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/skills-matrix",
+    "products": [
+      "Power Apps",
+      "Power Platform",
+      "SharePoint"
+    ],
+    "tags": [
+      "Power Apps",
+      "SharePoint",
+      "Skills Matrix"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/raw/main/samples/skills-matrix/assets/4-enter-skills.png?raw=true",
+        "alt": "Theme Light"
+      },
+      {
+        "type": "image",
+        "order": 101,
+        "url": "https://github.com/pnp/powerapps-samples/raw/main/samples/skills-matrix/assets/5-search-by-user.png?raw=true",
+        "alt": "Theme Dark"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "RainWatcher",
+        "name": "Jennifer McGee",
+        "pictureUrl": "https://github.com/RainWatcher.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-status-indicator",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2021-02-24",
+    "updateDateTime": "2021-02-24",
+    "title": "Status Indicator",
+    "shortDescription": "Shows how to add a status indicator in a display form.",
+    "longDescription": [
+      "This sample shows how to add a status indicator in a display form. This uses a train stop style user interface to show a progression of a status field from New to Completed. It provides the user with visibility into the status of their request providing a better experience for them."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/status-indicator",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "SHAREPOINT",
+      "UIELEMENTS"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CONNECTORS",
+        "value": "SharePoint"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/status-indicator/assets/powerapp-statusindicator.jpg?raw=true",
+        "alt": "Home Screen"
+      },
+      {
+        "type": "image",
+        "order": 101,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/status-indicator/assets/powerapp-statusindicator2.jpg?raw=true",
+        "alt": "Display Screen"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "dcashpeterson",
+        "name": "Derek Cash-Peterson",
+        "pictureUrl": "https://github.com/dcashpeterson.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-teams-team-request-form",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2023-05-17",
+    "updateDateTime": "2023-05-17",
+    "title": "Teams team Request Form",
+    "shortDescription": "This sample helps standardize the process of creating teams, especially for enterprise companies with limited user permissions to create Microsoft Teams teams.",
+    "longDescription": [
+      "This sample helps standardize the process of creating teams, especially for enterprise companies with limited user permissions to create Microsoft Teams teams."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/teams-team-request-form",
+    "products": [
+      "Power Apps",
+      "Power Automate",
+      "Power Platform"
+    ],
+    "tags": [
+      "TEAMS"
+    ],
+    "categories": [
+      "POWERAPPS",
+      "POWER-AUTOMATE"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/teams-team-request-form/assets/Teams-team-request-form.gif?raw=true",
+        "alt": "Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "Katerina-Chernevskaya",
+        "name": "Katerina Chernevskaya",
+        "pictureUrl": "https://github.com/Katerina-Chernevskaya.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-timer",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2021-05-04",
+    "updateDateTime": "2021-05-04",
+    "title": "timer",
+    "shortDescription": "Example of how to use the timer function as a stopwatch",
+    "longDescription": [
+      "This app is an example of how to use the timer function as a stopwatch.",
+      "You can specify predefined times and start the timer with them.",
+      "An easy to read visualization helps all users to estimate how much time has already passed.",
+      "This solution is optimized to use within Microsoft Teams meetings."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/timer",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "TEAMS"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/timer/assets/timerapp.png?raw=true",
+        "alt": "App Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "MichaelRoth42",
+        "name": "Michael Roth",
+        "pictureUrl": "https://github.com/MichaelRoth42.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  },
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-timesheet",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2022-06-01",
+    "updateDateTime": "2022-06-01",
+    "title": "Timesheet using Dataverse",
+    "shortDescription": "A Power App made for user work timesheets. The app is made up of 3 core components",
+    "longDescription": [
+      "A Power App made for user work timesheets. The app is made up of 3 core components"
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/Timesheet",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": [
+          "Canvas",
+          "Model-driven",
+          "Solution"
+        ]
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "Yes"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CONNECTORS",
+        "value": ""
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://raw.githubusercontent.com/pnp/powerapps-samples/main/samples/timesheet-using-dataverse/assets/preview.png",
+        "alt": "Timesheet Home Screen"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "Dlutchy",
+        "name": "Darren Lutchner",
+        "pictureUrl": "https://github.com/Dlutchy.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  }
+]
