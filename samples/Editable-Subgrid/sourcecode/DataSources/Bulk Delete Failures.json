@@ -1,0 +1,32 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "bulkdeletefailures",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "bulkdeletefailure",
+    "MaxGetRowsCount": 500,
+    "Name": "Bulk Delete Failures",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_regardingobjectid_value": "Name",
+      "bulkdeletefailureid": "Bulk Deletion Failure",
+      "bulkdeleteoperationid": "BulkDeleteOperationId",
+      "errordescription": "Error Description",
+      "errornumber": "Error Code",
+      "orderedqueryindex": "Index"
+    },
+    "PreferredName": "Bulk Delete Failures",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Bulk Delete Failures (Views)",
+    "Name": "_bulkdeletefailure_views",
+    "RelatedEntityName": "Bulk Delete Failures",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "75612f8c-0a2e-4942-a6d8-1b8d9bcacef9": "BulkDelete Failures Associated View"
+    }
+  }
+]

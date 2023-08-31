@@ -1,0 +1,143 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "sha_studentses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "sha_students",
+    "MaxGetRowsCount": 500,
+    "Name": "Students",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "sha_dateofbirth": "Date Of Birth",
+      "sha_department": "Department",
+      "sha_feespaid": "Fees Paid",
+      "sha_name": "Full Name",
+      "sha_phonenumber": "Phone Number",
+      "sha_students_AsyncOperations": "System Jobs",
+      "sha_students_BulkDeleteFailures": "Bulk Delete Failures",
+      "sha_students_DuplicateBaseRecord": "Duplicate Records (sha_students_DuplicateBaseRecord)",
+      "sha_students_DuplicateMatchingRecord": "Duplicate Records (sha_students_DuplicateMatchingRecord)",
+      "sha_students_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "sha_students_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "sha_students_ProcessSession": "Process Sessions",
+      "sha_students_SyncErrors": "Sync Errors",
+      "sha_studentsid": "Student ID",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Students",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Students (Views)",
+    "Name": "_sha_students_views",
+    "RelatedEntityName": "Students",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "3ec46bea-4b56-485a-9a39-07acc3f637d3": "Students Advanced Find View",
+      "44430920-07fd-4d4d-94b0-1ede67128788": "Students Associated View",
+      "792d07b5-b231-46c6-a4d5-c5ad1ad7318f": "Active Students",
+      "9cefaf33-637a-43e8-a52d-ac25cec9c5b2": "Students Lookup View",
+      "b533a113-2953-487b-82ce-3f9d5035e549": "Inactive Students"
+    }
+  },
+  {
+    "DisplayName": "Department (Students)",
+    "Name": "sha_students_sha_department",
+    "OptionSetInfoNameMapping": {
+      "920600000": "Computer",
+      "920600001": "Biology",
+      "920600002": "Arts",
+      "920600003": "Chemistery"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "sha_department",
+        "OptionSetReferenceEntityName": "Students"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "sha_department",
+    "RelatedEntityName": "Students",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Fees Paid (Students)",
+    "Name": "sha_students_sha_feespaid",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "sha_feespaid",
+        "OptionSetReferenceEntityName": "Students"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "sha_feespaid",
+    "RelatedEntityName": "Students",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Students)",
+    "Name": "sha_students_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Students"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Students",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Students)",
+    "Name": "sha_students_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Students"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Students",
+    "Type": "OptionSetInfo"
+  }
+]

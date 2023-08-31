@@ -1,0 +1,353 @@
+Screen1 As screen:
+    Fill: =RGBA(77, 77, 77, 1)
+
+    Rectangle3 As rectangle:
+        Fill: =RGBA(39, 113, 194, 1)
+        Height: =38
+        Width: =1333
+        X: =16
+        Y: =143
+        ZIndex: =1
+
+    Gallery1 As gallery.galleryVertical:
+        DelayItemLoading: =true
+        Fill: =RGBA(116, 116, 116, 1)
+        Height: =578
+        Items: =Sort(Filter(Students,varReset),'Modified On',SortOrder.Descending)
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplateFill: =If(ThisItem.IsSelected, RGBA(0, 0, 0, 0.3), RGBA(0, 0, 0, 0))
+        TemplatePadding: =0
+        TemplateSize: =43
+        Width: =1333
+        X: =16
+        Y: =187
+        ZIndex: =2
+
+        "lblFullName As 'Text input'":
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            OnChange: =Select(ButtonCanvas1)
+            Value: =ThisItem.'Full Name'
+            Width: =264
+            X: =40
+            Y: =5
+            ZIndex: =1
+
+        drpDepartment As Dropdown.pcfdataset:
+            AccessibleLabel: =ThisItem.Department
+            DefaultSelectedItems: =[ThisItem.Department]
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            Items: =Choices(Students.Department)
+            OnChange: =Select(ButtonCanvas1)
+            OnSelect: =Select(Parent)
+            Width: =295
+            X: =316
+            Y: =5
+            ZIndex: =2
+
+            Value1 As pcfDataField.textualColumn:
+                FieldDisplayName: ="Value"
+                FieldName: ="Value"
+                FieldType: ="l"
+                FieldVariantName: ="textualColumn"
+                Order: =1
+                ZIndex: =6
+
+        "lblPhone As 'Text input'":
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            OnChange: =Select(ButtonCanvas1)
+            Value: =ThisItem.'Phone Number'
+            Width: =290
+            X: =940
+            Y: =5
+            ZIndex: =4
+
+        "dteDOB As 'Date picker'":
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            OnChange: =Select(ButtonCanvas1)
+            Value: =ThisItem.'Date Of Birth'
+            Width: =297
+            X: =628
+            Y: =5
+            ZIndex: =5
+
+        tglFeesPaid As Checkbox:
+            Checked: =ThisItem.'Fees Paid'
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            Label: =
+            OnChange: =Select(ButtonCanvas1)
+            Width: =82
+            X: =1247
+            Y: =5
+            ZIndex: =6
+
+        ButtonCanvas1 As Button:
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            OnSelect: |-
+                =If(
+                    IsBlank(
+                        LookUp(
+                            colGridUpdates,
+                            ThisItem.'Student ID' = 'Student ID'
+                        )
+                    ),
+                    Collect(
+                        colGridUpdates,
+                        ThisItem
+                    )
+                );
+                UpdateIf(
+                    colGridUpdates,
+                    'Student ID' = ThisItem.'Student ID',
+                    {
+                        'Full Name': lblFullName.Value,
+                        Department: drpDepartment.Selected.Value,
+                        'Date Of Birth': dteDOB.Value,
+                        'Phone Number': lblPhone.Value,
+                        'Fees Paid': tglFeesPaid.Checked
+                    }
+                )
+            Visible: =false
+            Width: =96
+            X: =40
+            Y: =11
+            ZIndex: =7
+
+        Rectangle1 As rectangle:
+            Fill: =RGBA(241, 244, 249, 1)
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.Width
+            Y: =Parent.TemplateHeight-1
+            ZIndex: =8
+
+        CheckboxCanvas2 As Checkbox:
+            Checked: =ThisItem.IsSelected
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            Label: =
+            Width: =48
+            X: =0
+            Y: =5
+            ZIndex: =9
+
+        Label2 As label:
+            OnSelect: =Select(Parent)
+            Text: =
+            Width: =40
+            Y: =3
+            ZIndex: =10
+
+        Label4 As label:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =43
+            OnSelect: =Select(Parent)
+            Size: =8
+            Text: =If(tglFeesPaid.Checked,"Yes","No")
+            Width: =50
+            X: =1281
+            ZIndex: =11
+
+    ButtonCanvas2 As Button:
+        Appearance: ='PowerApps.CoreControls.ButtonCanvas.Appearance'.Primary
+        DisplayMode: =If(CountRows(colGridUpdates)>0, DisplayMode.Edit,DisplayMode.Disabled)
+        Height: =40
+        OnSelect: |
+            =Set(
+                varSpinner,
+                true
+            );
+            Patch(
+                Students,
+                ShowColumns(
+                    colGridUpdates,
+                    "sha_dateofbirth",
+                    "sha_department",
+                    "sha_feespaid",
+                    "sha_name",
+                    "sha_phonenumber",
+                    "sha_studentsid"
+                )
+            );
+            Notify(
+                "Grid was sucessfully updated",
+                NotificationType.Success,
+                1000
+            );
+            Clear(colGridUpdates);
+            Set(
+                varReset,
+                false
+            );
+            Set(
+                varReset,
+                true
+            );
+            Set(
+                varSpinner,
+                false
+            );
+        Text: ="Save Changes"
+        Width: =182
+        X: =1168
+        Y: =88
+        ZIndex: =3
+
+    Spinner1 As Spinner:
+        DisplayMode: =DisplayMode.Edit
+        Height: =587
+        Visible: =varSpinner
+        Width: =1333
+        X: =16
+        Y: =181
+        ZIndex: =4
+
+    "Gallery2 As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver4.0'":
+        DelayItemLoading: =true
+        Height: =38
+        Items: |-
+            =Table(
+                {
+                    Heading: "Full Name",
+                    Detail: "Student' Full Name"
+                },{
+                    Heading: "Department",
+                    Detail: "Student' Department"
+                },{
+                    Heading: "Date Of Birth",
+                    Detail: "Student' Date Of Birth"
+                },{
+                    Heading: "Phone",
+                    Detail: "Student' Phone"
+                }
+            )
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =0
+        TemplateSize: =Self.Width/4
+        Width: =1237
+        X: =16
+        Y: =143
+        ZIndex: =5
+
+        ButtonCanvas3 As Button:
+            Appearance: ='PowerApps.CoreControls.ButtonCanvas.Appearance'.Primary
+            DisplayMode: =DisplayMode.Edit
+            Height: =Parent.Height
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.Heading
+            Width: =Parent.TemplateWidth
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+        "InfoButtonCanvas1 As 'Info button'":
+            Content: =ThisItem.Detail
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            IconSize: ='PowerApps.CoreControls.InfoButtonCanvas.IconSize'.Large
+            Width: =32
+            X: =200
+            Y: =3
+            ZIndex: =2
+
+    ButtonCanvas4 As Button:
+        Appearance: ='PowerApps.CoreControls.ButtonCanvas.Appearance'.Primary
+        DisplayMode: =DisplayMode.Edit
+        Height: =38
+        Text: ="Fees Paid"
+        Width: =96
+        X: =1253
+        Y: =143
+        ZIndex: =6
+
+    ButtonCanvas2_1 As Button:
+        Appearance: ='PowerApps.CoreControls.ButtonCanvas.Appearance'.Secondary
+        DisplayMode: =If(CountRows(colGridUpdates)>0, DisplayMode.Edit,DisplayMode.Disabled)
+        Height: =40
+        OnSelect: |-
+            =Clear(colGridUpdates);
+            Set(varReset,false);
+            Set(varReset,true);
+        Text: ="Ignore Changes"
+        Width: =182
+        X: =974
+        Y: =88
+        ZIndex: =7
+
+    ButtonCanvas2_2 As Button:
+        Appearance: ='PowerApps.CoreControls.ButtonCanvas.Appearance'.Primary
+        DisplayMode: =DisplayMode.Edit
+        Height: =40
+        OnSelect: |
+            =Set(
+                varSpinner,
+                true
+            );
+            Patch(
+                Students,
+                Defaults(Students),
+                {'Full Name': "New Student"}
+            );
+            Set(
+                varReset,
+                false
+            );
+            Set(
+                varReset,
+                true
+            );
+            Set(
+                varSpinner,
+                false
+            );
+        Text: ="+ New Record"
+        Width: =182
+        X: =16
+        Y: =88
+        ZIndex: =8
+
+    Label1 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(15, 108, 189, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =52
+        Size: =15
+        Text: ="Subgrid Control - Students"
+        Width: =1366
+        ZIndex: =9
+
+    Icon2 As icon.Trash:
+        Color: =RGBA(39, 113, 194, 1)
+        Height: =41
+        Icon: =Icon.Trash
+        OnSelect: |-
+            =Set(
+                varSpinner,
+                true
+            );
+            Remove(Students,Gallery1.Selected);
+            Set(
+                varReset,
+                false
+            );
+            Set(
+                varReset,
+                true
+            );
+            Set(
+                varSpinner,
+                false
+            );
+        PaddingBottom: =5
+        PaddingTop: =5
+        X: =201
+        Y: =88
+        ZIndex: =10
+
