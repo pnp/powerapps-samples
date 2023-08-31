@@ -4,7 +4,7 @@
 
 ## Overview
 
-The **Editable Subgrid Power App** sample is a contribution by Shaheer Ahmad (GitHub: shaheerahmadch) that demonstrates how to create a Power App with an editable subgrid, allowing users to efficiently manage and update data within a grid interface. This sample is designed to showcase best practices for building user-friendly and responsive Power Apps.
+The **Editable Subgrid Power App** sample is a contribution by Shaheer Ahmad (GitHub: shaheerahmadch) that demonstrates how to create a Power App with an editable subgrid, allowing users to efficiently manage and update data within a grid interface. This sample is designed to showcase best practices for building user-friendly Power Apps.
 
 ## Features
 
