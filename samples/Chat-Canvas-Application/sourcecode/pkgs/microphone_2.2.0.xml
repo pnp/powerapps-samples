@@ -1,0 +1,179 @@
+<widget xmlns="http://openajax.org/metadata" spec="1.0" id="http://microsoft.com/appmagic/microphone" name="microphone" jsClass="AppMagic.Controls.Microphone" version="2.2.0" styleable="true" runtimeCost="1" xmlns:appMagic="http://schemas.microsoft.com/appMagic">
+  <author name="Microsoft AppMagic" />
+  <license type="text/html"><![CDATA[<p>TODO:  Need license text here.</p>]]></license>
+  <description><![CDATA[MICROPHONE
+      Control description here.]]></description>
+  <requires>
+    <require type="css" src="css/microphone.css" />
+    <require type="javascript" src="js/Microphone.js" />
+    <require type="other" src="images/microphone_disabled_icon.svg" />
+    <require type="other" src="images/microphone_rest_icon.svg" />
+    <require type="other" src="images/microphone_stop_icon.svg" />
+  </requires>
+  <appMagic:capabilities contextualViewsEnabled="true" autoBorders="true" autoFill="true" autoFocusedBorders="true" autoPointerViewState="true" autoDisabledViewState="true" requiresMicrophoneAccess="true" isVersionFlexible="true" />
+  <appMagic:accessibilityChecks controlIsInteractive="true" />
+  <content><![CDATA[
+    <button
+      class="appmagic-microphone"
+      data-bind="style: {
+          color: autoProperties.Color,
+          backgroundImage: backgroundImage() || 'none',
+          backgroundSize: properties.ImagePosition().size,
+          backgroundRepeat: properties.ImagePosition().repeat,
+          backgroundPosition: properties.ImagePosition().position,
+        },
+        event: { click: microphoneViewModel.toggleRecord },
+        attr: {
+          title: properties.Tooltip() || null,
+          'aria-label': microphoneViewModel.actionLabel
+        },
+        disable: !microphoneViewModel.canRecord() || microphoneViewModel.isRecordingExternally
+    ">
+        <div class="appmagic-microphone-center" data-bind="if: microphoneViewModel.hasDeviceInit">
+          <div class="appmagic-microphone-icon-row">
+            <div class="appmagic-microphone-icon appmagic-microphone-icon-container"></div>
+            <img class="appmagic-microphone-icon" data-bind="visible: microphoneViewModel.canRecord() && microphoneViewModel.isRecording && !microphoneViewModel.isRecordingExternally, modifySrcUrl: 'ctrllib/microphone/images/microphone_stop_icon.svg'" alt="" />
+            <img class="appmagic-microphone-icon" data-bind="visible: microphoneViewModel.canRecord() && !microphoneViewModel.isRecording && !microphoneViewModel.isRecordingExternally, modifySrcUrl: 'ctrllib/microphone/images/microphone_rest_icon.svg'" alt="" />
+            <img class="appmagic-microphone-icon" data-bind="visible: !microphoneViewModel.canRecord() || microphoneViewModel.isRecordingExternally, modifySrcUrl: 'ctrllib/microphone/images/microphone_disabled_icon.svg'" alt="" />
+          </div>
+          <div class="appmagic-microphone-label" data-bind="text: microphoneViewModel.status"></div>
+          <div class="appmagic-microphone-bar" data-bind="css: { 'appmagic-microphone-bar-active': microphoneViewModel.isRecording }"></div>
+        </div>
+    </button>
+    ]]></content>
+  <properties>
+    <property name="Audio" localizedName="##microphone_Audio##" datatype="Media" defaultValue="" direction="out" isPrimaryOutputProperty="true">
+      <title>Microphone audio output</title>
+      <appMagic:category>data</appMagic:category>
+    </property>
+    <property name="Mic" localizedName="##microphone_Mic##" datatype="Number" defaultValue="0" isPrimaryInputProperty="true">
+      <title>Microphone device id</title>
+      <appMagic:category>data</appMagic:category>
+      <appMagic:displayName>##microphone_Mic_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##microphone_Mic_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="Reset" localizedName="##commonProperties_Reset##" datatype="Boolean" defaultValue="false" direction="in">
+      <title>Reset</title>
+      <appMagic:category>data</appMagic:category>
+      <appMagic:displayName>##commonProperties_Reset_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##commonProperties_Reset_Tooltip##</appMagic:tooltip>
+    </property>
+    <!-- Behavior Properties -->
+    <property name="OnStop" localizedName="##microphone_OnStop##" datatype="Boolean" defaultValue="false" direction="in">
+      <title>Behavior when playback ends and stops</title>
+      <appMagic:category>behavior</appMagic:category>
+      <appMagic:displayName>##microphone_OnStop_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##microphone_OnStop_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="OnStart" localizedName="##microphone_OnStart##" datatype="Boolean" defaultValue="false" direction="in" isPrimaryBehaviorProperty="true">
+      <title>Behavior when playback starts</title>
+      <appMagic:category>behavior</appMagic:category>
+      <appMagic:displayName>##microphone_OnStart_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##microphone_OnStart_Tooltip##</appMagic:tooltip>
+    </property>
+  </properties>
+  <appMagic:includeProperties>
+    <!-- Data -->
+    <appMagic:includeProperty name="AccessibleLabel" />
+    <appMagic:includeProperty name="Tooltip" />
+    <appMagic:includeProperty name="ContentLanguage" />
+    <!-- Design -->
+    <appMagic:includeProperty name="Color" defaultValue="RGBA(255, 255, 255, 1)" />
+    <appMagic:includeProperty name="DisabledColor" defaultValue="RGBA(186, 186, 186, 1)" />
+    <appMagic:includeProperty name="PressedColor" defaultValue="Self.Color" />
+    <appMagic:includeProperty name="HoverColor" defaultValue="Self.Color" />
+    <appMagic:includeProperty name="BorderColor" />
+    <appMagic:includeProperty name="DisabledBorderColor" defaultValue="RGBA(56, 56, 56, 1)" />
+    <appMagic:includeProperty name="PressedBorderColor" defaultValue="ColorFade(Self.BorderColor, -15%)" />
+    <appMagic:includeProperty name="HoverBorderColor" defaultValue="ColorFade(Self.BorderColor, 15%)" />
+    <appMagic:includeProperty name="FocusedBorderColor" defaultValue="Self.BorderColor" isExpr="true" />
+    <appMagic:includeProperty name="BorderStyle" />
+    <appMagic:includeProperty name="BorderThickness" />
+    <appMagic:includeProperty name="FocusedBorderThickness" defaultValue="4" />
+    <appMagic:includeProperty name="Image" defaultValue="" />
+    <appMagic:includeProperty name="ImagePosition" />
+    <appMagic:includeProperty name="Fill" defaultValue="RGBA(69, 69, 69, 1)" />
+    <appMagic:includeProperty name="DisabledFill" defaultValue="RGBA(119, 119, 119, 1)" />
+    <appMagic:includeProperty name="PressedFill" defaultValue="ColorFade(Self.Fill, -15%)" />
+    <appMagic:includeProperty name="HoverFill" defaultValue="ColorFade(Self.Fill, 15%)" />
+    <appMagic:includeProperty name="X" />
+    <appMagic:includeProperty name="Y" />
+    <appMagic:includeProperty name="Width" defaultValue="120" />
+    <appMagic:includeProperty name="Height" defaultValue="120" />
+    <appMagic:includeProperty name="Visible" />
+    <appMagic:includeProperty name="DisplayMode" />
+    <appMagic:includeProperty name="TabIndex" defaultValue="0" />
+    <appMagic:includeProperty name="OnSelect" direction="in" />
+    <!-- Hidden properties -->
+    <appMagic:includeProperty name="maximumHeight" defaultValue="200" />
+    <appMagic:includeProperty name="maximumWidth" defaultValue="200" />
+    <appMagic:includeProperty name="minimumHeight" defaultValue="120" />
+    <appMagic:includeProperty name="minimumWidth" defaultValue="120" />
+  </appMagic:includeProperties>
+  <!--Property Dependencies -->
+  <appMagic:propertyDependencies>
+    <appMagic:propertyDependency input="Reset" output="Audio" />
+  </appMagic:propertyDependencies>
+  <appMagic:insertMetadata>
+    <appMagic:category name="Media" priority="80" />
+  </appMagic:insertMetadata>
+  <!-- Display metadata providing property visibility, order, sections, and grouping in UI (e.g. properties panel) -->
+  <appMagic:displayMetadata>
+    <appMagic:section>
+      <appMagic:property name="Mic" />
+      <appMagic:property name="DisplayMode" />
+    </appMagic:section>
+    <appMagic:section>
+      <appMagic:property name="Visible" />
+      <appMagic:propertyGroup name="Position">
+        <appMagic:property name="X" />
+        <appMagic:property name="Y" />
+      </appMagic:propertyGroup>
+      <appMagic:propertyGroup name="Size">
+        <appMagic:property name="Width" />
+        <appMagic:property name="Height" />
+      </appMagic:propertyGroup>
+    </appMagic:section>
+    <appMagic:section>
+      <appMagic:propertyGroup name="Color">
+        <appMagic:property name="Color" showInFloatie="true" />
+        <appMagic:property name="Fill" showInFloatie="true" />
+      </appMagic:propertyGroup>
+      <appMagic:propertyGroup name="Border">
+        <appMagic:property name="BorderStyle" />
+        <appMagic:property name="BorderThickness" />
+        <appMagic:property name="BorderColor" />
+      </appMagic:propertyGroup>
+      <appMagic:property name="Image" serverProvidesValue="true" computedValueType="Media" />
+      <appMagic:property name="ImagePosition" displayType="EnumIcon" />
+    </appMagic:section>
+    <appMagic:section>
+      <appMagic:propertyGroup name="DisabledColor">
+        <appMagic:property name="DisabledColor" />
+        <appMagic:property name="DisabledFill" />
+        <appMagic:property name="DisabledBorderColor" />
+      </appMagic:propertyGroup>
+      <appMagic:propertyGroup name="PressedColor">
+        <appMagic:property name="PressedColor" />
+        <appMagic:property name="PressedFill" />
+        <appMagic:property name="PressedBorderColor" />
+      </appMagic:propertyGroup>
+      <appMagic:propertyGroup name="HoverColor">
+        <appMagic:property name="HoverColor" />
+        <appMagic:property name="HoverFill" />
+        <appMagic:property name="HoverBorderColor" />
+      </appMagic:propertyGroup>
+    </appMagic:section>
+    <appMagic:section>
+      <appMagic:property name="Tooltip" />
+      <appMagic:property name="TabIndex" />
+    </appMagic:section>
+  </appMagic:displayMetadata>
+  <appMagic:conversion from="2.0.0" to="2.1.0">
+    <appMagic:conversionAction type="add" name="TabIndex" />
+    <appMagic:conversionAction type="add" name="FocusedBorderThickness" />
+  </appMagic:conversion>
+  <appMagic:conversion from="2.1.0" to="2.2.0">
+    <appMagic:conversionAction type="add" name="ContentLanguage" />
+  </appMagic:conversion>
+</widget>

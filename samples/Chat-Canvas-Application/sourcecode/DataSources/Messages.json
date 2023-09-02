@@ -1,0 +1,107 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr3b3_messageses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr3b3_messages",
+    "MaxGetRowsCount": 500,
+    "Name": "Messages",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr3b3_class": "Class",
+      "cr3b3_from": "From",
+      "cr3b3_messages_AsyncOperations": "System Jobs",
+      "cr3b3_messages_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr3b3_messages_DuplicateBaseRecord": "Duplicate Records (cr3b3_messages_DuplicateBaseRecord)",
+      "cr3b3_messages_DuplicateMatchingRecord": "Duplicate Records (cr3b3_messages_DuplicateMatchingRecord)",
+      "cr3b3_messages_FileAttachments": "FileAttachments",
+      "cr3b3_messages_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr3b3_messages_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr3b3_messages_ProcessSession": "Process Sessions",
+      "cr3b3_messages_SyncErrors": "Sync Errors",
+      "cr3b3_messagesid": "Messages",
+      "cr3b3_messagetext": "Messagetext",
+      "cr3b3_msgattachment": "MsgAttachment",
+      "cr3b3_msgimg": "MsgImg",
+      "cr3b3_msgimgid": "cr3b3_MsgImgId",
+      "cr3b3_msgvoice": "msgVoice",
+      "cr3b3_rollno": "Rollno",
+      "cr3b3_seensent": "seensent",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "sh_to": "To",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Messages",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Messages (Views)",
+    "Name": "_cr3b3_messages_views",
+    "RelatedEntityName": "Messages",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "53e53d07-7920-4181-b039-6094c209b361": "Messages Associated View",
+      "8f4220ab-147c-4a62-8e78-f7e101262465": "Messages Advanced Find View",
+      "c24eeabe-8009-4a35-a892-0f10b2a849e0": "Inactive Messages",
+      "c821c667-8fbd-4b10-a6ad-f51b9a86e62b": "Active Messages",
+      "ccae4ae0-0093-427b-a1f6-285ce1d247f1": "Messages Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Status (Messages)",
+    "Name": "cr3b3_messages_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Messages"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Messages",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Messages)",
+    "Name": "cr3b3_messages_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Messages"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Messages",
+    "Type": "OptionSetInfo"
+  }
+]

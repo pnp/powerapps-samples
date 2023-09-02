@@ -1,0 +1,54 @@
+TextInput As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =38
+    Text: =TextInput2.Text
+    Width: =333
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    HtmlText1_22 As htmlViewer:
+        Height: =Parent.Height
+        HtmlText: |-
+            ="<div style='width: "& HtmlText1_22.Width - 0 &"px;height: "& HtmlText1_22.Height - 1 &"px;
+            border-radius: 10px;
+            
+            border-left:7px solid transparent;
+            border-right:7px solid transparent;
+            border-bottom:3px solid white;
+            background: #323232;
+            '></div>"
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Size: =13
+        Width: =Parent.Width
+        ZIndex: =1
+
+    TextInput2 As text:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderThickness: =0
+        Color: =RGBA(255, 255, 255, 1)
+        Default: =
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =25
+        HintText: ="Search Users"
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        PaddingLeft: =5
+        Width: =275
+        X: =10
+        Y: =6
+        ZIndex: =2
+
+    Icon5 As icon.Add:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =19
+        Icon: =Icon.Search
+        Width: =48
+        X: =Parent.Width-Self.Width
+        Y: =9
+        ZIndex: =3
+

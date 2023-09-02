@@ -1,0 +1,717 @@
+Chat As screen:
+    BackgroundImage: =
+    Fill: =RGBA(40, 40, 40,1)
+    ImagePosition: =ImagePosition.Stretch
+    LoadingSpinner: =LoadingSpinner.Data
+    LoadingSpinnerColor: =RGBA(40, 40, 40,1)
+    OnVisible: |-
+        =If(App.Height>App.Width,UpdateContext({viewcontacts:true}),false)
+
+    timer_resetusergal As timer:
+        AutoStart: =true
+        Duration: =1000
+        Height: =70
+        OnTimerEnd: |+
+            =Set(recieved, Filter(Messages,From=gal_users.Selected.'Primary Email'And To=User().Email ));
+            
+            Set(sent, Filter(Messages,From=User().Email And To=gal_users.Selected.'Primary Email' ));
+            
+            ClearCollect(mymessagescol,recieved,sent);
+            Set(mymessages,SortByColumns(mymessagescol, "createdon", SortOrder.Ascending))
+            
+        OnTimerStart: =Refresh(Messages)
+        Repeat: =true
+        Visible: =false
+        Width: =280
+        X: =40
+        Y: =40
+        ZIndex: =1
+
+    img_bg As image:
+        Height: =Parent.Height
+        Image: ='HD-wallpaper-whatsapp-black-abstract-abstract-digital-abstraction-abstracts-background-digital-pattern-texture'
+        ImagePosition: =ImagePosition.Fill
+        Transparency: =0.7
+        Width: =Parent.Width
+        ZIndex: =2
+
+    shape_sidebarbg As rectangle:
+        Fill: =RGBA(40, 40, 40,1)
+        Height: =Parent.Height
+        Width: =55
+        ZIndex: =3
+
+    shape_msgbg As rectangle:
+        Fill: =RGBA(32, 32, 32,1)
+        Height: =56
+        Width: =Parent.Width-Sidebar.Width-shape_sidebarbg.Width
+        X: =Sidebar.Width+shape_sidebarbg.Width
+        Y: =Parent.Height-Self.Height
+        ZIndex: =4
+
+    ico_settings As icon.Settings:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =55
+        Icon: =Icon.Settings
+        OnSelect: =
+        PaddingBottom: =15
+        PaddingLeft: =10
+        PaddingRight: =10
+        PaddingTop: =15
+        Width: =55
+        Y: =69
+        ZIndex: =5
+
+    container_chat As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height-shape_msgbg.Height-img_headershadow.Height+50
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width-Sidebar.Width-shape_sidebarbg.Width
+        X: =Sidebar.Width+shape_sidebarbg.Width
+        Y: =img_headershadow.Height-50
+        ZIndex: =6
+
+        "gal_Chat As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Default: =Last(mymessages)
+            Height: =Parent.Height
+            Items: |-
+                =Search(
+                    mymessages, //filtered source for messages between user and contact
+                    'txtinpt_msg.search'.Text,
+                    "cr3b3_messagetext"
+                )
+            Layout: =Layout.Vertical
+            LayoutMinHeight: =287
+            LayoutMinWidth: =320
+            LoadingSpinner: =LoadingSpinner.Data
+            LoadingSpinnerColor: =Color.White
+            ShowScrollbar: =false
+            TemplatePadding: =0
+            TemplateSize: =85
+            Width: =Parent.Width
+            X: =
+            Y: =123
+            ZIndex: =1
+
+            btn_msgbubble As button:
+                Align: =Align.Left
+                BorderColor: =Self.Fill
+                BorderThickness: =0
+                Fill: =If(ThisItem.From = User().Email,RGBA(2, 92, 76,1),RGBA(54, 54, 54,1) )
+                Font: =Font.Arial
+                Height: =If(IsBlank(ThisItem.msgVoice), 59,70)
+                HoverBorderColor: =Self.BorderColor
+                HoverFill: =Self.Fill
+                OnSelect: |-
+                    =Select(Parent);
+                    If(
+                        IsBlank(ThisItem.MsgAttachment), // check if record contains an attachment
+                        If(
+                            IsBlank(ThisItem.msgVoice), // check if record contains a voice msg
+                            UpdateContext({playaudio: true}) // show voicemsg details
+                        ),
+                        UpdateContext({viewattachment: true}) // show attachment details
+                    );
+                PressedBorderColor: =Self.BorderColor
+                PressedFill: =Self.Fill
+                RadiusTopLeft: =If(ThisItem.From = User().Email, 10, 0)
+                RadiusTopRight: =If(ThisItem.From = User().Email, 0, 10)
+                Size: =24
+                Text: =""
+                Width: =If(Len(ThisItem.Messagetext) < 5, 90, If(Len(ThisItem.Messagetext) > 30,60+(Len(ThisItem.Messagetext)*7.5), 60+(Len(ThisItem.Messagetext)*7)))
+                X: |-
+                    =If(
+                        ThisItem.From = User().Email,
+                        Parent.Width - Self.Width - 15,
+                        15
+                    )
+                Y: =10
+                ZIndex: =6
+
+            audio_voicemsg As audioPlayback:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =39
+                Media: =ThisItem.msgVoice.Value
+                Visible: =If(IsBlank(ThisItem.msgVoice),false,true)
+                Width: =btn_msgbubble.Width-10
+                X: =If(ThisItem.From = User().Email, Parent.Width-Self.Width-25,15)
+                Y: =20
+                ZIndex: =7
+
+            lbl_from As label:
+                Align: =If(ThisItem.From = User().Email, Align.Right , Align.Left)
+                Color: =Color.Gray
+                Font: =Font.Arial
+                Height: =22
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =10
+                Text: |-
+                    =If(ThisItem.From = User().Email, "You:", gal_users.Selected.'First Name')
+                VerticalAlign: =VerticalAlign.Top
+                Visible: |-
+                    =If(IsBlank(ThisItem.msgVoice),
+                     true,false)
+                Width: =Parent.Width-(Self.X*2)
+                X: =26
+                Y: =12
+                ZIndex: =10
+
+            lbl_senton As label:
+                Align: =If(ThisItem.From = User().Email, Align.Left, Align.Right)
+                Color: =Color.Gray
+                Font: =Font.Arial
+                Height: =17
+                OnSelect: =Select(Parent)
+                Size: =9
+                Text: |-
+                    =If(
+                        Len(ThisItem.Messagetext) <= 15,  //counts the numbers of characters in message
+                        Right(
+                            ThisItem.'Created On', // shows only time
+                            8
+                        ),
+                        ThisItem.'Created On' // shows date and time
+                    )
+                Width: =btn_msgbubble.Width
+                X: =btn_msgbubble.X+btn_msgbubble.Width-Self.Width
+                Y: =btn_msgbubble.Height+btn_msgbubble.Y-Self.Height
+                ZIndex: =11
+
+            lbl_msg As label:
+                Align: =If(ThisItem.From = User().Email, Align.Right, Align.Left)
+                Color: =RGBA(255, 255, 255, 1)
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Normal
+                Height: =31
+                OnSelect: |-
+                    =Select(Parent);If(IsBlank(ThisItem.MsgAttachment),If(IsBlank(ThisItem.msgVoice),Select(Parent),UpdateContext({playaudio:true})),Select(Parent); Set(DefaultAttachment1,gal_Chat.Selected.MsgAttachment.Value) ; UpdateContext({viewattachment:true}))
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =13
+                Text: |-
+                    =If(
+                        IsBlank(ThisItem.MsgAttachment),
+                        ThisItem.Messagetext,
+                        "Attachment: ( " & Left(
+                            ThisItem.MsgAttachment.FileName,
+                            4
+                        ) & "... )"
+                    )
+                VerticalAlign: =VerticalAlign.Top
+                Visible: |-
+                    =If(IsBlank(ThisItem.msgVoice),
+                     true,false)
+                Width: =Parent.Width-(Self.X*2)
+                Wrap: =false
+                X: =32
+                Y: =30
+                ZIndex: =12
+
+            ico_msgattachment As icon.Attachment:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =btn_msgbubble.Height
+                Icon: =Icon.PaperClip
+                OnSelect: =Select(Parent)
+                PaddingBottom: =25
+                PaddingLeft: |-
+                    =If(
+                        ThisItem.From = User().Email,0,15)
+                PaddingRight: |-
+                    =If(
+                        ThisItem.From = User().Email,15,0)
+                PaddingTop: =5
+                Visible: =!IsBlank(ThisItem.MsgAttachment)
+                Width: =Self.Height
+                X: |-
+                    =If(
+                        ThisItem.From = User().Email,btn_msgbubble.X,btn_msgbubble.X+btn_msgbubble.Width-Self.Width)
+                Y: =btn_msgbubble.Y
+                ZIndex: =13
+
+    img_headershadow As image:
+        Height: =127
+        Image: ='Untitled-1ssdsd copya'
+        ImagePosition: =ImagePosition.Stretch
+        Width: =Parent.Width-Sidebar.Width-shape_sidebarbg.Width
+        X: =Sidebar.Width+shape_sidebarbg.Width
+        ZIndex: =7
+
+    "'gal_menu.chat' As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        Height: =66
+        Items: =gal_users.Selected
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =66
+        Width: =56
+        Y: =127
+        ZIndex: =8
+
+        btn_bgbox As button:
+            Fill: =RGBA(50, 50, 50,1)
+            Height: =44
+            OnSelect: =Select(Parent)
+            Text: =""
+            Visible: =If(ThisItem.IsSelected,true,false)
+            Width: =47
+            X: =3
+            Y: =18
+            ZIndex: =1
+
+        ico_msg As icon.More:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =43
+            Icon: =Icon.Message
+            OnSelect: |-
+                = If(viewcontacts=true,UpdateContext({viewcontacts:false}),UpdateContext({viewcontacts:true}))
+            PaddingLeft: =10
+            PaddingRight: =10
+            Width: =47
+            X: =5
+            Y: =19
+            ZIndex: =6
+
+        btn_bar As button:
+            BorderThickness: =1
+            Fill: =RGBA(0, 168, 132,1)
+            Height: =24
+            OnSelect: =Select(Parent)
+            Text: =""
+            Visible: =If(ThisItem.IsSelected,true,false)
+            Width: =2
+            X: =7
+            Y: =28
+            ZIndex: =7
+
+    img_usersignedin As image:
+        Height: =40
+        Image: =User().Image
+        OnSelect: =
+        RadiusBottomLeft: =200
+        RadiusBottomRight: =200
+        RadiusTopLeft: =200
+        RadiusTopRight: =200
+        Width: =40
+        X: =8
+        Y: =14
+        ZIndex: =9
+
+    txtinpt_sendmsg As text:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderThickness: =0
+        Color: =RGBA(255, 255, 255, 1)
+        Default: =
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =56
+        HintText: ="Type a message"
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        PaddingLeft: =5
+        Width: =Parent.Width-ico_attachment.Width-shape_sidebarbg.Width-mic_voicemsg.Width-Sidebar.Width
+        X: =ico_attachment.X+ico_attachment.Width+10
+        Y: =Parent.Height-Self.Height
+        ZIndex: =10
+
+    ico_sendmsg As icon.Cancel:
+        BorderColor: =RGBA(0, 121, 187, 1)
+        Color: =Color.White
+        Height: =shape_msgbg.Height
+        Icon: =Icon.Send
+        OnSelect: |-
+            =If(
+                IsBlank(txtinpt_sendmsg),
+                UpdateContext({voicerecorder: true}),
+                Refresh(Messages);
+             
+                    Patch(
+                    Messages,
+                    Defaults(Messages),
+                    {
+                        Messagetext:If(IsBlank(txtinpt_sendmsg.Text), "Attachment              ",txtinpt_sendmsg.Text),
+                        seensent: "Sent",
+                        From: User().Email,
+                        To:gal_users.Selected.'Primary Email'
+                        
+                    })
+                ;
+                Reset(txtinpt_sendmsg);
+                Reset(gal_Chat)
+            )
+        PaddingBottom: =10
+        PaddingTop: =10
+        Visible: =If(IsBlank(txtinpt_sendmsg.Text),false,true)
+        Width: =mic_voicemsg.Width
+        X: =Parent.Width-Self.Width
+        Y: =shape_msgbg.Y
+        ZIndex: =11
+
+    ico_attachment As icon.EmojiHappy:
+        Color: =Color.White
+        Height: =55
+        Icon: =Icon.PaperClip
+        OnSelect: |-
+            =UpdateContext({msgatch:true})
+        PaddingBottom: =10
+        PaddingTop: =10
+        Width: =Self.Height
+        X: =img_shadow.Width+img_shadow.X
+        Y: =Parent.Height-Self.Height
+        ZIndex: =12
+
+    img_shadowlong As image:
+        Height: =498
+        Image: ='Untitled-1 - Copy'
+        ImagePosition: =ImagePosition.Stretch
+        Visible: =voicerecorder
+        Width: =shape_msgbg.Width
+        X: =shape_msgbg.X
+        Y: =Parent.Height-Self.Height
+        ZIndex: =13
+
+    mic_voicemsg As microphone:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Fill: =Color.Transparent
+        Height: =100
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =UpdateContext({voicerecorder: true})
+        OnStart: =
+        OnStop: =
+        PressedBorderColor: =Color.Transparent
+        Visible: =If(IsBlank(txtinpt_sendmsg.Text),true,false)
+        Width: =75
+        X: =Parent.Width-Self.Width
+        Y: =Parent.Height-Self.Height+36
+        ZIndex: =14
+
+    voice_lenght As timer:
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =56
+        HoverFill: =Color.Transparent
+        Reset: =!voicerecorder
+        Start: =voicerecorder
+        Visible: =voicerecorder
+        Width: =105
+        X: =Parent.Width-mic_voicemsg.Width-Self.Width
+        Y: =mic_voicemsg.Y
+        ZIndex: =15
+
+    audio_msgplayer As audioPlayback:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Fill: =RGBA(40, 40, 40,1)
+        Height: =56
+        Media: =mic_voicemsg.Audio
+        Visible: =If( voicerecorder = true,If(IsBlank(mic_voicemsg.Audio),false,true))
+        Width: =shape_msgbg.Width-mic_voicemsg.Width
+        X: =shape_msgbg.X
+        Y: =Parent.Height-Self.Height
+        ZIndex: =16
+
+    btnbg_47 As circle:
+        Fill: =RGBA(40, 40, 40,1)
+        Height: =55
+        Visible: =If( voicerecorder = true,If(IsBlank(mic_voicemsg.Audio),false,true))
+        Width: =55
+        X: =mic_voicemsg.X
+        Y: =Parent.Height-shape_msgbg.Height-shape_msgbg.Height-Self.Height
+        ZIndex: =17
+
+    ico_close47 As icon.Cancel:
+        BorderColor: =RGBA(0, 121, 187, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =btnbg_47.Height
+        Icon: =Icon.Cancel
+        OnSelect: |-
+            =UpdateContext({voicerecorder:false});Reset(mic_voicemsg)
+        PaddingBottom: =15
+        PaddingLeft: =15
+        PaddingRight: =15
+        PaddingTop: =15
+        Visible: =If( voicerecorder = true,If(IsBlank(mic_voicemsg.Audio),false,true))
+        Width: =btnbg_47.Width
+        X: =btnbg_47.X
+        Y: =btnbg_47.Y
+        ZIndex: =18
+
+    "'txtinpt_msg.search' As text":
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderThickness: =0
+        Color: =RGBA(255, 255, 255, 1)
+        Default: =""
+        Fill: =RGBA(0, 0, 0, 0)
+        HintText: ="Search Messages"
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Visible: =search
+        Width: =If(Parent.Width>Parent.Height,  369,container_chat.Width)
+        X: =If(Parent.Width>Parent.Height,  Parent.Width-Self.Width,container_chat.X)
+        Y: =14
+        ZIndex: =19
+
+    lbl_showingresults As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =24
+        Text: ="Showing Results for  ' " &'txtinpt_msg.search'.Text &" '"
+        Visible: =!IsBlank('txtinpt_msg.search')
+        Width: =container_chat.Width
+        X: =container_chat.X
+        Y: ='txtinpt_msg.search'.Height+'txtinpt_msg.search'.Y
+        ZIndex: =20
+
+    "'gal_user.chat' As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        Height: =120
+        Items: =gal_users.Selected
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =60
+        Visible: =If(Parent.Height>Parent.Width,If('txtinpt_msg.search'.Visible=true,false,true),true)
+        Width: =530
+        X: =img_shadow.X+img_shadow.Width
+        Y: =7
+        ZIndex: =21
+
+        "'img_contact,dp' As image":
+            Height: =50
+            Image: =gal_users.Selected.img_contact
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =200
+            RadiusBottomRight: =200
+            RadiusTopLeft: =200
+            RadiusTopRight: =200
+            Width: =50
+            X: =16
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =1
+
+        "'lbl_contact.name' As label":
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =24
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =15
+            Text: =ThisItem.'First Name'
+            Width: =282
+            X: =78
+            Y: =10
+            ZIndex: =3
+
+        "'lbl_contact.email' As label":
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =20
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: =ThisItem.'Primary Email'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =282
+            X: =78
+            Y: =35
+            ZIndex: =4
+
+    img_shadow As image:
+        Height: =Parent.Height
+        Image: ='Untitled-1 copy'
+        ImagePosition: =ImagePosition.Stretch
+        Width: =21
+        X: =Sidebar.Width+shape_sidebarbg.Width
+        ZIndex: =22
+
+    "'shape_voice.bg' As rectangle":
+        Fill: =RGBA(40, 40, 40,1)
+        Height: =shape_msgbg.Height
+        Visible: =ico_send2.Visible
+        Width: =mic_voicemsg.Width
+        X: =Parent.Width-Self.Width
+        Y: =Parent.Height-Self.Height
+        ZIndex: =23
+
+    ico_send2 As icon.Cancel:
+        BorderColor: =RGBA(0, 121, 187, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =ico_sendmsg.Height
+        Icon: =Icon.Send
+        OnSelect: |-
+            =If(
+                IsBlank(mic_voicemsg),
+                UpdateContext({voicerecorder: false}),
+                Patch(
+                    Messages,
+                    Defaults(Messages),
+                    {
+                        Messagetext: "                           ",
+                        seensent: "Sent",
+                        From: User().Email,
+                        To:gal_users.Selected.'Primary Email',
+                        msgVoice: {
+                            FileName: "audio.wav",
+                            Value: mic_voicemsg.Audio
+                        }
+                    }
+                );
+                Reset(mic_voicemsg);
+                UpdateContext({voicerecorder: false});
+                Reset(mic_voicemsg);
+                Refresh(Messages);
+                Reset(gal_Chat)
+            )
+        PaddingBottom: =ico_sendmsg.PaddingBottom
+        PaddingTop: =ico_sendmsg.PaddingTop
+        Visible: =If( voicerecorder = true,If(IsBlank(mic_voicemsg.Audio),false,true))
+        Width: =ico_sendmsg.Width
+        X: =ico_sendmsg.X
+        Y: =ico_sendmsg.Y
+        ZIndex: =24
+
+    lbl_results As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =24
+        Text: ="No Messages Found"
+        Visible: =If(!IsBlank('txtinpt_msg.search'),If(CountRows(gal_Chat.AllItems)=0,true,false))
+        Width: =container_chat.Width
+        X: =container_chat.X
+        Y: =lbl_showingresults.Y+lbl_showingresults.Height
+        ZIndex: =25
+
+    "'ico_close.search' As icon.Search":
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =69
+        Icon: =If(search=true,Icon.Cancel,Icon.Search)
+        OnSelect: |-
+            =If(search=true,UpdateContext({search:false}),UpdateContext({search:true}));Reset('txtinpt_msg.search')
+        PaddingBottom: =22
+        PaddingTop: =22
+        X: =Parent.Width-Self.Width
+        ZIndex: =26
+
+    lbl_version As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =shape_sidebarbg.Width
+        Text: ="v2"
+        Width: =shape_sidebarbg.Width
+        Y: =Parent.Height-Self.Height
+        ZIndex: =27
+
+    Sidebar As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(32, 32, 32,1)
+        Height: =Parent.Height
+        Width: =If(Parent.Width>Parent.Height,369,  If(viewcontacts=true,Parent.Width-shape_sidebarbg.Width,0))
+        X: =shape_sidebarbg.Width
+        ZIndex: =28
+
+        "gal_users As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+            Height: =606
+            Items: |-
+                =Search(Filter(Users, 'Primary Email'<>User().Email && Not("#" in'Full Name')),txtinpt_users.Text,"fullname")
+            Layout: =Layout.Vertical
+            ShowScrollbar: =false
+            TemplatePadding: =0
+            TemplateSize: =86
+            Width: =Parent.Width-10
+            Y: =txtinpt_users.Y+txtinpt_users.Height+20
+            ZIndex: =1
+
+            btn_contactbg As button:
+                Align: =Align.Left
+                Fill: =If(ThisItem.IsSelected,RGBA(71, 71, 71,1),Color.Transparent)
+                Height: =72
+                HoverFill: =ColorFade(RGBA(71, 71, 71,1),20%)
+                OnSelect: |-
+                    =Select(Parent);UpdateContext({viewcontacts:false})
+                PaddingLeft: =100
+                PressedColor: =Self.Color
+                PressedFill: =RGBA(71, 71, 71,1)
+                Text: =ThisItem.'Full Name'
+                Width: =Parent.Width-10
+                X: =9
+                ZIndex: =1
+
+            img_contact As image:
+                Height: =60
+                Image: =If(IsBlank( ThisItem.'Entity Image'),'1000_F_223508659_3iBrTM2ijiHi95FabxhBS9fOcw6YlS2f copy',ThisItem.'Entity Image')
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =200
+                RadiusBottomRight: =200
+                RadiusTopLeft: =200
+                RadiusTopRight: =200
+                Width: =60
+                X: =31
+                Y: =7
+                ZIndex: =2
+
+            btn_sidebar As button:
+                Fill: =RGBA(0, 168, 132,1)
+                Height: =48
+                OnSelect: =Select(Parent)
+                Text: =""
+                Visible: =If(ThisItem.IsSelected,true,false)
+                Width: =2
+                X: =17
+                Y: =13
+                ZIndex: =5
+
+        Timer2 As timer:
+            AutoPause: =false
+            AutoStart: =true
+            Height: =70
+            OnTimerStart: =Reset(gal_Chat)
+            Visible: =false
+            Width: =280
+            X: =45
+            Y: =20
+            ZIndex: =3
+
+        "'ico_search.users' As icon.More":
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =31
+            Icon: =Icon.More
+            PaddingLeft: =10
+            PaddingRight: =10
+            Width: =47
+            X: =txtinpt_users.X+txtinpt_users.Width-Self.Width
+            Y: =53
+            ZIndex: =4
+
+        txtinpt_users As TextInput:
+            Height: =41
+            Width: =Parent.Width-25
+            X: =(Parent.Width-Self.Width)/2
+            Y: =101
+            ZIndex: =5
+
+        lbl_chat As label:
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Semibold
+            Size: =18
+            Text: ="Chats"
+            X: =18
+            Y: =44
+            ZIndex: =6
+
+    Circle1 As circle:
+        Fill: =If(Connection.Connected,  RGBA(152, 208, 70, 1),Color.Red)
+        Height: =16
+        Width: =16
+        X: =32
+        Y: =38
+        ZIndex: =29
+

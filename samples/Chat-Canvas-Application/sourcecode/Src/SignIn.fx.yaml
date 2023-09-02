@@ -1,0 +1,82 @@
+SignIn As screen:
+    BackgroundImage: =
+    Fill: =RGBA(32, 32, 32,1)
+
+    Image1 As image:
+        Height: =Parent.Height
+        Image: ='HD-wallpaper-whatsapp-black-abstract-abstract-digital-abstraction-abstracts-background-digital-pattern-texture'
+        ImagePosition: =ImagePosition.Fill
+        Transparency: =0.5
+        Width: =Parent.Width
+        Y: =2
+        ZIndex: =1
+
+    shape_container As rectangle:
+        Fill: =RGBA(40, 40, 40,1)
+        Height: =542
+        Width: =If(Parent.Width>Parent.Height, 496,Parent.Width-40)
+        X: =(Parent.Width-Self.Width)/2
+        Y: =(Parent.Height-Self.Height)/2
+        ZIndex: =2
+
+    img_logo As image:
+        Height: =60
+        Image: ='Itknocks-logo-web-2 copys'
+        Width: =189
+        X: =shape_container.X
+        Y: =shape_container.Y
+        ZIndex: =3
+
+    Container1 As groupContainer.verticalAutoLayoutContainer:
+        Height: =shape_container.Height
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =30
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutMode: =LayoutMode.Auto
+        Width: =shape_container.Width
+        X: =shape_container.X
+        Y: =shape_container.Y
+        ZIndex: =4
+
+        img_user As image:
+            Height: =177
+            Image: =User().Image
+            OnSelect: =
+            RadiusBottomLeft: =300
+            RadiusBottomRight: =300
+            RadiusTopLeft: =300
+            RadiusTopRight: =300
+            Width: =177
+            X: =(Parent.Width-Self.Width)/2
+            Y: =209
+            ZIndex: =1
+
+        txt_name As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =58
+            PaddingBottom: =30
+            Size: =19
+            Text: =User().FullName
+            Width: =246
+            X: =(Parent.Width-Self.Width)/2
+            Y: =190
+            ZIndex: =2
+
+        btn_login As button:
+            Fill: =RGBA(0, 168, 132,1)
+            HoverFill: =Self.Fill
+            OnSelect: =Navigate(Chat)
+            PressedColor: =Self.Color
+            PressedFill: =Self.Fill
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Text: ="Signin"
+            X: =(Parent.Width-Self.Width)/2
+            Y: =327
+            ZIndex: =3
+
