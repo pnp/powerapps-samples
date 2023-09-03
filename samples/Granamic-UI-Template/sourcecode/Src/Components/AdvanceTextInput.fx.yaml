@@ -1,0 +1,90 @@
+AdvanceTextInput As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Gradient1: ="Text"
+    Gradient2: ="Text"
+    Gradient3: ="Text"
+    Height: =110
+    HintText: ="Text Input Hint"
+    HintTextColor: =RGBA(237, 237, 237, 1)
+    Icon: =Icon.Search
+    IconAlign: ="left"
+    IconColor: =RGBA(255, 255, 255, 1)
+    Mode: =TextMode.SingleLine
+    OutputText: =TextInput1_1.Text
+    TextColor: =RGBA(255, 255, 255, 1)
+    Width: =App.Width
+    X: =0
+    Y: =0
+    ZIndex: =16
+
+    HtmlText1_22 As htmlViewer:
+        Height: =Parent.Height
+        HtmlText: |-
+            ="<div style='width: "&  Parent.Width - 30 &"px;height: "& Parent.Height - 30 &"px;
+            border-radius: 10px;
+            border-bottom:  4px solid white;
+            margin-left:15px;
+            margin-top:10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            background: radial-gradient(ellipse at top, "&Parent.Gradient1&", transparent) 40%,
+                        radial-gradient(circle at center, "&Parent.Gradient2&", transparent) 40%,
+                        radial-gradient(ellipse at bottom,"&Parent.Gradient3&", transparent)40%;
+            '></div>"
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Width: =Parent.Width
+        ZIndex: =1
+
+    Icon5 As icon.Add:
+        Color: =AdvanceTextInput.IconColor
+        Height: =HintText_1.Height
+        Icon: =AdvanceTextInput.Icon
+        PaddingBottom: =2
+        PaddingLeft: =2
+        PaddingRight: =2
+        PaddingTop: =2
+        Width: =Self.Height
+        X: =If(AdvanceTextInput.IconAlign = "left", 30, Parent.Width-Self.Width-20)
+        Y: =18
+        ZIndex: =3
+
+    HintText_1 As label:
+        Color: =AdvanceTextInput.HintTextColor
+        Height: =Parent.Height-50
+        PaddingLeft: =If(AdvanceTextInput.IconAlign = "right", Parent.Width/20, Icon5.Width+ (Parent.Width/20))
+        Size: =Parent.Height/5
+        Text: =AdvanceTextInput.HintText
+        Visible: =If(IsBlank(TextInput1_1.Text),true,false)
+        Width: =Parent.Width-30
+        X: =(Parent.Width-Self.Width)/2
+        Y: =(Parent.Height-Self.Height)/2-5
+        ZIndex: =4
+
+    TextInput1_1 As text:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderThickness: =0
+        Color: =AdvanceTextInput.TextColor
+        Default: =AdvanceTextInput.DefaultText
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(255, 255, 255, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =HintText_1.Height
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Mode: =AdvanceTextInput.Mode
+        PaddingLeft: =If(AdvanceTextInput.IconAlign = "right", Parent.Width/20, Icon5.Width+ (Parent.Width/20))
+        PressedBorderColor: =
+        RadiusBottomLeft: =50
+        RadiusBottomRight: =50
+        RadiusTopLeft: =50
+        RadiusTopRight: =50
+        Size: =Parent.Height/5
+        Width: =HintText_1.Width
+        X: =HintText_1.X
+        Y: =HintText_1.Y
+        ZIndex: =5
+

@@ -1,0 +1,52 @@
+Comments As CanvasComponent:
+    ButtonAlign: ="left"
+    CommentText: ="Text"
+    Fill: =RGBA(0, 0, 0, 0)
+    Gradient1: |-
+        ="#77A1D3"
+    Gradient2: |-
+        ="#076585"
+    Gradient3: |-
+        ="#77A1D3"
+    HeadingSize: =20
+    Height: =400
+    Width: =App.Width/1.4
+    X: =0
+    Y: =0
+    ZIndex: =19
+
+    HtmlText1_24 As htmlViewer:
+        Height: =Parent.Height
+        HtmlText: |-
+            ="<div style='width: "& HtmlText1_24.Width - 30 &"px;height: "& HtmlText1_24.Height - 30 &"px;
+            border-top-left-radius:   "& If(Comments.ButtonAlign="left",0,60) &"px;
+            border-top-right-radius: "& If(Comments.ButtonAlign="left",60,0) &"px;
+            border-bottom-left-radius: 60px;
+            border-bottom-right-radius: 60px;
+            border-bottom:0px solid white;
+            margin-left:15px;
+            margin-top:10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            background: radial-gradient(ellipse at top, "&Comments.Gradient1 &", transparent) 40%,
+                        radial-gradient(circle at center,"&Comments.Gradient2 &" , transparent) 40%,
+                        radial-gradient(ellipse at bottom, "&Comments.Gradient3 &", transparent)40%;
+            '></div>"
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Width: =Parent.Width
+        ZIndex: =1
+
+    Text As label:
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        PaddingLeft: =20
+        Size: =Comments.HeadingSize
+        Text: =Comments.CommentText
+        Width: =Parent.Width-30
+        X: =(Parent.Width-Self.Width)/2
+        Y: =20
+        ZIndex: =2
+

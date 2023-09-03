@@ -1,0 +1,62 @@
+Menu As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =Max(App.Height, App.MinScreenHeight)
+    Width: =Max(App.Width, App.MinScreenWidth)
+    X: =0
+    Y: =0
+    ZIndex: =4
+
+    HtmlText1_7 As htmlViewer:
+        Height: =Parent.Height
+        HtmlText: |-
+            ="<div style='width: "& HtmlText1_7.Width - 0 &"px;height: "& HtmlText1_7.Height - 1 &"px;
+            
+            background: linear-gradient(135deg, rgba(36,36,44,0.9) 45%, rgba(52,57,61,0.5) 100%);'></div>"
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Width: =1366
+        ZIndex: =1
+
+    HtmlText2_5 As htmlViewer:
+        Height: =Parent.Height
+        HtmlText: |-
+            ="<div style='width: "& Parent.Width - 0 &"px;height: "& Parent.Height - 1 &"px;
+            border-radius: 20px;
+            border: 0px solid white;
+            margin-left:15px;
+            margin-top:0px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            background: radial-gradient(ellipse at top, #77A1D3, transparent) 40%,
+                        radial-gradient(circle at center, #076585, transparent) 40%,
+                        radial-gradient(ellipse at bottom, #77A1D3, transparent)40%;
+            '></div>"
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Width: =383
+        X: =983
+        ZIndex: =2
+
+    MenuIcon_2 As icon.Settings:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.OptionsList
+        OnSelect: =
+        Width: =52
+        X: =1025
+        Y: =24
+        ZIndex: =6
+
+    MenuText_2 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =82
+        Size: =28
+        Text: ="Menu"
+        Width: =142
+        X: =1103
+        Y: =15
+        ZIndex: =7
+

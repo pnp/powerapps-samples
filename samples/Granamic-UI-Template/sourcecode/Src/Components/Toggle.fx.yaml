@@ -1,0 +1,42 @@
+Toggle As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Gradient1: ="Text"
+    Gradient2: ="Text"
+    Gradient3: ="Text"
+    Height: =Self.Width/2
+    Value: =Toggle1.Value
+    Width: =86
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    HtmlText1_23 As htmlViewer:
+        Height: =Parent.Height
+        HtmlText: |-
+            ="<div style='width: "& Parent.Width - 0 &"px;height: "& HtmlText1_23.Height - 1 &"px;
+            border-radius: "&Parent.Height/2 &"px;
+            border: 0px solid white;
+            box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 0px -20px 0 rgba(0, 0, 0, 0.19);
+            background: radial-gradient(ellipse at top, "&Parent.Gradient1&", "&Parent.Gradient2&") 40%,
+                        radial-gradient(circle at center, "&Parent.Gradient2&", "&Parent.Gradient3&") 40%,
+                        radial-gradient(ellipse at bottom,"&Parent.Gradient3&",  "&Parent.Gradient1&")40%;
+            '></div>"
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Width: =Parent.Width
+        ZIndex: =1
+
+    Toggle1 As toggleSwitch:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        FalseFill: =RGBA(0, 0, 0, 0)
+        Height: =Self.Width/2
+        ShowLabel: =false
+        Size: =21
+        TrueFill: =RGBA(0, 0, 0, 0)
+        Width: =Parent.Width/1.1
+        X: =((Parent.Width-Self.Width)/2)+Parent.Width/20
+        Y: =(Parent.Height-Self.Height)/2
+        ZIndex: =2
+

@@ -1,0 +1,60 @@
+Header As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    GradientColor1: |-
+        ="#77A1D3"
+    GradientColor2: |-
+        ="#076585"
+    GradientColor3: |-
+        ="#77A1D3"
+    HeaderText: ="Main Heading |"
+    HeaderTextColor: =RGBA(255, 255, 255, 1)
+    Height: =App.Height/6
+    SubText: ="Text"
+    SubTextColor: =RGBA(255, 255, 255, 0.8)
+    Width: =App.Width
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Background As htmlViewer:
+        Height: =Parent.Height
+        HtmlText: |-
+            ="<div style='width: "&  Parent.Width - 0 &"px;height: "& Parent.Height - 20 &"px;
+            
+            border-bottom-left-radius: 40px;
+            
+            border-bottom-right-radius: 40px;
+            margin-left:0px;
+            margin-top:0px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            background: radial-gradient(ellipse at top, "&Header.GradientColor1 &", transparent) 40%,
+                        radial-gradient(circle at center, "&Header.GradientColor2 &", transparent) 40%,
+                        radial-gradient(ellipse at bottom, "&Header.GradientColor3 &", transparent)40%;
+            '></div>"
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Width: =Parent.Width
+        ZIndex: =1
+
+    HeaderText As label:
+        Align: =Align.Right
+        Color: =Header.HeaderTextColor
+        FontWeight: =FontWeight.Semibold
+        Height: =Parent.Height-20
+        Size: =Parent.Height/3.5
+        Text: =Header.HeaderText
+        Width: =Parent.Width/1.95
+        ZIndex: =2
+
+    HeaderText_1 As label:
+        Color: =Header.SubTextColor
+        FontWeight: =FontWeight.Semibold
+        Height: =Parent.Height-10
+        Size: =Parent.Height/4.5
+        Text: =Header.SubText
+        Width: =Parent.Width-HeaderText.Width
+        X: =Header.X+HeaderText.Width
+        ZIndex: =3
+

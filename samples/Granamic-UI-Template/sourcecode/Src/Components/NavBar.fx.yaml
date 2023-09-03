@@ -1,0 +1,204 @@
+NavBar As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Gradient1: ="Text"
+    Gradient2: ="Text"
+    Gradient3: ="Text"
+    Height: =App.Height
+    Icon1: =Icon.AddToCalendar
+    Icon1Navigate: =App.ActiveScreen
+    Icon2: =Icon.Add
+    Icon2Navigate: =App.ActiveScreen
+    Icon3: =Icon.AddLibrary
+    Icon3Navigate: =App.ActiveScreen
+    Icon4: =Icon.AddUser
+    Icon4Navigate: =App.ActiveScreen
+    Icon5: =Icon.Airplane
+    Icon5Naviagte: =App.ActiveScreen
+    MenuCollapse: =menucollapse
+    Text1: ="Text"
+    Text2: ="Text"
+    Text3: ="Text"
+    Text4: ="Text"
+    Text5: ="Text"
+    Width: =If(NavBar.MenuCollapse=true,NavBar.Width1,NavBar.Width1*2)
+    Width1: =113
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    HtmlText1 As htmlViewer:
+        Height: =Parent.Height
+        HtmlText: |-
+            ="<div style='width: "& Parent.Width - 0 &"px;height: "& Parent.Height - 30 &"px;
+            border-radius: 20px;
+            border: 0px solid white;
+            margin-left:-20px;
+            margin-top:10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            background: radial-gradient(ellipse at top, "&NavBar.Gradient1&", transparent) 40%,
+                        radial-gradient(circle at center, "&NavBar.Gradient2&", transparent) 40%,
+                        radial-gradient(ellipse at bottom, "&NavBar.Gradient3&", transparent)40%;
+            '></div>"
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Width: =Parent.Width
+        ZIndex: =2
+
+    Icon3 As icon.Waffle:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =Self.Width
+        Icon: =Icon.Waffle
+        OnSelect: =If(menucollapse=true,Set(menucollapse,false), Set(menucollapse,true))
+        PaddingBottom: =5
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =5
+        Width: =NavBar.Width1/2
+        X: =(NavBar.Width1-Self.Width)/2-10
+        Y: =Parent.Height/15
+        ZIndex: =3
+
+    Icon3_1 As icon.Waffle:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =Self.Width
+        Icon: =NavBar.Icon2
+        OnSelect: =Navigate(NavBar.Icon2Navigate)
+        PaddingBottom: =5
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =5
+        Width: =Icon3.Width
+        X: =Icon3.X
+        Y: =Icon3_2.Y+Self.Height+20
+        ZIndex: =4
+
+    Icon3_2 As icon.Waffle:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =Self.Width
+        Icon: =NavBar.Icon1
+        OnSelect: =Navigate(NavBar.Icon1Navigate)
+        PaddingBottom: =5
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =5
+        Width: =Icon3.Width
+        X: =Icon3.X
+        Y: =Icon3.Y+Self.Height+(Parent.Height/6)
+        ZIndex: =5
+
+    Icon3_3 As icon.Waffle:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =Self.Width
+        Icon: =NavBar.Icon3
+        OnSelect: =Navigate(NavBar.Icon3Navigate)
+        PaddingBottom: =5
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =5
+        Width: =Icon3.Width
+        X: =Icon3.X
+        Y: =Icon3_1.Y+Self.Height+20
+        ZIndex: =6
+
+    Icon3_4 As icon.Waffle:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =Self.Width
+        Icon: =NavBar.Icon4
+        OnSelect: =Navigate(NavBar.Icon4Navigate)
+        PaddingBottom: =5
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =5
+        Width: =Icon3.Width
+        X: =Icon3.X
+        Y: =Icon3_3.Y+Self.Height+20
+        ZIndex: =7
+
+    Icon3_5 As icon.Waffle:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =Self.Width
+        Icon: =NavBar.Icon5
+        OnSelect: =Navigate(NavBar.Icon5Naviagte)
+        PaddingBottom: =5
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =5
+        Width: =Icon3.Width
+        X: =Icon3.X
+        Y: =Icon3_4.Y+Self.Height+20
+        ZIndex: =8
+
+    Label2 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =Icon3.Height
+        Size: =NavBar.Width1/4.5
+        Text: ="Menu"
+        Visible: =If(menucollapse=true,false,true)
+        Width: =250
+        X: =Icon3.X+Icon3.Width
+        Y: =Icon3.Y
+        ZIndex: =9
+
+    Label2_1 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =Icon3_2.Height
+        Size: =NavBar.Width1/6
+        Text: =NavBar.Text1
+        Visible: =If(menucollapse=true,false,true)
+        Width: =226
+        X: =Icon3_2.X+Icon3_2.Width
+        Y: =Icon3_2.Y
+        ZIndex: =10
+
+    Label2_2 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =Icon3_1.Height
+        Size: =NavBar.Width1/6
+        Text: =NavBar.Text2
+        Visible: =If(menucollapse=true,false,true)
+        Width: =226
+        X: =Icon3_1.X+Icon3_1.Width
+        Y: =Icon3_1.Y
+        ZIndex: =11
+
+    Label2_3 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =Icon3_1.Height
+        Size: =NavBar.Width1/6
+        Text: =NavBar.Text3
+        Visible: =If(menucollapse=true,false,true)
+        Width: =226
+        X: =Icon3_3.X+Icon3_3.Width
+        Y: =Icon3_3.Y
+        ZIndex: =12
+
+    Label2_4 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =Icon3_1.Height
+        Size: =NavBar.Width1/6
+        Text: =NavBar.Text4
+        Visible: =If(menucollapse=true,false,true)
+        Width: =226
+        X: =Icon3_4.X+Icon3_4.Width
+        Y: =Icon3_4.Y
+        ZIndex: =13
+
+    Label2_5 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =Icon3_1.Height
+        Size: =NavBar.Width1/6
+        Text: =NavBar.Text5
+        Visible: =If(menucollapse=true,false,true)
+        Width: =226
+        X: =Icon3_5.X+Icon3_5.Width
+        Y: =Icon3_5.Y
+        ZIndex: =14
+

@@ -1,0 +1,53 @@
+DropDown As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Gradient1: ="Text"
+    Gradient2: ="Text"
+    Gradient3: ="Text"
+    Height: =110
+    Items: =DropDownSample
+    SelectedItem: =Dropdown2.Selected
+    Width: =App.Width/1.4
+    X: =0
+    Y: =0
+    ZIndex: =21
+
+    HtmlText1_18 As htmlViewer:
+        Height: =Parent.Height
+        HtmlText: |-
+            ="<div style='width: "&  Parent.Width - 30 &"px;height: "& Parent.Height - 30 &"px;
+            border-radius: 10px;
+            border-bottom:  4px solid white;
+            margin-left:15px;
+            margin-top:10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            background: radial-gradient(ellipse at top, "&Parent.Gradient1&", transparent) 40%,
+                        radial-gradient(circle at center, "&Parent.Gradient2&", transparent) 40%,
+                        radial-gradient(ellipse at bottom,"&Parent.Gradient3&", transparent)40%;
+            '></div>"
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Width: =Parent.Width
+        ZIndex: =1
+
+    Dropdown2 As dropdown:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        ChevronBackground: =RGBA(0, 0, 0, 0)
+        ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+        ChevronDisabledFill: =RGBA(0, 0, 0, 0)
+        ChevronHoverBackground: =
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        Fill: =dropdown
+        Height: =Parent.Height-40
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Items: =DropDown.Items
+        OnChange: =If(dropdown=RGBA(31, 114, 150,1),Set(dropdown,Color.Transparent), Set(dropdown,RGBA(31, 114, 150,1)))
+        OnSelect: =If(dropdown=RGBA(31, 114, 150,1),Set(dropdown,Color.Transparent), Set(dropdown,RGBA(31, 114, 150,1)))
+        Size: =Parent.Height/5
+        Width: =Parent.Width-50
+        X: =(Parent.Width-Self.Width)/2
+        Y: =15
+        ZIndex: =2
+

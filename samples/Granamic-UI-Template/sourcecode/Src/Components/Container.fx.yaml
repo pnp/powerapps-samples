@@ -1,0 +1,36 @@
+Container As CanvasComponent:
+    BorderRadius: =20
+    Fill: =RGBA(0, 0, 0, 0)
+    GradientColor1: |-
+        ="#77A1D3"
+    GradientColor2: |-
+        ="#076585"
+    GradientColor3: |-
+        ="#77A1D3"
+    Height: =110
+    Width: =450
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    ButtonBackground_1 As htmlViewer:
+        Height: =Parent.Height
+        HtmlText: |-
+            ="<div style='width: "& Parent.Width - 30 &"px;height: "& Parent.Height - 30 &"px;
+            border-radius: "& Container.BorderRadius &"px;
+            border: 0px solid white;
+            margin-left:15px;
+            margin-top:10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            background: radial-gradient(ellipse at top, "&Container.GradientColor1 &", transparent) 40%,
+                        radial-gradient(circle at center, "&Container.GradientColor2 &", transparent) 40%,
+                        radial-gradient(ellipse at bottom,"&Container.GradientColor3 &", transparent)40%;
+            '></div>"
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Size: =
+        Width: =Parent.Width
+        ZIndex: =1
+

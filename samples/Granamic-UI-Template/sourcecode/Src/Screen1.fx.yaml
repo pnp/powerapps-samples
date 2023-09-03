@@ -1,0 +1,318 @@
+Screen1 As screen:
+    BackgroundImage: |-
+        =If(varGradient1= "#77A1D3",'app-background-png-2',b717b42d3a75fecb51131324bb782ec0)
+    ImagePosition: =ImagePosition.Stretch
+
+    Container_2 As Container:
+        GradientColor1: =varGradient1
+        GradientColor2: =varGradient2
+        GradientColor3: =varGradient3
+        Height: =682
+        Width: =Parent.Width-SideBar_1.Width-Container_1.Width
+        X: =SideBar_1.Width
+        Y: =86
+
+    Header_1 As Header:
+        GradientColor1: =varGradient1
+        GradientColor2: =varGradient2
+        GradientColor3: =varGradient3
+        HeaderText: ="Granamic UI Kit  |"
+        Height: =86
+        SubText: =" By Shaheer Ahmad"
+        Width: =1366
+        ZIndex: =2
+
+    SideBar_1 As NavBar:
+        Gradient1: =varGradient1
+        Gradient2: =varGradient2
+        Gradient3: =varGradient3
+        Height: =680
+        Icon1: =Icon.Person
+        Icon1Navigate: =
+        Icon2: =Icon.AddDocument
+        Icon4: =Icon.AddToCalendar
+        Icon5: =Icon.Alarm
+        Text1: ="Users"
+        Text2: ="Add Doc"
+        Text3: ="Library"
+        Text4: ="Calender"
+        Text5: ="Alarm"
+        Width: =If(SideBar_1.MenuCollapse=true,SideBar_1.Width1,SideBar_1.Width1*2)
+        Width1: =86
+        Y: =88
+        ZIndex: =3
+
+    Button_1 As Button:
+        ButtonText: ="Button"
+        Gradient1: =varGradient1
+        Gradient2: =varGradient2
+        Gradient3: =varGradient3
+        Height: =86
+        InputVariable: =If("Apple"="apple","1","2")
+        Width: =368
+        X: =220
+        Y: =468
+        ZIndex: =4
+
+    TextInput_1 As TextInput:
+        Gradient1: =varGradient1
+        Gradient2: =varGradient2
+        Gradient3: =varGradient3
+        Height: =86
+        HintText: ="Text Input"
+        Width: =368
+        X: =220
+        Y: =296
+        ZIndex: =5
+
+    Comments_1 As Comments:
+        CommentText: |-
+            ="Comments:"
+        Gradient1: =varGradient1
+        Gradient2: =varGradient2
+        Gradient3: =varGradient3
+        Height: =316
+        Width: =297
+        X: =1069
+        Y: =452
+        ZIndex: =6
+
+    AdvanceTextInput_1 As AdvanceTextInput:
+        Gradient1: =varGradient1
+        Gradient2: =varGradient2
+        Gradient3: =varGradient3
+        Height: =86
+        HintText: ="Advannce Text Input"
+        IconAlign: ="right"
+        Width: =368
+        X: =220
+        Y: =382
+        ZIndex: =7
+
+    ComponentsText As label:
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =38
+        Size: =21
+        Text: |-
+            ="Components:"
+        Width: =290
+        X: =226
+        Y: =114
+        ZIndex: =8
+
+    MenuIcon As icon.Hamburger:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Hamburger
+        OnSelect: |-
+            =UpdateContext({menu:true})
+        Width: =51
+        X: =1287
+        ZIndex: =9
+
+    DropDown_1 As DropDown:
+        Gradient1: =varGradient1
+        Gradient2: =varGradient2
+        Gradient3: =varGradient3
+        Height: =86
+        Items: =["Item1","Item2","Item3"]
+        Width: =368
+        X: =220
+        Y: =214
+        ZIndex: =10
+
+    Timer1 As timer:
+        AutoPause: =false
+        AutoStart: =true
+        Duration: =3000
+        Height: =70
+        OnTimerEnd: =Set(loading,false);
+        OnTimerStart: |-
+            =Set(loading,true);Set(varGradient1,"#77A1D3");Set(varGradient2,"#076585");Set(varGradient3,"#77A1D3")
+        Start: =
+        Visible: =false
+        Width: =280
+        X: =120
+        Y: =120
+        ZIndex: =11
+
+    BackButton_1 As BackButton:
+        Gradient1: =varGradient1
+        Gradient2: =varGradient2
+        Gradient3: =varGradient3
+        Height: =84
+        Width: =84
+        X: =741
+        Y: =214
+        ZIndex: =12
+
+    NextButton_1 As NextButton:
+        Gradient1: =varGradient1
+        Gradient2: =varGradient2
+        Gradient3: =varGradient3
+        Height: =84
+        Width: =84
+        X: =834
+        Y: =214
+        ZIndex: =13
+
+    Container_1 As Container:
+        GradientColor1: =varGradient1
+        GradientColor2: =varGradient2
+        GradientColor3: =varGradient3
+        Height: =340
+        Width: =297
+        X: =1069
+        Y: =88
+        ZIndex: =14
+
+    CustomizeText As label:
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =70
+        Size: =19
+        Text: |-
+            ="Customize:"
+        Width: =151
+        X: =1120
+        Y: =89
+        ZIndex: =15
+
+    CheckBox_1 As CheckBox:
+        Gradient1: =varGradient1
+        Gradient2: =varGradient2
+        Gradient3: =varGradient3
+        Height: =80
+        Width: =80
+        X: =788
+        Y: =306
+        ZIndex: =16
+
+    Toggle_1 As Toggle:
+        Gradient1: =varGradient1
+        Gradient2: =varGradient2
+        Gradient3: =varGradient3
+        Height: =49
+        Width: =88
+        X: =782
+        Y: =404
+        ZIndex: =17
+
+    DatePicker_1 As DatePicker:
+        Gradient1: =varGradient1
+        Gradient2: =varGradient2
+        Gradient3: =varGradient3
+        Height: =86
+        Width: =368
+        X: =220
+        Y: =554
+        ZIndex: =18
+
+    Slider_1 As Slider:
+        Gradient1: =varGradient1
+        Gradient2: =varGradient2
+        Gradient3: =varGradient3
+        Height: =52
+        Width: =208
+        X: =726
+        Y: =486
+        ZIndex: =19
+
+    "Rating_1 As '0eecd41cbf994f9eb9cb9b7f66d1abee'":
+        Gradient1: =varGradient1
+        Gradient2: =varGradient2
+        Gradient3: =varGradient3
+        Height: =55
+        Width: =177
+        X: =741
+        Y: =576
+        ZIndex: =20
+
+    Container_3 As Container:
+        ContentLanguage: =varGradient1
+        GradientColor1: =varGradient1
+        GradientColor2: =varGradient2
+        GradientColor3: =varGradient3
+        Height: =75
+        Width: =95
+        X: =1121
+        Y: =176
+        ZIndex: =21
+
+    ThemeColor2 As rectangle:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        BorderThickness: =2
+        Height: =24
+        OnSelect: |-
+            =Set(varGradient1,"#77A1D3");Set(varGradient2,"#076585");Set(varGradient3,"#77A1D3")
+        Width: =25
+        X: =1155
+        Y: =196
+        ZIndex: =22
+
+    Container_4 As Container:
+        GradientColor1: =varGradient1
+        GradientColor2: =varGradient2
+        GradientColor3: =varGradient3
+        Height: =75
+        Width: =95
+        X: =1216
+        Y: =176
+        ZIndex: =23
+
+    ThemeColor1 As rectangle:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        BorderThickness: =2
+        Fill: =RGBA(54, 176, 75, 1)
+        Height: =24
+        OnSelect: |-
+            =Set(varGradient1,"#68bf56");Set(varGradient2,"#14690d");Set(varGradient3,"#49be47")
+        Width: =25
+        X: =1250
+        Y: =196
+        ZIndex: =24
+
+    CommentsText As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =201
+        Size: =14
+        Text: |-
+            ="Play the App first
+            
+            The theme of the app depends on 3 variables,
+            
+            varGradient1, varGradient2, varGradient3"
+        Width: =230
+        X: =1115
+        Y: =512
+        ZIndex: =25
+
+    ThemeSelect As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =70
+        Size: =14
+        Text: ="Select a theme"
+        Width: =142
+        X: =1150
+        Y: =249
+        ZIndex: =26
+
+    Menu_1 As Menu:
+        Visible: =menu
+        ZIndex: =27
+
+    Loading_1 As Loading:
+        Visible: =loading
+        ZIndex: =28
+
+    MenuBackIcon As icon.NextArrow:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.NextArrow
+        OnSelect: |-
+            =UpdateContext({menu:false})
+        Visible: =menu
+        Width: =34
+        X: =1332
+        Y: =62
+        ZIndex: =29
+
