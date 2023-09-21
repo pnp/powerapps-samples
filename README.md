@@ -1,6 +1,6 @@
 # Power Apps Samples
 
-This repository contains community samples that demonstrate different usage patterns for Power Apps.
+This repository contains community samples that demonstrate different usage patterns for Power Apps. We are in the process of moving the samples over to a generic [Power Platform Samples repository](https://github.com/pnp/powerplatform-samples).
 
 > We welcome community contributions to the `samples` folder in this repository for demonstrating different use cases with Power Apps.
 
@@ -24,7 +24,7 @@ This repository's contributors are all community members who volunteered their t
 
 These samples are direct from the feature teams, [PnP team](http://aka.ms/m365pnp) or shared by the community. We welcome your input on issues and suggestions for new samples. We do also welcome community contributions. If you have any questions, just let us know.
 
-Please have a look on our [Contribution Guidance](./CONTRIBUTING.md) before submitting your pull requests, so that we can get your contribution processed as fast as possible.
+Please have a look on our [Contribution Guidance in the Power Platform Samples repository](https://github.com/pnp/powerplatform-samples/blob/main/CONTRIBUTING.md) before you submit your pull requests in that repository, so that we can get your contribution processed as fast as possible.
 
 ## Code of Conduct
 
