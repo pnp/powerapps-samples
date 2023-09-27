@@ -2,7 +2,7 @@
 Connecteur personnalisé OpenAI pour applications PowerApps
 
 Le source est livré si vous ne voulez pas reproduire le mode opératoire plus bas :)
-[OpenAi-Connecteur.swagger.json](/OpenAi-Connecteur.swagger.json)
+[OpenAi-Connecteur.swagger.json](/OpenAi-Connecteur.swagger.json) 
 
 Pour importer ce connecteur personnalisé dans votre environnement, il suffit d'aller dans la section "Connecteurs personnalisés", puis choisir "Nouveau connecteur personnalisé", puis l'option "Importer un fichier OpenAPI". Puis sélectionner le fichier json.
 
