@@ -1,6 +1,5 @@
 # Quiz App using OpenAI ChatGPT
 
-
 The app uses the [OpenAI GPT (Independent Publisher)](https://learn.microsoft.com/en-us/connectors/openaigpt4ip/).
 
 This was inspired from [Add OpenAI Capabilities to your Power Platform solutions](https://www.youtube.com/watch?v=AVK7BUmTGvs&t=1062s) by [Robin Rosengrün](https://twitter.com/power_r2) to build a simple quiz app.
@@ -21,7 +20,7 @@ This was inspired from [Add OpenAI Capabilities to your Power Platform solutions
 
 Solution|Author(s)
 --------|---------
-GPT-3 quizapp | [Reshmee Auckloo](https://github.com/reshmee011) ([@reshmeeauckloo](https://twitter.com/reshmeeauckloo))
+OpenAI GPT quizapp | [Reshmee Auckloo](https://github.com/reshmee011) ([@reshmeeauckloo](https://twitter.com/reshmeeauckloo))
 
 ## Version history
 
