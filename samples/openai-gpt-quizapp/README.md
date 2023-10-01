@@ -145,7 +145,7 @@ Each time the generate button is clicked, random set of questions is generated b
 
 Watch the app in action
 
-![QuizApp](./QuizApp.gif)
+![QuizApp](../assets/QuizApp.gif)
 
 ## Prerequisites
 
