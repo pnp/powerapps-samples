@@ -1,0 +1,462 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "ggk_MicrosoftDataverseManageApprovals"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "14a030d0-1ed0-49a2-bb89-22601cdd13e4"
+          },
+          "type": "Request",
+          "kind": "PowerAppV2",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "title": "currentUserEmail",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                },
+                "text_1": {
+                  "description": "Please enter your input",
+                  "title": "flowApprovals",
+                  "type": "string",
+                  "x-ms-content-hint": "TEXT",
+                  "x-ms-dynamically-added": true
+                },
+                "text_2": {
+                  "title": "outcome",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                },
+                "text_3": {
+                  "title": "currentUserDisplayName",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                },
+                "text_4": {
+                  "title": "currentUserGUID",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                },
+                "text_5": {
+                  "title": "comments",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                },
+                "text_6": {
+                  "title": "completionTime",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                }
+              },
+              "required": [
+                "text",
+                "text_1",
+                "text_2",
+                "text_3",
+                "text_4",
+                "text_5",
+                "text_6"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Parse_JSON_-_Approvals": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "6287eeff-f0d2-4482-b37a-c6b15422a5ac"
+          },
+          "type": "ParseJson",
+          "inputs": {
+            "content": "@triggerBody()['text_1']",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "approvalId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "approvalId"
+                ]
+              }
+            }
+          }
+        },
+        "Apply_to_each": {
+          "foreach": "@body('Parse_JSON_-_Approvals')",
+          "actions": {
+            "Get_a_row_by_ID_-_Approvals": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "7aa80b25-bd21-448e-9b23-de705af9d4fc"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "GetItem",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "msdyn_flow_approvals",
+                  "recordId": "@items('Apply_to_each')?['approvalId']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Compose_-_Current_Flow_Notification_Uri": {
+              "runAfter": {
+                "Get_items_Flow_Approvals": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "115e4159-457e-480e-a183-79d73f612e49"
+              },
+              "type": "Compose",
+              "inputs": "@first(body('Get_items_Flow_Approvals')?['value'])?['msdyn_flow_flowapproval_flownotificationuri']"
+            },
+            "Compose_-_responseSummary": {
+              "runAfter": {
+                "Compose_-_Current_Flow_Notification_Uri": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "5deb0bef-73f7-4a7e-8414-b0c414c9d7da"
+              },
+              "type": "Compose",
+              "inputs": "Approver: @{triggerBody()['text_3']}, @{triggerBody()['text']}\nResponse: @{if(equals(triggerBody()['text_2'], 'Approve'), 'Approve', 'Reject')}\nRequest Date: @{formatDateTime(body('Get_a_row_by_ID_-_Approvals')?['createdon'], 'dddd, MMMM dd, yyyy hh:mm:ss tt')}\nResponse Date: @{formatDateTime(utcNow(), 'dddd, MMMM dd, yyyy hh:mm:ss tt')}"
+            },
+            "HTTP_-_Set_'Waiting_for_an_Approval'_action": {
+              "runAfter": {
+                "Compose_-_responseSummary": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "6fe0f6c6-94cf-4d16-9e47-1eac4f63472a"
+              },
+              "type": "Http",
+              "inputs": {
+                "method": "POST",
+                "uri": "@{outputs('Compose_-_Current_Flow_Notification_Uri')}",
+                "headers": {
+                  "Content-Type": "application/json"
+                },
+                "body": {
+                  "responses": [
+                    {
+                      "responder": {
+                        "id": "@{triggerBody()['text_4']}",
+                        "displayName": "@{triggerBody()['text_3']}",
+                        "email": "@{triggerBody()['text']}",
+                        "tenantId": "67fb2df5-b03d-4524-b34e-65954a9b1f3d",
+                        "userPrincipalName": "@{triggerBody()['text']}"
+                      },
+                      "requestDate": "@{outputs('Get_a_row_by_ID_-_Approvals')?['body/createdon']}",
+                      "responseDate": "@{triggerBody()['text_6']}",
+                      "approverResponse": "@{if(equals(triggerBody()['text_2'], 'Approve'), 'Approve', 'Reject')}",
+                      "comments": "@{triggerBody()['text_5']}"
+                    }
+                  ],
+                  "responseSummary": "@{outputs('Compose_-_responseSummary')}",
+                  "completionDate": "@{triggerBody()['text_6']}",
+                  "outcome": "@{if(equals(triggerBody()['text_2'], 'Approve'), 'Approve', 'Reject')}",
+                  "name": "@{items('Apply_to_each')?['msdyn_flow_approvalid']}",
+                  "title": "@{outputs('Get_a_row_by_ID_-_Approvals')?['body/msdyn_flow_approval_title']}",
+                  "details": "@{outputs('Get_a_row_by_ID_-_Approvals')?['body/msdyn_flow_approval_details']}",
+                  "requestDate": "@{outputs('Get_a_row_by_ID_-_Approvals')?['body/createdon']}",
+                  "expirationDate": "9999-12-31T23:59:59Z"
+                },
+                "retryPolicy": {
+                  "type": "fixed",
+                  "count": 5,
+                  "interval": "PT20S"
+                }
+              }
+            },
+            "Get_items_Flow_Approvals": {
+              "runAfter": {
+                "Get_Flow_Approvals": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "42d2afbf-8afe-4056-a87e-e0926909c54a"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "msdyn_flow_flowapprovals",
+                  "$filter": "msdyn_flow_flowapproval_flowrunsequenceid eq '@{first(body('Get_Flow_Approvals')?['value'])?['msdyn_flow_flowapproval_flowrunsequenceid']}' and startswith(msdyn_flow_flowapproval_flownotificationuri,'https')"
+                },
+                "authentication": "@parameters('$authentication')",
+                "retryPolicy": {
+                  "type": "fixed",
+                  "count": 5,
+                  "interval": "PT20S"
+                }
+              }
+            },
+            "Update_a_row_-_Approvals": {
+              "runAfter": {
+                "Get_a_row_by_ID_-_Approvals": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "c7bede58-7af3-4964-b4e3-577ec570f20c"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "UpdateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "msdyn_flow_approvals",
+                  "recordId": "@outputs('Get_a_row_by_ID_-_Approvals')?['body/msdyn_flow_approvalid']",
+                  "item/msdyn_flow_approval_modelid": "@outputs('Get_a_row_by_ID_-_Approvals')?['body/msdyn_flow_approval_modelid']",
+                  "item/msdyn_flow_approval_modeltype": "@outputs('Get_a_row_by_ID_-_Approvals')?['body/msdyn_flow_approval_modeltype']",
+                  "item/msdyn_flow_approval_approvalstagekey": "@outputs('Get_a_row_by_ID_-_Approvals')?['body/msdyn_flow_approval_approvalstagekey']",
+                  "item/msdyn_flow_approval_name": "@outputs('Get_a_row_by_ID_-_Approvals')?['body/msdyn_flow_approval_name']",
+                  "item/msdyn_flow_approval_stage": 192351000,
+                  "item/statuscode": 192350004,
+                  "item/msdyn_flow_approval_title": "@outputs('Get_a_row_by_ID_-_Approvals')?['body/msdyn_flow_approval_title']",
+                  "item/msdyn_flow_approval_allowcancel": true,
+                  "item/msdyn_flow_approval_allowreassign": false,
+                  "item/msdyn_flow_approval_completedon": "@triggerBody()['text_6']",
+                  "item/msdyn_flow_approval_itemlink": "@outputs('Get_a_row_by_ID_-_Approvals')?['body/msdyn_flow_approval_itemlink']",
+                  "item/msdyn_flow_approval_itemlinkdescription": "@outputs('Get_a_row_by_ID_-_Approvals')?['body/msdyn_flow_approval_itemlinkdescription']",
+                  "item/msdyn_flow_approval_itemlinkhash": "@outputs('Get_a_row_by_ID_-_Approvals')?['body/msdyn_flow_approval_itemlinkhash']",
+                  "item/msdyn_flow_approval_requesttype": 192350001,
+                  "item/msdyn_flow_approval_result": "@if(equals(triggerBody()['text_2'], 'Approve'), 'Approve', 'Reject')",
+                  "item/msdyn_flow_approval_sendemail": false,
+                  "item/statecode": 1
+                },
+                "authentication": "@parameters('$authentication')",
+                "retryPolicy": {
+                  "type": "fixed",
+                  "count": 5,
+                  "interval": "PT20S"
+                }
+              }
+            },
+            "Add_a_new_row_-_Approval_Response": {
+              "runAfter": {
+                "Update_a_row_-_Approvals": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "bad81cbb-5e14-4bcc-8c33-42d886b504ab"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "CreateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "msdyn_flow_approvalresponses",
+                  "item/msdyn_flow_approvalresponse_approval@odata.bind": "msdyn_flow_approvals(@{outputs('Get_a_row_by_ID_-_Approvals')?['body/msdyn_flow_approvalid']})",
+                  "item/msdyn_flow_approvalresponse_approvalstagekey": "@outputs('Get_a_row_by_ID_-_Approvals')?['body/msdyn_flow_approval_approvalstagekey']",
+                  "item/msdyn_flow_approvalresponse_name": "@outputs('Get_a_row_by_ID_-_Approvals')?['body/msdyn_flow_approval_name']",
+                  "item/msdyn_flow_approvalresponse_response": "@if(equals(triggerBody()['text_2'], 'Approve'), 'Approve', 'Reject')",
+                  "item/msdyn_flow_approvalresponse_stage": 192350001,
+                  "item/statuscode": 192350002,
+                  "item/msdyn_flow_approvalresponseidx_approvalid": "@outputs('Get_a_row_by_ID_-_Approvals')?['body/msdyn_flow_approvalid']",
+                  "item/msdyn_flow_approvalresponse_comments": "@triggerBody()['text_5']",
+                  "item/msdyn_flow_approvalresponseidx_stage": "BASIC",
+                  "item/statecode": 1
+                },
+                "authentication": "@parameters('$authentication')",
+                "retryPolicy": {
+                  "type": "fixed",
+                  "count": 5,
+                  "interval": "PT20S"
+                }
+              }
+            },
+            "Update_a_row_-_Approval_Requests": {
+              "runAfter": {
+                "Add_a_new_row_-_Approval_Response": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "203ed7ea-def1-4f76-953b-b0273e3ef2e0"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "UpdateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "msdyn_flow_approvalrequests",
+                  "recordId": "@outputs('Get_a_row_by_ID_-_Approvals')?['body/msdyn_flow_approvalid']",
+                  "item/msdyn_flow_approvalrequest_stage": 192351000,
+                  "item/statuscode": 1
+                },
+                "authentication": "@parameters('$authentication')",
+                "retryPolicy": {
+                  "type": "fixed",
+                  "count": 5,
+                  "interval": "PT20S"
+                }
+              }
+            },
+            "Get_Flow_Approvals": {
+              "runAfter": {
+                "Update_a_row_-_Approval_Requests": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "240bae5b-2286-48d6-b62f-561a6bf0dac5"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "msdyn_flow_flowapprovals",
+                  "$filter": "msdyn_flow_flowapprovalid eq '@{outputs('Get_a_row_by_ID_-_Approvals')?['body/msdyn_flow_approvalid']}'"
+                },
+                "authentication": "@parameters('$authentication')",
+                "retryPolicy": {
+                  "type": "fixed",
+                  "count": 5,
+                  "interval": "PT20S"
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "Parse_JSON_-_Approvals": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "60401d54-a2bc-424d-b479-331041b5937f"
+          },
+          "type": "Foreach",
+          "runtimeConfiguration": {
+            "concurrency": {
+              "repetitions": 20
+            }
+          }
+        },
+        "Response_-_Success": {
+          "runAfter": {
+            "Apply_to_each": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ff18241c-754d-4a9a-a057-1f8db813a5a5"
+          },
+          "type": "Response",
+          "kind": "Http",
+          "inputs": {
+            "statusCode": 200,
+            "body": {
+              "status": "OK"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "Response_-_Failed": {
+          "runAfter": {
+            "Apply_to_each": [
+              "Failed",
+              "TimedOut"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "90c4eb02-b830-4dd0-8a20-2cf5811bd1df"
+          },
+          "type": "Response",
+          "kind": "Http",
+          "inputs": {
+            "statusCode": 500,
+            "body": {
+              "status": "Failed"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

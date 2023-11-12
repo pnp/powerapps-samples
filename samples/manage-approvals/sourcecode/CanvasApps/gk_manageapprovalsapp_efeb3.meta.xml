@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>gk_manageapprovalsapp_efeb3</Name>
+  <AppVersion>2023-11-12T12:18:47Z</AppVersion>
+  <Status>Ready</Status>
+  <CreatedByClientVersion>3.23105.17.0</CreatedByClientVersion>
+  <MinClientVersion>3.23105.17.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"1366","primaryDeviceHeight":"768","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","showStatusBar":"false","publisherVersion":"3.23105.17","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false","sienaVersion":"20231112T120806Z-3.23105.17.0"}</Tags>
+  <IsCdsUpgraded>0</IsCdsUpgraded>
+  <GalleryItemId xsi:nil="true"></GalleryItemId>
+  <BackgroundColor>RGBA(0,176,240,1)</BackgroundColor>
+  <DisplayName>Manage Approvals App</DisplayName>
+  <Description xsi:nil="true"></Description>
+  <CommitMessage xsi:nil="true"></CommitMessage>
+  <Publisher xsi:nil="true"></Publisher>
+  <AuthorizationReferences>[]</AuthorizationReferences>
+  <ConnectionReferences>{"13b65b5d-93d7-4fff-87b7-abd0058dfb9c":{"id":"/providers/microsoft.powerapps/apis/shared_logicflows","displayName":"Logic flows","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/logicflows/icon.png","dataSources":["Setapprovalresult"],"dependencies":["551148b1-cd13-47f0-a2b4-b09a2276134a"],"dependents":[],"parameterHints":{"workflowName":{"value":"3937159a-190e-422f-b154-374dbe4598f5"},"workflowEntityId":{"value":"e698fd41-5d76-ee11-8179-0022489fd9dd"},"551148b1-cd13-47f0-a2b4-b09a2276134a":{"value":"shared_commondataserviceforapps_1"}},"parameterHintsV2":{"workflowName":{"value":"3937159a-190e-422f-b154-374dbe4598f5"},"workflowEntityId":{"value":"e698fd41-5d76-ee11-8179-0022489fd9dd"},"shared_commondataserviceforapps_1":{"value":"551148b1-cd13-47f0-a2b4-b09a2276134a"}},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard","actions":["Run"]},"551148b1-cd13-47f0-a2b4-b09a2276134a":{"id":"/providers/microsoft.powerapps/apis/shared_commondataserviceforapps","displayName":"Microsoft Dataverse","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/commondataserviceforapps/icon.png","dataSources":[],"dependencies":[],"dependents":["13b65b5d-93d7-4fff-87b7-abd0058dfb9c"],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Premium"}}</ConnectionReferences>
+  <DatabaseReferences>{"default.cds":{"databaseDetails":{"referenceType":"Environmental","environmentName":"default.cds","overrideValues":{"status":"NotSpecified","environmentVariableName":""}},"dataSources":{"Approvals":{"entitySetName":"msdyn_flow_approvals","logicalName":"msdyn_flow_approval"},"Users":{"entitySetName":"systemusers","logicalName":"systemuser"},"Approval Requests":{"entitySetName":"msdyn_flow_approvalrequests","logicalName":"msdyn_flow_approvalrequest"}}}}</DatabaseReferences>
+  <AppComponents>[]</AppComponents>
+  <AppComponentDependencies>[]</AppComponentDependencies>
+  <CanConsumeAppPass>1</CanConsumeAppPass>
+  <CanvasAppType>0</CanvasAppType>
+  <BypassConsent>0</BypassConsent>
+  <AdminControlBypassConsent>0</AdminControlBypassConsent>
+  <EmbeddedApp xsi:nil="true"></EmbeddedApp>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CdsDependencies>{"cdsdependencies":[{"dependencyid":"e698fd41-5d76-ee11-8179-0022489fd9dd","componenttype":29,"componenttypeplatformname":"Workflow"},{"logicalname":"msdyn_flow_approval","componenttype":1},{"logicalname":"systemuser","componenttype":1},{"logicalname":"msdyn_flow_approvalrequest","componenttype":1}]}</CdsDependencies>
+  <IsCustomizable>1</IsCustomizable>
+  <BackgroundImageUri>/CanvasApps/gk_manageapprovalsapp_efeb3_BackgroundImageUri</BackgroundImageUri>
+  <DocumentUri>/CanvasApps/gk_manageapprovalsapp_efeb3_DocumentUri.msapp</DocumentUri>
+</CanvasApp>
