@@ -1,0 +1,347 @@
+"'Thank you Screen' As screen":
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+
+    "'Thank you - Screen Container' As groupContainer.manualLayoutContainer":
+        Height: =Parent.Height
+        Width: =Parent.Width
+        ZIndex: =1
+
+        "'Thank you - Form Container' As groupContainer.horizontalAutoLayoutContainer":
+            Height: =Parent.Height-200
+            LayoutMode: =LayoutMode.Auto
+            Width: =Parent.Width-100
+            X: =50
+            Y: =150
+            ZIndex: =1
+
+            "'Thank you - Timeline Container' As groupContainer.manualLayoutContainer":
+                AlignInContainer: =AlignInContainer.SetByContainer
+                FillPortions: =0
+                Height: =Parent.Height
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                Width: =Parent.Width/4
+                ZIndex: =1
+
+                "'Thank you - Timeline Gallery' As gallery.BrowseLayout_Vertical_TwoTextVariant_pcfCore":
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    DelayItemLoading: =true
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Height: =Parent.Height-100
+                    Items: =Timeline
+                    Layout: =Layout.Vertical
+                    LoadingSpinner: =LoadingSpinner.Data
+                    TemplatePadding: =0
+                    TemplateSize: =(Parent.Height-100)/4
+                    Width: =Parent.Width
+                    Y: =(Parent.Height-Self.Height)/2
+                    ZIndex: =1
+
+                    "'Thank you - Step Title' As Label":
+                        Alignment: =Align.Right
+                        Color: =RGBA(105,105,105,1)
+                        DisplayMode: =DisplayMode.Edit
+                        Font: =Font.Lato
+                        FontSize: =12
+                        FontWeight: =FontWeight.Semibold
+                        Height: =30
+                        OnSelect: =Select(Parent)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        TabIndex: =-1
+                        Text: =ThisItem.Name
+                        VerticalAlignment: =VerticalAlign.Middle
+                        Visible: |-
+                            =If(
+                                Parent.Width > 316,
+                                true,
+                                false
+                            )
+                        Width: =Parent.TemplateWidth - 80
+                        X: =0
+                        Y: =((Parent.TemplateHeight - 48) / 2)
+                        ZIndex: =1
+
+                    "'Thank you - Step Description' As Label":
+                        Alignment: =Align.Right
+                        Color: =RGBA(135,135,135,1)
+                        DisplayMode: =DisplayMode.Edit
+                        Font: =Font.Lato
+                        FontSize: =12
+                        FontWeight: =FontWeight.Lighter
+                        Height: =28
+                        OnSelect: =Select(Parent)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        TabIndex: =-1
+                        Text: =ThisItem.Description
+                        VerticalAlignment: =VerticalAlign.Top
+                        Visible: ='Thank you - Step Title'.Visible
+                        Width: ='Thank you - Step Title'.Width
+                        X: ='Thank you - Step Title'.X
+                        Y: ='Thank you - Step Title'.Y+'Thank you - Step Title'.Height-10
+                        ZIndex: =2
+
+                    "'Thank you - Timeline' As rectangle":
+                        BorderColor: =RGBA(243, 242, 241, 1)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        DisabledFill: =RGBA(200, 198, 196, 1)
+                        Fill: =RGBA(219, 220, 231, 1)
+                        FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(98, 100, 167, 1)
+                        OnSelect: =Select(Parent)
+                        PressedFill: =RGBA(98, 100, 167, 1)
+                        Width: =1
+                        X: ='Thank you - Step Image'.X + 'Thank you - Step Image'.Width/2
+                        ZIndex: =3
+
+                    "'Thank you - Step Image' As image":
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        Height: =30
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        Image: |-
+                            =Switch(
+                                App.ActiveScreen.Name,
+                                "Step 1 Screen",
+                                    Switch(
+                                        ThisItem.Step,
+                                        "1", Step1active,
+                                        "2", Step2next,
+                                        "3", Step3next,
+                                        "4", Step4next
+                                    ),
+                                "Step 2 Screen",
+                                    Switch(
+                                        ThisItem.Step,
+                                        "1", StepDone,
+                                        "2", Step2active,
+                                        "3", Step3next,
+                                        "4", Step4next
+                                    ),
+                                "Step 3 Screen",
+                                    Switch(
+                                        ThisItem.Step,
+                                        "1", StepDone,
+                                        "2", StepDone,
+                                        "3", Step3active,
+                                        "4", Step4next
+                                    ),
+                                "Step 4 Screen",
+                                    Switch(
+                                        ThisItem.Step,
+                                        "1", StepDone,
+                                        "2", StepDone,
+                                        "3", StepDone,
+                                        "4", Step4active
+                                    ),
+                                "Submit Screen",
+                                    Switch(
+                                        ThisItem.Step,
+                                        "1", StepDone,
+                                        "2", StepDone,
+                                        "3", StepDone,
+                                        "4", StepDone
+                                    ),
+                                "Thank you Screen",
+                                    Switch(
+                                        ThisItem.Step,
+                                        "1", StepDone,
+                                        "2", StepDone,
+                                        "3", StepDone,
+                                        "4", StepDone
+                                    )
+                            )
+                        OnSelect: =Select(Parent)
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedFill: =RGBA(0, 0, 0, 0)
+                        RadiusBottomLeft: =3
+                        RadiusBottomRight: =3
+                        RadiusTopLeft: =3
+                        RadiusTopRight: =3
+                        Width: =30
+                        X: |-
+                            =//'Step 1 - Step Title'.X + 'Step 1 - Step Title'.Width + 30
+                            
+                            If(
+                                Parent.Width > 316,
+                                'Thank you - Step Title'.X + 'Thank you - Step Title'.Width + 30,
+                                30
+                            )
+                        Y: =Parent.TemplateHeight/2 - Self.Height/2 + 3
+                        ZIndex: =4
+
+            "'Thank you - Fields Container' As groupContainer.manualLayoutContainer":
+                AlignInContainer: =AlignInContainer.SetByContainer
+                FillPortions: =0
+                Height: =Parent.Height
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                Width: =(Parent.Width/4)*3
+                ZIndex: =2
+
+                "'Thank you - Title' As Label":
+                    Alignment: =Align.Left
+                    AutoHeight: =false
+                    Color: =RGBA(166,51,245,1)
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.Lato
+                    FontSize: =18
+                    FontWeight: =FontWeight.Normal
+                    Height: =150
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: ="Your request has been submitted successfully"
+                    Width: =Parent.Width-100
+                    X: =50
+                    Y: ='Thank you - Timeline Gallery'.Y
+                    ZIndex: =1
+
+                "'Thank you - Yes Button' As Button":
+                    Alignment: =Align.Center
+                    BorderColor: =Color.Transparent
+                    ButtonType: =
+                    DisabledBorderColor: =Color.Transparent
+                    DisabledFillColor: =RGBA(166,51,245,1)
+                    DisabledTextColor: =RGBA(255, 255, 255, 1)
+                    DisplayMode: =DisplayMode.Edit
+                    FillColor: =RGBA(166,51,245,1)
+                    Font: =Font.Lato
+                    FontSize: =12
+                    FontWeight: =FontWeight.Lighter
+                    Height: =32
+                    HoverBorderColor: =Color.Transparent
+                    HoverFillColor: =RGBA(109, 49, 162, 1)
+                    HoverTextColor: =RGBA(230, 230, 230, 1)
+                    OnSelect: |-
+                        =Reset('Step 1 - Team Name TextBox');
+                        Reset('Step 1 - Team Description TextBox');
+                        Reset('Step 1 - Team Kind RadioGroup');
+                        
+                        Reset('Step 2 - Team Members ComboBox');
+                        
+                        Reset('Step 3 - Welcome RichTextEditor');
+                        
+                        Reset('Step 4 - Channel 1 Name TextBox');
+                        Reset('Step 4 - Channel 2 Name TextBox');
+                        Reset('Step 4 - Channel 3 Name TextBox');
+                        
+                        Navigate('Step 1 Screen')
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    PressedBorderColor: =Color.Transparent
+                    PressedFillColor: =RGBA(109, 49, 162, 1)
+                    PressedTextColor: =RGBA(255, 255, 255, 1)
+                    Text: ="Yes"
+                    TextColor: =RGBA(255, 255, 255, 1)
+                    Width: =100
+                    X: ='Thank you - No Button'.X + 'Thank you - No Button'.Width + 40
+                    Y: ='Thank you - Question Label'.Y + 'Thank you - Question Label'.Height + 60
+                    ZIndex: =8
+
+                "'Thank you - No Button' As Button":
+                    ButtonType: ='Microsoft.CoreControls.Button.ButtonType'.Standard
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.Lato
+                    FontSize: =12
+                    Height: =32
+                    OnSelect: =Exit()
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: ="No"
+                    Visible: |-
+                        =If(
+                            App.ActiveScreen.Name = "Step 1 Screen",
+                            false,
+                            true
+                        )
+                    Width: =100
+                    X: ='Thank you - Question Label'.X
+                    Y: ='Thank you - Question Label'.Y + 'Thank you - Question Label'.Height + 60
+                    ZIndex: =10
+
+                "'Thank you - Question Label' As Label":
+                    Color: =RGBA(135,135,135,1)
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.Lato
+                    FontSize: =12
+                    FontWeight: =FontWeight.Lighter
+                    Height: =32
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: ="Would you like to submit another request?"
+                    Width: =Parent.Width-100
+                    X: =50
+                    Y: ='Thank you - Title'.Y + 'Thank you - Title'.Height + 20
+                    ZIndex: =11
+
+        "'Thank you - Header' As Label":
+            AutoHeight: =false
+            Color: =RGBA(105,105,105,1)
+            DisplayMode: =DisplayMode.Edit
+            Font: =Font.Lato
+            FontSize: =18
+            FontWeight: =FontWeight.Normal
+            Height: =40
+            PCFTeamsTheme: =TeamsTheme.Default
+            Text: ="Request for a new Teams group"
+            Width: =Parent.Width-100
+            X: =50
+            Y: =50
+            ZIndex: =2
+
+        "'Thank you - Sub Header' As Label":
+            AutoHeight: =false
+            Color: =RGBA(135,135,135,1)
+            DisplayMode: =DisplayMode.Edit
+            Font: =Font.Lato
+            FontSize: =12
+            FontWeight: =FontWeight.Lighter
+            Height: =35
+            PCFTeamsTheme: =TeamsTheme.Default
+            Text: ="Follow the simple 4 steps to request a new Teams group"
+            Width: =Parent.Width-100
+            X: =50
+            Y: =90
+            ZIndex: =3
+
+        "'Thank you - Profile Image' As image":
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: =Microsoft_Teams_256x256
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            RadiusBottomLeft: =3
+            RadiusBottomRight: =3
+            RadiusTopLeft: =3
+            RadiusTopRight: =3
+            Width: =50
+            X: =Parent.Width - 150
+            Y: =50
+            ZIndex: =4
+
+    "'Thank you - Created by' As Label":
+        Alignment: =Align.Right
+        AutoHeight: =false
+        Color: =RGBA(135,135,135,1)
+        DisplayMode: =DisplayMode.Edit
+        Font: =Font.Lato
+        FontSize: =8
+        FontWeight: =FontWeight.Lighter
+        Height: =30
+        PaddingEnd: =10
+        PCFTeamsTheme: =TeamsTheme.Default
+        Text: =_created
+        Width: |
+            =Parent.Width
+        X: =0
+        Y: =Parent.Height - 30
+        ZIndex: =2
+

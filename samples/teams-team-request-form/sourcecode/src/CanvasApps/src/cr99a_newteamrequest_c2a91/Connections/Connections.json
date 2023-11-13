@@ -1,0 +1,47 @@
+{
+  "2f30ff03-96d7-4d40-aaa1-be62a8f252c4": {
+    "connectionRef": {
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1627/1.0.1627.3238/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
+    },
+    "datasets": {
+      "https://microsoftcda.sharepoint.com/sites/UATforfinancedep2_cr3f4_SharePointSite": {
+        "datasetOverride": {
+          "environmentVariableName": "cr3f4_SharePointSite"
+        },
+        "dataSources": {
+          "SharePointList": {
+            "tableName": "68d11425-6da0-4311-9d2b-68e8ea4f936f",
+            "tableNameOverride": {
+              "environmentVariableName": "cr3f4_SharePointList"
+            }
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "SharePointList"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "2f30ff03-96d7-4d40-aaa1-be62a8f252c4"
+  },
+  "f76bf883-e066-43f9-9ef0-afd5748b2c4c": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Users",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1626/1.0.1626.3238/office365users/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365users",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Users"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "f76bf883-e066-43f9-9ef0-afd5748b2c4c"
+  }
+}

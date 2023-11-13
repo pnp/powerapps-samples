@@ -1,0 +1,74 @@
+[
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-kpi-usecase",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2023-05-17T00:00:00.000Z",
+    "updateDateTime": "2023-05-17T00:00:00.000Z",
+    "title": "KPI Usecase",
+    "shortDescription": "This PowerFX example shows how to leverage an IF statement, against Text or Values on the Fill property of a text label.",
+    "longDescription": [
+      "This PowerFX example shows how to leverage an IF statement, against Text or Values on the Fill property of a text label. This can of course be used for conditional fonts, font weight, combining with dynamic variables and many more."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/kpi-usecase",
+    "products": [
+      "Power Apps"
+    ],
+    "tags": [
+      "Power Fx"
+    ],
+    "categories": [
+      "POWERAPPS",
+      "POWER-AUTOMATE"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/kpi-usecase/assets/screenshotkpivalues.png?raw=true",
+        "alt": "Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "Nathalie-Leenders",
+        "name": "Nathalie Leenders",
+        "pictureUrl": "https://github.com/Nathalie-Leenders.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Microsoft Power Fx",
+        "description": "Microsoft Power Fx overview.",
+        "url": "https://docs.microsoft.com/en-us/power-platform/power-fx/overview"
+      }
+    ]
+  }
+]
