@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>ma_leaverequestapplication_2312e</Name>
+  <AppVersion>2023-11-28T07:34:28Z</AppVersion>
+  <Status>Ready</Status>
+  <CreatedByClientVersion>3.23105.18.0</CreatedByClientVersion>
+  <MinClientVersion>3.23105.18.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"1366","primaryDeviceHeight":"768","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","showStatusBar":"false","publisherVersion":"3.23105.18","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false","sienaVersion":"20231128T064546Z-3.23105.18.0"}</Tags>
+  <IsCdsUpgraded>0</IsCdsUpgraded>
+  <GalleryItemId xsi:nil="true"></GalleryItemId>
+  <BackgroundColor>rgba(136, 160, 209, 1)</BackgroundColor>
+  <DisplayName>Leave Request Application</DisplayName>
+  <Description xsi:nil="true"></Description>
+  <CommitMessage xsi:nil="true"></CommitMessage>
+  <Publisher xsi:nil="true"></Publisher>
+  <AuthorizationReferences>[]</AuthorizationReferences>
+  <ConnectionReferences>{"7cf97cac-2af0-4287-a153-d5eb409f857a":{"id":"/providers/microsoft.powerapps/apis/shared_sharepointonline","displayName":"SharePoint","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/sharepointonline/icon.png","dataSources":["User Roles","Vacation Requests","Emp Leave Balances"],"dependencies":[],"dependents":[],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{"https://2bvcz2.sharepoint.com/sites/AhmadSite":{"dataSources":{"User Roles":{"tableName":"8289be7c-ece2-495a-b080-107eb2fcc6f2"},"Vacation Requests":{"tableName":"f43be797-6ac6-4926-9a52-7017ec61ae46"},"Emp Leave Balances":{"tableName":"6a1bfcf6-2a4b-4bfa-ba90-0526e703ff80"}}}},"apiTier":"Standard","actions":["providers/PowerPlatform.Governance/Operations/Read","providers/PowerPlatform.Governance/Operations/Write","providers/PowerPlatform.Governance/Operations/Delete"]}}</ConnectionReferences>
+  <DatabaseReferences>{}</DatabaseReferences>
+  <AppComponents>[]</AppComponents>
+  <AppComponentDependencies>[]</AppComponentDependencies>
+  <CanConsumeAppPass>1</CanConsumeAppPass>
+  <CanvasAppType>0</CanvasAppType>
+  <BypassConsent>0</BypassConsent>
+  <AdminControlBypassConsent>0</AdminControlBypassConsent>
+  <EmbeddedApp xsi:nil="true"></EmbeddedApp>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CdsDependencies>{"cdsdependencies":[]}</CdsDependencies>
+  <IsCustomizable>1</IsCustomizable>
+  <BackgroundImageUri>/CanvasApps/ma_leaverequestapplication_2312e_BackgroundImageUri</BackgroundImageUri>
+  <DocumentUri>/CanvasApps/ma_leaverequestapplication_2312e_DocumentUri.msapp</DocumentUri>
+</CanvasApp>

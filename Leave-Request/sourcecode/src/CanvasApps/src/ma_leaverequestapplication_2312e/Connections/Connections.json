@@ -1,0 +1,40 @@
+{
+  "7cf97cac-2af0-4287-a153-d5eb409f857a": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read",
+      "providers/PowerPlatform.Governance/Operations/Write",
+      "providers/PowerPlatform.Governance/Operations/Delete"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://2bvcz2.sharepoint.com/sites/AhmadSite": {
+        "dataSources": {
+          "Emp Leave Balances": {
+            "tableName": "6a1bfcf6-2a4b-4bfa-ba90-0526e703ff80"
+          },
+          "User Roles": {
+            "tableName": "8289be7c-ece2-495a-b080-107eb2fcc6f2"
+          },
+          "Vacation Requests": {
+            "tableName": "f43be797-6ac6-4926-9a52-7017ec61ae46"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "User Roles",
+      "Vacation Requests",
+      "Emp Leave Balances"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "7cf97cac-2af0-4287-a153-d5eb409f857a"
+  }
+}

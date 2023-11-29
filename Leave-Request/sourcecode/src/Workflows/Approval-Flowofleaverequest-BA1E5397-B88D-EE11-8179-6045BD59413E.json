@@ -1,0 +1,249 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_approvals": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "ma_sharedapprovals_e12cd"
+        },
+        "api": {
+          "name": "shared_approvals"
+        }
+      },
+      "shared_sharepointonline": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "ma_sharedsharepointonline_e93aa"
+        },
+        "api": {
+          "name": "shared_sharepointonline"
+        }
+      },
+      "shared_office365": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "ma_sharedoffice365_f2b81"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_an_item_is_created": {
+          "recurrence": {
+            "interval": 1,
+            "frequency": "Minute"
+          },
+          "splitOn": "@triggerOutputs()?['body/value']",
+          "metadata": {
+            "operationMetadataId": "508df8d3-f4f7-4b5f-a8af-3346d65cadeb"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_sharepointonline",
+              "operationId": "GetOnNewItems",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+            },
+            "parameters": {
+              "dataset": "https://2bvcz2.sharepoint.com/sites/AhmadSite",
+              "table": "f43be797-6ac6-4926-9a52-7017ec61ae46"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Start_and_wait_for_an_approval": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "15386c35-c1b7-42ca-87cf-7defa40daea3"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_approvals",
+              "operationId": "StartAndWaitForAnApproval",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_approvals"
+            },
+            "parameters": {
+              "approvalType": "Basic",
+              "WebhookApprovalCreationInput/title": "Approval Request",
+              "WebhookApprovalCreationInput/assignedTo": "ahmad@2bvcz2.onmicrosoft.com;",
+              "WebhookApprovalCreationInput/details": "@triggerOutputs()?['body/Description']",
+              "WebhookApprovalCreationInput/itemLinkDescription": "@triggerOutputs()?['body/Description']",
+              "WebhookApprovalCreationInput/enableNotifications": true,
+              "WebhookApprovalCreationInput/enableReassignment": true
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Apply_to_each": {
+          "foreach": "@outputs('Start_and_wait_for_an_approval')?['body/responses']",
+          "actions": {
+            "Condition": {
+              "actions": {
+                "Compose": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "111f98a7-22d7-481a-912e-56f7193720ad"
+                  },
+                  "type": "Compose",
+                  "inputs": "Approved"
+                },
+                "Update_item": {
+                  "runAfter": {
+                    "Compose": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "e3633981-ac6f-4737-b4e5-dd21b2629ad1"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_sharepointonline",
+                      "operationId": "PatchItem",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                    },
+                    "parameters": {
+                      "dataset": "https://2bvcz2.sharepoint.com/sites/AhmadSite",
+                      "table": "f43be797-6ac6-4926-9a52-7017ec61ae46",
+                      "id": "@triggerOutputs()?['body/ID']",
+                      "item/ApprovalStatus/Value": "Approved"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Send_an_email_(V2)": {
+                  "runAfter": {
+                    "Update_item": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "a31fc5d2-40a9-4d5c-be56-582ad116f7ef"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_office365",
+                      "operationId": "SendEmailV2",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                    },
+                    "parameters": {
+                      "emailMessage/To": "muhammad.ahmad@cloudsurge.solutions",
+                      "emailMessage/Subject": "Response of request",
+                      "emailMessage/Body": "<p>Leave Request Approved</p>",
+                      "emailMessage/Importance": "Normal"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {},
+              "else": {
+                "actions": {
+                  "Compose_2": {
+                    "runAfter": {},
+                    "metadata": {
+                      "operationMetadataId": "a55443a9-84f9-4490-8887-bc737dfc4d27"
+                    },
+                    "type": "Compose",
+                    "inputs": "Rejected"
+                  },
+                  "Update_item_2": {
+                    "runAfter": {
+                      "Compose_2": [
+                        "Succeeded"
+                      ]
+                    },
+                    "metadata": {
+                      "operationMetadataId": "59638983-9520-4899-8e50-7febcb65eea1"
+                    },
+                    "type": "OpenApiConnection",
+                    "inputs": {
+                      "host": {
+                        "connectionName": "shared_sharepointonline",
+                        "operationId": "PatchItem",
+                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                      },
+                      "parameters": {
+                        "dataset": "https://2bvcz2.sharepoint.com/sites/AhmadSite",
+                        "table": "f43be797-6ac6-4926-9a52-7017ec61ae46",
+                        "id": "@triggerOutputs()?['body/ID']",
+                        "item/ApprovalStatus/Value": "Rejected"
+                      },
+                      "authentication": "@parameters('$authentication')"
+                    }
+                  },
+                  "Send_an_email_(V2)_2": {
+                    "runAfter": {
+                      "Update_item_2": [
+                        "Succeeded"
+                      ]
+                    },
+                    "metadata": {
+                      "operationMetadataId": "c87aa472-8ab8-4bae-98f4-dbca6de872ef"
+                    },
+                    "type": "OpenApiConnection",
+                    "inputs": {
+                      "host": {
+                        "connectionName": "shared_office365",
+                        "operationId": "SendEmailV2",
+                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                      },
+                      "parameters": {
+                        "emailMessage/To": "muhammad.ahmad@cloudsurge.solutions",
+                        "emailMessage/Subject": "Response of request",
+                        "emailMessage/Body": "<p>Leave Request Rejected</p>",
+                        "emailMessage/Importance": "Normal"
+                      },
+                      "authentication": "@parameters('$authentication')"
+                    }
+                  }
+                }
+              },
+              "expression": {
+                "equals": [
+                  "@items('Apply_to_each')?['approverResponse']",
+                  "Approve"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "0dbda81f-4ce1-4b99-8d3e-3847229cffe9"
+              },
+              "type": "If"
+            }
+          },
+          "runAfter": {
+            "Start_and_wait_for_an_approval": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7093c9f3-de43-4fe3-9788-b103e5bf3e09"
+          },
+          "type": "Foreach"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}
