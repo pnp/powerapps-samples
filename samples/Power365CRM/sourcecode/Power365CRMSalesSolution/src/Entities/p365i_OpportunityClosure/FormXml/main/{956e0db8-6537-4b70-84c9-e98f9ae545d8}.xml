@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{956e0db8-6537-4b70-84c9-e98f9ae545d8}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{937760ef-b5e1-4a0e-833e-6d8e7d7db2c3}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{53e4eaeb-c5bc-4031-a6c6-16c6daea1dc4}" locklevel="0">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{118222d5-5f90-4ea3-88fb-d388658f768e}" visible="false">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="p365i_name" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a33f24aa-8eea-4ab0-93b1-1bb9a85ff4bd}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Actual Revenue" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_actualrevenue" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="p365i_actualrevenue" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{25dddf17-5832-4e04-965f-048408fac6cd}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Close Date" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_closedate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="p365i_closedate" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{dae9b60e-7657-494a-a71c-e2e2e4997642}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Description" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_description" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="p365i_description" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9bc67dff-e8ff-4fea-9ffd-6a25299baf2e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Opportunity" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_opportunity" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="p365i_opportunity" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8ed85d6d-fd01-45fb-8ac5-ca9522078872}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{202a1ebe-ebe7-412f-9ab9-356051e6eacb}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{1cb75c5a-a6ca-464b-9c0c-6e62cf67a7b6}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{eac5d215-192d-443a-aed2-8646bf40d1ab}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{97e0f9fe-193d-4a84-8437-abef101e0e7a}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{e2e80766-db2f-4438-9d7d-a42687af43e5}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{a466755b-3539-4d95-bd0e-f343374cc742}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{96d53f42-860b-4524-9a00-bd37358c3908}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{53c3f5ab-b7df-4560-8291-a8a1c9c50b41}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

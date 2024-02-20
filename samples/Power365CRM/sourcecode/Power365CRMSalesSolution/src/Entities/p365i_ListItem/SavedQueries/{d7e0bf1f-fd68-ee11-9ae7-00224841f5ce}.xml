@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{d7e0bf1f-fd68-ee11-9ae7-00224841f5ce}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="p365i_name" select="1" icon="1" preview="1">
+        <row name="result" id="p365i_listitemid">
+          <cell name="p365i_name" width="300" />
+          <cell name="p365i_price" width="148" />
+          <cell name="transactioncurrencyid" width="136" />
+          <cell name="p365i_salesunit" width="178" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="p365i_listitem">
+          <attribute name="p365i_listitemid" />
+          <attribute name="p365i_name" />
+          <order attribute="p365i_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="p365i_price" />
+          <attribute name="transactioncurrencyid" />
+          <attribute name="p365i_salesunit" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Product List's List Items" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

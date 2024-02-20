@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{d599a4a2-40be-4ee6-87bc-f8cad2e8f534}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="p365i_product" select="1" icon="1" preview="1">
+        <row name="result" id="p365i_opportunityproductid">
+          <cell name="p365i_product" width="300" />
+          <cell name="createdon" width="125" />
+          <cell name="p365i_opportunity" width="109" />
+          <cell name="p365i_pricelist" width="100" />
+          <cell name="p365i_totalcost" width="100" />
+          <cell name="statuscode" width="119" />
+          <cell name="p365i_existingproduct" width="134" />
+          <cell name="p365i_quantity" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="p365i_opportunityproduct">
+          <attribute name="p365i_opportunityproductid" />
+          <attribute name="p365i_product" />
+          <attribute name="createdon" />
+          <order attribute="p365i_product" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="p365i_opportunity" />
+          <attribute name="p365i_pricelist" />
+          <attribute name="p365i_totalcost" />
+          <attribute name="statuscode" />
+          <attribute name="p365i_existingproduct" />
+          <attribute name="p365i_quantity" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Opportunity Products" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

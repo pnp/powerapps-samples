@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <LocalizedNames>
+    <LocalizedName description="My Sales Dashboard" languagecode="1033" />
+  </LocalizedNames>
+  <FormId>{bc5c2150-fdc8-ee11-9079-00224841f5ce}</FormId>
+  <IsCustomizable>1</IsCustomizable>
+  <IsDefault>0</IsDefault>
+  <FormXml>
+    <forms type="dashboard">
+      <form>
+        <tabs>
+          <tab showlabel="false" verticallayout="true" id="{f4978214-b97f-4a28-88f7-d2f7a99c2495}">
+            <labels>
+              <label description="Tab" languagecode="1033" />
+            </labels>
+            <columns>
+              <column width="100%">
+                <sections>
+                  <section showlabel="false" showbar="false" columns="1111" id="{b4cffe95-ee5a-4fc6-badd-fdd70e3ab0c5}">
+                    <labels>
+                      <label description="Section" languagecode="1033" />
+                    </labels>
+                    <rows>
+                      <row>
+                        <cell id="{27366dc7-0a76-ce24-3938-42040cca70ab}" showlabel="false" colspan="2" auto="false" rowspan="24">
+                          <labels>
+                            <label description="Opportunities" languagecode="1033" />
+                          </labels>
+                          <control id="Component1115480" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{4440d5c3-d358-cc39-e0d7-cbbeccd1d1b6}">
+                            <parameters>
+                              <ViewId>{91872A1E-FEC8-EE11-9079-00224841F5CE}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName />
+                              <TargetEntityType>p365i_opportunity</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>true</EnableQuickFind>
+                              <EnableViewPicker>true</EnableViewPicker>
+                              <ViewIds />
+                              <EnableJumpBar>true</EnableJumpBar>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <VisualizationId />
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>20</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell id="{45e6248d-367d-8ba1-55dc-254e2ec76118}" showlabel="false" colspan="1" auto="false" rowspan="24">
+                          <labels>
+                            <label description="Prospects" languagecode="1033" />
+                          </labels>
+                          <control id="Component2466861" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{3d381d06-38c9-c98c-b4ed-7dc68c0580b9}">
+                            <parameters>
+                              <ViewId>{78834F71-00C9-EE11-9079-00224841F5CE}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName />
+                              <TargetEntityType>p365i_prospect</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>true</EnableQuickFind>
+                              <EnableViewPicker>true</EnableViewPicker>
+                              <ViewIds />
+                              <EnableJumpBar>true</EnableJumpBar>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <VisualizationId />
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>20</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell id="{8ca88c50-4a56-676d-2c09-9b6bb68361e0}" showlabel="true" colspan="1" availableforphone="false" auto="false" rowspan="24">
+                          <labels>
+                            <label description="Timeline" languagecode="1033" />
+                          </labels>
+                          <control id="notescontrol" classid="{06375649-c143-495e-a496-c962e5b4488e}">
+                            <parameters>
+                              <UClientUniqueName>Timeline</UClientUniqueName>
+                              <UClientModules>Activities</UClientModules>
+                              <UClientExpandFilterPane>false</UClientExpandFilterPane>
+                              <UClientShowFilterPane>true</UClientShowFilterPane>
+                              <UClientOrderBy>descending</UClientOrderBy>
+                              <UClientRecordPerPage>10</UClientRecordPerPage>
+                              <UClientActivities />
+                              <UClientSortActivitiesByValue>modifiedon</UClientSortActivitiesByValue>
+                              <UClientDisplayActivityHeaderUsing>defaultformat</UClientDisplayActivityHeaderUsing>
+                              <UClientCreateActivityUsing>quickcreateform</UClientCreateActivityUsing>
+                              <UClientDisplayActivityUsing>cardform</UClientDisplayActivityUsing>
+                              <UClientActivityCardMap>appointment:4201:,email:4202:,fax:4204:,letter:4207:,phonecall:4210:,task:4212:,msfp_alert:10440:,msfp_surveyinvite:10450:,msfp_surveyresponse:10452:,adx_inviteredemption:10246:,adx_portalcomment:10247:,chat:10099:</UClientActivityCardMap>
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                    </rows>
+                  </section>
+                </sections>
+              </column>
+            </columns>
+          </tab>
+        </tabs>
+        <controlDescriptions />
+      </form>
+    </forms>
+  </FormXml>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsTabletEnabled>0</IsTabletEnabled>
+</Dashboard>

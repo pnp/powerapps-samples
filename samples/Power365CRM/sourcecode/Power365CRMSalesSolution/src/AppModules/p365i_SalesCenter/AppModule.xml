@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppModule>
+  <UniqueName>p365i_SalesCenter</UniqueName>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <WebResourceId>953b9fac-1e5e-e611-80d6-00155ded156f</WebResourceId>
+  <OptimizedFor></OptimizedFor>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <FormFactor>1</FormFactor>
+  <ClientType>4</ClientType>
+  <NavigationType>0</NavigationType>
+  <AppModuleComponents>
+    <AppModuleComponent type="1" schemaName="account" />
+    <AppModuleComponent type="1" schemaName="activitypointer" />
+    <AppModuleComponent type="1" schemaName="contact" />
+    <AppModuleComponent type="1" schemaName="p365i_listitem" />
+    <AppModuleComponent type="1" schemaName="p365i_opportunity" />
+    <AppModuleComponent type="1" schemaName="p365i_opportunityclosure" />
+    <AppModuleComponent type="1" schemaName="p365i_opportunityproduct" />
+    <AppModuleComponent type="1" schemaName="p365i_pricelist" />
+    <AppModuleComponent type="1" schemaName="p365i_product" />
+    <AppModuleComponent type="1" schemaName="p365i_prospect" />
+    <AppModuleComponent type="1" schemaName="p365i_prospecttoopportunity" />
+    <AppModuleComponent type="1" schemaName="p365i_quote" />
+    <AppModuleComponent type="1" schemaName="p365i_quoteproduct" />
+    <AppModuleComponent type="1" schemaName="p365i_salesprocess" />
+    <AppModuleComponent type="1" schemaName="p365i_salesunit" />
+    <AppModuleComponent type="29" id="{1dbe38aa-526b-ee11-9ae7-6045bd127823}" />
+    <AppModuleComponent type="29" id="{5e0eedae-796b-ee11-9ae7-6045bd127823}" />
+    <AppModuleComponent type="60" id="{dd81c0b1-fac8-ee11-9079-00224841f5ce}" />
+    <AppModuleComponent type="60" id="{bc5c2150-fdc8-ee11-9079-00224841f5ce}" />
+    <AppModuleComponent type="60" id="{69cff312-cfb6-4289-9631-249ab85d2c62}" />
+    <AppModuleComponent type="60" id="{2205c86d-ed88-4a2f-a447-3b86a8781f2e}" />
+    <AppModuleComponent type="60" id="{098ae145-1567-41ec-8398-86dbaac70c9b}" />
+    <AppModuleComponent type="60" id="{b028db32-3619-48a5-ac51-cf3f947b0ef3}" />
+    <AppModuleComponent type="60" id="{c9e7ec2d-efca-4e4c-b3e3-f63c4bba5e4b}" />
+    <AppModuleComponent type="62" schemaName="p365i_SalesCenter" />
+  </AppModuleComponents>
+  <AppModuleRoleMaps>
+    <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
+    <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+  </AppModuleRoleMaps>
+  <LocalizedNames>
+    <LocalizedName description="Sales Center" languagecode="1033" />
+  </LocalizedNames>
+  <appelements>
+    <appelement uniquename="p365i_p365i_SalesCenter_canvasappid_p365i_closeopportunity_48e00">
+      <canvasappid>
+        <name>p365i_closeopportunity_48e00</name>
+      </canvasappid>
+      <iscustomizable>1</iscustomizable>
+      <name>p365i_p365i_SalesCenter_canvasappid_p365i_closeopportunity_48e00</name>
+    </appelement>
+    <appelement uniquename="p365i_p365i_SalesCenter_canvasappid_p365i_qualifylead_c2d72">
+      <canvasappid>
+        <name>p365i_qualifylead_c2d72</name>
+      </canvasappid>
+      <iscustomizable>1</iscustomizable>
+      <name>p365i_p365i_SalesCenter_canvasappid_p365i_qualifylead_c2d72</name>
+    </appelement>
+    <appelement uniquename="p365i_p365i_SalesCenter_canvasappid_p365i_salescenterdefaultcommandlibrary_48e14">
+      <canvasappid>
+        <name>p365i_salescenterdefaultcommandlibrary_48e14</name>
+      </canvasappid>
+      <iscustomizable>1</iscustomizable>
+      <name>p365i_p365i_SalesCenter_canvasappid_p365i_salescenterdefaultcommandlibrary_48e14</name>
+    </appelement>
+  </appelements>
+</AppModule>

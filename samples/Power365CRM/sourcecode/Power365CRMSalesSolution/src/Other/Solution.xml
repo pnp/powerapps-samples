@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImportExportXml version="9.2.24014.176" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SolutionManifest>
+    <UniqueName>Power365CRMSalesSolution</UniqueName>
+    <LocalizedNames>
+      <LocalizedName description="Power 365 CRM - Sales Solution" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions />
+    <Version>1.0.0.1</Version>
+    <Managed>2</Managed>
+    <Publisher>
+      <UniqueName>Power365Initiatives</UniqueName>
+      <LocalizedNames>
+        <LocalizedName description="Power 365 Initiatives" languagecode="1033" />
+      </LocalizedNames>
+      <Descriptions />
+      <EMailAddress>info@power365initiatives.com</EMailAddress>
+      <SupportingWebsiteUrl xsi:nil="true"></SupportingWebsiteUrl>
+      <CustomizationPrefix>p365i</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>44631</CustomizationOptionValuePrefix>
+      <Addresses>
+        <Address>
+          <AddressNumber>1</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+        <Address>
+          <AddressNumber>2</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+      </Addresses>
+    </Publisher>
+    <RootComponents>
+      <RootComponent type="1" schemaName="account" behavior="2" />
+      <RootComponent type="1" schemaName="contact" behavior="1" />
+      <RootComponent type="1" schemaName="p365i_accountplan" behavior="0" />
+      <RootComponent type="1" schemaName="p365i_actionplan" behavior="0" />
+      <RootComponent type="1" schemaName="p365i_actionplanactivitytemplate" behavior="0" />
+      <RootComponent type="1" schemaName="p365i_actionplantemplate" behavior="0" />
+      <RootComponent type="1" schemaName="p365i_listitem" behavior="0" />
+      <RootComponent type="1" schemaName="p365i_opportunity" behavior="0" />
+      <RootComponent type="1" schemaName="p365i_opportunityclosure" behavior="0" />
+      <RootComponent type="1" schemaName="p365i_opportunityproduct" behavior="0" />
+      <RootComponent type="1" schemaName="p365i_pricelist" behavior="0" />
+      <RootComponent type="1" schemaName="p365i_product" behavior="0" />
+      <RootComponent type="1" schemaName="p365i_prospect" behavior="0" />
+      <RootComponent type="1" schemaName="p365i_prospecttoopportunity" behavior="0" />
+      <RootComponent type="1" schemaName="p365i_quote" behavior="0" />
+      <RootComponent type="1" schemaName="p365i_quoteproduct" behavior="0" />
+      <RootComponent type="1" schemaName="p365i_salesprocess" behavior="0" />
+      <RootComponent type="1" schemaName="p365i_salesunit" behavior="0" />
+      <RootComponent type="29" id="{1dbe38aa-526b-ee11-9ae7-6045bd127823}" behavior="0" />
+      <RootComponent type="29" id="{333312d9-f77b-ee11-8179-00224840d636}" behavior="0" />
+      <RootComponent type="29" id="{5e0eedae-796b-ee11-9ae7-6045bd127823}" behavior="0" />
+      <RootComponent type="29" id="{832b81d0-0d7b-ee11-8179-00224840d636}" behavior="0" />
+      <RootComponent type="29" id="{8da37770-727c-ee11-8179-00224840d636}" behavior="0" />
+      <RootComponent type="29" id="{d9fffdc6-f47b-ee11-8179-00224840d636}" behavior="0" />
+      <RootComponent type="300" schemaName="p365i_closeopportunity_48e00" behavior="0" />
+      <RootComponent type="300" schemaName="p365i_qualifylead_c2d72" behavior="0" />
+      <RootComponent type="300" schemaName="p365i_salescenterdefaultcommandlibrary_48e14" behavior="0" />
+      <RootComponent type="60" id="{bc5c2150-fdc8-ee11-9079-00224841f5ce}" behavior="0" />
+      <RootComponent type="61" schemaName="p365i_opportunity.js" behavior="0" />
+      <RootComponent type="61" schemaName="p365i_opportunityIcon" behavior="0" />
+      <RootComponent type="61" schemaName="p365i_pricelistIcon" behavior="0" />
+      <RootComponent type="61" schemaName="p365i_productsIcon" behavior="0" />
+      <RootComponent type="61" schemaName="p365i_prospectIcon" behavior="0" />
+      <RootComponent type="61" schemaName="p365i_quote.js" behavior="0" />
+      <RootComponent type="61" schemaName="p365i_quoteIcon" behavior="0" />
+      <RootComponent type="61" schemaName="p365i_salesunitIcon" behavior="0" />
+      <RootComponent type="62" schemaName="p365i_SalesCenter" behavior="0" />
+      <RootComponent type="80" schemaName="p365i_SalesCenter" behavior="0" />
+      <RootComponent type="9" schemaName="p365i_prospectsource" behavior="0" />
+      <RootComponent type="9" schemaName="p365i_purchaseprocess" behavior="0" />
+      <RootComponent type="9" schemaName="p365i_purchasetimeframe" behavior="0" />
+      <RootComponent type="9" schemaName="p365i_revenuecalculaition" behavior="0" />
+      <RootComponent type="91" id="{29148888-15b3-49a9-be8f-e2dea75a0d0e}" schemaName="P365I_CRM.Sales, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e1f2f6346080b059" behavior="0" />
+      <RootComponent type="92" id="{0119cefc-eac0-ee11-9079-6045bd127823}" behavior="0" />
+      <RootComponent type="92" id="{36b95e9e-f2c1-ee11-9079-00224840d636}" behavior="0" />
+      <RootComponent type="92" id="{543893d1-18c9-ee11-9079-6045bd127823}" behavior="0" />
+      <RootComponent type="92" id="{63a76359-a8c2-ee11-9079-00224840d636}" behavior="0" />
+      <RootComponent type="92" id="{bdc21410-ebc0-ee11-9079-00224840d636}" behavior="0" />
+      <RootComponent type="92" id="{ccfb494d-15c9-ee11-9078-00224840d636}" behavior="0" />
+      <RootComponent type="92" id="{cdc73c7d-15c9-ee11-9078-00224840d636}" behavior="0" />
+    </RootComponents>
+    <MissingDependencies>
+      <MissingDependency>
+        <Required type="10" schemaName="p365i_account_PriceList_p365i_pricelist" displayName="p365i_account_PriceList_p365i_pricelist" parentSchemaName="p365i_pricelist" parentDisplayName="Price List" solution="Active" />
+        <Dependent type="60" displayName="Account - Sales form" parentDisplayName="Account" id="{dd81c0b1-fac8-ee11-9079-00224841f5ce}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="p365i_pricelist" displayName="Price List" parentSchemaName="account" parentDisplayName="Account" solution="Active" />
+        <Dependent type="60" displayName="Account - Sales form" parentDisplayName="Account" id="{dd81c0b1-fac8-ee11-9079-00224841f5ce}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="60" displayName="Account Reference Panel" parentDisplayName="Account" solution="msdynce_AppCommon (9.0.4.0066)" id="{098ae145-1567-41ec-8398-86dbaac70c9b}">
+          <package>msdynce_AppCommonAnchor (9.0.23123.10002)</package>
+        </Required>
+        <Dependent type="80" schemaName="p365i_SalesCenter" displayName="Sales Center" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="60" displayName="Social Profiles" parentDisplayName="Account" solution="msdynce_AppCommon (9.0.4.0066)" id="{2205c86d-ed88-4a2f-a447-3b86a8781f2e}">
+          <package>msdynce_AppCommonAnchor (9.0.23123.10002)</package>
+        </Required>
+        <Dependent type="80" schemaName="p365i_SalesCenter" displayName="Sales Center" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="60" displayName="account contact card" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{29de27bc-a257-4f29-99cf-bab4a84e688f}">
+          <package>msdynce_AppCommonAnchor (9.0.23123.10002)</package>
+        </Required>
+        <Dependent type="60" displayName="Account - Sales form" parentDisplayName="Account" id="{dd81c0b1-fac8-ee11-9079-00224841f5ce}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="60" displayName="Account Hierarchy Tile Form" parentDisplayName="Account" solution="msdynce_AppCommon (9.0.4.0066)" id="{69cff312-cfb6-4289-9631-249ab85d2c62}">
+          <package>msdynce_AppCommonAnchor (9.0.23123.10002)</package>
+        </Required>
+        <Dependent type="80" schemaName="p365i_SalesCenter" displayName="Sales Center" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="60" displayName="account card" parentDisplayName="Account" solution="msdynce_AppCommon (9.0.4.0066)" id="{b028db32-3619-48a5-ac51-cf3f947b0ef3}">
+          <package>msdynce_AppCommonAnchor (9.0.23123.10002)</package>
+        </Required>
+        <Dependent type="80" schemaName="p365i_SalesCenter" displayName="Sales Center" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="60" displayName="Account Quick Create" parentDisplayName="Account" solution="msdynce_AppCommon (9.0.4.0066)" id="{c9e7ec2d-efca-4e4c-b3e3-f63c4bba5e4b}">
+          <package>msdynce_AppCommonAnchor (9.0.23123.10002)</package>
+        </Required>
+        <Dependent type="80" schemaName="p365i_SalesCenter" displayName="Sales Center" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="msdyn_/Images/AppModule_Default_Icon.png" displayName="msdyn_/Images/AppModule_Default_Icon.png" solution="AppModuleWebResources (2.5)" />
+        <Dependent type="80" schemaName="p365i_SalesCenter" displayName="Sales Center" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="p365i_helpers.js" displayName="p365i_helpers.js" solution="Active" />
+        <Dependent type="61" schemaName="p365i_opportunity.js" displayName="p365i_opportunity.js" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="p365i_helpers.js" displayName="p365i_helpers.js" solution="Active" />
+        <Dependent type="61" schemaName="p365i_quote.js" displayName="p365i_quote.js" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="p365i_ribbon.js" displayName="p365i_ribbon.js" solution="Active" />
+        <Dependent type="appaction" displayName="p365i__AddQuote!3faee7a937754537b14ae7845945e029!p365i_SalesCenter!p365i_opportunity!0" id.uniquename="p365i__AddQuote!3faee7a937754537b14ae7845945e029!p365i_SalesCenter!p365i_opportunity!0" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="p365i_ribbon.js" displayName="p365i_ribbon.js" solution="Active" />
+        <Dependent type="appaction" displayName="p365i__DisqualifyProspec!ac1db836bb10401494303a0d1dbd8400!p365i_SalesCenter!p365i_prospect!0" id.uniquename="p365i__DisqualifyProspec!ac1db836bb10401494303a0d1dbd8400!p365i_SalesCenter!p365i_prospect!0" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="p365i_ribbon.js" displayName="p365i_ribbon.js" solution="Active" />
+        <Dependent type="appaction" displayName="p365i__Lose!f8783452a53a4107a5a665bf17e07a3b!p365i_SalesCenter!p365i_opportunity!0" id.uniquename="p365i__Lose!f8783452a53a4107a5a665bf17e07a3b!p365i_SalesCenter!p365i_opportunity!0" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="p365i_ribbon.js" displayName="p365i_ribbon.js" solution="Active" />
+        <Dependent type="appaction" displayName="p365i__QualifyProspect!5810dd08643a4e5a9e8bebeb0ffdf913!p365i_SalesCenter!p365i_prospect!0" id.uniquename="p365i__QualifyProspect!5810dd08643a4e5a9e8bebeb0ffdf913!p365i_SalesCenter!p365i_prospect!0" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="p365i_ribbon.js" displayName="p365i_ribbon.js" solution="Active" />
+        <Dependent type="appaction" displayName="p365i__Win!c4ee234944e546a4bceb4c90990c8ad8!p365i_SalesCenter!p365i_opportunity!0" id.uniquename="p365i__Win!c4ee234944e546a4bceb4c90990c8ad8!p365i_SalesCenter!p365i_opportunity!0" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="MscrmControls.CardFeedContainer.CardFeedContainer" displayName="MscrmControls.CardFeedContainer.CardFeedContainer" solution="BaseCustomControlsCore (9.0.2401.4019)" />
+        <Dependent type="60" displayName="Account - Sales form" parentDisplayName="Account" id="{dd81c0b1-fac8-ee11-9079-00224841f5ce}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2401.4019)" />
+        <Dependent type="60" displayName="Quote Line Item" parentDisplayName="Quote Product" id="{c8532c46-4233-4f57-9990-eb767c611223}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="9" schemaName="p365i_producttype" displayName="Product type" solution="Active" />
+        <Dependent type="2" schemaName="p365i_type" displayName="Type" parentSchemaName="p365i_product" parentDisplayName="Product" />
+      </MissingDependency>
+    </MissingDependencies>
+  </SolutionManifest>
+</ImportExportXml>

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{5e0eedae-796b-ee11-9ae7-6045bd127823}" Name="Sales Process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/SalesProcess-5E0EEDAE-796B-EE11-9AE7-6045BD127823.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>4</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>1</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <processorder>100</processorder>
+  <RunAs>1</RunAs>
+  <UniqueName>p365i_salesprocess</UniqueName>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <ProcessTriggerScope>1</ProcessTriggerScope>
+  <PrimaryEntity>p365i_Opportunity</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Sales Process" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{f8b7958f-c670-4e34-9e75-ecd973ae9de8}">
+      <label languagecode="1033" description="Qualify" />
+    </steplabels>
+    <steplabels id="{065f376a-e14b-42aa-b4f6-c6ce19331d31}">
+      <label languagecode="1033" description="Identify contact" />
+    </steplabels>
+    <steplabels id="{80a4d863-d40f-421b-99ac-10f2c1f0c442}">
+      <label languagecode="1033" description="Identify account" />
+    </steplabels>
+    <steplabels id="{8b2015cd-f40f-4fe6-a24c-9e92c7a6176a}">
+      <label languagecode="1033" description="Purchase Timeframe" />
+    </steplabels>
+    <steplabels id="{d89e519a-ce0a-4ece-b825-0d706726023f}">
+      <label languagecode="1033" description="Estimated Budget" />
+    </steplabels>
+    <steplabels id="{f20385cb-4791-46b0-a3e4-ee411e95c862}">
+      <label languagecode="1033" description="Purchase Process" />
+    </steplabels>
+    <steplabels id="{d1860c65-0c08-4255-96e3-6e4c1e50966f}">
+      <label languagecode="1033" description="Identify Decision Maker" />
+    </steplabels>
+    <steplabels id="{a16d4311-9d3b-49d0-ae1d-a5c71dced0ab}">
+      <label languagecode="1033" description="Capture summary" />
+    </steplabels>
+    <steplabels id="{2da31082-9d49-4938-86a4-8a05d7c34abb}">
+      <label languagecode="1033" description="Develop" />
+    </steplabels>
+    <steplabels id="{878ba4ff-5337-4ae1-856e-f2b7ab197832}">
+      <label languagecode="1033" description="Customer Need" />
+    </steplabels>
+    <steplabels id="{4694e820-9532-44ea-b996-1893e34a8d73}">
+      <label languagecode="1033" description="Proposed Solution" />
+    </steplabels>
+    <steplabels id="{c8af6fa7-5741-4def-b1b3-64a458dcbeab}">
+      <label languagecode="1033" description="Propose" />
+    </steplabels>
+    <steplabels id="{2d85ec67-2f1f-4606-82c0-5159ffc285e7}">
+      <label languagecode="1033" description="Develop Proposal" />
+    </steplabels>
+    <steplabels id="{750ff5ba-24e4-4ee8-890d-60428288fea4}">
+      <label languagecode="1033" description="Complete Internal Review" />
+    </steplabels>
+    <steplabels id="{3f76cd37-c7af-4cf9-979e-9768768b854f}">
+      <label languagecode="1033" description="Present Proposal" />
+    </steplabels>
+    <steplabels id="{1705058d-3cf8-4bec-83dc-f3fbdd7c3c3b}">
+      <label languagecode="1033" description="Close" />
+    </steplabels>
+    <steplabels id="{18153553-d7a2-4102-86a7-985703b3c2e8}">
+      <label languagecode="1033" description="Complete Final Proposal" />
+    </steplabels>
+    <steplabels id="{8ff00aa7-3072-407a-8eba-b3f4ee244548}">
+      <label languagecode="1033" description="Present Final Proposal" />
+    </steplabels>
+    <steplabels id="{45ba6e1f-bbdd-4550-80ba-a7e29aafaa79}">
+      <label languagecode="1033" description="Confirm Decision Date" />
+    </steplabels>
+  </labels>
+</Workflow>

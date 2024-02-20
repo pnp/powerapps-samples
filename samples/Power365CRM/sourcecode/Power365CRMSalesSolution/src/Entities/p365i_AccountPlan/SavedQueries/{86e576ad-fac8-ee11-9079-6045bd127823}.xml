@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{86e576ad-fac8-ee11-9079-6045bd127823}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="p365i_name" select="1" icon="1" preview="1">
+        <row name="result" id="p365i_accountplanid">
+          <cell name="p365i_name" width="300" />
+          <cell name="ownerid" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="p365i_accountplan">
+          <attribute name="p365i_name" />
+          <attribute name="p365i_accountplanid" />
+          <attribute name="ownerid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Account Plans" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

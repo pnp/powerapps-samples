@@ -1,0 +1,37 @@
+<appaction uniquename="p365i__Lose!f8783452a53a4107a5a665bf17e07a3b!p365i_SalesCenter!p365i_opportunity!0">
+  <appmoduleid>
+    <uniquename>p365i_SalesCenter</uniquename>
+  </appmoduleid>
+  <buttonlabeltext default="Lost">
+    <label description="Lost" languagecode="1033" />
+  </buttonlabeltext>
+  <context>1</context>
+  <contextentity>
+    <logicalname>p365i_opportunity</logicalname>
+  </contextentity>
+  <contextvalue>p365i_opportunity</contextvalue>
+  <fonticon>$clientsvg:Blocked</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>Lose!f8783452a53a4107a5a665bf17e07a3b</name>
+  <onclickeventjavascriptfunctionname>P365I_CRM.Ribbon.Opportunity.CloseOpportunity</onclickeventjavascriptfunctionname>
+  <onclickeventjavascriptparameters>[{"type":5},{"type":21,"value":"p365i_closeopportunity_48e00"},{"type":21,"value":"lose"}]</onclickeventjavascriptparameters>
+  <onclickeventjavascriptwebresourceid>
+    <webresourceid>18f5c7ba-cf7b-ee11-8179-00224841f5ce</webresourceid>
+  </onclickeventjavascriptwebresourceid>
+  <onclickeventtype>2</onclickeventtype>
+  <origin>0</origin>
+  <sequence>100100049.8125000000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>p365i_salescenterdefaultcommandlibrary_48e14</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>61990b8df9bc43aebe4a8c8ca5cf20e5</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>
