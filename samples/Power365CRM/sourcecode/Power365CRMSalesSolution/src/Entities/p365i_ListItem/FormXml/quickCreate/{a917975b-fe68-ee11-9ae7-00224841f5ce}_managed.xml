@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{a917975b-fe68-ee11-9ae7-00224841f5ce}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab id="F931FFE2-B873-473F-8F95-9502F0AA3F5E" name="tab_1" showlabel="false" labelid="{0124d49d-f211-4862-a2ef-6fd48e42d8ea}">
+          <labels>
+            <label description="New Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="34%">
+              <sections>
+                <section id="0C655D4E-C6E3-424E-9AF5-71E72D30D12E" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{116813e3-9f35-42ca-94ad-84cfe9866071}">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{12bfd982-e732-4049-b299-d464365b2cff}" locklevel="0" colspan="1" rowspan="1" labelid="{85315f0c-8762-444b-be84-f4445ee700a6}">
+                        <labels>
+                          <label description="Price List" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_pricelist" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="p365i_pricelist" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ff20f738-d135-4d88-a219-5d820e51fced}" locklevel="0" colspan="1" rowspan="1" labelid="{955206d8-c2e8-4426-8569-0276f34c014d}">
+                        <labels>
+                          <label description="Product" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_product" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="p365i_product" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="02DECBA0-3AE2-484D-A19F-C5353AF4F4F2" name="tab_1_column_2_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{78969b23-9151-453f-9b42-40c07eec8ac6}">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{46d04f75-0113-4d04-9891-48bfeeecaaba}" locklevel="0" colspan="1" rowspan="1" labelid="{0a6785ce-8c4f-477b-9aff-86347ca9b907}">
+                        <labels>
+                          <label description="Currency" languagecode="1033" />
+                        </labels>
+                        <control id="transactioncurrencyid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="transactioncurrencyid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6a231b46-694d-48ed-abfb-297f729c4bee}" locklevel="0" colspan="1" rowspan="1" labelid="{c4d71b77-29a0-4785-9094-8e55147e9806}">
+                        <labels>
+                          <label description="Price" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_price" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="p365i_price" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ced62b1e-80f5-42bf-bc9d-4e7407e0b831}" locklevel="0" colspan="1" rowspan="1" labelid="{b6383d5e-a50b-4342-8a2e-828107da40d7}">
+                        <labels>
+                          <label description="Sales Unit" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_salesunit" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="p365i_salesunit" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="46FD66EA-B686-41D9-AAE0-C565BD78EC1F" name="tab_1_column_3_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{f4f15fcc-b5b0-468a-a9df-4f8f0d1b868d}">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="07C04A4E-A482-45CC-BAB7-7FCA3CD02938" labelid="{9972a778-5e79-470e-9151-8ffb9d36660d}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="List Item quick create form" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

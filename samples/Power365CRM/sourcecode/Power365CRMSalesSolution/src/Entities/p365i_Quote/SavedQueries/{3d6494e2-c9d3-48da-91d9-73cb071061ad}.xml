@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{3d6494e2-c9d3-48da-91d9-73cb071061ad}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="p365i_topic" select="1" icon="1" preview="1">
+        <row name="result" id="p365i_quoteid">
+          <cell name="p365i_topic" width="300" />
+          <cell name="p365i_account" width="100" />
+          <cell name="p365i_contact" width="100" />
+          <cell name="p365i_totalamount" width="118" />
+          <cell name="statuscode" width="119" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="p365i_quote">
+          <attribute name="p365i_quoteid" />
+          <attribute name="p365i_topic" />
+          <order attribute="p365i_topic" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="p365i_account" />
+          <attribute name="p365i_contact" />
+          <attribute name="p365i_totalamount" />
+          <attribute name="statuscode" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Quotes" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

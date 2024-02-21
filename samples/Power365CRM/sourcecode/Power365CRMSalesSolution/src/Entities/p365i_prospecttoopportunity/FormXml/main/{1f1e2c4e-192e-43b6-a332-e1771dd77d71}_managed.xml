@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{1f1e2c4e-192e-43b6-a332-e1771dd77d71}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{eb423c02-4f3f-47a0-9590-1ee0070a6f97}" name="StageStep3" locklevel="0" expanded="true" visible="false" labelid="{199f112e-e9cc-4c60-97d7-a1797d2d49cd}">
+          <labels>
+            <label description="Qualify" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{f8d63376-0df9-eb35-9f36-b29f1484d15e}" name="StageStep3_section1" labelid="{d38eb0de-4e99-4c88-8f92-ca0892f4bde1}">
+                  <labels>
+                    <label description="Qualify" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{599d710f-114d-4fae-92ef-0cd8d7576ce0}" showlabel="true" visible="true" labelid="{edf0b57a-2321-4587-b464-486f333f57e0}">
+                        <labels>
+                          <label description="Existing Contact?" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_p365i_prospect_p365i_prospecttoopportunity:p365i_parentcontactfid" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="p365i_parentcontactfid" disabled="false" relationship="bpf_p365i_prospect_p365i_prospecttoopportunity" isrequired="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f90b0a02-f4b2-4ea6-a4b0-eb6fc35f5912}" showlabel="true" visible="true" labelid="{0d21aeea-0cfd-41de-8f7f-d184ac5517b9}">
+                        <labels>
+                          <label description="Existing Account?" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_p365i_prospect_p365i_prospecttoopportunity:p365i_parentaccountid" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="p365i_parentaccountid" disabled="false" relationship="bpf_p365i_prospect_p365i_prospecttoopportunity" isrequired="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2d7c451e-c825-4690-9e2e-a9f4bfd4919f}" showlabel="true" visible="true" labelid="{cb78e418-1610-4d4f-9f8e-eeb19262878d}">
+                        <labels>
+                          <label description="Purchase Timeframe" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_p365i_prospect_p365i_prospecttoopportunity:p365i_purchasetimeframe" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="p365i_purchasetimeframe" disabled="false" relationship="bpf_p365i_prospect_p365i_prospecttoopportunity" isrequired="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{687a4ad2-a214-46c1-ad32-d3e867786c94}" showlabel="true" visible="true" labelid="{001cf601-7c3b-4696-acae-9d8ca5211fac}">
+                        <labels>
+                          <label description="Estimated Budget" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_p365i_prospect_p365i_prospecttoopportunity:p365i_budgetamount" classid="{533b9e00-756b-4312-95a0-dc888637ac78}" datafieldname="p365i_budgetamount" disabled="false" relationship="bpf_p365i_prospect_p365i_prospecttoopportunity" isrequired="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{188a7d81-2caf-4126-a706-aea1863ebe00}" showlabel="true" visible="true" labelid="{2302d3d9-8e1a-4255-a99c-9f4ea0949685}">
+                        <labels>
+                          <label description="Purchase Process" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_p365i_prospect_p365i_prospecttoopportunity:p365i_purchaseprocess" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="p365i_purchaseprocess" disabled="false" relationship="bpf_p365i_prospect_p365i_prospecttoopportunity" isrequired="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2947c263-47bf-458e-aff4-444957e319b0}" showlabel="true" visible="true" labelid="{888f3fe1-8208-4b67-a288-aa31299a1461}">
+                        <labels>
+                          <label description="Identify Decision Maker" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_p365i_prospect_p365i_prospecttoopportunity:p365i_decisionmaker" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="p365i_decisionmaker" disabled="false" relationship="bpf_p365i_prospect_p365i_prospecttoopportunity" isrequired="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{49028f58-2643-4c6f-8f58-40559089e92b}" showlabel="true" visible="true" labelid="{632c80ca-cdf2-4511-8f44-192a9d5de53f}">
+                        <labels>
+                          <label description="Capture Summary" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_p365i_prospect_p365i_prospecttoopportunity:p365i_description" classid="{4273edbd-ac1d-40d3-9fb2-095c621b552d}" datafieldname="p365i_description" disabled="false" relationship="bpf_p365i_prospect_p365i_prospecttoopportunity" isrequired="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{6bd2ca1a-17bd-4e51-88ca-3572f39f22e3}" name="StageStep19" locklevel="0" expanded="true" visible="false" labelid="{42acacd9-66a6-497b-b53e-f264d8b82f61}">
+          <labels>
+            <label description="Develop" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{05679e11-9ab3-4dad-2534-b2c7a5601874}" name="StageStep19_section1" labelid="{ef5c44ea-b813-44a6-91e1-5def3d7b4340}">
+                  <labels>
+                    <label description="Develop" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{12e25d18-a209-48b0-83b2-5e9c837d75e2}" showlabel="true" visible="true" labelid="{b6773128-2c7b-43e3-9b2f-8820aa1c61d5}">
+                        <labels>
+                          <label description="Customer Need" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_p365i_opportunity_p365i_prospecttoopportunity:p365i_customerneed" classid="{4273edbd-ac1d-40d3-9fb2-095c621b552d}" datafieldname="p365i_customerneed" disabled="false" relationship="bpf_p365i_opportunity_p365i_prospecttoopportunity" isrequired="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{de93b36f-e4d9-474c-a0d9-dcac0452e2a7}" showlabel="true" visible="true" labelid="{171c6ba2-9765-453b-ae99-c8ff16b5b67b}">
+                        <labels>
+                          <label description="Proposed Solution" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_p365i_opportunity_p365i_prospecttoopportunity:p365i_proposedsolution" classid="{4273edbd-ac1d-40d3-9fb2-095c621b552d}" datafieldname="p365i_proposedsolution" disabled="false" relationship="bpf_p365i_opportunity_p365i_prospecttoopportunity" isrequired="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{a81b0926-fa73-4f6a-806b-dda555fe44f2}" name="StageStep25" locklevel="0" expanded="true" visible="false" labelid="{4fb7d450-cd3b-4043-85e9-d918a7f5ff39}">
+          <labels>
+            <label description="Propose" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{dfd6b5b3-7304-e3d8-1a9e-9a77bc0799af}" name="StageStep25_section1" labelid="{e18892bb-93c0-4601-b671-ab9384ecd3a2}">
+                  <labels>
+                    <label description="Propose" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{82b628bf-ffb4-4cb3-b1e7-f889751d384c}" showlabel="true" visible="true" labelid="{8d55832c-d600-410a-8349-6f0d8afde3de}">
+                        <labels>
+                          <label description="Develop Proposal" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_p365i_opportunity_p365i_prospecttoopportunity:p365i_developproposal" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="p365i_developproposal" disabled="false" relationship="bpf_p365i_opportunity_p365i_prospecttoopportunity" isrequired="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{83a576a8-af2b-4b4a-843c-19addc068f19}" showlabel="true" visible="true" labelid="{a537522f-60a6-4960-ade4-3cac51c65ac4}">
+                        <labels>
+                          <label description="Complete Internal Review" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_p365i_opportunity_p365i_prospecttoopportunity:p365i_completeinternalreview" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="p365i_completeinternalreview" disabled="false" relationship="bpf_p365i_opportunity_p365i_prospecttoopportunity" isrequired="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8c87c9d9-fdf9-4424-813c-04130cda12d6}" showlabel="true" visible="true" labelid="{df55e20e-68fb-4a96-b29e-2479c9a6e9a2}">
+                        <labels>
+                          <label description="Present Proposal" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_p365i_opportunity_p365i_prospecttoopportunity:p365i_presentproposal" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="p365i_presentproposal" disabled="false" relationship="bpf_p365i_opportunity_p365i_prospecttoopportunity" isrequired="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{d8095839-27e5-45ed-928b-698df22f3b3f}" name="StageStep33" locklevel="0" expanded="true" visible="false" labelid="{872f0746-8359-4ee5-9796-692e4941555a}">
+          <labels>
+            <label description="Close" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{02428a3a-502a-796d-26e1-0b115eb813fc}" name="StageStep33_section1" labelid="{054adb59-48cd-47e9-86fc-59e09678ae9d}">
+                  <labels>
+                    <label description="Close" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{a0241ddb-64ef-45cd-bba5-bb6c13eff1d5}" showlabel="true" visible="true" labelid="{5797113b-9e42-4973-be55-b22a9f5a2a38}">
+                        <labels>
+                          <label description="Complete Final Proposal" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_p365i_opportunity_p365i_prospecttoopportunity:p365i_completefinalproposal" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="p365i_completefinalproposal" disabled="false" relationship="bpf_p365i_opportunity_p365i_prospecttoopportunity" isrequired="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{fb734acf-9c97-40ac-90de-60f52c620deb}" showlabel="true" visible="true" labelid="{b1dfc94b-d99a-4b6c-a862-9993ef75e59b}">
+                        <labels>
+                          <label description="Present Final Proposal" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_p365i_opportunity_p365i_prospecttoopportunity:p365i_presentfinalproposal" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="p365i_presentfinalproposal" disabled="false" relationship="bpf_p365i_opportunity_p365i_prospecttoopportunity" isrequired="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a61cd8b8-e18b-4a47-ae1c-f547fe5a95f5}" showlabel="true" visible="true" labelid="{f4c1adf3-e4f3-4b56-abcd-9cb17c63d65d}">
+                        <labels>
+                          <label description="Confirm Decision Date" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_p365i_opportunity_p365i_prospecttoopportunity:p365i_finaldecisiondate" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="p365i_finaldecisiondate" disabled="false" relationship="bpf_p365i_opportunity_p365i_prospecttoopportunity" isrequired="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

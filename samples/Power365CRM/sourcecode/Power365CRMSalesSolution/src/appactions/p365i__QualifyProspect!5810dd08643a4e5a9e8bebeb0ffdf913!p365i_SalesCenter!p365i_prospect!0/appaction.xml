@@ -1,0 +1,37 @@
+<appaction uniquename="p365i__QualifyProspect!5810dd08643a4e5a9e8bebeb0ffdf913!p365i_SalesCenter!p365i_prospect!0">
+  <appmoduleid>
+    <uniquename>p365i_SalesCenter</uniquename>
+  </appmoduleid>
+  <buttonlabeltext default="Qualify">
+    <label description="Qualify" languagecode="1033" />
+  </buttonlabeltext>
+  <context>1</context>
+  <contextentity>
+    <logicalname>p365i_prospect</logicalname>
+  </contextentity>
+  <contextvalue>p365i_prospect</contextvalue>
+  <fonticon>$clientsvg:Accept</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>QualifyProspect!5810dd08643a4e5a9e8bebeb0ffdf913</name>
+  <onclickeventjavascriptfunctionname>P365I_CRM.Ribbon.Prospect.Qualify</onclickeventjavascriptfunctionname>
+  <onclickeventjavascriptparameters>[{"type":5},{"type":21,"value":"p365i_qualifylead_c2d72"}]</onclickeventjavascriptparameters>
+  <onclickeventjavascriptwebresourceid>
+    <webresourceid>18f5c7ba-cf7b-ee11-8179-00224841f5ce</webresourceid>
+  </onclickeventjavascriptwebresourceid>
+  <onclickeventtype>2</onclickeventtype>
+  <origin>0</origin>
+  <sequence>100100048.5000000000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>p365i_salescenterdefaultcommandlibrary_48e14</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>d189c1aa3b1e4101a6d21625b8c450e7</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{573d02b8-950c-44ef-8522-0eae14621f2a}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="p365i_topic" select="1" icon="1" preview="1">
+        <row name="result" id="p365i_opportunityid">
+          <cell name="p365i_topic" width="300" />
+          <cell name="createdon" width="125" />
+          <cell name="p365i_parentaccountid" width="100" />
+          <cell name="p365i_parentcontactid" width="100" />
+          <cell name="p365i_estclosedate" width="127" />
+          <cell name="p365i_totalamount" width="118" />
+          <cell name="statuscode" width="119" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="p365i_opportunity">
+          <attribute name="p365i_opportunityid" />
+          <attribute name="p365i_topic" />
+          <attribute name="createdon" />
+          <order attribute="p365i_topic" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="p365i_parentaccountid" />
+          <attribute name="p365i_parentcontactid" />
+          <attribute name="p365i_estclosedate" />
+          <attribute name="p365i_totalamount" />
+          <attribute name="statuscode" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Opportunities" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>
