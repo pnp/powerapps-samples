@@ -1,0 +1,258 @@
+DetailScreen1 As screen:
+
+    Navbar2 As rectangle:
+        Height: =92
+        Width: =1366
+        ZIndex: =1
+
+    IconBack2 As icon.BackArrow:
+        AccessibleLabel: =Self.Tooltip
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Navigate(BrowseScreen1, ScreenTransition.None)
+        TabIndex: =0
+        Tooltip: ="Back to list"
+        X: =30
+        Y: =14
+        ZIndex: =2
+
+    AppLabel2 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =92
+        PaddingBottom: =10
+        PaddingLeft: =10
+        PaddingRight: =10
+        PaddingTop: =10
+        Size: =40
+        Text: ="Analyze Emails Details"
+        Width: =604
+        X: =110
+        ZIndex: =3
+
+    IconReset2 As icon.Reset:
+        AccessibleLabel: =Self.Tooltip
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Reset
+        OnSelect: =Set(RefreshOutlook,true);
+        TabIndex: =0
+        Tooltip: ="Reset List"
+        X: =1175
+        Y: =14
+        ZIndex: =4
+
+    IconRefresh2 As icon.Reload:
+        AccessibleLabel: =Self.Tooltip
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Reload
+        OnSelect: =Set(RefreshOutlook,false);
+        TabIndex: =0
+        Tooltip: ="Refresh List"
+        X: =1273
+        Y: =14
+        ZIndex: =5
+
+    FormViewer1 As formViewer:
+        DataSource: |-
+            =Office365Outlook.GetEmails(
+                {
+                    folderPath: "Feedback",
+                    fetchOnlyUnread: true
+                }
+            )
+        Height: =551
+        Item: =VerticalGallery1.Selected
+        Width: =1366
+        Y: =90
+        ZIndex: =6
+
+        From_DataCard1 As typedDataCard.blankCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: =ThisItem.From
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="From"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =140
+            Width: =450
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey1 As label:
+                Font: =Font.'Segoe UI'
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =225
+                X: =20
+                Y: =15
+                ZIndex: =1
+
+            DataCardValue1 As label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.View
+                Font: =Font.'Segoe UI'
+                Height: =44
+                Size: =18
+                Text: =Parent.DataField
+                VerticalAlign: =VerticalAlign.Top
+                Width: =418
+                X: =20
+                Y: =64
+                ZIndex: =2
+
+        To_DataCard1 As typedDataCard.blankCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: =ThisItem.To
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="To"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =150
+            Width: =455
+            X: =1
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey1_1 As label:
+                Font: =Font.'Segoe UI'
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =225
+                X: =20
+                Y: =15
+                ZIndex: =1
+
+            DataCardValue1_1 As label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.View
+                Font: =Font.'Segoe UI'
+                Height: =44
+                Size: =18
+                Text: =Parent.DataField
+                VerticalAlign: =VerticalAlign.Top
+                Width: =418
+                X: =20
+                Y: =63
+                ZIndex: =2
+
+        Subject_DataCard1 As typedDataCard.blankCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: =ThisItem.Subject
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="Subject"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =150
+            Width: =455
+            X: =2
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey1_2 As label:
+                Font: =Font.'Segoe UI'
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =225
+                X: =20
+                Y: =15
+                ZIndex: =1
+
+            DataCardValue1_2 As label:
+                DisplayMode: =DisplayMode.View
+                Font: =Font.'Segoe UI'
+                Height: =42
+                Size: =18
+                Text: =Parent.DataField
+                VerticalAlign: =VerticalAlign.Top
+                Width: =420
+                X: =20
+                Y: =63
+                ZIndex: =2
+
+        Message_DataCard3 As typedDataCard.blankCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: =ThisItem.BodyPreview
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="Message "
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =320
+            Width: =1365
+            X: =0
+            Y: =1
+            ZIndex: =1
+
+            DataCardKey1_3 As label:
+                Font: =Font.'Segoe UI'
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =225
+                X: =20
+                Y: =20
+                ZIndex: =1
+
+            DataCardValue1_3 As label:
+                DisplayMode: =DisplayMode.View
+                Font: =Font.'Segoe UI'
+                Height: =220
+                Overflow: =Overflow.Scroll
+                Size: =18
+                Text: =Parent.DataField
+                VerticalAlign: =VerticalAlign.Top
+                Width: =1290
+                X: =20
+                Y: =68
+                ZIndex: =2
+
+        Sentiment_DataCard4 As typedDataCard.blankCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: =SentimentLabel.Text
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="Sentiment Analysis"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =80
+            Width: =600
+            X: =0
+            Y: =2
+            ZIndex: =1
+
+            DataCardValue1_4 As label:
+                DisplayMode: =DisplayMode.View
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Bold
+                Height: =80
+                Size: =18
+                Text: =Parent.DataField
+                Width: =562
+                X: =20
+                ZIndex: =1
+
+    Dismiss_Button1 As button:
+        Font: =Font.'Segoe UI'
+        Height: =56
+        OnSelect: |-
+            =Office365Outlook.MarkAsReadV3(VerticalGallery1.Selected.Id, true);
+            Set(RefreshOutlook, true);
+            Navigate(BrowseScreen1, ScreenTransition.None);
+        Size: =20
+        Text: ="Dismiss"
+        Tooltip: ="Mark Email as Read"
+        Width: =203
+        X: =856
+        Y: =651
+        ZIndex: =7
+
+    Respond_Button1 As button:
+        Font: =Font.'Segoe UI'
+        Height: =58
+        OnSelect: =Navigate(RespondScreen1, ScreenTransition.None)
+        Size: =20
+        Text: ="Respond"
+        Tooltip: ="Reply to Email"
+        Width: =203
+        X: =1134
+        Y: =649
+        ZIndex: =8
+
