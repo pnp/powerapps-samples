@@ -1,6 +1,9 @@
 # Power Apps Samples
 
-This repository contains community samples that demonstrate different usage patterns for Power Apps. We are in the process of moving the samples over to a generic [Power Platform Samples repository](https://github.com/pnp/powerplatform-samples).
+> [!IMPORTANT]  
+> We are currently in the process to move all the samples from product-specific repositories like this repository to one repository for all Power Platform Samples. Please create Pull Requests (PRs) in that [repository](https://github.com/pnp/powerplatform-samples)
+
+This repository contains community samples that demonstrate different usage patterns for Power Apps. 
 
 > We welcome community contributions to the `samples` folder in this repository for demonstrating different use cases with Power Apps.
 
