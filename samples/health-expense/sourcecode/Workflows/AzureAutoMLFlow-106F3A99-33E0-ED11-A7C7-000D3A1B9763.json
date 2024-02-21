@@ -1,0 +1,137 @@
+{
+  "properties": {
+    "connectionReferences": {},
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "d4bb3c0e-c1e3-4ab8-ac9d-f6f036b942e2"
+          },
+          "type": "Request",
+          "kind": "PowerApp",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "HTTP_Body": {
+                  "type": "any",
+                  "description": "Enter request content. This parameter is used as part of \"8FABA49D-0947-47F5-B5AB-3E945248209A\"",
+                  "x-ms-powerflows-param-ispartial": true
+                },
+                "HTTP_Body_1": {
+                  "type": "any"
+                },
+                "HTTP_Body_2": {
+                  "type": "any"
+                },
+                "HTTP_Body_3": {
+                  "type": "any"
+                },
+                "HTTP_Body_4": {
+                  "type": "any"
+                }
+              },
+              "required": [
+                "HTTP_Body",
+                "HTTP_Body_1",
+                "HTTP_Body_2",
+                "HTTP_Body_3",
+                "HTTP_Body_4"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "HTTP": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "c1372776-17ca-4cf0-a95c-8e2588a9c38f"
+          },
+          "type": "Http",
+          "inputs": {
+            "method": "POST",
+            "uri": "http://751a428a-307a-4f15-aec6-f58dba0e598a.centralindia.azurecontainer.io/score",
+            "body": {
+              "Inputs": {
+                "data": [
+                  {
+                    "age": "@triggerBody()['HTTP_Body']",
+                    "sex": "@triggerBody()['HTTP_Body_1']",
+                    "bmi": "@triggerBody()['HTTP_Body_2']",
+                    "children": "@triggerBody()['HTTP_Body_3']",
+                    "smoker": "@triggerBody()['HTTP_Body_4']"
+                  }
+                ]
+              },
+              "GlobalParameters": 0
+            }
+          }
+        },
+        "Parse_JSON": {
+          "runAfter": {
+            "HTTP": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "9ce04c84-3aba-4339-9426-b5a91e82143f"
+          },
+          "type": "ParseJson",
+          "inputs": {
+            "content": "@body('HTTP')",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Results": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "Respond_to_a_PowerApp_or_flow": {
+          "runAfter": {
+            "Parse_JSON": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "fca93ec2-27ed-470a-ad79-a0a78a765436"
+          },
+          "type": "Response",
+          "kind": "PowerApp",
+          "inputs": {
+            "statusCode": 200,
+            "body": {
+              "response": "@{body('Parse_JSON')?['Results']}"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "response": {
+                  "title": "Response",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}
