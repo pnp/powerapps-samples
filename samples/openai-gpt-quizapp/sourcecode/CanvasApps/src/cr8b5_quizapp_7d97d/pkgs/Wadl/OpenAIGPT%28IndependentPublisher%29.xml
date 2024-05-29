@@ -1,0 +1,360 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://uk-001.azure-apim.net/apim/openaigpt4ip" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="OpenAIGPT(IndependentPublisher)" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="OpenAI GPT (Independent Publisher)">OpenAI is an artificial intelligence research laboratory. The company conducts research in the field of AI with the stated goal of promoting and developing friendly AI in a way that benefits humanity as a whole. Through this connector you can access the Generative Pre-trained Transformer 4 (GPT-4), an autoregressive language model that uses deep learning to produce human-like text, plus many other models.</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://uk-001.azure-apim.net/apim/openaigpt4ip" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="CompletionPost_param_body_def_model_def" />
+      <string name="CompletionPost_param_body_def_prompt_def" />
+      <integer name="CompletionPost_param_body_def_max_tokens_def" />
+      <number name="CompletionPost_param_body_def_temperature_def" />
+      <number name="CompletionPost_param_body_def_top_p_def" />
+      <integer name="CompletionPost_param_body_def_n_def" />
+      <string name="CompletionPost_param_body_def_logprobs_def" />
+      <string name="CompletionPost_param_body_def_stop_def" />
+      <object name="CompletionPost_param_body_def">
+        <property name="model" type="string" />
+        <property name="prompt" type="string" />
+        <property name="max_tokens" type="integer" />
+        <property name="temperature" type="number" />
+        <property name="top_p" type="number" />
+        <property name="n" type="integer" />
+        <property name="logprobs" type="string" />
+        <property name="stop" type="string" />
+      </object>
+      <string name="CompletionPost_responses_200_def_first_completion_def" />
+      <string name="CompletionPost_responses_200_def_result_def_id_def" />
+      <string name="CompletionPost_responses_200_def_result_def_object_def" />
+      <integer name="CompletionPost_responses_200_def_result_def_created_def" />
+      <string name="CompletionPost_responses_200_def_result_def_model_def" />
+      <string name="CompletionPost_responses_200_def_result_def_choices_def_items_def_text_def" />
+      <integer name="CompletionPost_responses_200_def_result_def_choices_def_items_def_index_def" />
+      <string name="CompletionPost_responses_200_def_result_def_choices_def_items_def_logprobs_def" />
+      <string name="CompletionPost_responses_200_def_result_def_choices_def_items_def_finish_reason_def" />
+      <object name="CompletionPost_responses_200_def_result_def_choices_def_items_def">
+        <property name="text" type="string" />
+        <property name="index" type="integer" />
+        <property name="logprobs" type="string" />
+        <property name="finish_reason" type="string" />
+      </object>
+      <array typeRef="CompletionPost_responses_200_def_result_def_choices_def_items_def" name="CompletionPost_responses_200_def_result_def_choices_def" />
+      <integer name="CompletionPost_responses_200_def_result_def_usage_def_prompt_tokens_def" />
+      <integer name="CompletionPost_responses_200_def_result_def_usage_def_completion_tokens_def" />
+      <integer name="CompletionPost_responses_200_def_result_def_usage_def_total_tokens_def" />
+      <object name="CompletionPost_responses_200_def_result_def_usage_def">
+        <property name="prompt_tokens" type="integer" />
+        <property name="completion_tokens" type="integer" />
+        <property name="total_tokens" type="integer" />
+      </object>
+      <object name="CompletionPost_responses_200_def_result_def">
+        <property name="id" type="string" />
+        <property name="object" type="string" />
+        <property name="created" type="integer" />
+        <property name="model" type="string" />
+        <property name="choices" typeRef="CompletionPost_responses_200_def_result_def_choices_def" />
+        <property name="usage" typeRef="CompletionPost_responses_200_def_result_def_usage_def" />
+      </object>
+      <object name="CompletionPost_responses_200_def">
+        <property name="first_completion" type="string" />
+        <property name="result" typeRef="CompletionPost_responses_200_def_result_def" />
+      </object>
+      <string name="ChatPost_param_body_def_model_def" />
+      <string name="ChatPost_param_body_def_messages_def_items_def_role_def" />
+      <string name="ChatPost_param_body_def_messages_def_items_def_content_def" />
+      <object name="ChatPost_param_body_def_messages_def_items_def">
+        <property name="role" type="string" />
+        <property name="content" type="string" />
+      </object>
+      <array typeRef="ChatPost_param_body_def_messages_def_items_def" name="ChatPost_param_body_def_messages_def" />
+      <integer name="ChatPost_param_body_def_max_tokens_def" />
+      <number name="ChatPost_param_body_def_temperature_def" />
+      <number name="ChatPost_param_body_def_top_p_def" />
+      <integer name="ChatPost_param_body_def_n_def" />
+      <string name="ChatPost_param_body_def_stop_def" />
+      <number name="ChatPost_param_body_def_presence_penalty_def" />
+      <number name="ChatPost_param_body_def_frequency_penalty_def" />
+      <string name="ChatPost_param_body_def_user_def" />
+      <object name="ChatPost_param_body_def">
+        <property name="model" type="string" />
+        <property name="messages" typeRef="ChatPost_param_body_def_messages_def" />
+        <property name="max_tokens" type="integer" />
+        <property name="temperature" type="number" />
+        <property name="top_p" type="number" />
+        <property name="n" type="integer" />
+        <property name="stop" type="string" />
+        <property name="presence_penalty" type="number" />
+        <property name="frequency_penalty" type="number" />
+        <property name="user" type="string" />
+      </object>
+      <string name="ChatPost_responses_200_def_first_content_def" />
+      <string name="ChatPost_responses_200_def_id_def" />
+      <string name="ChatPost_responses_200_def_object_def" />
+      <integer name="ChatPost_responses_200_def_created_def" />
+      <integer name="ChatPost_responses_200_def_choices_def_items_def_index_def" />
+      <string name="ChatPost_responses_200_def_choices_def_items_def_message_def_role_def" />
+      <string name="ChatPost_responses_200_def_choices_def_items_def_message_def_content_def" />
+      <object name="ChatPost_responses_200_def_choices_def_items_def_message_def">
+        <property name="role" type="string" />
+        <property name="content" type="string" />
+      </object>
+      <string name="ChatPost_responses_200_def_choices_def_items_def_finish_reason_def" />
+      <object name="ChatPost_responses_200_def_choices_def_items_def">
+        <property name="index" type="integer" />
+        <property name="message" typeRef="ChatPost_responses_200_def_choices_def_items_def_message_def" />
+        <property name="finish_reason" type="string" />
+      </object>
+      <array typeRef="ChatPost_responses_200_def_choices_def_items_def" name="ChatPost_responses_200_def_choices_def" />
+      <integer name="ChatPost_responses_200_def_usage_def_prompt_tokens_def" />
+      <integer name="ChatPost_responses_200_def_usage_def_completion_tokens_def" />
+      <integer name="ChatPost_responses_200_def_usage_def_total_tokens_def" />
+      <object name="ChatPost_responses_200_def_usage_def">
+        <property name="prompt_tokens" type="integer" />
+        <property name="completion_tokens" type="integer" />
+        <property name="total_tokens" type="integer" />
+      </object>
+      <object name="ChatPost_responses_200_def">
+        <property name="first_content" type="string" />
+        <property name="id" type="string" />
+        <property name="object" type="string" />
+        <property name="created" type="integer" />
+        <property name="choices" typeRef="ChatPost_responses_200_def_choices_def" />
+        <property name="usage" typeRef="ChatPost_responses_200_def_usage_def" />
+      </object>
+      <string name="EditPost_param_body_def_model_def" />
+      <string name="EditPost_param_body_def_input_def" />
+      <string name="EditPost_param_body_def_instruction_def" />
+      <integer name="EditPost_param_body_def_n_def" />
+      <number name="EditPost_param_body_def_temperature_def" />
+      <number name="EditPost_param_body_def_top_p_def" />
+      <object name="EditPost_param_body_def">
+        <property name="model" type="string" />
+        <property name="input" type="string" />
+        <property name="instruction" type="string" />
+        <property name="n" type="integer" />
+        <property name="temperature" type="number" />
+        <property name="top_p" type="number" />
+      </object>
+      <string name="EditPost_responses_200_def_object_def" />
+      <integer name="EditPost_responses_200_def_created_def" />
+      <string name="EditPost_responses_200_def_choices_def_items_def_text_def" />
+      <integer name="EditPost_responses_200_def_choices_def_items_def_index_def" />
+      <object name="EditPost_responses_200_def_choices_def_items_def">
+        <property name="text" type="string" />
+        <property name="index" type="integer" />
+      </object>
+      <array typeRef="EditPost_responses_200_def_choices_def_items_def" name="EditPost_responses_200_def_choices_def" />
+      <integer name="EditPost_responses_200_def_usage_def_prompt_tokens_def" />
+      <integer name="EditPost_responses_200_def_usage_def_completion_tokens_def" />
+      <integer name="EditPost_responses_200_def_usage_def_total_tokens_def" />
+      <object name="EditPost_responses_200_def_usage_def">
+        <property name="prompt_tokens" type="integer" />
+        <property name="completion_tokens" type="integer" />
+        <property name="total_tokens" type="integer" />
+      </object>
+      <object name="EditPost_responses_200_def">
+        <property name="object" type="string" />
+        <property name="created" type="integer" />
+        <property name="choices" typeRef="EditPost_responses_200_def_choices_def" />
+        <property name="usage" typeRef="EditPost_responses_200_def_usage_def" />
+      </object>
+      <string name="ModelsGet_responses_200_def_object_def" />
+      <string name="ModelsGet_responses_200_def_data_def_items_def_id_def" />
+      <string name="ModelsGet_responses_200_def_data_def_items_def_object_def" />
+      <integer name="ModelsGet_responses_200_def_data_def_items_def_created_def" />
+      <string name="ModelsGet_responses_200_def_data_def_items_def_owned_by_def" />
+      <string name="ModelsGet_responses_200_def_data_def_items_def_permission_def_items_def_id_def" />
+      <string name="ModelsGet_responses_200_def_data_def_items_def_permission_def_items_def_object_def" />
+      <integer name="ModelsGet_responses_200_def_data_def_items_def_permission_def_items_def_created_def" />
+      <boolean name="ModelsGet_responses_200_def_data_def_items_def_permission_def_items_def_allow_create_engine_def" />
+      <boolean name="ModelsGet_responses_200_def_data_def_items_def_permission_def_items_def_allow_sampling_def" />
+      <boolean name="ModelsGet_responses_200_def_data_def_items_def_permission_def_items_def_allow_logprobs_def" />
+      <boolean name="ModelsGet_responses_200_def_data_def_items_def_permission_def_items_def_allow_search_indices_def" />
+      <boolean name="ModelsGet_responses_200_def_data_def_items_def_permission_def_items_def_allow_view_def" />
+      <boolean name="ModelsGet_responses_200_def_data_def_items_def_permission_def_items_def_allow_fine_tuning_def" />
+      <string name="ModelsGet_responses_200_def_data_def_items_def_permission_def_items_def_organization_def" />
+      <string name="ModelsGet_responses_200_def_data_def_items_def_permission_def_items_def_group_def" />
+      <boolean name="ModelsGet_responses_200_def_data_def_items_def_permission_def_items_def_is_blocking_def" />
+      <object name="ModelsGet_responses_200_def_data_def_items_def_permission_def_items_def">
+        <property name="id" type="string" />
+        <property name="object" type="string" />
+        <property name="created" type="integer" />
+        <property name="allow_create_engine" type="boolean" />
+        <property name="allow_sampling" type="boolean" />
+        <property name="allow_logprobs" type="boolean" />
+        <property name="allow_search_indices" type="boolean" />
+        <property name="allow_view" type="boolean" />
+        <property name="allow_fine_tuning" type="boolean" />
+        <property name="organization" type="string" />
+        <property name="group" type="string" />
+        <property name="is_blocking" type="boolean" />
+      </object>
+      <array typeRef="ModelsGet_responses_200_def_data_def_items_def_permission_def_items_def" name="ModelsGet_responses_200_def_data_def_items_def_permission_def" />
+      <string name="ModelsGet_responses_200_def_data_def_items_def_root_def" />
+      <string name="ModelsGet_responses_200_def_data_def_items_def_parent_def" />
+      <object name="ModelsGet_responses_200_def_data_def_items_def">
+        <property name="id" type="string" />
+        <property name="object" type="string" />
+        <property name="created" type="integer" />
+        <property name="owned_by" type="string" />
+        <property name="permission" typeRef="ModelsGet_responses_200_def_data_def_items_def_permission_def" />
+        <property name="root" type="string" />
+        <property name="parent" type="string" />
+      </object>
+      <array typeRef="ModelsGet_responses_200_def_data_def_items_def" name="ModelsGet_responses_200_def_data_def" />
+      <object name="ModelsGet_responses_200_def">
+        <property name="object" type="string" />
+        <property name="data" typeRef="ModelsGet_responses_200_def_data_def" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://uk-001.azure-apim.net/apim/openaigpt4ip">
+    <resource path="/{connectionId}/v1/completions">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="CompletionPost" actionName="CompletionPost" siena:isDeprecated="false">
+        <doc title="Create completion&#xA;Creates a completion for the provided prompt and parameters." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="model" path="/model" type="xs:string" required="true" default="text-davinci-003">
+              <doc title="Model" />
+              <option value="text-davinci-003" />
+              <option value="text-davinci-002" />
+              <option value="text-curie-001" />
+              <option value="text-babbage-001" />
+              <option value="text-ada-001" />
+              <option value="davinci" />
+              <option value="curie" />
+              <option value="babbage" />
+              <option value="ada" />
+            </param>
+            <param style="plain" name="prompt" path="/prompt" type="xs:string">
+              <doc title="Prompt" />
+            </param>
+            <param style="plain" name="max_tokens" path="/max_tokens" type="xs:int">
+              <doc title="Max Tokens" />
+            </param>
+            <param style="plain" name="temperature" path="/temperature" type="xs:double">
+              <doc title="Temperature" />
+            </param>
+            <param style="plain" name="top_p" path="/top_p" type="xs:double">
+              <doc title="Top P" />
+            </param>
+            <param style="plain" name="n" path="/n" type="xs:int">
+              <doc title="N" />
+            </param>
+            <param style="plain" name="logprobs" path="/logprobs" type="xs:string">
+              <doc title="Log Probabilities" />
+            </param>
+            <param style="plain" name="stop" path="/stop" type="xs:string">
+              <doc title="Stop" />
+            </param>
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:CompletionPost_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/v1/chat/completions">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="ChatPost" actionName="ChatPost" siena:isDeprecated="false">
+        <doc title="Get chat completions&#xA;Retrieves a chat completion powered by ChatGPT." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="model" path="/model" type="xs:string" required="true" default="gpt-3.5-turbo">
+              <doc title="Model" />
+              <option value="gpt-3.5-turbo" />
+              <option value="gpt-3.5-turbo-0301" />
+              <option value="gpt-4" />
+              <option value="gpt-4-0314" />
+              <option value="gpt-4-32k" />
+              <option value="gpt-4-32k-0314" />
+            </param>
+            <param style="plain" name="messages" path="/messages" type="service:ChatPost_param_body_def_messages_def" required="true">
+              <doc title="Messages" />
+            </param>
+            <param style="plain" name="max_tokens" path="/max_tokens" type="xs:int">
+              <doc title="Max Tokens" />
+            </param>
+            <param style="plain" name="temperature" path="/temperature" type="xs:double">
+              <doc title="Temperature" />
+            </param>
+            <param style="plain" name="top_p" path="/top_p" type="xs:double">
+              <doc title="Top P" />
+            </param>
+            <param style="plain" name="n" path="/n" type="xs:int">
+              <doc title="N" />
+            </param>
+            <param style="plain" name="stop" path="/stop" type="xs:string">
+              <doc title="Stop" />
+            </param>
+            <param style="plain" name="presence_penalty" path="/presence_penalty" type="xs:double">
+              <doc title="Presence Penalty" />
+            </param>
+            <param style="plain" name="frequency_penalty" path="/frequency_penalty" type="xs:double">
+              <doc title="Frequency Penalty" />
+            </param>
+            <param style="plain" name="user" path="/user" type="xs:string">
+              <doc title="User" />
+            </param>
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:ChatPost_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/v1/edits">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="EditPost" actionName="EditPost" siena:isDeprecated="false">
+        <doc title="Edit Prompt&#xA;Creates a new edit for the provided input, instruction, and parameters." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="model" path="/model" type="xs:string" required="true">
+              <doc title="Model" />
+              <option value="gpt-3.5-turbo" />
+              <option value="gpt-3.5-turbo-0301" />
+              <option value="gpt-4" />
+              <option value="gpt-4-0314" />
+              <option value="gpt-4-32k" />
+              <option value="gpt-4-32k-0314" />
+            </param>
+            <param style="plain" name="input" path="/input" type="xs:string">
+              <doc title="Input" />
+            </param>
+            <param style="plain" name="instruction" path="/instruction" type="xs:string" required="true">
+              <doc title="Instruction" />
+            </param>
+            <param style="plain" name="n" path="/n" type="xs:int">
+              <doc title="N" />
+            </param>
+            <param style="plain" name="temperature" path="/temperature" type="xs:double">
+              <doc title="Temperature" />
+            </param>
+            <param style="plain" name="top_p" path="/top_p" type="xs:double">
+              <doc title="Top P" />
+            </param>
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:EditPost_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/v1/models">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="ModelsGet" actionName="ModelsGet" siena:isDeprecated="false">
+        <doc title="List models&#xA;Lists the currently available models, and provides basic information about each one such as the owner and availability." />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:ModelsGet_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_openaigpt4ip" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>
