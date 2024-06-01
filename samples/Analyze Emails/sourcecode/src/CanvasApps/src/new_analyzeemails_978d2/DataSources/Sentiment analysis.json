@@ -1,0 +1,167 @@
+[
+  {
+    "DataBoundServiceDataSetName": "default.cds",
+    "DataBoundServiceFunctionNamesKey": [
+      "Predict-202305.5.23.1"
+    ],
+    "DataBoundServiceOperationGroupNameKey": "AIBuilder\\f1c549c2-a97e-47a5-b612-c5c2bab0f163",
+    "DataBoundServiceRawMetadata": {
+      "Input": {
+        "Attributes": {
+          "language": {
+            "Attributes": null,
+            "IsCollection": false,
+            "SchemaName": null,
+            "Title": "Language",
+            "Type": "string"
+          },
+          "text": {
+            "Attributes": null,
+            "IsCollection": false,
+            "SchemaName": null,
+            "Title": "Text",
+            "Type": "string"
+          }
+        },
+        "RequiredAttributes": [
+          "text"
+        ]
+      },
+      "Output": {
+        "Attributes": {
+          "Document": {
+            "Attributes": {
+              "AllSentiments": {
+                "Attributes": {
+                  "Confidence": {
+                    "Attributes": null,
+                    "IsCollection": false,
+                    "SchemaName": null,
+                    "Title": "",
+                    "Type": "number"
+                  },
+                  "Name": {
+                    "Attributes": null,
+                    "IsCollection": false,
+                    "SchemaName": null,
+                    "Title": "",
+                    "Type": "string"
+                  }
+                },
+                "IsCollection": true,
+                "SchemaName": null,
+                "Title": null,
+                "Type": "array"
+              },
+              "TopSentiment": {
+                "Attributes": {
+                  "Confidence": {
+                    "Attributes": null,
+                    "IsCollection": false,
+                    "SchemaName": null,
+                    "Title": "",
+                    "Type": "number"
+                  },
+                  "Name": {
+                    "Attributes": null,
+                    "IsCollection": false,
+                    "SchemaName": null,
+                    "Title": "",
+                    "Type": "string"
+                  }
+                },
+                "IsCollection": false,
+                "SchemaName": null,
+                "Title": "TopSentiment",
+                "Type": "object"
+              }
+            },
+            "IsCollection": false,
+            "SchemaName": null,
+            "Title": "Document",
+            "Type": "object"
+          },
+          "Sentences": {
+            "Attributes": {
+              "AllSentiments": {
+                "Attributes": {
+                  "Confidence": {
+                    "Attributes": null,
+                    "IsCollection": false,
+                    "SchemaName": null,
+                    "Title": "",
+                    "Type": "number"
+                  },
+                  "Name": {
+                    "Attributes": null,
+                    "IsCollection": false,
+                    "SchemaName": null,
+                    "Title": "",
+                    "Type": "string"
+                  }
+                },
+                "IsCollection": true,
+                "SchemaName": null,
+                "Title": null,
+                "Type": "array"
+              },
+              "Length": {
+                "Attributes": null,
+                "IsCollection": false,
+                "SchemaName": null,
+                "Title": "",
+                "Type": "integer"
+              },
+              "StartIndex": {
+                "Attributes": null,
+                "IsCollection": false,
+                "SchemaName": null,
+                "Title": "",
+                "Type": "integer"
+              },
+              "Text": {
+                "Attributes": null,
+                "IsCollection": false,
+                "SchemaName": null,
+                "Title": "",
+                "Type": "string"
+              },
+              "TopSentiment": {
+                "Attributes": {
+                  "Confidence": {
+                    "Attributes": null,
+                    "IsCollection": false,
+                    "SchemaName": null,
+                    "Title": "",
+                    "Type": "number"
+                  },
+                  "Name": {
+                    "Attributes": null,
+                    "IsCollection": false,
+                    "SchemaName": null,
+                    "Title": "",
+                    "Type": "string"
+                  }
+                },
+                "IsCollection": false,
+                "SchemaName": null,
+                "Title": "TopSentiment",
+                "Type": "object"
+              }
+            },
+            "IsCollection": true,
+            "SchemaName": null,
+            "Title": null,
+            "Type": "array"
+          }
+        }
+      },
+      "Source": true,
+      "TemplateName": "SentimentAnalysis"
+    },
+    "DataBoundSourceDataSourceName": "43b0dc67-68af-47ae-9a9c-9e69d396ba3e",
+    "Name": "Sentiment analysis",
+    "ServiceKind": "DataBound",
+    "Type": "ServiceInfo"
+  }
+]
