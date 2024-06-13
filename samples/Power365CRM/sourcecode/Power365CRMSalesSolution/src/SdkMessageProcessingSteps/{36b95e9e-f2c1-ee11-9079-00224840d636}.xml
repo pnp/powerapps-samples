@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="P365I_CRM.Sales.Plugins.OpportunityPostOp: Update of p365i_opportunity" SdkMessageProcessingStepId="{36b95e9e-f2c1-ee11-9079-00224840d636}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SdkMessageId>20bebb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
+  <PluginTypeName>P365I_CRM.Sales.Plugins.OpportunityPostOp, P365I_CRM.Sales, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e1f2f6346080b059</PluginTypeName>
+  <PluginTypeId>e63b249e-8b08-4ba8-b439-72d97a53b97b</PluginTypeId>
+  <PrimaryEntity>p365i_opportunity</PrimaryEntity>
+  <AsyncAutoDelete>0</AsyncAutoDelete>
+  <FilteringAttributes>p365i_detailedamount,p365i_discount,p365i_manualdiscount,p365i_revenue,p365i_tax</FilteringAttributes>
+  <InvocationSource>1</InvocationSource>
+  <Mode>0</Mode>
+  <Rank>1</Rank>
+  <EventHandlerTypeCode>4602</EventHandlerTypeCode>
+  <Stage>40</Stage>
+  <IsCustomizable>1</IsCustomizable>
+  <IsHidden>0</IsHidden>
+  <SupportedDeployment>0</SupportedDeployment>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <SdkMessageProcessingStepImages>
+    <SdkMessageProcessingStepImage Name="PostImage">
+      <SdkMessageProcessingStepImageId>{6fc2eec2-f2c1-ee11-9079-6045bd127823}</SdkMessageProcessingStepImageId>
+      <Attributes>p365i_revenue,p365i_totalamount</Attributes>
+      <EntityAlias>PostImage</EntityAlias>
+      <ImageType>1</ImageType>
+      <MessagePropertyName>Target</MessagePropertyName>
+      <IsCustomizable>1</IsCustomizable>
+    </SdkMessageProcessingStepImage>
+  </SdkMessageProcessingStepImages>
+</SdkMessageProcessingStep>

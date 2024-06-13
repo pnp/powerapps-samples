@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{1dbe38aa-526b-ee11-9ae7-6045bd127823}" Name="Prospect to Opportunity" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/ProspecttoOpportunity-1DBE38AA-526B-EE11-9AE7-6045BD127823.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>4</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>1</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <processorder>100</processorder>
+  <RunAs>1</RunAs>
+  <UniqueName>p365i_prospecttoopportunity</UniqueName>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <ProcessTriggerScope>1</ProcessTriggerScope>
+  <PrimaryEntity>p365i_Prospect</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Prospect to Opportunity" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{eb423c02-4f3f-47a0-9590-1ee0070a6f97}">
+      <label languagecode="1033" description="Qualify" />
+    </steplabels>
+    <steplabels id="{599d710f-114d-4fae-92ef-0cd8d7576ce0}">
+      <label languagecode="1033" description="Existing Contact?" />
+    </steplabels>
+    <steplabels id="{f90b0a02-f4b2-4ea6-a4b0-eb6fc35f5912}">
+      <label languagecode="1033" description="Existing Account?" />
+    </steplabels>
+    <steplabels id="{2d7c451e-c825-4690-9e2e-a9f4bfd4919f}">
+      <label languagecode="1033" description="Purchase Timeframe" />
+    </steplabels>
+    <steplabels id="{687a4ad2-a214-46c1-ad32-d3e867786c94}">
+      <label languagecode="1033" description="Estimated Budget" />
+    </steplabels>
+    <steplabels id="{188a7d81-2caf-4126-a706-aea1863ebe00}">
+      <label languagecode="1033" description="Purchase Process" />
+    </steplabels>
+    <steplabels id="{2947c263-47bf-458e-aff4-444957e319b0}">
+      <label languagecode="1033" description="Identify Decision Maker" />
+    </steplabels>
+    <steplabels id="{49028f58-2643-4c6f-8f58-40559089e92b}">
+      <label languagecode="1033" description="Capture Summary" />
+    </steplabels>
+    <steplabels id="{6bd2ca1a-17bd-4e51-88ca-3572f39f22e3}">
+      <label languagecode="1033" description="Develop" />
+    </steplabels>
+    <steplabels id="{12e25d18-a209-48b0-83b2-5e9c837d75e2}">
+      <label languagecode="1033" description="Customer Need" />
+    </steplabels>
+    <steplabels id="{de93b36f-e4d9-474c-a0d9-dcac0452e2a7}">
+      <label languagecode="1033" description="Proposed Solution" />
+    </steplabels>
+    <steplabels id="{a81b0926-fa73-4f6a-806b-dda555fe44f2}">
+      <label languagecode="1033" description="Propose" />
+    </steplabels>
+    <steplabels id="{82b628bf-ffb4-4cb3-b1e7-f889751d384c}">
+      <label languagecode="1033" description="Develop Proposal" />
+    </steplabels>
+    <steplabels id="{83a576a8-af2b-4b4a-843c-19addc068f19}">
+      <label languagecode="1033" description="Complete Internal Review" />
+    </steplabels>
+    <steplabels id="{8c87c9d9-fdf9-4424-813c-04130cda12d6}">
+      <label languagecode="1033" description="Present Proposal" />
+    </steplabels>
+    <steplabels id="{d8095839-27e5-45ed-928b-698df22f3b3f}">
+      <label languagecode="1033" description="Close" />
+    </steplabels>
+    <steplabels id="{a0241ddb-64ef-45cd-bba5-bb6c13eff1d5}">
+      <label languagecode="1033" description="Complete Final Proposal" />
+    </steplabels>
+    <steplabels id="{fb734acf-9c97-40ac-90de-60f52c620deb}">
+      <label languagecode="1033" description="Present Final Proposal" />
+    </steplabels>
+    <steplabels id="{a61cd8b8-e18b-4a47-ae1c-f547fe5a95f5}">
+      <label languagecode="1033" description="Confirm Decision Date" />
+    </steplabels>
+  </labels>
+</Workflow>
