@@ -1,0 +1,84 @@
+[
+  {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+    "name": "pnp-powerapps-samples-calendar-component",
+    "version": "1.0.0.0",
+    "source": "pnp",
+    "creationDateTime": "2021-05-05T00:00:00.000Z",
+    "updateDateTime": "2021-05-05T00:00:00.000Z",
+    "title": "Calendar Component",
+    "shortDescription": "A re-usable component that allows you to display events in  a calendar.",
+    "longDescription": [
+      "A re-usable component that allows you to display events in  a calendar."
+    ],
+    "url": "https://github.com/pnp/powerapps-samples/tree/main/samples/calendar-component",
+    "products": [
+      "Power Apps",
+      "Power Platform"
+    ],
+    "tags": [
+      "CALENDAR", "COMPONENT"
+    ],
+    "categories": [
+      "POWERAPPS"
+    ],
+    "metadata": [
+      {
+        "key": "POWERAPPS-MANIFEST-VERSION",
+        "value": "0.20"
+      },
+      {
+        "key": "POWERAPPS-TYPE",
+        "value": "Canvas"
+      },
+      {
+        "key": "POWERAPPS-EXPERIMENTAL",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-PREMIUM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-ONPREM",
+        "value": "No"
+      },
+      {
+        "key": "POWERAPPS-CUSTOMCONNECTOR",
+        "value": "No"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/powerapps-samples/blob/main/samples/calendar-component/assets/preview.png?raw=true",
+        "alt": "Preview"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "aprildunnam",
+        "name": "April Dunnam",
+        "pictureUrl": "https://github.com/aprildunnam.png"
+      }
+    ],
+    "references": [
+      {
+        "name": "Create a component for canvas apps",
+        "description": "Components are reusable building blocks for canvas apps so that app makers can create custom controls to use inside an app, or across apps using a component library",
+        "url": "https://docs.microsoft.com/powerapps/maker/canvas-apps/"
+      },
+      {
+        "name": "Overview of creating apps in Power Apps",
+        "description": "Power Apps is a high-productivity development platform for business apps.",
+        "url": "https://docs.microsoft.com/powerapps/maker/"
+      },
+      {
+        "name": "Power Apps canvas apps documentation",
+        "description": "Design and build a business app from a canvas in Microsoft Power Apps with data from a variety of sources without writing any code using traditional programming languages, such as C#.",
+        "url": "https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/"
+      }
+    ]
+  }
+]

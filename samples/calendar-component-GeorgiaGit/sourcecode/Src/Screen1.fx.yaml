@@ -1,0 +1,27 @@
+Screen1 As screen:
+
+    CalendarComponent_3 As CalendarComponent:
+        CalendarItems: |-
+            =Table(
+                {
+                    Date: "5/3/2021",
+                    Title: "Meeting",
+                    Time: "2:30pm"
+                },
+                 {
+                    Date: "5/4/2021",
+                    Title: "MBAS PVA",
+                    Time: "1:00pm"
+                },
+                {
+                    Date: "5/5/2021",
+                    Title: "PnP AMA Power Platform",
+                    Time: "3:00pm"
+                }
+            )
+        Height: =666
+        SelectedDateFill: =RGBA(109, 49, 162, 1)
+        Visible: =true
+        X: =688
+        Y: =56
+
