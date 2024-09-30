@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="P365I_CRM.Sales.Plugins.QuoteProductPostOp: Delete of any Entity" SdkMessageProcessingStepId="{543893d1-18c9-ee11-9079-6045bd127823}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SdkMessageId>a1bdbb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
+  <PluginTypeName>P365I_CRM.Sales.Plugins.QuoteProductPostOp, P365I_CRM.Sales, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e1f2f6346080b059</PluginTypeName>
+  <PluginTypeId>e998b616-24ac-4848-89d4-3fbe2b209139</PluginTypeId>
+  <PrimaryEntity>p365i_quoteproduct</PrimaryEntity>
+  <AsyncAutoDelete>0</AsyncAutoDelete>
+  <FilteringAttributes></FilteringAttributes>
+  <InvocationSource>1</InvocationSource>
+  <Mode>0</Mode>
+  <Rank>1</Rank>
+  <EventHandlerTypeCode>4602</EventHandlerTypeCode>
+  <Stage>40</Stage>
+  <IsCustomizable>1</IsCustomizable>
+  <IsHidden>0</IsHidden>
+  <SupportedDeployment>0</SupportedDeployment>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <SdkMessageProcessingStepImages>
+    <SdkMessageProcessingStepImage Name="PreImage">
+      <SdkMessageProcessingStepImageId>{8354fac8-19c9-ee11-9078-00224840d636}</SdkMessageProcessingStepImageId>
+      <Attributes>p365i_quote</Attributes>
+      <EntityAlias>PreImage</EntityAlias>
+      <ImageType>0</ImageType>
+      <MessagePropertyName>Target</MessagePropertyName>
+      <IsCustomizable>1</IsCustomizable>
+    </SdkMessageProcessingStepImage>
+  </SdkMessageProcessingStepImages>
+</SdkMessageProcessingStep>

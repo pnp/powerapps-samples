@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{0e7cc9c7-be37-4bcc-bb56-570d4c8ecbcf}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="p365i_name" select="1" icon="1" preview="1">
+        <row name="result" id="p365i_opportunityclosureid">
+          <cell name="p365i_name" width="300" />
+          <cell name="createdon" width="125" />
+          <cell name="p365i_closedate" width="102" />
+          <cell name="p365i_opportunity" width="109" />
+          <cell name="p365i_actualrevenue" width="130" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="p365i_opportunityclosure">
+          <attribute name="p365i_opportunityclosureid" />
+          <attribute name="p365i_name" />
+          <attribute name="createdon" />
+          <order attribute="p365i_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="p365i_closedate" />
+          <attribute name="p365i_opportunity" />
+          <attribute name="p365i_actualrevenue" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Opportunity Closures" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>
