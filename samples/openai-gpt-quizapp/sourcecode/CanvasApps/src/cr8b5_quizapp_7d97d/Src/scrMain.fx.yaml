@@ -1,0 +1,198 @@
+scrMain As screen:
+
+    txtPrompt As text:
+        Default: =varPromt
+        Height: =84
+        HintText: ="Enter Prompt."
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        Mode: =TextMode.MultiLine
+        Width: =1357
+        Y: =18
+        ZIndex: =1
+
+    "galQuestionAnswers As gallery.'BrowseLayout_Vertical_OneTextVariant_ver5.0'":
+        DelayItemLoading: =true
+        Height: =279
+        Items: =colOptions
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =0
+        TemplateSize: =100
+        Visible: =If(lblSelQuestion.Text = "None", false, true)
+        Width: =935
+        WrapCount: =2
+        X: =28
+        Y: =237
+        ZIndex: =1
+
+        lblAns As label:
+            BorderThickness: =1
+            Fill: =If(ThisItem.selected, If(ThisItem.correct, Color.GreenYellow, Color.PaleVioletRed), RGBA(0,0,0,0))
+            FontWeight: =FontWeight.Semibold
+            Height: =Self.Size * 4
+            OnSelect: |+
+                =Patch(colOptions, ThisItem, {selected: true})
+                
+            PaddingBottom: =0
+            PaddingLeft: =10
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =Text(ThisItem.answer)
+            Width: =Parent.TemplateWidth - 40
+            X: =16
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =1
+
+        Separator3 As rectangle:
+            Height: =8
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - Self.Height
+            ZIndex: =3
+
+    btnTest As button:
+        OnSelect: |-
+            =Set(varResponse, 'OpenAIGPT(IndependentPublisher)'.CompletionPost("text-davinci-003",{prompt:txtPrompt.Text,max_tokens:4000,temperature:0.7,top_p:1,n:1}).first_completion);
+            /*Set(varResponse, "[
+                {
+                    ""question"": ""What is the capital of France?"",
+                    ""options"": [
+                        {""answer"": ""Berlin"", ""selected"": false, ""correct"": false},
+                        {""answer"": ""Madrid"", ""selected"": false, ""correct"": false},
+                        {""answer"": ""Rome"", ""selected"": false, ""correct"": false},
+                        {""answer"": ""Paris"", ""selected"": false, ""correct"": true}
+                    ]
+                },
+                {
+                    ""question"": ""Which planet is known as the 'Red Planet'?"",
+                    ""options"": [
+                        {""answer"": ""Venus"", ""selected"": false, ""correct"": false},
+                        {""answer"": ""Mars"", ""selected"": false, ""correct"": true},
+                        {""answer"": ""Jupiter"", ""selected"": false, ""correct"": false},
+                        {""answer"": ""Saturn"", ""selected"": false, ""correct"": false}
+                    ]
+                },
+                {
+                    ""question"": ""Who wrote the play 'Romeo and Juliet'?"",
+                    ""options"": [
+                        {""answer"": ""William Shakespeare"", ""selected"": false, ""correct"": true},
+                        {""answer"": ""Charles Dickens"", ""selected"": false, ""correct"": false},
+                        {""answer"": ""Jane Austen"", ""selected"": false, ""correct"": false},
+                        {""answer"": ""Mark Twain"", ""selected"": false, ""correct"": false}
+                    ]
+                },
+                {
+                    ""question"": ""What is the chemical symbol for water?"",
+                    ""options"": [
+                        {""answer"": ""O2"", ""selected"": false, ""correct"": false},
+                        {""answer"": ""H2O"", ""selected"": false, ""correct"": true},
+                        {""answer"": ""CO2"", ""selected"": false, ""correct"": false},
+                        {""answer"": ""CH4"", ""selected"": false, ""correct"": false}
+                    ]
+                },
+                {
+                    ""question"": ""In which year did the Titanic sink?"",
+                    ""options"": [
+                        {""answer"": ""1905"", ""selected"": false, ""correct"": false},
+                        {""answer"": ""1912"", ""selected"": false, ""correct"": true},
+                        {""answer"": ""1920"", ""selected"": false, ""correct"": false},
+                        {""answer"": ""1931"", ""selected"": false, ""correct"": false}
+                    ]
+                },
+                {
+                    ""question"": ""What is the largest mammal on Earth?"",
+                    ""options"": [
+                        {""answer"": ""Elephant"", ""selected"": false, ""correct"": false},
+                        {""answer"": ""Blue Whale"", ""selected"": false, ""correct"": true},
+                        {""answer"": ""Lion"", ""selected"": false, ""correct"": false},
+                        {""answer"": ""Giraffe"", ""selected"": false, ""correct"": false}
+                    ]
+                },
+                {
+                    ""question"": ""Who painted the Mona Lisa?"",
+                    ""options"": [
+                        {""answer"": ""Vincent van Gogh"", ""selected"": false, ""correct"": false},
+                        {""answer"": ""Pablo Picasso"", ""selected"": false, ""correct"": false},
+                        {""answer"": ""Leonardo da Vinci"", ""selected"": false, ""correct"": true},
+                        {""answer"": ""Michelangelo"", ""selected"": false, ""correct"": false}
+                    ]
+                },
+                {
+                    ""question"": ""What is the chemical symbol for gold?"",
+                    ""options"": [
+                        {""answer"": ""Ag"", ""selected"": false, ""correct"": false},
+                        {""answer"": ""Au"", ""selected"": false, ""correct"": true},
+                        {""answer"": ""Fe"", ""selected"": false, ""correct"": false},
+                        {""answer"": ""Cu"", ""selected"": false, ""correct"": false}
+                    ]
+                },
+                {
+                    ""question"": ""Which country is known as the Land of the Rising Sun?"",
+                    ""options"": [
+                        {""answer"": ""China"", ""selected"": false, ""correct"": false},
+                        {""answer"": ""Japan"", ""selected"": false, ""correct"": true},
+                        {""answer"": ""South Korea"", ""selected"": false, ""correct"": false},
+                        {""answer"": ""Thailand"", ""selected"": false, ""correct"": false}
+                    ]
+                },
+                {
+                    ""question"": ""Who was the first man to step on the moon?"",
+                    ""options"": [
+                        {""answer"": ""Buzz Aldrin"", ""selected"": false, ""correct"": false},
+                        {""answer"": ""Yuri Gagarin"", ""selected"": false, ""correct"": false},
+                        {""answer"": ""Neil Armstrong"", ""selected"": false, ""correct"": true},
+                        {""answer"": ""John Glenn"", ""selected"": false, ""correct"": false}
+                    ]
+                }
+            ]");*/
+            
+            ClearCollect(
+              colQuestions,
+              Table(ParseJSON(varResponse));
+            );
+            
+            Set(varIndex,1);
+            
+            ClearCollect(
+                colOptions,
+                AddColumns(
+                    Table(Index(colQuestions, varIndex).Value.options),
+                    "answer", Value.answer,
+                    "selected", Value.selected = true,
+                    "correct", Value.correct = true
+                )
+            );
+        Text: ="Generate"
+        X: =28
+        Y: =125
+        ZIndex: =2
+
+    lblSelQuestion As label:
+        Height: =72
+        Text: =Text(Index(colQuestions,varIndex).Value.question) 
+        Visible: =If(lblSelQuestion.Text = "None", false, true)
+        Width: =425
+        X: =28
+        Y: =165
+        ZIndex: =5
+
+    btnNext As button:
+        OnSelect: |-
+            =Set(varIndex, varIndex + 1);
+            
+            ClearCollect(
+                colOptions,
+                AddColumns(
+                    Table(Index(colQuestions, varIndex).Value.options),
+                    "answer", Value.answer,
+                    "selected", Value.selected = true,
+                    "correct", Value.correct = true
+                )
+            );
+        Text: ="Next"
+        Visible: =If(lblSelQuestion.Text = "None" || varIndex >= 10, false, true)
+        X: =788
+        Y: =442
+        ZIndex: =6
+
