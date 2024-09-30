@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>aaryan_healthexpense_45a52</Name>
+  <AppVersion>2023-04-10T20:08:57Z</AppVersion>
+  <Status>Ready</Status>
+  <CreatedByClientVersion>3.23033.15.0</CreatedByClientVersion>
+  <MinClientVersion>3.23033.15.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"1366","primaryDeviceHeight":"768","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","publisherVersion":"3.23033.15","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false","sienaVersion":"20230410T200857Z-3.23033.15.0"}</Tags>
+  <IsCdsUpgraded>0</IsCdsUpgraded>
+  <GalleryItemId xsi:nil="true"></GalleryItemId>
+  <BackgroundColor>RGBA(0,176,240,1)</BackgroundColor>
+  <DisplayName>HealthExpense</DisplayName>
+  <Description>Used to get a detailed health expense plan</Description>
+  <CommitMessage xsi:nil="true"></CommitMessage>
+  <Publisher xsi:nil="true"></Publisher>
+  <AuthorizationReferences>[]</AuthorizationReferences>
+  <ConnectionReferences>{"df224940-9fe0-4d88-b9bc-a03f4f98302f":{"id":"/providers/microsoft.powerapps/apis/shared_logicflows","displayName":"Logic flows","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1615/1.0.1615.3163/logicflows/icon.png","dataSources":["AzureAutoMLFlow"],"dependencies":[],"dependents":[],"parameterHints":{"workflowName":{"value":"e08bc6dc-64b4-4fd2-a4fd-4115693aea07"},"workflowEntityId":{}},"parameterHintsV2":{"workflowName":{"value":"e08bc6dc-64b4-4fd2-a4fd-4115693aea07"},"workflowEntityId":{}},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard","actions":["Run"]},"73da3206-fcd6-4da3-bda8-3e77fca4aee4":{"id":"/providers/microsoft.powerapps/apis/shared_openaiip","displayName":"OpenAI (Independent Publisher)","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1618/1.0.1618.3179/openaiip/icon.png","dataSources":["OpenAI(IndependentPublisher)"],"dependencies":[],"dependents":[],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Premium","actions":["Completion"]}}</ConnectionReferences>
+  <DatabaseReferences>{}</DatabaseReferences>
+  <AppComponents>[]</AppComponents>
+  <AppComponentDependencies>[]</AppComponentDependencies>
+  <CanConsumeAppPass>1</CanConsumeAppPass>
+  <CanvasAppType>0</CanvasAppType>
+  <BypassConsent>0</BypassConsent>
+  <AdminControlBypassConsent>0</AdminControlBypassConsent>
+  <EmbeddedApp xsi:nil="true"></EmbeddedApp>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CdsDependencies>{"cdsdependencies":[]}</CdsDependencies>
+  <IsCustomizable>1</IsCustomizable>
+  <BackgroundImageUri>/CanvasApps/aaryan_healthexpense_45a52_BackgroundImageUri</BackgroundImageUri>
+  <DocumentUri>/CanvasApps/aaryan_healthexpense_45a52_DocumentUri.msapp</DocumentUri>
+</CanvasApp>
