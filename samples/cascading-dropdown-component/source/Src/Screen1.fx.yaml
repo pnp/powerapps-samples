@@ -1,9 +1,0 @@
-Screen1 As screen:
-    OnVisible: =Set(varShowLevel1,false);Set(varShowLevel2,false)
-
-    CascadingDropdown_1 As CascadingDropdown:
-        DefaultText: ="Make Selection"
-        FontSize: =20
-        ShowLevel1: =varShowLevel1
-        ShowLevel2: =varShowLevel2
-
