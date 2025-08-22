@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{8e34e14d-a576-ee11-8179-6045bd127823}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="p365i_product" select="1" icon="1" preview="1">
+        <row name="result" id="p365i_opportunityproductid">
+          <cell name="p365i_product" width="300" />
+          <cell name="p365i_unitcostline" width="178" />
+          <cell name="p365i_quantity" width="100" />
+          <cell name="p365i_subtotal" width="100" />
+          <cell name="p365i_manualdiscount" width="137" />
+          <cell name="p365i_tax" width="100" />
+          <cell name="p365i_totalcost" width="100" />
+          <cell name="p365i_salesunit" width="100" />
+          <cell name="a_474c3941ac4b48baa17bcc4d045da3c7.p365i_salesunit" width="205" />
+          <cell name="p365i_selectproduct" width="122" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="p365i_opportunityproduct">
+          <attribute name="p365i_product" />
+          <attribute name="p365i_opportunityproductid" />
+          <attribute name="p365i_unitcostline" />
+          <attribute name="p365i_quantity" />
+          <attribute name="p365i_subtotal" />
+          <attribute name="p365i_manualdiscount" />
+          <attribute name="p365i_tax" />
+          <attribute name="p365i_totalcost" />
+          <attribute name="p365i_salesunit" />
+          <link-entity alias="a_474c3941ac4b48baa17bcc4d045da3c7" name="p365i_listitem" to="p365i_existingproduct" from="p365i_listitemid" link-type="outer" visible="false">
+            <attribute name="p365i_salesunit" />
+          </link-entity>
+          <attribute name="p365i_selectproduct" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Opportunity Product Lines" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

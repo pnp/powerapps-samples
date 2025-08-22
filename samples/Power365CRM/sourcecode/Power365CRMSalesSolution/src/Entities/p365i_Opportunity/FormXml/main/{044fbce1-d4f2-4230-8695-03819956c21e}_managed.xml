@@ -1,0 +1,518 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{044fbce1-d4f2-4230-8695-03819956c21e}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls" shownavigationbar="true" showImage="false" maxWidth="1920">
+      <tabs>
+        <tab verticallayout="true" id="{4dbeffb2-3a4b-412d-ad13-7706be22af79}" IsUserDefined="1" name="General">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="34%">
+              <sections>
+                <section showlabel="true" showbar="false" IsUserDefined="0" id="{7c92ce4f-9995-44fe-9bce-6170d75d858c}" name="Summary">
+                  <labels>
+                    <label description="Summary" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{704f4976-f755-41d4-b08b-23634ff3d33f}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_id" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="p365i_id" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{388f7715-e658-4666-883c-ffa9165c82cc}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_topic" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="p365i_topic" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0b927755-b566-49a0-ab64-adebf6c7f588}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_parentaccountid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="p365i_parentaccountid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{020d2091-e7b0-40ce-b3e5-3e00f9a6e6b1}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_parentcontactid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="p365i_parentcontactid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1fb37ac7-f363-46c1-97c9-a995b0b7926a}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Budget Amount" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_budgetamount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="p365i_budgetamount" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{62dc376b-77bd-40e7-847c-4b6c4bc9668a}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="transactioncurrencyid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="transactioncurrencyid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{544c2010-627e-47b0-a4c5-c0273f359cb8}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_purchasetimeframe" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="p365i_purchasetimeframe" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{44003ab4-4e94-4bd9-8798-6bc8cc83527d}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_purchaseprocess" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="p365i_purchaseprocess" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="Additional Information" id="2f19af35-56c1-40de-b6cf-fb3d13bb4f92" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Additional Information" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{675fb539-64f4-44de-92ce-a5dc63b73756}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{56b15fd3-833c-43f3-96ed-ebf109aa6521}" locklevel="0" colspan="1" rowspan="5">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_description" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="p365i_description" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{7296ac2b-071d-4e0d-a071-ce1d8b8ed372}" locklevel="0" colspan="1" rowspan="5">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_currentsituation" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="p365i_currentsituation" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{a90754ed-6169-4988-9e46-14d8ef885dfd}" locklevel="0" colspan="1" rowspan="5">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_customerneed" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="p365i_customerneed" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{abeb3f72-5ad8-4d94-a472-041b2b73e416}" locklevel="0" colspan="1" rowspan="5">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_proposedsolution" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="p365i_proposedsolution" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section name="Timeline" id="7635805b-5b7d-42bb-932b-50c0ee59cd62" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Timeline" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{f17c883d-cbc2-43f1-8c3f-7b035eed479b}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{b469d6e6-3deb-4627-910b-2cf7e39324f3}" rowspan="15" colspan="1">
+                        <labels>
+                          <label description="Note Text" languagecode="1033" />
+                        </labels>
+                        <control id="notescontrol" classid="{06375649-C143-495E-A496-C962E5B4488E}" disabled="false">
+                          <parameters>
+                            <UClientRecordPerPage>16</UClientRecordPerPage>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section name="Quotes" id="021b9207-e6e9-46a2-b028-335be2b61300" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Quotes" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{50707683-8cba-40e1-a797-8c20a4fe8aea}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{8df17593-f458-432e-a9c7-b6d38059191f}" rowspan="4" colspan="1" auto="false" showlabel="true">
+                        <labels>
+                          <label description="Quotes" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Quotes" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <TargetEntityType>p365i_quote</TargetEntityType>
+                            <ViewId>{3D6494E2-C9D3-48DA-91D9-73CB071061AD}</ViewId>
+                            <ViewIds>{3D6494E2-C9D3-48DA-91D9-73CB071061AD}</ViewIds>
+                            <RelationshipName>p365i_p365i_quote_Opportunity_p365i_opportunity</RelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="Opportunity Line Items" id="941c73f7-8394-4f34-b09a-f6972684e8dc" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Opportunity Line Items" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_2_section_1" id="f9b7fc6c-f3ab-489c-9b29-3dc196302088" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{be122903-0a96-49bc-86f2-f0213173ecec}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{41e48f76-3cff-4871-80bf-7e2e0ae8fb40}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_pricelist" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="p365i_pricelist" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{30d6934d-5913-4eda-a22f-c6ad8be1b747}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_revenue" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="p365i_revenue" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="Line Items" id="964e15d0-4641-4e8b-a7ca-f2d87a88577a" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Line Items" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{45cffb27-efcf-4290-8d68-59f2818199bf}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{9a06d14d-bdec-4bd0-88bc-7660331a6fae}" rowspan="4" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="New SG control 1698616311359" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_products" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <TargetEntityType>p365i_opportunityproduct</TargetEntityType>
+                            <ViewId>{8E34E14D-A576-EE11-8179-6045BD127823}</ViewId>
+                            <ViewIds>{D599A4A2-40BE-4EE6-87BC-F8CAD2E8F534},{8E34E14D-A576-EE11-8179-6045BD127823}</ViewIds>
+                            <RelationshipName>p365i_p365i_opportunityproduct_Opportunity_p365</RelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+                <section name="Cost" id="4b63041d-1b6c-4c39-8950-49c5a5fcc7d4" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Cost" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{29ea4a16-a3d0-4848-bce4-216d56ea1a84}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{37ba5f22-c29a-4b2c-8825-5aef34b01dc2}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_detailedamount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="p365i_detailedamount" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3ffabf95-b4b3-4c16-a3c9-0d0930889487}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_discount" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="p365i_discount" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{059ab85d-c230-44bd-b49f-609a71375e3d}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_manualdiscount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="p365i_manualdiscount" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{acb36582-7d87-44b9-9fa5-4ff9ff1599a6}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_subtotalamount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="p365i_subtotalamount" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ca04da33-be83-4eb5-8bcb-5d1b844654d0}" userspacer="true" showlabel="false" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{fc09e1f6-d5c5-410b-8331-b34417b8f2f7}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_tax" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="p365i_tax" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e972571f-b44a-47e4-b85b-12427602997a}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="p365i_totalamount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="p365i_totalamount" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{ddac5ebb-33a3-4d83-bb04-71f7693fdb4b}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{2930f62c-52fb-41d8-8465-b6a7561573d0}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{611ad7fc-363e-4733-80fe-39b147076aae}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{8eb2d686-971c-455e-a8dc-3062e0a48800}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell locklevel="0" id="{40f4223b-1c47-41e3-8857-1f607ad4d484}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{3677a149-4adb-4d71-8fdc-7f6deaa78bee}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+              <control id="header_p365i_estclosedate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="p365i_estclosedate" disabled="false" />
+            </cell>
+            <cell id="{1c059048-6369-4924-b7fb-573bfdbb4e4c}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+              <control id="header_p365i_estrevenue" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="p365i_estrevenue" disabled="false" />
+            </cell>
+            <cell locklevel="0" id="{295bb9ad-7a53-4e8c-8746-03b2f9bcfaa5}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{07dcc533-91e5-479b-a4ea-eb31550f7c14}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+            </cell>
+            <cell id="{94965920-182c-4d5f-9b7c-934309bfdde6}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+              <control id="header_statuscode" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="statuscode" disabled="true" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{9628356a-caee-4b7d-93c8-036eb35ebe8c}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{37ebe110-8cbf-443b-a17c-e3e87cf95a03}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{a85f03e4-132f-4e7a-8979-f63f495655ef}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{d36e562e-27ba-4b21-b406-cc0cd666a3c6}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <formLibraries>
+        <Library name="p365i_opportunity.js" libraryUniqueId="{5324b525-4c2e-c191-57d8-ad1ababd128c}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="P365I_CRM.Entities.Opportuniy.onFormLoad" libraryName="p365i_opportunity.js" handlerUniqueId="{0318e8ce-660d-d6d7-e523-a13cb1ecb69c}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Opportunity" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

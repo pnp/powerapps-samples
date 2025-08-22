@@ -1,0 +1,37 @@
+<appaction uniquename="p365i__AddQuote!3faee7a937754537b14ae7845945e029!p365i_SalesCenter!p365i_opportunity!0">
+  <appmoduleid>
+    <uniquename>p365i_SalesCenter</uniquename>
+  </appmoduleid>
+  <buttonlabeltext default="Add Quote">
+    <label description="Add Quote" languagecode="1033" />
+  </buttonlabeltext>
+  <context>1</context>
+  <contextentity>
+    <logicalname>p365i_opportunity</logicalname>
+  </contextentity>
+  <contextvalue>p365i_opportunity</contextvalue>
+  <fonticon>CardsQuote</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>AddQuote!3faee7a937754537b14ae7845945e029</name>
+  <onclickeventjavascriptfunctionname>P365I_CRM.Ribbon.Quote.CreateQuoteFromOpp</onclickeventjavascriptfunctionname>
+  <onclickeventjavascriptparameters>[{"type":5}]</onclickeventjavascriptparameters>
+  <onclickeventjavascriptwebresourceid>
+    <webresourceid>18f5c7ba-cf7b-ee11-8179-00224841f5ce</webresourceid>
+  </onclickeventjavascriptwebresourceid>
+  <onclickeventtype>2</onclickeventtype>
+  <origin>0</origin>
+  <sequence>100100048.5000000000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>p365i_salescenterdefaultcommandlibrary_48e14</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>dde0f4c3d15d40ee92628d100bcef352</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

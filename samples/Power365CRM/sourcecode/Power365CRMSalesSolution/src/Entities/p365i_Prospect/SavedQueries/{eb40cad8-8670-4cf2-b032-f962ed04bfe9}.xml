@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{eb40cad8-8670-4cf2-b032-f962ed04bfe9}</savedqueryid>
+    <layoutxml>
+      <grid name="p365i_prospects" jump="p365i_topic" select="1" icon="1" preview="0">
+        <row name="p365i_prospect" id="p365i_prospectid">
+          <cell name="p365i_topic" width="300" />
+          <cell name="p365i_firstname" width="103" />
+          <cell name="p365i_lastname" width="102" />
+          <cell name="p365i_company" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>64</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="p365i_prospect">
+          <attribute name="p365i_prospectid" />
+          <attribute name="p365i_topic" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="p365i_firstname" />
+          <attribute name="p365i_lastname" />
+          <attribute name="p365i_company" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Prospect Lookup View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

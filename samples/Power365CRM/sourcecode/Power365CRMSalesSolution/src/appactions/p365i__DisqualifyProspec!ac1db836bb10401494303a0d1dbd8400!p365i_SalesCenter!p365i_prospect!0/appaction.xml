@@ -1,0 +1,37 @@
+<appaction uniquename="p365i__DisqualifyProspec!ac1db836bb10401494303a0d1dbd8400!p365i_SalesCenter!p365i_prospect!0">
+  <appmoduleid>
+    <uniquename>p365i_SalesCenter</uniquename>
+  </appmoduleid>
+  <buttonlabeltext default="Disqualify">
+    <label description="Disqualify" languagecode="1033" />
+  </buttonlabeltext>
+  <context>1</context>
+  <contextentity>
+    <logicalname>p365i_prospect</logicalname>
+  </contextentity>
+  <contextvalue>p365i_prospect</contextvalue>
+  <fonticon>Cancel</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>DisqualifyProspec!ac1db836bb10401494303a0d1dbd8400</name>
+  <onclickeventjavascriptfunctionname>P365I_CRM.Ribbon.Prospect.Disqualify</onclickeventjavascriptfunctionname>
+  <onclickeventjavascriptparameters>[{"type":5}]</onclickeventjavascriptparameters>
+  <onclickeventjavascriptwebresourceid>
+    <webresourceid>18f5c7ba-cf7b-ee11-8179-00224841f5ce</webresourceid>
+  </onclickeventjavascriptwebresourceid>
+  <onclickeventtype>2</onclickeventtype>
+  <origin>0</origin>
+  <sequence>100100049.2500000000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>p365i_salescenterdefaultcommandlibrary_48e14</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>0d4c45e0f2e845808b7b691500724cce</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

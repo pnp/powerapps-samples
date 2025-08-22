@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImportExportXml version="9.2.24014.176" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SolutionManifest>
+    <UniqueName>Power365CRMCoreSolution</UniqueName>
+    <LocalizedNames>
+      <LocalizedName description="Power 365 CRM - Core Solution" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions />
+    <Version>1.0.0.0</Version>
+    <Managed>2</Managed>
+    <Publisher>
+      <UniqueName>Power365Initiatives</UniqueName>
+      <LocalizedNames>
+        <LocalizedName description="Power 365 Initiatives" languagecode="1033" />
+      </LocalizedNames>
+      <Descriptions />
+      <EMailAddress>info@power365initiatives.com</EMailAddress>
+      <SupportingWebsiteUrl xsi:nil="true"></SupportingWebsiteUrl>
+      <CustomizationPrefix>p365i</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>44631</CustomizationOptionValuePrefix>
+      <Addresses>
+        <Address>
+          <AddressNumber>1</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+        <Address>
+          <AddressNumber>2</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+      </Addresses>
+    </Publisher>
+    <RootComponents>
+      <RootComponent type="1" schemaName="account" behavior="2" />
+      <RootComponent type="1" schemaName="contact" behavior="2" />
+      <RootComponent type="1" schemaName="p365i_listitem" behavior="0" />
+      <RootComponent type="1" schemaName="p365i_pricelist" behavior="0" />
+      <RootComponent type="1" schemaName="p365i_product" behavior="0" />
+      <RootComponent type="1" schemaName="p365i_salesunit" behavior="0" />
+      <RootComponent type="1" schemaName="processsession" behavior="2" />
+      <RootComponent type="1" schemaName="syncerror" behavior="2" />
+      <RootComponent type="1" schemaName="transactioncurrency" behavior="1" />
+      <RootComponent type="29" id="{cd49c1a2-fe68-ee11-9ae7-00224840d361}" behavior="0" />
+      <RootComponent type="61" schemaName="p365i_enums.js" behavior="0" />
+      <RootComponent type="61" schemaName="p365i_helpers.js" behavior="0" />
+      <RootComponent type="61" schemaName="p365i_pricelistIcon" behavior="0" />
+      <RootComponent type="61" schemaName="p365i_productsIcon" behavior="0" />
+      <RootComponent type="61" schemaName="p365i_ribbon.js" behavior="0" />
+      <RootComponent type="61" schemaName="p365i_salesunitIcon" behavior="0" />
+      <RootComponent type="9" schemaName="p365i_producttype" behavior="0" />
+    </RootComponents>
+    <MissingDependencies>
+      <MissingDependency>
+        <Required type="1" schemaName="p365i_opportunity" displayName="Opportunity" solution="Active" />
+        <Dependent type="1" schemaName="p365i_pricelist" displayName="Price List" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="p365i_opportunityproduct" displayName="Opportunity Product" solution="Active" />
+        <Dependent type="1" schemaName="p365i_listitem" displayName="List Item" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="p365i_opportunityproduct" displayName="Opportunity Product" solution="Active" />
+        <Dependent type="1" schemaName="p365i_pricelist" displayName="Price List" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="p365i_opportunityproduct" displayName="Opportunity Product" solution="Active" />
+        <Dependent type="1" schemaName="p365i_salesunit" displayName="Sales Unit" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="p365i_quote" displayName="Quote" solution="Active" />
+        <Dependent type="1" schemaName="p365i_pricelist" displayName="Price List" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="p365i_quoteproduct" displayName="Quote Product" solution="Active" />
+        <Dependent type="1" schemaName="p365i_listitem" displayName="List Item" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="p365i_quoteproduct" displayName="Quote Product" solution="Active" />
+        <Dependent type="1" schemaName="p365i_pricelist" displayName="Price List" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="p365i_quoteproduct" displayName="Quote Product" solution="Active" />
+        <Dependent type="1" schemaName="p365i_salesunit" displayName="Sales Unit" />
+      </MissingDependency>
+    </MissingDependencies>
+  </SolutionManifest>
+</ImportExportXml>
