@@ -1,0 +1,43 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =Set(varIndex, 1);
+        Set(varPromt,"Generate a JSON dataset of 10 pub quiz questions. Provide each question entry in proper JSON format with a 'question' field, an 'options' field consisting of an array of 4 possible answers. Additionally, ensure that each option includes an 'answer' field with the text of the option, a 'selected' field initialized to false indicating whether the option has been chosen, and a 'correct' field indicating whether the answer is correct."
+        );
+        
+        Set(varResponse, "[
+            {
+                ""question"": ""None"",
+                ""options"": [
+                    {""Answer"": ""None"", ""Selected"": false, ""Correct"": false},
+                    {""Answer"": ""None"", ""Selected"": false, ""Correct"": false},
+                    {""Answer"": ""None"", ""Selected"": false, ""Correct"": false},
+                    {""Answer"": ""None"", ""Selected"": false, ""Correct"": true}
+                ]
+            }]");
+        
+        ClearCollect(
+          colQuestions,
+          Table(ParseJSON(varResponse));
+        );
+        
+        Set(varIndex,1);
+        
+        ClearCollect(
+            colOptions,
+            AddColumns(
+                Table(Index(colQuestions, varIndex).Value.options),
+                "answer", Value.Answer,
+                "selected", Value.Selected = true,
+                "correct",Value.Correct = true
+            )
+        );
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+
