@@ -1,0 +1,112 @@
+Screen1 As screen:
+
+    TextInput1 As text:
+        Default: =""
+        Format: =TextFormat.Number
+        HintText: ="age"
+        X: =485
+        Y: =124
+        ZIndex: =1
+
+    TextInput1_1 As text:
+        Default: =""
+        HintText: ="sex (male or female)"
+        X: =485
+        Y: =190
+        ZIndex: =2
+
+    TextInput1_2 As text:
+        Default: =""
+        Format: =TextFormat.Number
+        HintText: ="bmi"
+        X: =485
+        Y: =253
+        ZIndex: =3
+
+    TextInput1_3 As text:
+        Default: =""
+        Format: =TextFormat.Number
+        HintText: ="children"
+        X: =485
+        Y: =315
+        ZIndex: =4
+
+    TextInput1_4 As text:
+        Default: =""
+        HintText: ="smoker (yes or no)"
+        X: =485
+        Y: =377
+        ZIndex: =5
+
+    Button1 As button:
+        FontWeight: =FontWeight.Bold
+        OnSelect: |-
+            =ClearCollect(Result, AzureAutoMLFlow.Run(TextInput1.Text, TextInput1_1.Text, TextInput1_2.Text, TextInput1_3.Text, TextInput1_4.Text));
+            
+            ClearCollect(explain, 'OpenAI(IndependentPublisher)'.Completion("text-davinci-003", "Use the given information about a person to create a plan to save " & First(Result).response & " USD for their health expenses" & "Their age is " & TextInput1.Text & " they are a " & TextInput1_1.Text & " having " & TextInput1_2.Text & " children.\n", {temperature: 0.3, max_tokens: 100, best_of: 1.0, frequency_penalty: 0.5}).choices);
+        Text: ="Predict"
+        X: =568
+        Y: =636
+        ZIndex: =7
+
+    Label1 As label:
+        Align: =Align.Center
+        Height: =27
+        Text: =First(Result).response
+        Width: =455
+        X: =420
+        Y: =529
+        ZIndex: =8
+
+    Rectangle1 As rectangle:
+        Height: =80
+        Width: =1366
+        ZIndex: =9
+
+    Rectangle2 As rectangle:
+        Height: =37
+        Width: =1366
+        Y: =730
+        ZIndex: =10
+
+    Label2 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 0, 1)
+        Height: =48
+        Size: =30
+        Text: ="Predict your Health Expenses"
+        Width: =703
+        X: =331
+        Y: =16
+        ZIndex: =11
+
+    Label3 As label:
+        Text: ="Expenses in USD"
+        X: =242
+        Y: =523
+        ZIndex: =12
+
+    Label4 As label:
+        Height: =335
+        Text: =First(explain).text
+        Width: =447
+        X: =899
+        Y: =164
+        ZIndex: =13
+
+    Label5 As label:
+        Size: =18
+        Text: ="Proposed Plan"
+        Width: =355
+        X: =899
+        Y: =124
+        ZIndex: =14
+
+    Label6 As label:
+        Text: |-
+            ="Enter your details:"
+        Width: =294
+        X: =115
+        Y: =124
+        ZIndex: =15
+
