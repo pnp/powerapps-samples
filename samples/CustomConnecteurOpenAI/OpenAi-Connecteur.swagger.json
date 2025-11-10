@@ -1,0 +1,172 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "OpenAi Connecteur",
+    "description": "Connecteur vers l'API OpenAI",
+    "version": "1.0"
+  },
+  "host": "api.openai.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/v1/chat/completions": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "id"
+                },
+                "object": {
+                  "type": "string",
+                  "description": "object"
+                },
+                "created": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "created"
+                },
+                "model": {
+                  "type": "string",
+                  "description": "model"
+                },
+                "choices": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "index": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "index"
+                      },
+                      "message": {
+                        "type": "object",
+                        "properties": {
+                          "role": {
+                            "type": "string",
+                            "description": "role"
+                          },
+                          "content": {
+                            "type": "string",
+                            "description": "content"
+                          }
+                        },
+                        "description": "message"
+                      },
+                      "finish_reason": {
+                        "type": "string",
+                        "description": "finish_reason"
+                      }
+                    }
+                  },
+                  "description": "choices"
+                },
+                "usage": {
+                  "type": "object",
+                  "properties": {
+                    "prompt_tokens": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "prompt_tokens"
+                    },
+                    "completion_tokens": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "completion_tokens"
+                    },
+                    "total_tokens": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "total_tokens"
+                    }
+                  },
+                  "description": "usage"
+                }
+              }
+            }
+          }
+        },
+        "summary": "OpenAI ChatGPT API",
+        "operationId": "APIChat",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "application/json",
+            "x-ms-visibility": "internal"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "model": {
+                  "type": "string",
+                  "description": "model",
+                  "title": "",
+                  "x-ms-visibility": "important"
+                },
+                "messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "role": {
+                        "type": "string",
+                        "description": "role",
+                        "title": "",
+                        "x-ms-visibility": "important"
+                      },
+                      "content": {
+                        "type": "string",
+                        "description": "content",
+                        "title": "",
+                        "x-ms-visibility": "important"
+                      }
+                    },
+                    "required": [
+                      "content",
+                      "role"
+                    ]
+                  },
+                  "description": "messages"
+                }
+              },
+              "x-ms-visibility": "important",
+              "required": [
+                "messages",
+                "model"
+              ]
+            },
+            "x-ms-visibility": "important"
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization"
+    }
+  },
+  "security": [],
+  "tags": []
+}
