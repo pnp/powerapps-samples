@@ -1,5 +1,5 @@
-> We're so eager to add your sample to this repository as soon as possible, but we need all samples follow the same structure. 
-> To make sure we process it as soon as possible, make sure to follow [these instructions](https://github.com/pnp/powerapps-samples/wiki/How-to-submit-a-Power-App-sample).
+> Thank you for improving an existing sample or the documentation in this repository.
+> Before submitting, follow the [contribution guidance](../CONTRIBUTING.md). Submit new samples to the [Power Platform Samples repository](https://github.com/pnp/powerplatform-samples).
 
 |        Q        |                    A                    |
 | --------------- | --------------------------------------- |
@@ -19,6 +19,11 @@
 | Solution uses custom connectors?                          | no - yes?                               |
 | Layout                                                    | Phone? Tablet? Other?                               |
 
+For sample changes, confirm that:
+
+- The sample-root `README.md` is based on the repository template and ends with the required visitor tracker using the sample folder's repository-relative path.
+- `assets/sample.json` remains synchronized with README names, descriptions, authors, links, and other catalog details when applicable.
+
 ## What's in this Pull Request?
 
 > Please describe the changes in this PR. Sample description or details around bugs which are being fixed.
@@ -37,5 +42,4 @@
 >
 > *Remember that this repository is maintained by community members who volunteer their time to help. Be courteous and patient.*
 > _(DELETE THIS SECTION AFTER READING)_
-
 

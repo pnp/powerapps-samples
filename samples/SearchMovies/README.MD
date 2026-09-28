@@ -93,6 +93,7 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 * [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
 * [Power Apps canvas apps documentation](https://docs.microsoft.com/powerapps/maker/canvas-apps/)
 
-<img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/SearchMovies" />
 
 ---
+
+<img src="https://m365-visitor-stats.azurewebsites.net/powerapps-samples/samples/SearchMovies" />

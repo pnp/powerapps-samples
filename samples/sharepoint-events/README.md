@@ -150,5 +150,4 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 
 - [Blog post](http://www.sharepointalex.uk/sharepoint-online/sharepoint-event-registration-power-app/)
 
-
-<img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/calendar-component" />
+<img src="https://m365-visitor-stats.azurewebsites.net/powerapps-samples/samples/sharepoint-events" />

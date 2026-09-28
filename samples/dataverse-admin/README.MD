@@ -87,6 +87,7 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 - [Power Apps canvas apps documentation](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/)
 
 
-<img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/dataverse-admin" />
 
 ---
+
+<img src="https://m365-visitor-stats.azurewebsites.net/powerapps-samples/samples/dataverse-admin" />

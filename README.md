@@ -5,7 +5,7 @@
 
 This repository contains community samples that demonstrate different usage patterns for Power Apps. 
 
-> We welcome community contributions to the `samples` folder in this repository for demonstrating different use cases with Power Apps.
+> We welcome fixes and improvements to the existing samples in this repository. Submit new samples to the [Power Platform Samples repository](https://github.com/pnp/powerplatform-samples).
 
 ## Have issues or questions?
 
@@ -25,7 +25,7 @@ This repository's contributors are all community members who volunteered their t
 
 ## Contributions
 
-These samples are direct from the feature teams, [PnP team](http://aka.ms/m365pnp) or shared by the community. We welcome your input on issues and suggestions for new samples. We do also welcome community contributions. If you have any questions, just let us know.
+These samples are direct from the feature teams, [PnP team](http://aka.ms/m365pnp), or shared by the community. We welcome issues, suggestions, and contributions that improve the existing samples. If you have any questions, just let us know.
 
 Please have a look on our [Contribution Guidance in the Power Platform Samples repository](https://github.com/pnp/powerplatform-samples/blob/main/CONTRIBUTING.md) before you submit your pull requests in that repository, so that we can get your contribution processed as fast as possible.
 
@@ -35,4 +35,4 @@ This repository has adopted the [Microsoft Open Source Code of Conduct](https://
 
 > Sharing is caring!
 
-<img src="https://telemetry.sharepointpnp.com/powerapps-samples/README.md" />
+<img src="https://m365-visitor-stats.azurewebsites.net/powerapps-samples/README.md" />

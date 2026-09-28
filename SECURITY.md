@@ -17,4 +17,4 @@ To report a vulnerability, please [create an issue](https://github.com/pnp/power
 
 Upon receipt of the issue, we will flag the sample as having a suspected vulnerability and request the support from the community to identify and resolve, if possible, the issue.
 
-<img src="https://telemetry.sharepointpnp.com/powerapps-samples/SECURITY.md" />
+<img src="https://m365-visitor-stats.azurewebsites.net/powerapps-samples/SECURITY.md" />
