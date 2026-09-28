@@ -113,5 +113,4 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 - [Create a dialog box in Power Apps Video](https://youtu.be/FLHVJdoDSNE)
 - [Overview of creating apps in Power Apps](https://docs.microsoft.com/powerapps/maker/)
 
-
-<img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/calendar-component" />
+<img src="https://m365-visitor-stats.azurewebsites.net/powerapps-samples/samples/power-wordle-game" />

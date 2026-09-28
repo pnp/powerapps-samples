@@ -112,5 +112,4 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 
 - [User Manual](https://github.com/BendenBlanken/PowerHappening/wiki/2.-User-manual)
 
-<img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/readme-template" />
-
+<img src="https://m365-visitor-stats.azurewebsites.net/powerapps-samples/samples/PowerHappening" />

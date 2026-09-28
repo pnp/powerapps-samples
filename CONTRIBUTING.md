@@ -2,6 +2,8 @@
 
 If you'd like to contribute to this repository, please read the following guidelines. Contributors are more than welcome to share their learnings with others in this centralized location.
 
+New samples should be submitted to the [Power Platform Samples repository](https://github.com/pnp/powerplatform-samples). This repository continues to accept fixes and improvements to its existing samples and documentation.
+
 ## Code of Conduct
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
@@ -24,30 +26,43 @@ Whenever you are submitting any changes to the PnP repositories, please follow t
 * If you are submitting multiple samples, please create a specific PR for each of them
 * If you are submitting typo or documentation fix, you can combine modifications to single PR where suitable
 
-## Sample Naming and Structure Guidelines
+## Sample README and Metadata Guidelines
 
-When you are submitting a new sample, it has to follow up below guidelines
+When you update a sample in this repository, follow these guidelines:
 
-* You will need to have a `README.md` file for your contribution, which is based on [the provided template](/samples/README-template.md) under the `samples` folder. Please copy this template to your project and update it accordingly. Your `README.md` must be named exactly `README.md` -- with capital letters -- as this is the information we use to make your sample public.
+* The sample-root `README.md` is the README directly inside the sample folder under `samples`; nested source or implementation READMEs do not replace it.
+* The sample-root README must be based on [the provided template](/samples/README-template.md). It must be named exactly `README.md` -- with capital letters -- as this is the information we use to make your sample public.
   * You will need to have a screenshot picture of your sample in action in the `README.md` file ("pics or it didn't happen"). The preview image must be located in the `/assets/` folder in the root of your solution.
-* The `README` template contains a specific tracking image at the bottom of the file with an `img` tag, where the `src` attribute points to `https://telemetry.sharepointpnp.com/powerapps-samples/samples/readme-template`. This is a transparent image which is used to track viewership of individual samples in GitHub.
-  * Update the image `src` attribute according with the repository name and folder information. For example, if your sample is named `transmographier` in the `samples` folder, you should update the `src` attribute to `https://telemetry.sharepointpnp.com/powerapps-samples/samples/transmographier`
+* A metadata-backed sample has an `assets/sample.json` file. Keep that metadata synchronized with the sample-root README when names, descriptions, authors, links, or other catalog details change.
+* End every sample-root README with this tracking image:
+
+  ```html
+  <img src="https://m365-visitor-stats.azurewebsites.net/powerapps-samples/{sample-path}" />
+  ```
+
+  Replace `{sample-path}` with the sample folder's repository-relative path, using forward slashes and no leading or trailing slash. For example, a sample in `samples/transmographier` must end with:
+
+  ```html
+  <img src="https://m365-visitor-stats.azurewebsites.net/powerapps-samples/samples/transmographier" />
+  ```
+
+  Use the sample-root path, not a nested source folder or README filename.
 * If you find an existing sample which is similar to yours, please extend the existing one rather than submitting a new similar sample
   * For example, if you use Office Graph with React, please add a new web part to the existing solution, rather than introducing a completely new solution
   * When you update existing samples, please update also `README.md` file accordingly with information on provided changes and with your author details
-* When submitting a new sample solution, please name the sample solution folder accordingly
+* If a maintainer asks you to add or relocate a sample in this repository, name the sample solution folder accordingly
   * Folder names should be all lowercase
-  * Do not use words such as `sample`, `powerapp` or `powerapps` in the folder or sample name - this repository is only intended for Power Apps samples, so no need to be redundant redundant.
+  * Do not use words such as `sample`, `powerapp` or `powerapps` in the folder or sample name - this repository is only intended for Power Apps samples, so there is no need to be redundant.
 * Do not use period/dot in the folder name of the provided sample
 
 ## Submitting Pull Requests
 
-Before you submit your pull request, make sure that you [read the guidance on how to create your pull request](https://github.com/pnp/powerapps-samples/wiki/How-to-submit-a-Power-App-sample).
+For new samples, follow the [Power Platform Samples contribution guidance](https://github.com/pnp/powerplatform-samples/blob/main/CONTRIBUTING.md). For fixes and improvements to existing content in this repository, use the process below.
 
-Here's a high-level process for submitting new samples or updates to existing ones.
+Here's a high-level process for submitting fixes and improvements to this repository.
 
 1. Sign the Contributor License Agreement (see below)
-2. Fork this repository [pnp/powerapp-samples](https://github.com/pnp/powerapps-samples) to your GitHub account
+2. Fork this repository [pnp/powerapps-samples](https://github.com/pnp/powerapps-samples) to your GitHub account
 3. Create a new branch from the `main` branch for your fork for the contribution
 4. Include your changes to your branch
 5. Commit your changes using descriptive commit message * These are used to track changes on the repositories for monthly communications
@@ -142,8 +157,12 @@ Before we can accept your pull requests you will be asked to sign electronically
 
 You can find Microsoft CLA from the following address - https://cla.microsoft.com.
 
+## Community calls and demos
+
+Everyone is welcome at the [weekly community calls](https://aka.ms/community/calls) for Copilot, Microsoft 365, and Power Platform updates. To share your learnings or get community input, [sign up for a demo](https://aka.ms/community/request/demo).
+
 Thank you for your contribution.
 
 > Sharing is caring.
 
-<img src="https://telemetry.sharepointpnp.com/powerapps-samples/CONTRIBUTING.md" />
+<img src="https://m365-visitor-stats.azurewebsites.net/powerapps-samples/CONTRIBUTING.md" />

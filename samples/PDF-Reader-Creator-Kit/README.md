@@ -98,3 +98,5 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 * [Power Apps canvas apps documentation](https://docs.microsoft.com/powerapps/maker/canvas-apps/)
 * [Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview)
 * [Read my blog - https://angelogulisano.com](https://angelogulisano.com/)
+
+<img src="https://m365-visitor-stats.azurewebsites.net/powerapps-samples/samples/PDF-Reader-Creator-Kit" />

@@ -140,4 +140,4 @@ For questions regarding this sample, [create a new question](https://github.com/
 
 Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerfx-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=kpi-usecase&authors=@Nathalie-Leenders&title=kpi-usecase%20-%20).
 
-<img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/readme-template" />
+<img src="https://m365-visitor-stats.azurewebsites.net/powerapps-samples/samples/kpi-usecase" />

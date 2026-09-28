@@ -80,4 +80,4 @@ The Power App in the solution has 2 data connections to the Invoices library and
 ## Import the Invoices Syntex Model
 The pre-built invoices model in Syntex is used to process the header information of the invoice.  The .classifier file should be uploaded to your Syntex content center and then deployed to the Invoices document library.
 
-<img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/InvoiceProcessing" />
+<img src="https://m365-visitor-stats.azurewebsites.net/powerapps-samples/samples/InvoiceProcessing" />

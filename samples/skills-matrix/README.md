@@ -186,5 +186,4 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 - [Create and update a collection in a canvas app](https://docs.microsoft.com/en-us/power-apps/maker/canvas-apps/create-update-collection)
 - [Table shaping functions in Power Apps](https://docs.microsoft.com/en-us/power-apps/maker/canvas-apps/functions/function-table-shaping)
 
-
-<img src="https://telemetry.sharepointpnp.com/powerapps-samples/samples/office-365-network" />
+<img src="https://m365-visitor-stats.azurewebsites.net/powerapps-samples/samples/skills-matrix" />
