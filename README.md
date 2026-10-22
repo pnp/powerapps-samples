@@ -1,19 +1,23 @@
-# Power Apps Samples
+# Power Apps Samples (archived)
 
-> [!IMPORTANT]  
-> We are currently in the process to move all the samples from product-specific repositories like this repository to one repository for all Power Platform Samples. Please create Pull Requests (PRs) in that [repository](https://github.com/pnp/powerplatform-samples)
+> [!IMPORTANT]
+> **This repository is archived and is no longer maintained.** All activity has moved to the centralized [Power Platform samples repository](https://github.com/pnp/powerplatform-samples).
+>
+> Please target **all issues and pull requests**, including bug reports, fixes, updates, and new samples, to [pnp/powerplatform-samples](https://github.com/pnp/powerplatform-samples). The content here is retained for historical reference.
 
-This repository contains community samples that demonstrate different usage patterns for Power Apps. 
+This repository preserves community samples that demonstrate different usage patterns for Power Apps.
 
-> We welcome fixes and improvements to the existing samples in this repository. Submit new samples to the [Power Platform Samples repository](https://github.com/pnp/powerplatform-samples).
+## Thank you, community!
 
-## Have issues or questions?
+Thank you to everyone who contributed samples, reported issues, reviewed pull requests, shared feedback, and helped others. This work is a shared effort by community contributors, the PnP team, and Microsoft product teams as part of the **Copilot, Microsoft 365 & Power Platform Community**.
 
-Please use following logic on submitting your questions or issues to right location to ensure that they are noticed and addressed as soon as possible.
+Your contributions have made these samples a valuable learning resource. We hope you will join us in the new repository and keep building, learning, and sharing with the community. Thank you, everyone!
 
-## Additional resources
+## Continue in the new repository
 
-- [Power Platform Community](https://powerusers.microsoft.com/)
+Visit [pnp/powerplatform-samples](https://github.com/pnp/powerplatform-samples) to find and contribute samples, and follow its [contribution guidance](https://github.com/pnp/powerplatform-samples/blob/main/CONTRIBUTING.md) before submitting a pull request.
+
+If an issue or pull request was closed here during this transition and still needs attention, please open a corresponding issue or pull request in the new repository and link to the original for context.
 
 ## Join the community calls
 
@@ -21,19 +25,11 @@ Stay up to date with the latest Copilot, Microsoft 365, and Power Platform topic
 
 [View the call schedule and download the recurring invites](https://aka.ms/community/calls) so you don't miss an upcoming call.
 
+Stay active in the [Power Platform Community](https://community.powerplatform.com/) and our other community spaces: ask questions, help others, and share what you build.
+
 ## Using the samples
 
 Please refer to [this article](https://github.com/pnp/powerapps-samples/wiki/How-to-use-Power-Apps-samples) to get you started.
-
-## Authors
-
-This repository's contributors are all community members who volunteered their time to share code samples. Work is done as an open source community project, which each sample contained in their own solution.
-
-## Contributions
-
-These samples are direct from the feature teams, [PnP team](http://aka.ms/m365pnp), or shared by the community. We welcome issues, suggestions, and contributions that improve the existing samples. If you have any questions, just let us know.
-
-Please have a look on our [Contribution Guidance in the Power Platform Samples repository](https://github.com/pnp/powerplatform-samples/blob/main/CONTRIBUTING.md) before you submit your pull requests in that repository, so that we can get your contribution processed as fast as possible.
 
 ## Code of Conduct
 
